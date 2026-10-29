@@ -1,0 +1,26 @@
+name: Probe SA statewide raw government data endpoints
+on:
+  push:
+    branches: [main]
+    paths: [ops/sa-bulk-probe-trigger.json]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sa-raw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install requests
+      - name: Inspect S3 SA Geodata inventory and WFS GetFeature
+        run: python scripts/probe_sa_bulk.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sa-raw-endpoint-probe
+          path: work/sa_probe
+          retention-days: 14
