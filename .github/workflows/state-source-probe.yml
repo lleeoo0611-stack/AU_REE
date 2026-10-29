@@ -1,0 +1,27 @@
+name: Discover missing-state official WFS and NT MODAT
+on:
+  push:
+    branches: [main]
+    paths: ['ops/state-source-probe-trigger.json']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install requests
+      - name: Probe official capabilities and raw NT archive
+        run: python scripts/probe_missing_states.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: four-state-source-probe
+          path: work/probe
+          retention-days: 14
+          if-no-files-found: warn
