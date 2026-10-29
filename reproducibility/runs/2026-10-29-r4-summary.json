@@ -1,0 +1,22 @@
+{
+  "snapshot_id": "2026-10-29-r4-final",
+  "status": "PASS",
+  "as_of_date": "2026-10-29",
+  "database_sha256": "6e1ee2ef0f01daf7e494a89c3c2222d929881d6cba19c155af55095ba749ff3e",
+  "schema_equal_to_r3": true,
+  "changed_tables_vs_r3": [],
+  "changed_provenance_vs_r3": [],
+  "archived_provenance_count": 13,
+  "archived_provenance_bytes": 3260700,
+  "provenance_snapshot_copies_verified": true,
+  "known_missing_originals": [
+    "provisional_project_groups_126.csv",
+    "legacy_203_crosswalk_audit.csv",
+    "all_1006_evidence_decisions.csv",
+    "E1_project_unlinked_review_queue.csv"
+  ],
+  "source_refresh_automatic": false,
+  "mcda_run": false
+}
+
+

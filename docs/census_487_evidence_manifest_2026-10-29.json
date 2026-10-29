@@ -1,0 +1,51 @@
+{
+  "as_of": "2026-10-29",
+  "scope": "census/entity linkage only; no MCDA",
+  "workflow_artifacts": [
+    {
+      "artifact_id": 12874897589,
+      "name": "australia-national-ree-scheme-a-screening-review",
+      "sha256": "644cce020444e7e2add29c93844714812a933470d1ae2641caf1d7b517ec5a92"
+    },
+    {
+      "artifact_id": 12874618255,
+      "name": "australia-national-unfiltered-raw-inventory",
+      "sha256": "667d1061d2d2cc8855d901d5914ea8d444f72077c382dd1809cbce0d888d22e6"
+    },
+    {
+      "artifact_id": 12879078535,
+      "name": "nationwide-487-tenement-company-reverse-trace",
+      "sha256": "889ba353aace60db982ffa56aae25f8eac0aa8425950aa2cfc5f514792d14fac"
+    }
+  ],
+  "upstream_screened_candidates": 1006,
+  "upstream_tiers": {
+    "E1": 803,
+    "E2": 163,
+    "E3": 40
+  },
+  "targets": {
+    "legacy": 86,
+    "unlinked_e1": 401,
+    "total": 487
+  },
+  "title_intersection_rows": 764,
+  "tenement_target_status": {
+    "TENURE_INTERSECTS_PENDING_COMPANY_VERIFICATION": 258,
+    "NO_OVERLAP_IN_QUERIED_LAYERS": 51,
+    "NO_USABLE_COORDINATES": 50,
+    "OFFICIAL_TENEMENT_LAYER_NOT_VERIFIED": 128
+  },
+  "missing_upstream_files": [
+    "provisional_project_groups_126.csv",
+    "legacy_203_crosswalk_audit.csv",
+    "all_1006_evidence_decisions.csv",
+    "E1_project_unlinked_review_queue.csv"
+  ],
+  "limits": [
+    "128 South Australia target rows have no verified official tenure layer.",
+    "50 targets have no usable matched coordinates.",
+    "Title holder/applicant does not establish project developer or operator.",
+    "Candidate project grouping is review-only; no automatic merge or Project Master update."
+  ]
+}

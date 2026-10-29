@@ -1,0 +1,21 @@
+{
+  "targets": 487,
+  "status_rows": 487,
+  "intersection_rows": 764,
+  "targets_with_intersection": 258,
+  "target_status_counts": {
+    "NO_OVERLAP_IN_QUERIED_LAYERS": 51,
+    "NO_USABLE_COORDINATES": 50,
+    "OFFICIAL_TENEMENT_LAYER_NOT_VERIFIED": 128,
+    "TENURE_INTERSECTS_PENDING_COMPANY_VERIFICATION": 258
+  },
+  "states": {
+    "NSW": 56,
+    "NT": 55,
+    "QLD": 47,
+    "SA": 131,
+    "TAS": 28,
+    "VIC": 43,
+    "WA": 127
+  }
+}
