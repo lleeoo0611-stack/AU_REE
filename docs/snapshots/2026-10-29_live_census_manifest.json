@@ -1,0 +1,83 @@
+{
+  "schema": "AU_REE_OFFICIAL_CENSUS_SNAPSHOT_V1",
+  "research_pipeline": "v1.0.2",
+  "captured_utc_date": "2026-10-29",
+  "provenance": {
+    "actions_run_id": 40808226927,
+    "actions_url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/40808226927",
+    "run_conclusion": "success",
+    "source_commit": "a1ce612fe5a89726ab76a1114b0332fefb49a7d5",
+    "artifact_id": 12868694915,
+    "artifact_name": "official-ree-population-snapshot",
+    "archive_retention_days": 14
+  },
+  "source_feature_rows_total": 62573,
+  "persisted_official_candidate_rows": 62570,
+  "source_native_id_duplicates_de_duped": 3,
+  "source_counts": [
+    {
+      "key": "GA_AIMR_REE_2026",
+      "features": 149,
+      "review": 149,
+      "sha256_manifest": "10dce3e59099730c3e83564428c4ebbc10228625d2aa322ab0ccf471417a6259"
+    },
+    {
+      "key": "GA_CRITICAL_DEPOSITS_2025",
+      "features": 421,
+      "review": 54,
+      "sha256_manifest": "d435c6e6e577000b5d08d09fbdc558ea22b23183a761f2ec55c4993221e4ce53"
+    },
+    {
+      "key": "STATE_WA_MINDEX",
+      "features": 48493,
+      "review": 419,
+      "sha256_manifest": "05cea5c60c9a8209b6192e2a9249cedaa92bbf40ff9f0db1441dd93c1b76bcdc"
+    },
+    {
+      "key": "STATE_QLD_MINOCC",
+      "features": 5209,
+      "review": 12,
+      "sha256_manifest": "b9cc0e6904830e8e30eb8d112172a6e6cdb18d0f2f0eddb60eb48247339a3a1c"
+    },
+    {
+      "key": "STATE_TAS_MRT",
+      "features": 8301,
+      "review": 7,
+      "sha256_manifest": "af567f887e58aba6cbdd8f21abab9a838e5a9e217b794efc6a67195f534cf0ce"
+    }
+  ],
+  "awaiting_state_csv": [
+    "NT",
+    "SA",
+    "NSW",
+    "VIC"
+  ],
+  "source_validation": "PASS",
+  "official_sources_failed": 0,
+  "identity_audit": {
+    "review_queue": 641,
+    "excluded_unique_candidates": 61929,
+    "cross_source_name_pairs": 116,
+    "spatial_duplicate_hints": 161,
+    "project_master_historical": 203
+  },
+  "stages": {
+    "population": "COMPLETED",
+    "criteria": "CRITERIA_REGISTERED_EVIDENCE_GATED",
+    "gis": "GIS_NOT_RELEASED",
+    "eligibility": "MCDA_ELIGIBILITY_AUDITED",
+    "r_export": "R_INPUTS_EXPORTED_NO_RANKING"
+  },
+  "research_gates": {
+    "criteria": 12,
+    "legacy_observations": 220,
+    "verified_scoring_observations": 0,
+    "verified_coordinates": 0,
+    "gis_rows_unreleased": 76,
+    "scenarios_evaluated": 4,
+    "eligible_scoring_alternatives": 0,
+    "rankings_released": 0
+  },
+  "data_policy": "Official source feature acquisition is not independent approval of project identity, coordinates, observations, or MCDA scores.",
+  "raw_dataset_storage": "GitHub Actions artifact, linked by run_id and artifact_id; raw snapshots are not Git-tracked binaries"
+}
