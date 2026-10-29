@@ -2,9 +2,9 @@
   "as_of": "2026-10-29",
   "target_rows": 487,
   "status_counts": {
-    "PROJECT_CANDIDATE_REVIEW": 21,
-    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 462,
-    "HOLD_REE_ROLE": 4
+    "PROJECT_CANDIDATE_REVIEW": 34,
+    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 448,
+    "HOLD_REE_ROLE": 5
   },
   "state_status_counts": {
     "NSW": {
@@ -17,7 +17,9 @@
       "PROJECT_CANDIDATE_REVIEW": 3
     },
     "QLD": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 47
+      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 39,
+      "PROJECT_CANDIDATE_REVIEW": 7,
+      "HOLD_REE_ROLE": 1
     },
     "SA": {
       "HOLD_REE_ROLE": 3,
@@ -28,71 +30,24 @@
       "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 28
     },
     "VIC": {
-      "PROJECT_CANDIDATE_REVIEW": 7,
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 36
+      "PROJECT_CANDIDATE_REVIEW": 13,
+      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 30
     },
     "WA": {
       "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 127
     }
   },
-  "source_key_counts": {
-    "LEGACY_NO_SOURCE_KEY": {
-      "PROJECT_CANDIDATE_REVIEW": 9,
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 37,
-      "HOLD_REE_ROLE": 4
-    },
-    "GA_AIMR_REE_2026": {
-      "PROJECT_CANDIDATE_REVIEW": 4,
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 146
-    },
-    "GA_CRITICAL_DEPOSITS_2025": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 54,
-      "PROJECT_CANDIDATE_REVIEW": 3
-    },
-    "NT_MODAT_WFS": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 32
-    },
-    "STATE_WA_MINDEX": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 42
-    },
-    "STATE_QLD_MINOCC": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 10
-    },
-    "STATE_TAS_MRT": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 18
-    },
-    "NSW_METINDEX": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 7
-    },
-    "VIC_MINSITE": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 4,
-      "PROJECT_CANDIDATE_REVIEW": 1
-    },
-    "SA_GEODATA_MINDEP": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 55,
-      "PROJECT_CANDIDATE_REVIEW": 2
-    },
-    "SA_CRITICAL_REE": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 57,
-      "PROJECT_CANDIDATE_REVIEW": 2
-    }
-  },
   "official_portal_link_present": 487,
   "exact_source_key_present": 437,
-  "project_level_source_reviewed": 25,
-  "company_history_fully_linked": 25,
+  "project_level_source_reviewed": 38,
+  "company_history_fully_linked": 0,
   "exclusions": 0,
+  "new_case_groups_reviewed": 11,
   "rules": [
-    "No exclusion based on missing evidence.",
-    "Occurrence/deposit data alone do not prove a distinct Project or project-level REE role.",
-    "Do not merge by name alone.",
-    "Project proponent, registered titleholder, operator, and equity interest are separate roles.",
+    "Missing evidence remains HOLD, never inferred exclusion.",
+    "Project source review does not complete target-level title polygon or company transfer verification.",
+    "Deposits/occurrences remain child observations; retain source IDs.",
     "No MCDA performed."
   ],
-  "coordinate_status_counts": {
-    "NO_USABLE_COORDINATES": 50,
-    "TENURE_INTERSECTS_PENDING_COMPANY_VERIFICATION": 258,
-    "NO_OVERLAP_IN_QUERIED_LAYERS": 51,
-    "OFFICIAL_TENEMENT_LAYER_NOT_VERIFIED": 128
-  }
+  "status_interpretation": "487 frozen target rows. Only source-supported cases advanced; remaining holds are unresolved, not confirmed non-projects."
 }
