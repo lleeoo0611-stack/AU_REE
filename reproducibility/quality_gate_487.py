@@ -6,6 +6,7 @@ import argparse
 import csv
 import hashlib
 import json
+import re
 from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
@@ -47,6 +48,15 @@ def tri_state(value):
     return "UNKNOWN"
 
 
+def split_target_ids(value):
+    parts = [p.strip() for p in re.split(r"[;|\r\n]+", value or "") if p.strip()]
+    if any(not re.fullmatch(r"(?:LEGACY|E1):[A-Za-z0-9-]+", p) for p in parts):
+        raise ValueError(f"Malformed target-ID list: {value!r}")
+    if len(parts) != len(set(parts)):
+        raise ValueError(f"Duplicate target ID within group: {value!r}")
+    return parts
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=str(Path(__file__).resolve().parents[1]))
@@ -66,11 +76,13 @@ def main():
     gate_extra = sorted(set(gate_ids) - set(target_ids))
     if len(rows) != 487 or len(gate_rows) != 487 or len(set(target_ids)) != 487:
         raise SystemExit(f"FAIL: expected 487 unique target rows; adjudication={len(rows)}, gate={len(gate_rows)}, unique={len(set(target_ids))}")
-    if gate_missing or gate_extra:
+    if gate_missing or gate_extra or len(set(gate_ids)) != 487:
         raise SystemExit(f"FAIL: target/gate ID mismatch; missing={gate_missing[:5]}, extra={gate_extra[:5]}")
 
     gate_by_id = {r["target_id"]: r for r in gate_rows}
     project_by_key = {r.get("candidate_group_key", ""): r for r in project_rows if r.get("candidate_group_key")}
+    if len(project_by_key) != len(project_rows):
+        raise ValueError("Blank or duplicate candidate group keys")
     entities, memberships = [], []
     for key, p in sorted(project_by_key.items()):
         project_id = "PRJ-" + hashlib.sha256(key.casefold().encode("utf-8")).hexdigest()[:16]
@@ -91,13 +103,36 @@ def main():
             "condition_4_ree_role_state": tri_state(p.get("ree_role_status")),
             "condition_5_lifecycle_state": tri_state(p.get("stage_status")),
         })
-        ids = [x.strip() for x in (p.get("target_ids_preserved") or "").split(";") if x.strip()]
+        ids = split_target_ids(p.get("target_ids_preserved"))
         for tid in ids:
+            if tid not in gate_by_id:
+                raise ValueError(f"Unknown target ID {tid} in {key}")
             memberships.append((tid, project_id, p))
 
     # Every frozen row gets a source-level entity, even when a Project relation
     # cannot be established. This preserves coverage without inventing a link.
     known_memberships = {tid: (pid, p) for tid, pid, p in memberships}
+    if len(known_memberships) != len(memberships):
+        raise ValueError("Target belongs to multiple candidate groups")
+    candidate_ids = {r['target_id'] for r in rows if r.get('definition_screen_status') == 'PROJECT_CANDIDATE_REVIEW'}
+    if candidate_ids - known_memberships.keys():
+        raise ValueError("Candidate targets missing Project relationships")
+    independently_extracted = {tid for p in project_rows for tid in re.findall(r'(?:LEGACY|E1):[A-Za-z0-9-]+', p.get('target_ids_preserved', ''))}
+    if independently_extracted != set(known_memberships):
+        raise ValueError("Parsed links differ from independent ID extraction")
+    dedup_rows = read_csv(out / "project_dedup_candidates.csv")
+    dedup_ids = {tid for d in dedup_rows for tid in split_target_ids(d.get("target_ids_preserved"))}
+    if dedup_ids - set(known_memberships):
+        raise ValueError("Dedup targets missing reviewed Project relationships")
+    link_audit = []
+    for tid, (pid, project) in known_memberships.items():
+        if gate_by_id[tid].get("candidate_group_key") != project["candidate_group_key"]:
+            if project["inclusion_gate"] == "INCLUDE_CANDIDATE":
+                raise ValueError(f"Gate/Project group mismatch for {tid}")
+            audit_status = "HOLD_REVIEW_GROUP_ONLY_GATE_UNRESOLVED"
+        else:
+            audit_status = "GROUP_KEYS_MATCH"
+        link_audit.append({"target_id": tid, "review_group": project["candidate_group_key"], "gate_group": gate_by_id[tid].get("candidate_group_key", ""), "audit_status": audit_status, "disposition": project["inclusion_gate"]})
     normalized_memberships = []
     for r in rows:
         tid = r["target_id"]
@@ -123,7 +158,7 @@ def main():
         normalized_memberships.append({"entity_id": source_entity_id, "entity_type": source_type, "target_id": tid,
                                        "project_entity_id": linked[0] if linked else "",
                                        "source_name": r.get("name", ""), "state": r.get("state", ""),
-                                       "relation": "PROJECT_LINK_REVIEWED_CANDIDATE" if linked else "UNRESOLVED_NO_PROJECT_LINK_INFERRED",
+                                       "relation": ("PROJECT_LINK_REVIEWED_CANDIDATE" if linked[1]["inclusion_gate"] == "INCLUDE_CANDIDATE" else "REVIEW_GROUP_LINK_HOLD") if linked else "UNRESOLVED_NO_PROJECT_LINK_INFERRED",
                                        "relation_evidence_status": "SOURCE_REVIEWED" if linked and linked[1].get("primary_source_urls") else "MISSING_OR_NOT_PROJECT_LEVEL",
                                        "dedup_relation": linked[1].get("dedup_decision", "UNRESOLVED") if linked else "UNRESOLVED",
                                        "original_id_preserved": "YES"})
@@ -135,7 +170,7 @@ def main():
         eid = "PRJ-" + hashlib.sha256(key.casefold().encode("utf-8")).hexdigest()[:16] if key else ""
         for u in urls(p.get("primary_source_urls", "")):
             evidence.append({"evidence_id": "SRC-" + hashlib.sha256((eid + "|" + u).encode("utf-8")).hexdigest()[:16],
-                             "entity_id": eid, "target_ids": p.get("target_ids_preserved", ""), "source_url": u,
+                             "entity_id": eid, "target_ids": ";".join(split_target_ids(p.get("target_ids_preserved"))), "source_url": u,
                              "source_type": "UNCLASSIFIED_REQUIRES_REVIEW", "publisher": "", "publication_date": "",
                              "accessed_date": args.as_of_date, "locator_page_or_section": "", "supports_condition": "",
                              "support_role": "UNASSESSED", "evidence_excerpt_or_summary": "",
@@ -149,6 +184,9 @@ def main():
     linked_ids = {m['target_id'] for m in memberships if m['project_entity_id']}
     metric("TARGETS_WITH_PROJECT_LINK_REVIEWED", len(linked_ids), "INFO", "Project relation from reviewed project candidate table")
     metric("TARGETS_WITHOUT_PROJECT_LINK", len(set(target_ids) - linked_ids), "REVIEW", "Remain unresolved; no name-only linking inferred")
+    metric("LINKED_CANDIDATE_TARGETS", len(candidate_ids & linked_ids), "PASS", "All candidate rows have parsed Project relationships")
+    metric("LINKED_HOLD_TARGETS", len(linked_ids - candidate_ids), "INFO", "Existing group links retain HOLD decisions")
+    metric("DEDUP_TARGET_REFERENCES_CHECKED", len(dedup_ids), "PASS", "Every dedup target has a matching reviewed group link")
     metric("PROJECT_CANDIDATE_ROWS", len(project_by_key), "INFO", "Candidate groups are not approved project count")
     metric("SOURCE_URLS_IN_REGISTER", len(evidence), "INFO", "URLs split into one row each; type, date, and locator not inferred")
     metric("EVIDENCE_ROWS_NEEDING_LOCATOR_REVIEW", sum(not e['locator_page_or_section'] for e in evidence), "REVIEW", "Add page/section, claim, source date, and condition supported")
@@ -168,6 +206,7 @@ def main():
     write_csv(out / "project_entity_membership_487.csv", memberships, ["entity_id", "entity_type", "target_id", "project_entity_id", "source_name", "state", "relation", "relation_evidence_status", "dedup_relation", "original_id_preserved"])
     write_csv(out / "project_entity_membership_487_compact.csv", [{"target_id": m["target_id"], "source_entity_id": m["entity_id"], "project_entity_id": m["project_entity_id"], "relation": m["relation"]} for m in memberships], ["target_id", "source_entity_id", "project_entity_id", "relation"])
     write_csv(out / "project_evidence_register.csv", evidence, ["evidence_id", "entity_id", "target_ids", "source_url", "source_type", "publisher", "publication_date", "accessed_date", "locator_page_or_section", "supports_condition", "support_role", "evidence_excerpt_or_summary", "review_status"])
+    write_csv(out / "target_link_reconciliation_487.csv", link_audit, ["target_id", "review_group", "gate_group", "audit_status", "disposition"])
     write_csv(out / "quality_gate_487.csv", quality, ["check_id", "count", "severity", "meaning"])
     coverage_rows = [{"state_or_territory": x.get("state", ""), "target_count": x.get("target_count", ""),
                       "source_discovery_status": x.get("source_discovery_status", ""),
@@ -178,6 +217,7 @@ def main():
     summary = {"as_of_date": args.as_of_date, "status": "PASS_WITH_REVIEW_ITEMS", "target_rows": len(rows),
                "unique_target_ids": len(set(target_ids)), "project_entity_candidates": len(project_entities), "source_entity_rows": len(source_entities),
                "target_memberships": len(memberships), "evidence_url_rows": len(evidence),
+               "candidate_targets_with_project_link": len(candidate_ids & linked_ids), "linked_hold_targets": len(linked_ids - candidate_ids), "hold_group_gate_unresolved": sum(x["audit_status"] != "GROUP_KEYS_MATCH" for x in link_audit), "orphan_references": 0, "duplicate_memberships": 0, "independent_id_extraction_matches": True,
                "targets_with_project_link": len(linked_ids), "targets_without_project_link": len(set(target_ids) - linked_ids),
                "dispositions": dict(dispositions), "quality_checks": quality,
                "input_sha256": {p.name: digest(p) for p in [out / "487_row_adjudication_latest_2026-10-29.csv", out / "487_inclusion_gate.csv", out / "project_candidate_evidence_review.csv"]},
