@@ -1,0 +1,32 @@
+{
+  "source_snapshot_screen_count": 1006,
+  "E1_records": 803,
+  "E2E3_extended_records": 203,
+  "SA_official_project_records": 3,
+  "SA_project_direct_ree_or_separate_resource": 2,
+  "SA_project_ree_materiality_review": 1,
+  "WA_official_parent_site_records": 399,
+  "WA_official_parent_groups": 121,
+  "E1_unlinked_source_records": 401,
+  "curated_example_project_count": 7,
+  "legacy_frozen_count": 203,
+  "legacy_exact_or_parent_matched_ids": 159,
+  "legacy_without_exact_or_parent_match_ids": 44,
+  "project_master_promotions_performed": 0,
+  "counting_note": "All numbers are source-records except parent groups/curated projects/legacy IDs. Distinct nationwide evidence-backed project count cannot be inferred from these feeds alone.",
+  "sources": {
+    "raw_sha256": "667d1061d2d2cc8855d901d5914ea8d444f72077c382dd1809cbce0d888d22e6",
+    "screen_sha256": "644cce020444e7e2add29c93844714812a933470d1ae2641caf1d7b517ec5a92",
+    "legacy_sha256": "8e0db1728e52576c22c69eb75629489f56ea4ee5faeab9e0b98689066d5e8dd6"
+  },
+  "provisional_structured_project_groups_including_independently_documented_NSW_NT": 126,
+  "provisional_group_state_counts": {
+    "WA": 121,
+    "SA": 3,
+    "NSW": 1,
+    "NT": 1
+  },
+  "curated_example_projects_already_in_legacy_203": 7,
+  "WA_parent_groups_matching_historical_projects_exact": 112,
+  "WA_parent_groups_not_exactly_in_historical_203": 9
+}
