@@ -1,0 +1,45 @@
+name: Nationwide 487 mineral-site to tenement-holder reverse tracing
+on:
+  push:
+    branches: [main]
+    paths: ['ops/tenure-reverse-trigger.json']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reverse-tenure-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install spatial and request dependencies
+        run: python -m pip install requests shapely
+      - name: Confirm immutable 487 target split and coordinates
+        run: |
+          python - <<'PY'
+          import csv,collections
+          p='inputs/reverse_trace_targets_487.csv'
+          with open(p,encoding='utf-8-sig') as f:rows=list(csv.DictReader(f))
+          assert len(rows)==487
+          assert collections.Counter(x['cohort'] for x in rows)=={'LEGACY_86':86,'UNLINKED_E1_401':401}
+          assert len({x['target_id'] for x in rows})==487
+          print('TARGET_COHORT_VERIFIED: 86+401=487')
+          PY
+      - name: Query official current titles with point-in-polygon evidence
+        run: |
+          set -o pipefail
+          mkdir -p work/tenement_reverse_20261029
+          python scripts/run_official_tenement_queries.py inputs/reverse_trace_targets_487.csv work/tenement_reverse_20261029 | tee work/tenement_reverse_20261029/github.log
+      - name: Retain complete editable audit and read-only source evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nationwide-487-tenement-company-reverse-trace
+          path: |
+            work/tenement_reverse_20261029
+            inputs/reverse_trace_targets_487.csv
+          retention-days: 14
+          if-no-files-found: warn
