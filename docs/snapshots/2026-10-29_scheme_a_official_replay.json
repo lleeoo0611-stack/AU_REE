@@ -1,0 +1,167 @@
+{
+  "schema_release": "SCHEME_A_V1_0_4",
+  "research_freeze_date": "2026-10-29",
+  "dataset_scope": "frozen government GA two layers, WA MINDEX, QLD MINOCC, TAS MRT; four state export adapters pending in this artifact",
+  "source_archive": "AU_REE_national_WFS_QA_round2.zip",
+  "source_archive_sha256": "7ac992abd3fc7b0689bd46dd04a85bd0b491e8b86cee1916db17a4f53ee0277f",
+  "sqlite_sha256": "84b87bc023ad7913223dc7ba5458086c6d7b2be9c86fccb6b21aabc068a67d62",
+  "sqlite_size_bytes": 261767168,
+  "schema_migration": "db/migrations/0004_scheme_a.sql",
+  "schema_migration_sha256": "4279295b05b4066f87d9bd9eb2b1a23a0509c61c98caad13237b092b798e4c7f",
+  "verified_sqlite_integrity": "ok",
+  "foreign_key_violations": 0,
+  "policy": "SCHEME_A_PROJECT_EVIDENCE_REQUIRED",
+  "counts": {
+    "project_master": 203,
+    "population_candidates": 62773,
+    "source_feature_snapshot": 62573,
+    "geological_entity": 641,
+    "extended_occurrence_inventory": 641,
+    "dedup_candidate_pairs": 108,
+    "project_geological_relation": 388,
+    "identity_review_decisions": 0,
+    "criteria": 12,
+    "observations": 220,
+    "gis_metrics": 76,
+    "eligibility": 812
+  },
+  "screening_tiers": [
+    {
+      "screening_tier": "E1_DIRECT_REE",
+      "disposition": "GEOLOGICAL_CANDIDATE",
+      "n": 634
+    },
+    {
+      "screening_tier": "E2_REE_MINERAL_ONLY",
+      "disposition": "BACKGROUND_ONLY",
+      "n": 4
+    },
+    {
+      "screening_tier": "E3_NAME_CONTEXT_ONLY",
+      "disposition": "BACKGROUND_ONLY",
+      "n": 3
+    }
+  ],
+  "pair_review_rules": [
+    {
+      "rule": "EXACT_NAME_STATE",
+      "n": 56
+    },
+    {
+      "rule": "WITHIN_1KM_REVIEW",
+      "n": 52
+    }
+  ],
+  "population_status": [
+    {
+      "population_status": "LEGACY_UNVERIFIED",
+      "n": 203
+    }
+  ],
+  "source_registry": [
+    {
+      "source_key": "GA_AIMR_REE_2026",
+      "source_type": "arcgis",
+      "record_count": 149,
+      "fetch_status": "CACHED_OR_FETCHED_UNVERIFIED",
+      "raw_sha256": "10dce3e59099730c3e83564428c4ebbc10228625d2aa322ab0ccf471417a6259"
+    },
+    {
+      "source_key": "GA_CRITICAL_DEPOSITS_2025",
+      "source_type": "arcgis",
+      "record_count": 421,
+      "fetch_status": "CACHED_OR_FETCHED_UNVERIFIED",
+      "raw_sha256": "d435c6e6e577000b5d08d09fbdc558ea22b23183a761f2ec55c4993221e4ce53"
+    },
+    {
+      "source_key": "STATE_NSW_MINVIEW",
+      "source_type": "csv",
+      "record_count": 0,
+      "fetch_status": "AWAITING_OFFICIAL_EXPORT",
+      "raw_sha256": null
+    },
+    {
+      "source_key": "STATE_NT_MODAT",
+      "source_type": "csv",
+      "record_count": 0,
+      "fetch_status": "AWAITING_OFFICIAL_EXPORT",
+      "raw_sha256": null
+    },
+    {
+      "source_key": "STATE_QLD_MINOCC",
+      "source_type": "arcgis",
+      "record_count": 5209,
+      "fetch_status": "CACHED_OR_FETCHED_UNVERIFIED",
+      "raw_sha256": "2f4a062c05615ade524c9486549f611f9b0ee17a78f16563f4723de4d861307c"
+    },
+    {
+      "source_key": "STATE_SA_SARIG",
+      "source_type": "csv",
+      "record_count": 0,
+      "fetch_status": "AWAITING_OFFICIAL_EXPORT",
+      "raw_sha256": null
+    },
+    {
+      "source_key": "STATE_TAS_MRT",
+      "source_type": "arcgis",
+      "record_count": 8301,
+      "fetch_status": "CACHED_OR_FETCHED_UNVERIFIED",
+      "raw_sha256": "af567f887e58aba6cbdd8f21abab9a838e5a9e217b794efc6a67195f534cf0ce"
+    },
+    {
+      "source_key": "STATE_VIC_MINSITE",
+      "source_type": "csv",
+      "record_count": 0,
+      "fetch_status": "AWAITING_OFFICIAL_EXPORT",
+      "raw_sha256": null
+    },
+    {
+      "source_key": "STATE_WA_MINDEX",
+      "source_type": "arcgis",
+      "record_count": 48493,
+      "fetch_status": "CACHED_OR_FETCHED_UNVERIFIED",
+      "raw_sha256": "05cea5c60c9a8209b6192e2a9249cedaa92bbf40ff9f0db1441dd93c1b76bcdc"
+    },
+    {
+      "source_key": "legacy_r963_frozen",
+      "source_type": "csv",
+      "record_count": 203,
+      "fetch_status": "HISTORICAL_SEED",
+      "raw_sha256": "420fe80369d1a7ced0f47c8ea1d5d4562279637f3f40688fb57658840d194461"
+    }
+  ],
+  "stage_statuses": [
+    {
+      "stage": "criteria",
+      "status": "CRITERIA_REGISTERED_EVIDENCE_GATED",
+      "run_time": "2026-10-29T04:43:24+00:00"
+    },
+    {
+      "stage": "eligibility",
+      "status": "MCDA_ELIGIBILITY_AUDITED",
+      "run_time": "2026-10-29T04:43:26+00:00"
+    },
+    {
+      "stage": "gis",
+      "status": "GIS_NOT_RELEASED",
+      "run_time": "2026-10-29T04:43:25+00:00"
+    },
+    {
+      "stage": "population",
+      "status": "COMPLETED",
+      "run_time": "2026-10-29T04:43:19+00:00"
+    },
+    {
+      "stage": "r_export",
+      "status": "R_INPUTS_EXPORTED_NO_RANKING",
+      "run_time": "2026-10-29T04:43:27+00:00"
+    }
+  ],
+  "project_identity_approvals": 0,
+  "geological_or_project_auto_merges": 0,
+  "git_merge_commits": [
+    "151a62c5674bed07475c235b2ba09bb012289d3d",
+    "5e7c0197417692e59ec83c72fc9d05404df14a82"
+  ],
+  "test_result": "32/32 local tests passed; GitHub Python and R CI passed"
+}
