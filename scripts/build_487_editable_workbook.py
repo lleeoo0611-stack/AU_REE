@@ -27,6 +27,13 @@ def main():
     state_coverage = load("state_source_coverage_and_gaps.csv")
     reproducibility = load("upstream_reproducibility_gaps.csv")
     decision_rules = load("five_condition_decision_rules.csv")
+    legacy_selection = load("legacy_203_selection_audit.csv")
+    candidate_selection = load("source_candidate_selection_audit_1006.csv")
+    reproduced_cohort = load("reconstructed_cohort_487.csv")
+    cohort_summary = json.loads((OUT / "cohort_reproduction_summary.json").read_text(encoding="utf-8"))
+    candidate_evidence = load("project_candidate_evidence_review.csv")
+    inclusion_gate = load("487_inclusion_gate.csv")
+    gate_rules = load("project_inclusion_gate_rules.csv")
     summary = json.loads((OUT / "census_review_manifest.json").read_text(encoding="utf-8"))
     path = OUT / "AU_REE_487_pre_MCDA_five_definition_review.xlsx"
     wb = xlsxwriter.Workbook(path)
@@ -53,14 +60,16 @@ def main():
         s.write(i, 0, k, wrap)
         s.write_number(i, 1, v)
     notes = [
-        ("母體抽取重現性", "已找回 1,006 筆全澳候選與 487 固定名冊；缺少 cohort 的四個抽取/決策檔，故無法重現 86+401 的原始選取規則或所有被排除列。"),
+        ("母體抽取重現性", "已重建並逐列重現：歷史203筆扣除與126暫定組連結的117個ID，得86筆；1,006筆中選E1_DIRECT_REE且E1_MISSING_PROJECT_LINK，得401筆。兩組ID均與凍結487清單完全相符。"),
         ("原始來源", "2026-10-29 快照包含 10 個政府來源組；screening 1,006 列分為 E1 803、E2 163、E3 40。"),
         ("礦權追溯", "官方點落多邊形回傳 764 筆交集，涉及 258 個目標；128 筆 SA 尚未驗證礦權層；50 筆無可用座標。titleholder/applicant 不代表 developer/operator。"),
         ("位置判讀", "401 筆 E1 有官方來源點位，暫判可定位但未確認專案邊界；36 筆 legacy 可由單一同州同名來源候選補位置，仍須人工核對；其餘 50 筆無匹配座標。"),
         ("州別範圍", "WA 127、SA 131、QLD 47、NSW 56、VIC 43、NT 55、TAS 28。ACT 只有全國 GA 資料覆蓋，沒有獨立州級礦業調查來源。"),
         ("五項定義", "澳洲管轄、地點可識別、獨立 Project 身分、REE 作為商品/計畫副產品/明確目標、屬於勘探/資源評估/採礦開發單位。每項分欄判讀，證據不足一律 HOLD。"),
         ("去重", "project_dedup_candidates 為候選分組，不等於已核准合併。多來源 deposit/site/occurrence 仍保留各自 ID；所有 project link 需人工核准。"),
-        ("待查檔案", "provisional_project_groups_126.csv; legacy_203_crosswalk_audit.csv; all_1006_evidence_decisions.csv; E1_project_unlinked_review_queue.csv"),
+        ("選取邏輯限制", "四個抽取檔依留存上游與記錄規則重建，原始sandbox ZIP位元組不可得，故非位元級還原。126組仍為暫定群；487筆納入查核佇列不代表已確認為專案。"),
+        ("來源查核進度", "已對18個初步Project候選群補入政府／公司技術來源，14個群暫達候選門檻；其中Wudinna與Baggy Green合併為同一REE Project，共13個候選Project單位。另4群因缺少專案層級REE回收或獨立Project證據而HOLD。487筆中21筆對應已查群，466筆尚待查。"),
+        ("納入門檻", "五項操作定義均需Project層級證據；要求至少一項政府／礦權來源及一項正式技術／專案揭露，明確證明REE商品、共同產品、計畫回收副產品或勘探開發目標。礦物含REE、名稱相似或點位相交均不足以自動納入或合併。"),
     ]
     s.write("D4", "說明", hdr)
     s.write("E4", "內容", hdr)
@@ -103,9 +112,24 @@ def main():
     add_table("州別來源與缺口", state_coverage)
     add_table("上游重現性缺口", reproducibility)
     add_table("五條件判定規則", decision_rules)
+    add_table("歷史203選取稽核", legacy_selection)
+    add_table("全澳1006選取稽核", candidate_selection)
+    add_table("重現487候選清單", reproduced_cohort)
+    summary_rows = []
+    for section, values in (("counts", cohort_summary["counts"]), ("comparison", cohort_summary["comparison_to_frozen_target_list"])):
+        for key, value in values.items():
+            summary_rows.append({"section": section, "metric": key, "value": json.dumps(value, ensure_ascii=False) if isinstance(value, (dict, list)) else str(value)})
+    for cohort, counts in cohort_summary["state_counts"].items():
+        for state, count in counts.items():
+            summary_rows.append({"section": "state_counts:" + cohort, "metric": state, "value": str(count)})
+    add_table("86加401規則摘要", summary_rows)
+    add_table("Project候選來源核對", candidate_evidence, ("reviewer_decision", "reviewer_notes"))
+    add_table("487筆納入門檻", inclusion_gate, ("reviewer_decision", "reviewer_notes"))
+    add_table("納入與去重規則", gate_rules)
     wb.close()
     print(json.dumps({"workbook": str(path), "rows": len(rows), "project_groups": len(projects), "queue": len(queue)}, ensure_ascii=False))
 
 
 if __name__ == "__main__":
     main()
+
