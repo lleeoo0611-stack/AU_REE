@@ -1,0 +1,21 @@
+{
+  "snapshot_id": "2026-10-29-r18-delimiter-release",
+  "repeatability_snapshots": [
+    "2026-10-29-r16-delimiter-fix",
+    "2026-10-29-r17-delimiter-repeat"
+  ],
+  "database_sha256": "072e3f7247dc0d7aa0fac5f8ee0b1906faac24627a6e81eefa1b933c9d922ddd",
+  "targets": 487,
+  "linked": 46,
+  "unlinked": 441,
+  "linked_candidates": 37,
+  "linked_holds": 9,
+  "hold_group_gate_unresolved": 3,
+  "parser_tests_passed": 4,
+  "integrity": "ok",
+  "independent_id_extraction_matches": true,
+  "duplicate_memberships": 0,
+  "orphan_references": 0,
+  "workbook_sheets": 25
+}
+
