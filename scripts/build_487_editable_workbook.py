@@ -8,7 +8,7 @@ import sys
 import xlsxwriter
 
 HERE = pathlib.Path(__file__).resolve().parent
-OUT = HERE / "deliverable"
+OUT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else HERE / "deliverable"
 
 
 def load(name):
