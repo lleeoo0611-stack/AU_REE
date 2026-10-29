@@ -1,0 +1,29 @@
+{
+  "source_archive_manifest_sha256": "5057e25f1711232a0057889d413913fd8f4a227cbe42235dc279e98bfbce4dc1",
+  "gate": "PASSED_BEFORE_SCREENING",
+  "source_raw_counts": {
+    "GA_AIMR_REE_2026": 149,
+    "GA_CRITICAL_DEPOSITS_2025": 421,
+    "STATE_WA_MINDEX": 48493,
+    "STATE_QLD_MINOCC": 5209,
+    "STATE_TAS_MRT": 8301,
+    "NSW_METINDEX": 30898,
+    "VIC_MINSITE": 18794,
+    "NT_MODAT_WFS": 2105,
+    "SA_GEODATA_MINDEP": 8815,
+    "SA_PROJECT_DEVELOPING": 35,
+    "SA_PROJECT_MAJOR": 31,
+    "SA_CRITICAL_REE": 72
+  },
+  "screened_candidate_records": 1006,
+  "tier_counts": {
+    "E1_DIRECT_REE": 803,
+    "E2_REE_MINERAL_ONLY": 163,
+    "E3_GEOLOGICAL_CONTEXT": 40
+  },
+  "cross_source_exact_name_pairs": 137,
+  "SA_reference_links_preserved": 14739,
+  "project_master_new_records": 0,
+  "project_identity_merges_automatic": 0,
+  "screening_status": "SCHEME_A_REVIEW_ONLY"
+}

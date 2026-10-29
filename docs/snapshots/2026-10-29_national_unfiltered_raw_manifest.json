@@ -1,0 +1,471 @@
+{
+  "schema": "AU_REE_RAW_FIRST_V1",
+  "as_of": "2026-10-29T05:03:11.642096+00:00",
+  "policy": "NO_REE_FILTERING_UNTIL_ALL_RAW_SOURCES_PASS",
+  "sources": {
+    "GA_AIMR_REE_2026": {
+      "key": "GA_AIMR_REE_2026",
+      "state": "NATIONAL",
+      "format": "arcgis_json",
+      "origin": "https://services.ga.gov.au/gis/rest/services/AustraliasIdentifiedMineralResources/MapServer/52",
+      "count": 149,
+      "cache_path": "arcgis/GA_AIMR_REE_2026/be41683aff317735a685",
+      "manifest_sha256": "fe0b34c83a1968d59807a4046937c15be9e90054c8981c89e044eb3b83cb5268",
+      "source_scope": "UNFILTERED_OFFICIAL_ARCGIS_LAYER",
+      "status": "RAW_COMPLETE"
+    },
+    "GA_CRITICAL_DEPOSITS_2025": {
+      "key": "GA_CRITICAL_DEPOSITS_2025",
+      "state": "NATIONAL",
+      "format": "arcgis_json",
+      "origin": "https://services.ga.gov.au/gis/rest/services/AustralianCriticalMineralsOperatingMinesAndDeposits/MapServer/7",
+      "count": 421,
+      "cache_path": "arcgis/GA_CRITICAL_DEPOSITS_2025/e756ed8b5f01c6db46e8",
+      "manifest_sha256": "5a7e2a8b5b57caf3fec36bee311b462441276bc125e69ba3108c53d3cd837185",
+      "source_scope": "UNFILTERED_OFFICIAL_ARCGIS_LAYER",
+      "status": "RAW_COMPLETE"
+    },
+    "STATE_WA_MINDEX": {
+      "key": "STATE_WA_MINDEX",
+      "state": "WA",
+      "format": "arcgis_json",
+      "origin": "https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Industry_and_Mining_WFS/MapServer/0",
+      "count": 48493,
+      "cache_path": "arcgis/STATE_WA_MINDEX/00a0c0b451738d87d381",
+      "manifest_sha256": "916902b72027505c8caa907b44d1e325700da44cdc16712417adeec18afd439c",
+      "source_scope": "UNFILTERED_OFFICIAL_ARCGIS_LAYER",
+      "status": "RAW_COMPLETE"
+    },
+    "STATE_QLD_MINOCC": {
+      "key": "STATE_QLD_MINOCC",
+      "state": "QLD",
+      "format": "arcgis_json",
+      "origin": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/MiningResources/MapServer/17",
+      "count": 5209,
+      "cache_path": "arcgis/STATE_QLD_MINOCC/37789ae70ff5026c3eac",
+      "manifest_sha256": "caee24149f63749713eda78e2d66e960a8fc13aa429f5ac1275dbdc84db150ec",
+      "source_scope": "UNFILTERED_OFFICIAL_ARCGIS_LAYER",
+      "status": "RAW_COMPLETE"
+    },
+    "STATE_TAS_MRT": {
+      "key": "STATE_TAS_MRT",
+      "state": "TAS",
+      "format": "arcgis_json",
+      "origin": "https://data.stategrowth.tas.gov.au/ags/rest/services/MRT/GeoscienceWFS/MapServer/3",
+      "count": 8301,
+      "cache_path": "arcgis/STATE_TAS_MRT/a28b69ce221edff7cd94",
+      "manifest_sha256": "eab393b4614e28b41436a8937017d8b73550d842b476da288d493d98cb67e708",
+      "source_scope": "UNFILTERED_OFFICIAL_ARCGIS_LAYER",
+      "status": "RAW_COMPLETE"
+    },
+    "NSW_METINDEX": {
+      "key": "NSW_METINDEX",
+      "state": "NSW",
+      "format": "geojson",
+      "origin": "https://public-gs.geoscience.nsw.gov.au/geoserver/ows",
+      "typename": "mineral-occurrence:mineral_occurrence",
+      "count": 30898,
+      "expected": 30898,
+      "chunks": [
+        {
+          "path": "wfs/NSW_METINDEX/features_0000000.json",
+          "count": 1000,
+          "sha256": "a7682e5752a374f61a3cf5b8fd88b63f5d672fea3dd534768d0f54bbab8e7f19"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0001000.json",
+          "count": 1000,
+          "sha256": "373089e54f0bf5c13f610ffc1fd5d1298b029145f68cee6b7189e8fc9d98d96f"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0002000.json",
+          "count": 1000,
+          "sha256": "6c5cb0765d81153dbc3110503eb1e03a61bd69391325739868d16eebb92848f8"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0003000.json",
+          "count": 1000,
+          "sha256": "0e0ceda9935d7820d05466e289d216101373b7fc541b5a859488302be7700df0"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0004000.json",
+          "count": 1000,
+          "sha256": "3859fc2e4fa776be39509cddf71330a58eefa9334fb51425dfa3b7346319e106"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0005000.json",
+          "count": 1000,
+          "sha256": "9b6ce8d25acf3b74203f63e6c249d1d91c2f6e1830e09412eef7798b852061d4"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0006000.json",
+          "count": 1000,
+          "sha256": "9aabfdef59bd8a80c8ec639de29fc4a4a9c788d77c4ac029f58230cba48c78a9"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0007000.json",
+          "count": 1000,
+          "sha256": "fd2dec29bd1c4a83eb399073dfe3c2e094c4e1bcb2753666c746b6812ea4568b"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0008000.json",
+          "count": 1000,
+          "sha256": "f509bc0e6bcae8a27dd9187de39c20ab488611b20d312d613003713500edbe0e"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0009000.json",
+          "count": 1000,
+          "sha256": "a9f477dbb00c1da1183ff576624b82fd026e17459e4970ebb0e893c8787a6f20"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0010000.json",
+          "count": 1000,
+          "sha256": "42dde622d7567332f51df14b4796aceb1173a70282c261527626f4164369778d"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0011000.json",
+          "count": 1000,
+          "sha256": "81158055d24c219227c3b79a85d7c84e454bd2e47087ebeca3bce6a8b05fea63"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0012000.json",
+          "count": 1000,
+          "sha256": "f750cb312b0f8687ae9efee2e75eebb37dd0ddbd40c667c3bdbe2038fd0181a6"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0013000.json",
+          "count": 1000,
+          "sha256": "8bae942338dda2704c86bd4faa2fb6acc3b50a1cee574dea3f3a06188d52dcaa"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0014000.json",
+          "count": 1000,
+          "sha256": "ff1c66cc3bf147600adf92bb7f7107d8006163a738da4635125d01fd348550e8"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0015000.json",
+          "count": 1000,
+          "sha256": "880fb4555dbe432cc55348c0701475353cfae795b7f57b386f7de545b83b94da"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0016000.json",
+          "count": 1000,
+          "sha256": "826a4bd91eefaf2a321e46001ce41b6ec2f437932ad9d4c49031d8ba95e5d300"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0017000.json",
+          "count": 1000,
+          "sha256": "34d95595750da167477550d441e0edc174e2790715963f85b7d8680bee790014"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0018000.json",
+          "count": 1000,
+          "sha256": "12fc91a67538bd9adfabb40f22dfdd692b48f295ad9285a3bbfcbcb47402ccc8"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0019000.json",
+          "count": 1000,
+          "sha256": "bd7c26746aea1b0e5450265e574b6254f93255b502ca0f1b4eca5e2e95b32c63"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0020000.json",
+          "count": 1000,
+          "sha256": "0aa6ed53eba8bc503dee9e46200d360913b45c622e2007a58c3e5dc4d142b5cc"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0021000.json",
+          "count": 1000,
+          "sha256": "389a07bbcffaaa218aa0f21ce3a763dd23fad060c28ce4f99825b1509be67cd1"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0022000.json",
+          "count": 1000,
+          "sha256": "fdfeab89023fd105d8e5a818bc47114db1b5fa9553050b3b6813f2c5d733e5f9"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0023000.json",
+          "count": 1000,
+          "sha256": "513e518ecb0bac5cd3cc9a308b5deb895fbd72ebb9cafbf8e687b515c09f0633"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0024000.json",
+          "count": 1000,
+          "sha256": "2605eb7e6bc7237c1f50e07ae35e31f0ece00f45337dce8366b05d424597a3d5"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0025000.json",
+          "count": 1000,
+          "sha256": "cf473c637863d00660e9f441cda3c141ae581663cc931f301cbc90e15e8e769d"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0026000.json",
+          "count": 1000,
+          "sha256": "e0daa43a3fca9f1ac1782dd874838440aeb2b9b3c97ae65a60c1c12623aebdfe"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0027000.json",
+          "count": 1000,
+          "sha256": "2691dc974d441c7880a7812b1aac08ba9a50e4fc662bc2b311098476e6b95bcc"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0028000.json",
+          "count": 1000,
+          "sha256": "40bff4585be6aa67df17fc57e22038cdc718892a9aff9df5f18f0c4d7244d1c4"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0029000.json",
+          "count": 1000,
+          "sha256": "226a70b8a3b4969eedfe81ee862d21a4aee470e212567ac00990b55561916975"
+        },
+        {
+          "path": "wfs/NSW_METINDEX/features_0030000.json",
+          "count": 898,
+          "sha256": "c0e3e354fe77aa6a7f7b2d728adcddcbcadbc10a6ca881fdbf4f9ed9ed9bed82"
+        }
+      ],
+      "source_scope": "UNFILTERED_OFFICIAL_WFS",
+      "status": "RAW_COMPLETE"
+    },
+    "VIC_MINSITE": {
+      "key": "VIC_MINSITE",
+      "state": "VIC",
+      "format": "geojson",
+      "origin": "https://opendata.maps.vic.gov.au/geoserver/wfs",
+      "typename": "open-data-platform:minsite",
+      "count": 18794,
+      "expected": 18794,
+      "chunks": [
+        {
+          "path": "wfs/VIC_MINSITE/features_0000000.json",
+          "count": 1000,
+          "sha256": "67d2a17dee410af51866f23ba63d02f9c7c9f3c9bf9dbc69cd07b3dcfd5c4c9c"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0001000.json",
+          "count": 1000,
+          "sha256": "f66122b14ee597e6869185e367b155ccf05a41635d329b30ebabe65f66a1d344"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0002000.json",
+          "count": 1000,
+          "sha256": "ebf13afd0b664d70c827843e92d143f99078fefc76b1df38284d4f64d3d33ef6"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0003000.json",
+          "count": 1000,
+          "sha256": "5f9a7b57a95e4d0dee9a65caef930267a60ef2ab76da6f3913c874209933fdd1"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0004000.json",
+          "count": 1000,
+          "sha256": "1b0b7a84c607039e27c15bb0eef24130a25312e86b8e8b3ab9b50034c485dffd"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0005000.json",
+          "count": 1000,
+          "sha256": "54a9ce739bc45d236e12c899d0f48382349fa19dac0f7a19170d906e49694891"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0006000.json",
+          "count": 1000,
+          "sha256": "8de2124b1d7481c33a3cf70e0f3bf7621bcec6a557793ca85ea6d7dd90f59069"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0007000.json",
+          "count": 1000,
+          "sha256": "9cd2b1efa6ce66ff96283c3d1ca01ecf6ee63a62f4f2d837aaa6eeeafb40b60f"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0008000.json",
+          "count": 1000,
+          "sha256": "e065a7910cdb7ad4d9c56fa14fd7d241a9156b7e4aec5db93d2b24b4e008f335"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0009000.json",
+          "count": 1000,
+          "sha256": "d010faa5423888a62e3a2fdf57171e7dc17fd57912e6ebd9bb58e8556e9f30e4"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0010000.json",
+          "count": 1000,
+          "sha256": "92e5a0b1f6e7fad5d8754630dd2f473685e7b4da4b9129208ed47629a70f0391"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0011000.json",
+          "count": 1000,
+          "sha256": "e96488ab48243e70fb648c6e1207cfbd3716f1b994fb2379de45a45e81b90e27"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0012000.json",
+          "count": 1000,
+          "sha256": "da65bb9be85f0adcc3bba81a1fb129782495f6a84b1366b814f85cfa9772bd3a"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0013000.json",
+          "count": 1000,
+          "sha256": "fd2acb05831bc525ab081edba33ac2be79e780781ce325e8e34119934f3f7160"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0014000.json",
+          "count": 1000,
+          "sha256": "695e6ef3e9dd6604720bbfd930061f436ee37d9b964ca701757217db20f9a080"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0015000.json",
+          "count": 1000,
+          "sha256": "65d8d64eb5cf278c52d0abfa2ca675c994fab0b59d8fe0617bf7892cd9a6de4b"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0016000.json",
+          "count": 1000,
+          "sha256": "76a69b0cfbdb5ca20b253892e6e79bb918984bb768e9e9a5d9e5153d8b3db097"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0017000.json",
+          "count": 1000,
+          "sha256": "f1218c831ad624281310f69c81f86dff108a3caaa1948d875d08aa80636c3b1b"
+        },
+        {
+          "path": "wfs/VIC_MINSITE/features_0018000.json",
+          "count": 794,
+          "sha256": "e7794530dd729d92f9a4abe6900076b9d7894c9d6ab47b2c940ebc0a284b81f9"
+        }
+      ],
+      "source_scope": "UNFILTERED_OFFICIAL_WFS",
+      "status": "RAW_COMPLETE"
+    },
+    "NT_MODAT_WFS": {
+      "key": "NT_MODAT_WFS",
+      "state": "NT",
+      "format": "geojson",
+      "origin": "https://geology.data.nt.gov.au/geoserver/wfs",
+      "typename": "erl:MineralOccurrenceView",
+      "count": 2105,
+      "expected": 2105,
+      "chunks": [
+        {
+          "path": "wfs/NT_MODAT_WFS/features_0000000.json",
+          "count": 1000,
+          "sha256": "4281ea53775af19dc45e3a7087edf43510e473c97e36f2313d50af69271d9dd1"
+        },
+        {
+          "path": "wfs/NT_MODAT_WFS/features_0001000.json",
+          "count": 1000,
+          "sha256": "506bb5b6f30aa81d65349217cdb7be8a94cea8c695c3845b6c331e65093b2754"
+        },
+        {
+          "path": "wfs/NT_MODAT_WFS/features_0002000.json",
+          "count": 105,
+          "sha256": "a3c9dba7719946e58c9383b2540b9cb1a4ecd7d2b5e474b26414cd02b195377f"
+        }
+      ],
+      "source_scope": "UNFILTERED_OFFICIAL_WFS",
+      "status": "RAW_COMPLETE"
+    },
+    "SA_GEODATA": [
+      {
+        "key": "SA_GEODATA_sarig_md_details_exp.csv",
+        "state": "SA",
+        "format": "csv",
+        "path": "sa_geodata/sarig_md_details_exp.csv",
+        "count": 8815,
+        "size_bytes": 3907421,
+        "sha256": "5b604c62d614a5c5a3937d99d06fd59b4260489af5d1900b60b23cc7739940d7",
+        "origin": "https://dem-sdp.s3-ap-southeast-2.amazonaws.com/sarig_md_details_exp.csv",
+        "s3_modified": "2025-07-02T01:27:54.000Z",
+        "source_scope": "UNFILTERED_MINERAL_DATABASE",
+        "status": "RAW_COMPLETE"
+      },
+      {
+        "key": "SA_GEODATA_sarig_md_commodity_exp.csv",
+        "state": "SA",
+        "format": "csv",
+        "path": "sa_geodata/sarig_md_commodity_exp.csv",
+        "count": 11208,
+        "size_bytes": 1405655,
+        "sha256": "5a6a184578aa9850e861737a4a74a4cfa1287361bb949683ea9fb7d456d0642e",
+        "origin": "https://dem-sdp.s3-ap-southeast-2.amazonaws.com/sarig_md_commodity_exp.csv",
+        "s3_modified": "2025-07-02T01:27:54.000Z",
+        "source_scope": "UNFILTERED_MINERAL_DATABASE",
+        "status": "RAW_COMPLETE"
+      },
+      {
+        "key": "SA_GEODATA_sarig_md_mineralogy_exp.csv",
+        "state": "SA",
+        "format": "csv",
+        "path": "sa_geodata/sarig_md_mineralogy_exp.csv",
+        "count": 16045,
+        "size_bytes": 2533042,
+        "sha256": "223e8cc54ac44c78f39ea9c904406783c415cfa39cd6aaa4d2d3f0618cc99a62",
+        "origin": "https://dem-sdp.s3-ap-southeast-2.amazonaws.com/sarig_md_mineralogy_exp.csv",
+        "s3_modified": "2025-07-02T01:27:54.000Z",
+        "source_scope": "UNFILTERED_MINERAL_DATABASE",
+        "status": "RAW_COMPLETE"
+      },
+      {
+        "key": "SA_GEODATA_sarig_md_reference_exp.csv",
+        "state": "SA",
+        "format": "csv",
+        "path": "sa_geodata/sarig_md_reference_exp.csv",
+        "count": 14739,
+        "size_bytes": 6210331,
+        "sha256": "63cd1e8fb38dd994d4693fab1e9e1c22d55ad0c34dd39eb2160e630313505907",
+        "origin": "https://dem-sdp.s3-ap-southeast-2.amazonaws.com/sarig_md_reference_exp.csv",
+        "s3_modified": "2025-07-02T01:27:55.000Z",
+        "source_scope": "UNFILTERED_MINERAL_DATABASE",
+        "status": "RAW_COMPLETE"
+      }
+    ],
+    "SA_PROJECT_WFS": [
+      {
+        "key": "SA_PROJECT_DEVELOPING",
+        "state": "SA",
+        "format": "csv",
+        "path": "sa_projects/SA_PROJECT_DEVELOPING.csv",
+        "count": 35,
+        "sha256": "af1e442ac34a5d562801d267210103c90376ccf49c2508d71f1c62496e443671",
+        "origin": "https://services.sarig.sa.gov.au/vector/south_australia_mining_projects/wfs",
+        "typename": "south_australia_mining_projects:developing_projects___minerals",
+        "source_scope": "UNFILTERED_GOVERNMENT_PROJECT_LAYER",
+        "status": "RAW_COMPLETE"
+      },
+      {
+        "key": "SA_PROJECT_MAJOR",
+        "state": "SA",
+        "format": "csv",
+        "path": "sa_projects/SA_PROJECT_MAJOR.csv",
+        "count": 31,
+        "sha256": "e7dc89c0acf15304f852c8f55e4eb21b7dc2adba8a63c7e46cda50d0db68db22",
+        "origin": "https://services.sarig.sa.gov.au/vector/south_australia_mining_projects/wfs",
+        "typename": "south_australia_mining_projects:major_mines___minerals",
+        "source_scope": "UNFILTERED_GOVERNMENT_PROJECT_LAYER",
+        "status": "RAW_COMPLETE"
+      },
+      {
+        "key": "SA_CRITICAL_REE",
+        "state": "SA",
+        "format": "csv",
+        "path": "sa_projects/SA_CRITICAL_REE.csv",
+        "count": 72,
+        "sha256": "4064f29eb934689606d5d4fa02f61e70c726c931752aaf1fd0a355adbc3c9fbc",
+        "origin": "https://services.sarig.sa.gov.au/vector/south_australian_critical_minerals/wfs",
+        "typename": "south_australian_critical_minerals:rare_earth_elements",
+        "source_scope": "UNFILTERED_GOVERNMENT_PROJECT_LAYER",
+        "status": "RAW_COMPLETE"
+      }
+    ]
+  },
+  "errors": {},
+  "jurisdiction_status": {
+    "WA": "RAW_COMPLETE",
+    "QLD": "RAW_COMPLETE",
+    "TAS": "RAW_COMPLETE",
+    "NSW": "RAW_COMPLETE",
+    "VIC": "RAW_COMPLETE",
+    "NT": "RAW_COMPLETE",
+    "SA": "RAW_COMPLETE",
+    "ACT": "NATIONAL_GA_SCOPE_ONLY_NOT_INDEPENDENT_STATE_SURVEY",
+    "GA_NATIONAL": "RAW_COMPLETE"
+  },
+  "complete": true
+}
