@@ -20,6 +20,13 @@ def main():
     rows = load("487_definition_review.csv")
     projects = load("project_dedup_candidates.csv")
     queue = load("review_queue.csv")
+    inventory = load("reconstructed_1006_evidence_ledger.csv")
+    name_clusters = load("exact_state_name_cluster_candidates.csv")
+    legacy_crosswalk = load("legacy_86_exact_name_crosswalk_review.csv")
+    company_queue = load("company_entity_resolution_queue_487.csv")
+    state_coverage = load("state_source_coverage_and_gaps.csv")
+    reproducibility = load("upstream_reproducibility_gaps.csv")
+    decision_rules = load("five_condition_decision_rules.csv")
     summary = json.loads((OUT / "census_review_manifest.json").read_text(encoding="utf-8"))
     path = OUT / "AU_REE_487_pre_MCDA_five_definition_review.xlsx"
     wb = xlsxwriter.Workbook(path)
@@ -49,6 +56,7 @@ def main():
         ("母體抽取重現性", "已找回 1,006 筆全澳候選與 487 固定名冊；缺少 cohort 的四個抽取/決策檔，故無法重現 86+401 的原始選取規則或所有被排除列。"),
         ("原始來源", "2026-10-29 快照包含 10 個政府來源組；screening 1,006 列分為 E1 803、E2 163、E3 40。"),
         ("礦權追溯", "官方點落多邊形回傳 764 筆交集，涉及 258 個目標；128 筆 SA 尚未驗證礦權層；50 筆無可用座標。titleholder/applicant 不代表 developer/operator。"),
+        ("位置判讀", "401 筆 E1 有官方來源點位，暫判可定位但未確認專案邊界；36 筆 legacy 可由單一同州同名來源候選補位置，仍須人工核對；其餘 50 筆無匹配座標。"),
         ("州別範圍", "WA 127、SA 131、QLD 47、NSW 56、VIC 43、NT 55、TAS 28。ACT 只有全國 GA 資料覆蓋，沒有獨立州級礦業調查來源。"),
         ("五項定義", "澳洲管轄、地點可識別、獨立 Project 身分、REE 作為商品/計畫副產品/明確目標、屬於勘探/資源評估/採礦開發單位。每項分欄判讀，證據不足一律 HOLD。"),
         ("去重", "project_dedup_candidates 為候選分組，不等於已核准合併。多來源 deposit/site/occurrence 仍保留各自 ID；所有 project link 需人工核准。"),
@@ -85,9 +93,16 @@ def main():
                 sh.write(r, c, val, fmt)
         return sh
 
-    add_table("487逐列五條件", rows, ("reviewer_decision", "reviewer_notes"))
+    add_table("487逐列五條件", rows, ("reviewer_decision", "reviewer_notes", "asx_code_or_security_id", "historical_company_names", "transfer_or_rename_effective_date", "company_relationship_evidence_url"))
     add_table("Project去重候選", projects, ("review_decision", "open_review"))
     add_table("待查佇列", queue, ("reviewer_decision", "reviewer_notes"))
+    add_table("全澳候選1006", inventory, ("reviewer_decision", "project_identity_result", "ree_role_result"))
+    add_table("同州同名候選群", name_clusters)
+    add_table("Legacy86精確連結", legacy_crosswalk, ("decision",))
+    add_table("公司沿革待查487", company_queue, ("asx_code_or_security_id", "asic_acn_abn", "legal_entity_id", "current_company_name", "historical_company_names", "transfer_or_rename_effective_date", "asx_announcement_reference", "company_announcement_reference", "relationship_source_url", "review_status", "reviewer_decision", "reviewer_notes"))
+    add_table("州別來源與缺口", state_coverage)
+    add_table("上游重現性缺口", reproducibility)
+    add_table("五條件判定規則", decision_rules)
     wb.close()
     print(json.dumps({"workbook": str(path), "rows": len(rows), "project_groups": len(projects), "queue": len(queue)}, ensure_ascii=False))
 
