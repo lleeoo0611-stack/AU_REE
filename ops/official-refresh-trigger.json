@@ -1,10 +1,8 @@
 {
-  "request_id": "au-ree-official-refresh-2026-10-29-1",
+  "request_id": "au-ree-official-refresh-2026-10-29-2",
   "source_key": "ALL",
-  "requested_action": "refresh_online_population_then_complete_five_stage_pipeline",
-  "data_policy": "do_not_auto_verify_unreviewed_sources",
-  "artifact_expected": [
-    "official-ree-population-snapshot"
-  ],
-  "note": "GitHub Actions push event trigger; sources with missing official CSV remain AWAITING_OFFICIAL_EXPORT"
+  "requested_action": "online_refresh_and_run_full_pipeline",
+  "reason": "Fix tee work directory; retry authoritative source QA and snapshot release",
+  "review_policy": "never_auto_promote_deposits_or_unverified_observations",
+  "source_run_reference": 40807748967
 }
