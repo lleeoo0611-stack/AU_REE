@@ -262,9 +262,16 @@ def main() -> None:
 
         coordinate_ok = bool(t["latitude"] and t["longitude"])
         jurisdiction_status = "PASS_AU_STATE_CODE" if t["state"] in {"WA", "SA", "QLD", "NSW", "VIC", "NT", "TAS"} else "REVIEW"
-        location_status = "HOLD_LOCATION_NOT_VERIFIED" if not coordinate_ok else (
-            "HOLD_POINT_NOT_PROJECT_BOUNDARY" if t["coordinates_basis"] == "OFFICIAL_SOURCE_POINT_UNVERIFIED_GEOMETRY" else "REVIEW_LOCATION_MATCH"
-        )
+        # A government source point supports a recognisable location. It does not
+        # establish project footprint or prove that the point represents the project.
+        if not coordinate_ok:
+            location_status = "HOLD_NO_VERIFIABLE_COORDINATE"
+        elif t["coordinates_basis"] == "OFFICIAL_SOURCE_POINT_UNVERIFIED_GEOMETRY":
+            location_status = "PASS_OFFICIAL_SOURCE_POINT_BOUNDARY_UNVERIFIED"
+        elif t["coordinates_basis"] == "SAME_STATE_EXACT_E1_NAME_SINGLE_RECORD":
+            location_status = "REVIEW_LOCATION_FROM_EXACT_NAME_LINK"
+        else:
+            location_status = "REVIEW_LOCATION_MATCH"
         distinct_status = "PASS_PROJECT_SOURCE_CANDIDATE" if project_name else "HOLD_INDEPENDENT_PROJECT_IDENTITY"
         lifecycle_status = "REVIEW_EXPLORATION_RESOURCE_OR_MINING_STAGE" if project_name else "HOLD_PROJECT_UNIT_UNRESOLVED"
         if source_case and name == "Avonbank Project":
@@ -306,12 +313,18 @@ def main() -> None:
             "jurisdiction_check": jurisdiction_status,
             "location_check": location_status,
             "location_evidence": t["coordinates_basis"],
+            "location_boundary_check": "NOT_ESTABLISHED_FROM_POINT_COORDINATE" if coordinate_ok else "NO_COORDINATE",
             "project_identity_check": distinct_status,
             "project_linkage_check": project_link_status,
             "canonical_project_candidate_not_approved": project_name,
             "entity_level_assessed": entity_level,
             "project_lifecycle_check": lifecycle_status,
             "ree_role_check": ree_status,
+            "condition_1_jurisdiction": jurisdiction_status,
+            "condition_2_location": location_status,
+            "condition_3_distinct_project": distinct_status,
+            "condition_4_ree_role": ree_status,
+            "condition_5_project_lifecycle": lifecycle_status,
             "definition_screen_status": project_status,
             "tenure_trace_status": tenure_status,
             "tenure_observation_count": len(title),
@@ -324,7 +337,11 @@ def main() -> None:
             "source_evidence_note": basis,
             "project_evidence_url": source_url,
             "evidence_status": "AVAILABLE_ROW_LEVEL" if (source_url or upstream) else "MISSING",
-            "company_asx_name_transfer_review": "PENDING_HUMAN_ENTITY_RESOLUTION",
+            "company_asx_name_transfer_review": "PENDING_ROW_LEVEL_PRIMARY_SOURCE_REVIEW",
+            "asx_security_or_company_id": "",
+            "historical_company_names": "",
+            "company_transfer_effective_date": "",
+            "company_relationship_evidence_url": "",
             "project_dedup_group_candidate": project_name or ("UNRESOLVED:" + t["target_id"]),
             "project_dedup_decision": "CANDIDATE_PENDING_REVIEW" if project_name else "NOT_LINKED",
             "reviewer_decision": "",
