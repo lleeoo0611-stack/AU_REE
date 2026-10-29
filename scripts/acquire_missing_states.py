@@ -90,7 +90,11 @@ def collect_wfs(source):
         p={'service':'WFS','version':'2.0.0','request':'GetFeature','typeNames':typename,
            'outputFormat':FORMAT,'count':str(page_size),'maxFeatures':str(page_size),'startIndex':str(offset)}
         if key.startswith('SA_'):
+            # SARIG publishes these layers with WFS 1.1.0 in its official catalogue.
+            # The archived diagnostic succeeded without startIndex on the first request.
+            p['version']='1.1.0'
             p['typeName']=typename
+            if offset==0:p.pop('startIndex',None)
         try:r=fetch(url,p,attempts=2)
         except requests.HTTPError as e:
             if getattr(e.response,'status_code',None)==400 and page_size>25:
@@ -155,7 +159,7 @@ def main():
     fields=['native_id','name','state','latitude','longitude','company','commodity','entity_level','project_name_hint','activity','deposit_family','source_url']
     targets={'SA':'sa_sarig.csv','NSW':'nsw_minview.csv','VIC':'vic_minsite.csv','NT':'nt_modat.csv'}
     for st,fname in targets.items():
-        relevant=[k for k in report if k.startswith(st+'_')]
+        relevant=[k for k in report if k in {source[0] for source in SERVICES if source[1]==st}]
         if not all(report[k]['status']=='ACQUIRED_RAW_UNVERIFIED' for k in relevant):continue
         path=pathlib.Path('inputs/state_exports')/fname;path.parent.mkdir(parents=True,exist_ok=True)
         with path.open('w',encoding='utf8',newline='') as out:
