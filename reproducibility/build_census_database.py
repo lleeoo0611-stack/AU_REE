@@ -108,6 +108,7 @@ def capture(args) -> None:
         "reproduce_86_401_cohorts.py",
         "complete_487_source_review.py",
         "build_row_level_trace_bundle.py",
+        "reproducibility/quality_gate_487.py",
     ]
     provenance = []
     provenance_root = Path(args.provenance_root).resolve() if args.provenance_root else source.parent.parent
@@ -388,5 +389,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
