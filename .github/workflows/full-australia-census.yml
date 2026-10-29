@@ -1,0 +1,63 @@
+name: Australia-wide official REE inventory and hierarchy audit
+on:
+  push:
+    branches: [main]
+    paths: ['ops/all-states-run-trigger.json']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acquire-hierarchy-and-five-stages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install editable pipeline
+        run: python -m pip install -e '.[test]'
+      - name: Run Python regression
+        run: python -m pytest -q
+      - name: Acquire SA, NSW, VIC and diagnose NT
+        run: |
+          mkdir -p work
+          python scripts/acquire_missing_states.py | tee work/state_acquisition.log
+      - name: Refresh GA, WA, QLD, TAS and build complete five-stage research snapshot
+        run: |
+          set -o pipefail
+          python -m au_ree run --through r_export --refresh \
+            --db work/research.sqlite --workspace work | tee work/full_pipeline.log
+          python -m au_ree status --db work/research.sqlite --workspace work | tee work/status.log
+      - name: Link government parent groups without merging geological entities
+        run: |
+          python scripts/audit_project_hierarchy.py work/research.sqlite | tee work/hierarchy_summary.log
+          python - <<'PY'
+          import sqlite3
+          db=sqlite3.connect('work/research.sqlite')
+          assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert not db.execute('PRAGMA foreign_key_check').fetchall()
+          assert db.execute("SELECT count(*) FROM observations WHERE verification='VERIFIED'").fetchone()[0]==0
+          print('SQLite audit, FK and unverified evidence gates: PASS')
+          PY
+      - name: Upload source-level provenance, full CSV outputs and hierarchy audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: au-ree-australia-wide-official-census-v103
+          path: |
+            work/research.sqlite
+            work/cache/census
+            work/state_acquisition
+            work/state_acquisition.log
+            work/full_pipeline.log
+            work/status.log
+            work/hierarchy_summary.log
+            work/project_hierarchy
+            work/outputs
+            inputs/state_exports/sa_sarig.csv
+            inputs/state_exports/nsw_minview.csv
+            inputs/state_exports/vic_minsite.csv
+          retention-days: 14
+          if-no-files-found: warn
