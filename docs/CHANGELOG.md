@@ -1,0 +1,16 @@
+# Change log
+
+## v1.0.1 — 2026-10-29
+
+- Implement separate archived-document SHA-256 validation and independent reviewer decisions; input self-declared `VERIFIED` alone is not accepted.
+- Introduce provenance tables `source_documents`, `evidence_approvals`, `evidence_links`, `approved_project_reviews`, and the `gis_release_gates` audit table.
+- Re-evaluate coordinate and evidence approvals from current inputs on every upstream re-run; revoke stale scores and derived observations.
+- Freeze G0 global eligibility to the original 19 Alternatives; block all global matrix exports until 19/19 approved GIS and point values are complete.
+- Allow R1/S1/RS separately labelled subset releases only if at least two non-spatial eligible projects all have approved GIS.
+- Require archived and separately approved local GIS layers; non-archived remote GIS endpoints remain `OFFICIAL_REMOTE_NOT_ARCHIVED_OR_APPROVED`.
+- Add Python 3.11/3.13 offline CI, R 4.4.3 synthetic deterministic smoke CI, and regression tests for approval revocation and global/subset GIS gating.
+- Historical 203-project census and 220 unverified observations remain unchanged; no real project promoted to Verified.
+
+## v1.0.0
+
+- Five-stage Australian REE census/criteria/GIS/eligibility/R-export pipeline.

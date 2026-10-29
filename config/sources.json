@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-10-29",
+  "legal_policy": "Only authorized public government APIs and locally approved inputs. No ASX HTML scraping without a licence.",
+  "sources": [
+    {
+      "key": "GA_AIMR_REE_2026",
+      "type": "arcgis",
+      "enabled": true,
+      "official": true,
+      "url": "https://services.ga.gov.au/gis/rest/services/AustraliasIdentifiedMineralResources/MapServer/52",
+      "jurisdiction": "AU",
+      "entity_level": "DEPOSIT",
+      "name_field": "entity_id",
+      "native_id_field": "entity_id",
+      "state_field": "state",
+      "commodity_field": "commodity",
+      "activity_field": "currentstatus",
+      "deposit_family_field": "mineraldeposittype",
+      "commodity_preclassified_ree": true,
+      "where": "1=1",
+      "source_documentation": "https://www.ga.gov.au/scientific-topics/minerals/aimr"
+    },
+    {
+      "key": "GA_CRITICAL_DEPOSITS_2025",
+      "type": "arcgis",
+      "enabled": true,
+      "official": true,
+      "url": "https://services.ga.gov.au/gis/rest/services/AustralianCriticalMineralsOperatingMinesAndDeposits/MapServer/7",
+      "jurisdiction": "AU",
+      "entity_level": "DEPOSIT",
+      "name_field": "projectname",
+      "native_id_field": "objectid",
+      "state_field": "state",
+      "commodity_field": "commodities",
+      "activity_field": "status",
+      "where": "1=1",
+      "source_documentation": "https://pid.geoscience.gov.au/dataset/ga/150802"
+    },
+    {
+      "key": "STATE_WA_MINDEX",
+      "type": "arcgis",
+      "enabled": true,
+      "official": true,
+      "url": "https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Industry_and_Mining_WFS/MapServer/0",
+      "jurisdiction": "WA",
+      "entity_level": "DEPOSIT",
+      "name_field": "site_title",
+      "native_id_field": "site_code",
+      "commodity_field": "site_commo",
+      "commodity_extra_fields": [
+        "target_com",
+        "commodity"
+      ],
+      "project_name_field": "proj_title",
+      "state_fixed": "WA",
+      "where": "1=1",
+      "source_documentation": "https://www.wa.gov.au/service/natural-resources/mineral-resources/access-mines-and-mineral-deposits-minedex"
+    },
+    {
+      "key": "STATE_QLD_MINOCC",
+      "type": "arcgis",
+      "enabled": true,
+      "official": true,
+      "url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/MiningResources/MapServer/17",
+      "jurisdiction": "QLD",
+      "entity_level": "OCCURRENCE",
+      "name_field": "occur_name",
+      "native_id_field": "site_no",
+      "commodity_field": "all_commodities",
+      "commodity_extra_fields": [
+        "main_commodity"
+      ],
+      "state_fixed": "QLD",
+      "where": "1=1",
+      "source_documentation": "https://www.data.qld.gov.au/dataset/queensland-mineral-and-energy-resource-series"
+    },
+    {
+      "key": "STATE_TAS_MRT",
+      "type": "arcgis",
+      "enabled": true,
+      "official": true,
+      "url": "https://data.stategrowth.tas.gov.au/ags/rest/services/MRT/GeoscienceWFS/MapServer/3",
+      "jurisdiction": "TAS",
+      "entity_level": "OCCURRENCE",
+      "name_field": "DEPOSIT_NAME",
+      "native_id_field": "DEPOSIT_ID",
+      "commodity_field": "COMMODITIES",
+      "commodity_extra_fields": [
+        "COMMODITY_CATEGORY",
+        "DESCRIPTION"
+      ],
+      "state_fixed": "TAS",
+      "where": "1=1",
+      "source_documentation": "https://www.mrt.tas.gov.au/products/digital_data/data_downloads/mineral_occurrences_data"
+    },
+    {
+      "key": "STATE_NT_MODAT",
+      "type": "csv",
+      "enabled": true,
+      "official": true,
+      "entity_level": "OCCURRENCE",
+      "jurisdiction": "NT",
+      "state_fixed": "NT",
+      "path": "inputs/state_exports/nt_modat.csv",
+      "source_documentation": "https://data.nt.gov.au/dataset/strike---northern-territory-mineral-occurrences"
+    },
+    {
+      "key": "STATE_SA_SARIG",
+      "type": "csv",
+      "enabled": true,
+      "official": true,
+      "entity_level": "UNKNOWN",
+      "jurisdiction": "SA",
+      "state_fixed": "SA",
+      "path": "inputs/state_exports/sa_sarig.csv",
+      "source_documentation": "https://www.energymining.sa.gov.au/industry/geological-survey/products-and-services/map-viewers-databases-and-services/data-services"
+    },
+    {
+      "key": "STATE_NSW_MINVIEW",
+      "type": "csv",
+      "enabled": true,
+      "official": true,
+      "entity_level": "OCCURRENCE",
+      "jurisdiction": "NSW",
+      "state_fixed": "NSW",
+      "path": "inputs/state_exports/nsw_minview.csv",
+      "source_documentation": "https://www.resources.nsw.gov.au/geological-survey/minview"
+    },
+    {
+      "key": "STATE_VIC_MINSITE",
+      "type": "csv",
+      "enabled": true,
+      "official": true,
+      "entity_level": "OCCURRENCE",
+      "jurisdiction": "VIC",
+      "state_fixed": "VIC",
+      "path": "inputs/state_exports/vic_minsite.csv",
+      "source_documentation": "https://discover.data.vic.gov.au/en_AU/dataset/mines-and-mineral-occurrence-sites"
+    }
+  ],
+  "schema_version": "CENSUS_SOURCE_REGISTRY_V2"
+}

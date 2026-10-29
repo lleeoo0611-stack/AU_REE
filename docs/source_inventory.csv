@@ -1,0 +1,10 @@
+﻿source_key,jurisdiction,adapter,entity_level,enabled,official_url,fetch_status,records_acquired,raw_manifest_sha256
+GA_AIMR_REE_2026,AU,arcgis,DEPOSIT,True,https://services.ga.gov.au/gis/rest/services/AustraliasIdentifiedMineralResources/MapServer/52,OFFLINE_CACHE_MISSING,0,
+GA_CRITICAL_DEPOSITS_2025,AU,arcgis,DEPOSIT,True,https://services.ga.gov.au/gis/rest/services/AustralianCriticalMineralsOperatingMinesAndDeposits/MapServer/7,OFFLINE_CACHE_MISSING,0,
+STATE_WA_MINDEX,WA,arcgis,DEPOSIT,True,https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Industry_and_Mining_WFS/MapServer/0,OFFLINE_CACHE_MISSING,0,
+STATE_QLD_MINOCC,QLD,arcgis,OCCURRENCE,True,https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/MiningResources/MapServer/17,OFFLINE_CACHE_MISSING,0,
+STATE_TAS_MRT,TAS,arcgis,OCCURRENCE,True,https://data.stategrowth.tas.gov.au/ags/rest/services/MRT/GeoscienceWFS/MapServer/3,OFFLINE_CACHE_MISSING,0,
+STATE_NT_MODAT,NT,csv,OCCURRENCE,True,https://data.nt.gov.au/dataset/strike---northern-territory-mineral-occurrences,AWAITING_OFFICIAL_EXPORT,0,
+STATE_SA_SARIG,SA,csv,UNKNOWN,True,https://www.energymining.sa.gov.au/industry/geological-survey/products-and-services/map-viewers-databases-and-services/data-services,AWAITING_OFFICIAL_EXPORT,0,
+STATE_NSW_MINVIEW,NSW,csv,OCCURRENCE,True,https://www.resources.nsw.gov.au/geological-survey/minview,AWAITING_OFFICIAL_EXPORT,0,
+STATE_VIC_MINSITE,VIC,csv,OCCURRENCE,True,https://discover.data.vic.gov.au/en_AU/dataset/mines-and-mineral-occurrence-sites,AWAITING_OFFICIAL_EXPORT,0,

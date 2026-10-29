@@ -1,0 +1,52 @@
+{
+  "snapshot_date": "2026-10-29",
+  "method": "EPSG:3577 Euclidean minimum point-to-geometry distance (km)",
+  "radii_km": [
+    25,
+    100,
+    250,
+    500,
+    1000
+  ],
+  "timeout_seconds": 45,
+  "retries": 3,
+  "chunk_size": 250,
+  "layers": {
+    "road": {
+      "mode": "nearby",
+      "arcgis_layer_url": "https://spatial.infrastructure.gov.au/server/rest/services/KeyFreightRoutes/Key_Freight_Routes/MapServer/5",
+      "local_geojson": null,
+      "official_source_url": "https://spatial.infrastructure.gov.au/server/rest/services/KeyFreightRoutes/Key_Freight_Routes/MapServer/5",
+      "where_clause": "1=1",
+      "expected_sha256": null,
+      "definition": "Distance to national key freight road route"
+    },
+    "rail": {
+      "mode": "nearby",
+      "arcgis_layer_url": "https://services.ga.gov.au/gis/rest/services/Foundation_Rail_Infrastructure/MapServer/1",
+      "local_geojson": null,
+      "official_source_url": "https://services.ga.gov.au/gis/rest/services/Foundation_Rail_Infrastructure/MapServer/1",
+      "where_clause": "operational_status IN ('Operational','Fully capable of operation.') AND featuresubtype IN (90015,90016)",
+      "expected_sha256": null,
+      "definition": "Distance to operational railway or siding"
+    },
+    "power": {
+      "mode": "nearby",
+      "arcgis_layer_url": "https://services.ga.gov.au/gis/rest/services/Electricity_Infrastructure/MapServer/2",
+      "local_geojson": null,
+      "official_source_url": "https://services.ga.gov.au/gis/rest/services/Electricity_Infrastructure/MapServer/2",
+      "where_clause": "1=1",
+      "expected_sha256": null,
+      "definition": "Distance to mapped high-voltage power line"
+    },
+    "port": {
+      "mode": "full",
+      "arcgis_layer_url": "https://services.ga.gov.au/gis/rest/services/Maritime_Facilities/MapServer/0",
+      "local_geojson": null,
+      "official_source_url": "https://services.ga.gov.au/gis/rest/services/Maritime_Facilities/MapServer/0",
+      "where_clause": "1=1",
+      "expected_sha256": null,
+      "definition": "Distance to GA National Major Ports Database point"
+    }
+  }
+}

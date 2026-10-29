@@ -1,0 +1,137 @@
+{
+  "version": "PRE_FID_SCOPING_DFS_GATE_V1",
+  "snapshot_date": "2026-10-29",
+  "required_geography": "Australia",
+  "activity_allow": [
+    "ACTIVE",
+    "UNDER_STUDY",
+    "FEASIBILITY"
+  ],
+  "stage_allow": [
+    "SCOPING",
+    "PFS",
+    "DFS",
+    "BFS",
+    "FEASIBILITY"
+  ],
+  "exclude_stages": [
+    "FID",
+    "CONSTRUCTION",
+    "PRODUCTION",
+    "OPERATIONAL",
+    "CLOSED"
+  ],
+  "resource_basis_require_jorc": true,
+  "mandatory_variables": [
+    "D1",
+    "I1",
+    "I2",
+    "I3",
+    "I4"
+  ],
+  "minimum_coverage_fraction": 0.7,
+  "minimum_domain_count": 4,
+  "review_status_is_pass": false,
+  "require_traceable_source_for_scoring": true,
+  "scenarios": {
+    "G0_BASELINE": {
+      "criteria": [
+        "T1",
+        "T2",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "requires": [
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ]
+    },
+    "R1_STRICT": {
+      "criteria": [
+        "R1",
+        "T1",
+        "T2",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "requires": [
+        "R1",
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ]
+    },
+    "S1_DIRECT": {
+      "criteria": [
+        "S1",
+        "T1",
+        "T2",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "requires": [
+        "S1",
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ]
+    },
+    "RS_STRICT": {
+      "criteria": [
+        "R1",
+        "S1",
+        "T1",
+        "T2",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "requires": [
+        "R1",
+        "S1",
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ]
+    }
+  },
+  "global_scenario": "G0_BASELINE",
+  "global_cohort_expected_count": 19,
+  "minimum_subset_size": 2
+}

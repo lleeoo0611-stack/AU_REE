@@ -1,0 +1,10 @@
+{
+ "seed":20261029,"monte_carlo_reps":1000,"dirichlet_concentration":30,
+ "preference_threshold_iqr_fraction":1.0,"ahp_cr_max":0.10,
+ "allow_unweighted_fallback":false,
+ "weights":{
+ "resource_driven":{"R1":0.27,"S1":0.15,"T1":0.08,"T2":0.06,"D1":0.11,"I1":0.05,"I2":0.05,"I3":0.05,"I4":0.05,"C1":0.04,"C2":0.04,"C3":0.05},
+ "development_driven":{"R1":0.09,"S1":0.07,"T1":0.13,"T2":0.10,"D1":0.21,"I1":0.09,"I2":0.07,"I3":0.07,"I4":0.05,"C1":0.05,"C2":0.03,"C3":0.04},
+ "strategic_supply_driven":{"R1":0.11,"S1":0.26,"T1":0.08,"T2":0.06,"D1":0.15,"I1":0.05,"I2":0.05,"I3":0.06,"I4":0.04,"C1":0.05,"C2":0.05,"C3":0.04}
+ },"weights_status":"ILLUSTRATIVE_SCENARIO_ASSUMPTIONS_NOT_ELICITED_AHP"
+}
