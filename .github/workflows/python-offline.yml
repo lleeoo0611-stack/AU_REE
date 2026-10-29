@@ -1,0 +1,58 @@
+name: Python offline regression
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-python:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install tested dependencies
+        run: python -m pip install -e ".[test]"
+      - name: Synthetic and regression tests (network-free test cases)
+        env:
+          PYTHONPATH: src
+        run: python -m pytest -q --junitxml="${RUNNER_TEMP}/pytest-results.xml"
+      - name: Reproduce the frozen research snapshot without network
+        env:
+          PYTHONPATH: src
+        run: |
+          python -m au_ree run --through r_export --offline --db "${RUNNER_TEMP}/research.sqlite" --workspace "${RUNNER_TEMP}/offline_run" | tee "${RUNNER_TEMP}/first_run.log"
+          python -m au_ree run --through r_export --offline --db "${RUNNER_TEMP}/research.sqlite" --workspace "${RUNNER_TEMP}/offline_run" | tee "${RUNNER_TEMP}/reuse_run.log"
+          python - "${RUNNER_TEMP}/research.sqlite" "${RUNNER_TEMP}/reuse_run.log" <<'PY'
+          import json,sqlite3,sys
+          db=sqlite3.connect(sys.argv[1]);db.row_factory=sqlite3.Row
+          assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert not db.execute('PRAGMA foreign_key_check').fetchall()
+          assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==203
+          assert db.execute('SELECT COUNT(*) FROM criteria').fetchone()[0]==12
+          assert db.execute('SELECT COUNT(*) FROM observations').fetchone()[0]==220
+          assert db.execute("SELECT COUNT(*) FROM observations WHERE verification='VERIFIED'").fetchone()[0]==0
+          assert db.execute('SELECT COUNT(*) FROM eligibility WHERE point_ready=1').fetchone()[0]==0
+          assert db.execute('SELECT COUNT(*) FROM gis_release_gates').fetchone()[0]==4
+          assert open(sys.argv[2]).read().count('REUSED')==5
+          print('All offline snapshot invariants passed')
+          PY
+      - name: Upload QA logs and CSV exports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-offline-${{ matrix.python-version }}
+          path: |
+            ${{ runner.temp }}/pytest-results.xml
+            ${{ runner.temp }}/first_run.log
+            ${{ runner.temp }}/reuse_run.log
+            ${{ runner.temp }}/offline_run/outputs
+          if-no-files-found: warn
+          retention-days: 14

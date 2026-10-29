@@ -1,0 +1,65 @@
+name: R MCDA deterministic smoke test
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  r-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.3'
+          use-public-rspm: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Generate clearly labelled synthetic MCDA data
+        run: python tests/ci/generate_r_fixture.py "${RUNNER_TEMP}/r-fixture"
+      - name: Run AHP, PROMETHEE II, SAW, TOPSIS and Monte Carlo twice
+        run: |
+          for run in first repeat; do
+            Rscript R/run_mcda.R \
+              --input "${RUNNER_TEMP}/r-fixture/matrix.csv" \
+              --criteria "${RUNNER_TEMP}/r-fixture/criteria.csv" \
+              --weights "${RUNNER_TEMP}/r-fixture/weights.csv" \
+              --ahp "${RUNNER_TEMP}/r-fixture/ahp.csv" \
+              --perspective synthetic --seed 20261029 --reps 100 \
+              --out "${RUNNER_TEMP}/r-$run"
+          done
+          cmp "${RUNNER_TEMP}/r-first/ranking_comparison.csv" "${RUNNER_TEMP}/r-repeat/ranking_comparison.csv"
+          cmp "${RUNNER_TEMP}/r-first/monte_carlo_ranks.csv" "${RUNNER_TEMP}/r-repeat/monte_carlo_ranks.csv"
+      - name: Verify outputs and reject empty/unapproved inputs
+        run: |
+          python - "${RUNNER_TEMP}/r-first" <<'PY'
+          import csv,sys
+          from pathlib import Path
+          folder=Path(sys.argv[1]);rows=list(csv.DictReader((folder/'ranking_comparison.csv').open()))
+          assert len(rows)==3
+          assert sorted(float(x['promethee_rank']) for x in rows)==[1,2,3]
+          assert len(list(csv.DictReader((folder/'weight_and_threshold_audit.csv').open())))==4
+          assert len(list(csv.DictReader((folder/'monte_carlo_ranks.csv').open())))==3
+          print('Synthetic R algorithm smoke checks PASS')
+          PY
+          if Rscript R/run_mcda.R \
+            --input "${RUNNER_TEMP}/r-fixture/empty_matrix.csv" \
+            --criteria "${RUNNER_TEMP}/r-fixture/criteria.csv" \
+            --weights "${RUNNER_TEMP}/r-fixture/weights.csv" \
+            --ahp "${RUNNER_TEMP}/r-fixture/ahp.csv" \
+            --perspective synthetic --out "${RUNNER_TEMP}/invalid"; then
+              echo 'ERROR: an empty research matrix was accepted'; exit 1
+          fi
+      - name: Upload synthetic R CI output (never publish as research ranking)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r-mcda-synthetic-ci
+          path: |
+            ${{ runner.temp }}/r-fixture
+            ${{ runner.temp }}/r-first
+            ${{ runner.temp }}/r-repeat
+          if-no-files-found: warn
+          retention-days: 14

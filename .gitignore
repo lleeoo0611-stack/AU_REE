@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+*.egg-info/
+work/*
+!work/.gitkeep
+outputs/*
+!outputs/.gitkeep
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+*.gpkg
+.DS_Store
