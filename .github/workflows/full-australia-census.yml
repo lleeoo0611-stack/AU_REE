@@ -17,11 +17,14 @@ jobs:
           python-version: '3.11'
           cache: pip
       - name: Install editable pipeline
-        run: python -m pip install -e '.[test]'
+        run: |
+          python -m pip install -e '.[test]'
+          python -m pip install requests
       - name: Run Python regression
         run: python -m pytest -q
       - name: Acquire SA, NSW, VIC and NT from official WFS
         run: |
+          set -o pipefail
           mkdir -p work
           python scripts/acquire_missing_states.py | tee work/state_acquisition.log
       - name: Refresh GA, WA, QLD, TAS and build complete five-stage research snapshot
@@ -40,6 +43,21 @@ jobs:
           assert not db.execute('PRAGMA foreign_key_check').fetchall()
           assert db.execute("SELECT count(*) FROM observations WHERE verification='VERIFIED'").fetchone()[0]==0
           print('SQLite audit, FK and unverified evidence gates: PASS')
+          PY
+      - name: Assert all four new jurisdictions have complete official source archives
+        run: |
+          python - <<'PY'
+          import pathlib,json
+          f=pathlib.Path('work/state_acquisition/official_state_acquisition.json')
+          if not f.exists():raise SystemExit('MISSING_ACQUISITION_MANIFEST')
+          obj=json.loads(f.read_text())
+          required=['SA_PROJECT_DEVELOPING','SA_PROJECT_MAJOR','SA_MINDEP','SA_REE_CRITICAL','NSW_METINDEX','VIC_MINSITE','NT_MODAT_WFS']
+          bad=[k for k in required if obj.get(k,{}).get('status')!='ACQUIRED_RAW_UNVERIFIED']
+          for s in ['SA','NSW','VIC','NT']:
+              p=pathlib.Path('inputs/state_exports')/({'SA':'sa_sarig.csv','NSW':'nsw_minview.csv','VIC':'vic_minsite.csv','NT':'nt_modat.csv'}[s])
+              if not p.is_file():bad.append(s+'_CSV_MISSING')
+          if bad:raise SystemExit('NATIONAL_SOURCE_COVERAGE_BLOCKED: '+str(bad))
+          print('NATIONAL_SOURCE_COVERAGE_PASS')
           PY
       - name: Upload source-level provenance, full CSV outputs and hierarchy audit
         if: always()
