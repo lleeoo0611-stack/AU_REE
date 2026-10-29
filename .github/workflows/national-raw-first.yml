@@ -1,0 +1,38 @@
+name: Australia-wide raw mineral archive - no REE filtering
+on:
+  push:
+    branches: [main]
+    paths: ['ops/national-raw-first-trigger.json']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acquire-raw-first:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source adapters
+        run: |
+          python -m pip install -e '.[test]'
+          python -m pip install requests
+      - name: Acquire every source without REE keyword or MCDA filtering
+        run: |
+          mkdir -p work/national_raw
+          python scripts/acquire_national_raw.py --out work/national_raw | tee work/national_raw_acquisition.log
+      - name: Verify all jurisdictions and archive hashes BEFORE any screening
+        if: always()
+        run: python scripts/verify_national_raw.py --raw-dir work/national_raw
+      - name: Archive untouched full government source files, even after source failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: australia-national-unfiltered-raw-inventory
+          path: |
+            work/national_raw
+            work/national_raw_acquisition.log
+          retention-days: 14
+          if-no-files-found: warn
