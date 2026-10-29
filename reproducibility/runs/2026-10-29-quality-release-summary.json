@@ -1,32 +1,32 @@
 {
-  "snapshot_id": "2026-10-29-r12-final",
-  "repeatability_snapshot_id": "2026-10-29-r13-repeatability",
+  "snapshot_id": "2026-10-29-r14-final",
+  "repeatability_snapshot_id": "2026-10-29-r15-repeatability",
   "status": "PASS_WITH_REVIEW_ITEMS",
   "as_of_date": "2026-10-29",
-  "database_sha256": "4fcf51477d098aa4f82e1ff99cbf2a0f5faf900150d3eb9b04f3cacc04738e5e",
+  "database_sha256": "a7d3ca3ed73c2d4f9f53837dcc02a9a5a1896ce8291d6f77cbc0a0730138e6e8",
   "comparison": {
-    "changed_provenance": [],
     "changed_tables": [],
-    "schema_equal": true
+    "schema_equal": true,
+    "changed_provenance": []
   },
   "row_quality": {
-    "project_candidates": 30,
+    "dedup_pending": 18,
+    "evidence_url_rows": 95,
+    "jurisdiction_coverage_rows": 8,
     "target_membership_rows": 487,
     "unique_target_ids": 487,
-    "evidence_url_rows": 95,
-    "targets_without_project_link": 464,
-    "dedup_pending": 18,
-    "source_entities": 487,
-    "source_locator_review": 95,
-    "company_history_pending": 30,
     "targets_with_project_link": 23,
-    "jurisdiction_coverage_rows": 8,
-    "target_rows": 487
+    "project_candidates": 30,
+    "company_history_pending": 30,
+    "targets_without_project_link": 464,
+    "target_rows": 487,
+    "source_entities": 487,
+    "source_locator_review": 95
   },
   "preserved_dispositions": {
+    "HOLD_REE_ROLE": 6,
     "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 444,
-    "PROJECT_CANDIDATE_REVIEW": 37,
-    "HOLD_REE_ROLE": 6
+    "PROJECT_CANDIDATE_REVIEW": 37
   },
   "limitations": [
     "No automatic government/company source refresh",
