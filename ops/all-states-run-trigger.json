@@ -1,7 +1,7 @@
 {
-  "request_id": "full-national-ree-census-recheck-v103-sarig-nsw-vic-2026-10-29",
-  "purpose": "National official archive GA WA QLD TAS SA NSW VIC NT; corrected NSW VIC commodity mapping and NT native IDs",
-  "release_policy": "OFFICIAL_SOURCE_UNVERIFIED_PENDING_INDEPENDENT_REVIEW",
-  "run": "all-states-flow",
-  "no_auto_merges": true
+  "request_id": "AU_REE_SARIG_WFS11_NT_export_retest_2026-10-29",
+  "scope": "GA WA QLD TAS + SARIG 4 WFS + NSW VIC NT",
+  "change": "WFS 1.1.0 for SA first page; fix NT source-export approval gate",
+  "review_policy": "No automatic Project merges, no VERIFIED upgrade",
+  "expected": "Raw WFS manifests + QA + 5-stage results"
 }
