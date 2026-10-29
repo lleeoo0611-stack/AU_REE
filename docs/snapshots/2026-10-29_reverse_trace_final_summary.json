@@ -1,0 +1,85 @@
+{
+  "source_run_artifact": "nationwide-487-tenement-company-reverse-trace",
+  "total_targets": 487,
+  "legacy_unmatched": 86,
+  "unlinked_E1": 401,
+  "official_intersected_target_count": 258,
+  "official_tenure_intersection_rows": 764,
+  "strict_current_title_target_count": 196,
+  "company_name_candidate_count": 201,
+  "sa_project_id_or_name_link_targets": 20,
+  "government_project_evidence_targets": 12,
+  "resolution_outcome": {
+    "GOVERNMENT_PROJECT_AND_COMPANY_CANDIDATE": 12,
+    "LOCATION_NEEDED": 39,
+    "CURRENT_TENEMENT_HOLDER_CANDIDATE": 195,
+    "HISTORIC_OR_PENDING_TENEMENT_HOLDER_CANDIDATE": 62,
+    "NO_OFFICIAL_TENEMENT_INTERSECTION_ON_QUERY_DATE": 51,
+    "SA_TENEMENT_SOURCE_PENDING": 108,
+    "SA_OFFICIAL_PROJECT_DEPOSIT_LINK_CANDIDATE": 20
+  },
+  "state_outcomes": {
+    "WA": {
+      "legacy": 21,
+      "e1_unlinked": 106,
+      "tenure_hit": 93,
+      "strict_current_tenure": 77,
+      "official_sa_project": 0,
+      "government_company_project": 0
+    },
+    "SA": {
+      "legacy": 3,
+      "e1_unlinked": 128,
+      "tenure_hit": 0,
+      "strict_current_tenure": 0,
+      "official_sa_project": 20,
+      "government_company_project": 0
+    },
+    "QLD": {
+      "legacy": 9,
+      "e1_unlinked": 38,
+      "tenure_hit": 22,
+      "strict_current_tenure": 21,
+      "official_sa_project": 0,
+      "government_company_project": 0
+    },
+    "NSW": {
+      "legacy": 5,
+      "e1_unlinked": 51,
+      "tenure_hit": 51,
+      "strict_current_tenure": 38,
+      "official_sa_project": 0,
+      "government_company_project": 4
+    },
+    "VIC": {
+      "legacy": 13,
+      "e1_unlinked": 30,
+      "tenure_hit": 30,
+      "strict_current_tenure": 23,
+      "official_sa_project": 0,
+      "government_company_project": 6
+    },
+    "NT": {
+      "legacy": 28,
+      "e1_unlinked": 27,
+      "tenure_hit": 45,
+      "strict_current_tenure": 23,
+      "official_sa_project": 0,
+      "government_company_project": 2
+    },
+    "TAS": {
+      "legacy": 7,
+      "e1_unlinked": 21,
+      "tenure_hit": 17,
+      "strict_current_tenure": 14,
+      "official_sa_project": 0,
+      "government_company_project": 0
+    }
+  },
+  "project_master_auto_approved_count": 0,
+  "source_hashes": {
+    "tenement_zip_sha256": "889ba353aace60db982ffa56aae25f8eac0aa8425950aa2cfc5f514792d14fac",
+    "target_csv_sha256": "dfb06c97702e05e8d9bc264d6e4279a524d32e381437d6bcc95b48cb9d008063",
+    "sa_crosswalk_sha256": "c78529d85792524d0905321528bc98d9b814fbb6a7f0364a630a5aeb08625320"
+  }
+}
