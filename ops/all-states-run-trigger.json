@@ -1,6 +1,7 @@
 {
-  "request_id": "AU_REE-national-inventory-SA-WFS-fix-20261029",
-  "action": "reacquire_official_WFS_for_SA_NSW_VIC_NT_and_merge_with_GA_WA_QLD_TAS",
-  "safety": "do_not_auto_verify_or_dedup_projects",
-  "reason": "fix SARIG WFS argument parsing and NT all-row native IDs"
+  "request_id": "full-national-ree-census-recheck-v103-sarig-nsw-vic-2026-10-29",
+  "purpose": "National official archive GA WA QLD TAS SA NSW VIC NT; corrected NSW VIC commodity mapping and NT native IDs",
+  "release_policy": "OFFICIAL_SOURCE_UNVERIFIED_PENDING_INDEPENDENT_REVIEW",
+  "run": "all-states-flow",
+  "no_auto_merges": true
 }
