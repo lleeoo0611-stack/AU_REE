@@ -1,7 +1,6 @@
 {
-  "run_id": "20261029-national-official-census-v103",
+  "run_id": "20261029-national-official-census-v103-retry-requests-fixed",
   "states": [
-    "AU",
     "WA",
     "QLD",
     "TAS",
@@ -10,6 +9,7 @@
     "VIC",
     "NT"
   ],
-  "approval": "government-only;unverified-entity-retained;no-promotion",
-  "goal": "complete source inventory and provisional project-deposit-site grouping"
+  "expected_official_wfs_layers": 7,
+  "policy": "no_unverified_promotion",
+  "goal": "source_completeness_parent_grouping_and_five_stages"
 }
