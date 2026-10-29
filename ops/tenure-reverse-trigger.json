@@ -1,9 +1,12 @@
 {
-  "run": "NATIONAL_REVERSE_TRACE_487_RETRY_BYTES_FIX",
-  "input_sha256": "dfb06c97702e05e8d9bc264d6e4279a524d32e381437d6bcc95b48cb9d008063",
-  "cohorts": {
-    "LEGACY_86": 86,
-    "UNLINKED_E1_401": 401
-  },
-  "project_auto_approve": false
+  "run": "NATIONAL_REVERSE_TRACE_487_FINAL_MINERAL_TENURE_ONLY",
+  "target_count": 487,
+  "fixes": [
+    "QLD authorisedholdername",
+    "TAS OWNER",
+    "VIC own_name",
+    "NSW title/application",
+    "NT mineral only"
+  ],
+  "project_approvals": 0
 }
