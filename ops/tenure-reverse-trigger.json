@@ -1,0 +1,8 @@
+{
+  "run": "NATIONAL_REVERSE_TRACE_487",
+  "legacy_unmatched": 86,
+  "unlinked_E1": 401,
+  "point_query_policy": "strict_official_intersection_no_auto_project",
+  "artifacts": "editable_csv_sqlite_source_evidence",
+  "date": "2026-10-29"
+}
