@@ -5,7 +5,7 @@
 ## Output tables
 
 - `project_entity_register.csv`: deterministic IDs for reviewed Project candidates and source-level entities. Project candidate IDs use the current candidate group key; a key change creates a new ID and must be reviewed as a possible rename/merge/split. Source records are retained separately as Project candidate, deposit, prospect, tenement, occurrence, or historical source-record entities.
-- `project_entity_membership_487.csv`: exactly one row for each frozen target ID. The `project_entity_id` is populated only when the target occurs in the reviewed project candidate crosswalk. Other targets remain `UNRESOLVED_NO_PROJECT_LINK_INFERRED`.
+- `source_entity_register_487.csv`: one source-level entity row for each frozen target ID, with deterministic source entity IDs and source entity level.\n- `project_entity_membership_487.csv`: exactly one row for each frozen target ID. The `project_entity_id` is populated only when the target occurs in the reviewed project candidate crosswalk. Other targets remain `UNRESOLVED_NO_PROJECT_LINK_INFERRED`.
 - `project_evidence_register.csv`: one row per recorded URL. URL presence does not establish that the source supports a condition. Source type, publisher/date, page/section, claim, and condition supported are explicit review fields and stay blank/unclassified until checked.
 - `quality_gate_487.csv` and `quality_gate_487_summary.json`: row counts, ID consistency, link coverage, source locator gaps, disposition counts, and input hashes.
 
