@@ -51,8 +51,8 @@ def effective_commodity(src,a):
     'SA_PROJECT_MAJOR':['COMMODITIES','PROJECT_DESCRIPTION'],
     'SA_MINDEP':['DEPOSIT_COMMODITIES','DEPOSIT_COMMODITY_CODES','SUMMARY_DESCRIPTION'],
     'SA_REE_CRITICAL':['DEPOSIT_COMMODITIES','DEPOSIT_COMMODITY_CODES','SUMMARY_DESCRIPTION'],
-    'NSW_METINDEX':['comm_type','major_commodities','minor_commodities','ore_mineralology','commodity','dep_description'],
-    'VIC_MINSITE':['prod_comm','ore_comm','comm','commdsc','ore_mineral','description','mineral','commodities'],
+    'NSW_METINDEX':['major_comm','minor_comm','ore_min','gangue_min','nsw_class','nsw_gen','other_class','summary_desc','comm_type'],
+    'VIC_MINSITE':['pri_comm','sec_comm','min_ass','prod_comm','ore_comm','comm','commdsc','ore_mineral','description','mineral','commodities'],
     'NT_MODAT_WFS':['commodity','representativeCommodity_uri','mineralOccurrenceType']}.get(src,[])
     return '; '.join(str(v) for k in keys if (v:=field(a,k)))
 
@@ -120,6 +120,8 @@ def collect_wfs(source):
     if expected is not None and total!=expected:raise RuntimeError(f'{key}: incomplete download expected {expected}, got {total}')
     if offset>=200000 and (expected is None or total<expected):raise RuntimeError(f'{key}: incomplete source above safety cap')
     if not total:raise RuntimeError(f'{key}: empty official feature collection')
+    if key in ('NSW_METINDEX','VIC_MINSITE') and total>100 and not selected:
+        raise RuntimeError(f'{key}: suspicious zero REE candidates; verify official commodity field mapping before accepting source')
     manifest={'key':key,'url':url,'typename':typename,'entity_level':entity,'raw_count':total,'unique_native_ids':len(seen),
         'ree_candidates':len(selected),'expected':expected,'chunks':raw_sha,'duplicates':dict(rejections),'status':'ACQUIRED_RAW_UNVERIFIED'}
     (directory/'manifest.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding='utf8')
