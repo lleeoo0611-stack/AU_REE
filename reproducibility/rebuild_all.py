@@ -48,6 +48,7 @@ def main():
         [py, str(root / "enrich_candidate_evidence.py"), str(root)],
         [py, str(root / "complete_487_source_review.py"), str(root)],
         [py, str(root / "build_row_level_trace_bundle.py"), str(root)],
+        [py, str(repro / "quality_gate_487.py"), "--root", str(root), "--as-of-date", args.as_of_date],
         [py, str(db_builder), "csv-build", "--csv-dir", str(out), "--output", str(out / "census_review.sqlite"), "--as-of-date", args.as_of_date, "--overwrite"],
         [py, str(root / "build_editable_workbook.py"), str(out)],
     ]
@@ -81,5 +82,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
