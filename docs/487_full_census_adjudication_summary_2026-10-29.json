@@ -2,9 +2,9 @@
   "as_of": "2026-10-29",
   "target_rows": 487,
   "status_counts": {
-    "PROJECT_CANDIDATE_REVIEW": 34,
-    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 448,
-    "HOLD_REE_ROLE": 5
+    "PROJECT_CANDIDATE_REVIEW": 37,
+    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 444,
+    "HOLD_REE_ROLE": 6
   },
   "state_status_counts": {
     "NSW": {
@@ -17,9 +17,9 @@
       "PROJECT_CANDIDATE_REVIEW": 3
     },
     "QLD": {
-      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 39,
-      "PROJECT_CANDIDATE_REVIEW": 7,
-      "HOLD_REE_ROLE": 1
+      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 35,
+      "PROJECT_CANDIDATE_REVIEW": 10,
+      "HOLD_REE_ROLE": 2
     },
     "SA": {
       "HOLD_REE_ROLE": 3,
@@ -39,10 +39,10 @@
   },
   "official_portal_link_present": 487,
   "exact_source_key_present": 437,
-  "project_level_source_reviewed": 38,
+  "project_level_source_reviewed": 41,
   "company_history_fully_linked": 0,
   "exclusions": 0,
-  "new_case_groups_reviewed": 11,
+  "new_case_groups_reviewed": 19,
   "rules": [
     "Missing evidence remains HOLD, never inferred exclusion.",
     "Project source review does not complete target-level title polygon or company transfer verification.",
