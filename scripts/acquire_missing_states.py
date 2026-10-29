@@ -84,10 +84,21 @@ def collect_wfs(source):
     key,st,url,typename,entity=source
     directory=ROOT/key;directory.mkdir(parents=True,exist_ok=True)
     selected=[];total=0;raw_sha=[];seen=set();rejections=Counter();expected=None
-    for offset in range(0,200000,1000):
+    offset=0
+    page_size=1000
+    while offset<200000:
         p={'service':'WFS','version':'2.0.0','request':'GetFeature','typeNames':typename,
-           'outputFormat':FORMAT,'count':'1000','startIndex':str(offset)}
-        r=fetch(url,p)
+           'outputFormat':FORMAT,'count':str(page_size),'maxFeatures':str(page_size),'startIndex':str(offset)}
+        if key.startswith('SA_'):
+            p['typeName']=typename
+        try:r=fetch(url,p,attempts=2)
+        except requests.HTTPError as e:
+            if getattr(e.response,'status_code',None)==400 and page_size>25:
+                page_size=max(25,page_size//5)
+                print(key,'WFS_PAGE_SIZE_REDUCED',page_size,'at_offset',offset,flush=True)
+                continue
+            detail=(e.response.text[:450] if e.response is not None else '')
+            raise RuntimeError(f'{key} offset={offset} page_size={page_size}: {e}, body={detail}')
         data=r.json()
         if data.get('type')!='FeatureCollection':raise RuntimeError(f'{key}: not GeoJSON FeatureCollection')
         records=data.get('features')
@@ -98,13 +109,16 @@ def collect_wfs(source):
         for rec in records:
             a=rec.get('properties') or {}
             item=normalize(key,st,entity,rec,url)
-            native=(item or {}).get('native_id') or f'{key}|{field(a,"MINERAL_DEPOSIT_NO","SITE_NO","occurrence_id","siteid")}'
+            native=(item or {}).get('native_id') or f'{key}|{field(a,"MINERAL_DEPOSIT_NO","SITE_NO","occurrence_id","siteid","identifier") or rec.get("id")}'
+            if native.endswith('|'):raise RuntimeError(f'{key}: missing source ID at offset {offset}')
             if native in seen:rejections['DUPLICATE_NATIVE_ID']+=1;continue
             seen.add(native)
             if item:selected.append(item)
         total+=len(records)
-        if len(records)<1000:break
+        offset+=len(records)
+        if not records or len(records)<page_size:break
     if expected is not None and total!=expected:raise RuntimeError(f'{key}: incomplete download expected {expected}, got {total}')
+    if offset>=200000 and (expected is None or total<expected):raise RuntimeError(f'{key}: incomplete source above safety cap')
     if not total:raise RuntimeError(f'{key}: empty official feature collection')
     manifest={'key':key,'url':url,'typename':typename,'entity_level':entity,'raw_count':total,'unique_native_ids':len(seen),
         'ree_candidates':len(selected),'expected':expected,'chunks':raw_sha,'duplicates':dict(rejections),'status':'ACQUIRED_RAW_UNVERIFIED'}
