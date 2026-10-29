@@ -7,6 +7,7 @@ SERVICES={
  'SA_critical':'https://services.sarig.sa.gov.au/vector/south_australian_critical_minerals/wfs',
  'NSW_mineral_occurrences':'https://public-gs.geoscience.nsw.gov.au/geoserver/ows',
  'VIC_minsite':'https://opendata.maps.vic.gov.au/geoserver/wfs',
+ 'NT_official_wfs':'https://geology.data.nt.gov.au/geoserver/wfs',
 }
 NT='https://geoscience.nt.gov.au/contents/prod/Downloads/Mineral_Deposits/MINERALOCCURRENCES_csv.zip'
 REQUESTS=requests.Session();REQUESTS.headers.update({'User-Agent':'AU-REE-research-census/1.0 (public-data provenance audit)'})
@@ -27,7 +28,7 @@ def probe(name,url):
    if nm:result['feature_types'].append({'name':nm,'title':title})
   keys={'SA_projects':['project','mine'],'SA_deposits':['deposit','mineral','mine'],
        'SA_critical':['critical','mineral'], 'NSW_mineral_occurrences':['mineral','occurr','metindex'],
-       'VIC_minsite':['minsite']}.get(name,[])
+       'VIC_minsite':['minsite'], 'NT_official_wfs':['mineral','occurr','erl']}.get(name,[])
   score=lambda v: sum(2 if key in (v['name'] or '').lower() else 1 if key in (v['title'] or '').lower() else 0 for key in keys)
   candidates=sorted(result['feature_types'],key=score,reverse=True)
   for ft in candidates[:min(6,len(candidates))]:
