@@ -53,7 +53,10 @@ def capability(source):
    if el.tag.split('}')[-1]!='FeatureType':continue
    name=next((c.text or '' for c in el if c.tag.split('}')[-1]=='Name'),'')
    title=next((c.text or '' for c in el if c.tag.split('}')[-1]=='Title'),'')
-   if name and any(key in (name+' '+title).lower().replace(' ','_') for key in keys):options.append((name,title))
+   if name and any(key in (name+' '+title).lower().replace(' ','_') for key in keys):
+    if st=='NT' and not name.lower().startswith('mt:'):continue
+    if st=='NSW' and 'titles_title_' not in name.lower():continue
+    options.append((name,title))
   # ACTUAL layer schema must be public from the official WFS capabilities; otherwise block.
   # For multi-layer response try every candidate, do not silently pick the first.
   return {'state':st,'status':'WFS_DISCOVERED' if options else 'NO_OFFICIAL_TENEMENT_WFS_LAYER_DISCOVERED','url':u,'choices':options[:18],'caps_sha256':hashlib.sha256(r.content).hexdigest()}
@@ -83,10 +86,10 @@ def select_field(d,choices):
  return ''
 
 def classify_status(attrs):
- status=select_field(attrs,['tenstatus','status','status_desc','licence_status','licstatus','authority_status'])
+ status=select_field(attrs,['permitstatus','rstatus','tenstatus','status','status_desc','licence_status','licstatus','authority_status'])
  if status.lower() in ('pending','application','applied','withdrawn','cancelled','expired','surrendered','refused'):
   return 'TENURE_APPLICATION_OR_NONCURRENT',status
- if status.lower() in ('live','granted','current','active','in force'):
+ if status.lower() in ('live','granted','current','active','in force','curre','renew retained','renewed'):
   return 'TENURE_OVERLAP_REPORTED_CURRENT',status
  return 'TENURE_OVERLAP_STATUS_REVIEW',status
 
@@ -104,8 +107,8 @@ def one_rest(row,spec):
   sha=hashlib.sha256(r.content).hexdigest();links=[]
   for ix,f in enumerate(d['features']):
    a=f.get('attributes') or {}
-   tid=select_field(a,['tenid','tenement_no','tenement','ten_no','licence','licence_id','resourceauthorityid','permitnumber','permit_no','displayname','name','tag','number','fileid'])
-   holder=select_field(a,['holder1','principal_holder','principalholder','holder','holder_name','holdername','licensee','licence_holder','licensee_name','company','operator','company_name','name'])
+   tid=select_field(a,['tenid','tenement_no','tenement','ten_no','licence','licence_id','resourceauthorityid','permitnumber','permit_no','displayname','name','tag','number','fileid','id'])
+   holder=select_field(a,['holder1','authorisedholdername','owner','principal_holder','principalholder','holder','holder_name','holdername','licensee','licence_holder','licensee_name','company','operator','company_name'])
    condition,status=classify_status(a)
    links.append({'target_id':row['target_id'],'state':row['state'],'name':row['name'],'dataset':key,'official_title_number':tid,'official_holder_text':holder,'tenure_status_text':status,
     'evidence_tier':'OFFICIAL_SPATIAL_INTERSECTION','relation_status':condition,'api_response_sha256':sha,'api_url':url,'raw_attributes':json.dumps(a,ensure_ascii=False,sort_keys=True),
@@ -131,8 +134,8 @@ def one_wfs(row,option):
     geom=shape(f.get('geometry'));exact=geom.covers(Point(lon,lat))
    except Exception:ambig+=1;continue
    if not exact:continue
-   tid=select_field(a,['tenid','tag','title','license_no','licence','licence_no','licence_number','mineral_title','tenementno','authorisation','name','ten_num','fileid'])
-   holder=select_field(a,['holder','holder_name','holder1','licensee','licence_holder','company','principal_holder','applicant','owner','registered_holder'])
+   tid=select_field(a,['tenid','tag','title','application','license_no','licence','licence_no','licence_number','mineral_title','tenementno','authorisation','name','ten_num','fileid','identifier'])
+   holder=select_field(a,['holder','own_name','holder_name','holder1','licensee','licence_holder','company','principal_holder','applicant','owner','registered_holder'])
    cond,status=classify_status(a)
    links.append({'target_id':row['target_id'],'state':st,'name':row['name'],'dataset':option,'official_title_number':tid,'official_holder_text':holder,'tenure_status_text':status,
    'evidence_tier':'OFFICIAL_SPATIAL_INTERSECTION','relation_status':cond,'api_response_sha256':sha,'api_url':u,'raw_attributes':json.dumps(a,sort_keys=True,ensure_ascii=False),
