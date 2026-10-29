@@ -1,5 +1,8 @@
 name: Official REE population refresh (not verified ranking)
 on:
+  push:
+    branches: [main]
+    paths: ['ops/official-refresh-trigger.json']
   workflow_dispatch:
     inputs:
       source_key:
@@ -61,6 +64,42 @@ jobs:
               --db work/research.sqlite --report work/refresh_qa.json \
               --source-key "$SELECTED_SOURCE"
           fi
+      - name: Execute downstream stages (criteria, GIS, eligibility and R exports)
+        if: always()
+        shell: bash
+        run: |
+          set -o pipefail
+          if [ -f work/research.sqlite ]; then
+            python -m au_ree run --through r_export \
+              --db work/research.sqlite --workspace work \
+              | tee work/full_pipeline.log
+            python -m au_ree status \
+              --db work/research.sqlite --workspace work \
+              | tee work/stage_status.log
+            python - <<'PY'
+          import json,sqlite3,pathlib
+          p=pathlib.Path('work/research.sqlite');db=sqlite3.connect(p)
+          db.row_factory=sqlite3.Row
+          def count(sql):
+              try: return db.execute(sql).fetchone()[0]
+              except sqlite3.OperationalError: return None
+          summary={
+            'project_master':count('SELECT count(*) FROM project_master'),
+            'official_candidates':count("SELECT count(*) FROM population_candidates WHERE source_key!='legacy_r963_frozen'"),
+            'approved_coordinates':count("SELECT count(*) FROM project_coordinates WHERE verification='VERIFIED'"),
+            'criteria':count('SELECT count(*) FROM criteria'),
+            'verified_observations':count("SELECT count(*) FROM observations WHERE verification='VERIFIED'"),
+            'gis_metrics':count('SELECT count(*) FROM gis_metrics'),
+            'mcda_eligible_rows':count('SELECT count(*) FROM eligibility WHERE point_ready=1'),
+            'gis_release_gates':count('SELECT count(*) FROM gis_release_gates')
+          }
+          pathlib.Path('work/full_pipeline_summary.json').write_text(json.dumps(summary,indent=2),encoding='utf8')
+          print(json.dumps(summary,indent=2))
+          PY
+          else
+            echo 'Cannot proceed: population SQLite missing' > work/full_pipeline.log
+            exit 1
+          fi
       - name: Upload raw snapshots, identity audits and SQLite
         if: always()
         uses: actions/upload-artifact@v4
@@ -71,7 +110,10 @@ jobs:
             work/refresh.log
             work/refresh_qa.json
             work/cache/census
-            work/outputs/01_population
+            work/outputs
+            work/full_pipeline.log
+            work/stage_status.log
+            work/full_pipeline_summary.json
             work/snapshots
           if-no-files-found: warn
           retention-days: 14
