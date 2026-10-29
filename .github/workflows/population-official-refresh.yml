@@ -44,6 +44,7 @@ jobs:
           SELECTED_SOURCE: ${{ inputs.source_key || 'ALL' }}
         run: |
           set -o pipefail
+          mkdir -p work
           if [ "$SELECTED_SOURCE" = 'ALL' ]; then
             python -m au_ree run --stage population --refresh \
               --db work/research.sqlite --workspace work | tee work/refresh.log
