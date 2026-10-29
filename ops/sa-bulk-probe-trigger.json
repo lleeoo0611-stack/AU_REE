@@ -1,0 +1,5 @@
+{
+  "request": "validate SA Geodata statewide bulk mineral occurrence export before national filtering",
+  "date": "2026-10-29",
+  "scope": "read_only_all_unfiltered"
+}
