@@ -212,6 +212,10 @@ def run(db,ctx):
             db.execute('''INSERT INTO source_registry(source_key,source_url,source_type,dataset_date,fetched_at,record_count,fetch_status,error) VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(source_key) DO UPDATE SET fetched_at=excluded.fetched_at,fetch_status=excluded.fetch_status,error=excluded.error''',
                       (src['key'],src.get('url') or src.get('source_documentation'),src['type'],cfg.get('as_of'),utc(),n,'OFFLINE_CACHE_MISSING' if ctx['offline'] and 'OFFLINE:' in str(ex) else 'FETCH_FAILED',str(ex)[:2000]))
             event(db,'population',src['key'],'SOURCE_FETCH_FAIL',str(ex))
+    # Independent Project identity approval precedes project detail/coordinate review.
+    # A newly approved Project may receive its separately reviewed parameters in
+    # the same Stage 01 run; expiry resets review-sensitive fields before replay.
+    identity=apply_identity_decisions(db,ctx['root'],ctx['criteria']['freeze_date'])
     # Researcher-reviewed identity, coordinates and current lifecycle are loaded
     # before GIS materialisation so coordinate changes invalidate downstream work.
     reviews=ctx['root']/'inputs'/'project_reviews.csv'
@@ -233,7 +237,6 @@ def run(db,ctx):
                        (pid,row.get('approval_ref'),row.get('source_sha256')))
             event(db,'population',pid,'CURRENT_PROJECT_EVIDENCE_REVIEW',json.dumps({'fields':fields,'url':source,'date':row.get('evidence_date')},ensure_ascii=False))
             reviewed+=1
-    identity=apply_identity_decisions(db,ctx['root'],ctx['criteria']['freeze_date'])
     suggested_pairs=propose_dedup(db)
     parent_links=propose_parents(db)
     return {'screening_policy':'SCHEME_A_PROJECT_EVIDENCE_REQUIRED','identity_decisions':identity,
