@@ -69,6 +69,7 @@ def setup(db):
     ''')
     # Scheme A schema migrations are Git-versioned and idempotent.
     db.executescript((ROOT/'db'/'migrations'/'0004_scheme_a.sql').read_text(encoding='utf-8'))
+    db.executescript((ROOT/'db'/'migrations'/'0005_reverse_tenement.sql').read_text(encoding='utf-8'))
     if 'operator_name' not in {x[1] for x in db.execute('PRAGMA table_info(project_master)')}:
         db.execute('ALTER TABLE project_master ADD COLUMN operator_name TEXT')
 
