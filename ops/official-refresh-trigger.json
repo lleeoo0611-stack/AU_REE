@@ -1,8 +1,9 @@
 {
-  "request_id": "au-ree-official-refresh-2026-10-29-2",
+  "request_id": "au-ree-scheme-a-live-acquisition-v104-20261029",
   "source_key": "ALL",
   "requested_action": "online_refresh_and_run_full_pipeline",
-  "reason": "Fix tee work directory; retry authoritative source QA and snapshot release",
-  "review_policy": "never_auto_promote_deposits_or_unverified_observations",
-  "source_run_reference": 40807748967
+  "screening_policy": "SCHEME_A_PROJECT_EVIDENCE_REQUIRED",
+  "feature_branch_merge_commit": "151a62c5674bed07475c235b2ba09bb012289d3d",
+  "identity_approval_policy": "independent_project_review_documents_only",
+  "no_automatic_project_merges": true
 }
