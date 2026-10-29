@@ -1,0 +1,110 @@
+{
+  "as_of_date": "2026-10-29",
+  "status": "PASS_WITH_REVIEW_ITEMS",
+  "target_rows": 487,
+  "unique_target_ids": 487,
+  "project_entity_candidates": 30,
+  "source_entity_rows": 487,
+  "target_memberships": 487,
+  "evidence_url_rows": 95,
+  "targets_with_project_link": 23,
+  "targets_without_project_link": 464,
+  "dispositions": {
+    "PROJECT_CANDIDATE_REVIEW": 37,
+    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 444,
+    "HOLD_REE_ROLE": 6
+  },
+  "quality_checks": [
+    {
+      "check_id": "TARGET_ROWS",
+      "count": 487,
+      "severity": "PASS",
+      "meaning": "Exactly 487 row-level source records retained"
+    },
+    {
+      "check_id": "UNIQUE_TARGET_IDS",
+      "count": 487,
+      "severity": "PASS",
+      "meaning": "Original target IDs are unique"
+    },
+    {
+      "check_id": "TARGETS_WITH_PROJECT_LINK_REVIEWED",
+      "count": 23,
+      "severity": "INFO",
+      "meaning": "Project relation from reviewed project candidate table"
+    },
+    {
+      "check_id": "TARGETS_WITHOUT_PROJECT_LINK",
+      "count": 464,
+      "severity": "REVIEW",
+      "meaning": "Remain unresolved; no name-only linking inferred"
+    },
+    {
+      "check_id": "PROJECT_CANDIDATE_ROWS",
+      "count": 30,
+      "severity": "INFO",
+      "meaning": "Candidate groups are not approved project count"
+    },
+    {
+      "check_id": "SOURCE_URLS_IN_REGISTER",
+      "count": 95,
+      "severity": "INFO",
+      "meaning": "URLs split into one row each; type, date, and locator not inferred"
+    },
+    {
+      "check_id": "EVIDENCE_ROWS_NEEDING_LOCATOR_REVIEW",
+      "count": 95,
+      "severity": "REVIEW",
+      "meaning": "Add page/section, claim, source date, and condition supported"
+    },
+    {
+      "check_id": "UNKNOWN_COMPANY_HISTORY",
+      "count": 30,
+      "severity": "REVIEW",
+      "meaning": "Candidate Project company/title succession not fully documented"
+    },
+    {
+      "check_id": "UNRESOLVED_DUPLICATES",
+      "count": 18,
+      "severity": "REVIEW",
+      "meaning": "Candidate Project deduplication or human signoff remains open"
+    },
+    {
+      "check_id": "JURISDICTION_COVERAGE_ROWS",
+      "count": 8,
+      "severity": "PASS",
+      "meaning": "Coverage/gap inventory includes seven jurisdictions plus ACT/national scope"
+    },
+    {
+      "check_id": "JURISDICTIONS_WITH_TENURE_LIMITS",
+      "count": 2,
+      "severity": "REVIEW",
+      "meaning": "State-source limits remain explicit; coverage does not imply legal title-chain verification"
+    },
+    {
+      "check_id": "ROW_DISPOSITION:HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE",
+      "count": 444,
+      "severity": "INFO",
+      "meaning": "Row disposition, not independent project count"
+    },
+    {
+      "check_id": "ROW_DISPOSITION:HOLD_REE_ROLE",
+      "count": 6,
+      "severity": "INFO",
+      "meaning": "Row disposition, not independent project count"
+    },
+    {
+      "check_id": "ROW_DISPOSITION:PROJECT_CANDIDATE_REVIEW",
+      "count": 37,
+      "severity": "INFO",
+      "meaning": "Row disposition, not independent project count"
+    }
+  ],
+  "input_sha256": {
+    "487_row_adjudication_latest_2026-10-29.csv": "f534835c5080ede5eec677451b90f92ba8af5d5b94c924cc628ada3312ed876c",
+    "487_inclusion_gate.csv": "2198b6cc6a9caf66c53330505274aa94284b461f04bcc4640f01dd059bf83f48",
+    "project_candidate_evidence_review.csv": "baa1712711322e3d756fe111ab28910b33b802537f4dcb9be11afb1a285c77a9"
+  },
+  "policy": "No automatic admission/exclusion; unknown/conflicting evidence remains HOLD; entity candidate ID is deterministic from current candidate key; merge/split decisions require reviewed evidence."
+}
+
