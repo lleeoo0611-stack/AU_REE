@@ -1,0 +1,18 @@
+{
+  "version": "national-raw-first-v1",
+  "request": "UNFILTERED_ALL_STATES_AND_TERRITORIES",
+  "required": [
+    "GA_AIMR_REE_2026",
+    "GA_CRITICAL_DEPOSITS_2025",
+    "WA",
+    "QLD",
+    "TAS",
+    "NSW",
+    "VIC",
+    "NT",
+    "SA_SARIG_GEODATA_ALL"
+  ],
+  "action": "raw_download_then_qa_only",
+  "ree_screening": "DISABLED_UNTIL_COMPLETE",
+  "time_utc": "2026-10-29"
+}
