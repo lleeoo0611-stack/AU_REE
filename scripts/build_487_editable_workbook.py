@@ -34,7 +34,12 @@ def main():
     candidate_evidence = load("project_candidate_evidence_review.csv")
     inclusion_gate = load("487_inclusion_gate.csv")
     gate_rules = load("project_inclusion_gate_rules.csv")
-    summary = json.loads((OUT / "census_review_manifest.json").read_text(encoding="utf-8"))
+    tenure_status = load("487_official_tenure_trace_status.csv")
+    tenure_evidence = load("487_official_tenure_intersection_evidence.csv")
+    summary = json.loads((OUT / "487_full_census_adjudication_summary.json").read_text(encoding="utf-8"))
+    candidate_rows = summary["status_counts"].get("PROJECT_CANDIDATE_REVIEW", 0)
+    ree_hold_rows = summary["status_counts"].get("HOLD_REE_ROLE", 0)
+    identity_hold_rows = summary["status_counts"].get("HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE", 0)
     path = OUT / "AU_REE_487_pre_MCDA_five_definition_review.xlsx"
     wb = xlsxwriter.Workbook(path)
     wb.set_properties({"title": "Australian REE project census five-definition review", "subject": "Pre-MCDA census/entity linkage only", "author": "AU_REE research workpack"})
@@ -56,7 +61,7 @@ def main():
     s.merge_range("A2:E2", "僅進行 census、來源證據及 entity linkage；本表不是 MCDA 入選名單或排名。原始 487 筆 ID 與上游來源欄位均保留。", wrap)
     s.write("A4", "487列初步狀態", hdr)
     s.write("B4", "筆數", hdr)
-    for i, (k, v) in enumerate(summary["definition_status_counts"].items(), 4):
+    for i, (k, v) in enumerate(summary["status_counts"].items(), 4):
         s.write(i, 0, k, wrap)
         s.write_number(i, 1, v)
     notes = [
@@ -68,7 +73,7 @@ def main():
         ("五項定義", "澳洲管轄、地點可識別、獨立 Project 身分、REE 作為商品/計畫副產品/明確目標、屬於勘探/資源評估/採礦開發單位。每項分欄判讀，證據不足一律 HOLD。"),
         ("去重", "project_dedup_candidates 為候選分組，不等於已核准合併。多來源 deposit/site/occurrence 仍保留各自 ID；所有 project link 需人工核准。"),
         ("選取邏輯限制", "四個抽取檔依留存上游與記錄規則重建，原始sandbox ZIP位元組不可得，故非位元級還原。126組仍為暫定群；487筆納入查核佇列不代表已確認為專案。"),
-        ("來源查核進度", "已對18個初步Project候選群補入政府／公司技術來源，14個群暫達候選門檻；其中Wudinna與Baggy Green合併為同一REE Project，共13個候選Project單位。另4群因缺少專案層級REE回收或獨立Project證據而HOLD。487筆中21筆對應已查群，466筆尚待查。"),
+        ("來源查核進度", f"目前有{summary.get('new_case_groups_reviewed', '未統計')}個命名查核群；逐列狀態不是獨立Project數：{candidate_rows}列為候選審閱、{ree_hold_rows}列稀土角色待查、{identity_hold_rows}列專案身分或稀土角色證據不足。HOLD不是排除；全部目標列的現任權利人、歷史轉讓與目標幾何到title連結仍未完成。"),
         ("納入門檻", "五項操作定義均需Project層級證據；要求至少一項政府／礦權來源及一項正式技術／專案揭露，明確證明REE商品、共同產品、計畫回收副產品或勘探開發目標。礦物含REE、名稱相似或點位相交均不足以自動納入或合併。"),
     ]
     s.write("D4", "說明", hdr)
@@ -125,7 +130,14 @@ def main():
     add_table("86加401規則摘要", summary_rows)
     add_table("Project候選來源核對", candidate_evidence, ("reviewer_decision", "reviewer_notes"))
     add_table("487筆納入門檻", inclusion_gate, ("reviewer_decision", "reviewer_notes"))
+    add_table("487列官方礦權查詢狀態", tenure_status)
+    add_table("764筆礦權空間相交證據", tenure_evidence)
     add_table("納入與去重規則", gate_rules)
+    add_table("487實體連結核對", load("project_entity_membership_487.csv"))
+    add_table("連結品質檢查", load("quality_gate_487.csv"))
+    add_table("Project實體名冊", load("project_entity_register.csv"), ("reviewer_decision",))
+    add_table("來源證據定位", load("project_evidence_register.csv"), ("publication_date", "locator_page_or_section", "supports_condition", "review_status"))
+    add_table("連結跨表差異", load("target_link_reconciliation_487.csv"))
     wb.close()
     print(json.dumps({"workbook": str(path), "rows": len(rows), "project_groups": len(projects), "queue": len(queue)}, ensure_ascii=False))
 
