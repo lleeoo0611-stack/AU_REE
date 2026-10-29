@@ -8,7 +8,7 @@ from .core import ROOT, STAGES,canonical,config,connect,digest,filehash,setup,ut
 from .stages import RUNNERS
 
 CONFIGS={'population':'sources.json','criteria':'criteria.json','gis':'gis.json','eligibility':'eligibility.json','r_export':'r_analysis.json'}
-EXTRAS={'population':['inputs/legacy_r963_census.csv','inputs/legacy_r974_frozen_alternatives.csv','inputs/project_reviews.csv','inputs/source_documents.csv','inputs/evidence_approvals.csv'],
+EXTRAS={'population':['inputs/legacy_r963_census.csv','inputs/legacy_r974_frozen_alternatives.csv','inputs/project_reviews.csv','inputs/project_identity_decisions.csv','inputs/source_documents.csv','inputs/evidence_approvals.csv'],
         'criteria':['inputs/legacy_r968_observations.csv','inputs/verified_observations.csv','inputs/source_documents.csv','inputs/evidence_approvals.csv'],
         'gis':['inputs/source_documents.csv','inputs/evidence_approvals.csv'],'eligibility':[],'r_export':['R/run_mcda.R']}
 
@@ -44,10 +44,11 @@ def own_fingerprint(stage,db,cfg,root,workspace,offline,source_keys=None):
             loc=v.get('local_geojson');p=Path(loc) if loc else None
             if p: p=(root/p) if not p.is_absolute() else p
             paths[key+'_local_geojson']=filehash(p) if p and p.exists() else None
-    return digest({'stage':stage,'schema':'AU_REE_5_STAGE_V1_0_2','upstream':upstream['fingerprint'] if upstream else None,
+    return digest({'stage':stage,'schema':'AU_REE_SCHEME_A_V1_0_4','upstream':upstream['fingerprint'] if upstream else None,
                    'config':cfg[stage],'paths':paths,'module_sha256':filehash(module),
                    'shared_core_sha256':filehash(Path(__file__).parent/'core.py'),
                    'source_adapters_sha256':filehash(Path(__file__).parent/'source_adapters.py') if stage=='population' else None,
+                   'identity_policy_sha256':filehash(Path(__file__).parent/'identity_policy.py') if stage=='population' else None,
                    'offline':bool(offline),'selected_sources':sorted(source_keys or []),'runner_version':__version__})
 
 def ensure_database(path):
@@ -118,6 +119,17 @@ def run_one(stage,args,allcfg,force=False):
                 writecsv(prepared/'population_master.csv',[dict(x) for x in db.execute('SELECT * FROM project_master ORDER BY project_id')],[x[1] for x in db.execute('PRAGMA table_info(project_master)')])
                 writecsv(prepared/'population_review_queue.csv',[dict(x) for x in db.execute("SELECT * FROM population_candidates WHERE decision IN ('REVIEW','EXCLUDED') ORDER BY source_key,raw_name")],[x[1] for x in db.execute('PRAGMA table_info(population_candidates)')])
                 writecsv(prepared/'population_source_registry.csv',[dict(x) for x in db.execute('SELECT * FROM source_registry ORDER BY source_key')],[x[1] for x in db.execute('PRAGMA table_info(source_registry)')])
+                for tbl,filename,sort in (
+                    ('source_feature_snapshot','population_raw_feature_index.csv','source_key,candidate_id'),
+                    ('geological_entity','geological_entities.csv','state,canonical_name'),
+                    ('geological_entity_source','geological_entity_provenance.csv','source_key,native_id'),
+                    ('extended_occurrence_inventory','extended_occurrence_inventory.csv','screening_tier,candidate_id'),
+                    ('project_geological_relation','project_deposit_relations.csv','project_id,entity_id'),
+                    ('dedup_candidate_pairs','dedup_candidate_pairs.csv','candidate_a,candidate_b'),
+                    ('identity_review_decisions','project_identity_decisions_audit.csv','candidate_id'),
+                ):
+                    writecsv(prepared/filename,[dict(row) for row in db.execute(f'SELECT * FROM {tbl} ORDER BY {sort}')],
+                             [x[1] for x in db.execute(f'PRAGMA table_info({tbl})')])
                 candidates=[dict(x) for x in db.execute('SELECT candidate_id,source_key,native_id,raw_name,state,company,entity_level,decision,matched_project_id,reason,source_url,original_json FROM population_candidates ORDER BY source_key,raw_name')]
                 audit=[];duplicates=[]
                 for c in candidates:

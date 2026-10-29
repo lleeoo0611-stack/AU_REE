@@ -14,3 +14,9 @@
 ## v1.0.0
 
 - Five-stage Australian REE census/criteria/GIS/eligibility/R-export pipeline.
+
+## v1.0.4 — Scheme A evidence-backed identity policy
+
+- Preserve original public-government records and extended REE-mineral occurrence inventory.
+- Require independently approved project-identity documents for new Project Master entries; legacy 203 frozen seeds remain distinct.
+- Add geological entity/provenance, parent links, cross-source review pairs, and identity audit tables, with editable CSV exports and repeatable tests.

@@ -1,6 +1,6 @@
 # 澳洲稀土開發潛力 MCDA：五階段可重現管線
 
-版本 `v1.0.1`｜基準日 `2026-10-29`｜Python 3.11+ / SQLite / R
+版本 `v1.0.4`｜基準日 `2026-10-29`｜Python 3.11+ / SQLite / R
 
 以 2026-09-06 proposal 的六構面與 r963–r983 研究規格為基礎，將研究作業分為五個獨立、可重跑的階段。SQLite 是唯一正式研究資料庫；CSV 是可編輯、可追溯的輸入或輸出介面。
 
@@ -191,3 +191,11 @@ au-ree status
 - 本次環境禁止容器向外連線，故**沒有即時下載新的官方紀錄**；GitHub Actions 的線上更新 workflow 待推送遠端後執行。
 
 來源詳細位置、欄位映射與資料使用規則請見 [`docs/official_population_sources.md`](docs/official_population_sources.md)，四州匯入方式見 [`inputs/state_exports/README.md`](inputs/state_exports/README.md)。
+
+
+## v1.0.4：Scheme A 身分與去重閘門
+
+- 官方稀土礦點／含 Monazite、Xenotime 的礦物伴生紀錄先進擴充礦點名冊，不自動成為開發專案。
+- 有獨立、可追溯的 Project 身分審查紀錄才可將**新的**官方來源候選新增到 `project_master`；203 筆舊名冊維持歷史未驗證基準。
+- 地質實體、來源重複、Project–Deposit 關係和人工審查決策分表存儲；同名／鄰近僅產生去重候選。
+- 審查輸入：`inputs/project_identity_decisions.csv`；流程及新 CSV 請見 [`docs/SCHEME_A_PROJECT_MASTER.md`](docs/SCHEME_A_PROJECT_MASTER.md)。

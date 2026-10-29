@@ -7,11 +7,13 @@ from pathlib import Path
 from ..evidence import reload_registry,verify
 from ..core import utc, norm, number, readcsv, digest, event, australian
 from ..source_adapters import load_arcgis, load_csv
+from ..identity_policy import screening_tier,register_feature,propose_dedup,propose_parents,apply_identity_decisions
 
 REE=re.compile(r'\b(?:ree|reo|treo|hree|lree|ndpr|rare\s*earth(?:\s*elements?)?|neodymium|praseodymium|dysprosium|terbium|yttrium)\b',re.I)
 def relevance(text,source):
-    if source.get('commodity_preclassified_ree') or REE.search(str(text)):return 'REE_PROJECT_RELEVANT'
-    if re.search(r'monazite|xenotime',str(text),re.I):return 'REVIEW_REE_MINERAL_ONLY'
+    tier=screening_tier({**source,'commodity':text})
+    if tier=='E1_DIRECT_REE':return 'REE_PROJECT_RELEVANT'
+    if tier in ('E2_REE_MINERAL_ONLY','E3_NAME_CONTEXT_ONLY'):return 'REVIEW_REE_MINERAL_ONLY'
     return 'EXCLUDE_NO_REE_EVIDENCE'
 
 STATE_ALIASES={
@@ -68,6 +70,7 @@ def candidate_upsert(db,c):
     company=str(c.get('company') or '').strip()
     entity=str(c.get('entity_level') or 'UNKNOWN').upper()
     key=digest([c['source'],native])[:32] if native else digest([c['source'],name,state])[:32]
+    tier=screening_tier(c)
     role=relevance(c.get('commodity',''),c)
     if c.get('state_conflict') or (c.get('state_jurisdiction') in BOUNDS and state!=c.get('state_jurisdiction')):
         status,reason,pid='REVIEW','STATE_SOURCE_CONFLICT',None
@@ -82,7 +85,7 @@ def candidate_upsert(db,c):
         if not name:status,reason='EXCLUDED','NO_NAME'
         elif role=='EXCLUDE_NO_REE_EVIDENCE':status,reason='EXCLUDED','NOT_REE'
         elif lat is not None and lon is not None and not australian(lat,lon):status,reason='EXCLUDED','OUTSIDE_AU'
-        elif role=='REVIEW_REE_MINERAL_ONLY':status,reason='REVIEW','MINERAL_OCCURRENCE_NEEDS_EVIDENCE'
+        elif role=='REVIEW_REE_MINERAL_ONLY':status,reason='REVIEW','EXTENDED_OCCURRENCE_NOT_PROJECT'
         else:
             matched,method=existing_match(db,c)
             if entity!='PROJECT':
@@ -90,6 +93,11 @@ def candidate_upsert(db,c):
                 reason='ENTITY_LEVEL_'+entity if not matched else 'DEPOSIT_POSSIBLE_PARENT_'+method
                 pid=matched  # suggestion only; NOT a verified relation nor a merged Project.
                 possible=spatial_suggestions(db,c)
+            elif matched and c['source']!='legacy_r963_frozen':
+                master=db.execute('SELECT operator_name FROM project_master WHERE project_id=?',(matched,)).fetchone()
+                operator=master['operator_name'] if master else None
+                reason='COMPANY_OPERATOR_CONFLICT' if company and operator and norm(company)!=norm(operator) else 'PROJECT_IDENTITY_MATCH_NEEDS_DOCUMENT_APPROVAL'
+                status,pid='REVIEW',matched
             elif matched:
                 master=db.execute('SELECT operator_name FROM project_master WHERE project_id=?',(matched,)).fetchone()
                 operator=master['operator_name'] if master else None
@@ -102,6 +110,9 @@ def candidate_upsert(db,c):
                                (pid,name,norm(name),c['source'],native))
                     if c.get('legacy_id'):db.execute('INSERT OR REPLACE INTO legacy_id_map(legacy_id,project_id) VALUES(?,?)',(c['legacy_id'],pid))
             elif method=='REVIEW_AMBIGUOUS':status,reason='REVIEW',method
+            elif c['source']!='legacy_r963_frozen':
+                possible=spatial_suggestions(db,c)
+                status,reason,pid='REVIEW','NEARBY_PROJECT_POSSIBLE_DUPLICATE' if possible else 'PROJECT_IDENTITY_NEEDS_DOCUMENT_APPROVAL',None
             elif not state:status,reason='REVIEW','STATE_UNCONFIRMED'
             elif (lat is None or lon is None) and c['source']!='legacy_r963_frozen':status,reason='REVIEW','MISSING_COORDINATE'
             else:
@@ -129,6 +140,7 @@ def candidate_upsert(db,c):
                                 'possible_duplicates':possible,'project_name_hint':c.get('project_name_hint')}}
     db.execute('''INSERT INTO population_candidates(candidate_id,source_key,native_id,raw_name,normalized_name,state,company,latitude,longitude,commodity_text,entity_level,ree_role,decision,matched_project_id,reason,source_url,original_json,first_seen,last_seen) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(candidate_id) DO UPDATE SET last_seen=excluded.last_seen,original_json=excluded.original_json,decision=excluded.decision,matched_project_id=excluded.matched_project_id,reason=excluded.reason,company=excluded.company,state=excluded.state''',
        (key,c['source'],native,name,norm(name),state,company or None,lat,lon,c.get('commodity'),entity,role,status,pid,reason,c.get('source_url'),json.dumps(payload,ensure_ascii=False,default=str),utc(),utc()))
+    register_feature(db,c,key,tier,entity)
     if status in ('REVIEW','EXCLUDED'):event(db,'population',key,status,reason)
     return status
 
@@ -189,6 +201,7 @@ def run(db,ctx):
                     continue
             else:raise ValueError('Unsupported source type '+str(src['type']))
             for row in rows:
+                row['source_snapshot_sha256']=rawhash
                 status=candidate_upsert(db,row)
                 counts[status]=counts.get(status,0)+1
                 n+=1
@@ -220,6 +233,13 @@ def run(db,ctx):
                        (pid,row.get('approval_ref'),row.get('source_sha256')))
             event(db,'population',pid,'CURRENT_PROJECT_EVIDENCE_REVIEW',json.dumps({'fields':fields,'url':source,'date':row.get('evidence_date')},ensure_ascii=False))
             reviewed+=1
-    return {'counts':counts,'source_failures':failures,'master_projects':db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0],
+    identity=apply_identity_decisions(db,ctx['root'],ctx['criteria']['freeze_date'])
+    suggested_pairs=propose_dedup(db)
+    parent_links=propose_parents(db)
+    return {'screening_policy':'SCHEME_A_PROJECT_EVIDENCE_REQUIRED','identity_decisions':identity,
+            'extended_occurrences':db.execute('SELECT COUNT(*) FROM extended_occurrence_inventory').fetchone()[0],
+            'geological_entities':db.execute('SELECT COUNT(*) FROM geological_entity').fetchone()[0],
+            'cross_source_dedup_proposals':suggested_pairs,'parent_project_proposals':parent_links,
+            'counts':counts,'source_failures':failures,'master_projects':db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0],
             'evidence_registry':registry,'reviewed_project_updates':reviewed,'review_candidates':db.execute("SELECT COUNT(*) FROM population_candidates WHERE decision='REVIEW'").fetchone()[0],
             'source_statuses':dict(db.execute('SELECT fetch_status,COUNT(*) FROM source_registry GROUP BY fetch_status').fetchall()),'selected_sources':sorted(selected) if selected else 'ALL_ENABLED','company_recorded':db.execute('SELECT COUNT(*) FROM project_master WHERE operator_name IS NOT NULL AND operator_name<>""').fetchone()[0], 'status':'OFFLINE_SOURCES_PENDING' if failures and ctx['offline'] else ('PARTIAL_SOURCE_FAILURE' if failures else 'COMPLETED')}

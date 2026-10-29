@@ -65,7 +65,9 @@ def test_ga_deposit_exact_project_name_not_merged():
     project={'source':'OFFICIAL_PROJECT','native_id':'p1','name':'Test Rare Earth Project','state':'WA',
              'latitude':-25.2,'longitude':121.,'commodity':'REE','entity_level':'PROJECT','official':True,
              'source_url':'https://example.gov.au/p','company':'Example Pty Ltd'}
-    assert candidate_upsert(db,project)=='ADDED'
+    assert candidate_upsert(db,project)=='REVIEW'
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
+    assert candidate_upsert(db,{**project,'source':'legacy_r963_frozen','native_id':'legacy'})=='ADDED'
     same={'source':'GA','native_id':'d1','name':project['name'],'state':'WA','latitude':-25.2,'longitude':121.,
           'commodity':'REE','entity_level':'DEPOSIT','official':True,'source_url':'https://example.gov.au/d'}
     assert candidate_upsert(db,same)=='REVIEW'
@@ -79,7 +81,7 @@ def test_ga_deposit_exact_project_name_not_merged():
 def test_same_project_company_conflict_requires_review():
     db=memorydb();c={'source':'ONE','native_id':'1','name':'Cedar REE Project','state':'WA','company':'A Pty Ltd',
                       'latitude':-25.,'longitude':121.,'commodity':'REE','entity_level':'PROJECT','official':True}
-    assert candidate_upsert(db,c)=='ADDED'
+    assert candidate_upsert(db,{**c,'source':'legacy_r963_frozen'})=='ADDED'
     assert candidate_upsert(db,{**c,'source':'TWO','native_id':'2','company':'B Pty Ltd'})=='REVIEW'
     assert db.execute('SELECT operator_name FROM project_master').fetchone()[0]=='A Pty Ltd'
     assert db.execute("SELECT reason FROM population_candidates WHERE source_key='TWO'").fetchone()[0]=='COMPANY_OPERATOR_CONFLICT'
@@ -95,7 +97,7 @@ def test_state_mismatch_is_rejected_for_automatic_inclusion():
 def test_nearby_different_names_are_reviewed_not_auto_merged():
     db=memorydb();c={'source':'ONE','native_id':'1','name':'Cedar REE Project','state':'WA','latitude':-25.0,
                       'longitude':121.0,'commodity':'REE','entity_level':'PROJECT','official':True}
-    assert candidate_upsert(db,c)=='ADDED'
+    assert candidate_upsert(db,{**c,'source':'legacy_r963_frozen'})=='ADDED'
     assert candidate_upsert(db,{**c,'source':'TWO','native_id':'2','name':'Cedar South Project','latitude':-25.01})=='REVIEW'
     assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==1
     assert db.execute("SELECT reason FROM population_candidates WHERE source_key='TWO'").fetchone()[0]=='NEARBY_PROJECT_POSSIBLE_DUPLICATE'

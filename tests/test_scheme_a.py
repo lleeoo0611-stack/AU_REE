@@ -1,0 +1,90 @@
+"""Scheme A acceptance tests: mineral inventory never auto-enters Project Master."""
+import csv,hashlib,sqlite3
+from pathlib import Path
+from au_ree.core import setup,digest
+from au_ree.evidence import reload_registry
+from au_ree.identity_policy import apply_identity_decisions,propose_dedup,propose_parents
+from au_ree.stages.population import candidate_upsert
+
+
+def memorydb():
+    db=sqlite3.connect(':memory:');db.row_factory=sqlite3.Row;setup(db);return db
+
+
+def record(source='GA',native='a',name='West monazite',commodity='Monazite',entity='OCCURRENCE'):
+    return {'source':source,'native_id':native,'name':name,'state':'WA',
+      'latitude':-25.,'longitude':120.,'commodity':commodity,'entity_level':entity,
+      'official':True,'source_url':'https://example.gov.au/record',
+      'source_raw_attributes':{'site_code':native,'commodity':commodity}}
+
+
+def test_mineral_only_is_extended_and_not_project():
+    db=memorydb()
+    assert candidate_upsert(db,record())=='REVIEW'
+    assert db.execute('SELECT count(*) FROM project_master').fetchone()[0]==0
+    row=db.execute('SELECT screening_tier,disposition FROM extended_occurrence_inventory').fetchone()
+    assert tuple(row)==('E2_REE_MINERAL_ONLY','BACKGROUND_ONLY')
+    assert db.execute('SELECT count(*) FROM source_feature_snapshot').fetchone()[0]==1
+    assert db.execute('SELECT count(*) FROM geological_entity').fetchone()[0]==1
+
+
+def test_official_project_requires_document_approval():
+    db=memorydb()
+    assert candidate_upsert(db,record(entity='PROJECT',commodity='REE',name='East REE Project'))=='REVIEW'
+    assert db.execute('SELECT count(*) FROM project_master').fetchone()[0]==0
+    assert db.execute('SELECT reason FROM population_candidates').fetchone()[0]=='PROJECT_IDENTITY_NEEDS_DOCUMENT_APPROVAL'
+
+
+def test_exact_cross_source_is_proposal_not_merge():
+    db=memorydb()
+    candidate_upsert(db,record(source='WA'))
+    candidate_upsert(db,record(source='GA'))
+    assert propose_dedup(db)>=1
+    assert db.execute('SELECT count(*) FROM project_master').fetchone()[0]==0
+    assert set(r['decision_status'] for r in db.execute('SELECT * FROM dedup_candidate_pairs'))=={'PROPOSED_ONLY'}
+    assert db.execute('SELECT count(*) FROM geological_entity').fetchone()[0]==2
+
+
+def test_unapproved_parent_hint_cannot_merge():
+    db=memorydb()
+    base=record(source='legacy_r963_frozen',entity='PROJECT',commodity='REE',name='Alpha REE Project')
+    assert candidate_upsert(db,base)=='ADDED'
+    child=record(source='WA',native='D-1',commodity='REE',entity='DEPOSIT',name='Alpha orebody')
+    child['project_name_hint']='Alpha REE Project'
+    assert candidate_upsert(db,child)=='REVIEW'
+    assert propose_parents(db)==1
+    row=db.execute('SELECT decision_status,relation_type FROM project_geological_relation').fetchone()
+    assert tuple(row)==('PROPOSED_ONLY','PART_OF_PROJECT')
+
+
+def write_csv(p,heads,rows):
+    p.parent.mkdir(parents=True,exist_ok=True)
+    with p.open('w',encoding='utf8',newline='') as f:
+        w=csv.DictWriter(f,fieldnames=heads);w.writeheader();w.writerows(rows)
+
+
+def test_approved_project_identity_and_revocation(tmp_path):
+    db=memorydb();c=record(source='SA_PROJECT',native='P1',commodity='REE',entity='PROJECT',name='Acacia')
+    candidate_upsert(db,c)
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    evidence=tmp_path/'inputs/evidence/project.txt';evidence.parent.mkdir(parents=True)
+    evidence.write_text('Independent official project evidence, TEST FIXTURE',encoding='utf8')
+    sha=hashlib.sha256(evidence.read_bytes()).hexdigest()
+    uri='https://example.gov.au/project.pdf'
+    write_csv(tmp_path/'inputs/source_documents.csv',['document_id','file_path','source_url','sha256'],[{'document_id':'D1','file_path':'inputs/evidence/project.txt','source_url':uri,'sha256':sha}])
+    write_csv(tmp_path/'inputs/evidence_approvals.csv',['approval_ref','record_type','document_id','reviewer','decision','reviewed_at'],[{'approval_ref':'APP1','record_type':'PROJECT_REVIEW','document_id':'D1','reviewer':'Test Reviewer','decision':'APPROVED','reviewed_at':'2026-10-01'}])
+    decisions=tmp_path/'inputs/project_identity_decisions.csv'
+    write_csv(decisions,['candidate_id','decision','project_name','project_id','source_url','source_sha256','evidence_date','approval_ref'],[
+      {'candidate_id':cid,'decision':'APPROVE_NEW_PROJECT','project_name':'Acacia REE Development','project_id':'','source_url':uri,'source_sha256':sha,'evidence_date':'2026-10-01','approval_ref':'APP1'}])
+    reload_registry(db,tmp_path,'2026-10-29')
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['approved_new']==1
+    first=db.execute('SELECT project_id FROM project_master').fetchone()[0]
+    assert db.execute('SELECT population_status FROM project_master').fetchone()[0]=='EVIDENCE_BACKED_PROJECT'
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['approved_new']==1
+    assert db.execute('SELECT count(*) FROM project_master').fetchone()[0]==1
+    assert db.execute('SELECT project_id FROM project_master').fetchone()[0]==first
+    # Approval can be withdrawn without deleting the canonical ID or provenance.
+    write_csv(tmp_path/'inputs/evidence_approvals.csv',['approval_ref','record_type','document_id','reviewer','decision','reviewed_at'],[])
+    reload_registry(db,tmp_path,'2026-10-29')
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['rejected_or_pending']==1
+    assert db.execute('SELECT population_status FROM project_master').fetchone()[0]=='IDENTITY_APPROVAL_EXPIRED'
