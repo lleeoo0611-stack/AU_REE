@@ -1,15 +1,6 @@
 {
-  "run_id": "20261029-national-official-census-v103-retry-requests-fixed",
-  "states": [
-    "WA",
-    "QLD",
-    "TAS",
-    "SA",
-    "NSW",
-    "VIC",
-    "NT"
-  ],
-  "expected_official_wfs_layers": 7,
-  "policy": "no_unverified_promotion",
-  "goal": "source_completeness_parent_grouping_and_five_stages"
+  "request_id": "AU_REE-national-inventory-SA-WFS-fix-20261029",
+  "action": "reacquire_official_WFS_for_SA_NSW_VIC_NT_and_merge_with_GA_WA_QLD_TAS",
+  "safety": "do_not_auto_verify_or_dedup_projects",
+  "reason": "fix SARIG WFS argument parsing and NT all-row native IDs"
 }
