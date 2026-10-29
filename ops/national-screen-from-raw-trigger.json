@@ -1,0 +1,9 @@
+{
+  "raw_run_id": 40821122179,
+  "source_artifact_id": 12874618255,
+  "expected_manifest_sha256": "5057e25f1711232a0057889d413913fd8f4a227cbe42235dc279e98bfbce4dc1",
+  "screening_method": "SCHEME_A_AFTER_COMPLETE_NATIONAL_RAW",
+  "autopromote_projects": false,
+  "allow_duplicate_merging": false,
+  "raw_coverage": "GA plus 7 states/territories, ACT national layer"
+}
