@@ -1,31 +1,27 @@
-# 487 筆母體完整度查核（2026-10-29）
+# 487筆母體追溯狀態（2026-10-29）
 
-## 全體結果
+## 結果
 
-- 固定母體：487 筆；86 筆歷史 ID、401 筆 E1 來源記錄。
-- `PROJECT_CANDIDATE_REVIEW`：21 筆。
-- `HOLD_REE_ROLE`：4 筆。
-- `HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE`：462 筆。
-- 排除：0 筆；MCDA：未執行。
+- 固定目標列：487（86筆歷史 ID、401筆 E1來源記錄）；原 target/source ID 全數保留。
+- 最新逐列暫定狀態：`{"PROJECT_CANDIDATE_REVIEW": 37, "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 444, "HOLD_REE_ROLE": 6}`。
+- 已核實來源支持的專案候選列數：37；已建立候選專案群：29。候選不等於完成 title/權利鏈核實或最終納入。
 
-## 每筆審查結果如何解讀
+## 逐州追溯範圍
 
-487 筆全部保留原始 target/source ID，並逐列給出五項條件狀態、證據連結、公司關係及去重處置。21 筆連至已查核候選群；其餘列按保守門檻暫緩。E1 的稀土 commodity 或 occurrence 記錄是來源線索，不自動證明獨立 Project、專案稀土產品／目標或開發階段。歷史 ID 若無精確來源交叉表，標明只有 ID 並附州官方搜尋入口，不臆造專案匹配。
+本工作包是逐列 census/entity-linkage，不是所有列都完成外部官方來源閉環。已有 project-level 來源審核的列，才依五項操作定義更新；其餘留在 HOLD，不當作排除，也不以 deposit/occurrence 名稱推定專案。NT 本輪增加 Barkly/Vanadis/Benmara North、Bruce Prospect、Plenty River、Benmara South、Skyfall、Stromberg、Quantum 對照；名稱連結有歧義者仍待查。官方 title register、歷史轉讓及每列座標到 title polygon 的核對尚未完成。
 
-## 尚未完成的證據（明確保留）
+## 北領地本輪結論
 
-目前可確認的是母體中哪些行有官方資料集記錄或歷史 ID、來源所報稀土／礦種線索，以及已查的 18 個候選群。其餘 462 筆尚無逐筆的正式專案技術揭露、當前持權人、營運商或更名／轉讓文件配對；故 Project 身分、專案層級稀土角色及公司沿革仍標為 HOLD／未解析。州級礦權服務的空間相交也不能取代正式 title register、礦種權利範圍及歷史轉讓文書。
+- Barkly/Vanadis/Benmara North：NT Government 與公司專案資料支持同一 Barkly REE Project 及其 prospect/resource 關係，作為候選；舊 observation 與現行 tenement 的空間／法律同一性仍待核。
+- Bruce Prospect：ASX 明確把 Bruce Prospect 放在 MetalsGrove Arunta Project；NTGS 報告支持 REE 勘探，列為候選。
+- Plenty River：歷史礦區與現代 MetalsGrove REE sampling 名稱重疊，無法用名稱證明同一目標，保留 HOLD。
+- Skyfall、Stromberg、Quantum：政府確認 REE prospect 與礦化目標，但現行專案單位、proponent/title、階段未由目前來源閉環，保留 HOLD。
+- Benmara South：現行 Barkly resource page 點名 North 而非 South；不得混併，保留 HOLD。
 
-## 納入門檻
+## 仍需完成
 
-五項操作定義均需在 Project 層級通過；至少有官方政府／礦權資料與正式技術或專案揭露；稀土需是主要產品、共同產品、計畫回收副產品或明確勘探／開發目標；Project 與 Deposit／Prospect／Tenement 關係須釐清。未知即 HOLD；只有正面證據證明不符必要條件才可 EXCLUDE。名稱相同不能單獨作為合併依據。
-
-## 檔案
-
-- `487_definition_review.csv`：487 筆逐列核查母表，含來源記錄 ID、官方目錄入口、五條件、公司與去重狀態。
-- `487_inclusion_gate.csv`：固定 487 筆的候選／暫緩門檻表。
-- `project_candidate_evidence_review.csv`：18 個已查候選群來源與證據評估。
-- `project_inclusion_gate_rules.csv`：納入、待查、排除及去重規則。
-- `AU_REE_487_pre_MCDA_five_definition_review.xlsx`：上述工作簿及各核對佇列。
-- `487_full_census_adjudication_summary.json`：按州、來源鍵及狀態的覆蓋統計。
+1. 其餘 HOLD 逐列核對州／領地官方 title register、公司正式揭露及 ASX/ASIC 公司沿革。
+2. 建立 target → occurrence/deposit/prospect → tenement → named project → proponent/registered holder 證據鏈，並保留原 ID。
+3. 對所有已分組候選做座標/title polygon 交叉核對；沒有 tenure/property record 的不能標成 title verified。
+4. 暫不執行 MCDA；須先完成 census 人工覆核與納入簽核。
 
