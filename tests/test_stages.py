@@ -15,12 +15,14 @@ def test_census_project_vs_deposit_and_stable_id():
         raw.row_factory=sqlite3.Row;setup(raw)
         base={'source':'state_test','name':'Example REE Project','native_id':'S1','state':'WA','commodity':'rare earth elements',
               'latitude':-25.,'longitude':120.,'entity_level':'PROJECT','official':True,'source_url':'https://data.example.gov.au/project'}
-        assert candidate_upsert(raw,base)=='ADDED'
-        assert candidate_upsert(raw,base)=='MERGED'
+        assert candidate_upsert(raw,base)=='REVIEW'
+        assert raw.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
+        assert candidate_upsert(raw,{**base,'source':'legacy_r963_frozen','native_id':'legacy'})=='ADDED'
+        assert candidate_upsert(raw,base)=='REVIEW'
         deposit={**base,'name':'Example Deposit','native_id':'S2','entity_level':'DEPOSIT'}
         assert candidate_upsert(raw,deposit)=='REVIEW'
         assert raw.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==1
-        assert raw.execute('SELECT COUNT(*) FROM population_candidates').fetchone()[0]==2
+        assert raw.execute('SELECT COUNT(*) FROM population_candidates').fetchone()[0]==3
 
 def test_gis_metric_uses_projected_geometry():
     feature={'geometry':{'type':'Point','coordinates':[120.0,-25.0]}}
