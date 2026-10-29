@@ -27,7 +27,8 @@ def register_feature(db,c,candidate_id,tier,level):
     """Store immutable per-record hash; keep native row plus source cache separately."""
     if c.get('source')=='legacy_r963_frozen':return
     raw=c.get('source_raw_attributes') or c
-    rawsha=digest(raw)
+    rawsha=digest({'attributes':raw,'latitude':c.get('latitude'),
+                   'longitude':c.get('longitude'),'source_url':c.get('source_url')})
     db.execute('''INSERT OR IGNORE INTO source_feature_snapshot
       (candidate_id,source_key,native_id,record_sha256,source_manifest_sha256,source_url,observed_at)
       VALUES(?,?,?,?,?,?,?)''',(candidate_id,c['source'],str(c.get('native_id') or ''),rawsha,

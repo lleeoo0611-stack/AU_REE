@@ -88,3 +88,38 @@ def test_approved_project_identity_and_revocation(tmp_path):
     reload_registry(db,tmp_path,'2026-10-29')
     assert apply_identity_decisions(db,tmp_path,'2026-10-29')['rejected_or_pending']==1
     assert db.execute('SELECT population_status FROM project_master').fetchone()[0]=='IDENTITY_APPROVAL_EXPIRED'
+
+
+def test_new_project_detail_review_in_same_stage(tmp_path):
+    from au_ree.stages.population import run as population_run
+    from au_ree.core import filehash
+    db=memorydb()
+    candidate=record(source='SA_OFFICIAL_PROJECTS',native='O-22',name='Acacia REE',commodity='REE',entity='PROJECT')
+    assert candidate_upsert(db,candidate)=='REVIEW'
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    document=tmp_path/'inputs/evidence/report.txt';document.parent.mkdir(parents=True)
+    document.write_text('Approved project document synthetic test only',encoding='utf8')
+    sha=hashlib.sha256(document.read_bytes()).hexdigest();url='https://example.gov.au/acacia'
+    write_csv(tmp_path/'inputs/source_documents.csv',['document_id','file_path','source_url','sha256'],[
+      {'document_id':'D1','file_path':'inputs/evidence/report.txt','source_url':url,'sha256':sha}])
+    write_csv(tmp_path/'inputs/evidence_approvals.csv',['approval_ref','record_type','document_id','reviewer','decision','reviewed_at'],[
+      {'approval_ref':'A1','record_type':'PROJECT_REVIEW','document_id':'D1','reviewer':'Named Reviewer','decision':'APPROVED','reviewed_at':'2026-10-01'}])
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',
+      ['candidate_id','decision','project_name','project_id','source_url','source_sha256','evidence_date','approval_ref'],[
+      {'candidate_id':cid,'decision':'APPROVE_NEW_PROJECT','project_name':'Acacia REE','project_id':'AU-REE-00001',
+        'source_url':url,'source_sha256':sha,'evidence_date':'2026-10-01','approval_ref':'A1'}])
+    write_csv(tmp_path/'inputs/project_reviews.csv',
+      ['project_id','activity','lifecycle','ree_role','deposit_family','latitude','longitude','coordinate_uncertainty_km',
+       'source_url','evidence_date','source_sha256','approval_ref'],[
+      {'project_id':'AU-REE-00001','activity':'ACTIVE','lifecycle':'PFS','ree_role':'REE_PRIMARY',
+       'deposit_family':'HARD_ROCK','latitude':-25,'longitude':120,'source_url':url,
+       'evidence_date':'2026-10-01','source_sha256':sha,'approval_ref':'A1'}])
+    ctx={'root':tmp_path,'workspace':tmp_path/'work','offline':True,
+         'criteria':{'freeze_date':'2026-10-29'},'sources':{'sources':[]},
+         'hash_file':filehash,'source_keys':None}
+    result=population_run(db,ctx)
+    assert result['identity_decisions']['approved_new']==1
+    assert result['reviewed_project_updates']==1
+    row=db.execute('SELECT population_status,activity,lifecycle,ree_role FROM project_master').fetchone()
+    assert tuple(row)==('EVIDENCE_BACKED_PROJECT','ACTIVE','PFS','REE_PRIMARY')
+    assert db.execute("SELECT verification FROM project_coordinates").fetchone()[0]=='VERIFIED'
