@@ -109,6 +109,11 @@ def capture(args) -> None:
         "complete_487_source_review.py",
         "build_row_level_trace_bundle.py",
         "reproducibility/quality_gate_487.py",
+        "reproducibility/test_target_id_parser.py",
+        "build_editable_workbook.py",
+        "deliverable/AU_REE_487_pre_MCDA_five_definition_review.xlsx",
+        "deliverable/quality_gate_487_summary.json",
+        "deliverable/target_link_reconciliation_487.csv",
     ]
     provenance = []
     provenance_root = Path(args.provenance_root).resolve() if args.provenance_root else source.parent.parent

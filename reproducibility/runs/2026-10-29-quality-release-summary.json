@@ -1,38 +1,21 @@
 {
-  "snapshot_id": "2026-10-29-r14-final",
-  "repeatability_snapshot_id": "2026-10-29-r15-repeatability",
-  "status": "PASS_WITH_REVIEW_ITEMS",
-  "as_of_date": "2026-10-29",
-  "database_sha256": "a7d3ca3ed73c2d4f9f53837dcc02a9a5a1896ce8291d6f77cbc0a0730138e6e8",
-  "comparison": {
-    "changed_tables": [],
-    "schema_equal": true,
-    "changed_provenance": []
-  },
-  "row_quality": {
-    "dedup_pending": 18,
-    "evidence_url_rows": 95,
-    "jurisdiction_coverage_rows": 8,
-    "target_membership_rows": 487,
-    "unique_target_ids": 487,
-    "targets_with_project_link": 23,
-    "project_candidates": 30,
-    "company_history_pending": 30,
-    "targets_without_project_link": 464,
-    "target_rows": 487,
-    "source_entities": 487,
-    "source_locator_review": 95
-  },
-  "preserved_dispositions": {
-    "HOLD_REE_ROLE": 6,
-    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 444,
-    "PROJECT_CANDIDATE_REVIEW": 37
-  },
-  "limitations": [
-    "No automatic government/company source refresh",
-    "Four upstream originals only reconstructed logically",
-    "All 95 source URLs need locator and claim-level review",
-    "No MCDA performed"
-  ]
+  "snapshot_id": "2026-10-29-r18-delimiter-release",
+  "repeatability_snapshots": [
+    "2026-10-29-r16-delimiter-fix",
+    "2026-10-29-r17-delimiter-repeat"
+  ],
+  "database_sha256": "072e3f7247dc0d7aa0fac5f8ee0b1906faac24627a6e81eefa1b933c9d922ddd",
+  "targets": 487,
+  "linked": 46,
+  "unlinked": 441,
+  "linked_candidates": 37,
+  "linked_holds": 9,
+  "hold_group_gate_unresolved": 3,
+  "parser_tests_passed": 4,
+  "integrity": "ok",
+  "independent_id_extraction_matches": true,
+  "duplicate_memberships": 0,
+  "orphan_references": 0,
+  "workbook_sheets": 25
 }
 
