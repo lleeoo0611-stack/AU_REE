@@ -19,7 +19,8 @@ SERVICES=[
  ('SA_MINDEP','SA','https://services.sarig.sa.gov.au/vector/mines_and_mineral_deposits/wfs','mines_and_mineral_deposits:all_mines_and_mineral_deposits','DEPOSIT'),
  ('SA_REE_CRITICAL','SA','https://services.sarig.sa.gov.au/vector/south_australian_critical_minerals/wfs','south_australian_critical_minerals:rare_earth_elements','DEPOSIT'),
  ('NSW_METINDEX','NSW','https://public-gs.geoscience.nsw.gov.au/geoserver/ows','mineral-occurrence:mineral_occurrence','OCCURRENCE'),
- ('VIC_MINSITE','VIC','https://opendata.maps.vic.gov.au/geoserver/wfs','open-data-platform:minsite','OCCURRENCE')
+ ('VIC_MINSITE','VIC','https://opendata.maps.vic.gov.au/geoserver/wfs','open-data-platform:minsite','OCCURRENCE'),
+ ('NT_MODAT_WFS','NT','https://geology.data.nt.gov.au/geoserver/wfs','erl:MineralOccurrenceView','OCCURRENCE')
 ]
 FORMAT='application/json'
 
@@ -51,14 +52,15 @@ def effective_commodity(src,a):
     'SA_MINDEP':['DEPOSIT_COMMODITIES','DEPOSIT_COMMODITY_CODES','SUMMARY_DESCRIPTION'],
     'SA_REE_CRITICAL':['DEPOSIT_COMMODITIES','DEPOSIT_COMMODITY_CODES','SUMMARY_DESCRIPTION'],
     'NSW_METINDEX':['comm_type','major_commodities','minor_commodities','ore_mineralology','commodity','dep_description'],
-    'VIC_MINSITE':['prod_comm','ore_comm','comm','commdsc','ore_mineral','description','mineral','commodities']}.get(src,[])
+    'VIC_MINSITE':['prod_comm','ore_comm','comm','commdsc','ore_mineral','description','mineral','commodities'],
+    'NT_MODAT_WFS':['commodity','representativeCommodity_uri','mineralOccurrenceType']}.get(src,[])
     return '; '.join(str(v) for k in keys if (v:=field(a,k)))
 
 def normalize(src,st,entity,feat,source_url):
     a=feat.get('properties') or {};lat,lon=coords(feat,a)
     n={'SA_PROJECT_DEVELOPING':['SITE_NO','PROJECT_NAME'],'SA_PROJECT_MAJOR':['SITE_NO','PROJECT_NAME'],
     'SA_MINDEP':['MINERAL_DEPOSIT_NO','DEPOSIT_NAME'],'SA_REE_CRITICAL':['MINERAL_DEPOSIT_NO','DEPOSIT_NAME'],
-    'NSW_METINDEX':['occurrence_id','deposit_name'],'VIC_MINSITE':['siteid','mine_name']}[src]
+    'NSW_METINDEX':['occurrence_id','deposit_name'],'VIC_MINSITE':['siteid','mine_name'],'NT_MODAT_WFS':['identifier','name']}[src]
     native=str(field(a,n[0],n[1])).strip()
     title=str(field(a,n[1],'mine_name','deposit_name')).strip()
     if not native:native=str(feat.get('id',''))
@@ -123,7 +125,7 @@ def nt_diagnostics():
     except Exception as e:return {'status':'FAILED','url':url,'error':str(e)[:300]}
 
 def main():
-    report={};by_state={'SA':[],'NSW':[],'VIC':[]}
+    report={};by_state={'SA':[],'NSW':[],'VIC':[],'NT':[]}
     for source in SERVICES:
         key,state=source[:2]
         try:
@@ -132,9 +134,10 @@ def main():
         except Exception as e:
             report[key]={'status':'FAILED','error':str(e)[:500]}
             print(key,'FAILED',str(e)[:220],flush=True)
-    report['NT_MODAT']=nt_diagnostics()
+    # Legacy NT CSV endpoint is obsolete; the live official WFS is acquired above.
+    report['NT_LEGACY_LINK']={'status':'SUPERSEDED_BY_NT_MODAT_WFS','url':'https://geology.data.nt.gov.au/geoserver/wfs'}
     fields=['native_id','name','state','latitude','longitude','company','commodity','entity_level','project_name_hint','activity','deposit_family','source_url']
-    targets={'SA':'sa_sarig.csv','NSW':'nsw_minview.csv','VIC':'vic_minsite.csv'}
+    targets={'SA':'sa_sarig.csv','NSW':'nsw_minview.csv','VIC':'vic_minsite.csv','NT':'nt_modat.csv'}
     for st,fname in targets.items():
         relevant=[k for k in report if k.startswith(st+'_')]
         if not all(report[k]['status']=='ACQUIRED_RAW_UNVERIFIED' for k in relevant):continue
