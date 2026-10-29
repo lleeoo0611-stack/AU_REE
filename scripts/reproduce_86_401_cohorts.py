@@ -254,8 +254,6 @@ def main() -> None:
             "all_1006_evidence_decisions.csv": sha(ART / "all_1006_evidence_decisions.csv"),
             "E1_project_unlinked_review_queue.csv": sha(ART / "E1_project_unlinked_review_queue.csv"),
             "fixed_487_targets": sha(TRACE_TARGETS),
-            "screening_zip": sha(ROOT / "scheme-a-screening-review.zip"),
-            "raw_inventory_zip": sha(ROOT / "national-raw-inventory.zip"),
         },
         "limitations": [
             "Four historical ChatGPT files were regenerated; the earlier sandbox ZIP bytes are unavailable, so this is a reproducible reconstruction rather than a byte-identical restoration.",
@@ -282,5 +280,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
 
 
