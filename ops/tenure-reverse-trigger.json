@@ -1,8 +1,9 @@
 {
-  "run": "NATIONAL_REVERSE_TRACE_487",
-  "legacy_unmatched": 86,
-  "unlinked_E1": 401,
-  "point_query_policy": "strict_official_intersection_no_auto_project",
-  "artifacts": "editable_csv_sqlite_source_evidence",
-  "date": "2026-10-29"
+  "run": "NATIONAL_REVERSE_TRACE_487_RETRY_BYTES_FIX",
+  "input_sha256": "dfb06c97702e05e8d9bc264d6e4279a524d32e381437d6bcc95b48cb9d008063",
+  "cohorts": {
+    "LEGACY_86": 86,
+    "UNLINKED_E1_401": 401
+  },
+  "project_auto_approve": false
 }
