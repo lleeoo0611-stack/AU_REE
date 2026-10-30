@@ -11,6 +11,7 @@
 | [MCDA Protocol](MCDA_PROTOCOL.md) | 固定評分尺度、依賴審查、AHP/Scenario、六構面比較 |
 | [Validation Protocol](VALIDATION_PROTOCOL.md) | B1–B4、SMAA、C1/C2/C3 driver／歷史驗證 |
 | [Implementation Plan](RESEARCH_IMPLEMENTATION_PLAN.md) | P0–P3 模組修改順序、驗收、PR／決策紀錄 |
+| [P0–P3 工作追蹤 Issue #14](https://github.com/lleeoo0611-stack/AU_REE/issues/14) | 後續 PR、驗收證據與每階段工作完成狀態 |
 | [A/B/C 研究需求](RESEARCH_REQUIREMENTS_AIMS_ABC.md) | 與 v2 Protocol 配套的模組待辦及測試清單 |
 | [2026-10-30 專案評估](PROJECT_ASSESSMENT_2026-10-30.md) | 方法學、資料品質、研究進度及下一個里程碑 |
 | [操作指令](RUNBOOK.md) | Python、GIS、R、更新、測試及審閱工作包 |
