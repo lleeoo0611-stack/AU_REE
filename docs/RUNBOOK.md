@@ -76,6 +76,15 @@ python -m pytest -q tests/test_p0_evidence_487.py
 
 結果寫入新的 `work/evidence/` 資料夾；每次 run 記錄輸入檔 byte-level SHA-256。發表快照：[報告](audits/2026-10-31_487_evidence_review_report.md) · [487 CSV](audits/2026-10-31_487_evidence_claim_review.csv) · [西澳政府 20 個專案摘要](audits/2026-10-31_wa_official_ree_project_leads.csv)。官方資源總覽不是原始完整 JORC statement，不能自動給 C1 資源或 Project identity 核准。
 
+### 第二輪：補強原生資料與文件證據（2026-10-31）
+
+```bash
+python scripts/review_p0_evidence_round2.py --root . --output-dir work/evidence
+python -m pytest -q tests/test_p0_evidence_round2.py
+```
+
+從已凍結 [第一輪 487 筆證據表](audits/2026-10-31_487_evidence_claim_review.csv)、[第二輪政府／公司來源定位](../inputs/source_review_20261031/round2_external_evidence_leads.csv)、WA 官方 REE 資源表重建 [第二輪 487 筆審查表](audits/2026-10-31_487_evidence_round2_review.csv)、[86 筆差異](audits/2026-10-31_evidence_round2_changed_targets.csv)與 SHA-256 輸入摘要。**外部文件已定位不表示原生 RAW snapshot 已恢復；有官方礦床名稱亦不表示 Project、JORC、C1 通過。** 禁止覆寫日期快照。
+
 ## CI 與版本
 
 `.github/workflows/python-offline.yml` 在 push/PR 測試 Python 3.11/3.13、五階段離線重跑、SQLite QA 與 checkpoint；`r-mcda-smoke.yml` 用合成 Alternatives 測試 R 4.4.3 的可重現性。工作包的完整 `rebuild_all.py` 需要封存來源與可選的 `xlsxwriter`，不屬於上述離線 CI 的測試範圍。
