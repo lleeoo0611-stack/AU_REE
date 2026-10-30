@@ -17,7 +17,7 @@ def test_original_source_provenance_targets():
     assert len(missing) == 23
     assert len(sa) == 10
     assert len({x["target_id"] for x in scope}) == 272
-    assert Counter(x["raw_feature_cardinality"] for x in scope) == {"1": 271, "2": 1}
+    assert Counter(x["raw_feature_cardinality"] for x in scope) == {"1": 272}
     assert all(x["project_parent_approved"] == "NO" for x in scope)
 
 
