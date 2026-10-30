@@ -1,5 +1,14 @@
 # Change log
 
+## Research Architecture v2 contract — 2026-10-31
+
+- Add `docs/RESEARCH_ARCHITECTURE.md` as the canonical A/B/C research contract; define C0 Census, C1 Primary MCDA, C2 Extended Projects, C3 Historical Validation and P0–P3 release gates.
+- Add `docs/DATA_SPECIFICATION.md`, `docs/MCDA_PROTOCOL.md`, `docs/VALIDATION_PROTOCOL.md`, and `docs/RESEARCH_IMPLEMENTATION_PLAN.md` to specify JORC/entity/evidence data semantics, six-domain scoring, scenario/AHP routing, SMAA and Aim C validation.
+- Add `.github/pull_request_template.md` to require Aim/Gate, data lineage, compatibility, test and document review in future PRs.
+- Update README, docs index, historical requirements, decisions and Git workflow to refer to the v2 design contract.
+- **Documentation/workflow only:** no migration, scoring logic, current eligibility gate, source data, or research results changed; v2 parameters and C1 admission list remain pending.
+
+
 ## Research framework and status assessment — 2026-10-30
 
 - Add an editable, GitHub-rendered Mermaid framework to the root README, distinguishing the implemented census/evidence/GIS/eligibility/MCDA pipeline from proposed Aim A/B/C research outputs.
