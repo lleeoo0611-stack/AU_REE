@@ -137,7 +137,7 @@ def reconcile(root: Path, rawroot: Path, outroot: Path):
         key = c["source_key"]
         ident = native(c["source_native_id"])
         matches = records.get((key, ident), [])
-        if row["target_id"].startswith("LEGACY:") or key not in SOURCE_FIELDS:
+        if key not in SOURCE_FIELDS:
             status, relationship = "LEGACY_NO_OFFICIAL_NATIVE_PARENT", "LEGACY_SOURCE_ONLY"
         elif len(matches) == 0:
             status, relationship = "RAW_FEATURE_NOT_MATCHED", "NO_VERIFIABLE_SOURCE_PARENT"
@@ -156,7 +156,9 @@ def reconcile(root: Path, rawroot: Path, outroot: Path):
         if len(matches) == 1 and key == "STATE_WA_MINDEX" and proj_code and proj_name:
             relationship = "OFFICIAL_WA_PROJECT_CODE_AND_TITLE_RECORDED"
         elif len(matches) == 1 and key == "VIC_MINSITE" and proj_name:
-            relationship = "OFFICIAL_VIC_PROJECT_TEXT_CANDIDATE"
+            relationship = ("VIC_PROJECT_FIELD_CATEGORY_NOT_DISTINCT_PROJECT"
+                            if proj_name.casefold() in ("critical minerals", "minerals", "mineral sands")
+                            else "OFFICIAL_VIC_PROJECT_TEXT_CANDIDATE")
         elif len(matches) == 1 and key == "STATE_TAS_MRT" and deposit_parent:
             relationship = "TAS_PARENT_DEPOSIT_ID_NOT_PROJECT"
         elif len(matches) == 1 and subtype.lower() in ("occurrence", "mineral occurrence", "prospect"):
