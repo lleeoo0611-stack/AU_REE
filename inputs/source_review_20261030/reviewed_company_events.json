@@ -1,0 +1,98 @@
+[
+  {
+    "project": "Copi Mineral Sands Project",
+    "event": "LEGAL_ENTITY_RENAME",
+    "effective_date": "2021-04-23",
+    "from_entity": "RELENTLESS RESOURCES LIMITED",
+    "to_entity": "RZ RESOURCES LTD",
+    "interest": "",
+    "source": "source_fetch/006.json",
+    "locator": "HTML extract lines 35-39",
+    "status": "ABN_HISTORY_RECORDED_NOT_TITLE_TRANSFER",
+    "note": "ABN 23 160 863 892 identity continuity; rename alone is not a project-right transfer."
+  },
+  {
+    "project": "Copi Mineral Sands Project",
+    "event": "FARM_IN_AGREEMENT",
+    "effective_date": "2025-06-09",
+    "from_entity": "RZ Resources",
+    "to_entity": "JX Advanced Metals",
+    "interest": "5% proposed Project interest",
+    "source": "source_fetch/007.json",
+    "locator": "HTML extract lines 160-171",
+    "status": "AGREEMENT_DISCLOSED_COMPLETION_NOT_ESTABLISHED",
+    "note": "Do not treat signature of agreement as completion or change registered titleholder."
+  },
+  {
+    "project": "Milo Uranium-Copper-Gold-Rare Earth Project",
+    "event": "PROJECT_INTEREST_ACQUISITION",
+    "effective_date": "2022-04-21",
+    "from_entity": "Isa Brightlands Pty Ltd / GBM",
+    "to_entity": "Consolidated Uranium Inc",
+    "interest": "100% undivided Project interest",
+    "source": "source_fetch/025.json",
+    "locator": "HTML extract lines 56-64",
+    "status": "COMPLETION_DISCLOSED_CURRENT_CHAIN_INCOMPLETE",
+    "note": "Document identifies EPM14416 and assumption of existing 2% NSR. Later corporate/current-title chain still requires verification."
+  },
+  {
+    "project": "Mitre Hill REE Project",
+    "event": "PROJECT_ACQUISITION",
+    "effective_date": "2021-12-23",
+    "from_entity": "Not identified in retained excerpt",
+    "to_entity": "Resource Base Ltd",
+    "interest": "",
+    "source": "lead_fetch/020.json",
+    "locator": "HTML extract line 33",
+    "status": "ISSUER_HISTORY_DISCLOSED_CURRENT_TITLE_NOT_PROVEN",
+    "note": "Issuer reports acquisition execution; source-to-tenement geometry remains separate."
+  },
+  {
+    "project": "Narraburra REE Project",
+    "event": "PROPOSED_SPINOUT",
+    "effective_date": "2026-05-22",
+    "from_entity": "Godolphin Resources",
+    "to_entity": "Matrix Critical Minerals (proposed)",
+    "interest": "",
+    "source": "source_fetch/010.json",
+    "locator": "PDF physical page 1; lines 8-18",
+    "status": "PROPOSAL_ONLY_COMPLETION_NOT_ESTABLISHED",
+    "note": "Do not infer completed transfer from a proposed IPO or from a later website name."
+  },
+  {
+    "project": "Fingerboards Project",
+    "event": "CONDITIONAL_RETENTION_LICENCE_EXTENSION",
+    "effective_date": "2024-10",
+    "from_entity": "",
+    "to_entity": "Gippsland Critical Minerals",
+    "interest": "RL2026 and RL2023",
+    "source": "source_fetch/055.json",
+    "locator": "HTML extract line 52",
+    "status": "ISSUER_DISCLOSURE_REGISTRY_CHECK_PENDING",
+    "note": "Conditional extension claimed by issuer; legal holder and complete historical Kalbar/GCM chain remain unresolved."
+  },
+  {
+    "project": "Jupiter REE Project within Brothers",
+    "event": "PROJECT_TENURE_DISCLOSURE",
+    "effective_date": "2025-08-13",
+    "from_entity": "",
+    "to_entity": "Critica Limited",
+    "interest": "100% claimed; Jupiter entirely within E59/2463",
+    "source": "followup_fetch/003.json",
+    "locator": "JORC Table 1 Section 2 mineral tenement and land tenure status",
+    "status": "TECHNICAL_DISCLOSURE_TITLE_REGISTER_PENDING",
+    "note": "Source refers to acquisition completion announcement dated 29 August 2024; do not substitute broader Brothers tenure for the Jupiter resource footprint."
+  },
+  {
+    "project": "Yangibana",
+    "event": "OWNERSHIP_SOURCE_CONFLICT",
+    "effective_date": "",
+    "from_entity": "Issuer About Us page: 100% claim",
+    "to_entity": "2026 filing search result: Hastings40/Wyloo60",
+    "interest": "UNRESOLVED_SOURCE_DATE_CONFLICT",
+    "source": "followup_search/official_0.json",
+    "locator": "Issuer About Us versus interim-report search result",
+    "status": "HOLD_VERIFY_EFFECTIVE_DATED_PRIMARY_FILING",
+    "note": "Stale website text and later filing lead conflict. Do not assign current ownership from either without completed transaction evidence."
+  }
+]

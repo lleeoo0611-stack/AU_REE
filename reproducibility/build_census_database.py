@@ -115,6 +115,8 @@ def capture(args) -> None:
         "deliverable/quality_gate_487_summary.json",
         "deliverable/target_link_reconciliation_487.csv",
     ]
+    evidence_paths += ["national-raw-inventory.zip", "scheme-a-screening-review.zip", "nationwide-487-tenement-company-reverse-trace.zip", "reproducibility/build_trace_review.py", "reproducibility/redact_release_outputs.py"]
+    evidence_paths += [str(p.relative_to(provenance_root_candidate)).replace("\\", "/") for provenance_root_candidate in [Path(args.provenance_root).resolve() if args.provenance_root else source.parent.parent] for p in sorted((provenance_root_candidate / "research_20261029").rglob("*")) if p.is_file()]
     provenance = []
     provenance_root = Path(args.provenance_root).resolve() if args.provenance_root else source.parent.parent
     for relative in evidence_paths:
@@ -394,4 +396,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

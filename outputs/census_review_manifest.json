@@ -1,0 +1,162 @@
+{
+  "scope": "census and entity linkage only; no MCDA",
+  "target_rows": 487,
+  "cohort_counts": {
+    "LEGACY_86": 86,
+    "UNLINKED_E1_401": 401
+  },
+  "definition_status_counts": {
+    "PROJECT_CANDIDATE_REVIEW": 69,
+    "HOLD_REE_ROLE": 6,
+    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 412
+  },
+  "tenure_status_counts": {
+    "NO_USABLE_COORDINATES": 50,
+    "TENURE_INTERSECTS_PENDING_COMPANY_VERIFICATION": 258,
+    "NO_OVERLAP_IN_QUERIED_LAYERS": 51,
+    "OFFICIAL_TENEMENT_LAYER_NOT_VERIFIED": 128
+  },
+  "project_candidate_groups_not_approved": 39,
+  "review_queue_rows": 418,
+  "title_intersection_rows": 764,
+  "sa_crosswalk_rows": 16,
+  "five_conditions": [
+    "Australian jurisdiction",
+    "identifiable location",
+    "distinct independent Project identity",
+    "REE role in official/formal project evidence",
+    "exploration/resource assessment/mining-development unit"
+  ],
+  "missing_upstream_files": [],
+  "raw_archive_complete_for_declared_scope": true,
+  "raw_jurisdiction_status": {
+    "WA": "RAW_COMPLETE",
+    "QLD": "RAW_COMPLETE",
+    "TAS": "RAW_COMPLETE",
+    "NSW": "RAW_COMPLETE",
+    "VIC": "RAW_COMPLETE",
+    "NT": "RAW_COMPLETE",
+    "SA": "RAW_COMPLETE",
+    "ACT": "NATIONAL_GA_SCOPE_ONLY_NOT_INDEPENDENT_STATE_SURVEY",
+    "GA_NATIONAL": "RAW_COMPLETE"
+  },
+  "upstream_screened_candidates": 1006,
+  "upstream_screen_tiers": {
+    "E1_DIRECT_REE": 803,
+    "E2_REE_MINERAL_ONLY": 163,
+    "E3_GEOLOGICAL_CONTEXT": 40
+  },
+  "trace_source_status": [
+    {
+      "state": null,
+      "key": "WA_MINING_TENEMENTS",
+      "status": "READY",
+      "error": null
+    },
+    {
+      "state": null,
+      "key": "TAS_MINING",
+      "status": "READY",
+      "error": null
+    },
+    {
+      "state": null,
+      "key": "TAS_EXPLORATION",
+      "status": "READY",
+      "error": null
+    },
+    {
+      "state": null,
+      "key": "QLD_EPM",
+      "status": "READY",
+      "error": null
+    },
+    {
+      "state": null,
+      "key": "QLD_ML",
+      "status": "READY",
+      "error": null
+    },
+    {
+      "state": null,
+      "key": "QLD_MDL",
+      "status": "READY",
+      "error": null
+    },
+    {
+      "state": "NSW",
+      "key": null,
+      "status": "WFS_DISCOVERED",
+      "error": null
+    },
+    {
+      "state": "VIC",
+      "key": null,
+      "status": "WFS_DISCOVERED",
+      "error": null
+    },
+    {
+      "state": "NT",
+      "key": null,
+      "status": "WFS_DISCOVERED",
+      "error": null
+    },
+    {
+      "state": "SA",
+      "key": null,
+      "status": "SA_PROJECT_DEPOSIT_ID_OFFLINE_ARCHIVE_ONLY",
+      "error": null
+    }
+  ],
+  "source_hashes": {
+    "targets_487": "dfb06c97702e05e8d9bc264d6e4279a524d32e381437d6bcc95b48cb9d008063",
+    "upstream_candidates_1006": "31b2f0a3569a74dea2e5af34d8e295b131acabbe973cc64c56dbbc3c5a804081",
+    "raw_manifest": "5057e25f1711232a0057889d413913fd8f4a227cbe42235dc279e98bfbce4dc1",
+    "official_tenure_links": "8fd8613941e90cc0c2665f1a8976a433bcbb0c530321f4de8607eff4cff01c0c",
+    "trace_status": "3e0f2104d4dcd52760101ab4b343552c41fac28f4413791e89af4ad9f9d7e2a5",
+    "sa_crosswalk": "aa87f8a8e84feed38df9cc13d0aad56d762e514310151961dfea8d0417427b67"
+  },
+  "database_integrity": "ok",
+  "result_interpretation": "PASS/HOLD values are evidence review states, not MCDA inclusion decisions. All candidate project groupings require human approval; title holder is not equated with developer/operator.",
+  "reconstructed_upstream_files": [
+    "provisional_project_groups_126.csv",
+    "legacy_203_crosswalk_audit.csv",
+    "all_1006_evidence_decisions.csv",
+    "E1_project_unlinked_review_queue.csv"
+  ],
+  "project_evidence_review": {
+    "candidate_groups_source_reviewed": 18,
+    "candidate_groups_meeting_project_and_ree_evidence_gate": 14,
+    "distinct_project_units_after_documented_child_merge": 13,
+    "candidate_groups_on_hold": 4,
+    "target_rows_meeting_candidate_gate": 21,
+    "target_rows_still_on_hold": 466,
+    "as_of_date": "2026-10-29"
+  },
+  "latest_linked_rows": 78,
+  "latest_unlinked_rows": 409,
+  "source_review_441": {
+    "baseline_unlinked_rows": 441,
+    "search_groups": 309,
+    "rows_traced": 441,
+    "original_evidence_rows": 95,
+    "unique_original_urls": 76,
+    "locator_statuses": {
+      "LOCATOR_FOUND_PROJECT_CONTEXT": 64,
+      "RETRIEVED_NO_DIRECT_PROJECT_LOCATOR": 13,
+      "UNAVAILABLE_IN_BROWSER_EXTRACT": 18
+    },
+    "duplicate_evidence_rows": 5,
+    "native_trace_statuses": {
+      "MISSING_OR_NOT_RECOVERED": 32,
+      "EXACT_NATIVE_VALUE_MATCH": 407,
+      "AMBIGUOUS_NATIVE_MATCH": 2
+    },
+    "company_tenure_statement_rows": 527,
+    "trace_dispositions": {
+      "PROJECT_CANDIDATE_REVIEW": 32,
+      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 409
+    },
+    "scope": "All baseline targets searched and native references checked. Candidate relation review is provisional; inaccessible sources and incomplete rights chains remain HOLD/open, not verified absent."
+  }
+}

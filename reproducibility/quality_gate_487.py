@@ -69,6 +69,10 @@ def main():
     project_rows = read_csv(out / "project_candidate_evidence_review.csv")
     source_coverage = read_csv(out / "state_source_coverage_and_gaps.csv")
 
+    full = {r['target_id']: r for r in read_csv(out / "487_definition_review.csv")}
+    for r in rows:
+        if full[r['target_id']]['definition_screen_status'] != r['definition_screen_status']:
+            raise ValueError("Stale compact adjudication row: " + r['target_id'])
     target_ids = [r.get("target_id", "").strip() for r in rows]
     gate_ids = [r.get("target_id", "").strip() for r in gate_rows]
     dup_targets = sorted(k for k, n in Counter(target_ids).items() if k and n != 1)
@@ -93,7 +97,7 @@ def main():
             "ree_role_status": p.get("ree_role_status", "UNKNOWN"), "stage_status": p.get("stage_status", "UNKNOWN"),
             "inclusion_gate": p.get("inclusion_gate", "HOLD"), "dedup_decision": p.get("dedup_decision", "UNRESOLVED"),
             "current_project_or_rights_entity": p.get("current_project_or_rights_entity", ""),
-            "company_history_status": "DOCUMENTED" if p.get("company_name_transfer_and_interest_history") else "UNKNOWN",
+            "company_history_status": "UNKNOWN_OR_PARTIAL" if any(t in p.get("company_name_transfer_and_interest_history", "").upper() for t in ["PENDING", "UNRESOLVED", "NOT_VERIFIED"]) or not p.get("company_name_transfer_and_interest_history") else "DISCLOSURE_ONLY_NOT_LEGAL_CHAIN",
             "review_status": p.get("review_status", ""), "reviewer_decision": p.get("reviewer_decision", ""),
             "reviewer_notes": p.get("reviewer_notes", ""), "as_of_date": p.get("as_of_date", args.as_of_date),
             "registered_titleholder": "", "operator_or_proponent": "",
@@ -228,4 +232,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
