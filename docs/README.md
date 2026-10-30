@@ -7,6 +7,7 @@
 | 文件 | 內容 |
 | --- | --- |
 | [A/B/C 研究需求](RESEARCH_REQUIREMENTS_AIMS_ABC.md) | Aim A、B、C；P0–P3 欄位、分析與驗收標準 |
+| [2026-10-30 專案評估](PROJECT_ASSESSMENT_2026-10-30.md) | 方法學、資料品質、研究進度及下一個里程碑 |
 | [操作指令](RUNBOOK.md) | Python、GIS、R、更新、測試及審閱工作包 |
 | [研究決策](RESEARCH_DECISIONS.md) | r983 研究母體、計量與資料驗證原則 |
 | [Git 工作流程](GIT_WORKFLOW.md) | 分支、版本與快照保存 |
