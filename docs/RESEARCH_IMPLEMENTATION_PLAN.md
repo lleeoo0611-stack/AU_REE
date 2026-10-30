@@ -53,6 +53,12 @@
 - [可重跑腳本](../scripts/build_p0_census_487_audit.py) 與 [回歸測試](../tests/test_p0_487_batch.py) 精確連結既有 487 基線、Group、官方 Tenure/Company 及 95-row evidence locator；在日後不同 run date 重建輸出並保留 input SHA-256。
 - 487 source rows 分為 78 linked／409 unlinked；其中 409 未連結來源有 283 Deposit、95 Occurrence、21 source Project records、6 Prospect、4 Historical。**P0 自動化完成的是 cross-table source-level audit，獨立 Project/Resource/GIS approval 仍屬 P0 下一個 Gate。**
 
+### P0.1 Evidence Claims 完整來源檢查（2026-10-31）
+
+- [487 筆證據深度報告](audits/2026-10-31_487_evidence_review_report.md)：407 原生 exact match、42 Project-context 文字位置、56 文字候選頁/行、官方 WA 20 個專案資源名及 NT 一筆 Prospect→Project 直接文字證據；[統計 Summary](audits/2026-10-31_487_evidence_claim_summary.json)。
+- [可重現 Python](../scripts/review_p0_487_evidence.py) 及 [測試](../tests/test_p0_evidence_487.py)：所有 487 target ID、文件定位、Cross-source 名稱、C1 未核准狀態可重跑。
+- **下一個核准 Gate**：完成官方 Project parent link、原始 JORC category/cutoff/source_scope、原始 PDF/HTML bytes SHA-256 與獨立 reviewer approval；在此前無研究級 MCDA 主體。
+
 ## 3. 後續每個 PR 的最低要求
 
 請使用 [GitHub PR Template](../.github/pull_request_template.md) 並填寫：
