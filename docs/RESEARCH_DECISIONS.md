@@ -66,3 +66,14 @@
 | `ADR-P0-009` | 2026-10-31 | `RECORDED_AUDIT` | 留存 source/entity/crosswalk/tenure/evidence locator 當次 status 並產生 P1–P4 review workstream；不同來源、快照、實體層級數不得混計 | [Batch QA Summary](audits/2026-10-31_census_487_batch_review_summary.json)、[Rebuild script](../scripts/build_p0_census_487_audit.py)、pytest；下一 Gate 為關聯核定和 JORC resource basis |
 
 此處的 P1–P4 是**Census 審查工作優先順序**，與研究開發里程碑 P0–P3 **不同**，不可混用。
+
+### P0 all-source claim evidence review（2026-10-31）
+
+| Decision ID | Date | Status | Evidence / decision | Required follow-up |
+| --- | --- | --- | --- | --- |
+| `ADR-P0-010` | 2026-10-31 | `RECORDED_AUDIT` | 487 個來源列全納入證據深度分類；441-row trace 之原始資料定位與 95-row document locator 採不同層級；原生記錄 `EXACT` 不代表 Project 證明 | [逐筆 Evidence Claim CSV](audits/2026-10-31_487_evidence_claim_review.csv)、[報告](audits/2026-10-31_487_evidence_review_report.md) |
+| `ADR-P0-011` | 2026-10-31 | `RECORDED_EVIDENCE_LEAD` | WA 2026-02 官方 REE 清單有 20 Project/resource names；同州完全同名與現有 487 對到 13 種名稱／20 原始列，包括 Cummins Range、Yangibana、North Stanmore | 需 Project scope/JORC statement 原文、期限、類別和 reviewer approval；不自動新增正式 Project ID |
+| `ADR-P0-012` | 2026-10-31 | `RECORDED_EVIDENCE_LEAD` | NT EL31225 官方公開 2023 報告明示 Plenty River prospect 屬 Bruce Project，應優先審核 parent relation | 指派獨立來源/關聯審核；尚未新增正式資料庫 Project／Deposit link |
+
+以上新來源和原始已核准觀測屬**不同層級**。本輪新增的 source leads 不能取代正式 `evidence_approvals.csv`。
+

@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-31",
+  "frozen_as_of": "2026-10-29",
+  "scope": "487 historical source-target records; evidence pointers and claim-specific statuses, not 487 independent Projects",
+  "source_files": [
+    {
+      "path": "docs/audits/2026-10-31_census_487_batch_review.csv",
+      "git_blob": "b7990917d2f5c284eb54abea9d8fd1accd4761cc",
+      "rows": 487
+    },
+    {
+      "path": "outputs/unlinked_441_source_trace.csv",
+      "git_blob": "95ba3ea9899042c7863af1e523edb9c5d6e583be",
+      "rows": 441
+    },
+    {
+      "path": "outputs/source_evidence_locator_review_95.csv",
+      "git_blob": "0b21b658ff8bd32c2044fc1e9eb16f5cc3415716",
+      "rows": 95
+    },
+    {
+      "path": "docs/audits/2026-10-31_wa_official_ree_project_leads.csv",
+      "git_blob": "2ce60bac84ef248bcbe0af45161a1bfc5fdb1e96",
+      "rows": 20
+    }
+  ],
+  "rows": 487,
+  "columns": 23,
+  "unique_ids": 487,
+  "counts": {
+    "grade": {
+      "NATIVE_RECORD_ONLY": 336,
+      "URL_NO_TEXT_LOCATOR": 24,
+      "DOCUMENT_REVIEW_NOT_DIRECT": 4,
+      "ARCHIVED_TEXT_LOCATOR_CANDIDATE": 56,
+      "PROJECT_CONTEXT_TEXT_LOCATED": 42,
+      "AMBIGUOUS_NATIVE_ID": 2,
+      "SOURCE_RECORD_NOT_RECOVERED": 23
+    },
+    "native": {
+      "EXACT_NATIVE_VALUE_MATCH": 407,
+      "NOT_IN_441_TRACE": 46,
+      "MISSING_OR_NOT_RECOVERED": 32,
+      "AMBIGUOUS_NATIVE_MATCH": 2
+    },
+    "identity": {
+      "PROJECT_ID_UNRESOLVED": 391,
+      "GROUP_LINK_REVIEWED_SIGNOFF_PENDING": 78,
+      "WA_PROJECT_NAME_MATCH_SCOPE_UNCHECKED": 17,
+      "PROSPECT_PARENT_SOURCE_TEXT_BRUCE_PROJECT": 1
+    },
+    "wa_match": {
+      "NOT_EXACT": 467,
+      "EXACT_SOURCE_NAME": 20
+    },
+    "next": {
+      "LINK_DEPOSIT_TO_DOCUMENTED_PROJECT": 342,
+      "VERIFY_PRIMARY_DOCUMENT_AND_STAGE": 78,
+      "CHECK_WA_PROJECT_BOUNDARY_AND_RESOURCE_STATEMENT": 17,
+      "RECOVER_NATIVE_ID_AND_SOURCE": 25,
+      "RESOLVE_DUPLICATE_NATIVE_RECORD": 2,
+      "READ_LOCATED_DOCUMENT_FOR_IDENTITY": 22,
+      "CHECK_BRUCE_PARENT_CHILD_RELATION": 1
+    }
+  },
+  "wa_official_match_rows": 20,
+  "wa_official_distinct_names_exact": 13,
+  "wa_official_names_missing_exact": [
+    "Mt Weld",
+    "Greater Brothers",
+    "Mt Clere",
+    "Salazar",
+    "Mount Ridley",
+    "Splinter",
+    "Mt Stirling"
+  ],
+  "direct_doc_target_ids": 46,
+  "full_signoffs": 0,
+  "interpretation": "source record/document pointer review only, not original JORC document or independently signed Project verification"
+}

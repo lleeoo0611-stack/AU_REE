@@ -1,5 +1,15 @@
 # Change log
 
+## P0 source evidence review for all 487 records — 2026-10-31
+
+- Audit all 487 Census targets at **claim/evidence depth**, distinguishing exact native source record, archived document text locator, URL without locator, ambiguous native match and unrecovered source; record evidence scope and next action without Project/JORC/GIS approval.
+- Add `scripts/review_p0_487_evidence.py` and regression tests to reproduce a 487-row editable CSV and byte-level source SHA-256 run manifest.
+- Extract 20 WA Government 2026-02 REE project/resource summary entries with 2026-01 staging and JORC aggregate grades: exact same-name crosswalk gives 13 government names / 20 Census source rows, including previously ungrouped advanced projects.
+- Add NT 2023 Bruce Project → Plenty River prospect primary-source parent relation for review (not automatic merge).
+- Add research report and structured source review/QA files under `docs/audits/`; update README, docs index, runbook, implementation plan and research decisions.
+- No changes to historical 487 records, approvals, active GIS, JORC database or MCDA scoring.
+
+
 ## P0 complete 487-source batch audit — 2026-10-31
 
 - Join **all 487 frozen Census source targets** by original `target_id` from identity, evidence/locators, source recovery, official tenure, company roles and the 39 reviewed-group screen.
