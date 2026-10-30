@@ -1,0 +1,93 @@
+{
+  "manifest_id": "P0_PROJECT_SOURCE_SCREEN_39_2026-10-31_V1",
+  "repository": "lleeoo0611-stack/AU_REE",
+  "run_date": "2026-10-31",
+  "target_snapshot_as_of": "2026-10-29",
+  "source_git_blob_shas": {
+    "outputs/project_entity_register.csv": "00bdfdb2575e85133af41147f3db401f34ea146e",
+    "outputs/project_candidate_evidence_review.csv": "447c6fdd3839349de70bb9a3955237fb1f14c9fb",
+    "outputs/project_evidence_register.csv": "64f162f9863c734502580bb2c76ae115a13c5791"
+  },
+  "output": {
+    "path": "docs/audits/2026-10-31_project_source_screen_39.csv",
+    "git_blob_sha": "372234088f9c4494077996c75ba8dc4c263f9a22",
+    "rows": 39,
+    "columns": 16
+  },
+  "counts": {
+    "by_state": {
+      "VIC": 11,
+      "NSW": 6,
+      "NT": 3,
+      "WA": 3,
+      "SA": 7,
+      "TAS": 2,
+      "QLD": 7
+    },
+    "by_state_disposition": {
+      "VIC": {
+        "total": 11,
+        "original_candidate": 11,
+        "original_hold": 0
+      },
+      "NSW": {
+        "total": 6,
+        "original_candidate": 5,
+        "original_hold": 1
+      },
+      "NT": {
+        "total": 3,
+        "original_candidate": 3,
+        "original_hold": 0
+      },
+      "WA": {
+        "total": 3,
+        "original_candidate": 3,
+        "original_hold": 0
+      },
+      "SA": {
+        "total": 7,
+        "original_candidate": 4,
+        "original_hold": 3
+      },
+      "TAS": {
+        "total": 2,
+        "original_candidate": 2,
+        "original_hold": 0
+      },
+      "QLD": {
+        "total": 7,
+        "original_candidate": 4,
+        "original_hold": 3
+      }
+    },
+    "by_screening_class": {
+      "STUDY_WINDOW_RECHECK": 8,
+      "OUTSIDE_PRE_FID_CONFIRMED": 2,
+      "STUDY_DOCUMENTED_PRE_FID_SCREEN": 7,
+      "RESOURCE_EXPLORATION_NO_STUDY_CHECKED": 14,
+      "REE_ROLE_HOLD": 7,
+      "ON_HOLD_ACTIVITY": 1
+    },
+    "by_original_disposition": {
+      "INCLUDE_CANDIDATE": 32,
+      "HOLD_REE_ROLE": 6,
+      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 1
+    },
+    "by_public_review_depth": {
+      "PRIMARY_PROJECT_TEXT": 16,
+      "PRIMARY_GOVERNMENT_TEXT": 13,
+      "PRIMARY_COMPANY_TEXT": 6,
+      "ARCHIVED_SOURCE_NOT_REOPENED": 1,
+      "PRIMARY_SECTOR_TEXT": 2,
+      "ISSUER_REPORT_MIRROR_TEXT": 1
+    }
+  },
+  "source_policy": "Direct publicly available primary source text, company publications and government source summaries cross-checked against frozen issuer group register; some entries have source text only from prior archived review or an issuer report mirror, explicitly marked in source_review_depth. Individual source file archive bytes and review signoff not newly completed.",
+  "cutoff_policy": "The review executed 2026-10-31 screens stage/status against frozen as-of 2026-10-29; a 2026-10-30 Northern Minerals corporate document is explicitly identified as post-cutoff supplemental only, not eligible as-of evidence. Undated updated web pages must be independently dated before formal snapshot release.",
+  "no_automatic_promotion": true,
+  "formal_inputs_modified": false,
+  "C1_release_status": "C1_NOT_RELEASED",
+  "official_project_approved_rows_in_this_output": 0,
+  "method": "One-to-one left join from existing project_entity_register.csv using existing canonical_name and stable review group entity_id; manual cross-check of each group with source URL/text; six mutually exclusive analytical screening classes; preserve original official disposition and recorded stage; no automatic SQL or approved CSV update."
+}
