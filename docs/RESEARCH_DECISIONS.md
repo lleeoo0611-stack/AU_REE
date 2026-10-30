@@ -91,7 +91,7 @@
 | Decision ID | Result | Reference |
 | --- | --- | --- |
 | `ADR-P0-015` | 272 筆 native-only target 全部以 2026-10-29 封存核對至**單一官方來源 feature**；268 無 source Project parent key、4 只有地質 parent/group；仍為 C0 | [272 CSV](audits/2026-10-31_272_native_project_scope_triage.csv) |
-| `ADR-P0-016` | 原 23 缺原生列：GA 7 筆來源 JSON，Legacy 16 筆歷史來源列，後者原 project_id 欄空白，不能將後生成 UUID 視為 native ID | [23 CSV](audits/2026-10-31_23_native_source_recovery.csv) |
+| `ADR-P0-016` | 原 23 缺原生列：GA 7 筆來源 JSON，Legacy 16 筆歷史來源列，後者原 project_id 精確等於穩定 Legacy UUID，但不是政府 native ID | [23 CSV](audits/2026-10-31_23_native_source_recovery.csv) |
 | `ADR-P0-017` | Olympic Dam MINDEP 3000 的 4 個 `OBJECTID/FID`、Clarke MINDEP 11849 的 6 個來源圖徵一一識別；仍只對應 2 個礦床 | [SA 10 CSV](audits/2026-10-31_sa_10_duplicate_source_features.csv) |
 | `ADR-P0-018` | 6 筆跨來源 Project parent 候選，其中 REE project 2 筆，non-REE mine 4 筆，無自動 C1 核准 | [parent 候選](audits/2026-10-31_272_project_parent_candidates_6.csv) |
 
