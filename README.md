@@ -12,6 +12,32 @@
 
 完整研究定義、P0–P3 開發需求及驗收條件：[**Research Requirements — Aims A/B/C**](docs/RESEARCH_REQUIREMENTS_AIMS_ABC.md)。
 
+## 研究架構（現行管線與研究目標）
+
+```mermaid
+flowchart TB
+    raw["GA／各州官方資料、Legacy"] --> screen["全澳 Raw-first 擷取與 REE 篩選"]
+    screen --> population["01 Population：Project 辨識、去重、Census"]
+    reports["JORC／ASX 等技術文件"] --> evidence["來源封存、SHA-256、獨立證據核准"]
+    population --> evidence
+    population --> candidates["候選／HOLD：留在 Census"]
+    evidence --> criteria["02 Criteria：觀測值、六構面 12 準則"]
+    population --> coordinates["已核准的專案座標"]
+    coordinates --> gis["03 GIS：道路、鐵路、電力、港口距離"]
+    criteria --> gate["04 Eligibility + GIS release gates"]
+    gis --> gate
+    gate -->|通過| export["05 R export：決策矩陣、AHP 模板"]
+    gate -->|未通過| blocked["保留稽核結果；不發布排名"]
+    export --> methods["現行 R：AHP、PROMETHEE II、SAW、TOPSIS、權重 Monte Carlo"]
+    methods -.-> aimA["Aim A：六構面開發潛力評估"]
+    methods -.-> aimB["Aim B：偏好與排名穩健性"]
+    methods -.-> aimC["Aim C：排名影響因素"]
+    extensions["待實作：資源報告結構、固定評分尺度、資料不確定性、SMAA、分層／歷史驗證"] -.-> aimA
+    extensions -.-> aimB
+    extensions -.-> aimC
+```
+
+實線表示已建立的資料／程式處理關係；虛線表示**研究目標及待補強的方法**，不代表已完成研究級成果。六構面為 Resource、Strategic Composition、Technical、Development、Infrastructure、Commercial/ESG；正式比較仍受獨立證據核准與 release gate 限制。
 ## 進度（截至 2026-10-30）
 
 - **現有管線**：五階段 `population → criteria → gis → eligibility → r_export`；R 支援 AHP、PROMETHEE II、SAW、TOPSIS 與**權重** Monte Carlo。
@@ -21,6 +47,15 @@
 
 詳見 [Census release](CENSUS_RELEASE.md) 與 [資料／研究文件索引](docs/README.md)。
 
+## 專案評估（依目前儲存庫與發布快照）
+
+| 面向 | 判斷 | 下一個關鍵工作 |
+| --- | --- | --- |
+| **方法學** | A/B/C 研究問題、六構面和 MCDA 演算法已有完整架構；正式比較尚缺共同的六構面母體、固定尺度與資料不確定性 | 凍結準則／權重、檢查指標依賴與 Lifecycle Stage 重複計分 |
+| **資料整理** | 官方 Raw-first、來源雜湊、證據審查及 Census 快照可追溯；Project 身分及企業／礦權關聯仍待大量核准 | 完成 Project–Deposit–Resource 關聯、來源核准與可比 JORC 數據 |
+| **進度** | 資料擷取、重現性管線及合成 MCDA 測試已有成果；正式 Alternatives、研究級評分及 A/B/C 實證結果尚未發布 | 先建立可核准的 RS 六構面比較母體，再推進 SMAA 與 Drivers 分析 |
+
+上述為**研究完成度的質性判斷**，不等於以未核准資料估算的量化進度。詳細依據與修正優先序見 [方法學、資料與進度評估](docs/PROJECT_ASSESSMENT_2026-10-30.md)。
 ## 專案結構
 
 ```text
