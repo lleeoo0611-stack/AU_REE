@@ -36,3 +36,14 @@
 | _於對應 PR 經審核後新增；不得覆寫歷史紀錄_ | | | | | | |
 
 狀態使用 `PROPOSED`、`ACCEPTED`、`SUPERSEDED`。上表 `FRAMEWORK_ADOPTED` 代表研究架構的方向已列為後續工作依據，**不代表所有參數、樣本或實作已獲實證核准**。詳細變更流程見 [RESEARCH_IMPLEMENTATION_PLAN](RESEARCH_IMPLEMENTATION_PLAN.md)。
+
+### P0 審查進度（2026-10-31；非正式准入決策）
+
+| Decision ID | 日期 | 狀態 | 內容與科學依據 | 後續核准 Gate |
+| --- | --- | --- | --- | --- |
+| `ADR-P0-001` | 2026-10-31 | `PROPOSED` | C1 使用逐 Project 的 `ID → ROLE → WINDOW → JORC → PANEL → GIS_RELEASE` 審核；觀察到 review group/target row 與已核准 Project 不同 | [C1 Protocol](P0_COHORT_SELECTION_PROTOCOL.md)，需人工來源核准與 coverage |
+| `ADR-P0-002` | 2026-10-31 | `PROPOSED` | 待比較 `PANEL_12_CANDIDATE`（全部 12 準則）與 `PANEL_9_CANDIDATE`（R1 S1 T1 D1 I1–I4 C3）；只按覆蓋/構念效度在看排名前定稿 | 全六構面共同準則/研究審查與樣本 N |
+| `ADR-P0-003` | 2026-10-31 | `PROPOSED` | Resource statement 應有 scope/cutoff/edition/M-I-I/oxide/時間；沿用既有 Project ID 和 geological_entity，避免 JORC totals 與 deposit subtotals double count | [Schema Design](P0_PROJECT_RESOURCE_SCHEMA.md)，需增量 migration/test |
+| `ADR-P0-004` | 2026-10-31 | `RECORDED_AUDIT` | 39 review groups（32 candidate/7 HOLD），正式 input approvals 及 observations 均空；本盤點 C1 `NOT_RELEASED` | [Readiness Audit](audits/P0_C1_READINESS_2026-10-31.md)，尚未簽核任何 Project |
+
+以上 `PROPOSED` 表示可執行的審查設計，**沒有替研究者預先批准 C1 名單、JORC 數據或排名**；後續依來源記錄決策變更、審查人與日期。
