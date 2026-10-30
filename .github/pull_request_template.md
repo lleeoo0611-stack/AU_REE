@@ -4,7 +4,7 @@
 - **工作包／Gate：** <!-- P0.1, P0.2, P1.1, P1.2, P2.1, P2.2, P3 -->
 - **現有行為 → 預期行為：**
 - **Gate Status：** <!-- PASS / PARTIAL / BLOCKED -->
-- **關聯規格：** [Research Architecture](../docs/RESEARCH_ARCHITECTURE.md) · [Implementation Plan](../docs/RESEARCH_IMPLEMENTATION_PLAN.md)
+- **關聯規格：** [Research Architecture](https://github.com/lleeoo0611-stack/AU_REE/blob/main/docs/RESEARCH_ARCHITECTURE.md) · [Implementation Plan](https://github.com/lleeoo0611-stack/AU_REE/blob/main/docs/RESEARCH_IMPLEMENTATION_PLAN.md)
 
 ## 研究契約檢查
 
@@ -28,7 +28,7 @@
 
 - [ ] README 的已實作／待實作狀態如有變更已更新
 - [ ] `docs/CHANGELOG.md` 已更新
-- [ ] 相關的 DATA / MCDA / VALIDATION Protocol 與 [研究需求](../docs/RESEARCH_REQUIREMENTS_AIMS_ABC.md) 如有方法變動已更新
+- [ ] 相關的 DATA / MCDA / VALIDATION Protocol 與 [研究需求](https://github.com/lleeoo0611-stack/AU_REE/blob/main/docs/RESEARCH_REQUIREMENTS_AIMS_ABC.md) 如有方法變動已更新
 - [ ] PR 不直接改寫已發布歷史檔案；新增輸出有新 snapshot ID 與 checksum
 
-> 設計契約：[docs/RESEARCH_ARCHITECTURE.md](../docs/RESEARCH_ARCHITECTURE.md)。若 v2 參數尚未定稿，請先提出 docs/decision PR，再進行演算法／資料庫修改。
+> 設計契約：[docs/RESEARCH_ARCHITECTURE.md](https://github.com/lleeoo0611-stack/AU_REE/blob/main/docs/RESEARCH_ARCHITECTURE.md)。若 v2 參數尚未定稿，請先提出 docs/decision PR，再進行演算法／資料庫修改。
