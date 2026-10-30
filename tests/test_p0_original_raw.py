@@ -24,11 +24,16 @@ def test_original_native_bytes_restored_and_hashed():
     rows=csv_rows(AUDIT/"2026-10-31_23_original_native_bytes_verified.csv")
     assert len(rows)==23 and all(x["byte_exact_recovery"]=="YES" for x in rows)
     man=json.loads((AUDIT/"2026-10-31_native_parent_reconciliation_manifest.json").read_text())
-    ga=(AUDIT/"recovered_raw/2026-10-29/ga/GA_AIMR_REE_2026_features_0000000.json").read_bytes()
-    sa=(AUDIT/"recovered_raw/2026-10-29/sa/SA_CRITICAL_REE.csv").read_bytes()
+    ga=(ROOT/"data/raw_snapshots/2026-10-29/ga/GA_AIMR_REE_2026_features_0000000.json").read_bytes()
+    sa=(ROOT/"data/raw_snapshots/2026-10-29/sa/SA_CRITICAL_REE.csv").read_bytes()
     assert hashlib.sha256(ga).hexdigest()==man["original_sha256_GA"]
     assert hashlib.sha256(sa).hexdigest()==man["original_sha256_SA"]
     assert man["raw_recovered_verified"]==23
+    frozen=(ROOT/"data/source_snapshots/2026-10-29_272_native_features.jsonl").read_bytes()
+    assert hashlib.sha256(frozen).hexdigest()==man["frozen_native_feature_sha256"]
+    parsed=[json.loads(x) for x in frozen.decode().splitlines() if x]
+    assert len(parsed)==man["frozen_native_feature_rows"]
+    assert len({x["target_id"] for x in parsed})==len(parsed)
 
 def test_south_australia_feature_composite_keys_are_unique():
     rows=csv_rows(AUDIT/"2026-10-31_sa_10_compound_feature_keys.csv")
