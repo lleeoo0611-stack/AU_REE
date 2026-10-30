@@ -169,7 +169,8 @@ def main():
     for table,path in [("reconstructed_1006_evidence_ledger",OUT/"reconstructed_1006_evidence_ledger.csv"),("exact_state_name_cluster_candidates",OUT/"exact_state_name_cluster_candidates.csv"),("legacy_86_exact_name_crosswalk_review",OUT/"legacy_86_exact_name_crosswalk_review.csv"),("company_entity_resolution_queue_487",OUT/"company_entity_resolution_queue_487.csv"),("state_source_coverage_and_gaps",OUT/"state_source_coverage_and_gaps.csv"),("upstream_reproducibility_gaps",OUT/"upstream_reproducibility_gaps.csv"),("five_condition_decision_rules",OUT/"five_condition_decision_rules.csv")]:
         rows=read_csv(path); fields=list(rows[0]) if rows else []
         db.execute(f'DROP TABLE IF EXISTS "{table}"')
-        db.execute(f'CREATE TABLE "{table}" ({", ".join(f"\"{c}\" TEXT" for c in fields)})')
+        column_definitions = ", ".join(f'"{c}" TEXT' for c in fields)
+        db.execute(f'CREATE TABLE "{table}" ({column_definitions})')
         db.executemany(f'INSERT INTO "{table}" VALUES ({",".join("?" for _ in fields)})',[[str(r.get(c,"")) for c in fields] for r in rows])
     db.commit(); integrity=db.execute("PRAGMA integrity_check").fetchone()[0]; db.close()
     assert integrity=="ok"
