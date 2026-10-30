@@ -63,6 +63,19 @@ python -m pytest -q tests/test_p0_487_batch.py
 
 產生 487 source-target 列、39 欄 CSV 與帶**實際 input SHA-256** 的 JSON summary。來源 join 必須是精確 `target_id`，並保留 39 group 的可追溯關聯；無關聯的 409 筆不自動提升 Project。**source record / spatial title intersect 不構成 Project 或權利關係核准。** 已發布的凍結結果：[報告](audits/2026-10-31_census_487_batch_review_report.md) · [CSV](audits/2026-10-31_census_487_batch_review.csv)。對後續來源時點使用新 `--run-date`，如已有輸出則拒絕覆寫；程式只在明確 `--overwrite` 下重跑同一路徑，不得將凍結 `docs/audits/` 當日常覆寫目錄。
 
+### P0 全量證據主張審查（2026-10-31）
+
+在前述 487 筆來源矩陣基礎上，以原生 ID 對照、文件原文定位與官方 WA Project 清單建立全量**非核准**證據層級：
+
+```bash
+python scripts/review_p0_487_evidence.py --root . \
+  --date 2026-10-31 --as-of 2026-10-29 \
+  --output-dir work/evidence
+python -m pytest -q tests/test_p0_evidence_487.py
+```
+
+結果寫入新的 `work/evidence/` 資料夾；每次 run 記錄輸入檔 byte-level SHA-256。發表快照：[報告](audits/2026-10-31_487_evidence_review_report.md) · [487 CSV](audits/2026-10-31_487_evidence_claim_review.csv) · [西澳政府 20 個專案摘要](audits/2026-10-31_wa_official_ree_project_leads.csv)。官方資源總覽不是原始完整 JORC statement，不能自動給 C1 資源或 Project identity 核准。
+
 ## CI 與版本
 
 `.github/workflows/python-offline.yml` 在 push/PR 測試 Python 3.11/3.13、五階段離線重跑、SQLite QA 與 checkpoint；`r-mcda-smoke.yml` 用合成 Alternatives 測試 R 4.4.3 的可重現性。工作包的完整 `rebuild_all.py` 需要封存來源與可選的 `xlsxwriter`，不屬於上述離線 CI 的測試範圍。
