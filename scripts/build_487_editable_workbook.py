@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Create an editable XLSX review workbook from the generated CSV workpack."""
 import csv
+import datetime
 import json
 import pathlib
 import sys
@@ -42,7 +43,7 @@ def main():
     identity_hold_rows = summary["status_counts"].get("HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE", 0)
     path = OUT / "AU_REE_487_pre_MCDA_five_definition_review.xlsx"
     wb = xlsxwriter.Workbook(path)
-    wb.set_properties({"title": "Australian REE project census five-definition review", "subject": "Pre-MCDA census/entity linkage only", "author": "AU_REE research workpack"})
+    wb.set_properties({"title": "Australian REE project census five-definition review", "subject": "Pre-MCDA census/entity linkage only", "author": "AU_REE research workpack", "created": datetime.datetime(2026,10,29)})
     navy, blue, amber, green, white = "#17365D", "#D9EAF7", "#FFF2CC", "#E2F0D9", "#FFFFFF"
     hdr = wb.add_format({"bold": True, "font_color": white, "bg_color": navy, "text_wrap": True, "valign": "vcenter"})
     title = wb.add_format({"bold": True, "font_size": 15, "font_color": navy})
@@ -138,10 +139,16 @@ def main():
     add_table("Project實體名冊", load("project_entity_register.csv"), ("reviewer_decision",))
     add_table("來源證據定位", load("project_evidence_register.csv"), ("publication_date", "locator_page_or_section", "supports_condition", "review_status"))
     add_table("連結跨表差異", load("target_link_reconciliation_487.csv"))
+    add_table("441逐筆溯源", load("unlinked_441_source_trace.csv"))
+    add_table("95筆來源定位", load("source_evidence_locator_review_95.csv"))
+    add_table("新增關係裁定", load("reviewed_project_relation_changes.csv"))
+    add_table("公司礦權揭露事件", load("company_tenure_disclosure_observations.csv"))
+    add_table("原生來源重複核對", load("native_source_duplicate_review.csv"))
+    add_table("公司礦權已審閱事件", load("reviewed_company_rights_events.csv"))
+    add_table("專案權利鏈缺口", load("project_rights_history_review.csv"))
     wb.close()
     print(json.dumps({"workbook": str(path), "rows": len(rows), "project_groups": len(projects), "queue": len(queue)}, ensure_ascii=False))
 
 
 if __name__ == "__main__":
     main()
-

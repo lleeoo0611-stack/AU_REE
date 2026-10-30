@@ -1,0 +1,464 @@
+{
+  "format_version": 1,
+  "csv_build_version": "1.0.0",
+  "as_of_date": "2026-10-29",
+  "input_directory": "deliverable",
+  "input_manifest_sha256": "c46d2164999dda28a4b19a9bd6c59735f79bdd84c3973eb62fad1d673769ac32",
+  "input_files": [
+    {
+      "file": "487_definition_review.csv",
+      "sha256": "a1c4818a6f8c91ac611d1ea95e244bf0d49a0875c1982666c5e7808e99adc909",
+      "bytes": 789572,
+      "rows": 487,
+      "table": "t_487_definition_review"
+    },
+    {
+      "file": "487_full_census_adjudication.csv",
+      "sha256": "a1c4818a6f8c91ac611d1ea95e244bf0d49a0875c1982666c5e7808e99adc909",
+      "bytes": 789572,
+      "rows": 487,
+      "table": "t_487_full_census_adjudication"
+    },
+    {
+      "file": "487_inclusion_gate.csv",
+      "sha256": "7d31c8c05cbe56c6b5d947fbd26cdad19f84a230d2d844c891872172401335dd",
+      "bytes": 230641,
+      "rows": 487,
+      "table": "t_487_inclusion_gate"
+    },
+    {
+      "file": "487_official_tenure_intersection_evidence.csv",
+      "sha256": "b4102bdc73135ac6697f3329470ff6dec5828a965664098f634f5f3b5d6c1ff1",
+      "bytes": 1064689,
+      "rows": 764,
+      "table": "t_487_official_tenure_intersection_evidence"
+    },
+    {
+      "file": "487_official_tenure_intersection_evidence_compact.csv",
+      "sha256": "61f1d9ab69f2b406413b2c82285a774d89d1798651a52954c79705b50cb18cb8",
+      "bytes": 242906,
+      "rows": 764,
+      "table": "t_487_official_tenure_intersection_evidence_compact"
+    },
+    {
+      "file": "487_official_tenure_trace_status.csv",
+      "sha256": "538c3f1fbac5a7df6546201f3ce1370e7f1354fafab8d604a9c5fd0efdb984ee",
+      "bytes": 53137,
+      "rows": 487,
+      "table": "t_487_official_tenure_trace_status"
+    },
+    {
+      "file": "487_row_adjudication_compact.csv",
+      "sha256": "c4bb61ad63937bc1e2cfb52c825d795b2a26cbb79ba0770ee571e11a79b94ee0",
+      "bytes": 533472,
+      "rows": 487,
+      "table": "t_487_row_adjudication_compact"
+    },
+    {
+      "file": "487_row_adjudication_latest_2026-10-29.csv",
+      "sha256": "d32a1b27614ab8e39efea1003361a613b6142afff6b9e6b1770b35b466bd7abf",
+      "bytes": 279719,
+      "rows": 487,
+      "table": "t_487_row_adjudication_latest_2026_10_29"
+    },
+    {
+      "file": "all_1006_evidence_decisions_sanitized.csv",
+      "sha256": "41ad564028c54e16b8107594b99f00bb7d52977e30f3a2d776517b1803634992",
+      "bytes": 461593,
+      "rows": 1006,
+      "table": "all_1006_evidence_decisions_sanitized"
+    },
+    {
+      "file": "company_entity_resolution_queue_487.csv",
+      "sha256": "9af7ff9443b73d72c87bc29375bba9f3392bf7928b00dd85d9b1fa52c87fb498",
+      "bytes": 142358,
+      "rows": 487,
+      "table": "company_entity_resolution_queue_487"
+    },
+    {
+      "file": "company_tenure_disclosure_observations.csv",
+      "sha256": "a2a82fe174a34f450431dbd9dffd84492e18fa959cf7cb5b55a2bfa49490c577",
+      "bytes": 164596,
+      "rows": 527,
+      "table": "company_tenure_disclosure_observations"
+    },
+    {
+      "file": "E1_project_unlinked_review_queue_sanitized.csv",
+      "sha256": "0a4af7b920dfbdde121d6b5c4aa2428a60dbfcbbd2ac7d0f835250d32b2c2c3a",
+      "bytes": 167192,
+      "rows": 401,
+      "table": "E1_project_unlinked_review_queue_sanitized"
+    },
+    {
+      "file": "exact_state_name_cluster_candidates.csv",
+      "sha256": "8ae67506eed073482687410232536ed2486154e6985467bb07dd363e6263bf51",
+      "bytes": 216572,
+      "rows": 885,
+      "table": "exact_state_name_cluster_candidates"
+    },
+    {
+      "file": "five_condition_decision_rules.csv",
+      "sha256": "6504392f29d8878214569c96024db00593bd73a83f4d52609e8b73762c429830",
+      "bytes": 1183,
+      "rows": 5,
+      "table": "five_condition_decision_rules"
+    },
+    {
+      "file": "legacy_203_selection_audit.csv",
+      "sha256": "76eb0b17b0b7046250be0c89ab5a97af1dec0ce94859f52cc66d496ec64000ae",
+      "bytes": 65647,
+      "rows": 203,
+      "table": "legacy_203_selection_audit"
+    },
+    {
+      "file": "legacy_86_exact_name_crosswalk_review.csv",
+      "sha256": "d45e1939158c00fd84019da6fc43c5d895cdd61f48255a0ebd43c7b4916e7be7",
+      "bytes": 21895,
+      "rows": 86,
+      "table": "legacy_86_exact_name_crosswalk_review"
+    },
+    {
+      "file": "native_source_duplicate_review.csv",
+      "sha256": "d34eb6eac22dc3af60616f96bce31fd360a8e8efcbe98fd69760933481869b94",
+      "bytes": 6646,
+      "rows": 35,
+      "table": "native_source_duplicate_review"
+    },
+    {
+      "file": "project_candidate_evidence_review.csv",
+      "sha256": "bf4cfa41410f9999439e914e1b444381a84f081af9ff4b483733acf0673ce9b6",
+      "bytes": 47840,
+      "rows": 39,
+      "table": "project_candidate_evidence_review"
+    },
+    {
+      "file": "project_dedup_candidates.csv",
+      "sha256": "3697acc87a566ed6618a0b4eb1e3619bbdb7a64ad22c56d45c2e16ee9eb24846",
+      "bytes": 9643,
+      "rows": 38,
+      "table": "project_dedup_candidates"
+    },
+    {
+      "file": "project_entity_membership_487.csv",
+      "sha256": "392fc4db2b7201db88be430e01b25857b6b71fcd70a2e78f46c46077f3846172",
+      "bytes": 87832,
+      "rows": 487,
+      "table": "project_entity_membership_487"
+    },
+    {
+      "file": "project_entity_membership_487_compact.csv",
+      "sha256": "4b7add211531ed2377e00979c3856371274d421b0d53a267a61aa62fd65cd59c",
+      "bytes": 46431,
+      "rows": 487,
+      "table": "project_entity_membership_487_compact"
+    },
+    {
+      "file": "project_entity_register.csv",
+      "sha256": "334d10594fee715d21f19f3f5434b330acc28e8a6d20e4d75194250d50c229f5",
+      "bytes": 22489,
+      "rows": 39,
+      "table": "project_entity_register"
+    },
+    {
+      "file": "project_evidence_register.csv",
+      "sha256": "3bed705c9ad57aa6dcb847b6410d47e586c57049a739029a9c0a0ee6f86eea10",
+      "bytes": 46360,
+      "rows": 111,
+      "table": "project_evidence_register"
+    },
+    {
+      "file": "project_inclusion_gate_rules.csv",
+      "sha256": "bd818a64300d85049253cc4b3105cf86c926367d0de32eed243c35200d1cb3cb",
+      "bytes": 1755,
+      "rows": 4,
+      "table": "project_inclusion_gate_rules"
+    },
+    {
+      "file": "project_rights_history_review.csv",
+      "sha256": "46f3c8bcc21ae47c468803574aa020d5b6a02f1214f22533081c285b5fea118d",
+      "bytes": 16398,
+      "rows": 39,
+      "table": "project_rights_history_review"
+    },
+    {
+      "file": "quality_gate_487.csv",
+      "sha256": "4596dd5b8219cf15d747c1c69b8dd0a240d175fc5e0b99fee31af1150424feb6",
+      "bytes": 1648,
+      "rows": 17,
+      "table": "quality_gate_487"
+    },
+    {
+      "file": "reconstructed_1006_evidence_ledger.csv",
+      "sha256": "b55581e6a6633c4df369a214c59d4777ef27c080425bff4f264cad3494ae7be0",
+      "bytes": 503475,
+      "rows": 1006,
+      "table": "reconstructed_1006_evidence_ledger"
+    },
+    {
+      "file": "reconstructed_cohort_487.csv",
+      "sha256": "2a7ae3f0943afdcf680f1df58a99af494df0309e1a33bc3007341f2338a9e188",
+      "bytes": 168795,
+      "rows": 487,
+      "table": "reconstructed_cohort_487"
+    },
+    {
+      "file": "reconstructed_sa_project_deposit_crosswalk.csv",
+      "sha256": "aa87f8a8e84feed38df9cc13d0aad56d762e514310151961dfea8d0417427b67",
+      "bytes": 6421,
+      "rows": 16,
+      "table": "reconstructed_sa_project_deposit_crosswalk"
+    },
+    {
+      "file": "review_queue.csv",
+      "sha256": "a864ac2bd91eeb97d7af3a31f30c18694e7980b48fada67fdc7b0dcf65b23a4f",
+      "bytes": 632399,
+      "rows": 418,
+      "table": "review_queue"
+    },
+    {
+      "file": "reviewed_company_rights_events.csv",
+      "sha256": "a5aef8208cad2aa88c1f05eb890570ca5c835a9214c7f6721942cb933d0c711b",
+      "bytes": 2780,
+      "rows": 8,
+      "table": "reviewed_company_rights_events"
+    },
+    {
+      "file": "reviewed_project_relation_changes.csv",
+      "sha256": "9d3527027d9240b4745d8bbb057f39d4dd1843cf5efd8143aed5621b77a79f34",
+      "bytes": 12054,
+      "rows": 32,
+      "table": "reviewed_project_relation_changes"
+    },
+    {
+      "file": "source_candidate_selection_audit_1006.csv",
+      "sha256": "b1eb4411644df24b2332f7168b91c8b0c419f5079bdf0df66246bceeb1e00d8c",
+      "bytes": 552758,
+      "rows": 1006,
+      "table": "source_candidate_selection_audit_1006"
+    },
+    {
+      "file": "source_entity_register_487.csv",
+      "sha256": "a70705f865ef23a1b60428a872fa2133db8ffb5def0f9e213a3a8055901c4a71",
+      "bytes": 56155,
+      "rows": 487,
+      "table": "source_entity_register_487"
+    },
+    {
+      "file": "source_entity_register_487_compact.csv",
+      "sha256": "c19332ea46085a4ca19ce7882a3dd37b5966873e1208dc57e8a294a8a06d2de4",
+      "bytes": 44798,
+      "rows": 487,
+      "table": "source_entity_register_487_compact"
+    },
+    {
+      "file": "source_evidence_locator_review_95.csv",
+      "sha256": "1a6a32a5f93a079abc316b2cb9473f145ef0e9b11f3b6e16291b024ae5c5d7fa",
+      "bytes": 66382,
+      "rows": 95,
+      "table": "source_evidence_locator_review_95"
+    },
+    {
+      "file": "state_source_coverage_and_gaps.csv",
+      "sha256": "2675cb73a1dbd3cdc5f559fb81c798bb16be75489529551c86539291f5ec553e",
+      "bytes": 2537,
+      "rows": 8,
+      "table": "state_source_coverage_and_gaps"
+    },
+    {
+      "file": "state_source_coverage_matrix_487.csv",
+      "sha256": "f6a779e1329463e36d59ee9f12813061047cc87797a784af44cf321300321d5f",
+      "bytes": 1865,
+      "rows": 8,
+      "table": "state_source_coverage_matrix_487"
+    },
+    {
+      "file": "target_link_reconciliation_487.csv",
+      "sha256": "0358af1d9914977e249f2cacc5ee6f18d8a6bc3377b82d2a11d524fd44021425",
+      "bytes": 10492,
+      "rows": 78,
+      "table": "target_link_reconciliation_487"
+    },
+    {
+      "file": "unlinked_441_source_trace.csv",
+      "sha256": "5294deccc6dbec094eba6a77d699101f7b9aea503d0fbd59b1b65d1f54ca33a7",
+      "bytes": 406797,
+      "rows": 441,
+      "table": "unlinked_441_source_trace"
+    },
+    {
+      "file": "upstream_reproducibility_gaps.csv",
+      "sha256": "4a742bd1a84381c55a03e72cfc7251ca4f6e6dc8680aa1dfa42d6340280e094b",
+      "bytes": 1296,
+      "rows": 4,
+      "table": "upstream_reproducibility_gaps"
+    }
+  ],
+  "table_results": {
+    "t_487_definition_review": {
+      "rows": 487,
+      "logical_sha256": "67f62881ec9c830d709c9fe2400527b5362b2e67c3a592b943c4497bcc73e4d9"
+    },
+    "t_487_full_census_adjudication": {
+      "rows": 487,
+      "logical_sha256": "67f62881ec9c830d709c9fe2400527b5362b2e67c3a592b943c4497bcc73e4d9"
+    },
+    "t_487_inclusion_gate": {
+      "rows": 487,
+      "logical_sha256": "446065b7fd87635acd237d9e4aeb6485ff4ea0f3c42856e01502811f55f6bce8"
+    },
+    "t_487_official_tenure_intersection_evidence": {
+      "rows": 764,
+      "logical_sha256": "b1709ba31c184b2e7603bd60c9097560212f7edc955d09907713d97e9bc1708d"
+    },
+    "t_487_official_tenure_intersection_evidence_compact": {
+      "rows": 764,
+      "logical_sha256": "c18580bab1ecba865af9d424f62c106b6ab43130c539ff4d5f76e5e3f46934c0"
+    },
+    "t_487_official_tenure_trace_status": {
+      "rows": 487,
+      "logical_sha256": "d0ac5ea08cae264e1b489bd05b95ae2dd9c8c7d4fc438dc5b7c568cee8b27e33"
+    },
+    "t_487_row_adjudication_compact": {
+      "rows": 487,
+      "logical_sha256": "cbed77e46595f01fa1724d81de0e76100567c50989b0bcfa5d7aa19742721d8c"
+    },
+    "t_487_row_adjudication_latest_2026_10_29": {
+      "rows": 487,
+      "logical_sha256": "85fc2d3515ca768e9019569ccd7f26e27d9584d26378628078e5fdeb888bad97"
+    },
+    "all_1006_evidence_decisions_sanitized": {
+      "rows": 1006,
+      "logical_sha256": "dc6b69d98019d12febb8c82e5d9b6ee4ada502401c7a14108b1f1ed5df60b55f"
+    },
+    "company_entity_resolution_queue_487": {
+      "rows": 487,
+      "logical_sha256": "0e3bf45ba91d6cc0466cae8226b99e5652575a3e86dfd84568982bfb3f17a940"
+    },
+    "company_tenure_disclosure_observations": {
+      "rows": 527,
+      "logical_sha256": "75a5624743ab882623cb891cd219b41844098d406173445514f8133eb55e90bc"
+    },
+    "E1_project_unlinked_review_queue_sanitized": {
+      "rows": 401,
+      "logical_sha256": "5a0a8ddb5d3a0c6faa9b6961c50d525a6404cc04692f393078a9aef8acf0e1f8"
+    },
+    "exact_state_name_cluster_candidates": {
+      "rows": 885,
+      "logical_sha256": "4a474032f70a467c8c19d48d1dfb3e88d119c6c350e28097bb8724527e6ed180"
+    },
+    "five_condition_decision_rules": {
+      "rows": 5,
+      "logical_sha256": "e1128b277eca2b9433acfe81128fb9ae7bc64852adc1e97898f64b3aa8487a3e"
+    },
+    "legacy_203_selection_audit": {
+      "rows": 203,
+      "logical_sha256": "d31d347bad9cf8312763a31d673bae9c7420643c1369df5b09ef000441277bdb"
+    },
+    "legacy_86_exact_name_crosswalk_review": {
+      "rows": 86,
+      "logical_sha256": "dac9add2edde5a774f3514e51b0a617d00dd612c23a3ef1110e295e4175d9ed0"
+    },
+    "native_source_duplicate_review": {
+      "rows": 35,
+      "logical_sha256": "47c3856548e4b85d44c2526c22d60856cad62a2c9449e4135dfe721e5e5c8f28"
+    },
+    "project_candidate_evidence_review": {
+      "rows": 39,
+      "logical_sha256": "ecdc6884e34a1c1bc8638d15a6f8cc15530320c1c5c7fa1eb15e913853f8bb15"
+    },
+    "project_dedup_candidates": {
+      "rows": 38,
+      "logical_sha256": "74ca0e1f04086879bbe7d0530504e84e4bb2f868b963f74b5d0074518d47a32d"
+    },
+    "project_entity_membership_487": {
+      "rows": 487,
+      "logical_sha256": "a32eec157fedfab2fcbdccb1515a7ac6b91979bf7f36efeb2a0861080806e802"
+    },
+    "project_entity_membership_487_compact": {
+      "rows": 487,
+      "logical_sha256": "e7f63dc94b4ead0c5d5e9d1d7e689124bf33540499f56c9de3f6c2d653188e9a"
+    },
+    "project_entity_register": {
+      "rows": 39,
+      "logical_sha256": "b24e74b2c378060c62353866d953e6ada0328a46ee833231b44330103c379d09"
+    },
+    "project_evidence_register": {
+      "rows": 111,
+      "logical_sha256": "c8503b73ec112037b5c11342d3efb2ef8c51cc8d304e05dbad07022f95f5736b"
+    },
+    "project_inclusion_gate_rules": {
+      "rows": 4,
+      "logical_sha256": "11594a5309c39a8202acd05d379e2c9f1602200be676001773c17e05ec402d4b"
+    },
+    "project_rights_history_review": {
+      "rows": 39,
+      "logical_sha256": "e8cbbbf088d65ea1d8c69842e5e52d305468c507d9efa48089735799b6df26ac"
+    },
+    "quality_gate_487": {
+      "rows": 17,
+      "logical_sha256": "d18078f94415c072a75e30967f44c571fd5754858662b1f08fe74e2bab95b116"
+    },
+    "reconstructed_1006_evidence_ledger": {
+      "rows": 1006,
+      "logical_sha256": "a415dd5f25d332c20da8d2ef283975ba6a9722435a39536a48f3c322e2027ac0"
+    },
+    "reconstructed_cohort_487": {
+      "rows": 487,
+      "logical_sha256": "7653eb6681d1fd71b3000eb63a88e382514ea173cf16beebb901baca8188081d"
+    },
+    "reconstructed_sa_project_deposit_crosswalk": {
+      "rows": 16,
+      "logical_sha256": "90368dddc282281fd90c503295e0025d576b10c6a85d33819263f49d1ea23a64"
+    },
+    "review_queue": {
+      "rows": 418,
+      "logical_sha256": "c1528403fac67d50d3199e49d078f8fed1d3d581849824b742c32e0243b7bcec"
+    },
+    "reviewed_company_rights_events": {
+      "rows": 8,
+      "logical_sha256": "26f5e1d742933d75648cff64a72451e38f74f06f7d4b234a940bdd99b95f88c9"
+    },
+    "reviewed_project_relation_changes": {
+      "rows": 32,
+      "logical_sha256": "ff48166269235ede592863d52852ade50074200e9e8f764ea4ac0dc0b097bf6a"
+    },
+    "source_candidate_selection_audit_1006": {
+      "rows": 1006,
+      "logical_sha256": "7c5fa697bbdcb298044b5a7e604ef81dbb9b2c5702cd740fcfbebbf8ce48b23d"
+    },
+    "source_entity_register_487": {
+      "rows": 487,
+      "logical_sha256": "31cb48b37a0360686e0d3c448f6cfcac7a037d3d066a1ef8607406e2dec555a5"
+    },
+    "source_entity_register_487_compact": {
+      "rows": 487,
+      "logical_sha256": "cf5e6553c847a17797766c70738b9faefb098ee8084b2d897a3e10c9c2089abe"
+    },
+    "source_evidence_locator_review_95": {
+      "rows": 95,
+      "logical_sha256": "1b6c654dcda8ca2601fce4c88c5f185265234d46ddeb992a4ce810715f857af3"
+    },
+    "state_source_coverage_and_gaps": {
+      "rows": 8,
+      "logical_sha256": "a5d571744e969a91f98abba7724513b6f627a1e085c54a869bc059d037f97e04"
+    },
+    "state_source_coverage_matrix_487": {
+      "rows": 8,
+      "logical_sha256": "0f269cebad3c8ae86355c85fc609316ea04559be3d3a11f9b9266a05fb251bbd"
+    },
+    "target_link_reconciliation_487": {
+      "rows": 78,
+      "logical_sha256": "cc35273320ec1060e2f9c3e0ccc04e25aabcf01f32acdcb52cd79d5b3661e0bb"
+    },
+    "unlinked_441_source_trace": {
+      "rows": 441,
+      "logical_sha256": "6636382fb1590cc4c0dfc4c0676ba96ba039cfd79e5748bb6e5f17cd77dfecec"
+    },
+    "upstream_reproducibility_gaps": {
+      "rows": 4,
+      "logical_sha256": "b10cb411e9e4aff771693510807032bbae9440725994f191720a09307652cf64"
+    }
+  },
+  "database_sha256": "4014bd088dfffc05900fa874dc279102142fe278129bab8d1a6c079afee85409",
+  "sqlite_integrity_check": "ok"
+}

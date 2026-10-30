@@ -1,19 +1,18 @@
-check_id,count,severity,meaning
+﻿check_id,count,severity,meaning
 TARGET_ROWS,487,PASS,Exactly 487 row-level source records retained
 UNIQUE_TARGET_IDS,487,PASS,Original target IDs are unique
-TARGETS_WITH_PROJECT_LINK_REVIEWED,46,INFO,Project relation from reviewed project candidate table
-TARGETS_WITHOUT_PROJECT_LINK,441,REVIEW,Remain unresolved; no name-only linking inferred
-LINKED_CANDIDATE_TARGETS,37,PASS,All candidate rows have parsed Project relationships
+TARGETS_WITH_PROJECT_LINK_REVIEWED,78,INFO,Project relation from reviewed project candidate table
+TARGETS_WITHOUT_PROJECT_LINK,409,REVIEW,Remain unresolved; no name-only linking inferred
+LINKED_CANDIDATE_TARGETS,69,PASS,All candidate rows have parsed Project relationships
 LINKED_HOLD_TARGETS,9,INFO,Existing group links retain HOLD decisions
-DEDUP_TARGET_REFERENCES_CHECKED,43,PASS,Every dedup target has a matching reviewed group link
-PROJECT_CANDIDATE_ROWS,30,INFO,Candidate groups are not approved project count
-SOURCE_URLS_IN_REGISTER,95,INFO,"URLs split into one row each; type, date, and locator not inferred"
-EVIDENCE_ROWS_NEEDING_LOCATOR_REVIEW,95,REVIEW,"Add page/section, claim, source date, and condition supported"
-UNKNOWN_COMPANY_HISTORY,30,REVIEW,Candidate Project company/title succession not fully documented
-UNRESOLVED_DUPLICATES,18,REVIEW,Candidate Project deduplication or human signoff remains open
+DEDUP_TARGET_REFERENCES_CHECKED,75,PASS,Every dedup target has a matching reviewed group link
+PROJECT_CANDIDATE_ROWS,39,INFO,Candidate groups are not approved project count
+SOURCE_URLS_IN_REGISTER,111,INFO,"URLs split into one row each; type, date, and locator not inferred"
+EVIDENCE_ROWS_NEEDING_LOCATOR_REVIEW,32,REVIEW,"Add page/section, claim, source date, and condition supported"
+UNKNOWN_COMPANY_HISTORY,39,REVIEW,Candidate Project company/title succession not fully documented
+UNRESOLVED_DUPLICATES,30,REVIEW,Candidate Project deduplication or human signoff remains open
 JURISDICTION_COVERAGE_ROWS,8,PASS,Coverage/gap inventory includes seven jurisdictions plus ACT/national scope
 JURISDICTIONS_WITH_TENURE_LIMITS,2,REVIEW,State-source limits remain explicit; coverage does not imply legal title-chain verification
-ROW_DISPOSITION:HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE,444,INFO,"Row disposition, not independent project count"
+ROW_DISPOSITION:HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE,412,INFO,"Row disposition, not independent project count"
 ROW_DISPOSITION:HOLD_REE_ROLE,6,INFO,"Row disposition, not independent project count"
-ROW_DISPOSITION:PROJECT_CANDIDATE_REVIEW,37,INFO,"Row disposition, not independent project count"
-
+ROW_DISPOSITION:PROJECT_CANDIDATE_REVIEW,69,INFO,"Row disposition, not independent project count"

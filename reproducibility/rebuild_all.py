@@ -47,8 +47,11 @@ def main():
         [py, str(root / "reproduce_86_401_cohorts.py"), str(root)],
         [py, str(root / "enrich_candidate_evidence.py"), str(root)],
         [py, str(root / "complete_487_source_review.py"), str(root)],
+        [py, str(repro / "build_trace_review.py"), "--root", str(root), "--stage", "apply"],
         [py, str(root / "build_row_level_trace_bundle.py"), str(root)],
         [py, str(repro / "quality_gate_487.py"), "--root", str(root), "--as-of-date", args.as_of_date],
+        [py, str(repro / "build_trace_review.py"), "--root", str(root), "--stage", "audit"],
+        [py, str(repro / "redact_release_outputs.py")],
         [py, str(db_builder), "csv-build", "--csv-dir", str(out), "--output", str(out / "census_review.sqlite"), "--as-of-date", args.as_of_date, "--overwrite"],
         [py, str(root / "build_editable_workbook.py"), str(out)],
     ]
@@ -82,4 +85,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

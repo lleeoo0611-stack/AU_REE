@@ -1,0 +1,24 @@
+{
+  "baseline_unlinked_rows": 441,
+  "search_groups": 309,
+  "rows_traced": 441,
+  "original_evidence_rows": 95,
+  "unique_original_urls": 76,
+  "locator_statuses": {
+    "LOCATOR_FOUND_PROJECT_CONTEXT": 64,
+    "RETRIEVED_NO_DIRECT_PROJECT_LOCATOR": 13,
+    "UNAVAILABLE_IN_BROWSER_EXTRACT": 18
+  },
+  "duplicate_evidence_rows": 5,
+  "native_trace_statuses": {
+    "MISSING_OR_NOT_RECOVERED": 32,
+    "EXACT_NATIVE_VALUE_MATCH": 407,
+    "AMBIGUOUS_NATIVE_MATCH": 2
+  },
+  "company_tenure_statement_rows": 527,
+  "trace_dispositions": {
+    "PROJECT_CANDIDATE_REVIEW": 32,
+    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 409
+  },
+  "scope": "All baseline targets searched and native references checked. Candidate relation review is provisional; inaccessible sources and incomplete rights chains remain HOLD/open, not verified absent."
+}

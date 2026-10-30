@@ -1,0 +1,238 @@
+[
+  {
+    "state": "NSW",
+    "names": [
+      "Doradilla Project"
+    ],
+    "unit": "Doradilla Project",
+    "sources": [
+      "lead_fetch/000.json"
+    ],
+    "rationale": "Company technical disclosure explicitly describes REE exploration along the DMK deposits within Doradilla; EL6258 ownership is reported in the JORC tenure section. Current title chain remains unverified.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "TAS",
+    "names": [
+      "Temple Bar Project"
+    ],
+    "unit": "Temple Bar REE exploration project",
+    "sources": [
+      "lead_fetch/015.json"
+    ],
+    "rationale": "MRT EDGI Round 10 identifies Temple Bar east of Evandale, ABx Group, REE exploration and EL27/2022.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "SA",
+    "names": [
+      "IRONBACK HILL"
+    ],
+    "unit": "Ironback Hill REE Project",
+    "sources": [
+      "lead_fetch/052.json"
+    ],
+    "rationale": "Issuer identifies a distinct 100%-owned REE exploration project in north-east SA; historical geological source ID is preserved; current registered titleholder requires separate verification.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "SA",
+    "names": [
+      "CARALUE BLUFF"
+    ],
+    "unit": "Caralue Bluff REE-Kaolin Project",
+    "sources": [
+      "lead_fetch/049.json",
+      "followup_fetch/007.json"
+    ],
+    "rationale": "SARIG deposit 9323 and issuer disclosure explicitly identify Caralue Bluff REE-kaolin drilling and exploration target. Retain deposit as child observation.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "WA",
+    "names": [
+      "Browns Range"
+    ],
+    "unit": "Browns Range Heavy Rare Earths Project",
+    "sources": [
+      "lead_fetch/035.json"
+    ],
+    "rationale": "WA Government names Browns Range near Halls Creek, Northern Minerals, dysprosium production and pilot development. NT Browns Range records are deliberately separate.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "WA",
+    "names": [
+      "Splinter Rock"
+    ],
+    "unit": "Splinter Rock REE Project",
+    "sources": [
+      "followup_fetch/001.json"
+    ],
+    "rationale": "Issuer identifies Splinter Rock northeast of Esperance, 100% interest, named prospects and an REE mineral resource.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "WA",
+    "names": [
+      "Jupiter"
+    ],
+    "unit": "Jupiter REE Project within Brothers",
+    "sources": [
+      "followup_fetch/003.json",
+      "followup_fetch/004.json"
+    ],
+    "rationale": "Formal Critica disclosure identifies Jupiter as a resource/development unit within Brothers. Retain Jupiter-to-Brothers parent relation rather than treating all Brothers tenure as Jupiter.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "TAS",
+    "names": [
+      "Deep Leads",
+      "Deep Leads - Rubble Mound Project",
+      "Rubble Mound",
+      "Wind Break"
+    ],
+    "unit": "Deep Leads–Rubble Mound–Wind Break REE Project",
+    "sources": [
+      "followup_fetch/005.json",
+      "followup_fetch/006.json",
+      "lead_fetch/013.json",
+      "lead_fetch/044.json"
+    ],
+    "rationale": "Formal ABx disclosure explicitly associates named deposits and MRT identifies drilling/tenure. Individual deposit IDs are retained as child observations.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "NSW",
+    "names": [
+      "Dubbo Project"
+    ],
+    "unit": "Dubbo Project",
+    "sources": [
+      "followup_fetch/009.json",
+      "lead_fetch/045.json"
+    ],
+    "rationale": "Issuer and NSW planning record identify a distinct REE/critical minerals development unit. Toongi source observations are not merged by name alone.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "NSW",
+    "names": [
+      "Narraburra",
+      "Narraburra Rare Earths Deposit"
+    ],
+    "unit": "Narraburra REE Project",
+    "sources": [
+      "lead_fetch/021.json",
+      "source_fetch/010.json"
+    ],
+    "rationale": "Issuer formal disclosure names Narraburra REE project and resource in NSW. Proposed spinout/company-name changes require effective-date verification.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "VIC",
+    "names": [
+      "Goschen Central"
+    ],
+    "unit": "Goschen Central Project",
+    "sources": [
+      "source_fetch/057.json"
+    ],
+    "rationale": "Issuer explicitly describes Goschen Central deposit within EL5278 as a rare-earth/mineral-sands project; keep separate from VHM Goschen.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "VIC",
+    "names": [
+      "Goschen"
+    ],
+    "unit": "Goschen Rare Earths and Mineral Sands Project",
+    "sources": [
+      "lead_fetch/036.json"
+    ],
+    "rationale": "Victorian planning authority identifies VHM Goschen south of Swan Hill and planned rare-earth mineral products.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "VIC",
+    "names": [
+      "Mitre Hill"
+    ],
+    "unit": "Mitre Hill REE Project",
+    "sources": [
+      "lead_fetch/020.json"
+    ],
+    "rationale": "Issuer documents acquisition on 23 December 2021 and REE exploration licences across Victoria and SA; the source row remains VIC and boundaries need title reconciliation.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "VIC",
+    "names": [
+      "Avonbank"
+    ],
+    "unit": "Avonbank Project",
+    "sources": [
+      "source_fetch/041.json",
+      "source_fetch/042.json"
+    ],
+    "rationale": "Victorian government project and mining-licence records support the named project; raw deposit observation retained as a child.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "QLD",
+    "names": [
+      "Kennedy"
+    ],
+    "unit": "Kennedy REE Project",
+    "sources": [
+      "source_fetch/018.json"
+    ],
+    "rationale": "Issuer identifies Kennedy ionic-clay REE project in North Queensland and resource stage. Current earn-in/company changes remain separate from Project identity.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "QLD",
+    "names": [
+      "MILO"
+    ],
+    "unit": "Milo Uranium-Copper-Gold-Rare Earth Project",
+    "sources": [
+      "source_fetch/024.json",
+      "source_fetch/025.json"
+    ],
+    "rationale": "Issuer explicitly names Milo uranium-copper-gold-REE project and acquisition; preserve separate source observations and current-title uncertainty.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  },
+  {
+    "state": "NT",
+    "names": [
+      "Barkly",
+      "Vanadis"
+    ],
+    "unit": "Barkly Rare Earths Project",
+    "sources": [
+      "source_fetch/013.json",
+      "source_fetch/015.json"
+    ],
+    "rationale": "NT Government explicitly places Vanadis in Barkly REE context; issuer identifies project and deposits. Benmara South remains separate.",
+    "decision": "PROJECT_CANDIDATE_REVIEW",
+    "admission": "CANDIDATE_ONLY_TITLE_AND_FINAL_REVIEW_PENDING"
+  }
+]

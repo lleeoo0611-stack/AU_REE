@@ -1,0 +1,46 @@
+{
+  "release": "2026-10-30-r26-redacted-release",
+  "repeatability_release": "2026-10-30-r27-redacted-repeat",
+  "as_of_date": "2026-10-29",
+  "execution_date_taipei": "2026-10-30",
+  "database_sha256": "4014bd088dfffc05900fa874dc279102142fe278129bab8d1a6c079afee85409",
+  "portable_archive_sha256": "770c8a7754c5c33c86d197feca39eb9043b1208ad297e924bd7418db09b73cbf",
+  "portable_archive_bytes": 4280654,
+  "target_rows": 487,
+  "linked_review_rows": 78,
+  "unlinked_rows": 409,
+  "dispositions": {
+    "PROJECT_CANDIDATE_REVIEW": 69,
+    "HOLD_REE_ROLE": 6,
+    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 412
+  },
+  "source_review": {
+    "baseline_unlinked_rows": 441,
+    "search_groups": 309,
+    "rows_traced": 441,
+    "original_evidence_rows": 95,
+    "unique_original_urls": 76,
+    "locator_statuses": {
+      "LOCATOR_FOUND_PROJECT_CONTEXT": 64,
+      "RETRIEVED_NO_DIRECT_PROJECT_LOCATOR": 13,
+      "UNAVAILABLE_IN_BROWSER_EXTRACT": 18
+    },
+    "duplicate_evidence_rows": 5,
+    "native_trace_statuses": {
+      "MISSING_OR_NOT_RECOVERED": 32,
+      "EXACT_NATIVE_VALUE_MATCH": 407,
+      "AMBIGUOUS_NATIVE_MATCH": 2
+    },
+    "company_tenure_statement_rows": 527,
+    "trace_dispositions": {
+      "PROJECT_CANDIDATE_REVIEW": 32,
+      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 409
+    },
+    "scope": "All baseline targets searched and native references checked. Candidate relation review is provisional; inaccessible sources and incomplete rights chains remain HOLD/open, not verified absent."
+  },
+  "credential_scan": "PASS no access-token assignment in published data/manifest/workbook",
+  "destination": "User-owned private lleeoo0611-stack/AU_REE; connected account has admin and push permissions",
+  "validation": "PASS repeated full pipeline, schema/table hashes, complete row alignment and offline snapshot rebuild",
+  "legal_rights_chains": "39 project groups remain incomplete; disclosed events are partial evidence",
+  "MCDA_performed": false
+}

@@ -1,0 +1,6 @@
+﻿condition_no,condition,minimum_evidence,decision_values,auto_approval
+1,Australian jurisdiction,State/territory jurisdiction or coordinates within Australian jurisdiction; government source locator.,PASS / HOLD / CONFLICT,No
+2,Identifiable geographic location,Official source coordinates or georeferenced official project/deposit record; separately record point vs boundary and spatial linkage confidence.,PASS_POINT_BOUNDARY_UNVERIFIED / REVIEW_LINK / HOLD_NO_LOCATION / CONFLICT,No
+3,Distinct independent mining Project identity,"Government project record, formal project technical disclosure, or independently evidenced development unit; child records remain linked observations.",PASS_CANDIDATE / HOLD / CONFLICT,No
+4,REE is primary/co-product/planned recovery by-product/explicit exploration-development target,"Project-level commodity, plan, JORC/technical report, company announcement, or government project evidence; mineral presence alone is insufficient.",PASS_CANDIDATE / HOLD_ROLE / CONFLICT,No
+5,Exploration/resource assessment/mining development unit,"Project stage/activity evidence at the project level, dated and cited.",PASS_CANDIDATE / HOLD / CONFLICT,No
