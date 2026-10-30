@@ -47,6 +47,12 @@
 - 初步區分 7 個有 Study 證據、8 個需核對 Stage/FID、14 個探索或資源層級、7 個 REE role HOLD、2 個已超 pre-FID、1 個暫停。**證據核准仍待人工，沒有正式 C1 核准列表**。
 - 下一個方法決策：`C1_DIRECT_REO` 主比較與 `C2_HMS_REE_COPRODUCT` 延伸資料是否分層；目前只提出為 research decision，不能直接修改 C1、R1 或 Python/R 管線。
 
+### P0.1 487 筆 Census 的全量 batch readiness（2026-10-31）
+
+- [報告](audits/2026-10-31_census_487_batch_review_report.md)、[逐筆矩陣](audits/2026-10-31_census_487_batch_review.csv)、[摘要及來源 Git blobs](audits/2026-10-31_census_487_batch_review_summary.json) 將 487 source targets 全部納入單一可追蹤佇列。
+- [可重跑腳本](../scripts/build_p0_census_487_audit.py) 與 [回歸測試](../tests/test_p0_487_batch.py) 精確連結既有 487 基線、Group、官方 Tenure/Company 及 95-row evidence locator；在日後不同 run date 重建輸出並保留 input SHA-256。
+- 487 source rows 分為 78 linked／409 unlinked；其中 409 未連結來源有 283 Deposit、95 Occurrence、21 source Project records、6 Prospect、4 Historical。**P0 自動化完成的是 cross-table source-level audit，獨立 Project/Resource/GIS approval 仍屬 P0 下一個 Gate。**
+
 ## 3. 後續每個 PR 的最低要求
 
 請使用 [GitHub PR Template](../.github/pull_request_template.md) 並填寫：

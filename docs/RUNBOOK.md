@@ -48,6 +48,21 @@ Rscript R/run_mcda.R \
 
 注意：`outputs/` 是**已追蹤的發布審閱結果**，`work/` 是本地未追蹤工作區；新數據應建立新快照與來源 manifest，而非改寫先前發布檔案。
 
+### P0 487 Source Targets 一次性批次核查
+
+本流程使用目前 Git 追蹤的完整來源審閱資料建立**非核准**的逐筆 Census audit，不需先安裝 xlsxwriter，也不會擅自修改 SQLite、JORC 或 MCDA：
+
+```bash
+python scripts/build_p0_census_487_audit.py \
+  --root . \
+  --run-date 2026-10-31 \
+  --source-as-of 2026-10-29 \
+  --output-dir work/audits
+python -m pytest -q tests/test_p0_487_batch.py
+```
+
+產生 487 source-target 列、39 欄 CSV 與帶**實際 input SHA-256** 的 JSON summary。來源 join 必須是精確 `target_id`，並保留 39 group 的可追溯關聯；無關聯的 409 筆不自動提升 Project。**source record / spatial title intersect 不構成 Project 或權利關係核准。** 已發布的凍結結果：[報告](audits/2026-10-31_census_487_batch_review_report.md) · [CSV](audits/2026-10-31_census_487_batch_review.csv)。對後續來源時點使用新 `--run-date`，如已有輸出則拒絕覆寫；程式只在明確 `--overwrite` 下重跑同一路徑，不得將凍結 `docs/audits/` 當日常覆寫目錄。
+
 ## CI 與版本
 
 `.github/workflows/python-offline.yml` 在 push/PR 測試 Python 3.11/3.13、五階段離線重跑、SQLite QA 與 checkpoint；`r-mcda-smoke.yml` 用合成 Alternatives 測試 R 4.4.3 的可重現性。工作包的完整 `rebuild_all.py` 需要封存來源與可選的 `xlsxwriter`，不屬於上述離線 CI 的測試範圍。
