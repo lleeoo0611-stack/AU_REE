@@ -3,7 +3,7 @@
 ## P0 original government source restoration and Project entity scope — 2026-10-31
 
 - Retrieved October 29 raw-first government archive (GitHub Actions run 40821122179) and linked **all 272 previously native-only targets to a unique raw government feature**; retain 268 source records with no Project parent key and four with geological parent/group only as C0.
-- Located the 23 prior missing source rows: 7 GA original JSON byte positions and 16 previously stored Legacy Census lines, where the original project_id column was genuinely blank.
+- Located the 23 prior missing source rows: 7 GA original JSON byte positions and 16 previously stored Legacy Census lines, with exact nonblank historical project_id UUIDs matching frozen Legacy target IDs.
 - Identified Olympic Dam's 4 and Clarke's 6 source features by `MINERAL_DEPOSIT_NO + OBJECTID/FID`, preventing 10 duplicate observations from inflating the Project or Deposit count.
 - Separated six cross-source Project parent candidates (Narraburra/Milo REE; Peculiar Knob/Carrapateena not documented as REE Projects); formal C1 still requires separate document and role approval.
 - Added source raw SHA verifier, regression tests, four editable review CSV files, audit report and reproducibility summary; updated README, Runbook, decisions and file index.
