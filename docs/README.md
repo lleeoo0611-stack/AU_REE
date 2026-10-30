@@ -6,7 +6,12 @@
 
 | 文件 | 內容 |
 | --- | --- |
-| [A/B/C 研究需求](RESEARCH_REQUIREMENTS_AIMS_ABC.md) | Aim A、B、C；P0–P3 欄位、分析與驗收標準 |
+| **[Research Architecture v2.0](RESEARCH_ARCHITECTURE.md)** | **後續研究總規格**：A/B/C、C0–C3、六構面與階段 Gate |
+| [Data Specification](DATA_SPECIFICATION.md) | Project–Deposit–Resource、JORC、Evidence、Snapshot schema |
+| [MCDA Protocol](MCDA_PROTOCOL.md) | 固定評分尺度、依賴審查、AHP/Scenario、六構面比較 |
+| [Validation Protocol](VALIDATION_PROTOCOL.md) | B1–B4、SMAA、C1/C2/C3 driver／歷史驗證 |
+| [Implementation Plan](RESEARCH_IMPLEMENTATION_PLAN.md) | P0–P3 模組修改順序、驗收、PR／決策紀錄 |
+| [A/B/C 研究需求](RESEARCH_REQUIREMENTS_AIMS_ABC.md) | 與 v2 Protocol 配套的模組待辦及測試清單 |
 | [2026-10-30 專案評估](PROJECT_ASSESSMENT_2026-10-30.md) | 方法學、資料品質、研究進度及下一個里程碑 |
 | [操作指令](RUNBOOK.md) | Python、GIS、R、更新、測試及審閱工作包 |
 | [研究決策](RESEARCH_DECISIONS.md) | r983 研究母體、計量與資料驗證原則 |
