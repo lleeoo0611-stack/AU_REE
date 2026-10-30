@@ -34,6 +34,13 @@
 
 **不在工作包未完成時修改其他工作包定義。** 允許用 synthetic fixtures 開發模組，但應明確標示 `SYNTHETIC`；正式 Project 數值另待審核。
 
+### P0 Cohort/Data 審查階段成果（2026-10-31）
+
+- [C1 Cohort Protocol](P0_COHORT_SELECTION_PROTOCOL.md)：固定六層 `ID/ROLE/WINDOW/JORC/PANEL/GIS_RELEASE` 的草案，擬定 12 準則與 9 準則兩套**待核定**的固定 panel 候選。
+- [Project–Deposit–Resource schema](P0_PROJECT_RESOURCE_SCHEMA.md)：對照既有 `core.py`、`db/migrations/0004–0009`，設計 resource statement/oxide/date 的增量關聯和測試，**尚未新增 migration**。
+- [初步盤點](audits/P0_C1_READINESS_2026-10-31.md) 與 [39 群組 CSV](audits/2026-10-31_c1_review_groups.csv)：保留全部候選原決策與 Stage 訊號；沒有正式可核准 C1 排名。
+- 可編輯輸入模板：[Project Gate](../inputs/templates/c1_project_gate_review_template.csv)、[JORC Statement](../inputs/templates/jorc_resource_statement_review_template.csv)。**下一步先補實體來源與審核，然後核定 Panel/C1 再寫 migration**。
+
 ## 3. 後續每個 PR 的最低要求
 
 請使用 [GitHub PR Template](../.github/pull_request_template.md) 並填寫：

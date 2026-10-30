@@ -1,0 +1,43 @@
+{
+  "manifest_id": "P0_C1_GROUP_READINESS_2026-10-31_V1",
+  "audit_date": "2026-10-31",
+  "source_as_of": "2026-10-29",
+  "repository": "lleeoo0611-stack/AU_REE",
+  "research_scope": "Review groups derived from frozen 487 target cohort; not independent approved Projects",
+  "source_git_blob_sha": {
+    "outputs/project_entity_register.csv": "00bdfdb2575e85133af41147f3db401f34ea146e",
+    "outputs/project_entity_membership_487.csv": "117d35eecd1288e95d0d4c582c001e4414ed4c50",
+    "outputs/487_inclusion_gate.csv": "018db57cc6c57afdfaa07dfadcc49d52ee45a206",
+    "outputs/reconstructed_cohort_487.csv": "2629122b9bdcd80f5659fe7ac23eccea9785510c",
+    "outputs/quality_gate_487_summary.json": "b8233ab4e4211da0bb760f9ac1fada10df752b18"
+  },
+  "output": {
+    "path": "docs/audits/2026-10-31_c1_review_groups.csv",
+    "git_blob_sha": "a35cf798d99c04e17f9ec9f83e1794ae8ffb71a1",
+    "rows": 39,
+    "fields": 19
+  },
+  "input_approval_rows": {
+    "inputs/verified_observations.csv": 0,
+    "inputs/evidence_approvals.csv": 0,
+    "inputs/project_reviews.csv": 0
+  },
+  "group_disposition": {
+    "INCLUDE_CANDIDATE": 32,
+    "HOLD_REE_ROLE": 6,
+    "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 1
+  },
+  "stage_text_signal": {
+    "IN_WINDOW_SIGNAL_PENDING_DATED_CONFIRMATION": 2,
+    "OUTSIDE_SCOPE_SIGNAL_CONSTRUCTION": 1,
+    "AMBIGUOUS_STAGE_TAG_REVIEW_REQUIRED": 36
+  },
+  "method": {
+    "rows": "Read outputs/project_entity_register.csv, preserve its 39 rows, sort by canonical_name ascending (English locale); copy entity_id,canonical_name,state_or_territory,inclusion_gate,stage_status,location_status,company_history_status",
+    "human_signoff_recorded": "YES only if reviewer_decision is non-empty; all 39 were NO",
+    "stage_signal_only": "PASS_CONSTRUCTION -> OUTSIDE_SCOPE_SIGNAL_CONSTRUCTION; PASS_FEASIBILITY or PASS_EXPLORATION_AND_PFS -> IN_WINDOW_SIGNAL_PENDING_DATED_CONFIRMATION; otherwise AMBIGUOUS_STAGE_TAG_REVIEW_REQUIRED",
+    "other_assessment_fields": "PENDING_INDEPENDENT_APPROVAL or NOT_AUDITED_IN_GROUP_REGISTER/NOT_VALIDATED_FROM_DATED_SOURCE/NOT_AUDITED_AND_NOT_APPROVED; no new approval assigned",
+    "C1_release_status": "C1_NOT_RELEASED for every review group; no official C1 cohort frozen"
+  },
+  "limitations": "CSV is a screening audit derived only from archived repository files, not a fresh JORC/company/tenure document review. Git blob SHA are Git object identifiers, not source-document SHA256."
+}

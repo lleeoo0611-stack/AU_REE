@@ -1,5 +1,14 @@
 # Change log
 
+## P0 Cohort and JORC data design — 2026-10-31
+
+- Begin research P0.1/P0.2 **design and data-readiness audit** under Research Architecture v2, without modifying pipeline, SQL migrations or scoring.
+- Add `docs/P0_COHORT_SELECTION_PROTOCOL.md` and `docs/P0_PROJECT_RESOURCE_SCHEMA.md` as detailed Project admission and scoped JORC resource model contracts.
+- Add 39-group candidate review CSV and summary under `docs/audits/` (frozen 2026-10-29 sources); preserve unapproved/HOLD status, no auto-promotion to Project.
+- Add editable, empty Project Gate and JORC Statement review CSV templates under `inputs/templates/`; update README, docs index, implementation plan and decision log.
+- C1 required panel, approved Project set and v2 schema migration remain pending. No historical results, evidence approvals, original inputs or MCDA algorithms altered.
+
+
 ## Research Architecture v2 contract — 2026-10-31
 
 - Add `docs/RESEARCH_ARCHITECTURE.md` as the canonical A/B/C research contract; define C0 Census, C1 Primary MCDA, C2 Extended Projects, C3 Historical Validation and P0–P3 release gates.
