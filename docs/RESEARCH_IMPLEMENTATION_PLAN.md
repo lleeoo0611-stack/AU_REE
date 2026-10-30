@@ -41,6 +41,12 @@
 - [初步盤點](audits/P0_C1_READINESS_2026-10-31.md) 與 [39 群組 CSV](audits/2026-10-31_c1_review_groups.csv)：保留全部候選原決策與 Stage 訊號；沒有正式可核准 C1 排名。
 - 可編輯輸入模板：[Project Gate](../inputs/templates/c1_project_gate_review_template.csv)、[JORC Statement](../inputs/templates/jorc_resource_statement_review_template.csv)。**下一步先補實體來源與審核，然後核定 Panel/C1 再寫 migration**。
 
+### P0.1 逐 Project 來源驗證與分布（2026-10-31）
+
+- [來源驗證報告](audits/2026-10-31_project_source_screen_report.md) 及 [逐專案可編輯 CSV](audits/2026-10-31_project_source_screen_39.csv)，逐案查核先前固定 39 個候選群組、官方／公司來源、Stage、REE role 與 JORC basis；[manifest](audits/2026-10-31_project_source_screen_39.manifest.json) 保存來源 blob SHA 與分類規則。
+- 初步區分 7 個有 Study 證據、8 個需核對 Stage/FID、14 個探索或資源層級、7 個 REE role HOLD、2 個已超 pre-FID、1 個暫停。**證據核准仍待人工，沒有正式 C1 核准列表**。
+- 下一個方法決策：`C1_DIRECT_REO` 主比較與 `C2_HMS_REE_COPRODUCT` 延伸資料是否分層；目前只提出為 research decision，不能直接修改 C1、R1 或 Python/R 管線。
+
 ## 3. 後續每個 PR 的最低要求
 
 請使用 [GitHub PR Template](../.github/pull_request_template.md) 並填寫：
