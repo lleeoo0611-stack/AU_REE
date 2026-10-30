@@ -57,3 +57,12 @@
 | `ADR-P0-007` | 2026-10-31 | `RECORDED_AUDIT` | Jupiter 的 2026-10-12 JORC MRE、2026-10-20 Scoping 和 Dubbo 的 2026-08-28 母公司收購屬必須版本化的來源變更 | 須保留來源截至日；禁止 MRE 不同年份/Project–Deposit 總量重複相加，母公司收購不能直接推論礦權已轉讓 |
 
 以上是**來源核查及待決定的科學問題**。任何 cohort/panel 實際變更須先有 Stage Gate 核准，不以此 Decision Log 取代正式 observations/evidence approval。
+
+### P0 all-487 source audit（2026-10-31）
+
+| Decision ID | Date | Status | Research/engineering decision | Evidence and next gate |
+| --- | --- | --- | --- | --- |
+| `ADR-P0-008` | 2026-10-31 | `RECORDED_AUDIT` | 精確 `target_id` 將 487 source records 一次整併；不以地名、州別、礦權空間交集推定 Project，也不把工作佇列 Priority 視為評分 | [487 全量審查報告](audits/2026-10-31_census_487_batch_review_report.md)、[37→39 欄逐筆 CSV](audits/2026-10-31_census_487_batch_review.csv)；409 筆尚未建立 Project group，C1 仍未核准 |
+| `ADR-P0-009` | 2026-10-31 | `RECORDED_AUDIT` | 留存 source/entity/crosswalk/tenure/evidence locator 當次 status 並產生 P1–P4 review workstream；不同來源、快照、實體層級數不得混計 | [Batch QA Summary](audits/2026-10-31_census_487_batch_review_summary.json)、[Rebuild script](../scripts/build_p0_census_487_audit.py)、pytest；下一 Gate 為關聯核定和 JORC resource basis |
+
+此處的 P1–P4 是**Census 審查工作優先順序**，與研究開發里程碑 P0–P3 **不同**，不可混用。
