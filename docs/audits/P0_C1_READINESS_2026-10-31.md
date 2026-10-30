@@ -6,7 +6,7 @@
 
 - [487 Inclusion Gate](../../outputs/487_inclusion_gate.csv)、[487 Membership](../../outputs/project_entity_membership_487.csv)、[39 Group Register](../../outputs/project_entity_register.csv)、[Quality Gate](../../outputs/quality_gate_487_summary.json)、[Cohort Reproduction](../../outputs/reconstructed_cohort_487.csv)。
 - 39 Group Register 的 Git blob SHA：`00bdfdb2575e85133af41147f3db401f34ea146e`，**不是來源文件 SHA-256**。
-- [39-group editable CSV](2026-10-31_c1_review_groups.csv)：依原始 Group Register 的 `canonical_name` 排序，原文 Stage 和 disposition 全保留；新增標籤僅提示需審查，不是 Project Gate PASS。
+- [39-group editable CSV](2026-10-31_c1_review_groups.csv) · [Source/Transform Manifest](2026-10-31_c1_review_groups.manifest.json)：依原始 Group Register 的 `canonical_name` 排序，原文 Stage 和 disposition 全保留；新增標籤僅提示需審查，不是 Project Gate PASS。
 - `inputs/verified_observations.csv`、`inputs/evidence_approvals.csv`、`inputs/project_reviews.csv` 目前各為 **0 data rows**（僅 header）。
 
 ## 已完成盤點
