@@ -104,6 +104,14 @@
     },
     "C1_release_status": {
       "C1_NOT_RELEASED": 487
+    },
+    "provisional_crosswalk": {
+      "NO_126_LINK; NO_DIRECT_1006_NAME_OR_PARENT_MATCH": 43,
+      "NO_126_LINK; HAS_1006_SOURCE_CROSSWALK": 43,
+      "SOURCE_RECORD_RETAINED;NO_126_CROSSWALK_ESTABLISHED;NO_EXACT_LEGACY_NAME_OR_WA_PARENT_LINK": 336,
+      "SOURCE_RECORD_RETAINED;PROVISIONAL_126_CROSSWALK_CANDIDATE;LEGACY_203_CROSSWALK_CANDIDATE": 6,
+      "SOURCE_RECORD_RETAINED;NO_126_CROSSWALK_ESTABLISHED;LEGACY_203_CROSSWALK_CANDIDATE": 58,
+      "SOURCE_RECORD_RETAINED;PROVISIONAL_126_CROSSWALK_CANDIDATE;NO_EXACT_LEGACY_NAME_OR_WA_PARENT_LINK": 1
     }
   },
   "gate_status": "BATCH_EVIDENCE_INVENTORY_COMPLETE_C1_NOT_RELEASED",
@@ -140,14 +148,18 @@
     "docs/audits/2026-10-31_project_source_screen_39.csv": {
       "git_blob_sha": "372234088f9c4494077996c75ba8dc4c263f9a22",
       "rows": 39
+    },
+    "outputs/reconstructed_cohort_487.csv": {
+      "git_blob_sha": "2629122b9bdcd80f5659fe7ac23eccea9785510c",
+      "rows": 487
     }
   },
   "output": {
     "path": "docs/audits/2026-10-31_census_487_batch_review.csv",
-    "columns": 37,
+    "columns": 39,
     "rows": 487
   },
-  "method": "Join frozen sources by target_id (exact), join reviewed 39 groups by project_entity_id, split reviewed target_ids in 95 locator rows by IDs, compute evidence coverage, source-type and group-sensitive triage. Source-URL is only a hint; status not independently approved. Missing links remain NULL with actionable next step.",
+  "method": "Join frozen sources by target_id (exact), including the existing 203/126 provisional crosswalk; join reviewed 39 groups by project_entity_id, split reviewed target_ids in 95 locator rows by IDs, compute evidence coverage, source-type and group-sensitive triage. A provisional crosswalk is not an approved Project relation. Source-URL is only a hint; status not independently approved.",
   "notes": [
     "source_entity_type is original source entity classification, not a Project class",
     "39 group status is the prior source screen and may include later supplemental leads; never as-of C1 approval",
