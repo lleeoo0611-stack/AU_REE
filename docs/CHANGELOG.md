@@ -1,5 +1,14 @@
 # Change log
 
+## P0 complete 487-source batch audit — 2026-10-31
+
+- Join **all 487 frozen Census source targets** by original `target_id` from identity, evidence/locators, source recovery, official tenure, company roles and the 39 reviewed-group screen.
+- Publish an **editable 39-column, 487-row CSV**, machine-readable QA/statistics with Git blob provenance and a versioned report in `docs/audits/`.
+- Add Python standard-library builder `scripts/build_p0_census_487_audit.py` and regression tests for exact 487-row coverage, stable Project/Deposit level, cohort lineage, no automatic C1 approvals and non-overwrite of released snapshots.
+- Summarize 323 deposit, 102 occurrence, 50 source Project, 6 prospect and 6 historical source records; 78 linked to 39 review groups, 409 unlinked; external title spatial overlap is not legal ownership.
+- Update README, docs index, Runbook, Implementation Plan and Decisions. **No Project/MRE/GIS independent approval, legacy source edits or MCDA calculations.**
+
+
 ## P0 individual Project source screen — 2026-10-31
 
 - Source-check 39 frozen review Project groups against public government/company/issuer evidence and write editable `docs/audits/2026-10-31_project_source_screen_39.csv`, methodology report and provenance manifest.
