@@ -10,6 +10,8 @@
 | [P0.1 C1 Cohort Admission](P0_COHORT_SELECTION_PROTOCOL.md) | 六層納入規則、Stage、JORC 與 12/9 指標候選 Panel |
 | [P0.2 Project–Deposit–JORC Schema](P0_PROJECT_RESOURCE_SCHEMA.md) | 既有資料表映射、JORC resource statement 欄位和防重複計算 |
 | [P0 Cohort Readiness Audit](audits/P0_C1_READINESS_2026-10-31.md) | 2026-10-29 凍結資料的 487/39 盤點、待審訊號與輸入缺口 |
+| [39 Project 來源驗證與母體分布](audits/2026-10-31_project_source_screen_report.md) | 逐專案 Stage／REE 資源比對、州別與階段分類、C1 判定問題 |
+| [39 筆可編輯 Source Screen CSV](audits/2026-10-31_project_source_screen_39.csv) | 既有候選 ID 與 disposition、公開來源、研究階段及審查缺口 |
 | [Data Specification](DATA_SPECIFICATION.md) | Project–Deposit–Resource、JORC、Evidence、Snapshot schema |
 | [MCDA Protocol](MCDA_PROTOCOL.md) | 固定評分尺度、依賴審查、AHP/Scenario、六構面比較 |
 | [Validation Protocol](VALIDATION_PROTOCOL.md) | B1–B4、SMAA、C1/C2/C3 driver／歷史驗證 |

@@ -1,5 +1,14 @@
 # Change log
 
+## P0 individual Project source screen — 2026-10-31
+
+- Source-check 39 frozen review Project groups against public government/company/issuer evidence and write editable `docs/audits/2026-10-31_project_source_screen_39.csv`, methodology report and provenance manifest.
+- Summarize state distribution and 6 screening classes: 7 study documented, 8 study/FID recheck, 14 resource/exploration, 7 REE-role HOLD, 2 outside pre-FID, 1 on-hold activity.
+- Flag post-cutoff 2026-10-30 Northern Minerals report as supplemental only; identify time-sensitive Jupiter JORC/Scoping update, Dubbo ASM acquisition, Nolans/Balranald FID, and THM/MzEq versus TREO basis.
+- Document the proposed `C1_DIRECT_REO` vs `C2_HMS_REE_COPRODUCT` comparison split **as a pending scientific decision**, not a changed eligibility rule.
+- Update README, docs index, implementation plan and research decisions; preserve all original sources and approval gates. **No** SQLite migration, Python/R code, score, population identity or published release altered.
+
+
 ## P0 Cohort and JORC data design — 2026-10-31
 
 - Begin research P0.1/P0.2 **design and data-readiness audit** under Research Architecture v2, without modifying pipeline, SQL migrations or scoring.

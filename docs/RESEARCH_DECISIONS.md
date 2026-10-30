@@ -47,3 +47,13 @@
 | `ADR-P0-004` | 2026-10-31 | `RECORDED_AUDIT` | 39 review groups（32 candidate/7 HOLD），正式 input approvals 及 observations 均空；本盤點 C1 `NOT_RELEASED` | [Readiness Audit](audits/P0_C1_READINESS_2026-10-31.md)，尚未簽核任何 Project |
 
 以上 `PROPOSED` 表示可執行的審查設計，**沒有替研究者預先批准 C1 名單、JORC 數據或排名**；後續依來源記錄決策變更、審查人與日期。
+
+### P0 source verification（2026-10-31；設計討論）
+
+| Decision ID | Date | Status | Proposed change | Scientific basis / tests |
+| --- | --- | --- | --- | --- |
+| `ADR-P0-005` | 2026-10-31 | `PROPOSED` | 檢討是否將正式主分析定義為 `C1_DIRECT_REO`（可直接比對 JORC REO 的 pre-FID Project），將以 THM/MzEq 與 REE 副產品為主、未能計出可比 R1 的礦砂列於 `C2_HMS_REE_COPRODUCT` | 防止 THM/MzEq 被誤當 TREO；需先統計每 Project 六構面 N，檢查礦床類型偏差及資源範圍。**尚未接受/修改 C1 或 R1** |
+| `ADR-P0-006` | 2026-10-31 | `RECORDED_AUDIT` | Nolans 和 Balranald 已有實際 FID/施工或採礦證據，按 2026-10-29 pre-FID window 不納入下一輪 C1 篩選，保留作歷史研究資料 | [39 組來源驗證報告](audits/2026-10-31_project_source_screen_report.md)。正式歷史事件仍需附文件 SHA、有效日期及獨立審核 |
+| `ADR-P0-007` | 2026-10-31 | `RECORDED_AUDIT` | Jupiter 的 2026-10-12 JORC MRE、2026-10-20 Scoping 和 Dubbo 的 2026-08-28 母公司收購屬必須版本化的來源變更 | 須保留來源截至日；禁止 MRE 不同年份/Project–Deposit 總量重複相加，母公司收購不能直接推論礦權已轉讓 |
+
+以上是**來源核查及待決定的科學問題**。任何 cohort/panel 實際變更須先有 Stage Gate 核准，不以此 Decision Log 取代正式 observations/evidence approval。
