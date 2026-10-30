@@ -5,7 +5,13 @@
     "workflow_run_id": 40821122179,
     "artifact_id": 12874618255,
     "name": "australia-national-unfiltered-raw-inventory",
-    "validation": "government raw archive SHA-256 verified against saved snapshot manifests"
+    "validation": "government raw archive SHA-256 verified against saved snapshot manifests",
+    "sha256_file_validation": {
+      "file_count": 376,
+      "bytes": 132450625,
+      "failed": 0,
+      "method": "SHA-256 of archived source bytes compared with frozen archive ArcGIS/WFS/SA source manifests"
+    }
   },
   "source_target_count": 487,
   "round2_native_only_targets": 272,
