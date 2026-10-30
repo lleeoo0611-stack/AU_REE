@@ -96,7 +96,7 @@ def validate_registry(repo=REPO):
         raise ValueError("Source cardinality mismatch")
     if Counter(x["recovery_kind"] for x in missing) != {
         "ORIGINAL_GA_RAW_FEATURE_RECOVERED_FROM_ACTIONS": 7,
-        "HISTORICAL_CENSUS_RAW_ROW_FOUND_ID_ABSENT": 16,
+        "LEGACY_ORIGINAL_ROW_AND_ID_RECOVERED": 16,
     }:
         raise ValueError("Original provenance type mismatch")
     if Counter(x["mineral_deposit_no"] for x in sa) != {"3000": 4, "11849": 6}:
@@ -112,8 +112,10 @@ def validate_registry(repo=REPO):
             old = legacy[number - 2]
             if old["canonical_name"] != row["source_name"] or old["state"] != row["state"]:
                 raise ValueError("Legacy historic row mislocated")
-            if old["project_id"].strip():
-                raise ValueError("Expected empty native project_id in 16 historic records")
+            if not old["project_id"].strip() or "LEGACY:" + old["project_id"].strip() != row["target_id"]:
+                raise ValueError("Legacy historical project_id does not reproduce frozen target UUID")
+            if row["original_source_native_id_status"] != "ORIGINAL_LEGACY_PROJECT_ID_EXACT_MATCH":
+                raise ValueError("Recovered Legacy identifier type mismatch")
     return scope, missing, sa
 
 
