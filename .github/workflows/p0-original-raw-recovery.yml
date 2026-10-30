@@ -5,6 +5,7 @@ on:
       - research/p0-raw-parent-reconciliation-20261031
     paths:
       - scripts/reconcile_p0_original_raw.py
+      - tests/test_p0_original_raw.py
       - .github/workflows/p0-original-raw-recovery.yml
       - docs/audits/2026-10-31_23_native_source_recovery.csv
   workflow_dispatch:
