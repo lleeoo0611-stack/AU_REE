@@ -17,6 +17,8 @@
 
 **定義衝突時**：現行 `config/`、`R/run_mcda.R`、`src/au_ree/` 等記錄 **v1 行為**；v2 契約指定 **預期行為**，尚未正式實作/驗證前不得假裝已經遷移。要偏離研究契約，先提出 decision record、理由和測試計畫，在 docs PR 核定再更新程式。
 
+**跨階段任務與驗收追蹤：**[GitHub Issue #14 — Research v2.0 Architecture Implementation Tracker](https://github.com/lleeoo0611-stack/AU_REE/issues/14)。每項 Gate 完成時將 PR、tests、可編輯輸出、snapshot ID 與文件版本附回該 Issue，**不可僅勾選完成而沒有驗收依據**。
+
 ## 2. 開發工作包（依科學依賴排序，不以可快速完成的腳本優先）
 
 | 工作包 | 依賴／預先決策 | 所涉路徑（預期） | 完成時的驗收成果 |
