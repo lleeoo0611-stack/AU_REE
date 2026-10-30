@@ -1,0 +1,47 @@
+name: P0 original raw recovery and project parent source audit
+on:
+  push:
+    branches:
+      - research/p0-raw-parent-reconciliation-20261031
+    paths:
+      - scripts/reconcile_p0_original_raw.py
+      - .github/workflows/p0-original-raw-recovery.yml
+      - docs/audits/2026-10-31_23_native_source_recovery.csv
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  original-source-reconciliation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Retrieve immutable 2026-10-29 official raw evidence artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work/p0_raw
+          gh run download 40821122179 --name australia-national-unfiltered-raw-inventory --dir work/p0_raw
+          test -f work/p0_raw/national_raw/sa_projects/SA_CRITICAL_REE.csv
+          test -f work/p0_raw/national_raw/arcgis/GA_AIMR_REE_2026/be41683aff317735a685/features_0000000.json
+      - name: Recover original raw bytes and reconcile all 272 source parent claims
+        run: |
+          python scripts/reconcile_p0_original_raw.py --root . --raw-root work/p0_raw --out docs/audits
+      - name: Validate exact source bytes, feature IDs and C1 non-promotion
+        run: |
+          python -m pytest -q tests/test_p0_original_raw.py
+      - name: Commit audited source subsets and reproducible outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/2026-10-31_272_native_project_parent_audit.csv docs/audits/2026-10-31_23_original_native_bytes_verified.csv docs/audits/2026-10-31_sa_10_compound_feature_keys.csv docs/audits/2026-10-31_native_parent_reconciliation_manifest.json docs/audits/recovered_raw/2026-10-29/
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p0): restore verified 2026-10-29 source bytes and 272 parent audit [skip ci]"
+            git push origin HEAD:research/p0-raw-parent-reconciliation-20261031
+          fi
