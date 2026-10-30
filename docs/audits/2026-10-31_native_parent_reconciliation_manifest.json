@@ -8,14 +8,13 @@
   "target_count": 272,
   "unique_target_ids": 272,
   "parent_classification_counts": {
-    "NO_PROJECT_PARENT_FIELD": 152,
+    "NO_PROJECT_PARENT_FIELD": 169,
     "OFFICIAL_NONPROJECT_GEOLOGICAL_SOURCE_ENTITY": 92,
     "PREVIOUSLY_REVIEWED_INDEPENDENT_SOURCE_PARENT_CANDIDATE": 6,
     "TAS_PARENT_DEPOSIT_ID_NOT_PROJECT": 2,
-    "OFFICIAL_VIC_PROJECT_TEXT_CANDIDATE": 3,
-    "LEGACY_SOURCE_ONLY": 17
+    "VIC_PROJECT_FIELD_CATEGORY_NOT_DISTINCT_PROJECT": 3
   },
-  "target_native_exact_single_record": 247,
+  "target_native_exact_single_record": 272,
   "target_native_ambiguous": 0,
   "target_native_unmatched": 0,
   "raw_recovered_verified": 23,
