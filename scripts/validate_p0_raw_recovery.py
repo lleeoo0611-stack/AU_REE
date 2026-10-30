@@ -117,7 +117,7 @@ def validate_registry(repo=REPO):
     return scope, missing, sa
 
 
-def verify_archive(raw, scope, missing, sa):
+def verify_archive(raw, scope, missing, sa, export_evidence=None):
     """Index raw government source records by native ID; check source bytes."""
     raw = Path(raw)
     if not (raw / "arcgis").is_dir() or not (raw / "sa_projects").is_dir():
@@ -181,6 +181,7 @@ def verify_archive(raw, scope, missing, sa):
             if value:
                 index[src][value].append((str(file.relative_to(raw)), i, attrs))
     statuses = Counter()
+    full_rows = []
     for row in scope:
         items = index[row["source_key"]].get(row["source_native_id"].strip().casefold(), [])
         if len(items) != int(row["raw_feature_cardinality"]):
@@ -188,6 +189,31 @@ def verify_archive(raw, scope, missing, sa):
                              " expected=" + row["raw_feature_cardinality"] +
                              " got=" + str(len(items)))
         statuses[len(items)] += 1
+        if export_evidence is not None:
+            for source_path, source_index, attrs in items:
+                entity_hint = next(
+                    (str(attrs[k]) for k in (
+                        "MINDEP_CLASS_CODE", "DEPOSIT_CLASS", "currentstatus",
+                        "status", "site_type_", "site_type", "size_code",
+                        "mine_status", "mineralOccurrenceType", "DEPOSIT_TYPE"
+                    ) if attrs.get(k) is not None and str(attrs[k]).strip()), ""
+                )
+                full_rows.append({
+                    "target_id": row["target_id"],
+                    "state": row["state"],
+                    "source_name": row["source_name"],
+                    "source_key": row["source_key"],
+                    "source_native_id": row["source_native_id"],
+                    "original_source_file": source_path,
+                    "source_index": source_index,
+                    "original_source_file_sha256": hashed[source_path],
+                    "entity_type_native": entity_hint,
+                    "raw_source_parent_hint": str(attrs.get("proj_title") or "").strip(),
+                    "raw_geological_group": str(
+                        attrs.get("group_name") or attrs.get("PARENT_ID") or "").strip(),
+                    "c0_only": "YES",
+                    "project_parent_approved": "NO",
+                })
     for row in missing:
         if row["recovery_kind"].startswith("ORIGINAL_GA"):
             file, idx = row["raw_source_locator"].split("#features[")
@@ -207,6 +233,18 @@ def verify_archive(raw, scope, missing, sa):
                 or raw_row["MAJOR_COMMODITY_CODE"] != row["main_commodity"]
                 or hashed[SACSV["SA_CRITICAL_REE"][0]] != row["source_sha256"]):
             raise ValueError("SA duplicate feature identity changed")
+    if export_evidence is not None:
+        output = Path(export_evidence)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        if output.exists():
+            raise FileExistsError("Evidence file already exists; use a new output path")
+        if len(full_rows) != 272:
+            raise ValueError("Expected one archived feature per source target")
+        with output.open("w", newline="", encoding="utf-8") as stream:
+            writer = csv.DictWriter(stream, fieldnames=list(full_rows[0]),
+                                    lineterminator="\n")
+            writer.writeheader()
+            writer.writerows(full_rows)
     return {
         "archive_run": 40821122179, "archive_artifact_id": 12874618255,
         "scoped_targets_verified": sum(statuses.values()),
@@ -222,13 +260,17 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", type=Path, default=REPO)
     parser.add_argument("--raw-root", type=Path)
+    parser.add_argument("--export-evidence", type=Path)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     scope, missing, sa = validate_registry(args.repo)
     result = {"scope_rows": len(scope), "recovered_original_rows": len(missing),
               "resolved_source_feature_rows": len(sa), "project_approvals": 0}
+    if args.export_evidence and not args.raw_root:
+        parser.error("--export-evidence requires --raw-root")
     if args.raw_root:
-        result.update(verify_archive(args.raw_root, scope, missing, sa))
+        result.update(verify_archive(args.raw_root, scope, missing, sa,
+                                     export_evidence=args.export_evidence))
     if args.output:
         args.output.parent.mkdir(exist_ok=True, parents=True)
         args.output.write_text(json.dumps(result, indent=2) + "\n")
