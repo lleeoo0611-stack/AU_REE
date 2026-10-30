@@ -12,6 +12,9 @@
 | [P0 Cohort Readiness Audit](audits/P0_C1_READINESS_2026-10-31.md) | 2026-10-29 凍結資料的 487/39 盤點、待審訊號與輸入缺口 |
 | [39 Project 來源驗證與母體分布](audits/2026-10-31_project_source_screen_report.md) | 逐專案 Stage／REE 資源比對、州別與階段分類、C1 判定問題 |
 | [39 筆可編輯 Source Screen CSV](audits/2026-10-31_project_source_screen_39.csv) | 既有候選 ID 與 disposition、公開來源、研究階段及審查缺口 |
+| **[487 全量來源與母體分布審查](audits/2026-10-31_census_487_batch_review_report.md)** | **487 target 全覆蓋**：州別、地質實體、Project 關聯、Tenure／來源定位與下一步 |
+| [487 筆可編輯 Census CSV](audits/2026-10-31_census_487_batch_review.csv) | 精確 ID join 的 39 欄逐筆更新／審查矩陣 |
+| [487 Census batch QA Summary](audits/2026-10-31_census_487_batch_review_summary.json) | 來源 Git blob 版本、欄位與分類計數 |
 | [Data Specification](DATA_SPECIFICATION.md) | Project–Deposit–Resource、JORC、Evidence、Snapshot schema |
 | [MCDA Protocol](MCDA_PROTOCOL.md) | 固定評分尺度、依賴審查、AHP/Scenario、六構面比較 |
 | [Validation Protocol](VALIDATION_PROTOCOL.md) | B1–B4、SMAA、C1/C2/C3 driver／歷史驗證 |
