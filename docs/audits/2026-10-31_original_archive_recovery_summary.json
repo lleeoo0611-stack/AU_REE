@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-31",
+  "source_freeze": "2026-10-29",
+  "source_archive": {
+    "workflow_run_id": 40821122179,
+    "artifact_id": 12874618255,
+    "name": "australia-national-unfiltered-raw-inventory",
+    "validation": "government raw archive SHA-256 verified against saved snapshot manifests"
+  },
+  "source_target_count": 487,
+  "round2_native_only_targets": 272,
+  "native_recovery_for_272": {
+    "exact_single_feature": 272,
+    "missing": 0,
+    "source_level_parent_key_found": 0,
+    "geological_grouping_only": 4,
+    "no_project_parent_key": 268
+  },
+  "missing_source_targets_prior": 23,
+  "original_raw_restored": {
+    "GA_original_arcgis_feature_bytes": 7,
+    "legacy_historical_source_row_located_name_state": 16,
+    "remaining_unlocated_source_rows": 0,
+    "legacy_native_project_ids_blank": 16
+  },
+  "south_australia_native_id_duplicates": {
+    "deposit_groups": 2,
+    "source_feature_records": 10,
+    "olympic_dam": {
+      "deposit_no": 3000,
+      "source_feature_count": 4,
+      "semantic_groups": 2,
+      "source_objectids": [
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "clarke": {
+      "deposit_no": 11849,
+      "source_feature_count": 6,
+      "semantic_groups": 2,
+      "source_objectids": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ]
+    },
+    "source_row_identity": "DEPOSIT_NO plus as-of-snapshot OBJECTID/FID; deposit-level grouping does not mean 10 independent projects"
+  },
+  "external_parent_crosswalks": {
+    "source_target_rows": 6,
+    "distinct_project_candidates": 4,
+    "REE_role_project_candidates": 2,
+    "official_non_REE_project_links": 4,
+    "not_yet_linked_to_project_from_external_crosswalks": 266
+  },
+  "remaining_no_reviewer_approved_project_parent": 272,
+  "approved_C1": 0,
+  "by_state": {
+    "SA": 94,
+    "WA": 81,
+    "NSW": 40,
+    "NT": 19,
+    "VIC": 14,
+    "QLD": 13,
+    "TAS": 11
+  },
+  "datasets": [
+    "docs/audits/2026-10-31_272_native_project_scope_triage.csv",
+    "docs/audits/2026-10-31_23_native_source_recovery.csv",
+    "docs/audits/2026-10-31_sa_10_duplicate_source_features.csv",
+    "docs/audits/2026-10-31_272_project_parent_candidates_6.csv"
+  ],
+  "validation_script": "scripts/validate_p0_raw_recovery.py",
+  "policy": "Project parent assigned only with primary project-level evidence, reviewer signoff, REE role, and boundary. Original native record recovery and deposit grouping do not confer eligibility."
+}
