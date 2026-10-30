@@ -285,7 +285,7 @@ def reconcile(root: Path, rawroot: Path, outroot: Path):
     frozen_path = root / "data/source_snapshots/2026-10-29_272_native_features.jsonl"
     frozen_path.parent.mkdir(parents=True, exist_ok=True)
     frozen_path.write_text("".join(
-        json.dumps(x, sort_keys=True, ensure_ascii=False) + "\\n"
+        json.dumps(x, sort_keys=True, ensure_ascii=False) + "\n"
         for x in sorted(frozen_features, key=lambda y:y["target_id"])
     ), encoding="utf-8")
     write(outroot / "2026-10-31_272_native_project_parent_audit.csv", parent_rows, RAW_COLS)
