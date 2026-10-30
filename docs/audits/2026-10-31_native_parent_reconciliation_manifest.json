@@ -20,7 +20,7 @@
   "raw_recovered_verified": 23,
   "sa_compound_keys_verified": 10,
   "frozen_native_feature_rows": 272,
-  "frozen_native_feature_sha256": "32c2c301d24c013e891deeb4e6537fa62b9e83be8fa2498b79570e6b7b0d9bd7",
+  "frozen_native_feature_sha256": "d9605cc3f2b6953fd466989e25875099674c793495bc2c9405e50231d5f96662",
   "frozen_native_feature_path": "data/source_snapshots/2026-10-29_272_native_features.jsonl",
   "original_archived_GA_path": "data/raw_snapshots/2026-10-29/ga/GA_AIMR_REE_2026_features_0000000.json",
   "original_archived_SA_path": "data/raw_snapshots/2026-10-29/sa/SA_CRITICAL_REE.csv",
