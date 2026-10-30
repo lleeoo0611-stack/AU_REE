@@ -379,7 +379,8 @@ def main() -> None:
     con.execute("DROP TABLE IF EXISTS review_queue")
     for table, rows in (("row_review", out_rows), ("project_dedup_candidates", project_rows), ("review_queue", queue)):
         fields = list(rows[0]) if rows else []
-        con.execute(f'CREATE TABLE "{table}" ({", ".join(f"\"{x}\" TEXT" for x in fields)})')
+        column_definitions = ", ".join(f'"{x}" TEXT' for x in fields)
+        con.execute(f'CREATE TABLE "{table}" ({column_definitions})')
         con.executemany(f'INSERT INTO "{table}" VALUES ({",".join("?" for _ in fields)})', [[str(r.get(k, "")) for k in fields] for r in rows])
     con.commit()
     integrity = con.execute("PRAGMA integrity_check").fetchone()[0]

@@ -10,7 +10,7 @@ import pathlib
 import sqlite3
 import sys
 
-ROOT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else pathlib.Path(__file__).resolve().parent
+ROOT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else pathlib.Path(__file__).resolve().parents[2]
 OUT = ROOT / "deliverable"
 
 
@@ -29,7 +29,7 @@ def write_csv(path, rows):
 
 def load_gate_sqlite():
     db = OUT / "census_review.sqlite"
-    migration = ROOT / "migration_0009_project_evidence_and_admission_gate.sql"
+    migration = ROOT / "db" / "migrations" / "0009_project_evidence_and_admission_gate.sql"
     if not db.exists():
         return
     with sqlite3.connect(db) as conn:

@@ -39,21 +39,21 @@ def main():
     repro = root / "reproducibility"
     db_builder = repro / "build_census_database.py"
     commands = [
-        [py, str(root / "build_definition_review.py"), str(root)],
-        [py, str(root / "build_complete_proposal_workpack.py"), str(root)],
+        [py, str(root / "scripts/build_487_definition_review.py"), str(root)],
+        [py, str(root / "scripts/build_487_complete_proposal_workpack.py"), str(root)],
         # The proposal workpack adds lineage fields; rebuild the five-condition
         # ledger afterward so its canonical columns are restored before review.
-        [py, str(root / "build_definition_review.py"), str(root)],
-        [py, str(root / "reproduce_86_401_cohorts.py"), str(root)],
-        [py, str(root / "enrich_candidate_evidence.py"), str(root)],
-        [py, str(root / "complete_487_source_review.py"), str(root)],
+        [py, str(root / "scripts/build_487_definition_review.py"), str(root)],
+        [py, str(root / "reproducibility/workpack/reproduce_86_401_cohorts.py"), str(root)],
+        [py, str(root / "reproducibility/workpack/enrich_candidate_evidence.py"), str(root)],
+        [py, str(root / "reproducibility/workpack/complete_487_source_review.py"), str(root)],
         [py, str(repro / "build_trace_review.py"), "--root", str(root), "--stage", "apply"],
-        [py, str(root / "build_row_level_trace_bundle.py"), str(root)],
+        [py, str(root / "reproducibility/workpack/build_row_level_trace_bundle.py"), str(root)],
         [py, str(repro / "quality_gate_487.py"), "--root", str(root), "--as-of-date", args.as_of_date],
         [py, str(repro / "build_trace_review.py"), "--root", str(root), "--stage", "audit"],
         [py, str(repro / "redact_release_outputs.py")],
         [py, str(db_builder), "csv-build", "--csv-dir", str(out), "--output", str(out / "census_review.sqlite"), "--as-of-date", args.as_of_date, "--overwrite"],
-        [py, str(root / "build_editable_workbook.py"), str(out)],
+        [py, str(root / "scripts/build_487_editable_workbook.py"), str(out)],
     ]
     execution = []
     for cmd in commands:

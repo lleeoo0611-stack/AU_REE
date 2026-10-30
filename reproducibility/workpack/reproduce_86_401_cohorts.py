@@ -16,7 +16,7 @@ import sqlite3
 import sys
 from collections import Counter, defaultdict
 
-ROOT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else pathlib.Path(__file__).resolve().parent
+ROOT = pathlib.Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else pathlib.Path(__file__).resolve().parents[2]
 ART = ROOT / "reconstructed_from_chatgpt_artifact"
 TRACE_TARGETS = ROOT / "trace_artifact" / "inputs" / "reverse_trace_targets_487.csv"
 PRESERVED_TARGETS = ROOT / "input_targets_487_preserved.csv"
@@ -54,7 +54,7 @@ def norm(value: str) -> str:
 
 def load_sqlite_audit() -> None:
     db = OUT / "census_review.sqlite"
-    migration = ROOT / "migration_0008_reproduced_cohort_selection.sql"
+    migration = ROOT / "db" / "migrations" / "0008_reproduced_cohort_selection.sql"
     if not db.exists():
         return
     with sqlite3.connect(db) as conn:

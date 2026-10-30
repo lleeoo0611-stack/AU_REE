@@ -1,5 +1,14 @@
 # Change log
 
+## Repository structure — 2026-10-30
+
+- Keep the root README concise and move operation details into `docs/RUNBOOK.md`; add navigation in `docs/README.md`, `outputs/README.md` and `reproducibility/workpack/README.md`.
+- Remove root copies of three identical `scripts/build_487_*.py` entrypoints and SQL migrations `0007–0009`; retain the canonical `scripts/` and `db/migrations/` versions.
+- Move four distinct frozen-workpack scripts into `reproducibility/workpack/`, update `rebuild_all.py` and provenance paths, and preserve dated snapshots and tracked research outputs.
+- Remove accidental one-byte root `test` file; add repository layout regression test. No changes to official source records, release files, eligibility or MCDA formulas.
+- **Compatibility:** historical command paths for root-level workpack scripts have changed; use `reproducibility/rebuild_all.py` and `docs/RUNBOOK.md`.
+
+
 ## Documentation roadmap — 2026-10-30
 
 - Reorganize the root README into research goals, verified implementation state, executable workflows, planned requirements and reference navigation.
