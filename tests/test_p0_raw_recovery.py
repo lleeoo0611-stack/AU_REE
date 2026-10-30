@@ -24,11 +24,11 @@ def test_original_source_provenance_targets():
 def test_two_distinct_nature_of_original_recovery():
     _, missing, sa = M.validate_registry(ROOT)
     assert sum("ORIGINAL_GA" in x["recovery_kind"] for x in missing) == 7
-    assert sum("HISTORICAL_CENSUS" in x["recovery_kind"] for x in missing) == 16
+    assert sum("LEGACY_ORIGINAL_ROW_AND_ID_RECOVERED" == x["recovery_kind"] for x in missing) == 16
     assert all(x["project_parent_approval"] == "NO" for x in missing)
-    # A recovered legacy name/state row does not create a missing source-native ID.
+    # Archived Legacy UUID is real within the historical census, but not a government ID.
     assert all(x["original_source_native_id_status"] ==
-               "NATIVE_PROJECT_ID_BLANK_IN_ORIGINAL_ROW"
+               "ORIGINAL_LEGACY_PROJECT_ID_EXACT_MATCH"
                for x in missing if x["source_category"] == "LEGACY")
     assert Counter(x["mineral_deposit_no"] for x in sa) == {"3000": 4, "11849": 6}
     assert len({x["source_feature_key"] for x in sa}) == 10
