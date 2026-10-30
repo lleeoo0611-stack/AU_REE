@@ -57,7 +57,7 @@ SA 原始 CSV `national_raw/sa_projects/SA_CRITICAL_REE.csv` 的 SHA-256 為 `40
 - **Peculiar Knob (MINDEP 3010) → Peculiar Knob mine**：SA developing/major government project，主商品鐵礦，REE 資源開發角色未成立。
 - **Carrapateena (MINDEP 8303) → Carrapateena mine**：SA government project，以 Cu/Au/Ag 為主；當前來源未支持單獨 REE product unit。
 
-四個 SA 來源列映射到後兩個非 REE Project，不納入 REE development-potential MCDA。外部候選共 6 筆，剩餘 **266 筆沒有已記錄的獨立 Project parent 候選**；273? 沒有新增正式 C1 核准。
+四個 SA 來源列映射到後兩個非 REE Project，不納入 REE development-potential MCDA。外部候選共 6 筆，剩餘 **266 筆沒有已記錄的獨立 Project parent 候選**；沒有新增正式 C1 核准。
 
 ## 重跑與版本控制
 
