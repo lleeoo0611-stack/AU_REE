@@ -10,7 +10,7 @@
 | --- | ---: | --- |
 | 原「僅有 native 礦產紀錄」| **272/272 精確找回原始政府 source feature** | 繼續 C0 地質實體；原生特徵可追溯 |
 | 原「原始資料缺失」— GA | **7/7** 找回 2026-10-29 的 ArcGIS feature JSON，含原始位元組 SHA、feature index | 恢復原始圖徵定位 |
-| 原「原始資料缺失」— Legacy | **16/16** 在 Git 保留的 `inputs/legacy_r963_census.csv` 中精確找到州別＋名稱原始列 | 恢復歷史來源列；原始 `project_id` 為空，後生成 `LEGACY:UUID` 不當作 native ID |
+| 原「原始資料缺失」— Legacy | **16/16** 在 Git 保留的 `inputs/legacy_r963_census.csv` 中精確找到州別＋名稱原始列 | 恢復歷史來源列；原始 `project_id` 非空且逐筆與 `LEGACY:UUID` 完全一致；屬歷史內部 ID，並非政府 native ID |
 | SA 原 native deposit ID 歧義 | **2 個礦床 ID 對 10 個 source features**；以 snapshot `OBJECTID`＋`FID` 識別各原始列 | 10 個來源列保留；資料庫只計 **2 個礦床實體**，不多建 Project |
 | 272 個 native source 的直接 Project parent | **0** | 地質來源沒有足以核准獨立開發專案的 parent key |
 | Native 給的是 *地質 parent/group* | **4**（TAS 2、QLD 2） | 保留 C0 上層地質關聯，不能充當 Project |
@@ -33,7 +33,7 @@
 [23 筆逐筆恢復表](2026-10-31_23_native_source_recovery.csv) 提供原始位元組或原始列定位。
 
 - GA 原始檔 `national_raw/arcgis/GA_AIMR_REE_2026/be41683aff317735a685/features_0000000.json`，SHA-256 `3d5c448f23cbf5d9c0dc1169640f78aac820f4ce4ccb1057fb337abd082037dc`；7 筆原 `GA_AIMR_REE_2026` 的 entity_id 和原始 array index 重新確認（Gascoyne、Rodds Peninsula、Inskip Point、Round Hill Head/Deepwater、Thunderbird、Wild Cattle Island–Hummock Hill、Hat Head）。
-- Legacy 16 筆依 [frozen historical census](../../inputs/legacy_r963_census.csv) 原始州別＋完整名稱各對應 1 列；原始 `project_id` 欄位本就空白，因此另列為 `HISTORICAL_CENSUS_RAW_ROW_FOUND_ID_ABSENT`；保持後生成 target ID 以支援版本比較。
+- Legacy 16 筆依 [frozen historical census](../../inputs/legacy_r963_census.csv) 原始州別＋完整名稱各對應 1 列；原始 `project_id` 欄位具有 16 筆唯一 UUID，且各自與穩定的 `LEGACY:UUID` 完全相符，因此列為 `LEGACY_ORIGINAL_ROW_AND_ID_RECOVERED`；這些是歷史資料庫 ID，非政府來源 ID。
 
 這兩種「source row 已恢復」並不等於 Project 法律身分、現行開發資格或 JORC MRE 成立。
 
