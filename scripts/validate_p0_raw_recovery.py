@@ -92,7 +92,7 @@ def validate_registry(repo=REPO):
         "GEOLOGICAL_PARENT_ID_ONLY": 2,
     }:
         raise ValueError("Parent identity summary changed")
-    if Counter(x["raw_feature_cardinality"] for x in scope) != {"1": 271, "2": 1}:
+    if Counter(x["raw_feature_cardinality"] for x in scope) != {"1": 272}:
         raise ValueError("Source cardinality mismatch")
     if Counter(x["recovery_kind"] for x in missing) != {
         "ORIGINAL_GA_RAW_FEATURE_RECOVERED_FROM_ACTIONS": 7,
