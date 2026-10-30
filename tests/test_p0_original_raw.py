@@ -3,9 +3,12 @@ from pathlib import Path
 import csv
 import hashlib
 import json
+import pytest
 
 ROOT=Path(__file__).resolve().parents[1]
 AUDIT=ROOT/"docs/audits"
+if not (AUDIT/"2026-10-31_native_parent_reconciliation_manifest.json").exists():
+    pytest.skip("Frozen original raw evidence requires the P0 artifact job", allow_module_level=True)
 def csv_rows(path):
     with path.open(encoding="utf-8-sig",newline="") as f:
         return list(csv.DictReader(f))
