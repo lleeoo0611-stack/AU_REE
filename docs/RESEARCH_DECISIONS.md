@@ -77,3 +77,11 @@
 
 以上新來源和原始已核准觀測屬**不同層級**。本輪新增的 source leads 不能取代正式 `evidence_approvals.csv`。
 
+
+### P0 evidence recovery round 2（2026-10-31）
+
+| Decision ID | Date | Status | Evidence decision | Follow-up |
+| --- | --- | --- | --- | --- |
+| `ADR-P0-013` | 2026-10-31 | `RECORDED_AUDIT` | 487 Census source targets 再核查外部政府與公司報告，為 86 筆增加來源文字定位；保持 Round 1 欄位、native ID、Project/Deposit 層級與正式 Gate 不變 | [第二輪報告](audits/2026-10-31_evidence_round2_report.md)、[逐筆 CSV](audits/2026-10-31_487_evidence_round2_review.csv)、[62 筆可追溯來源線索](../inputs/source_review_20261031/round2_external_evidence_leads.csv) |
+| `ADR-P0-014` | 2026-10-31 | `RECORDED_AUDIT` | 原無外部文件的 23 筆中 20 筆取得外部來源指標，但原 native bytes 仍缺；Olympic Dam/Clarke 取得政府來源仍保留 4／6 個 source feature row 歧義 | [86 個改變的 target](audits/2026-10-31_evidence_round2_changed_targets.csv)；需 source-native feature discriminator、官方原件 bytes SHA-256 及 independent review 才可能核准 |
+

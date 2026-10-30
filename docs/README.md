@@ -16,6 +16,9 @@
 | [487 筆可編輯 Census CSV](audits/2026-10-31_census_487_batch_review.csv) | 精確 ID join 的 39 欄逐筆更新／審查矩陣 |
 | **[487 筆證據核查報告](audits/2026-10-31_487_evidence_review_report.md)** | 原始證據層級 487 筆、官方 WA 20 個資源線索、NT Project–Prospect 父子關係 |
 | [487 筆 Evidence Claim CSV](audits/2026-10-31_487_evidence_claim_review.csv) | 維持原始來源 ID 的逐筆證據強度、URL/頁碼、缺口與 C1 Gate |
+| **[487 筆來源證據第二輪複核](audits/2026-10-31_evidence_round2_report.md)** | **86 筆新外部來源／文本定位**，保留 native ID 與 Project 核准狀態 |
+| [487 筆第二輪完整 CSV](audits/2026-10-31_487_evidence_round2_review.csv) | 原始 + 新證據類別、網址／頁碼、原始 ID 是否真正恢復 |
+| [86 筆證據變動 CSV](audits/2026-10-31_evidence_round2_changed_targets.csv) | 複核前後逐筆差異，適合作為下一輪人工核准佇列 |
 | [WA 政府 2026 REE 資源清單](audits/2026-10-31_wa_official_ree_project_leads.csv) | 20 個官方名稱、2026-01 resource/stage、待審查 JORC basis |
 | [487 Census batch QA Summary](audits/2026-10-31_census_487_batch_review_summary.json) | 來源 Git blob 版本、欄位與分類計數 |
 | [Data Specification](DATA_SPECIFICATION.md) | Project–Deposit–Resource、JORC、Evidence、Snapshot schema |
