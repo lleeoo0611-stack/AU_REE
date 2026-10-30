@@ -1,8 +1,10 @@
 # Research requirements — Australian REE MCDA (Aims A/B/C)
 
-**Status:** implementation specification / roadmap  
+**Status:** implementation specification / roadmap（v2 子規格，詳見 [RESEARCH_ARCHITECTURE](RESEARCH_ARCHITECTURE.md)）  
 **Decision date:** 2026-10-30  
 **Scope:** extends the existing five-stage Python/SQLite/GIS/R workflow; does not replace its evidence-approval gates or reclassify unapproved candidates.
+
+> **版本使用原則（2026-10-31）**：本文件保留詳細 P0–P3 待辦，但後續實作以 [RESEARCH_ARCHITECTURE](RESEARCH_ARCHITECTURE.md)、[DATA_SPECIFICATION](DATA_SPECIFICATION.md)、[MCDA_PROTOCOL](MCDA_PROTOCOL.md)、[VALIDATION_PROTOCOL](VALIDATION_PROTOCOL.md) 的 v2 契約為研究定義依據。現有 `G0/R1/S1/RS` 和 `Commercial/ESG` 仍是 v1 的歷史語意；v2 第六構面名稱建議為 `Commercial & Regulatory Readiness`，尚待正式 criteria/version migration。所有數值門檻、weights 和主要 Cohort 必須在獨立 Gate 中審核定稿。
 
 ## 1. Research contract
 
