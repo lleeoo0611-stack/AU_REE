@@ -59,7 +59,7 @@ Project–Deposit 關聯有 3 種不同語意：Project 名稱與 Deposit 相同
 - [272 筆政府來源欄位 JSONL](../../data/source_snapshots/2026-10-29_272_native_features.jsonl)，每筆附來源 chunk 原始 SHA-256、原生 ID、完整 attributes；注意此 JSONL 為衍生可重現的 *source-feature subset*，不等於 123,323 筆完整 raw archive。
 - [Legacy r963 原始 203-row CSV](../../inputs/legacy_r963_census.csv)，16 筆缺原生資料對回 UUID 與該 CSV 的來源列。
 
-22 項 Project-level 來源判讀仍需要個別文獻核對；恢復文件 bytes 不會自動把來源地質圖徵升格為 C1 Project。
+19 筆有具名 Project 候選的來源紀錄仍需要個別文獻核對；恢復文件 bytes 不會自動把來源地質圖徵升格為 C1 Project。
 
 ## 5. 可重跑
 
