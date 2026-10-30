@@ -1,5 +1,14 @@
 # Change log
 
+## P0 487-record evidence source recovery (round 2) — 2026-10-31
+
+- Re-audit all 487 preserved target IDs against 62 curated government, issuer and historical geological source leads; produce a **34-column editable evidence snapshot**, a separate **86-target before/after CSV** and provenance JSON.
+- Reduce `NATIVE_RECORD_ONLY` **336→272** (64 additional cross-source leads) and `SOURCE_RECORD_NOT_RECOVERED` (no native/document locator) **23→3** (20 new external document locators). **All 23 native raw snapshots remain unrecovered**, kept explicitly separate from document discovery.
+- Add official SA deposit evidence for Olympic Dam and Clarke; both **original multi-feature native ID ambiguities remain unresolved** (4 and 6 source rows) although they now have official references.
+- Preserve all C0 source records and existing C1/Project/JORC/GIS approval gates. New reproducible standard-library script and regression tests prevent accidental promotion and historical-file overwrite.
+- Update README, docs index, runbook, research decisions and changelog. No scoring or historical source modification.
+
+
 ## P0 source evidence review for all 487 records — 2026-10-31
 
 - Audit all 487 Census targets at **claim/evidence depth**, distinguishing exact native source record, archived document text locator, URL without locator, ambiguous native match and unrecovered source; record evidence scope and next action without Project/JORC/GIS approval.
