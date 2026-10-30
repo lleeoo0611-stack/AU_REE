@@ -30,6 +30,7 @@ INPUTS = {
     "entity": "outputs/source_entity_register_487.csv",
     "tenure": "outputs/487_official_tenure_trace_status.csv",
     "company": "outputs/company_entity_resolution_queue_487.csv",
+    "crosswalk": "outputs/reconstructed_cohort_487.csv",
     "locators": "outputs/source_evidence_locator_review_95.csv",
     "group": "docs/audits/2026-10-31_project_source_screen_39.csv",
 }
@@ -38,7 +39,8 @@ COLUMNS = [
     "source_native_id", "candidate_id", "source_entity_id", "source_entity_type",
     "entity_level_assessed", "original_screen_status", "original_inclusion_gate",
     "reviewed_project_group_id", "group_candidate_name", "group_link_relation",
-    "source_record_lookup_status", "original_coordinate_basis", "latitude",
+    "source_record_lookup_status", "provisional_crosswalk_status",
+    "provisional_review_group_ids", "original_coordinate_basis", "latitude",
     "longitude", "project_coordinate_approval", "tenure_trace_status",
     "tenure_spatial_overlap_count", "legal_titleholder_review_status",
     "source_evidence_status", "document_locator_rows",
@@ -110,7 +112,7 @@ def build_review(
         raise ValueError("Unexpected baseline row count or duplicate target_id")
 
     maps: dict[str, dict[str, dict[str, str]]] = {}
-    for name in ("gate", "member", "entity", "tenure", "company"):
+    for name in ("gate", "member", "entity", "tenure", "company", "crosswalk"):
         maps[name] = keyed(data[name], name)
         if set(maps[name]) != ids:
             raise ValueError(f"{name}: target_id not a strict 1:1 match to baseline")
@@ -126,11 +128,12 @@ def build_review(
         ent = maps["entity"][target]
         ten = maps["tenure"][target]
         co = maps["company"][target]
+        cw = maps["crosswalk"][target]
         if any(y["state"] != x["state"] for y in (a, b, ten)):
             raise ValueError(f"State mismatch for {target}")
         if ent["state_or_territory"] != x["state"]:
             raise ValueError(f"Entity state mismatch for {target}")
-        if any(y["cohort"] != x["cohort"] for y in (a, ten, co)):
+        if any(y["cohort"] != x["cohort"] for y in (a, ten, co, cw)):
             raise ValueError(f"Cohort mismatch for {target}")
 
         group_id = b["project_entity_id"]
@@ -165,7 +168,8 @@ def build_review(
             x["source_native_id"], x["candidate_id"], ent["entity_id"],
             b["entity_type"], x["entity_level_assessed"], x["definition_screen_status"],
             a["inclusion_gate"], group_id, a["candidate_group_key"], b["relation"],
-            x["source_lookup_status"], x["coordinates_basis"], x["latitude"],
+            x["source_lookup_status"], cw["crosswalk_status"],
+            cw["provisional_group_ids"], x["coordinates_basis"], x["latitude"],
             x["longitude"], "NOT_APPROVED_SOURCE_POINT_ONLY", ten["target_status"],
             ten["tenure_links"], co["titleholder_relation_status"], x["evidence_status"],
             str(len(loc)), str(len(found)), locator_state, docref, url,
@@ -190,6 +194,7 @@ def build_review(
             ("tenure", ten["target_status"]),
             ("coordinate_basis", x["coordinates_basis"]),
             ("source_lookup", x["source_lookup_status"]),
+            ("provisional_crosswalk", cw["crosswalk_status"]),
             ("source_evidence_status", x["evidence_status"]),
             ("C1_release_status", "C1_NOT_RELEASED"),
         ):
