@@ -1,5 +1,14 @@
 # Change log
 
+## Documentation roadmap — 2026-10-30
+
+- Reorganize the root README into research goals, verified implementation state, executable workflows, planned requirements and reference navigation.
+- Add `docs/RESEARCH_REQUIREMENTS_AIMS_ABC.md` defining development-potential assessment, ranking robustness and driver analysis with P0–P3 acceptance tests.
+- Preserve the pre-reorganization five-stage README at `docs/archive/README_v1.0.4_pre_ABC_2026-10-30.md`.
+- Distinguish G0/R1/S1/RS evidence/cohort scenarios from resource/development/strategic-supply weight perspectives; document that G0 currently omits R1/S1.
+- Documentation-only change; program behavior, data and research results are unchanged.
+
+
 ## v1.0.1 — 2026-10-29
 
 - Implement separate archived-document SHA-256 validation and independent reviewer decisions; input self-declared `VERIFIED` alone is not accepted.
