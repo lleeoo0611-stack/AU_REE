@@ -36,6 +36,17 @@
 | [官方來源清單](official_population_sources.md) | GA 與州來源及查詢說明 |
 | [Raw-first protocol](NATIONAL_RAW_FIRST_PROTOCOL.md) | 政府資料先全量再篩選的步驟 |
 
+## 原始來源恢復與實體審查（2026-10-31）
+
+| 檔案 | 用途 |
+| --- | --- |
+| **[政府原始封存審查](audits/2026-10-31_original_archive_recovery_report.md)** | 272/23/SA 重複 feature 真實來源的分層判定 |
+| [272 筆原生證據矩陣](audits/2026-10-31_272_native_project_scope_triage.csv) | target、source-native ID、原始封存路徑、地質 parent 與 C1 Gate |
+| [23 筆原始來源恢復](audits/2026-10-31_23_native_source_recovery.csv) | GA 7 筆原始圖徵及 Legacy 16 筆歷史列定位 |
+| [南澳 10 筆 feature 對照](audits/2026-10-31_sa_10_duplicate_source_features.csv) | Olympic Dam 4 筆、Clarke 6 筆，保持兩個礦床 ID |
+| [6 筆外部 Project parent 候選](audits/2026-10-31_272_project_parent_candidates_6.csv) | Narraburra/Milo REE 及 Peculiar Knob/Carrapateena 非 REE scope |
+| [原始來源 QA 摘要](audits/2026-10-31_original_archive_recovery_summary.json) | 所有數量、原始 Actions artifact、驗證程式 |
+
 ## 母體與審閱成果（歷史報告）
 
 - **主要當前報告**：[487 筆追溯發布摘要](../CENSUS_RELEASE.md)、[2026-10-30 逐列審閱](FULL_TRACE_REVIEW_20261030.md)（內容相同，保留原引用路徑）。

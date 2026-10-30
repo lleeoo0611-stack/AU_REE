@@ -85,3 +85,13 @@
 | `ADR-P0-013` | 2026-10-31 | `RECORDED_AUDIT` | 487 Census source targets 再核查外部政府與公司報告，為 86 筆增加來源文字定位；保持 Round 1 欄位、native ID、Project/Deposit 層級與正式 Gate 不變 | [第二輪報告](audits/2026-10-31_evidence_round2_report.md)、[逐筆 CSV](audits/2026-10-31_487_evidence_round2_review.csv)、[62 筆可追溯來源線索](../inputs/source_review_20261031/round2_external_evidence_leads.csv) |
 | `ADR-P0-014` | 2026-10-31 | `RECORDED_AUDIT` | 原無外部文件的 23 筆中 20 筆取得外部來源指標，但原 native bytes 仍缺；Olympic Dam/Clarke 取得政府來源仍保留 4／6 個 source feature row 歧義 | [86 個改變的 target](audits/2026-10-31_evidence_round2_changed_targets.csv)；需 source-native feature discriminator、官方原件 bytes SHA-256 及 independent review 才可能核准 |
 
+
+### Original source archive replay (2026-10-31)
+
+| Decision ID | Result | Reference |
+| --- | --- | --- |
+| `ADR-P0-015` | 272 筆 native-only target 全部以 2026-10-29 封存核對至**單一官方來源 feature**；268 無 source Project parent key、4 只有地質 parent/group；仍為 C0 | [272 CSV](audits/2026-10-31_272_native_project_scope_triage.csv) |
+| `ADR-P0-016` | 原 23 缺原生列：GA 7 筆來源 JSON，Legacy 16 筆歷史來源列，後者原 project_id 精確等於穩定 Legacy UUID，但不是政府 native ID | [23 CSV](audits/2026-10-31_23_native_source_recovery.csv) |
+| `ADR-P0-017` | Olympic Dam MINDEP 3000 的 4 個 `OBJECTID/FID`、Clarke MINDEP 11849 的 6 個來源圖徵一一識別；仍只對應 2 個礦床 | [SA 10 CSV](audits/2026-10-31_sa_10_duplicate_source_features.csv) |
+| `ADR-P0-018` | 6 筆跨來源 Project parent 候選，其中 REE project 2 筆，non-REE mine 4 筆，無自動 C1 核准 | [parent 候選](audits/2026-10-31_272_project_parent_candidates_6.csv) |
+
