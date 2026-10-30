@@ -5,7 +5,7 @@ import sqlite3
 import sys
 from pathlib import Path
 
-BASE = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parent
+BASE = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parents[2]
 OUT = BASE / "deliverable"
 TRACE_DB = BASE / "trace_artifact" / "work" / "tenement_reverse_20261029" / "reverse_trace_evidence.sqlite"
 

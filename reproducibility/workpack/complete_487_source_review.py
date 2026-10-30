@@ -1,5 +1,5 @@
 import csv, json, pathlib, sqlite3, sys
-BASE=pathlib.Path(sys.argv[1]).resolve() if len(sys.argv)>1 else pathlib.Path(__file__).resolve().parent
+BASE=pathlib.Path(sys.argv[1]).resolve() if len(sys.argv)>1 else pathlib.Path(__file__).resolve().parents[2]
 OUT=BASE/'deliverable'
 def rd(n):
  with (OUT/n).open(encoding='utf-8-sig',newline='') as f:return list(csv.DictReader(f))
