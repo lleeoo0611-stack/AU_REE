@@ -124,6 +124,8 @@ def verify_archive(raw, scope, missing, sa):
         raise FileNotFoundError("Extract original GitHub Actions ZIP to raw-root")
     index = defaultdict(lambda: defaultdict(list))
     hashed = {}
+    main_manifest = json.loads((raw / "national_raw_manifest.json").read_text())
+    assert main_manifest.get("complete"), "Original raw archive not complete"
     for src, field in ARC.items():
         for file in sorted((raw / "arcgis" / src).glob("*/features_*.json")):
             j = json.loads(file.read_text(encoding="utf-8"))
@@ -142,7 +144,12 @@ def verify_archive(raw, scope, missing, sa):
         for file in sorted((raw / "wfs" / src).glob("features_*.json")):
             j = json.loads(file.read_text(encoding="utf-8"))
             digest = checksum(file)
-            hashed[str(file.relative_to(raw))] = digest
+            matching = {c["path"]: c["sha256"]
+                        for c in main_manifest["sources"][src]["chunks"]}
+            path_key = str(file.relative_to(raw))
+            if matching.get(path_key) != digest:
+                raise ValueError("Original WFS SHA256 mismatch: " + path_key)
+            hashed[path_key] = digest
             for i, x in enumerate(j["features"]):
                 props = x["properties"]
                 value = str(props.get(field, "") or "").strip().casefold()
@@ -151,6 +158,13 @@ def verify_archive(raw, scope, missing, sa):
     for src, (path, field) in SACSV.items():
         file = raw / path
         digest = checksum(file)
+        if src == "SA_CRITICAL_REE":
+            records = main_manifest["sources"]["SA_PROJECT_WFS"]
+        else:
+            records = main_manifest["sources"]["SA_GEODATA"]
+        matching = {item["path"]: item["sha256"] for item in records}
+        if matching.get(path) != digest:
+            raise ValueError("Original SA CSV SHA256 mismatch: " + path)
         hashed[str(file.relative_to(raw))] = digest
         # SA GEODATA source is Windows encoded; keep raw bytes intact.
         for enc in ("utf-8-sig", "cp1252"):
