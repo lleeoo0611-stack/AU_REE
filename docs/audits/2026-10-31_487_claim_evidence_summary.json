@@ -1,0 +1,104 @@
+{
+  "snapshot": "2026-10-31",
+  "source_as_of": "2026-10-29",
+  "scope": "487 historical source-target records; evidence pointers and claim-specific statuses, not 487 independent Projects",
+  "source_shas": {
+    "docs/audits/2026-10-31_census_487_batch_review.csv": {
+      "git_blob_sha": "b7990917d2f5c284eb54abea9d8fd1accd4761cc",
+      "rows": 487
+    },
+    "outputs/unlinked_441_source_trace.csv": {
+      "git_blob_sha": "95ba3ea9899042c7863af1e523edb9c5d6e583be",
+      "rows": 441
+    },
+    "outputs/source_evidence_locator_review_95.csv": {
+      "git_blob_sha": "0b21b658ff8bd32c2044fc1e9eb16f5cc3415716",
+      "rows": 95
+    },
+    "docs/audits/2026-10-31_wa_official_ree_project_leads.csv": {
+      "git_blob_sha": "2ce60bac84ef248bcbe0af45161a1bfc5fdb1e96",
+      "rows": 20
+    },
+    "outputs/487_full_census_adjudication.csv": {
+      "git_blob_sha": "1b9bf15df20ebe2590b8f10234a02d00b8a575cc",
+      "rows": 487
+    }
+  },
+  "result": {
+    "rows": 487,
+    "columns": 36,
+    "unique_ids": 487,
+    "source_target_ids_with_95_document_locators": 46,
+    "prior_direct_project_context_located": 42,
+    "source_target_ids_with_441_trace": 441,
+    "external_WA_exact_name_source_rows": 20,
+    "external_WA_exact_distinct_project_names": 13,
+    "WA_official_project_list_entries_not_exact_in_487": [
+      "Mt Weld",
+      "Greater Brothers",
+      "Mt Clere",
+      "Salazar",
+      "Mount Ridley",
+      "Splinter",
+      "Mt Stirling"
+    ],
+    "external_NT_parent_source_rows": 1
+  },
+  "statistics": {
+    "depth": {
+      "EXACT_NATIVE_RECORD_TRACE_ONLY": 336,
+      "EXTERNAL_URL_WITHOUT_CONFIRMED_TEXT_LOCATOR": 24,
+      "DOCUMENT_LOCATOR_REVIEW_NONCONFIRMING": 4,
+      "ARCHIVED_EXTERNAL_TEXT_LOCATOR_CANDIDATE": 56,
+      "DOCUMENT_PROJECT_CONTEXT_LOCATED_UNAPPROVED": 42,
+      "AMBIGUOUS_NATIVE_RECORD_TRACE": 2,
+      "NO_VERIFIABLE_PROJECT_TEXT_IN_CURRENT_EVIDENCE_INDEX": 23
+    },
+    "native": {
+      "EXACT_NATIVE_VALUE_MATCH": 407,
+      "OUTSIDE_441_NATIVE_TRACE_SUBSET": 46,
+      "MISSING_OR_NOT_RECOVERED": 32,
+      "AMBIGUOUS_NATIVE_MATCH": 2
+    },
+    "identity": {
+      "UNRESOLVED_INDEPENDENT_PROJECT_IDENTITY": 391,
+      "SOURCE_REVIEWED_GROUP_LINK_SIGNOFF_PENDING": 78,
+      "OFFICIAL_WA_PROJECT_NAME_MATCH_SCOPE_PENDING": 17,
+      "OFFICIAL_TEXT_PROSPECT_WITHIN_BRUCE_PROJECT": 1
+    },
+    "ree": {
+      "REE_SOURCE_COMMODITY_NOT_PROJECT_ROLE": 361,
+      "REE_ROLE_NOT_PROJECT_LEVEL_CONFIRMED": 40,
+      "OFFICIAL_WA_REO_RESOURCE_LISTED_SIGNOFF_PENDING": 17,
+      "PROJECT_REE_ROLE_REVIEWED_NOT_APPROVED": 69
+    },
+    "jorc": {
+      "NO_APPROVED_SCOPED_JORC_MINERAL_RESOURCE": 467,
+      "WA_RESOURCE_SUMMARY_CUTOFF_CATEGORIES_SCOPE_PENDING": 20
+    },
+    "gap": {
+      "ESTABLISH_PROJECT_PARENT_WITH_PRIMARY_DOCUMENT": 342,
+      "INDEPENDENT_GROUP_REVIEW_STUDY_AND_JORC_APPROVAL": 78,
+      "CONFIRM_OFFICIAL_WA_PROJECT_SCOPE_PARENT_ID_AND_MRE": 17,
+      "RECOVER_NATIVE_RECORD_OR_ARCHIVED_PROJECT_DOC": 28,
+      "RESOLVE_NATIVE_ID_MULTI_MATCH": 2,
+      "READ_ARCHIVED_LOCATED_TEXT_FOR_PROJECT_VS_DEPOSIT_CLAIM": 19,
+      "APPROVE_PROSPECT_TO_BRUCE_PARENT_LINK": 1
+    },
+    "wa": {
+      "NOT_MATCHED": 467,
+      "EXACT_NAME_MATCH": 20
+    },
+    "state": {
+      "QLD": 47,
+      "NT": 55,
+      "TAS": 28,
+      "SA": 131,
+      "NSW": 56,
+      "WA": 127,
+      "VIC": 43
+    }
+  },
+  "release": "C1_NOT_RELEASED",
+  "critical": "Statuses are reviewable evidence CLAIMS, not independently authenticated documents. Search archive SHA256 is from prior stored metadata and has not been recomputed over missing original bytes. WA official table reports MRE summary; no original JORC resource statement classification/cutoff audit. All current claims need independent reviewer/document bytes."
+}
