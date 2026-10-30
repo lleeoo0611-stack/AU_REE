@@ -98,6 +98,19 @@ python -m pytest -q tests/test_p0_raw_recovery.py
 
 核對 272 個唯一原始圖徵、23 個原始列定位、SA 10 筆來源 feature identity，並保持 C1/Project/JORC/GIS 獨立核准。[逐筆結果](audits/2026-10-31_original_archive_recovery_report.md)。
 
+### P0 原始政府來源、272 筆 Project 關聯與 SA source-feature keys
+
+```bash
+gh run download 40821122179 \
+  --name australia-national-unfiltered-raw-inventory --dir work/p0_raw
+python scripts/reconcile_p0_original_raw.py \
+  --root . --raw-root work/p0_raw --out docs/audits
+python scripts/build_p0_parent_evidence_queue.py
+python -m pytest -q tests/test_p0_original_raw.py tests/test_p0_parent_evidence_queue.py
+```
+
+GitHub Workflow [`P0 original raw recovery`](../.github/workflows/p0-original-raw-recovery.yml) 定期驗證來源 chunk bytes、272 government source features、23 恢復舊紀錄及 SA 10 個複合來源 ID。原始來源放 `data/raw_snapshots/`、對應原生欄位放 `data/source_snapshots/`，編輯審核輸出放 `docs/audits/`。完整科學解釋與下一步見[第三輪報告](audits/2026-10-31_p0_native_parent_resolution_report.md)。
+
 ## CI 與版本
 
 `.github/workflows/python-offline.yml` 在 push/PR 測試 Python 3.11/3.13、五階段離線重跑、SQLite QA 與 checkpoint；`r-mcda-smoke.yml` 用合成 Alternatives 測試 R 4.4.3 的可重現性。工作包的完整 `rebuild_all.py` 需要封存來源與可選的 `xlsxwriter`，不屬於上述離線 CI 的測試範圍。
