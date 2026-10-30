@@ -95,3 +95,12 @@
 | `ADR-P0-017` | Olympic Dam MINDEP 3000 的 4 個 `OBJECTID/FID`、Clarke MINDEP 11849 的 6 個來源圖徵一一識別；仍只對應 2 個礦床 | [SA 10 CSV](audits/2026-10-31_sa_10_duplicate_source_features.csv) |
 | `ADR-P0-018` | 6 筆跨來源 Project parent 候選，其中 REE project 2 筆，non-REE mine 4 筆，無自動 C1 核准 | [parent 候選](audits/2026-10-31_272_project_parent_candidates_6.csv) |
 
+
+### P0 Project parent 與原始來源合併審查（2026-10-31）
+
+| Decision | Status | Evidence and frozen schema rule | Next gate |
+| --- | --- | --- | --- |
+| `ADR-P0-018` | `SOURCE_BYTES_VERIFIED` | 272/272 source-native features 原始資料精確唯一匹配；23/23 原始 GA/Legacy 紀錄 bytes/ID 核對完成；輸出每來源原始 SHA-256 與原始歸檔 JSONL | [本輪完整報告](audits/2026-10-31_p0_native_parent_resolution_report.md) |
+| `ADR-P0-019` | `SOURCE_FEATURE_IDS_RESOLVED` | SA MINDEP 3000/11849 各自具有 4/6 列不同 OBJECTID／FID；以 `SA_CRITICAL_REE:MINDEP_NO:OBJECTID` 保持 10 個唯一來源圖徵，仍只有 2 個礦床 | 不能重複建 Project ID 或重複計 JORC |
+| `ADR-P0-020` | `PARENT_EVIDENCE_CANDIDATES_ONLY` | 原始 272 筆中 13 新 + 6 既有文件關聯＝15 稀土相關 Project 候選 source rows、4 非稀土項目；92 nonproject entities；2 TAS parent deposit；3 VIC generic category；156 無 Project 母層 | [272 筆 Evidence Queue](audits/2026-10-31_272_project_parent_evidence_queue.csv)；需 source scope、Project 邊界及 reviewer approvals |
+

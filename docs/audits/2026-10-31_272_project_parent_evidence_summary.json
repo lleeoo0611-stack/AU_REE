@@ -1,0 +1,27 @@
+{
+  "snapshot": "2026-10-31",
+  "source_as_of": "2026-10-29",
+  "units": "272 source target rows, not 272 independent development projects",
+  "input_rows": 272,
+  "native_exact": 272,
+  "new_documented_parent_source_rows": 13,
+  "previous_documented_parent_source_rows": 6,
+  "documented_candidate_source_rows": 15,
+  "documented_non_ree_project_source_rows": 4,
+  "project_parent_unlocated": 156,
+  "official_geological_nonprojects": 92,
+  "deposit_parent_only": 2,
+  "generic_thematic_label": 3,
+  "parent_review_distribution": {
+    "PROJECT_PARENT_UNLOCATED": 156,
+    "C0_NONPROJECT_SOURCE_ENTITY": 92,
+    "DOCUMENTED_NON_REE_PROJECT_SOURCE": 4,
+    "C0_DEPOSIT_PARENT_ONLY": 2,
+    "DOCUMENTED_CANDIDATE_REQUIRES_PARENT_SIGNOFF": 15,
+    "C0_THEMATIC_LABEL_NOT_PROJECT": 3
+  },
+  "independent_project_approvals": 0,
+  "C1_approvals": 0,
+  "distinct_new_parent_name_strings": 7,
+  "note": "Evidence-backed candidate Project name only; historic government prospectus, company declaration and official EIS have different scope. No official stage/resource/GIS automatic approval."
+}

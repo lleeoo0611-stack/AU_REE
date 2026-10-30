@@ -36,6 +36,16 @@
 | [官方來源清單](official_population_sources.md) | GA 與州來源及查詢說明 |
 | [Raw-first protocol](NATIONAL_RAW_FIRST_PROTOCOL.md) | 政府資料先全量再篩選的步驟 |
 
+### 本輪新的 Project–Deposit 關聯證據
+
+| 檔案 | 用途 |
+| --- | --- |
+| **[P0 第三輪總報告](audits/2026-10-31_p0_native_parent_resolution_report.md)** | 272/272 原始資料、23/23 原始 bytes、南澳 10 筆完整 source feature 鍵 |
+| [272 筆 Parent Evidence Queue](audits/2026-10-31_272_project_parent_evidence_queue.csv) | 15 筆 REE Project parent 候選、4 筆非 REE Project、其餘依證據分類 |
+| [272 筆政府原始欄位](../data/source_snapshots/2026-10-29_272_native_features.jsonl) | source feature attributes、原始 SHA、原始 ID |
+| [13 筆新文件關聯](../inputs/source_review_20261031/round3_272_project_parent_issuer_leads.csv) | Redlings、Aileron、Coburn、Copi North、Glenaladale、Korella 等 |
+| [Project Parent Summary](audits/2026-10-31_272_project_parent_evidence_summary.json) | 各類別計數與正式 C1 Gate 狀態 |
+
 ## 原始來源恢復與實體審查（2026-10-31）
 
 | 檔案 | 用途 |
