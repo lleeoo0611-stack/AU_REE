@@ -131,6 +131,7 @@ def reconcile(root: Path, rawroot: Path, outroot: Path):
     records, hashes = raw_objects(raw_dir, needed)
 
     parent_rows = []
+    frozen_features = []
     counts = Counter()
     for row in targets:
         c = census[row["target_id"]]
@@ -193,11 +194,19 @@ def reconcile(root: Path, rawroot: Path, outroot: Path):
             commodity, "NO", "NO", next_action,
         ]))
         parent_rows.append(record)
+        if len(matches) == 1:
+            frozen_features.append({
+                "target_id": row["target_id"], "source_key": key,
+                "native_id": ident, "source_relative_path": rel,
+                "original_chunk_sha256": hashes[rel],
+                "source_feature_locator": record["raw_feature_locator"],
+                "source_attributes": attrs,
+            })
         counts[relationship] += 1
 
     # Strict, physical native-byte recovery check.
     recover_out = []
-    save_roots = outroot / "recovered_raw" / "2026-10-29"
+    save_roots = root / "data/raw_snapshots/2026-10-29"
     original_legacy = root / "inputs/legacy_r963_census.csv"
     legacy_blob = original_legacy.read_bytes()
     legacy_records = read(original_legacy)
@@ -273,6 +282,12 @@ def reconcile(root: Path, rawroot: Path, outroot: Path):
     (save_roots / "ga/GA_AIMR_REE_2026_features_0000000.json").write_bytes(ga_blob)
     (save_roots / "sa/SA_CRITICAL_REE.csv").write_bytes(sa_blob)
 
+    frozen_path = root / "data/source_snapshots/2026-10-29_272_native_features.jsonl"
+    frozen_path.parent.mkdir(parents=True, exist_ok=True)
+    frozen_path.write_text("".join(
+        json.dumps(x, sort_keys=True, ensure_ascii=False) + "\\n"
+        for x in sorted(frozen_features, key=lambda y:y["target_id"])
+    ), encoding="utf-8")
     write(outroot / "2026-10-31_272_native_project_parent_audit.csv", parent_rows, RAW_COLS)
     write(outroot / "2026-10-31_23_original_native_bytes_verified.csv",
           recover_out, list(recover_out[0]))
@@ -290,6 +305,11 @@ def reconcile(root: Path, rawroot: Path, outroot: Path):
         "target_native_ambiguous": sum(x["native_raw_match"]=="RAW_NATIVE_ID_NONUNIQUE" for x in parent_rows),
         "target_native_unmatched": sum(x["native_raw_match"]=="RAW_FEATURE_NOT_MATCHED" for x in parent_rows),
         "raw_recovered_verified": len(recover_out), "sa_compound_keys_verified": len(sa_out),
+        "frozen_native_feature_rows": len(frozen_features),
+        "frozen_native_feature_sha256": sha(frozen_path.read_bytes()),
+        "frozen_native_feature_path": str(frozen_path.relative_to(root)),
+        "original_archived_GA_path": str((save_roots / "ga/GA_AIMR_REE_2026_features_0000000.json").relative_to(root)),
+        "original_archived_SA_path": str((save_roots / "sa/SA_CRITICAL_REE.csv").relative_to(root)),
         "sa_deposit_ids_collapsed": 0, "project_approvals": 0,
         "original_sha256_GA": sha(ga_blob), "original_sha256_SA": sa_sha,
         "original_sha256_LEGACY": sha(legacy_blob),
