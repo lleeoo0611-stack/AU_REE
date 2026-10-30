@@ -85,6 +85,19 @@ python -m pytest -q tests/test_p0_evidence_round2.py
 
 從已凍結 [第一輪 487 筆證據表](audits/2026-10-31_487_evidence_claim_review.csv)、[第二輪政府／公司來源定位](../inputs/source_review_20261031/round2_external_evidence_leads.csv)、WA 官方 REE 資源表重建 [第二輪 487 筆審查表](audits/2026-10-31_487_evidence_round2_review.csv)、[86 筆差異](audits/2026-10-31_evidence_round2_changed_targets.csv)與 SHA-256 輸入摘要。**外部文件已定位不表示原生 RAW snapshot 已恢復；有官方礦床名稱亦不表示 Project、JORC、C1 通過。** 禁止覆寫日期快照。
 
+### P0 原始資料封存恢復驗證
+
+從 [GitHub Actions raw-first run 40821122179](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/40821122179) 取得 `australia-national-unfiltered-raw-inventory` ZIP，解壓至 `work/national_raw/`；直接使用原始 SHA-256 manifest 驗證：
+
+```bash
+python scripts/validate_p0_raw_recovery.py
+python scripts/validate_p0_raw_recovery.py --raw-root work/national_raw \
+  --output work/evidence/p0_raw_recovery_verification.json
+python -m pytest -q tests/test_p0_raw_recovery.py
+```
+
+核對 272 個唯一原始圖徵、23 個原始列定位、SA 10 筆來源 feature identity，並保持 C1/Project/JORC/GIS 獨立核准。[逐筆結果](audits/2026-10-31_original_archive_recovery_report.md)。
+
 ## CI 與版本
 
 `.github/workflows/python-offline.yml` 在 push/PR 測試 Python 3.11/3.13、五階段離線重跑、SQLite QA 與 checkpoint；`r-mcda-smoke.yml` 用合成 Alternatives 測試 R 4.4.3 的可重現性。工作包的完整 `rebuild_all.py` 需要封存來源與可選的 `xlsxwriter`，不屬於上述離線 CI 的測試範圍。
