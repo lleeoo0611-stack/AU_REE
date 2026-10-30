@@ -214,7 +214,7 @@ def verify_archive(raw, scope, missing, sa):
         "ga_originals_verified": 7, "historic_legacy_rows_verified": 16,
         "sa_duplicate_feature_ids_verified": 10, "sa_source_deposit_ids": 2,
         "source_chunk_hashes_verified_count": len(hashed),
-        "source_gis_project_jort_approval": 0,
+        "source_gis_project_jorc_approval": 0,
     }
 
 
