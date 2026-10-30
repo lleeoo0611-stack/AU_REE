@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-31",
+  "as_of": "2026-10-29",
+  "source_actions_run_id": 40821122179,
+  "source_artifact_id": 12874618255,
+  "source_artifact_name": "australia-national-unfiltered-raw-inventory",
+  "source_gate": "COMPLETE_UNFILTERED_NATIONAL_RAW_ONLY",
+  "target_count": 272,
+  "unique_target_ids": 272,
+  "parent_classification_counts": {
+    "NO_PROJECT_PARENT_FIELD": 152,
+    "OFFICIAL_NONPROJECT_GEOLOGICAL_SOURCE_ENTITY": 92,
+    "PREVIOUSLY_REVIEWED_INDEPENDENT_SOURCE_PARENT_CANDIDATE": 6,
+    "TAS_PARENT_DEPOSIT_ID_NOT_PROJECT": 2,
+    "OFFICIAL_VIC_PROJECT_TEXT_CANDIDATE": 3,
+    "LEGACY_SOURCE_ONLY": 17
+  },
+  "target_native_exact_single_record": 247,
+  "target_native_ambiguous": 0,
+  "target_native_unmatched": 0,
+  "raw_recovered_verified": 23,
+  "sa_compound_keys_verified": 10,
+  "sa_deposit_ids_collapsed": 0,
+  "project_approvals": 0,
+  "original_sha256_GA": "3d5c448f23cbf5d9c0dc1169640f78aac820f4ce4ccb1057fb337abd082037dc",
+  "original_sha256_SA": "4064f29eb934689606d5d4fa02f61e70c726c931752aaf1fd0a355adbc3c9fbc",
+  "original_sha256_LEGACY": "420fe80369d1a7ced0f47c8ea1d5d4562279637f3f40688fb57658840d194461",
+  "inputs_sha256": {
+    "round2": "62fbd8d529c3c91d7eba0173de9f9e1bcb5d2a5d99ec8bef6f0f9858c729a41b",
+    "census": "8d37a5bbb0eecf6322ba6e4760cd21640980bf2c42114fd1bbf37b54fa558a59",
+    "native23": "15240ffaea7669bb870cbc1ee0b867b536a64d35974785b4550df088558f6091"
+  }
+}
