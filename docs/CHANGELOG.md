@@ -1,5 +1,13 @@
 # Change log
 
+## Research framework and status assessment — 2026-10-30
+
+- Add an editable, GitHub-rendered Mermaid framework to the root README, distinguishing the implemented census/evidence/GIS/eligibility/MCDA pipeline from proposed Aim A/B/C research outputs.
+- Add a compact qualitative assessment to the README and the evidence-based detailed review at `docs/PROJECT_ASSESSMENT_2026-10-30.md`; index it in `docs/README.md`.
+- Document current census numbers, the G0 versus six-domain limitation, cohort/weight distinctions, evidence gaps, methodological selection biases, and P0–P3 research priorities.
+- Documentation only: no source data, admission gate, scoring algorithm or published result changed.
+
+
 ## Repository structure — 2026-10-30
 
 - Keep the root README concise and move operation details into `docs/RUNBOOK.md`; add navigation in `docs/README.md`, `outputs/README.md` and `reproducibility/workpack/README.md`.
