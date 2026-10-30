@@ -2,7 +2,7 @@
 
 **母體快照：2026-10-29；稽核：2026-10-31。** 全部 487 target_id、原 39 review groups、C0/C1 邊界、正式核准資料不變。
 
-本次直接取回 GitHub Actions 工作流程 [Australia-wide raw mineral archive，run 40821122179](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/40821122179) 的 **`australia-national-unfiltered-raw-inventory` artifact ID `12874618255`**（含原始 ArcGIS feature JSON、WFS GeoJSON、SA CSV 與 SHA-256 manifest），重新檢查原生 source ID，而非使用新的模糊名稱搜尋推定身分。
+本次直接取回 GitHub Actions 工作流程 [Australia-wide raw mineral archive，run 40821122179](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/40821122179) 的 **`australia-national-unfiltered-raw-inventory` artifact ID `12874618255`**（含原始 ArcGIS feature JSON、WFS GeoJSON、SA CSV 與 SHA-256 manifest），核對 **376 個原始資料檔（132,450,625 bytes），SHA-256 全數符合、0 個失敗**；並重新檢查原生 source ID，而非使用新的模糊名稱搜尋推定身分。
 
 ## 檢查結果
 
