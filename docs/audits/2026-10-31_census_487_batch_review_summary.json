@@ -1,0 +1,158 @@
+{
+  "schema_version": "P0_487_BATCH_REVIEW_V1",
+  "run_date": "2026-10-31",
+  "frozen_source_as_of": "2026-10-29",
+  "repository": "lleeoo0611-stack/AU_REE",
+  "scope": "487 target source records, not 487 independent Projects",
+  "rows": 487,
+  "unique_target_ids": 487,
+  "linked_review_groups": 39,
+  "linked_source_rows": 78,
+  "unlinked_source_rows": 409,
+  "distinct_sources_with_locator_review": 46,
+  "metrics": {
+    "state": {
+      "NSW": 56,
+      "NT": 55,
+      "QLD": 47,
+      "SA": 131,
+      "TAS": 28,
+      "VIC": 43,
+      "WA": 127
+    },
+    "original_gate": {
+      "INCLUDE_CANDIDATE": 69,
+      "HOLD_REE_ROLE": 6,
+      "HOLD_INSUFFICIENT_PROJECT_IDENTITY_OR_REE_ROLE": 412
+    },
+    "entity_type": {
+      "SOURCE_PROJECT_RECORD": 50,
+      "DEPOSIT": 323,
+      "OCCURRENCE": 102,
+      "HISTORICAL_RECORD": 6,
+      "PROSPECT": 6
+    },
+    "review_link": {
+      "LINKED_TO_REVIEW_GROUP": 78,
+      "UNLINKED": 409
+    },
+    "review_relation": {
+      "PROJECT_LINK_REVIEWED_CANDIDATE": 69,
+      "REVIEW_GROUP_LINK_HOLD": 9,
+      "UNRESOLVED_NO_PROJECT_LINK_INFERRED": 409
+    },
+    "review_priority": {
+      "P3": 291,
+      "P1": 29,
+      "P2": 72,
+      "P4": 95
+    },
+    "review_action": {
+      "RETAIN_FOR_C3_HISTORICAL_NOT_CURRENT_C1": 2,
+      "CHECK_DATED_STUDY_JORC_REO_AND_GIS": 9,
+      "CHECK_REE_RESOURCE_AND_COMPLETED_STUDY": 37,
+      "REVIEW_REE_ROLE_AND_INDEPENDENT_PROJECT_ID": 9,
+      "ESTABLISH_DISTINCT_PROJECT_IDENTITY_AND_SOURCE_LINK": 25,
+      "VERIFY_ACTUAL_ECONOMIC_STUDY_AND_FID_DATE": 20,
+      "CHECK_PARENT_PROJECT_DEPOSIT_SCOPE_AND_REE_ROLE": 283,
+      "CONFIRM_REE_OCCURRENCE_NOT_AUTOMATIC_PROJECT": 95,
+      "VERIFY_CURRENT_ACTIVE_STATUS": 1,
+      "CHECK_PROSPECT_PROJECT_SCOPE_AND_REE_ROLE": 6
+    },
+    "group_screen": {
+      "OUTSIDE_PRE_FID_CONFIRMED": 2,
+      "STUDY_DOCUMENTED_PRE_FID_SCREEN": 9,
+      "RESOURCE_EXPLORATION_NO_STUDY_CHECKED": 37,
+      "REE_ROLE_HOLD": 9,
+      "NOT_GROUP_SOURCE_SCREENED": 409,
+      "STUDY_WINDOW_RECHECK": 20,
+      "ON_HOLD_ACTIVITY": 1
+    },
+    "locator_review_state": {
+      "PROJECT_CONTEXT_LOCATOR_FOUND_NEEDS_DOCUMENT_APPROVAL": 42,
+      "NO_DOCUMENT_LOCATOR_IN_95_REVIEW": 441,
+      "FETCHED_NO_PROJECT_LOCATOR": 3,
+      "RETRIEVAL_UNAVAILABLE": 1
+    },
+    "tenure": {
+      "NO_USABLE_COORDINATES": 50,
+      "TENURE_INTERSECTS_PENDING_COMPANY_VERIFICATION": 258,
+      "NO_OVERLAP_IN_QUERIED_LAYERS": 51,
+      "OFFICIAL_TENEMENT_LAYER_NOT_VERIFIED": 128
+    },
+    "coordinate_basis": {
+      "NO_MATCHED_GEOLOGICAL_COORDINATE": 44,
+      "SAME_STATE_EXACT_E1_NAME_SINGLE_RECORD": 36,
+      "AMBIGUOUS_EXACT_NAME": 6,
+      "OFFICIAL_SOURCE_POINT_UNVERIFIED_GEOMETRY": 401
+    },
+    "source_lookup": {
+      "LEGACY_ID_PRESERVED; EXACT_SOURCE_RECORD_CROSSWALK_MISSING": 35,
+      "EXACT_SOURCE_RECORD_PRESENT": 437,
+      "LEGACY_ID_PRESERVED; PROJECT SOURCE LINKED": 15
+    },
+    "source_evidence_status": {
+      "PRIMARY_SOURCES_REVIEWED; PROJECT_BOUNDARY_AND_TITLE_TRACE_PENDING": 25,
+      "PROJECT_DISCLOSURE_AND_NATIVE_SOURCE_REVIEWED; LEGAL_TITLE_CHAIN_PENDING": 32,
+      "MISSING": 19,
+      "AVAILABLE_ROW_LEVEL": 386,
+      "PRIMARY_PROJECT_AND_GOVERNMENT_SOURCES_REVIEWED; TARGET TITLE/POLYGON LINK PENDING": 25
+    },
+    "cohort": {
+      "LEGACY_86": 86,
+      "UNLINKED_E1_401": 401
+    },
+    "C1_release_status": {
+      "C1_NOT_RELEASED": 487
+    }
+  },
+  "gate_status": "BATCH_EVIDENCE_INVENTORY_COMPLETE_C1_NOT_RELEASED",
+  "safety": "No automatic Project approval, no JORC/REE-basis inference, no legal-title inference from tenement spatial intersects, no coordinate approval, no MCDA ranks",
+  "reference_paths": {
+    "outputs/487_full_census_adjudication.csv": {
+      "git_blob_sha": "1b9bf15df20ebe2590b8f10234a02d00b8a575cc",
+      "rows": 487
+    },
+    "outputs/487_inclusion_gate.csv": {
+      "git_blob_sha": "018db57cc6c57afdfaa07dfadcc49d52ee45a206",
+      "rows": 487
+    },
+    "outputs/project_entity_membership_487.csv": {
+      "git_blob_sha": "117d35eecd1288e95d0d4c582c001e4414ed4c50",
+      "rows": 487
+    },
+    "outputs/source_entity_register_487.csv": {
+      "git_blob_sha": "ce7876081ecc3f1def6ec7c1d164dc71bc973753",
+      "rows": 487
+    },
+    "outputs/487_official_tenure_trace_status.csv": {
+      "git_blob_sha": "88dd13501ffc785eb9691d003da697cfbb2504dc",
+      "rows": 487
+    },
+    "outputs/company_entity_resolution_queue_487.csv": {
+      "git_blob_sha": "df84acdb25294667671910d141030fe015b2a1f6",
+      "rows": 487
+    },
+    "outputs/source_evidence_locator_review_95.csv": {
+      "git_blob_sha": "0b21b658ff8bd32c2044fc1e9eb16f5cc3415716",
+      "rows": 95
+    },
+    "docs/audits/2026-10-31_project_source_screen_39.csv": {
+      "git_blob_sha": "372234088f9c4494077996c75ba8dc4c263f9a22",
+      "rows": 39
+    }
+  },
+  "output": {
+    "path": "docs/audits/2026-10-31_census_487_batch_review.csv",
+    "columns": 37,
+    "rows": 487
+  },
+  "method": "Join frozen sources by target_id (exact), join reviewed 39 groups by project_entity_id, split reviewed target_ids in 95 locator rows by IDs, compute evidence coverage, source-type and group-sensitive triage. Source-URL is only a hint; status not independently approved. Missing links remain NULL with actionable next step.",
+  "notes": [
+    "source_entity_type is original source entity classification, not a Project class",
+    "39 group status is the prior source screen and may include later supplemental leads; never as-of C1 approval",
+    "95 locator evidence rows can reference multiple target IDs, and were not re-fetched here",
+    "Official government spatial title overlap is not legal holder verification",
+    "Git blob SHA is an immutable Git object identifier, not the SHA256 hash of source document bytes."
+  ]
+}
