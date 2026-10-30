@@ -1,5 +1,15 @@
 # Change log
 
+## P0 third round: 272 original-source entity / Project parent reconciliation — 2026-10-31
+
+- Recovered and source-byte verified original GA AIMR JSON chunk, original SA critical REE CSV and 16 Legacy historical source rows; **23/23 previously missing native records** tied to physically archived original source bytes or original repo bytes.
+- Independently rejoined **272/272** frozen 2026-10-29 source native features, retaining source key + native value + raw source feature locator and SHA (no auto Project or MCDA admission).
+- Identified all **10 SA source feature rows** as two deposits Olympic Dam (4 rows) / Clarke (6 rows) with unique `source_key + MINDEP_NO + OBJECTID`. Not ten separate development projects.
+- Added **13 source-target Project parent documentary leads** across seven different parent names (Redlings / Aileron / Coburn / Fraser Range / Glenaladale–Fingerboards / Copi / Korella); joined six existing prior reviewed relations. Final 272 queue: 15 REE-relevant document candidates, four non-REE project source rows, 92 non-project geological source entities, two parent deposit IDs, three VIC generic thematic labels, 156 unresolved parents.
+- Original bytes stored under `data/raw_snapshots/2026-10-29/`, full 272 frozen native feature subset under `data/source_snapshots/`; evidence CSV, manifest and audit report under `docs/audits/`. All approval gates unchanged.
+- Rebuild script + automated source artifact GitHub Actions + tests integrated; documentation index, README, runbook and research decisions revised.
+
+
 ## P0 original government source restoration and Project entity scope — 2026-10-31
 
 - Retrieved October 29 raw-first government archive (GitHub Actions run 40821122179) and linked **all 272 previously native-only targets to a unique raw government feature**; retain 268 source records with no Project parent key and four with geological parent/group only as C0.
