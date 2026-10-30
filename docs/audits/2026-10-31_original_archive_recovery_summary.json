@@ -27,7 +27,7 @@
     "GA_original_arcgis_feature_bytes": 7,
     "legacy_historical_source_row_located_name_state": 16,
     "remaining_unlocated_source_rows": 0,
-    "legacy_native_project_ids_blank": 16
+    "legacy_original_project_id_exact_match": 16
   },
   "south_australia_native_id_duplicates": {
     "deposit_groups": 2,
