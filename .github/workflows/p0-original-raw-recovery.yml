@@ -43,7 +43,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/audits/2026-10-31_272_native_project_parent_audit.csv docs/audits/2026-10-31_23_original_native_bytes_verified.csv docs/audits/2026-10-31_sa_10_compound_feature_keys.csv docs/audits/2026-10-31_native_parent_reconciliation_manifest.json docs/audits/recovered_raw/2026-10-29/
+          if [ -d docs/audits/recovered_raw ]; then git rm -rf docs/audits/recovered_raw; fi
+          git add docs/audits/2026-10-31_272_native_project_parent_audit.csv docs/audits/2026-10-31_23_original_native_bytes_verified.csv docs/audits/2026-10-31_sa_10_compound_feature_keys.csv docs/audits/2026-10-31_native_parent_reconciliation_manifest.json data/raw_snapshots/2026-10-29/ data/source_snapshots/2026-10-29_272_native_features.jsonl
           if ! git diff --cached --quiet; then
             git commit -m "data(p0): restore verified 2026-10-29 source bytes and 272 parent audit [skip ci]"
             git push origin HEAD:research/p0-raw-parent-reconciliation-20261031
