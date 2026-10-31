@@ -130,6 +130,12 @@ flowchart TB
 
 [結案報告](docs/audits/2026-10-31_p0_p1_closeout_report.md) · [73 筆結案 CSV](docs/audits/2026-10-31_p0_p1_73_terminal_decisions.csv) · [13 案 C1 Gate 審核](inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv) · [重跑腳本](scripts/audit_p0_p1_closeout.py) · [CI 實測通過紀錄](docs/audits/2026-10-31_p0_p1_ci_verification.json) · [CI 問題追蹤 #29](https://github.com/lleeoo0611-stack/AU_REE/issues/29) · [WAMEX #30](https://github.com/lleeoo0611-stack/AU_REE/issues/30) · [C1 13 案正式 Gate #32](https://github.com/lleeoo0611-stack/AU_REE/issues/32)。
 
+### P2 — 原 412 筆 HOLD 中 28 筆來源初審（2026-10-31）
+
+以原本固定優先順序重建 **P1 73 + P2 28 + P3 216 + P4 95 = 412**。P2 包含 **22 筆 Legacy + 6 筆 E1 原始紀錄**，整理為 **27 個暫定來源站址案例**；不等於 27 個獨立 Project。已建立資料可再生腳本和 28 筆逐列 CSV、27 案例證據表，並確認政府／發行人文件脈絡：Mary Kathleen 舊礦場與尾礦研發分離、Port Pirie REE 為歷史處理場、Anchor Tin Deeps 2024 年 REE 鑽探、NT Boulder Ridge、Bruce/Plenty River、Elaine Dorothy、Iluka Douglas 等。**P2 仍在證據第一輪（Phase 1），原 412 Census、P1 結案、C1 身分／JORC／GIS／Panel Gate 皆維持不變。**
+
+[完整 P2 Phase 1 報告](docs/audits/2026-10-31_p2_phase1_report.md) · [28 筆來源 CSV](docs/audits/2026-10-31_p2_28_source_triage.csv) · [27 案例 CSV](docs/audits/2026-10-31_p2_27_case_triage.csv) · [27 案證據輸入](inputs/source_review_20261031/p2_27_case_evidence.csv) · [P2 QA JSON](docs/audits/2026-10-31_p2_phase1_summary.json) · [可重跑腳本](scripts/audit_p2_28_initial_triage.py) · [後續 Project/Title 核對 #35](https://github.com/lleeoo0611-stack/AU_REE/issues/35)。
+
 ## 專案結構
 
 ```text
