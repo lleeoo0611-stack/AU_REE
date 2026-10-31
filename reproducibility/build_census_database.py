@@ -477,10 +477,29 @@ def csv_build(args) -> None:
         manifest_path = Path(str(dest) + ".manifest.json")
         staged_manifest = Path(stage_dir) / manifest_path.name
         staged_manifest.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        # Only publish the already validated database and provenance manifest.
-        # On any earlier error, the prior release stays untouched.
-        os.replace(staging_db, dest)
-        os.replace(staged_manifest, manifest_path)
+        # Two separate paths cannot be replaced as one filesystem transaction.
+        # Keep rollback copies beside the destination so ordinary I/O errors
+        # restore the previous released pair. OS crashes between replacements
+        # still require manifest-vs-database hash verification on next use.
+        previous_db = Path(stage_dir) / 'previous_database.backup'
+        previous_manifest = Path(stage_dir) / 'previous_manifest.backup'
+        if dest.exists():
+            shutil.copy2(dest, previous_db)
+        if manifest_path.exists():
+            shutil.copy2(manifest_path, previous_manifest)
+        try:
+            os.replace(staging_db, dest)
+            os.replace(staged_manifest, manifest_path)
+        except OSError:
+            if previous_db.exists():
+                os.replace(previous_db, dest)
+            else:
+                dest.unlink(missing_ok=True)
+            if previous_manifest.exists():
+                os.replace(previous_manifest, manifest_path)
+            else:
+                manifest_path.unlink(missing_ok=True)
+            raise
         print(json.dumps({"database": str(dest), "tables": len(tables), "csv_files": len(inputs), "rows": sum(x["rows"] for x in inputs), "manifest": str(manifest_path), "integrity_check": integrity, "input_manifest_sha256": input_digest}, ensure_ascii=False))
 
 
