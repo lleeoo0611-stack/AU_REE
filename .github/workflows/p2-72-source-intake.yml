@@ -1,0 +1,36 @@
+name: P2 72-source Census intake reproducibility
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_p0_p2_72_intake.py'
+      - 'tests/test_p0_p2_72_intake.py'
+      - 'inputs/source_review_20261031/p2_72_targeted_documentary_leads.csv'
+      - 'docs/audits/2026-10-31_p2_*.csv'
+      - 'docs/audits/2026-10-31_p2_*.json'
+      - '.github/workflows/p2-72-source-intake.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_p0_p2_72_intake.py'
+      - 'tests/test_p0_p2_72_intake.py'
+      - 'inputs/source_review_20261031/p2_72_targeted_documentary_leads.csv'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  p2-72-reproducibility:
+    name: P2 intake Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Reproduce 72 source rows / 47 review cases
+        run: python scripts/audit_p0_p2_72_intake.py --check
+      - name: Independent Python unittest
+        run: python -m unittest discover -s tests -p 'test_p0_p2_72_intake.py' -v
