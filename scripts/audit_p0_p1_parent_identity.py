@@ -75,7 +75,7 @@ def build(root: Path = ROOT):
 
     manual_rows = read(root / MANUAL)
     manual = {x["target_id"]: x for x in manual_rows}
-    assert len(manual) == len(manual_rows) == 14
+    assert len(manual) == len(manual_rows) == 25
 
     def pick(round_, p, s, f, l, key3, key4, key5, key6):
         return ((l.get(key6, "") if round_ == "ROUND6" else
@@ -139,7 +139,7 @@ def build(root: Path = ROOT):
         "audit_date": "2026-10-31", "source_snapshot_as_of": "2026-10-29",
         "source_baseline_commit": BASE_COMMIT, "cohort_original_hold": 412,
         "p1_target_rows": 73, "category_counts": counts,
-        "manual_evidence_review_rows": 14, "manual_evidence_review_by_level": by_level,
+        "manual_evidence_review_rows": 25, "manual_evidence_review_by_level": by_level,
         "project_approval_count": 0, "jorc_reo_approval_count": 0,
         "c1_approval_count": 0, "unique_source_target_ids": 73,
         "source_inputs": [str(x) for x in INPUTS.values()],
