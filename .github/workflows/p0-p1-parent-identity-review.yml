@@ -1,0 +1,26 @@
+name: P0 P1 73 project-parent review
+on:
+  pull_request:
+    paths:
+      - scripts/audit_p0_p1_parent_identity.py
+      - tests/test_p0_p1_parent_identity.py
+      - inputs/source_review_20261031/p1_parent_identity_web_checks.csv
+      - docs/audits/2026-10-31_p1_parent_identity_review.csv
+      - docs/audits/2026-10-31_p1_parent_identity_summary.json
+      - .github/workflows/p0-p1-parent-identity-review.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  p1-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Rebuild 73-row audit without mutating published outputs
+        run: python scripts/audit_p0_p1_parent_identity.py --check
+      - name: Test original source IDs and release gates
+        run: python -m unittest discover -s tests -p 'test_p0_p1_parent_identity.py' -v

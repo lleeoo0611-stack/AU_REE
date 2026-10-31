@@ -66,6 +66,15 @@
 | [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
 | [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
 
+### P0 P1：412 HOLD 的 73 筆母層優先查核
+
+| 文件 | 用途 |
+| --- | --- |
+| [P1 73 筆審核報告](audits/2026-10-31_p1_parent_identity_report.md) | 48 Project 候選、4 WAMEX 索引、21 身分/範圍 HOLD 的來源分級與重要結論 |
+| [P1 73-row Evidence CSV](audits/2026-10-31_p1_parent_identity_review.csv) | 原始 source ID、SHA、證據 URL/locator、逐筆下一步與維持 HOLD 的 Gate |
+| [14 筆定向來源複核](../inputs/source_review_20261031/p1_parent_identity_web_checks.csv) | 來源原文、二手索引、原生空間 QA 的分級與證據主張 |
+| [P1 QA JSON](audits/2026-10-31_p1_parent_identity_summary.json) | 互斥分類、source snapshot 與數量驗證 |
+
 ### P0 第六輪：70 筆資料重新來源驗證
 
 | 文件 | 用途 |
