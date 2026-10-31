@@ -102,3 +102,51 @@ def test_reject_missing_or_duplicate_target_id():
             ROOT, run_date="2026-10-31", source_as_of="2026-10-29",
             expected_count=486,
         )
+
+
+def _historical_census_relations():
+    """Read the existing frozen CSV tables; no parallel review artifacts."""
+    names=(
+        "487_definition_review",
+        "487_inclusion_gate",
+        "project_entity_membership_487",
+        "source_entity_register_487",
+        "project_entity_register",
+    )
+    tables={}
+    for name in names:
+        with (ROOT/"outputs"/(name+".csv")).open(encoding="utf-8-sig",newline="") as source:
+            tables[name]=list(csv.DictReader(source))
+    return tables
+
+
+def test_sqlite_census_rebuild_validates_source_entity_project_crosswalk():
+    from reproducibility.build_census_database import validate_census_relations
+    result=validate_census_relations(_historical_census_relations())
+    assert result=={
+        "status":"CENSUS_RELATIONS_STRUCTURALLY_VERIFIED_NOT_PROJECT_APPROVED",
+        "source_targets":487,
+        "linked_source_targets":78,
+        "unlinked_source_targets":409,
+        "reviewed_project_candidate_groups":39,
+    }
+
+
+@pytest.mark.parametrize("tamper",["unmatched_gate","duplicate_source","wrong_entity_id",
+                                   "unknown_project_id","unreviewed_project_relation"])
+def test_sqlite_census_rebuild_fails_closed_on_broken_identity_links(tamper):
+    from reproducibility.build_census_database import validate_census_relations
+    tables=_historical_census_relations()
+    members=tables["project_entity_membership_487"]
+    if tamper=="unmatched_gate":
+        tables["487_inclusion_gate"].pop()
+    elif tamper=="duplicate_source":
+        tables["source_entity_register_487"].append(tables["source_entity_register_487"][0].copy())
+    elif tamper=="wrong_entity_id":
+        members[0]["entity_id"]="SRCENT-MISMATCH"
+    elif tamper=="unknown_project_id":
+        members[0]["project_entity_id"]="PRJ-UNKNOWN"
+    elif tamper=="unreviewed_project_relation":
+        members[0]["relation"]="UNRESOLVED_NO_PROJECT_LINK_INFERRED"
+    with pytest.raises(ValueError):
+        validate_census_relations(tables)
