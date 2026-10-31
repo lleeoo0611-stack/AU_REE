@@ -1,0 +1,79 @@
+{
+  "run_id": "AU_REE_STRUCTURAL_R01_20261101",
+  "base_commit": "d723bc431389ea56bbf2a5b905fa52a8a64b3fee",
+  "source_cutoff": "2026-10-29",
+  "review_date": "2026-11-01",
+  "groups_bounded_reviewed": 39,
+  "technical_original_review_groups": 9,
+  "group_review_depths": {
+    "PRIMARY_HTML_SCOPED": 17,
+    "INHERITED_REVIEW_WITH_ACCESS_LIMIT": 13,
+    "TECHNICAL_ORIGINAL_PAGES": 9
+  },
+  "source_urls_attempted": 53,
+  "originals_archived": 36,
+  "pdf_originals_archived": 13,
+  "new_independently_approved_project_IDs": 0,
+  "source_supported_ID_ROLE_review_candidates": 8,
+  "same_scope_REO_source_evidence_projects": 7,
+  "JORC_documentary_review_ready_projects": 4,
+  "dated_economic_study_original_projects": 8,
+  "structural_review_ready": 1,
+  "formal_structural_eligibility": 0,
+  "C1_approved": 0,
+  "C2_approved": 0,
+  "C2_pending": 39,
+  "readiness_scope": "DOCUMENTARY_PACKET_NOT_OFFICIAL_GIS_RELEASE_OR_INDEPENDENT_APPROVAL",
+  "ready_gate_evidence_cells": 27,
+  "remaining_gate_evidence_cells": 168,
+  "documentary_gaps_resolved": 24,
+  "blocker_counts_by_gate": {
+    "ID": {
+      "DATED_SCOPE_IDENTITY_PENDING": 30,
+      "HISTORICAL_IDENTITY_CONTINUITY_PENDING": 1
+    },
+    "ROLE": {
+      "DATED_REE_PRODUCT_PLAN_PENDING": 23,
+      "FORMAL_PROJECT_PRODUCT_SCOPE_V_HPA_MO_NO_REE_COMMITMENT": 1,
+      "HISTORICAL_REE_PRODUCT_CONTINUITY_PENDING": 1,
+      "REE_COMMERCIAL_PRODUCT_NOT_ESTABLISHED": 6
+    },
+    "WINDOW": {
+      "ACTIVITY_SUSPENDED_RESTART_EVIDENCE_NEEDED": 1,
+      "BFS_COMPLETION_SUMMARY_UNDATED_FULL_STUDY_MISSING": 1,
+      "COMPLETED_ECONOMIC_STUDY_OR_ASOF_WINDOW_PENDING": 24,
+      "DATED_STUDY_FOUND_ASOF_EVENT_CONTINUITY_PENDING": 5,
+      "FID_OR_PRODUCTION_REPORTED_REQUIRES_DATED_ORIGINAL": 2,
+      "PFS_DELIVERY_CORROBORATED_ORIGINAL_MISSING": 1,
+      "SCOPING_STAGE_NOT_COMPLETED_STUDY": 1,
+      "STUDY_SUMMARY_OR_HISTORICAL_CONTINUITY_PENDING": 3
+    },
+    "JORC": {
+      "DRILL_INTERCEPT_NOT_MINERAL_RESOURCE": 1,
+      "EXPLORATION_TARGET_NOT_MINERAL_RESOURCE": 1,
+      "HISTORICAL_ESTIMATE_NOT_CURRENT_BY_ISSUER": 1,
+      "MRE_PRESENTATION_ORIGINAL_CUTOFF_PENDING": 1,
+      "MZEQ_NOT_TREO_STUDY_VERSION_MISMATCH": 1,
+      "REE_EXPLORATION_NOT_ADJACENT_IRON_MRE": 1,
+      "SAME_SCOPE_REO_RESOURCE_PENDING": 26,
+      "SOURCE_TABLE_YEAR_CUTOFF_CONFLICT": 1,
+      "THM_ONLY_AND_205_207MT_SOURCE_CONFLICT": 1,
+      "Y_EXCLUSION_AND_2017_CUTOFF_REVIEW": 1
+    },
+    "GIS_SOURCE": {
+      "PROJECT_GEOMETRY_SOURCE_PENDING": 33
+    }
+  },
+  "GIS_release_approvals": 0,
+  "core_panel": "UNSELECTED",
+  "extended_panel": "UNSELECTED",
+  "MCDA_executed": false,
+  "input_sha256": {
+    "inputs/source_review_20261101/structural_round01_reviews.json": "3e66c3617fb3750b136ba3b05aa300884e89d77a4e14c2a1d1a61fa0c3098413",
+    "inputs/source_review_20261101/structural_round01_sources.json": "afe2db3c71ee296508864e383cb330170b35541d2b95de5e2933a03675455ffa",
+    "inputs/source_review_20261101/structural_round01_access_manifest.json": "32b88a1a03c6091370e36b4fb70d53a78e5e5afa7e2d051f8259954c4ca20f90",
+    "docs/audits/2026-10-31_c1_c2_project_review_39.csv": "b338675597693b3e3f1a6d47eb6666b5bfd562159c4fb5a824a7e33c5c02b1f1",
+    "inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv": "af71b8ccf983c7b89b2a73358078c218b27e527f23ffb629349236dfd2907a68",
+    "config/criteria.json": "ddb8c35865401baad9dce1240a4b2748591029e264ec85ff235f88f0041d121e"
+  }
+}

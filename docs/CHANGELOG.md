@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-11-01 — Execution Round 01: Structural Cohort documentary review
+
+- Extend existing PR #49/#50 mainline rather than create a second pipeline. New `build_structural_round01.py` runs after existing Stage1 in `c1`/`all`; online curated acquisition is explicit and cached, outside offline supervisor.
+- Bounded classification of all 39 original groups: 9 technical-original page reviews, 17 primary-HTML scope reviews, 13 inherited reviews with explicit access limits. Preserve 13 P1 source cases separately and all formal signoff ledgers unchanged.
+- Archive 13 PDFs and 23 HTML responses locally (36 unique SHA-256 hashes); public manifest records 53 source locators, including 17 unavailable. Resolve 24 individually named documentary gaps; 27 of 195 documentary gate cells ready for independent review. No fabricated PASS, signatures, Project approvals or MCDA.
+- Acquire dated DFS/Scoping/PFS/BFS originals for Browns Range, Jupiter, Dubbo, Goschen Central, WIM100, Sandy Mitchell, Donald and historical Charley Creek; Koppamurra remains original presentation, Copi remains contractor corroboration, Bungalally remains stage-only.
+- Locate WIM100 and Donald REO-in-HM category tables; preserve Dubbo Y-exclusion, Goschen Central table year/cutoff conflict, Bungalally 205/207Mt conflict, MzEq-versus-REO and resource-versus-reserve distinctions. No automatic resource normalization.
+- Publish crosswalk, 195-cell gate table, resource register, study timeline, structural candidates, C2 queue, P1 case proposals, criterion coverage, priority queue and source-gap resolutions under `docs/audits/structural_round01/`. Jupiter is documentary packet ready only; official GIS release and formal Structural/C1/C2 admissions remain zero. Panels unselected.
+- 11 new evidence tests plus 18 related regression/integration tests passed locally; dedicated offline CI added. Full evidence/limitations and next original-document priorities are in `docs/audits/structural_round01/REPORT.md`.
+
 ## 2026-11-01 — Census Project ID replay and evidence-decision safety
 
 - 修正已核准新 Project 在乾淨 SQLite 重建時依 `max(project_id)+1` 分配編號、可能因新候選插入導致舊 ID 改變的問題；未明確指定 ID 時以穩定 source candidate ID 決定數字編號，明確指定及已核准的既有 Project ID 保留。

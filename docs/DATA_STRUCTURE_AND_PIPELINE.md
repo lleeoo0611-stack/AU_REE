@@ -41,6 +41,7 @@ Government source / Company report / Legacy census target
 
 1. `scripts/build_c0_freeze_c1_c2_v1.py`：已採納的 F1/F2、C1/C2 簽核驗證及 339/39/13 筆衍生審查表。
 2. `scripts/review_c1_stage1_v1.py`：**C1 主線**，7 個具經濟研究線索 Project 的來源範圍複核與 39 個群組 Gate 預審；保留 2026-10-29 截止日及人工核准條件。
+   接續 `scripts/build_structural_round01.py`：重建 [Round 01](audits/structural_round01/REPORT.md) 的 39 群組五項文件證據、資源／事件表、C2 待審與缺口佇列；GIS_SOURCE 僅原圖件定位，不取代正式 GIS_RELEASE。輸入為 `inputs/source_review_20261101/structural_round01_*.json`，原件本機保留於 `work/structural_round01/originals/`。`acquire_structural_round01.py --fetch` 是明確線上取件，母腳本不自動下載或重搜。
 3. `scripts/route_p234_new_evidence_v1.py`：**P2–P4 支線**，只有 `inputs/evidence/p234_new_primary_evidence_events_v1.csv` 實際新增具 source-native locator 的事件時才執行並產生來源審查任務；無事件時主腳本顯示 `SKIP_NO_NEW_EVIDENCE`，不得無意義地掃描既有 URL。
 4. 舊 `src/au_ree/cli.py` 五階段，可選擇明確的 `--profile legacy`，`--mode check` 只列出五階段，`--mode write` 才呼叫既有 `run --through r_export --offline`；**不在標準 C1/all profile 自動執行。**
 
