@@ -46,6 +46,16 @@
 | [13 筆新文件關聯](../inputs/source_review_20261031/round3_272_project_parent_issuer_leads.csv) | Redlings、Aileron、Coburn、Copi North、Glenaladale、Korella 等 |
 | [Project Parent Summary](audits/2026-10-31_272_project_parent_evidence_summary.json) | 各類別計數與正式 C1 Gate 狀態 |
 
+### 156 筆待建立 Project 母層的來源稽核
+
+| 檔案 | 用途 |
+| --- | --- |
+| **[P0 第四輪證據審查](audits/2026-10-31_156_project_parent_review_report.md)** | 156 筆逐列原始與政府／公司文件查證結果 |
+| [156 筆 Evidence Audit CSV](audits/2026-10-31_156_project_parent_evidence_review.csv) | 原生 id、status、礦種、source URL/locator、Project 文獻與核准 Gate |
+| [148 筆待補 Project 關係](audits/2026-10-31_156_project_parent_gaps.csv) | 官方 Project boundary 與來源文件之待查佇列 |
+| [11 筆官方／公司具名文件](../inputs/source_review_20261031/round4_156_official_parent_documents.csv) | 8 具名、3 名稱相近待查的有效日期與主張 |
+| [156 Audit Summary](audits/2026-10-31_156_project_parent_evidence_summary.json) | 州別、證據類別及輸入 SHA-256 |
+
 ## 原始來源恢復與實體審查（2026-10-31）
 
 | 檔案 | 用途 |
