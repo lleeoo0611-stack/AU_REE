@@ -4,7 +4,7 @@
 
 - Freeze 48 named source candidates from prior 73-row P1 scope; publish 39 distinct state/name site keys and 25 pinned provisional parent review groups. Preserve all native target IDs, coordinates and source hashes; never create formal project_master IDs by name.
 - Record project/deposit documentary scopes (Copi North, Tower, Mia, Yttria, Aileron Green/Emily/Crean, Redlings) and distinguish them from state/tenement polygon overlap (0 physically tested).
-- Publish 12 resource claims: 10 TREO grade rows including nested cutoffs, reported totals and undated conflicting versions, 2 HM basis rows. Record resource date, cutoff, reporting category and no-sum rule.
+- Publish 14 resource claims: 10 historical TREO grade rows including nested cutoffs, reported totals and undated conflicting versions, 2 HM basis rows, and 2 April 2026 Aileron Nb₂O₅ MRE rows. Current niobium MRE 120Mt at 0.77% Nb₂O₅ supersedes prior niobium tonnage but does not imply current TREO grade; no cross-basis transfer. Record resource date, cutoff, reporting category and no-sum rule.
 - Flag broad historical Willandra West/East source spreads and Fraser Range–Salazar adjacency. No new C1/JORC approvals.
 - Add reproducible Python QA, regression tests, report and README index. Work continues in a stacked draft PR pending CI and official polygon evidence.
 
