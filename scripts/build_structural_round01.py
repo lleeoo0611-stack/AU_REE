@@ -85,12 +85,62 @@ def csv_text(rows):
     return out.getvalue()
 
 
+def validate_frozen_source_lineage(groups):
+    """Bind documentary review groups to existing frozen source-target memberships.
+
+    A Project review group must have source members, a consistent state/name,
+    and a stable PRJ identity. Source and Deposit records remain distinct.
+    """
+    register = read_csv(ROOT / 'outputs/project_entity_register.csv')
+    membership = read_csv(ROOT / 'outputs/project_entity_membership_487.csv')
+    require(len(membership) == 487, 'frozen Census source membership count changed')
+    target_ids = [r.get('target_id') for r in membership]
+    require(all(target_ids) and len(set(target_ids)) == 487,
+            'frozen Census source membership IDs missing or duplicated')
+
+    group_by_id = {row['review_group_id']: row for row in groups}
+    project_by_id = {row['entity_id']: row for row in register}
+    require(len(project_by_id) == len(register) == len(group_by_id) == 39,
+            'Project group identities do not match 39 frozen groups')
+    require(set(group_by_id) == set(project_by_id),
+            'documentary Project groups differ from Census Project entities')
+
+    for pid, project in project_by_id.items():
+        base = group_by_id[pid]
+        require(project['entity_type'] == 'Project_candidate'
+                and project['canonical_name'] == base['project_name']
+                and project['state_or_territory'] == base['state'],
+                'documentary group name, state or entity type differs from Census: ' + pid)
+
+    linked_counts = Counter()
+    for member in membership:
+        pid = member.get('project_entity_id', '').strip()
+        if not pid:
+            require(member.get('relation') == 'UNRESOLVED_NO_PROJECT_LINK_INFERRED',
+                    'unlinked target has unexpected Project relationship')
+            continue
+        require(pid in project_by_id, 'source target linked to unknown documentary group')
+        require(member['state'] == project_by_id[pid]['state_or_territory'],
+                'source state conflicts with documentary Project parent: ' + member['target_id'])
+        require(member.get('relation') in ('PROJECT_LINK_REVIEWED_CANDIDATE',
+                                           'REVIEW_GROUP_LINK_HOLD'),
+                'source Project relation was promoted without independent review')
+        linked_counts[pid] += 1
+    require(all(linked_counts[pid] > 0 for pid in project_by_id),
+            'documentary Project group lacks frozen source-target members')
+    return {'frozen_source_target_count': len(membership),
+            'reviewed_candidate_groups': len(project_by_id),
+            'source_rows_linked_to_candidate_groups': sum(linked_counts.values()),
+            'source_rows_without_candidate_group': len(membership)-sum(linked_counts.values())}
+
+
 def build(verify_originals=False):
     reviews = json.loads(INPUT.read_text(encoding='utf-8'))
     definitions = json.loads(SOURCES.read_text(encoding='utf-8'))
     access = json.loads(ACCESS.read_text(encoding='utf-8'))
     base = read_csv(BASE)
     require(len(base) == len(reviews) == 39, '39 frozen groups required')
+    validate_frozen_source_lineage(base)
     require({r['review_group_id'] for r in reviews} == {r['review_group_id'] for r in base},
             'frozen group IDs changed')
     require(len({r['review_group_id'] for r in reviews}) == 39, 'duplicate group')

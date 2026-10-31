@@ -1,5 +1,10 @@
 # Change log
 
+## 2026-11-01 — Project–source lineage of Structural evidence reviews
+
+- 現有 `scripts/build_structural_round01.py` 在 39 群組技術／來源證據衍生流程前，核對固定 2026-10-29 Census 的 487 筆 `target_id`、39 個候選 Project ID、原始群組名稱、州別與每個 Project 實際所屬來源關係。若證據審查群組沒有來源 parent，或 Project–Deposit source link 指向錯誤群組／州別，拒絕執行。
+- 既有 `tests/test_structural_round01.py` 增加對 78 筆 linked／409 筆 unlinked 的實際回歸，以及未知 Project parent／無來源 Project group 的負面測試。屬 Census lineage 結構驗證；不將 39 個審查群組或 source group link 升格為正式批准 Project。
+
 ## 2026-11-01 — Census candidate-parent identity crosswalk safety
 
 - 強化既有 `reproducibility/build_census_database.py`：487 筆 CSV→SQLite 重建時，核對每一個 `INCLUDE_CANDIDATE` 的原始 `candidate_group_key` 與 `project_entity_register` 的已審查群組名稱及 `PROJECT_LINK_REVIEWED_CANDIDATE` 關係一致；HOLD 來源不能藉由連到候選群組而繼承納入狀態。Mary Kathleen tailings 原本 2 個保留未決 group-link 名稱差異仍保持 HOLD，不強制合併。
