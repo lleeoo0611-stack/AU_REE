@@ -44,9 +44,11 @@ class P1Audit(unittest.TestCase):
 
     def test_manual_claims_have_original_target_ids(self):
         checks = [r for r in self.rows if not r["new_p1_review_level"].startswith("NOT_YET")]
-        self.assertEqual(len(checks), 14)
+        self.assertEqual(len(checks), 25)
         self.assertEqual(len([x for x in checks if x["source_name"] == "Tower"]), 2)
         self.assertEqual(len([x for x in checks if x["source_name"] == "WINGELLINA"]), 2)
+        self.assertEqual(len([x for x in checks if x["source_name"].startswith("Redlings ")]), 6)
+        self.assertEqual(len([x for x in checks if x["source_name"] == "Yttria"]), 2)
 
     def test_committed_snapshot_matches_rebuild(self):
         self.assertEqual(module.read(ROOT / module.OUT), self.rows)
