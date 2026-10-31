@@ -211,3 +211,8 @@
 - 合併原 PR #33 的 72-row／47 case source intake、7 dated documentary leads（涵蓋 22 sources）及 stdlib Python 重建。
 - 以 source ID 建立 72-row priority crosswalk：28 原 412 HOLD P2、38 INCLUDE_CANDIDATE、6 HOLD_REE_ROLE；不得重複相加。
 - 保留 2026-10-29 as-of、研究 C1/JORC/GIS 0 核准；補強 README／決策紀錄、測試、CI。
+
+## 2026-10-31 — PR merge-state documentation QA
+
+- 確認 PR #38 (`9a9b596`) 及 PR #33 (`d16bb31`) 已合併；回填 README / source-gate report 的最新 PR 狀態。
+- 72-source legacy P2 與 412-HOLD P2 的交叉表已隨 PR #33 合併，28+38+6 不增加任何 C1 核准數量。
