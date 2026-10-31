@@ -112,3 +112,11 @@
 | `ADR-P0-021` | `FULL_SOURCE_REVIEW` | 156 source-native ID 原始圖徵與 URL／status／REE 商品逐列保留；70 筆同州同名僅是跨來源去重候選 | [156 筆 Evidence Audit](audits/2026-10-31_156_project_parent_evidence_review.csv) |
 | `ADR-P0-022` | `NAMED_PROJECT_EVIDENCE_CANDIDATES` | 8 筆政府／公司具名 Project 文獻、3 筆名稱或範圍尚未證明相同、145 筆尚無新增具名 Project 文獻；Project/JORC/C1 approved 全部 0 | [報告](audits/2026-10-31_156_project_parent_review_report.md)；須 original Project extent、時間/礦權與 REE role 核准 |
 
+
+### P0 第五輪：109 筆未建立 Project 父層的來源證據（2026-10-31）
+
+| Decision ID | Status | Evidence/meaning | Follow-up |
+| --- | --- | --- | --- |
+| `ADR-P0-023` | `ALL_109_SOURCE_CLAIMS_REVIEWED` | 以 2026-10-29 原始 native feature + 31 個有定位的官方／公司／CSIRO 文獻名稱審核 109 筆；其中 20 筆有歷史 Project 候選、10 筆範圍/礦權/空間 HOLD、9 筆只有 Deposit 文件、70 筆仍只有 native evidence | [109-row CSV](audits/2026-10-31_109_project_evidence_review.csv)、[審核報告](audits/2026-10-31_109_project_parent_review_report.md) |
+| `ADR-P0-024` | `SOURCE_SPATIAL_IDENTITY_CONFLICT_HOLD` | 同州同名 44 source rows 中 42 筆雙端原生座標可比，38 筆 ≤1km；兩筆 Ambergate 官方座標相距 38.738km，因此不得基於名稱自動合併 Project/Deposit | [原始來源 JSONL](../data/source_snapshots/2026-10-29_272_native_features.jsonl)，需官方歷史 Project polygon、report effective date 和 reviewer signoff；全部 C1 仍未發布 |
+
