@@ -19,6 +19,8 @@
 
 **跨階段任務與驗收追蹤：**[GitHub Issue #14 — Research v2.0 Architecture Implementation Tracker](https://github.com/lleeoo0611-stack/AU_REE/issues/14)。每項 Gate 完成時將 PR、tests、可編輯輸出、snapshot ID 與文件版本附回該 Issue，**不可僅勾選完成而沒有驗收依據**。
 
+**佇列名稱避免混淆（2026-10-31）**：在 `2026-10-31_census_487_batch_review.csv` 中，`action_priority=P1/P2/P3/P4` 是 **487 Census 來源資料查核優先順序**，其中 P2 有 72 筆，已建立 [47 案例的第一輪查核](audits/2026-10-31_p2_72_intake_report.md)。本章的「P2.1 Rank Robustness」「P2.2 Drivers」則是**研究開發里程碑**；方法學 P2 仍待正式 C1/P1.1/P1.2 Gates 核准，不能從來源 P2 進度推論已完成 Aim B/C。
+
 ## 2. 開發工作包（依科學依賴排序，不以可快速完成的腳本優先）
 
 | 工作包 | 依賴／預先決策 | 所涉路徑（預期） | 完成時的驗收成果 |
