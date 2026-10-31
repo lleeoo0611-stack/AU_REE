@@ -344,3 +344,27 @@ def test_approved_deposit_parent_cannot_be_silently_reassigned(tmp_path):
     assert tuple(decision)==('AU-REE-01001','REVIEW_PENDING',
                             'STABLE_PROJECT_LINK_CHANGE_REQUIRES_CORRECTION')
     assert db.execute("SELECT COUNT(*) FROM project_geological_relation WHERE decision_status='DOCUMENT_APPROVED'").fetchone()[0]==0
+
+
+def test_archived_original_rehashed_after_approval_registry_load(tmp_path):
+    db=memorydb()
+    candidate_upsert(db,record(source='WA_SOURCE',native='SHA-DRIFT',
+                               name='Synthetic evidence REE Project',
+                               commodity='REE',entity='PROJECT'))
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    _identity_fixture(tmp_path,[(cid,'Synthetic evidence REE Project','')])
+    reload_registry(db,tmp_path,'2026-10-29')
+    original=tmp_path/'inputs/evidence/project.txt'
+    original.write_text('changed after evidence approval load',encoding='utf8')
+    stats=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert stats['approved_new']==0
+    assert stats['rejected_or_pending']==1
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
+    assert db.execute('SELECT review_status FROM identity_review_decisions').fetchone()[0]=='REVIEW_PENDING'
+
+    # A missing archive has the same fail-closed behavior, regardless of the
+    # registry's previously valid checksum and review signature.
+    original.unlink()
+    again=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert again['approved_new']==0
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
