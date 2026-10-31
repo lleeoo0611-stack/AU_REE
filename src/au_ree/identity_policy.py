@@ -159,7 +159,7 @@ def apply_identity_decisions(db,root,freeze_date):
             evidence_day=cutoff_day=None
         valid=bool(candidate and action in ('APPROVE_NEW_PROJECT','LINK_EXISTING_PROJECT')
           and evidence_day is not None and cutoff_day is not None
-          and evidence_day<=cutoff_day and verify(db,ref,'PROJECT_REVIEW',source,sha))
+          and evidence_day<=cutoff_day and verify(db,ref,'PROJECT_REVIEW',source,sha,root=root))
         if candidate is None:
             event(db,'population',cid,'UNKNOWN_IDENTITY_CANDIDATE','No matching source feature')
             stats['rejected_or_pending']+=1
