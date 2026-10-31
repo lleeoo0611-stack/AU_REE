@@ -1,5 +1,13 @@
 # Change log
 
+## P2/P3/P4 all-source continuation Batch 04 — 2026-10-31 (stacked after unmerged Batch 03)
+
+- Deterministically reconcile **339 immutable P2–P4 source IDs** into an additive editable current-status overlay without replacing historical 339 or Batch03 167-row snapshots.
+- Perform nine new authoritative **P2 source-scope/public-summary** checks: Boulder Ridge, Port Pirie REE, Anchor Tin Deeps, Blue Tier, Cruncher, DC Target, Tunnel Hill, Douglas Project and Wedderburn Project. Distinguish historic tailings/THM/Sn and prospect/sample REE from JORC TREO.
+- Log eight P3/P4 exact-locator searches, including mismatched MINOS 11182 versus 11910 and generic Gascoyne region, without marking them as technical fulltexts. Pending original follow-ups: P2 16, P3 87, P4 64.
+- Add offline ID/row cardinality, no-fabricated-PDF and no-approval validators and one regression test; README index updates. Independent CI and original-document/full technical verification remain separate.
+
+
 ## External primary evidence Batch 02 and 167-row progress — 2026-10-31
 
 - Add five fixed native-source substantive scope reviews: Pindari pair (2011 Archer drill report vs released SARIG annual-report synopsis, historical anomalism versus later cuttings not conflated); Acropolis pair (official SARIG deposit 3018 Cu major/REE minor and 2019 hematite-associated REE whole-rock research); and the generic Murray Basin source (government basin scope versus distinct WIM, Donald and Goschen projects; HM ≠ TREO).
