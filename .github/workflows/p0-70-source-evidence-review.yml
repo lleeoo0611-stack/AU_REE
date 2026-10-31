@@ -9,6 +9,9 @@ on:
       - inputs/source_review_20261031/round6_70_official_issuer_document_leads.csv
       - .github/workflows/p0-70-source-evidence-review.yml
   workflow_dispatch:
+concurrency:
+  group: p0-70-evidence-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: write
 jobs:
@@ -31,5 +34,7 @@ jobs:
           git add docs/audits/2026-10-31_70_project_evidence_review.csv docs/audits/2026-10-31_70_project_evidence_pending.csv docs/audits/2026-10-31_70_project_evidence_summary.json
           if ! git diff --cached --quiet; then
             git commit -m "data(p0): publish 70-row source evidence review [skip ci]"
+            git fetch origin research/p0-70-evidence-review-20261031
+            git rebase -X theirs origin/research/p0-70-evidence-review-20261031
             git push origin HEAD:research/p0-70-evidence-review-20261031
           fi
