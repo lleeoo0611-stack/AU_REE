@@ -19,7 +19,7 @@ class Audit70(unittest.TestCase):
         self.assertEqual(len(self.rows),70)
         self.assertEqual(len({r["target_id"] for r in self.rows}),70)
         self.assertEqual(sum(self.stats["by_state"].values()),70)
-        self.assertEqual(self.stats["curated_external_source_names"],24)
+        self.assertEqual(self.stats["curated_external_source_names"],25)
         self.assertTrue(all(x["source_native_feature_locator"] and
                             len(x["source_original_chunk_sha256"])==64 for x in self.rows))
 
