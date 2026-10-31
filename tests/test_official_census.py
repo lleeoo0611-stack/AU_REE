@@ -60,6 +60,38 @@ def test_arcgis_snapshot_offline_resume(monkeypatch,tmp_path):
         load_arcgis(fake_source(),tmp_path,offline=True,chunk_size=1)
 
 
+
+def test_arcgis_frozen_manifest_blocks_same_oid_content_mutation(monkeypatch,tmp_path):
+    mock_http(monkeypatch)
+    _,frozen_digest,directory=load_arcgis(fake_source(),tmp_path,chunk_size=1)
+    original_manifest=(directory/'manifest.json').read_bytes()
+    chunk=directory/'features_0000000.json'
+    obj=json.loads(chunk.read_text(encoding='utf8'))
+    obj['features'][0]['attributes']['site_title']='different geological source record'
+    chunk.write_text(json.dumps(obj),encoding='utf8')
+    monkeypatch.setattr('au_ree.source_adapters.fetch_json',
+                        lambda *args,**kwargs: (_ for _ in ()).throw(RuntimeError('NO_NETWORK')))
+    with pytest.raises(RuntimeError,match='Frozen ArcGIS snapshot content/contract changed'):
+        load_arcgis(fake_source(),tmp_path,offline=True,chunk_size=1)
+    assert (directory/'manifest.json').read_bytes()==original_manifest
+    assert frozen_digest!=None
+
+
+def test_arcgis_frozen_manifest_blocks_source_metadata_rewrite(monkeypatch,tmp_path):
+    mock_http(monkeypatch)
+    _,_,directory=load_arcgis(fake_source(),tmp_path,chunk_size=1)
+    original=(directory/'manifest.json').read_bytes()
+    meta=directory/'metadata.json'
+    modified=json.loads(meta.read_text(encoding='utf8'))
+    modified['description']='changed after frozen source'
+    meta.write_text(json.dumps(modified),encoding='utf8')
+    monkeypatch.setattr('au_ree.source_adapters.fetch_json',
+                        lambda *args,**kwargs: (_ for _ in ()).throw(RuntimeError('NO_NETWORK')))
+    with pytest.raises(RuntimeError,match='Frozen ArcGIS snapshot content/contract changed'):
+        load_arcgis(fake_source(),tmp_path,offline=True,chunk_size=1)
+    assert (directory/'manifest.json').read_bytes()==original
+
+
 def test_ga_deposit_exact_project_name_not_merged():
     db=memorydb()
     project={'source':'OFFICIAL_PROJECT','native_id':'p1','name':'Test Rare Earth Project','state':'WA',
