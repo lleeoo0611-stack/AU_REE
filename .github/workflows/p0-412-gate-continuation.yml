@@ -1,0 +1,22 @@
+name: P0 412 HOLD source provenance and C1 gate audit
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_p0_412_gate_continuation.py'
+      - 'tests/test_p0_412_gate_continuation.py'
+      - 'docs/audits/2026-10-31_*'
+      - 'inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv'
+      - '.github/workflows/p0-412-gate-continuation.yml'
+  workflow_dispatch:
+jobs:
+  reproducibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify all immutable target keys and no C1 auto release
+        run: |
+          python scripts/audit_p0_412_gate_continuation.py --check
+          python -m unittest discover -s tests -p 'test_p0_412_gate_continuation.py' -v

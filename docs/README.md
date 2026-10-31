@@ -172,3 +172,5 @@
 - [`docs/archive/`](archive/)：舊版 README、先前規格；[r983 README](previous_r983_modular_README.md) 保留作歷史比較。
 
 **資料集合不可混為一談**：legacy 203、凍結 G0 19、1,006 來源候選、487 個固定審閱目標均有不同定義。審閱狀態不代表已核准 Project 或可正式排名。
+
+- [P0 412 HOLD 延伸證據查核、P3/P4、C1 13 案與 P2 身分交叉表](audits/2026-10-31_412_followup_gates_report.md)（資料截止 2026-10-29；source-level triage，0 C1 核准）

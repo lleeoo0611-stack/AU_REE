@@ -144,6 +144,13 @@ P2 **28/28 source rows、27 個暫定案例完成公開文件審核處置**：17
 
 [完整研究報告](docs/audits/2026-10-31_p1_p2_public_evidence_closeout_report.md) · [P1 31 筆來源 CSV](docs/audits/2026-10-31_p1_31_remaining_public_source_review.csv) · [P2 28 筆來源 CSV](docs/audits/2026-10-31_p2_28_public_terminal_desk_review.csv) · [機器 QA 摘要](docs/audits/2026-10-31_p1_p2_public_review_summary.json) · [可再生程式](scripts/audit_p1_p2_public_evidence.py)。
 
+
+### P0 — 412 HOLD 的 P3／P4 provenance、13 案 C1 與 P2 身分覆核（2026-10-31）
+
+[完整報告](docs/audits/2026-10-31_412_followup_gates_report.md) · [P3/P4 311 筆可編輯證據表](docs/audits/2026-10-31_p3_p4_311_provenance_audit.csv) · [13 案 C1 Gate](docs/audits/2026-10-31_c1_13_independent_gate_readiness.csv) · [P2 28 筆原始身分對照](docs/audits/2026-10-31_p2_28_identity_crosswalk.csv) · [QA 統計](docs/audits/2026-10-31_412_followup_gates_summary.json)。
+
+412 個原 HOLD ID 無遺漏、無重覆：P1 73／P2 28／P3 216／P4 95。P3/P4 本輪完成來源級 provenance triage（不是逐份新 PDF 全文核准）；13 案／22 來源完成跨表 Gate readiness 對照，**正式獨立 C1 Project／JORC／GIS 核准仍為 0**。P2 27 案完成源 ID／Legacy crosswalk 缺口補強。PR #33 的舊 action_priority P2 72 筆定義不同，仍為 Draft、未納入本輪凍結母數。可重跑 \`python scripts/audit_p0_412_gate_continuation.py --check\`。
+
 ## 專案結構
 
 ```text
