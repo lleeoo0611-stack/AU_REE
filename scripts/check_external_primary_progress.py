@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Check source-specific substantive review progress against immutable baseline."""
 import csv
+import sys
 from pathlib import Path
-from scripts.check_external_primary_batch import validate as validate_batch01
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from scripts.check_external_primary_batch import validate as validate_batch01
 BASE = ROOT / "docs/audits/2026-10-31_p234_final_evidence_339.csv"
 BATCH1 = ROOT / "inputs/source_review_20261031/external_primary_batch01_20261031.csv"
 BATCH2 = ROOT / "inputs/source_review_20261031/external_primary_batch02_20261031.csv"
