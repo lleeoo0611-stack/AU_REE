@@ -129,11 +129,13 @@ def test_sqlite_census_rebuild_validates_source_entity_project_crosswalk():
         "linked_source_targets":78,
         "unlinked_source_targets":409,
         "reviewed_project_candidate_groups":39,
+        "unique_native_source_entities":451,
+        "repeated_targets_on_same_native_entity":36,
     }
 
 
 @pytest.mark.parametrize("tamper",["unmatched_gate","duplicate_source","wrong_entity_id",
-                                   "unknown_project_id","unreviewed_project_relation"])
+                                   "unknown_project_id","unreviewed_project_relation","native_source_identity_collision"])
 def test_sqlite_census_rebuild_fails_closed_on_broken_identity_links(tamper):
     from reproducibility.build_census_database import validate_census_relations
     tables=_historical_census_relations()
@@ -148,5 +150,18 @@ def test_sqlite_census_rebuild_fails_closed_on_broken_identity_links(tamper):
         members[0]["project_entity_id"]="PRJ-UNKNOWN"
     elif tamper=="unreviewed_project_relation":
         members[0]["relation"]="UNRESOLVED_NO_PROJECT_LINK_INFERRED"
+    elif tamper=="native_source_identity_collision":
+        # Two frozen targets share the same source/native feature ID by design.
+        # They may not silently diverge on the government native ID.
+        baseline=tables["487_definition_review"]
+        source_ids=tables["source_entity_register_487"]
+        found={}
+        for source in source_ids:
+            key=source["entity_id"]
+            if key in found:
+                target=source["target_id"]
+                next(row for row in baseline if row["target_id"]==target)["source_native_id"]="ALTERED-NATIVE-ID"
+                break
+            found[key]=source["target_id"]
     with pytest.raises(ValueError):
         validate_census_relations(tables)
