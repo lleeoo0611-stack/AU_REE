@@ -191,3 +191,17 @@
 | 影響／測試 | 影響 Aim A 來源母體清理，避免同一 source-native ID 重複取件；Aim B/C 不得由 C0 freeze 產生正式排名。參見 [B05 總報告](audits/2026-10-31_p234_b05_triage_and_freeze_proposal.md) 與可重跑 Python/tests |
 | Approval | **未填／待使用者明確決定凍結層級與最小證據門檻** |
 
+
+
+## 2026-10-31 — ADR-P0-029: Cross-tier resource/identity source reconciliation（**PROPOSED / unsigned**）
+
+| 欄位 | 判讀與規範 |
+| --- | --- |
+| Scope | 339 個凍結來源 ID 的證據判讀 overlay，原 `source_snapshot=2026-10-29` 不變。 |
+| Elaine Dorothy resource contrast | 既有 P3 兩筆明確保留 2010 年 **83,000 tonnes Inferred @ 3,200ppm TREO，280ppm U₃O₈，cutoff 200ppm U₃O₈** 的歷史 JORC 文獻，P2 同名 Legacy 原文字摘要過度概括。由 2010 CYU 原始發行人年報/簡報更新 P2 衍生判讀，不改源表。歷史 REO 資源仍無 current as-of C1 approval。 |
+| Bell's Monazite identity | 與 NTGS Mt Todd/Wolfram Hill Monazite 地質目標不同的 Bynoe/Cox Peninsula `Bells Mona` 是 Sn/Ta pegmatite 礦點；錯誤同名候選要分開，在官方地理/礦權/原生座標與人工簽核前不得 alias merge。 |
+| Other bounded findings | Arthur Popes carbonatite REE-Y veins、Blueys Folley REE anomaly、Edwards Creek/Edwards Creek South 分離、Spartacus 單次樣本陰性、Skyfall 2015 歷史 preliminary scoping/surrender、Pyramid Lake gypsum，均保留原始 scope。 |
+| Implementation / Impact | [B06 原因分類報告](audits/2026-10-31_p234_b06_reasons_and_followups_report.md)、[339 可編輯原因表](audits/2026-10-31_p234_b06_reason_classification_339.csv)。新增 4 筆 P2 source text scope reviews、8 筆非獨立確認 native-ID 的 locator；P2 desk queue 剩 8、P3/P4 native-only 151。Aim A 證據語意更清楚，B/C 尚未進入真實排名。 |
+| Freeze and Gate | 前輪 ADR-P0-028 **仍為 PROPOSED**，119 份 C0 closure candidates 沒有任何人工簽核；C1 ID/ROLE/WINDOW/JORC/PANEL/GIS_RELEASE、資料庫核准和 MCDA 一律 HOLD。 |
+| Approval | **尚未核准**；需要原始法定礦權、Competent Person/JORC 表、官方 native feature／Project 範圍及審查簽名才可進入其他 Gate。 |
+

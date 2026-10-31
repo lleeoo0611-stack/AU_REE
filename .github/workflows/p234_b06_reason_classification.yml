@@ -1,0 +1,24 @@
+name: P2-P4 B06 source cause classification
+
+on:
+  pull_request:
+    paths:
+      - "docs/audits/2026-10-31_p234_b06_*"
+      - "inputs/source_review_20261031/p234_b06_*"
+      - "scripts/build_p234_reason_classification_b06.py"
+      - "tests/test_p234_reason_classification_b06.py"
+      - ".github/workflows/p234_b06_reason_classification.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Verify B06 339 source reason-codes and derived outputs
+        run: python scripts/build_p234_reason_classification_b06.py --check
+      - name: Run B06 regression suite
+        run: python -m unittest discover -s tests -p test_p234_reason_classification_b06.py -v

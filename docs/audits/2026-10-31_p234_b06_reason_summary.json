@@ -1,0 +1,52 @@
+{
+  "execution_id": "P234-B06-CONTINUATION-REASON-CODES-20261031",
+  "base_branch": "main",
+  "snapshot_as_of": "2026-10-29",
+  "new_evidence_review_date": "2026-10-31",
+  "source_count": 339,
+  "priority_counts": {
+    "P3": 216,
+    "P4": 95,
+    "P2": 28
+  },
+  "new_P2_bounded_primary_text": 4,
+  "P2_source_scoped_text_total": 20,
+  "P2_remaining_desk_only": 8,
+  "P3_remaining_native": 87,
+  "P4_remaining_native": 64,
+  "remaining_priority_source_rows": 159,
+  "remaining_P34_native_groups": 100,
+  "remaining_priority_work_units": 108,
+  "related_locator_rows": 8,
+  "source_review_status_counts": {
+    "ARCHIVED_RELEVANT_PAGES": 143,
+    "PUBLIC_PRIMARY_TEXT_SCOPE_ONLY": 36,
+    "NATIVE_FEATURE_ONLY": 151,
+    "INHERITED_DESK_NO_NEW_ORIGINAL": 8,
+    "WEB_CACHED_TEXT_ONLY": 1
+  },
+  "evidence_root_cause_counts": {
+    "GEOLOGICAL_CONTEXT_NOT_PROJECT": 88,
+    "CROSS_SCOPE_RESOURCE_OR_ID_TRANSFER_REJECTED": 21,
+    "HISTORIC_OR_NON_TARGET_RESOURCE_CONTEXT": 15,
+    "NATIVE_FEATURE_ONLY_PROJECT_ROLE_NOT_VERIFIED": 170,
+    "REE_CLAIM_NEEDS_SAME_SCOPE_RESOURCE_ROLE_STAGE": 40,
+    "PROJECT_ID_NAME_OR_GEOGRAPHY_CONFLICT": 3,
+    "ORIGINAL_PUBLICATION_BYTES_ACCESS_BLOCKED": 1,
+    "SAMPLED_TARGET_SPECIFIC_NEGATIVE_NOT_REGIONAL": 1
+  },
+  "operational_blocker_counts": {
+    "C0_DOCUMENTED_SCOPE_HUMAN_CLOSURE_SIGNATURE_PENDING": 119,
+    "PROJECT_ID_TITLE_SCOPE_OR_RESOURCE_GATE_OPEN": 22,
+    "C0_EXACT_SOURCE_NATIVE_TECHNICAL_ORIGINAL_UNLINKED": 151,
+    "REE_CLAIM_REQUIRES_PROJECT_JORC_STAGE_GIS_SIGNOFF": 37,
+    "PROJECT_NAME_GEO_IDENTITY_CONFLICT": 1,
+    "P2_ORIGINAL_TECHNICAL_RECHECK_PENDING": 8,
+    "WEB_ORIGINAL_BYTES_ACCESS_HOLD": 1
+  },
+  "original_C0_close_candidate_count": 119,
+  "formally_frozen_sources": 0,
+  "C1_independent_approvals": 0,
+  "new_original_pdf_bytes_archived": 0,
+  "freeze_rule": "ADR-P0-028 PROPOSED, NOT_ACCEPTED"
+}
