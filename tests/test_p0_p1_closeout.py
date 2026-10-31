@@ -47,7 +47,7 @@ class CloseoutP1(unittest.TestCase):
         self.assertEqual(idx["P1X-0018"]["p1_evidence_disposition"],
                          "C0_INDEXED_PRIMARY_DOCUMENT_ACCESS_BLOCKED")
         self.assertEqual(idx["P1G-0021"]["WINDOW_gate"],
-                         "HOLD_NO_COMPLETE_ECONOMIC_STUDY_ASOF")
+                         "HOLD_ECONOMIC_STUDY_NOT_SIGNED_ASOF")
 
     def test_reproducible_snapshot(self):
         self.assertEqual(x.read(ROOT / x.OUT), self.rows)
