@@ -92,6 +92,10 @@ flowchart TB
 
 以 2026-10-29 全澳政府原始快照實際回查，**272/272 唯一 source-native feature、23/23 原生來源位元組驗證、兩個 SA 礦床 ID 的 10 筆 OBJECTID 唯一化**。在 272 個來源列中找到 **15 筆具 REE Project/勘探歸屬候選、4 筆已知非 REE Project**；其餘分為 92 個非 Project 地質圖徵、2 個上層 Deposit、3 個主題類別、156 個缺 Project 母層。以上不是獨立 Project 個數，**C1 仍待核准**。
 
+### P0 第四輪：156 筆 Project 母層證據審查（2026-10-31）
+
+[完整審查報告](docs/audits/2026-10-31_156_project_parent_review_report.md) · [156 筆逐列 CSV](docs/audits/2026-10-31_156_project_parent_evidence_review.csv) · [148 筆待補 Project 關係](docs/audits/2026-10-31_156_project_parent_gaps.csv) · [摘要與來源 SHA](docs/audits/2026-10-31_156_project_parent_evidence_summary.json)。保留政府原始 source feature 與來源稽核，新增 **8 筆具名 Project 文件候選、3 筆名稱／範圍待查**；145 筆仍無新增 Project 文獻，70 筆有跨來源同州同名線索。**來源具名 ≠ 獨立 REE Project 核准；全部 C1 維持 NO。**
+
 ## 專案結構
 
 ```text

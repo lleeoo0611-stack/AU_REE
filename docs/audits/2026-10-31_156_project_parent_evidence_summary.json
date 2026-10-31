@@ -1,0 +1,45 @@
+{
+  "review_date": "2026-10-31",
+  "source_cutoff": "2026-10-29",
+  "research_unit": "156 previously unresolved source-target IDs, not 156 unique REE Projects",
+  "input_target_count": 156,
+  "unique_id_count": 156,
+  "new_official_or_issuer_document_leads": 11,
+  "named_project_document_candidates": 8,
+  "named_project_scope_holds": 3,
+  "remaining_without_new_parent_document": 145,
+  "remaining_without_verified_project_boundary": 156,
+  "project_identity_approvals": 0,
+  "C1_approvals": 0,
+  "cross_source_same_state_name_rows": 70,
+  "by_state": {
+    "NT": 3,
+    "SA": 19,
+    "NSW": 33,
+    "WA": 72,
+    "QLD": 10,
+    "TAS": 9,
+    "VIC": 10
+  },
+  "review_result_counts": {
+    "NO_INDEPENDENT_PROJECT_PARENT_DOCUMENT_FOUND": 109,
+    "OFFICIAL_NONPROJECT_SITE_TYPE_PARENT_UNLOCATED": 32,
+    "OFFICIAL_GEOLOGICAL_SITE_PARENT_UNLOCATED": 4,
+    "NAMED_PROJECT_FOUND_BUT_SOURCE_FEATURE_SCOPE_UNVERIFIED": 3,
+    "DOCUMENTED_NAMED_PROJECT_CANDIDATE_NOT_APPROVED": 8
+  },
+  "native_ree_role_counts": {
+    "REE_PRIMARY_UNVERIFIED": 93,
+    "REE_ASSOCIATED_NONPRIMARY_IN_NATIVE_COMMODITY": 14,
+    "GEOLOGICAL_SITE_WITH_REE_COMMODITY_NOT_INDEPENDENT_PROJECT": 32,
+    "TAS_SOURCE_RESOURCE_FLAG_N": 8,
+    "REE_IN_SOURCE_COMMODITY_METADATA": 9
+  },
+  "input_sha256": {
+    "docs/audits/2026-10-31_272_project_parent_evidence_queue.csv": "97e92d1801193a7bbb4b5b5f49f2fc0c99a0891b54e7a3d5450718b482344419",
+    "data/source_snapshots/2026-10-29_272_native_features.jsonl": "d9605cc3f2b6953fd466989e25875099674c793495bc2c9405e50231d5f96662",
+    "docs/audits/2026-10-31_487_evidence_round2_review.csv": "62fbd8d529c3c91d7eba0173de9f9e1bcb5d2a5d99ec8bef6f0f9858c729a41b",
+    "inputs/source_review_20261031/round4_156_official_parent_documents.csv": "51817cab79e8d5a12b6218818601fc8fce24ea96d8020b5f30bb39729e77e7db"
+  },
+  "policy": "Government site/deposit is C0 evidence, not a verified independent Project. Same state+name does not prove identity; dated official named Project is a candidate only pending Project boundary, REE product, stage/JORC and approval."
+}
