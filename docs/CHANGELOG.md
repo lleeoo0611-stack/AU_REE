@@ -1,5 +1,13 @@
 # Change log
 
+## P2/P3/P4 frozen-source documentary dispositions — 2026-10-31
+
+- Preserve 412 immutable HOLD IDs (P1 73 untouched, P2 28/27 provisional cases, P3 216, P4 95). Inspect selected original government feature content for 317 targets and 22 Legacy-only rows; verify all 52 Legacy UUID rows, including 30 targets also linked to government records. Validate original archive manifests/chunk SHA during extraction.
+- Retain full second-to-sixth-round/P2 evidence history, dates/locators, source attributes/geometry, exact-name review candidates, original tenure intersection limits and reopen conditions in editable CSV/JSON. Recover seven stale GA native-source statuses and preserve SA 3000/11849 as two native IDs with four/six features, without overwriting historical audits.
+- Assign 167 P3/P4 records bounded C0 native-record dispositions; explicitly HOLD 144 external document pointers for primary-scope review (118 P3/26 P4). Inherit P2's 28 source-scoped desk judgments; four historical source rows represent three cases. This is not complete primary technical-document full-text verification. New full-text verifications and Project/C1 approvals: zero.
+- Add standard-library raw extractor, immutable derived feature selection, input hashes, offline reproduction, adversarial identity/cardinality tests and CI. Raw extraction verifies original chunks; offline checks verify the derived selection only. C1 admission, 13-case Gate approvals and MCDA remain paused; existing approvals/configuration unchanged.
+
+
 ## P1/P2 publicly accessible evidence closing review — 2026-10-31
 
 - Reassessed **P1 19 remaining cases / 31 immutable sources** on freely accessible government, issuer and secondary-index documents: 13 positive REE/Project leads (22 rows), 2 geographic identity conflicts (4), and 4 indexed WAMEX reports (5). New primary/context sources distinguish WA Wingellina Ni-Co from SA Claude Hills and Ambergate vs Witchcliffe name/tenement conflict; P1 C1 gates all remain HOLD.

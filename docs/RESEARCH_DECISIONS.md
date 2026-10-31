@@ -142,3 +142,10 @@
 - 舊版 487 action_priority=P2 72 筆已精確對回最新 412 原 HOLD：28 筆目前 P2；另 38 筆原 INCLUDE_CANDIDATE 與 6 筆 HOLD_REE_ROLE 均不計入 412 HOLD。
 - 兩組標籤只是任務優先級／來源證據分流，未建立新增 72/47 個獨立 Projects；保留原 source ID 和 reviewer signoff=空。
 - 舊版 72 筆來源的經濟研究／資源證據僅作已公布且 source-scoped 的文件主張，不得把同一個群組 JORC 合計值分配至不同 source rows。
+
+## 2026-10-31 — P2/P3/P4 documentary closeout scope clarification
+
+- `P234-DOC-CLOSEOUT-20261031-V1` 保留原母體與方法，不修改 Cohort、準則或核准。按使用者指示暫緩 C1、13 案 Gate 與 MCDA。
+- 固定原生內容審查完成、限定桌面文件判讀完成、原始技術文件全文驗證及足以核准 Project 為不同狀態；terminal disposition 可以是 HOLD，不能把 URL／索引或 native commodity 當全文或開發資格核准。
+- Legacy target UUID 與政府 native feature ID 分層保存；52 個 Legacy target IDs 中 30 筆有政府原生來源，22 筆僅 Legacy 原列。原始 source IDs 和一對多 SA feature 關係不刪除、不升格。
+- 原 archive bytes 驗證與衍生選集離線再生分開；本輪外部原始技術文件全文驗證仍為 0，144 個 P3/P4 文件指標的原件／範圍工作保留待辦。

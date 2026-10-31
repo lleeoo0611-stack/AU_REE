@@ -171,8 +171,8 @@ def build(root:Path=ROOT):
         "all_new_formal_C1_gates_approved":False,
         "WAMEX_public_search_only_no_email_sent":True,
         "evidence_retrieval_mode":"public government/issuer site and carefully attributed secondary indexed government-report text",
-        "input_paths":[str(P1_SOURCE),str(P1_REMAINING),str(P2_SOURCE),
-                       str(P2_CASES),str(P2_REMAINING)],
+        "input_paths":[p.as_posix() for p in (P1_SOURCE,P1_REMAINING,P2_SOURCE,
+                       P2_CASES,P2_REMAINING)],
         "interpretation":"Desk evidence review is bounded and assigned a terminal documentary "
         "disposition on all 28 P2 targets. No archived original WAMEX PDFs, independent "
         "source-to-Project polygons, JORC REO approvals, or six-domain C1 signoffs "

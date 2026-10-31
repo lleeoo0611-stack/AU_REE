@@ -1,0 +1,19 @@
+name: P2 P3 P4 frozen documentary closeout
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  documentary-closeout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reproduce all 339 terminal dispositions (no network)
+        run: python scripts/closeout_p2_p3_p4.py --check
+      - name: Identity, cardinality and documentary-scope adversarial tests
+        run: python -m unittest discover -s tests -p test_p2_p3_p4_closeout.py -v

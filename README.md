@@ -155,6 +155,14 @@ P2 **28/28 source rows、27 個暫定案例完成公開文件審核處置**：17
 
 [72-row intake](docs/audits/2026-10-31_p2_72_intake_report.md) · [72 筆 priority 映射 CSV](docs/audits/2026-10-31_legacy_p2_72_to_412_crosswalk.csv) · [47 案例表](docs/audits/2026-10-31_p2_case_review_queue.csv)。此處 `action_priority=P2` 的 72 筆，與原 412 HOLD 的 P2 28 筆 **重疊 28**；另外 38 筆原 INCLUDE_CANDIDATE、6 筆原 HOLD_REE_ROLE 不在 412 HOLD 中。增列 7 筆具日期文件線索，對應 22 筆來源，僅作 source-scoped documentation；正式 Project/JORC/C1 仍為 0。對應 [PR #33](https://github.com/lleeoo0611-stack/AU_REE/pull/33)。
 
+### P2／P3／P4 固定來源 documentary disposition（2026-10-31）
+
+在 `main@aeddd2e` 基線上，完成 **339 個原始來源 ID** 的來源內容檢視與逐筆處置：P2 28／27 暫定案例、P3 216、P4 95。從 2026-10-29 完整政府封存驗證 chunk SHA 並選取 **317 個政府來源**，另核對 **22 個純 Legacy 原列**；全部 52 個 Legacy target IDs 均保留歷史 UUID，其中 30 筆同時連結政府圖徵。更正舊表 7 筆 GA「未恢復」與 SA 2 個原生 ID 的 4／6 feature 歧義，歷史表保留原樣。
+
+**P3／P4：167 筆限定 C0 原生內容審查完成；144 筆文件指標仍 HOLD，待原件／範圍審查。** P2 沿用前輪限定桌面判讀，未宣稱本輪重新全文驗證。來源處置結案不等於 Project 證據充分；**新增技術文件全文驗證 0、正式核准 0；C1、13 案 Gate 與 MCDA 依使用者指示暫緩**。
+
+[範圍與結案報告](docs/audits/2026-10-31_p2_p3_p4_closeout_report.md) · [339 筆可編輯 CSV](docs/audits/2026-10-31_p2_p3_p4_closeout.csv) · [完整 JSON／歷次證據](docs/audits/2026-10-31_p2_p3_p4_closeout.json) · [144 筆原件待核清單](docs/audits/2026-10-31_p2_p3_p4_closeout_document_pointer_holds.csv) · [QA／輸入 SHA](docs/audits/2026-10-31_p2_p3_p4_closeout_summary.json)。執行 ID `P234-DOC-CLOSEOUT-20261031-V1`；重跑 `python scripts/closeout_p2_p3_p4.py --check`。離線重跑只驗證衍生選集與結果；重新核對原始 bytes 須提供原封存並執行 `--extract-raw --raw-root`。
+
 ## 專案結構
 
 ```text
