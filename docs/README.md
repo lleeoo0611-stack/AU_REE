@@ -66,6 +66,18 @@
 | [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
 | [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
 
+### P2 — 28 source / 27 provisional cases（2026-10-31）
+
+| 文件 | 內容 |
+|---|---|
+| [P2 首輪分析與 P1 交接報告](audits/2026-10-31_p2_phase1_report.md) | 412 的 P1/P2/P3/P4 分母、原生來源與 Project 層級拆分、先行證據、WAMEX/C1 未完成事項 |
+| [P2 28 筆 source 逐列審查](audits/2026-10-31_p2_28_source_triage.csv) | 原 Target ID、舊資料證據狀態、原生 SHA、Project 角色、來源 URL、再開案條件 |
+| [P2 27 暫定案例表](audits/2026-10-31_p2_27_case_triage.csv) | 來源站址鍵、doc scope 與 evidence provenance |
+| [P2 27 案例證據輸入](../inputs/source_review_20261031/p2_27_case_evidence.csv) | 人工選定、可逐版本擴充的政府／發行人原文來源 |
+| [P2 summary JSON](audits/2026-10-31_p2_phase1_summary.json) | 分母 QA 與零 C1 發布欄位 |
+| [P2 CI 實測成功紀錄](audits/2026-10-31_p2_phase1_ci_verification.json) | 成功的 P2 source 再生、Python offline 與 R synthetic workflow run ID 與 SHA |
+| [P2 可重跑腳本](../scripts/audit_p2_28_initial_triage.py) | Python 標準函式庫 `--write`／`--check` |
+
 ### P0／P1 結案與發布門檻（2026-10-31）
 
 | 文件 | 內容 |

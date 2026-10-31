@@ -1,0 +1,36 @@
+{
+  "review_date": "2026-10-31",
+  "attestation_scope": "P2 Phase 1 frozen 28-source / 27-case triage generator and synthetic baseline regression only",
+  "tested_commit": "787fa9f7caf96a1aa0e68e5e08555a655463f5f8",
+  "passed_github_actions_runs": [
+    {
+      "name": "P2 28-source initial evidence triage",
+      "run_id": 41176845661,
+      "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41176845661",
+      "status": "success"
+    },
+    {
+      "name": "Python offline regression",
+      "run_id": 41176845732,
+      "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41176845732",
+      "status": "success"
+    },
+    {
+      "name": "R MCDA deterministic smoke test",
+      "run_id": 41176841192,
+      "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41176841192",
+      "status": "success"
+    }
+  ],
+  "immutable_source_target_ids_verified": 28,
+  "provisional_source_site_cases": 27,
+  "partition": {
+    "P1": 73,
+    "P2": 28,
+    "P3": 216,
+    "P4": 95,
+    "total_HOLD": 412
+  },
+  "formal_project_or_C1_admission": 0,
+  "scope_limit": "No original-issuer project identity, JORC REO, legal Project polygon or six-domain MCDA signoffs; P2 phase-1 documentary triage is not P2 documentary case closure. WAMEX originals #30 and P1 C1 #32 open."
+}

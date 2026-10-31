@@ -1,0 +1,27 @@
+name: P2 28-source initial evidence triage
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_p2_28_initial_triage.py'
+      - 'tests/test_p2_28_initial_triage.py'
+      - 'inputs/source_review_20261031/p2_27_case_evidence.csv'
+      - 'docs/audits/2026-10-31_p2_*.csv'
+      - 'docs/audits/2026-10-31_p2_*.json'
+      - 'docs/audits/2026-10-31_p1_parent_identity_review.csv'
+      - 'docs/audits/2026-10-31_census_487_batch_review.csv'
+      - 'docs/audits/2026-10-31_487_evidence_round2_review.csv'
+      - '.github/workflows/p2-28-initial-triage.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  p2-28-reproducibility:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python scripts/audit_p2_28_initial_triage.py --check
+      - run: python -m unittest discover -s tests -p 'test_p2_28_initial_triage.py' -v
