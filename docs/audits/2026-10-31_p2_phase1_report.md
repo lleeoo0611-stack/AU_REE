@@ -68,6 +68,8 @@ P2 已建立固定 **28 target → 27 evidence case** 交叉表，與 P1 的 73 
 
 ## 5. 可重跑驗收
 
+實際 [P2 專用 GitHub Actions](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41176845661)、[Python 離線回歸](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41176845732) 與 [R 合成資料 smoke](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41176841192) 已於 commit `787fa9f7` 完成且成功。[完整 SHA／run ID 驗收紀錄](2026-10-31_p2_phase1_ci_verification.json)。
+
 ```bash
 python scripts/audit_p2_28_initial_triage.py --check
 python -m unittest discover -s tests -p 'test_p2_28_initial_triage.py' -v
