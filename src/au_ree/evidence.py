@@ -73,14 +73,27 @@ def reload_registry(db,root,as_of):
             'approved':db.execute("SELECT count(*) FROM evidence_approvals WHERE status='APPROVED'").fetchone()[0]}
 
 
-def verify(db,approval_ref,record_type,source_url,sha256,archive_path=None):
-    """Valid only if a separately approved entry matches the exact document bytes and URL."""
+def verify(db,approval_ref,record_type,source_url,sha256,archive_path=None,*,root=None):
+    """Require independent approval and, when root is given, current archived bytes.
+
+    The cached approval registry is not a substitute for a last-mile SHA-256
+    check; a report can be modified or deleted after reload_registry().
+    """
     if not approval_ref or not source_url or not HEX64.fullmatch(str(sha256 or '')):
         return False
     row=db.execute('''SELECT a.status,a.record_type,d.file_path,d.source_url,d.actual_sha256,d.hash_status
         FROM evidence_approvals a JOIN source_documents d ON d.document_id=a.document_id
         WHERE a.approval_ref=?''',(approval_ref,)).fetchone()
-    return bool(row and row['status']=='APPROVED' and row['record_type']==record_type
-                and row['hash_status']=='HASH_MATCH_REVIEW_REQUIRED'
-                and source_url==row['source_url'] and sha256.lower()==row['actual_sha256']
-                and (archive_path is None or archive_path==row['file_path']))
+    approved=bool(row and row['status']=='APPROVED' and row['record_type']==record_type
+                  and row['hash_status']=='HASH_MATCH_REVIEW_REQUIRED'
+                  and source_url==row['source_url'] and sha256.lower()==row['actual_sha256']
+                  and (archive_path is None or archive_path==row['file_path']))
+    if not approved:
+        return False
+    if root is not None:
+        archived=_archive_path(root,row['file_path'])
+        if archived is None or not archived.is_file():
+            return False
+        if filehash(archived)!=row['actual_sha256']:
+            return False
+    return True

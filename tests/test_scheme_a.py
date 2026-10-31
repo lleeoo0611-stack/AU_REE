@@ -216,3 +216,155 @@ def test_invalid_evidence_date_is_not_accepted_as_historical(tmp_path):
     reload_registry(db,tmp_path,'2026-10-29')
     assert apply_identity_decisions(db,tmp_path,'2026-10-29')['rejected_or_pending']==1
     assert db.execute('SELECT count(*) FROM project_master').fetchone()[0]==0
+
+
+def test_deposit_source_cannot_be_approved_as_new_independent_project(tmp_path):
+    db=memorydb()
+    c=record(source='WA_SOURCE',native='D-NEW',name='Synthetic REE deposit',commodity='REE',entity='DEPOSIT')
+    assert candidate_upsert(db,c)=='REVIEW'
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    _identity_fixture(tmp_path,[(cid,'Fabricated parent Project','')])
+    reload_registry(db,tmp_path,'2026-10-29')
+    stats=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert stats['approved_new']==0
+    assert stats['rejected_or_pending']==1
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
+    assert db.execute('SELECT review_reason FROM identity_review_decisions').fetchone()[0]=='SOURCE_ENTITY_IS_NOT_A_PROJECT'
+
+
+def test_unverified_legacy_parent_cannot_receive_document_approved_deposit(tmp_path):
+    db=memorydb()
+    legacy=record(source='legacy_r963_frozen',native='L-ONLY',name='Legacy REE parent',
+                  commodity='REE',entity='PROJECT')
+    assert candidate_upsert(db,legacy)=='ADDED'
+    legacy_id=db.execute('SELECT project_id FROM project_master').fetchone()[0]
+    assert db.execute('SELECT population_status FROM project_master').fetchone()[0]=='LEGACY_UNVERIFIED'
+    child=record(source='WA_SOURCE',native='D-CHILD',name='Legacy parent orebody',
+                 commodity='REE',entity='DEPOSIT')
+    assert candidate_upsert(db,child)=='REVIEW'
+    cid=db.execute("SELECT candidate_id FROM population_candidates WHERE source_key='WA_SOURCE'").fetchone()[0]
+    rows,heads=_identity_fixture(tmp_path,[(cid,'Legacy REE parent',legacy_id)])
+    rows[0]['decision']='LINK_EXISTING_PROJECT'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    stats=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert stats['linked_existing']==0
+    assert stats['rejected_or_pending']==1
+    assert db.execute('SELECT review_reason FROM identity_review_decisions WHERE candidate_id=?',(cid,)).fetchone()[0]=='PARENT_PROJECT_IDENTITY_NOT_INDEPENDENTLY_APPROVED'
+    assert db.execute("SELECT COUNT(*) FROM project_geological_relation WHERE decision_status='DOCUMENT_APPROVED'").fetchone()[0]==0
+    assert db.execute('SELECT matched_project_id FROM population_candidates WHERE candidate_id=?',(cid,)).fetchone()[0] is None
+
+
+def test_approved_project_parent_precedes_deposit_link_regardless_of_candidate_sort(tmp_path):
+    db=memorydb()
+    parent_source='WA_SOURCE'
+    parent_native='PARENT'
+    parent_cid=digest([parent_source,parent_native])[:32]
+    child_native=next(f'CHILD{i}' for i in range(100)
+                      if digest([parent_source,f'CHILD{i}'])[:32]<parent_cid)
+    parent=record(source=parent_source,native=parent_native,name='Synthetic South REE Project',
+                  commodity='REE',entity='PROJECT')
+    child=record(source=parent_source,native=child_native,name='Synthetic South REE Deposit',
+                 commodity='REE',entity='DEPOSIT')
+    assert candidate_upsert(db,parent)=='REVIEW'
+    assert candidate_upsert(db,child)=='REVIEW'
+    child_cid=digest([parent_source,child_native])[:32]
+    assert child_cid<parent_cid  # Old lexical replay would process child first.
+    project_id='AU-REE-90001'
+    rows,heads=_identity_fixture(tmp_path,[
+        (child_cid,'',project_id),
+        (parent_cid,'Synthetic South REE Project',project_id),
+    ])
+    rows[0]['decision']='LINK_EXISTING_PROJECT'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    stats=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert stats['approved_new']==1
+    assert stats['linked_existing']==1
+    assert stats['rejected_or_pending']==0
+    assert db.execute('SELECT population_status FROM project_master WHERE project_id=?',(project_id,)).fetchone()[0]=='EVIDENCE_BACKED_PROJECT'
+    row=db.execute('''SELECT p.project_id,r.relation_type,r.decision_status
+                      FROM project_geological_relation r
+                      JOIN project_master p ON p.project_id=r.project_id''').fetchone()
+    assert tuple(row)==(project_id,'PART_OF_PROJECT','DOCUMENT_APPROVED')
+    assert db.execute('SELECT decision FROM population_candidates WHERE candidate_id=?',
+                      (child_cid,)).fetchone()[0]=='APPROVED_PROJECT_IDENTITY'
+    # Replay must preserve the same verified parent relation and Project ID.
+    again=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert again['approved_new']==1 and again['linked_existing']==1
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==1
+    assert db.execute('SELECT COUNT(*) FROM project_geological_relation').fetchone()[0]==1
+
+
+def test_duplicate_identity_ledger_rejected_before_project_mutation(tmp_path):
+    import pytest
+    db=memorydb()
+    candidate_upsert(db,record(source='WA_SOURCE',native='DUP',name='Duplicate REE Project',
+                               commodity='REE',entity='PROJECT'))
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    rows,heads=_identity_fixture(tmp_path,[(cid,'Duplicate REE Project','')])
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows+rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    with pytest.raises(ValueError,match='Duplicate candidate_id'):
+        apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
+
+
+def test_approved_deposit_parent_cannot_be_silently_reassigned(tmp_path):
+    db=memorydb()
+    source='WA_SOURCE'
+    entries=[]
+    for native,name,level,pid in (
+        ('P1','North Project','PROJECT','AU-REE-01001'),
+        ('P2','South Project','PROJECT','AU-REE-01002'),
+        ('D1','Ree orebody','DEPOSIT','AU-REE-01001'),
+    ):
+        candidate_upsert(db,record(source=source,native=native,name=name,
+                                   commodity='REE',entity=level))
+        entries.append((digest([source,native])[:32],name if level=='PROJECT' else '',pid))
+    rows,heads=_identity_fixture(tmp_path,entries)
+    for row in rows:
+        if row['candidate_id']==digest([source,'D1'])[:32]:
+            row['decision']='LINK_EXISTING_PROJECT'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    first=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert first['approved_new']==2 and first['linked_existing']==1
+    cid=digest([source,'D1'])[:32]
+    for row in rows:
+        if row['candidate_id']==cid:
+            row['project_id']='AU-REE-01002'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    second=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert second['approved_new']==2
+    assert second['linked_existing']==0
+    assert second['rejected_or_pending']==1
+    decision=db.execute('SELECT resolved_project_id,review_status,review_reason FROM identity_review_decisions WHERE candidate_id=?',
+                        (cid,)).fetchone()
+    assert tuple(decision)==('AU-REE-01001','REVIEW_PENDING',
+                            'STABLE_PROJECT_LINK_CHANGE_REQUIRES_CORRECTION')
+    assert db.execute("SELECT COUNT(*) FROM project_geological_relation WHERE decision_status='DOCUMENT_APPROVED'").fetchone()[0]==0
+
+
+def test_archived_original_rehashed_after_approval_registry_load(tmp_path):
+    db=memorydb()
+    candidate_upsert(db,record(source='WA_SOURCE',native='SHA-DRIFT',
+                               name='Synthetic evidence REE Project',
+                               commodity='REE',entity='PROJECT'))
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    _identity_fixture(tmp_path,[(cid,'Synthetic evidence REE Project','')])
+    reload_registry(db,tmp_path,'2026-10-29')
+    original=tmp_path/'inputs/evidence/project.txt'
+    original.write_text('changed after evidence approval load',encoding='utf8')
+    stats=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert stats['approved_new']==0
+    assert stats['rejected_or_pending']==1
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
+    assert db.execute('SELECT review_status FROM identity_review_decisions').fetchone()[0]=='REVIEW_PENDING'
+
+    # A missing archive has the same fail-closed behavior, regardless of the
+    # registry's previously valid checksum and review signature.
+    original.unlink()
+    again=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert again['approved_new']==0
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0

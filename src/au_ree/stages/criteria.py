@@ -6,7 +6,7 @@ import json
 from ..evidence import reload_registry,verify
 from ..core import utc, digest, readcsv, number, event
 
-def ingest(db,rows,tag,as_of=None):
+def ingest(db,rows,tag,as_of=None,root=None):
     n=0
     for r in rows:
         legacy_id=r.get('project_id') or r.get('legacy_id')
@@ -25,7 +25,7 @@ def ingest(db,rows,tag,as_of=None):
         if tag=='r968_frozen':
             verification='LEGACY_FROZEN_'+str(claimed)
         else:
-            approved=verify(db,r.get('approval_ref'),'OBSERVATION',r.get('source_url'),r.get('source_sha256'))
+            approved=verify(db,r.get('approval_ref'),'OBSERVATION',r.get('source_url'),r.get('source_sha256'),root=root)
             verification='VERIFIED' if approved else 'REVIEW_PENDING'
             if not approved:
                 event(db,'criteria',oid,'EVIDENCE_APPROVAL_PENDING',str(r.get('approval_ref') or 'MISSING_APPROVAL_REF'))
@@ -91,9 +91,9 @@ def run(db,ctx):
             (c['variable'],c['domain'],c['unit'],c['basis'],'JORC/ASX authorized > technical report > official government > company',1))
     total=0
     frozen=ctx['root']/'inputs'/'legacy_r968_observations.csv'
-    if frozen.exists():total+=ingest(db,readcsv(frozen),'r968_frozen',cfg['freeze_date'])
+    if frozen.exists():total+=ingest(db,readcsv(frozen),'r968_frozen',cfg['freeze_date'],root=ctx['root'])
     update=ctx['root']/'inputs'/'verified_observations.csv'
-    if update.exists():total+=ingest(db,readcsv(update),'researcher_updates',cfg['freeze_date'])
+    if update.exists():total+=ingest(db,readcsv(update),'researcher_updates',cfg['freeze_date'],root=ctx['root'])
     derived = derive_metrics(db)
     db.execute('DELETE FROM criterion_values')
     codes={r['code']:r for r in cfg['criteria']}
