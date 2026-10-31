@@ -403,7 +403,7 @@ def csv_build(args) -> None:
     # In particular, a valid SQLite PRAGMA alone cannot detect mistaken source
     # joins because historical review CSV tables have no relational FKs.
     relation_check = validate_census_relations(
-        {name: rows for name, _, _, rows in tables}
+        {path.stem: rows for _, path, _, rows in tables}
     )
     input_digest = hashlib.sha256(canonical_json(inputs).encode("utf-8")).hexdigest()
     if dest.exists():
