@@ -1,5 +1,10 @@
 # Change log
 
+## 2026-11-01 — Census CSV→SQLite overwrite integrity
+
+- 現有 `reproducibility/build_census_database.py csv-build` 改為在同目錄暫存建構、執行跨表與 SQLite 驗證，再以 `os.replace` 發布完整資料庫及 manifest；資料輸入、SQL、完整性或雜湊檢查失敗時不刪除上一版 SQLite／manifest。
+- 在 `tests/test_p0_487_batch.py` 增加失敗注入、完整成功覆寫與原檔保留測試，沿用同一組 487 筆正式來源的既有整合驗證。此為可重現性與資料庫安全性修正，不代表 Project 身分、JORC 或 C1/C2 已核准。
+
 ## 2026-11-01 — Execution Round 01: Structural Cohort documentary review
 
 - Extend existing PR #49/#50 mainline rather than create a second pipeline. New `build_structural_round01.py` runs after existing Stage1 in `c1`/`all`; online curated acquisition is explicit and cached, outside offline supervisor.
