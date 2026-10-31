@@ -23,8 +23,8 @@ class P1Tenure(unittest.TestCase):
                           "OFFICIAL_TENEMENT_LAYER_NOT_VERIFIED": 2})
 
     def test_title_match_does_not_approve_project(self):
-        self.assertEqual(self.stats["rows_with_exact_documented_title_number_overlap"], 14)
-        self.assertEqual(len(self.stats["distinct_cases_with_exact_title_overlap"]), 7)
+        self.assertEqual(self.stats["rows_with_exact_documented_title_number_overlap"], 20)
+        self.assertEqual(len(self.stats["distinct_cases_with_exact_title_overlap"]), 12)
         self.assertTrue(all(x["C1_approved"] == "NO" and
                             x["project_or_mine_footprint_intersected"] == "NOT_TESTED"
                             for x in self.rows))
