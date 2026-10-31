@@ -280,7 +280,12 @@ def publish(root: Path = ROOT):
     with (root / GAPS).open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, COLUMNS, lineterminator="\n")
         writer.writeheader()
-        writer.writerows(x for x in rows if x["project_scope_approved"] == "NO")
+        # This is the evidence-location gap queue; project signoff remains NO
+        # for the excluded named-parent candidates as well.
+        writer.writerows(x for x in rows if x["round6_evidence_grade"] not in (
+            "HISTORICAL_PROJECT_PARENT_DOCUMENT_CANDIDATE",
+            "INDEXED_HISTORICAL_PROJECT_REPORT_PRIMARY_REQUIRED",
+        ))
     with (root / SUMMARY).open("w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
         f.write("\n")
