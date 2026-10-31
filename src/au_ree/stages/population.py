@@ -7,7 +7,7 @@ from pathlib import Path
 from ..evidence import reload_registry,verify
 from ..core import utc, norm, number, readcsv, digest, event, australian
 from ..source_adapters import load_arcgis, load_csv
-from ..identity_policy import screening_tier,register_feature,propose_dedup,propose_parents,apply_identity_decisions
+from ..identity_policy import screening_tier,register_feature,propose_dedup,propose_parents,apply_identity_decisions,independently_approved_project
 
 REE=re.compile(r'\b(?:ree|reo|treo|hree|lree|ndpr|rare\s*earth(?:\s*elements?)?|neodymium|praseodymium|dysprosium|terbium|yttrium)\b',re.I)
 def relevance(text,source):
@@ -224,6 +224,10 @@ def run(db,ctx):
         for row in readcsv(reviews):
             pid=row.get('project_id');source=row.get('source_url','')
             if not pid or not db.execute('SELECT 1 FROM project_master WHERE project_id=?',(pid,)).fetchone():continue
+            if not independently_approved_project(db,pid,root=ctx['root']):
+                event(db,'population',pid,'PROJECT_IDENTITY_APPROVAL_PENDING',
+                      'Project detail/coordinate review cannot supersede independent Project identity')
+                continue
             if not(row.get('evidence_date') and row.get('evidence_date')<=ctx['criteria']['freeze_date'] and verify(db,row.get('approval_ref'),'PROJECT_REVIEW',source,row.get('source_sha256'),root=ctx['root'])):
                 event(db,'population',pid,'REVIEW_REJECTED','Missing verifiable source URL/date/hash');continue
             fields={k:row.get(k) for k in ('activity','lifecycle','ree_role','deposit_family') if row.get(k)}
