@@ -91,6 +91,42 @@
 | `P1X-0018` | WA Tutunup West | 1 | HM_NOT_TREO | 文件確認地質/礦砂脈絡；未確認 REE 產品 |
 | `P1X-0019` | WA Witchcliffe | 1 | ILMENITE_HM_NOT_TREO | 已定位 WAMEX 原文索引；政府 PDF 待取 |
 
+## 2026-10-29 凍結官方 Tenement Polygon 的逐來源重核
+
+重用已版本化的 [487 筆官方礦權交集](../../outputs/487_official_tenure_intersection_evidence_compact.csv)、[來源層查詢狀態](../../outputs/487_official_tenure_trace_status.csv)，逐一以固定 target_id 比對 P1 共 73 筆；這是**官方礦權圖層 point-in-polygon 查詢紀錄**，與尚未製作的法定 Project 開發範圍交集不同。
+
+| 指標 | 結果 |
+|---|---:|
+| P1 原始來源 | 73 |
+| 有官方礦權圖層交集 | **60** |
+| 交集紀錄（含歷史／不同種類礦權） | **204** |
+| 已查層無交集 | **11** |
+| 官方圖層未驗證（SA Wingellina） | **2** |
+| 已有明確技術文件礦權編號可比較的案例 | **13** |
+| 精確礦權編號一致的原始來源列 | **14**（7 個案例） |
+| 專案法定 footprint／採礦範圍獨立核准 | **0** |
+
+對有文件 tenement 號碼的 13 案例逐筆比對，發現下列可追溯交集（每個數字均為 source rows）：
+
+| 文件對照的身分／項目 | 官方交集核對的礦權 | 來源列 | 判讀 |
+|---|---|---:|---|
+| Redlings | **E37/1311** | 6 | 六個 Jungle Well source rows 共用文件所列專案探勘礦權，不等於六份資源 |
+| Tower／Mt Clere | **E09/2357** | 2 | 官方交集與 2022 年 Tower JORC 所載礦權一致 |
+| Central Mia／Mount Ridley | **E63/2112** | 2 | 與 Mia 資源圖件所列 E63/2112 一致；仍需礦床／Block 的開發界線 |
+| Aileron | **E80/5469** | 1 | 原始 Aileron 來源點與 Green／Emily 礦權交集一致，尚不能視作唯一 deposit |
+| Fingerboards／Glenaladale | **RL2026** | 1 | 與 2026 官方案載 retention licence 一致；整個 Glenaladale ≠ Fingerboards |
+| Jurien | **M70/436** | 1 | 原始 WAMEX C198/1994 列 M70/434–436，單一 M70/435 來源描述不可視為完整範圍 |
+| Hopelands East | **M70/603** | 1 | A119194 列 M70/599–603，官方交集支持其中一個礦權，政府 PDF 仍待封存 |
+
+另外的歷史礦權/位置差異保留為**有解釋的分流**：
+
+- **Ambergate**：2017 年發行人文件報 E70/4799，但 2026 快照第一來源點相交的是 E70/4793，第二點沒有交集；兩點距離 38.738 km，且第二點與 `Witchcliffe` 相同，應查原始 geocoding／同名來源。
+- **Benmara South**：1991 年 EL6836 不在目前相交的 EL32474 之中；年代與法律主體不同，不能由現在礦權倒推歷史 Project 身分。
+- **Bullant-Karridale**：歷史 E70/467 與目前來源點相交 E70/6333 不相同。
+- **Hassell Beach M70/562／Witchcliffe E70/5471**：目前查詢無交集，與歷史或 surrender 記錄相容，不能解讀成歷史礦權從未存在。
+
+可重跑 [73 筆 source–tenement 關聯表](2026-10-31_p1_73_tenure_reconciliation.csv)、[QA JSON](2026-10-31_p1_73_tenure_reconciliation_summary.json)、[文件 tenement ID 清單](../../inputs/source_review_20261031/p1_73_documented_tenement_numbers.csv)、[Python](../../scripts/audit_p0_p1_73_tenure.py)。
+
 ## 證據截至目前的完成層級
 
 | 階段 | 覆蓋情形 |
@@ -100,7 +136,8 @@
 | 25 個暫定母層完成 source-level 去重 | **25/25** |
 | 追加核對的資源／開發數值主張 | **12 筆**（加上前輪 14 筆，均保留原始基準） |
 | 已取得官方 WAMEX 3 份 PDF 原件和 SHA-256 | **0/3** |
-| 官方 Project／Tenement polygon 逐來源交集檢測 | **0/73** |
+| 凍結官方 Tenement polygon point-in-polygon 有交集 | **60/73**（204 筆交集） |
+| Project 法定開發 footprint 逐來源交集／身分核准 | **0/73** |
 | 獨立核准 Project/JORC/C1 | **0/73** |
 
 資料庫現階段區分 **`DOCUMENTARY_EVIDENCE_REVIEWED`**（文獻判讀完成）及 **`SOURCE_OR_BOUNDARY_APPROVAL_PENDING`**（須原始 PDF、GIS 與獨立簽核）。在已檢索的官方州政府／ASX／歷史技術文獻中，部分案件可確定其文件只描述 HMS、其他主要礦種或歷史地質位置；此結果不代表外部世界不存在其他未公開證據。
@@ -112,6 +149,7 @@
 - [新增 12 筆跨礦種資源來源表](../../inputs/source_review_20261031/p1_73_new_resource_claims.csv)
 - [44 案例來源登錄、文獻段落及搜尋規則](../../inputs/source_review_20261031/p1_73_resolution_evidence_cases.csv)
 - [機器 QA summary](2026-10-31_p1_73_resolution_summary.json)
+- [73 筆官方礦權快照交集與文件號碼比對](2026-10-31_p1_73_tenure_reconciliation.csv)／[礦權 QA JSON](2026-10-31_p1_73_tenure_reconciliation_summary.json)
 - [可重跑 Python](../../scripts/audit_p0_p1_73_resolution.py)／[回歸測試](../../tests/test_p0_p1_73_resolution.py)
 
 ```bash
