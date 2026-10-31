@@ -8,6 +8,7 @@ at least two alternatives are required before a subset can be released.
 from __future__ import annotations
 import json,math
 from ..core import readcsv,utc,digest
+from ..identity_policy import independently_approved_project
 
 GIS_CODES={'road':'I1','rail':'I2','power':'I3','port':'I4'}
 
@@ -77,6 +78,8 @@ def run(db,ctx):
                                   'status':'PRESENT' if good else 'MISSING','value':value if good else '','reason':reason})
         records_by_pid[pid]=records;gis_by_pid[pid]=_gis_complete(db,pid)
         base=[]
+        if not independently_approved_project(db,pid,root=ctx['root']):
+            base.append('G2_PROJECT_IDENTITY_NOT_INDEPENDENTLY_APPROVED')
         if p['country']!='Australia':base.append('G1_NON_AUSTRALIA')
         if p['ree_role'] not in ('REE_PRIMARY','REE_COPRODUCT','REE_BYPRODUCT'):base.append('G3_REE_MATERIALITY_UNCONFIRMED')
         if (p['activity'] or '').upper() not in cfg['activity_allow']:base.append('G4_NOT_CONFIRMED_ACTIVE')
