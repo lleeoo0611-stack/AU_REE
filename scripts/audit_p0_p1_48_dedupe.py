@@ -232,8 +232,9 @@ def build(root: Path = ROOT):
             if r["spatial_span_flag"] == "WIDE_SOURCES_GEOMETRY_REQUIRED"],
         "data_inputs": [str(SOURCE), str(CENSUS), str(GROUPS), str(CLAIMS)],
         "warning": "25 pinned parent labels are review groups, NOT verified unique Australian REE Projects. "
-                   "Government GIS boundary intersection has not been performed. Reported HM and TREO "
-                   "basis and nested MRE statements cannot be combined."
+                   "Government GIS boundary intersection has not been performed. "
+                   "2026 Aileron niobium MRE updates 2025 tonnage, and 2025 TREO grade does not transfer to 2026 resource by assumption. "
+                   "HM/TREO/Nb2O5 grade bases and nested resource statements cannot be aggregated."
     }
     return link_rows, group_rows, resource_rows, summary
 
