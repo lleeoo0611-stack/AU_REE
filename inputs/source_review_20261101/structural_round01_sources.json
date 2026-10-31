@@ -1,0 +1,747 @@
+[
+  {
+    "source_id": "R01-S01",
+    "url": "https://wimresource.com.au/project/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-679f5da200a4564c"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Projects - WIM Resource",
+    "publisher_host": "wimresource.com.au",
+    "report_id": "/project/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S02",
+    "url": "https://www.iluka.com/community-engagement/balranald",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-8a3a1f48b9e9ede2"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Balranald - Community Engagement | Iluka Resources",
+    "publisher_host": "www.iluka.com",
+    "report_id": "balranald",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S03",
+    "url": "https://resourcingtheterritory.nt.gov.au/minerals/mineral-commodities/ree",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-b062dc980aad5042",
+      "PRJ-66cfaf6a1597917e"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "resourcingtheterritory.nt.gov.au",
+    "report_id": "ree",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S04",
+    "url": "https://invest.northernminerals.com.au/announcements/0zxX3V-september-2026-quarterly-activities-report",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-5e1fe375adb47011"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "invest.northernminerals.com.au",
+    "report_id": "0zxX3V-september-2026-quarterly-activities-report",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S05",
+    "url": "https://wimresource.com.au/project/bungalally/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-867a533642228a73"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Bungalally - WIM Resource",
+    "publisher_host": "wimresource.com.au",
+    "report_id": "/project/bungalally/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S06",
+    "url": "https://resources.vic.gov.au/geology-and-data/industry-investment/mineral-resources-development/Current-Mineral-Projects-and-Selected-Occurrences-2025-10-20-Web.pdf",
+    "format": "pdf",
+    "review_group_ids": [
+      "PRJ-190d479247debb7c"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "resources.vic.gov.au",
+    "report_id": "Current-Mineral-Projects-and-Selected-Occurrences-2025-10-20-Web.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S07",
+    "url": "https://www.itechminerals.com.au/investorarticles/exploration-target-defined-caralue-bluff/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-b71c7e5a6782442e"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "iTech Minerals | EXPLORATION TARGET DEFINED AT CARALUE BLUFF REE-KAOLIN PROSPECT",
+    "publisher_host": "www.itechminerals.com.au",
+    "report_id": "/investorarticles/exploration-target-defined-caralue-bluff/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S09",
+    "url": "https://www.resources.nsw.gov.au/invest-nsw/investment-pathways/nsw-minerals-and-metals-projects",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-42437b4a11115372",
+      "PRJ-ed5b2db33c702b9f"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "NSW minerals and metals projects | NSW Resources",
+    "publisher_host": "www.resources.nsw.gov.au",
+    "report_id": "nsw-minerals-and-metals-projects",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S10",
+    "url": "https://abxgroup.com.au/announcements/ol9LDE-large-batch-tests-confirm-high-purity-rare-earth-results",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-0ec35e3ad28605e8"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "abxgroup.com.au",
+    "report_id": "ol9LDE-large-batch-tests-confirm-high-purity-rare-earth-results",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S11",
+    "url": "https://astronlimited.com.au/operations/donald-project/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-b0608471dedd443e"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "The Donald Project | Australia - Astron Limited",
+    "publisher_host": "astronlimited.com.au",
+    "report_id": "/operations/donald-project/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S12",
+    "url": "https://www.skymetals.com.au/projects/doradilla_update/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-f5c29fff310223d9"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Doradilla - Sky Metals",
+    "publisher_host": "www.skymetals.com.au",
+    "report_id": "/projects/doradilla_update/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S14",
+    "url": "https://www.iluka.com/community-engagement/euston/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-333499cf3b4cb620"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Euston - Community Engagement | Iluka Resources",
+    "publisher_host": "www.iluka.com",
+    "report_id": "/community-engagement/euston/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S15",
+    "url": "https://www.planning.vic.gov.au/environmental-assessments/browse-projects/referrals/fingerboards-critical-minerals-project",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-92b0c10cf0cf8562"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "www.planning.vic.gov.au",
+    "report_id": "fingerboards-critical-minerals-project",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S16",
+    "url": "https://acdcmetals.com.au/projects/goschen-central/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-1444078e330122f9"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Goschen Central - Rare Earths & Mineral Sands - ACDC Metals",
+    "publisher_host": "acdcmetals.com.au",
+    "report_id": "/projects/goschen-central/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S17",
+    "url": "https://www.epa.vic.gov.au/goschen-mineral-sands-and-rare-earths-project",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-83083d538ae8d20a"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Goschen Mineral Sands and Rare Earths Project | epa.vic.gov.au",
+    "publisher_host": "www.epa.vic.gov.au",
+    "report_id": "goschen-mineral-sands-and-rare-earths-project",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S18",
+    "url": "https://www.magnetitemines.com/projects/ironback-hill-ree-project",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-af395b80ac2e10c2"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Ironback Hill REE Project | Magnetite Mines",
+    "publisher_host": "www.magnetitemines.com",
+    "report_id": "ironback-hill-ree-project",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S19",
+    "url": "https://investorhub.critica.limited/announcements/O12NJO-jupiter-scoping-study-defines-pathway-to-development",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-f31e227c28be436c"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "investorhub.critica.limited",
+    "report_id": "O12NJO-jupiter-scoping-study-defines-pathway-to-development",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S20",
+    "url": "https://www.devexresources.com.au/projects/kennedy-rare-earth-element-project/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-d2854d4a22de6436"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Kennedy REE Project - DevEX Resources",
+    "publisher_host": "www.devexresources.com.au",
+    "report_id": "/projects/kennedy-rare-earth-element-project/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S21",
+    "url": "https://energymining.sa.gov.au/industry/minerals-and-mining/mining/major-projects-and-mining-activities/developing-projects/the-koppamurra-project",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-eddb94bfb0009112"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "energymining.sa.gov.au",
+    "report_id": "the-koppamurra-project",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S22",
+    "url": "https://www.rockphosphate.co.nz/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-4f771f3530c9f088"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Chatham Rock Phosphate",
+    "publisher_host": "www.rockphosphate.co.nz",
+    "report_id": "/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S23",
+    "url": "https://www.qld.gov.au/environment/land/management/abandoned-mines/remediation-projects/mary-kathleen",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-18d03b9bed47ecee"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Mary Kathleen remediation project - qld.gov.au",
+    "publisher_host": "www.qld.gov.au",
+    "report_id": "mary-kathleen",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S24",
+    "url": "https://www.isoenergy.ca/portfolio/australia/milo/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-4919cebcd8e9211b"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "IsoEnergy Limited. | Milo",
+    "publisher_host": "www.isoenergy.ca",
+    "report_id": "/portfolio/australia/milo/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S25",
+    "url": "https://resourcebase.com.au/projects/australian/mitre-hill-project/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-3d45ca89f06423f7"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Mitre Hill Project – Resource Base Limited",
+    "publisher_host": "resourcebase.com.au",
+    "report_id": "/projects/australian/mitre-hill-project/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S26",
+    "url": "https://orbitresources.au/narraburra",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-7ab761c8f6302910"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Narraburra Rare Earth Element Project • Orbit Resources Limited",
+    "publisher_host": "orbitresources.au",
+    "report_id": "narraburra",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S27",
+    "url": "https://international.austrade.gov.au/en/news-and-analysis/success-stories/australias-first-ore-to-oxide-rare-earths-operation-starts-construction",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-7f2aa9b3a0cabe53"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Australia’s first ore-to-oxide rare earths operation starts construction | Austrade International",
+    "publisher_host": "international.austrade.gov.au",
+    "report_id": "australias-first-ore-to-oxide-rare-earths-operation-starts-construction",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S28",
+    "url": "https://arkmines.com/projects/sandymitchell/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-84da3806069234c6"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Sandy Mitchell Rare Earths Project | Ark Mines AHK",
+    "publisher_host": "arkmines.com",
+    "report_id": "/projects/sandymitchell/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S29",
+    "url": "https://energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/rare_earths",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-91b45638383850e2",
+      "PRJ-16ab3e32b75d82d8"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "energymining.sa.gov.au",
+    "report_id": "rare_earths",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S30",
+    "url": "https://www.od6metals.com.au/project-overview",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-4099ad5861eb8edd"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "www.od6metals.com.au",
+    "report_id": "project-overview",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S31",
+    "url": "https://financialfilings.com/filings/red-metal-limited/annual-report/2026/60134510/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-523bf513947974ba"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "financialfilings.com",
+    "report_id": "/filings/red-metal-limited/annual-report/2026/60134510/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S32",
+    "url": "https://www.mrt.tas.gov.au/exploration/exploration_drilling_grant_initiative_edgi_results/round-10-edgi-results",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-ee897d6358bf156c"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "www.mrt.tas.gov.au",
+    "report_id": "round-10-edgi-results",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S34",
+    "url": "https://epbcpublicportal.environment.gov.au/all-referrals/project-referral-summary/?id=d0871673-1f74-f111-ab0f-7ced8d33db9b",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-5b38b490e663e470"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Referral summary\r\n\t\t · EPBC Act Public Portal",
+    "publisher_host": "epbcpublicportal.environment.gov.au",
+    "report_id": "/all-referrals/project-referral-summary/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S35",
+    "url": "https://www.coordinatorgeneral.qld.gov.au/projects/find-a-project/current-coordinated-projects/vecco-critical-minerals-project",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-caa7af6fd4752674"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "www.coordinatorgeneral.qld.gov.au",
+    "report_id": "vecco-critical-minerals-project",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S36",
+    "url": "https://acdcmetals.com.au/projects/victorian-projects-rare-earths-mineral-sands/",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-c609cfdfe9dfe967"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Victorian Projects – Rare Earths & Mineral Sands - ACDC Metals",
+    "publisher_host": "acdcmetals.com.au",
+    "report_id": "/projects/victorian-projects-rare-earths-mineral-sands/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S37",
+    "url": "https://www.planning.vic.gov.au/environmental-assessments/browse-projects/wim150-mineral-sands",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-ec3c19dc2c72ac2f"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "www.planning.vic.gov.au",
+    "report_id": "wim150-mineral-sands",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S38",
+    "url": "https://www.iluka.com/community-engagement/wimmera",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-8fe2738fe0c70fba"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Wimmera - Community Engagement | Iluka Resources",
+    "publisher_host": "www.iluka.com",
+    "report_id": "wimmera",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-S39",
+    "url": "https://investors.cobraplc.com/announcements/VQ0lGG-cobra-resources-plc-maiden-rare-earth-mineral-resource-estimate",
+    "format": "html",
+    "review_group_ids": [
+      "PRJ-c1b80cdb8c29bd95"
+    ],
+    "publication_date": "",
+    "purpose": "Existing primary locator acquisition; dated technical and scope review required",
+    "title": "Existing government or issuer project locator; source-specific content review in ledger",
+    "publisher_host": "investors.cobraplc.com",
+    "report_id": "VQ0lGG-cobra-resources-plc-maiden-rare-earth-mineral-resource-estimate",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-BR-DFS",
+    "url": "https://announcements.asx.com.au/asxpdf/20250915/pdf/06p6zt0hxtpg01.pdf",
+    "format": "pdf",
+    "publication_date": "2025-09-15",
+    "review_group_ids": [
+      "PRJ-5e1fe375adb47011"
+    ],
+    "purpose": "Resolve economic study/resource/scope gap",
+    "title": "Browns Range Heavy Rare Earth Project Definitive Feasibility Study",
+    "publisher_host": "announcements.asx.com.au",
+    "report_id": "06p6zt0hxtpg01.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-JU-SCOP",
+    "url": "https://hermes-cdn.investorhub.com/announcement-pdfs/asx/7794821.pdf?v=63959663947",
+    "format": "pdf",
+    "publication_date": "2026-10-20",
+    "review_group_ids": [
+      "PRJ-f31e227c28be436c"
+    ],
+    "purpose": "Resolve economic study/resource/scope gap",
+    "title": "Jupiter Scoping Study Defines Pathway to Development",
+    "publisher_host": "hermes-cdn.investorhub.com",
+    "report_id": "7794821.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-DU-SCOP",
+    "url": "https://announcements.asx.com.au/asxpdf/20250711/pdf/06lq7vsvvk6yms.pdf",
+    "format": "pdf",
+    "publication_date": "2025-07-11",
+    "review_group_ids": [
+      "PRJ-ed5b2db33c702b9f"
+    ],
+    "purpose": "Resolve economic study/resource/scope gap",
+    "title": "Dubbo Project Heap Leach Scoping Study",
+    "publisher_host": "announcements.asx.com.au",
+    "report_id": "06lq7vsvvk6yms.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-WI-MRE26",
+    "url": "https://www.iluka.com/media/0o0novln/29jan26-wim100-mineral-resource-estimate-increase.pdf",
+    "format": "pdf",
+    "publication_date": "2026-01-29",
+    "review_group_ids": [
+      "PRJ-8fe2738fe0c70fba"
+    ],
+    "purpose": "Resolve economic study/resource/scope gap",
+    "title": "WIM100 Mineral Resource estimate increase",
+    "publisher_host": "www.iluka.com",
+    "report_id": "29jan26-wim100-mineral-resource-estimate-increase.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-WI-PFS23",
+    "url": "https://www.iluka.com/documents/2023/asx-releases/revised-announcement-wimmera-ore-reserve-and-mineral-resource-update/",
+    "format": "pdf",
+    "publication_date": "2023-02-22",
+    "review_group_ids": [
+      "PRJ-8fe2738fe0c70fba"
+    ],
+    "purpose": "Resolve economic study/resource/scope gap",
+    "title": "Revised announcement Wimmera development progress WIM100 Ore Reserve and updated Mineral Resource",
+    "publisher_host": "www.iluka.com",
+    "report_id": "/documents/2023/asx-releases/revised-announcement-wimmera-ore-reserve-and-mineral-resource-update/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-WI-AR25",
+    "url": "https://www.iluka.com/media/yhwn2hzi/2025-annual-report-including-appendix-4e.pdf",
+    "format": "pdf",
+    "publication_date": "2026-02-18",
+    "review_group_ids": [
+      "PRJ-8fe2738fe0c70fba"
+    ],
+    "purpose": "Resolve economic study/resource/scope gap",
+    "title": "2025 Annual Report including Appendix4E (access failed)",
+    "publisher_host": "www.iluka.com",
+    "report_id": "2025-annual-report-including-appendix-4e.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-CO-PFS-CONTRACTOR",
+    "url": "https://ausenco.com/insights/ausenco-to-lead-the-definitive-feasibility-study-for-the-copi-project/",
+    "format": "html",
+    "publication_date": "2025-09-30",
+    "review_group_ids": [
+      "PRJ-42437b4a11115372"
+    ],
+    "purpose": "Resolve economic study/resource/scope gap",
+    "title": "Ausenco to lead the Definitive Feasibility Study for the Copi Project - Ausenco English",
+    "publisher_host": "ausenco.com",
+    "report_id": "/insights/ausenco-to-lead-the-definitive-feasibility-study-for-the-copi-project/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-CO-MRE24",
+    "url": "https://rzresources.com/operations/reserves-and-resources/",
+    "format": "html",
+    "publication_date": "",
+    "review_group_ids": [
+      "PRJ-42437b4a11115372"
+    ],
+    "purpose": "Resolve economic study/resource/scope gap",
+    "title": "Copi Project JORC resources as at July2024 (access failed)",
+    "publisher_host": "rzresources.com",
+    "report_id": "/operations/reserves-and-resources/",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-GC-SCOP",
+    "url": "https://wcsecure.weblink.com.au/clients/acdcmetals/headline.aspx?headlineid=3669765",
+    "format": "pdf",
+    "publication_date": "2025-06-12",
+    "review_group_ids": [
+      "PRJ-1444078e330122f9"
+    ],
+    "purpose": "Resolve exact category/date/product/footprint gap",
+    "title": "Outstanding Economic Potential Demonstrated with Goschen Central Scoping Study",
+    "publisher_host": "wcsecure.weblink.com.au",
+    "report_id": "headline.aspx",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-GC-MRE",
+    "url": "https://4333pgmxcjqn-u1329.pressidiumcdn.com/wp-content/uploads/2025/01/ACDC-Metals-Announcements.pdf",
+    "format": "pdf",
+    "publication_date": "2024-12-03",
+    "review_group_ids": [
+      "PRJ-1444078e330122f9"
+    ],
+    "purpose": "Resolve exact category/date/product/footprint gap",
+    "title": "ACDC Metals Delivers Significant Upgrade at Goschen Central (access failed)",
+    "publisher_host": "4333pgmxcjqn-u1329.pressidiumcdn.com",
+    "report_id": "ACDC-Metals-Announcements.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-BR-FID",
+    "url": "https://hermes-cdn.investorhub.com/announcement-pdfs/asx/7761221.pdf?v=63957945122",
+    "format": "pdf",
+    "publication_date": "2026-09-30",
+    "review_group_ids": [
+      "PRJ-5e1fe375adb47011"
+    ],
+    "purpose": "Resolve exact category/date/product/footprint gap",
+    "title": "2026 Annual Financial Statements External Auditor Arrangements and FID Update",
+    "publisher_host": "hermes-cdn.investorhub.com",
+    "report_id": "7761221.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-JU-MRE",
+    "url": "https://hermes-cdn.investorhub.com/announcement-pdfs/asx/7781179.pdf?v=63958972805",
+    "format": "pdf",
+    "publication_date": "2026-10-12",
+    "review_group_ids": [
+      "PRJ-f31e227c28be436c"
+    ],
+    "purpose": "Resolve exact category/date/product/footprint gap",
+    "title": "Jupiter Delivers First160Mt Indicated Mineral Resource",
+    "publisher_host": "hermes-cdn.investorhub.com",
+    "report_id": "7781179.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-KO-PFS-PRES",
+    "url": "https://hermes-cdn.investorhub.com/announcement-pdfs/asx/7600078.pdf?v=63949564486",
+    "format": "pdf",
+    "publication_date": "2026-06-25",
+    "review_group_ids": [
+      "PRJ-eddb94bfb0009112"
+    ],
+    "purpose": "Extend bounded research beyond seven priorities",
+    "title": "Koppamurra Pre-Feasibility Study Investor Webinar and presentation; not full PFS",
+    "publisher_host": "hermes-cdn.investorhub.com",
+    "report_id": "7600078.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-SM-SCOP",
+    "url": "https://announcements.asx.com.au/asxpdf/20241211/pdf/06chs9z9cp3tcy.pdf",
+    "format": "pdf",
+    "publication_date": "2024-12-11",
+    "review_group_ids": [
+      "PRJ-84da3806069234c6"
+    ],
+    "purpose": "Extend bounded research beyond seven priorities",
+    "title": "Sandy Mitchell Scoping Study; attached SMP-SS-001",
+    "publisher_host": "announcements.asx.com.au",
+    "report_id": "06chs9z9cp3tcy.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-AV-BFS-SUM",
+    "url": "https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2024/11/WIM-Avonbank-Info.pdf",
+    "format": "pdf",
+    "publication_date": "",
+    "review_group_ids": [
+      "PRJ-679f5da200a4564c"
+    ],
+    "purpose": "Extend bounded research beyond seven priorities",
+    "title": "Avonbank Mineral Sands Project Overview Information Sheet; undated summary",
+    "publisher_host": "wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com",
+    "report_id": "WIM-Avonbank-Info.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-DO-BFS26",
+    "url": "https://wcsecure.weblink.com.au/pdf/ATR/03073797.pdf",
+    "format": "pdf",
+    "publication_date": "2026-03-31",
+    "review_group_ids": [
+      "PRJ-b0608471dedd443e"
+    ],
+    "purpose": "Extend study version and resource scope verification",
+    "title": "Bankable Feasibility Study Donald Project Phase1; attached summary report",
+    "publisher_host": "wcsecure.weblink.com.au",
+    "report_id": "03073797.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-CC-SCOP13",
+    "url": "https://www.asx.com.au/asxpdf/20130415/pdf/42f7v06gx1svy4.pdf",
+    "format": "pdf",
+    "publication_date": "2013-04-15",
+    "review_group_ids": [
+      "PRJ-66cfaf6a1597917e"
+    ],
+    "purpose": "Extend study version and resource scope verification",
+    "title": "Charley Creek Rare Earths Project Scoping Study Results",
+    "publisher_host": "www.asx.com.au",
+    "report_id": "42f7v06gx1svy4.pdf",
+    "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  }
+]

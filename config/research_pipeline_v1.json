@@ -5,7 +5,8 @@
   "profiles": {
     "c1": [
       "c0_cohort",
-      "c1_stage1"
+      "c1_stage1",
+      "structural_round01"
     ],
     "p234": [
       "p234_event_router"
@@ -13,6 +14,7 @@
     "all": [
       "c0_cohort",
       "c1_stage1",
+      "structural_round01",
       "p234_event_router"
     ],
     "legacy": [
@@ -20,6 +22,13 @@
     ]
   },
   "stages": {
+    "structural_round01": {
+      "script": "scripts/build_structural_round01.py",
+      "type": "python_script",
+      "arg_check": "--check",
+      "arg_write": "--write",
+      "guard": "DOCUMENTARY_READINESS_ONLY_NO_FORMAL_GATES_NO_MCDA"
+    },
     "c0_cohort": {
       "script": "scripts/build_c0_freeze_c1_c2_v1.py",
       "type": "python_script",

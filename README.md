@@ -13,10 +13,13 @@
 | C0 F2：政府原生圖徵暫停重複搜尋 | 151 筆候選，6 筆有待對應的新報告線索 | **0** 筆暫停簽核 |
 | C1 / C2 母體 | 39 個 Project 審查群組；另有 13 個 P1 正向 source cases 待交叉對照 | **C1 = 0、C2 = 0** |
 | C1 首輪原文查核（2026-11-01） | **7 個**經濟研究線索群組有新的有界政府／發行人來源文字；32 個保留先前初審 | 7/39 是證據補查，不是准入 |
+| Execution Round 01（接續首輪） | **39 群組有界分類、9 群組技術原件頁面審查；13 PDF＋23 HTML 原件；24 個文件缺口解決** | 27/195 文件格可送審；Jupiter 五項文件包 ready 1；正式 Structural/C1/C2 仍 0 |
 | P2–P4 備查 | P2 8 筆、P3 87 筆、P4 64 筆需外部技術原文補強；P3/P4 151 筆可整理為 100 組原生 ID 取件工作單位 | 只在新的來源事件出現時重新啟動 |
 | MCDA | 舊版 Python 五階段與 R 運算程式保留；六構面 9/12 準則候選尚未固定 | **不得宣稱正式 C1 排名** |
 
 原始來源快照截止日：**2026-10-29**；本版腳本與來源複核：**2026-11-01**。完整詳細資料見 [C0/C1/C2 政策](docs/C0_FREEZE_AND_C1_C2_POLICY.md)、[C1 首輪 7 案核查](docs/audits/2026-11-01_c1_stage1_source_review.md)、[339 筆 P2–P4 原因分類](docs/audits/2026-10-31_p234_b06_reasons_and_followups_report.md)。
+
+**最新成果：[Structural Round 01 報告與完整表格索引](docs/audits/structural_round01/REPORT.md)。** 同範圍 REO 原始表有 7 組，其中 4 組 JORC 文件格可送審；8 組取得截止日前經濟研究發布原件，但研究完成不自動證明 cutoff 時仍 pre-FID。GIS_SOURCE 只定位原圖件，**不是 GIS_RELEASE 核准**；8 組 ID＋ROLE 文件候選均未獨立核准，C2 仍 0。Core／Extended Panel 未選定。
 
 ## 研究架構圖
 
@@ -51,6 +54,7 @@ flowchart TD
     CFG["config/research_pipeline_v1.json"] --> M
     M --> CO["子腳本：build_c0_freeze_c1_c2_v1.py<br/>C0 F1/F2 與 C1/C2 Gate 帳本"]
     CO --> CI["子腳本：review_c1_stage1_v1.py<br/>C1 首輪 7 案 + 39 群組"]
+    CI --> SR["子腳本：build_structural_round01.py<br/>39群組／五項文件證據／原件manifest"]
     M --> EVT{"inputs/evidence/<br/>有新增官方來源事件？"}
     EVT -- "無" --> SKIP["SKIP_NO_NEW_EVIDENCE"]
     EVT -- "有" --> ROUTE["子腳本：route_p234_new_evidence_v1.py"]
@@ -59,7 +63,7 @@ flowchart TD
     M -. "明確指定 legacy profile 才能執行" .-> OLD["src/au_ree/cli.py<br/>舊五階段 SQLite pipeline"]
     OLD --> V1["population → criteria → GIS → eligibility → R export"]
     GATE{"C1 六 Gate + 固定 Panel + GIS 全批准？"}
-    CI --> GATE
+    SR --> GATE
     GATE -- "未通過" --> BLOCK["正式 MCDA 暫緩"]
     GATE -- "全部獨立核准後，另行啟動" --> R["R/run_mcda.R<br/>保留的舊 R 分析入口"]
 ```
@@ -87,7 +91,10 @@ python scripts/run_research_pipeline.py --profile all --plan
 python -m unittest discover -s tests -p test_research_pipeline_supervisor_v1.py -v
 python -m unittest discover -s tests -p test_c1_stage1_v1.py -v
 python -m unittest discover -s tests -p test_p234_new_evidence_trigger_v1.py -v
+python -m unittest discover -s tests -p test_structural_round01.py -v
 ```
+
+Round 01 原件另可在本機用 `python scripts/build_structural_round01.py --check --verify-originals` 核對 SHA-256。原件位於 `work/structural_round01/originals/`，public Git 保存 metadata／hash／頁碼／有界判讀。明確線上取件才用 `python scripts/acquire_structural_round01.py --fetch`（需 requests）；母腳本維持離線標準函式庫重建。不要把重新下載的變動網頁覆蓋凍結來源。
 
 若要獨立核對舊五階段流程，執行 `python -m au_ree plan --through r_export`（安裝 `pip install -e .` 後）；需實際執行舊版資料庫階段時，明確使用 `--profile legacy --mode write`，此流程不屬於研究主線的正式 C1 release。
 
