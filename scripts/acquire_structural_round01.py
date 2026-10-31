@@ -18,7 +18,6 @@ MANIFEST = ROOT / 'inputs/source_review_20261101/structural_round01_access_manif
 
 
 def fetch(item):
-    import requests
     ARCHIVE.mkdir(parents=True, exist_ok=True)
     path = ARCHIVE / (item['source_id'] + '.bin')
     meta = path.with_suffix('.json')
@@ -48,6 +47,8 @@ def fetch(item):
         raise FileExistsError('archived original lacks manifest: ' + item['source_id'])
     result = dict(item, retrieved_at=datetime.now(timezone.utc).isoformat(),
                   archive_path=path.relative_to(ROOT).as_posix(), sha256='', byte_count=0)
+    # Offline cache validation must not depend on the optional HTTP client.
+    import requests
     try:
         session = requests.Session()
         session.trust_env = False
