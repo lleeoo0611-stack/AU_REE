@@ -1,5 +1,10 @@
 # Australian REE — Project Database & MCDA
 
+## P2–P4 Batch 06 — 339 筆阻礙原因分類與跨層技術補查（2026-10-31）
+
+[原因分類與實證核查報告](docs/audits/2026-10-31_p234_b06_reasons_and_followups_report.md) · [339 筆逐列原因 CSV](docs/audits/2026-10-31_p234_b06_reason_classification_339.csv) · [原因摘要 JSON](docs/audits/2026-10-31_p234_b06_reason_summary.json) · [4 筆 P2 官方原文](inputs/source_review_20261031/p234_b06_p2_public_primary_reviews.csv) · [8 筆相關但未核准相同來源的索引](inputs/source_review_20261031/p234_b06_related_locator_cases.csv)。PR #45／#46／#47 已先依序合併。新增 P2 Arthur Popes、Blues Folley、Bells Monazite、Elaine Dorothy 來源判讀：P2 公開文字有界複核 **20／28**、仍待技術原件 **8**；P3／P4 原生圖徵 87＋64 筆待補，維持 **100** 個共同取件單位；全部 **159 筆／108 工作單位**為技術原件優先佇列。原始證據八類原因與現況七類工作阻礙分開，特別修正 Elaine Dorothy P2 與 P3 對 2010 **83,000t @ 3,200ppm TREO** 歷史 JORC 記載的不一致，並隔離 Wolfram Hill Bell's Monazite／Cox Peninsula Bells Mona 同名誤認。P4 Spartacus、North Bleechmore Dykes、Skyfall 新定位證據尚待 exact native ID 相符，**不虛增完成原件數**。119 筆 C0 來源結案候選與 ADR-P0-028 凍結規則仍未核准；C1/JORC/GIS/MCDA 不更動。驗證：`python scripts/build_p234_reason_classification_b06.py --check`。
+
+
 ## P2–P4 B05 — 339 筆全量分流、100 組原生 ID 與凍結規則草案（2026-10-31）
 
 [報告與凍結規則討論](docs/audits/2026-10-31_p234_b05_triage_and_freeze_proposal.md) · [339 筆逐列分流 CSV](docs/audits/2026-10-31_p234_b05_source_triage_339.csv) · [P3/P4 100 組 native ID crosswalk](docs/audits/2026-10-31_p34_b05_native_workgroups_100.csv) · [112 組待辦](docs/audits/2026-10-31_p234_b05_priority_work_queue_112.csv) · [B05 摘要 JSON](docs/audits/2026-10-31_p234_b05_triage_summary.json)。新增 **4 筆 P2 具名官方／發行人資料範圍判讀**（Duke、Bruce Prospect、Plenty River、Brumby Clydesdale），P2 待原文補強 **12** 筆；P3/P4 仍有 **87／64** 筆 native-only，這 151 筆依同州政府原生 ID 組織為 **100** 個取件單位、51 組共享 ID，保持全部來源 ID。另獲 NT Skyfall 原始報告索引兩筆 locator，未宣稱來源點 crosswalk 已完成。143 筆有保存原件相關內容、32 筆有公開文字判讀、1 筆網頁快取、12 筆舊 P2 桌面審查、151 筆僅 native。篩選 **119 筆來源層結案審查候選**，**尚未凍結或簽核**；保留 C1/JORC/GIS/13 案/MCDA 0 核准。可重跑 `python scripts/build_p234_source_triage_b05.py --check`。本 PR 疊加尚未合併之 B03/B04，合併順序應依 PR #45 → #46 → 本批處理。
