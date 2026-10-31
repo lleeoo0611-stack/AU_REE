@@ -6,6 +6,9 @@ the 487 source targets are independently verified mining Projects.
 from __future__ import annotations
 
 import csv
+import json
+import sqlite3
+from types import SimpleNamespace
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 
@@ -165,3 +168,29 @@ def test_sqlite_census_rebuild_fails_closed_on_broken_identity_links(tamper):
             found[key]=source["target_id"]
     with pytest.raises(ValueError):
         validate_census_relations(tables)
+
+
+def test_frozen_487_sqlite_rebuild_preserves_source_entity_identity(tmp_path):
+    """Real tracked 487 CSV inputs must rebuild into a verifiable SQLite DB."""
+    from reproducibility.build_census_database import csv_build
+    dest=tmp_path/"census_review.sqlite"
+    csv_build(SimpleNamespace(csv_dir=ROOT/"outputs",output=dest,
+                              as_of_date="2026-10-29",overwrite=False))
+    assert dest.is_file()
+    with sqlite3.connect(dest) as db:
+        assert db.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
+        assert db.execute("PRAGMA foreign_key_check").fetchall()==[]
+        for table,expected in (
+            ("487_definition_review",487),
+            ("487_inclusion_gate",487),
+            ("project_entity_membership_487",487),
+            ("source_entity_register_487",487),
+            ("project_entity_register",39),
+        ):
+            quoted='"'+table+'"'
+            assert db.execute(f"SELECT COUNT(*) FROM {quoted}").fetchone()[0]==expected
+    manifest=json.loads((tmp_path/"census_review.sqlite.manifest.json").read_text(encoding="utf-8"))
+    assert manifest["sqlite_integrity_check"]=="ok"
+    assert manifest["census_relation_check"]["unique_native_source_entities"]==451
+    assert manifest["census_relation_check"]["repeated_targets_on_same_native_entity"]==36
+    assert manifest["census_relation_check"]["status"]=="CENSUS_RELATIONS_STRUCTURALLY_VERIFIED_NOT_PROJECT_APPROVED"
