@@ -1,5 +1,10 @@
 # Change log
 
+## 2026-11-01 — Government ArcGIS feature snapshot replay integrity
+
+- 修正 `src/au_ree/source_adapters.py`：同一來源 query 的 ArcGIS raw `manifest.json` 第一次成功寫入後不可在重跑時自動覆寫。重新計算 source metadata、ID 和每個 feature chunk SHA-256，與已封存 manifest 不一致即回報來源變動並拒絕重建。
+- 在 `tests/test_official_census.py` 新增相同 OID 下原始 feature 屬性遭改動、metadata 遭修改的離線重建反例；要求舊 manifest 完全保留。屬 2026-10-29 Census 原始來源位元組保護，尚未核准 Project 身分或正式 MCDA。
+
 ## 2026-11-01 — Project identity release gate linked to independent original evidence
 
 - `src/au_ree/identity_policy.py` 新增既有 SQLite 身分資料的核查函式，要求 source Project candidate、有效 `identity_review_decisions`、`EVIDENCE_BACKED_PROJECT` Master、穩定對應 ID 及獨立核准原件 bytes 全部吻合。
