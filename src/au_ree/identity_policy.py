@@ -128,6 +128,9 @@ def apply_identity_decisions(db,root,freeze_date):
     """Only an independently APPROVED archived document may create/link a Project."""
     path=Path(root)/'inputs'/'project_identity_decisions.csv'
     decisions=readcsv(path) if path.exists() else []
+    candidate_ids=[(r.get('candidate_id') or '').strip() for r in decisions]
+    if len(candidate_ids)!=len(set(candidate_ids)):
+        raise ValueError('Duplicate candidate_id in Project identity decision ledger')
     # Approve independent Project parents before resolving child/source links.
     # Otherwise the lexical candidate_id order controls whether an otherwise
     # valid, same-batch Project–Deposit relationship is accepted.
@@ -201,9 +204,15 @@ def apply_identity_decisions(db,root,freeze_date):
                                    (utc(),pid,'APPROVED_CANDIDATE:'+cid))
                 if valid:stats['approved_new']+=1
         elif valid and action=='LINK_EXISTING_PROJECT':
+            old=db.execute('SELECT resolved_project_id FROM identity_review_decisions WHERE candidate_id=?',
+                           (cid,)).fetchone()
+            if old and old['resolved_project_id'] and old['resolved_project_id']!=pid:
+                valid=False;reason='STABLE_PROJECT_LINK_CHANGE_REQUIRES_CORRECTION'
             master=db.execute('''SELECT project_id,state,population_status,identity_source
                 FROM project_master WHERE project_id=?''',(pid,)).fetchone()
-            if not master or master['state']!=candidate['state']:
+            if not valid:
+                pass  # A prior independently approved link cannot be silently moved.
+            elif not master or master['state']!=candidate['state']:
                 valid=False;reason='PROJECT_MISSING_OR_STATE_CONFLICT'
             elif (master['population_status']!='EVIDENCE_BACKED_PROJECT'
                   or not str(master['identity_source'] or '').startswith('APPROVED_CANDIDATE:')):
