@@ -19,6 +19,8 @@ import json
 import re
 import shutil
 import sqlite3
+import os
+import tempfile
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -406,61 +408,68 @@ def csv_build(args) -> None:
         {path.stem: rows for _, path, _, rows in tables}
     )
     input_digest = hashlib.sha256(canonical_json(inputs).encode("utf-8")).hexdigest()
-    if dest.exists():
-        dest.unlink()
-    conn = sqlite3.connect(dest)
-    conn.execute("PRAGMA journal_mode=DELETE")
-    conn.execute("PRAGMA synchronous=FULL")
-    conn.execute("PRAGMA foreign_keys=ON")
-    conn.execute("CREATE TABLE _source_file_manifest (file TEXT PRIMARY KEY, sha256 TEXT NOT NULL, bytes INTEGER NOT NULL, rows INTEGER NOT NULL, table_name TEXT NOT NULL)")
-    conn.execute("CREATE TABLE _build_metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL)")
-    for table, path, fields, rows in tables:
-        qtable = '"' + table.replace('"', '""') + '"'
-        qfields = ", ".join('"' + f.replace('"', '""') + '" TEXT' for f in fields)
-        conn.execute(f"CREATE TABLE {qtable} ({qfields})")
-        if rows:
-            cols = ", ".join('"' + f.replace('"', '""') + '"' for f in fields)
-            marks = ",".join("?" for _ in fields)
-            conn.executemany(f"INSERT INTO {qtable} ({cols}) VALUES ({marks})", [[r.get(f, "") for f in fields] for r in rows])
-    conn.executemany("INSERT INTO _source_file_manifest VALUES (?,?,?,?,?)", [(x["file"], x["sha256"], x["bytes"], x["rows"], x["table"]) for x in inputs])
-    metadata = {
-        "schema_version": "census-review-csv-v1",
-        "as_of_date": args.as_of_date,
-        "builder_version": CSV_BUILD_VERSION,
-        "input_manifest_sha256": input_digest,
-        "csv_input_count": str(len(inputs)),
-        "python_version": sys.version.split()[0],
-        "sqlite_version": sqlite3.sqlite_version,
-    }
-    conn.executemany("INSERT INTO _build_metadata VALUES (?,?)", sorted(metadata.items()))
-    conn.commit()
-    integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
-    if integrity != "ok" or conn.execute("PRAGMA foreign_key_check").fetchall():
+    # Construct a fresh database beside the previous release.
+    # TemporaryDirectory cleans up failed builds without harming prior data.
+    with tempfile.TemporaryDirectory(prefix=f".{dest.name}.", dir=dest.parent) as stage_dir:
+        staging_db = Path(stage_dir) / dest.name
+        conn = sqlite3.connect(staging_db)
+        conn.execute("PRAGMA journal_mode=DELETE")
+        conn.execute("PRAGMA synchronous=FULL")
+        conn.execute("PRAGMA foreign_keys=ON")
+        conn.execute("CREATE TABLE _source_file_manifest (file TEXT PRIMARY KEY, sha256 TEXT NOT NULL, bytes INTEGER NOT NULL, rows INTEGER NOT NULL, table_name TEXT NOT NULL)")
+        conn.execute("CREATE TABLE _build_metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL)")
+        for table, path, fields, rows in tables:
+            qtable = '"' + table.replace('"', '""') + '"'
+            qfields = ", ".join('"' + f.replace('"', '""') + '" TEXT' for f in fields)
+            conn.execute(f"CREATE TABLE {qtable} ({qfields})")
+            if rows:
+                cols = ", ".join('"' + f.replace('"', '""') + '"' for f in fields)
+                marks = ",".join("?" for _ in fields)
+                conn.executemany(f"INSERT INTO {qtable} ({cols}) VALUES ({marks})", [[r.get(f, "") for f in fields] for r in rows])
+        conn.executemany("INSERT INTO _source_file_manifest VALUES (?,?,?,?,?)", [(x["file"], x["sha256"], x["bytes"], x["rows"], x["table"]) for x in inputs])
+        metadata = {
+            "schema_version": "census-review-csv-v1",
+            "as_of_date": args.as_of_date,
+            "builder_version": CSV_BUILD_VERSION,
+            "input_manifest_sha256": input_digest,
+            "csv_input_count": str(len(inputs)),
+            "python_version": sys.version.split()[0],
+            "sqlite_version": sqlite3.sqlite_version,
+        }
+        conn.executemany("INSERT INTO _build_metadata VALUES (?,?)", sorted(metadata.items()))
+        conn.commit()
+        integrity = conn.execute("PRAGMA integrity_check").fetchone()[0]
+        if integrity != "ok" or conn.execute("PRAGMA foreign_key_check").fetchall():
+            conn.close()
+            raise RuntimeError("Built database failed SQLite validation")
+        stats = {}
+        for table, _, fields, rows in tables:
+            stats[table] = {"rows": len(rows), "logical_sha256": logical_hash([tuple(r.get(f, "") for f in fields) for r in rows])}
+        if "487_definition_review" in stats and stats["487_definition_review"]["rows"] != 487:
+            raise AssertionError("The 487-row target table is incomplete")
+        if "487_official_tenure_intersection_evidence_compact" in stats and stats["487_official_tenure_intersection_evidence_compact"]["rows"] != 764:
+            raise AssertionError("The pinned tenure intersection table is incomplete")
         conn.close()
-        raise RuntimeError("Built database failed SQLite validation")
-    stats = {}
-    for table, _, fields, rows in tables:
-        stats[table] = {"rows": len(rows), "logical_sha256": logical_hash([tuple(r.get(f, "") for f in fields) for r in rows])}
-    if "487_definition_review" in stats and stats["487_definition_review"]["rows"] != 487:
-        raise AssertionError("The 487-row target table is incomplete")
-    if "487_official_tenure_intersection_evidence_compact" in stats and stats["487_official_tenure_intersection_evidence_compact"]["rows"] != 764:
-        raise AssertionError("The pinned tenure intersection table is incomplete")
-    conn.close()
-    manifest = {
-        "format_version": FORMAT_VERSION,
-        "csv_build_version": CSV_BUILD_VERSION,
-        "as_of_date": args.as_of_date,
-        "input_directory": source_dir.name,
-        "input_manifest_sha256": input_digest,
-        "input_files": inputs,
-        "table_results": stats,
-        "database_sha256": sha256(dest),
-        "sqlite_integrity_check": integrity,
+        manifest = {
+            "format_version": FORMAT_VERSION,
+            "csv_build_version": CSV_BUILD_VERSION,
+            "as_of_date": args.as_of_date,
+            "input_directory": source_dir.name,
+            "input_manifest_sha256": input_digest,
+            "input_files": inputs,
+            "table_results": stats,
+            "database_sha256": sha256(staging_db),
+            "sqlite_integrity_check": integrity,
         "census_relation_check": relation_check,
-    }
-    manifest_path = Path(str(dest) + ".manifest.json")
-    manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"database": str(dest), "tables": len(tables), "csv_files": len(inputs), "rows": sum(x["rows"] for x in inputs), "manifest": str(manifest_path), "integrity_check": integrity, "input_manifest_sha256": input_digest}, ensure_ascii=False))
+        }
+        manifest_path = Path(str(dest) + ".manifest.json")
+        staged_manifest = Path(stage_dir) / manifest_path.name
+        staged_manifest.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        # Only publish the already validated database and provenance manifest.
+        # On any earlier error, the prior release stays untouched.
+        os.replace(staging_db, dest)
+        os.replace(staged_manifest, manifest_path)
+        print(json.dumps({"database": str(dest), "tables": len(tables), "csv_files": len(inputs), "rows": sum(x["rows"] for x in inputs), "manifest": str(manifest_path), "integrity_check": integrity, "input_manifest_sha256": input_digest}, ensure_ascii=False))
 
 
 def main():
