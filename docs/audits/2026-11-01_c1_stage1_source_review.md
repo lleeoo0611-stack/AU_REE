@@ -7,10 +7,12 @@
 | Browns Range (WA) | 2025-09-15 Northern Minerals ASX 公開 DFS 原文位置；2026 後續新聞尚需檢查 publication as-of | DFS 對應 Wolverine / Dazzler 與 REO JORC Resource statement、Project GIS 與六 Gate 人工簽核 |
 | Bungalally (VIC) | WIM 網站僅述 `at a Scoping Study stage`；205Mt @ 2.7% **THM** JORC Inferred | **已完成的** Scoping Study 是否在 cutoff 前公開、同範圍 TREO JORC 及 REE 回收產品是否存在 |
 | Copi (NSW) | NSW 官方 Project 頁及舊 P1 案 2023 PFS 引述 | 2023 PFS **原始文件**、Copi vs Copi North、REE 氧化物資源/產品 |
-| Dubbo (NSW) | 2026-03 Austrade 國家 Prospectus 引述 2021 Optimisation Feasibility 和 2025-07 Heap Leach Scoping | 兩種經濟方案不可混算；需 JORC 原件、採用的研究方案/日期與正式 Project 邊界 |
+| Dubbo (NSW) | Austrade 2026-03 Prospectus p.33：歷史 2017-09 資源表 75.18Mt @0.88% TREO；同頁內文寫 2025-07 Heap Leach Study，但狀態欄列 2026-07 HL Case | **先核對發行人原始研究日期衝突**、2017 JORC vs 2026 Resource 時點、方案與法定 Project GIS；不可直接過 JORC/WINDOW Gate |
 | Goschen Central (VIC) | 發行人頁指 2025-06 已完成 Scoping；Phase1 HMS/REMC 和 Phase2 refinery/MREO 分開 | 計畫階段之獨立 REO JORC Resource/原始原件、Licensed GIS |
 | Jupiter (WA) | 2026-10-20 Critica ASX Scoping，引用 2026-10-12 1.7Bt @1,700ppm TREO MRE（1,000ppm cutoff，160Mt Indicated） | JORC Table/CP original、Jupiter deposit vs Brothers regional boundary、固定六構面及人工簽核 |
 | Wimmera (VIC) | Iluka 2024 年報 WIM100 2023 PFS、稀土 Ore Reserve；進行中的 DFS | WIM100 / WIM50 deposit scope、相同時點 REO Resource/Reserve 表、2026 pre-FID/Panel/GIS |
+
+**Dubbo 額外版本稽核：** 直接檢查 [Austrade Prospectus 影像第 35 頁、印刷第 33 頁](https://international.austrade.gov.au/content/dam/austrade-assets/international/documents/reports/critical-minerals/australian-critical-minerals-prospectus-march-2026.pdf#page=35)，同頁首段出現 2025-07 已完成 Heap Leach Scoping，狀態區又以 2026-07 標示 HL Case。該頁附有 *Mineral Resources as at Sep-17*，故記入 `SEP2017_HISTORIC_TREO_0_88_MRE_TABLE_CURRENT_JORC_UNVERIFIED`，待原始發行人 Study 及 JORC 日期對照，不逕用該表作 2026 年正式准入資源。
 
 上述訊號來自**官方或發行人可公開檢索的有界文字／報告索引**；本次未儲存 PDF 原始位元組與 SHA，也未宣稱完整原始技術文件已完成逐頁驗證。對其中頁面與研究截至日未能獨立核准者，維持 Gate HOLD。即便原始 Study 和某項 TREO 資源都有報導，也還需核對資源所屬 Deposit、分類、截至日期及 Project 權利範圍。
 
