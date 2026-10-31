@@ -82,7 +82,7 @@ def run(db,ctx):
             path=Path(local);path=ctx['root']/path if not path.is_absolute() else path
             relative=str(path.resolve().relative_to(ctx['root'].resolve())) if path.exists() and path.resolve().is_relative_to(ctx['root'].resolve()) else ''
             if (path.exists() and filehash(path)==entry.get('expected_sha256')
-                and verify(db,entry.get('approval_ref'),'GIS_LAYER',entry.get('official_source_url'),entry.get('expected_sha256'),relative)):
+                and verify(db,entry.get('approval_ref'),'GIS_LAYER',entry.get('official_source_url'),entry.get('expected_sha256'),relative,root=ctx['root'])):
                 data=json.loads(path.read_text(encoding='utf8'));features_all=data.get('features') or []
                 verified=True;layer_hash=filehash(path)
                 # Authorized local copy is provenance-verified by an exact checksum.
