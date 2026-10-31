@@ -319,7 +319,9 @@ def validate_census_relations(tables: dict[str, list[dict[str, str]]]) -> dict:
            for r in project_candidates.values()):
         raise ValueError("Project candidate register contains non-candidate entity")
     linked = 0
-    source_entity_ids = set()
+    # Several legacy and E1 targets intentionally point to the same native
+    # government feature. Keep both target IDs while checking their identity.
+    source_entity_ids = {}
     for target_id, original in baseline.items():
         g = gate[target_id]
         m = member[target_id]
@@ -331,10 +333,19 @@ def validate_census_relations(tables: dict[str, list[dict[str, str]]]) -> dict:
         if m.get("entity_id") != s.get("entity_id") or m.get("entity_type") != s.get("entity_type"):
             raise ValueError(f"Census source entity crosswalk mismatch: {target_id}")
         source_id = (s.get("entity_id") or "").strip()
-        if not source_id or source_id in source_entity_ids:
-            raise ValueError(f"Census missing/duplicate source entity ID: {target_id}")
-        source_entity_ids.add(source_id)
+        if not source_id:
+            raise ValueError(f"Census missing source entity ID: {target_id}")
         project_id = (m.get("project_entity_id") or "").strip()
+        original_identity = (
+            original.get("source_key"), original.get("source_native_id"),
+            original.get("state"), original.get("name"), m.get("entity_type"),
+            project_id, m.get("relation"),
+        )
+        if source_id in source_entity_ids:
+            if not original.get("source_native_id") or source_entity_ids[source_id] != original_identity:
+                raise ValueError(f"Census source entity ID collision/conflicting linkage: {target_id}")
+        else:
+            source_entity_ids[source_id] = original_identity
         if project_id:
             if project_id not in project_candidates:
                 raise ValueError(f"Census references unknown Project candidate: {target_id}")
@@ -353,6 +364,8 @@ def validate_census_relations(tables: dict[str, list[dict[str, str]]]) -> dict:
         "linked_source_targets": linked,
         "unlinked_source_targets": len(baseline) - linked,
         "reviewed_project_candidate_groups": len(project_candidates),
+        "unique_native_source_entities": len(source_entity_ids),
+        "repeated_targets_on_same_native_entity": len(baseline) - len(source_entity_ids),
     }
 
 
