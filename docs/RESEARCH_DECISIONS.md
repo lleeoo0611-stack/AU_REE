@@ -169,3 +169,7 @@
 ## Evidence batch decision EXT-TECH-B01（2026-10-31）
 
 本批採用「原始發行人文件的公開文字定位」與「已保存 PDF 位元組 + 頁面驗證」分層記錄；只有前者時 `original_byte_sha256` 留空。2017 Ketchowla JORC 2012 *Exploration Results* 不代表資源量；2011 Victory REE+Y grab assay、2025 Johnson Dam Nd 截距不能轉換成 TREO MRE。Scaddan 2024/2025 vendor clay 型態衝突另記為 evidence conflict，不憑行銷文案判定 IAC。資料判讀與原始 C1/13 案 Gate 分離；所有已建立正式資格及歷史快照保持不變。[本批報告](audits/2026-10-31_external_primary_batch01_review.md)。
+
+## Evidence batch decision EXT-TECH-B02（2026-10-31）
+
+新增「區域地質分區（Murray Basin）≠ Project」、「歷史地球化學異常（Pindari）≠ REO MRE」、「IOCG 伴生 REE 化學訊號（Acropolis）≠ REE 產品資源」的來源範圍證據。公開 PDF 索引文字、政府目錄／資料庫與研究摘要只能標為有界來源複核，不得冒充已下載／全篇核對原始 PDF；保留 `original_document_sha256` 空白。新增 [167 筆進度追蹤](audits/2026-10-31_external_primary_progress_167.csv) 只補充查核記錄，不覆寫 frozen source 或變更 C1／13 案 Gate／MCDA。
