@@ -1,0 +1,28 @@
+[
+  {
+    "document_id": "DOC-78504c076335",
+    "requested_url": "https://gsv.vic.gov.au/downloader/Downloader?ID=ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+    "target_ids": [
+      "E1:C-05a33fdf2479d876055f64",
+      "E1:C-1a0155973cdb745d7d8963",
+      "E1:C-202346d0e624eef81add0f",
+      "E1:C-5bedac873ca78a7c50bce2",
+      "E1:C-706be67b514e27fac287c4",
+      "E1:C-7a1f2283fb92b442fc7945",
+      "E1:C-7cf22b39f3f264aba1bed9",
+      "E1:C-905e55cdebb506a612cd39",
+      "E1:C-ddcb108b01d47c52feffac"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:29:07.522127+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+    "byte_count": 7332579,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+    "format": "pdf",
+    "redirect_query_redacted": "Expiring signed retrieval query omitted; original bytes and SHA256 unchanged"
+  }
+]

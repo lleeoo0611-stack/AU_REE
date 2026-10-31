@@ -1,0 +1,77 @@
+[
+  {
+    "document_id": "DOC-2e1aa73e51b2",
+    "requested_url": "https://www.aukingmining.com/site/PDF/ee839a6a-7f76-495d-babe-8e8924214472/PresentationreSharePurchasePlanCapitalRaising",
+    "target_ids": [
+      "E1:C-2422bf5ed202b1c4a0af80",
+      "E1:C-2ffd64ff516ddca18534e8",
+      "E1:C-4231b7667aefd6b4dcdcff"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:09:38.236934+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "document_id": "DOC-457f5447cb2f",
+    "requested_url": "https://www.asm-au.com/dubbo-project/",
+    "target_ids": [
+      "E1:C-c3529cfabd886a9dedc3d3"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:09:38.239229+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://asm-au.com/dubbo-project-awarded-500000-research-development-grant/",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "31050d44f233bd4eed3fee08780ae544af80795ec3cc4c1d61007eb23d1ad6c8",
+    "byte_count": 203761,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-457f5447cb2f_31050d44f233bd4e.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-b5f109eb6903",
+    "requested_url": "https://www.iluka.com/community-engagement/eneabba/",
+    "target_ids": [
+      "E1:C-43dcc3a383dcce7862066d"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:09:38.237988+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.iluka.com/community-engagement/eneabba/",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "6eb033e2c11daa29afe6356f8ca6382804ee5de1dd55205c9c503f6a4da73bef",
+    "byte_count": 125445,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b5f109eb6903_6eb033e2c11daa29.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-d89626834231",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/AR1927/AR1927.pdf",
+    "target_ids": [
+      "E1:C-8bf1bd308bd59a24640d8b"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:09:38.238662+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-fb5514ea9d21",
+    "requested_url": "https://www.iluka.com/media/viyl3h5a/wimmera-project-emm-s180481-wim100-ees-referral-rev-1-re-issued-for-use.pdf",
+    "target_ids": [
+      "E1:C-f61b7dff6135ac737d7124"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:09:38.239797+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.iluka.com/media/viyl3h5a/wimmera-project-emm-s180481-wim100-ees-referral-rev-1-re-issued-for-use.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "01c46a6ec9e28d34e1b51a8a69132a67e7beaee4eb0a3cb8c0a8339bc8f2df7f",
+    "byte_count": 687410,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-fb5514ea9d21_01c46a6ec9e28d34.pdf",
+    "format": "pdf"
+  }
+]

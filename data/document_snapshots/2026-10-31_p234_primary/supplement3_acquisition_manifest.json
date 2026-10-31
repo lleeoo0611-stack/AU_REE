@@ -1,0 +1,56 @@
+[
+  {
+    "document_id": "DOC-d1a9571e91e2",
+    "requested_url": "https://announcements.asx.com.au/asxpdf/20121025/pdf/429n7lbjnzgzk5.pdf",
+    "target_ids": [
+      "E1:C-2422bf5ed202b1c4a0af80",
+      "E1:C-2ffd64ff516ddca18534e8",
+      "E1:C-4231b7667aefd6b4dcdcff"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:11:44.644388+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://announcements.asx.com.au/asxpdf/20121025/pdf/429n7lbjnzgzk5.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "da55b38069b1c59b3ace01fc6d6ce305b7acd06d4727134ad66d547dc5c1d18c",
+    "byte_count": 6591990,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d1a9571e91e2_da55b38069b1c59b.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-f674dd968ef1",
+    "requested_url": "https://resourcingtheterritory.nt.gov.au/minerals/mineral-commodities/ree",
+    "target_ids": [
+      "E1:C-0d7bbc17639754ac69ecf3",
+      "E1:C-3ca4020e0ef413e308e981",
+      "E1:C-50ed67520c1995355b52f2",
+      "E1:C-7df4b7f311e45835f868b3",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2",
+      "LEGACY:6a9fc44e-fd8e-516e-a49d-5292844e3770"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:11:44.642926+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-fbff1cdd6ea1",
+    "requested_url": "https://announcements.asx.com.au/asxpdf/20100324/pdf/31pffb666j6sbj.pdf",
+    "target_ids": [
+      "E1:C-2422bf5ed202b1c4a0af80",
+      "E1:C-2ffd64ff516ddca18534e8",
+      "E1:C-4231b7667aefd6b4dcdcff"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:11:44.643791+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://announcements.asx.com.au/asxpdf/20100324/pdf/31pffb666j6sbj.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "2b51da2697dc28d0f30b0098d75ef97d565b2aedf056f7ff49052a19dda8cbb0",
+    "byte_count": 814517,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-fbff1cdd6ea1_2b51da2697dc28d0.pdf",
+    "format": "pdf"
+  }
+]

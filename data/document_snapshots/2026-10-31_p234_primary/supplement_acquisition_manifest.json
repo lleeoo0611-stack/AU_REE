@@ -1,0 +1,314 @@
+[
+  {
+    "document_id": "DOC-149cfd3ac31d",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3010",
+    "target_ids": [
+      "E1:C-5921eded957803d1b32229",
+      "E1:C-6be472701609731db26034"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:40.505071+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3010",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "854c9c7243690105394ccde306d622afca6e4f94058b7967aafddc538ff89f45",
+    "byte_count": 86311,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-149cfd3ac31d_854c9c7243690105.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-15d3864d77dc",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3000",
+    "target_ids": [
+      "E1:C-0f605aa53ea7731720d810",
+      "E1:C-ee1e2f5df447957c498748"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:36.087540+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3000",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "4223d12e1f27d78e87d5f44ab7c041bb3b5f1b7940486a9c99f83404451c13c7",
+    "byte_count": 116160,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-15d3864d77dc_4223d12e1f27d78e.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-23213f26dd9d",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=990",
+    "target_ids": [
+      "E1:C-49f7b1f8bc495129ed97b7",
+      "E1:C-b4acdc7c9ef2a823c0e709"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:40.008390+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=990",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "2285eec577f4663368b4b23d372b47ccb110ffb617b44f360c31179230cbdfb0",
+    "byte_count": 86004,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-23213f26dd9d_2285eec577f46633.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-3b8a41ae579a",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9768",
+    "target_ids": [
+      "E1:C-5501689ac20544b38f689c",
+      "E1:C-79eaeef4d4e5fd4eef8566"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:40.248132+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9768",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "2d83f3b860e0c93b3cd9ba125fc9a915653586e97dac5b51ed604b8471b8f331",
+    "byte_count": 75866,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-3b8a41ae579a_2d83f3b860e0c93b.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-5ddd80174f0d",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9140",
+    "target_ids": [
+      "E1:C-44231157fc05d671db1b23",
+      "E1:C-a9b13845d69d3e935055aa"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:40.006951+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9140",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "6b6d767f3d3a066bdd90908c3ddf1606b787a2e8ccbd81d4c46b3b9bf12c5354",
+    "byte_count": 69929,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-5ddd80174f0d_6b6d767f3d3a066b.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-60591b4a8aa1",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4856",
+    "target_ids": [
+      "E1:C-0b40952eb36db9727be42c",
+      "E1:C-c38ac0c899150192e6345f"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:36.087010+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4856",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c50d6ea5b6dca876f32c1b3e467914fc8888bbc013a140f52cafa1ee91b2f27c",
+    "byte_count": 98354,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-60591b4a8aa1_c50d6ea5b6dca876.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-6746952cbc69",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=6205",
+    "target_ids": [
+      "E1:C-26c7400882a8b62f0630d4",
+      "E1:C-401acac46e31ada2273813"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:38.716416+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=6205",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "47505c5b370ab27d61a65e083b7c07af2dc66613fe3479f81aac7bf7d42e86b6",
+    "byte_count": 82441,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-6746952cbc69_47505c5b370ab27d.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-6e9393dcd445",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=1927",
+    "target_ids": [
+      "E1:C-01c15e61bc1754b309c28a",
+      "E1:C-ae388d3a2da0e451965475"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:36.085446+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=1927",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "5b365624fafa646652296c30c7fb2a65a126afcf170a5103587951da6c09d794",
+    "byte_count": 101948,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-6e9393dcd445_5b365624fafa6466.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-7b9139f6d7f9",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=962",
+    "target_ids": [
+      "E1:C-701c4ff26f7181c3b6c8c4",
+      "E1:C-7197e29449ac7c75ea1d4e"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:42.444955+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=962",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "704f1734aba2172e5ec258c0170ce4ba7cae0349bbd11fca19db73271d283ba1",
+    "byte_count": 105099,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-7b9139f6d7f9_704f1734aba2172e.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-9058a1c20ae5",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8908",
+    "target_ids": [
+      "E1:C-8462647e44dac21cff6850"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:42.454487+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8908",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "1659390f18898ca8c289f28fbc6874f1c6b0e528c9da5a72e4a025996c024ef5",
+    "byte_count": 69939,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-9058a1c20ae5_1659390f18898ca8.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-a78823189a8f",
+    "requested_url": "https://gsv.vic.gov.au/searchAssistant/document.php?q=G171659",
+    "target_ids": [
+      "E1:C-05a33fdf2479d876055f64",
+      "E1:C-1a0155973cdb745d7d8963",
+      "E1:C-202346d0e624eef81add0f",
+      "E1:C-5bedac873ca78a7c50bce2",
+      "E1:C-706be67b514e27fac287c4",
+      "E1:C-7a1f2283fb92b442fc7945",
+      "E1:C-7cf22b39f3f264aba1bed9",
+      "E1:C-905e55cdebb506a612cd39",
+      "E1:C-ddcb108b01d47c52feffac"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:36.086429+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://gsv.vic.gov.au/SearchAssistant2/search?q=G171659",
+    "http_status": 200,
+    "content_type": "text/html",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "222a2fb8f8aca7933bb552c0df6c84b15a3bef9a9eab572ebf46e4c1a52fb0ef",
+    "byte_count": 1721,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-a78823189a8f_222a2fb8f8aca793.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-b1a9f4906f25",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11900",
+    "target_ids": [
+      "E1:C-c4ccdf7a5e293c2cebdc3e",
+      "E1:C-f961e830d773ff4b1dfb9e"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:42.730100+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11900",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "9e32a7a814a4c9f07aa22cba9bda5a30bd5f83d3d90eb9c8dda745c73844bd06",
+    "byte_count": 58931,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b1a9f4906f25_9e32a7a814a4c9f0.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-cd7804f763e9",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4150",
+    "target_ids": [
+      "E1:C-6814f6ba8fe76a3f602bb6",
+      "E1:C-8605a7c4dd8ac2d24da7e5"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:42.201710+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4150",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c2098627b51f3d1ab566a69c599399e3c30768cad6180a79b417f33da74c1145",
+    "byte_count": 73539,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-cd7804f763e9_c2098627b51f3d1a.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-e2b9eb986768",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9629",
+    "target_ids": [
+      "E1:C-5b813d08e4532015f7b345",
+      "E1:C-fd36b33ba598e909293c9f"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:42.198740+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9629",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "270448013dc14d6c1bd51df53deef9922b45c29e1c888ecaf4a487b687e5c606",
+    "byte_count": 73580,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e2b9eb986768_270448013dc14d6c.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-e5f7e4b31176",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11849",
+    "target_ids": [
+      "E1:C-137e5d7c0dccf189a6b0a1",
+      "E1:C-cd6c59c62aa7acbfe73e94"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:36.088652+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11849",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "3daf811abca155e8c13f0c7dc0ce48b6e798b6af2c59a4c00d4f7bf92282755f",
+    "byte_count": 54978,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e5f7e4b31176_3daf811abca155e8.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-ec1a2854fb6b",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3899",
+    "target_ids": [
+      "E1:C-12faff6d9a3b83c37cd658",
+      "E1:C-a73ec4609b8b2923f36b70"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:36.088106+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3899",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "b287e64a721a7dc2be9e4a669a2088ae4ee16272a0003fb2e5c4eab44ef9c7b2",
+    "byte_count": 76613,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ec1a2854fb6b_b287e64a721a7dc2.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-f8ce19a6ea03",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8303",
+    "target_ids": [
+      "E1:C-2712b98fa8881d78c664c7",
+      "E1:C-ecb079c3dfee53e980c224"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:06:40.001511+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8303",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "7bce1f2522542745b7ced2c55638bb24a5404b99153526c4d8e8a4f566a6e123",
+    "byte_count": 92132,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-f8ce19a6ea03_7bce1f2522542745.html",
+    "format": "html"
+  }
+]

@@ -1,0 +1,3347 @@
+[
+  {
+    "document_id": "DOC-11d5e18bc61a",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/38084d91-c2fd-4b13-9000-e8b3a43088f5/content",
+    "target_ids": [
+      "E1:C-df69530228b855dca7cf7d",
+      "LEGACY:be600996-0aaf-5fd5-86f8-0f38cfb95060"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:04:03.249890+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/38084d91-c2fd-4b13-9000-e8b3a43088f5/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "0e4473dcba2a81ee2a5dc986cd495c1af85d5bf0af805eb6d73602fe744a1a14",
+    "byte_count": 3650038,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-11d5e18bc61a_0e4473dcba2a81ee.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/76943/1/GR122_2012_GA_01.pdf",
+    "official_handle": "1/76943",
+    "official_item_uuid": "d3db5d19-c6f8-4e32-8e22-af90caa69c9c",
+    "official_item_title": "Group annual report for period ending 12 June 2012",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "3",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Davey, G",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "Flinders Mines",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2013-10-28T08:17:39Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2013-10-28T08:17:39Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "2012",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "Three phases of work were done in the reporting period. The first phase in mid-2011 was in the Bleechmore Dykes area of EL25056. No indication of carbonatite, alkalic intrusives or of rare earth mineralization was found. The circular magnetic anomaly in this area was interpreted to be due to magnetite in mafic granulites. The second phase of work was done in the pegmatite dyke area of EL25055 in early 2012. No new large areas of pegmatites were found, although many small sills were mapped. Assays of samples of pegmatite were low grade in rare earths. The third phase of work in early 2012 was a brief field visit by a consultant structural geologist. His conclusions were not favourable as to the rare earth prospectivity of the ELs. NuPower is currently assessing whether any further work is warranted in this project area.",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.geochemicalsampling": [
+        {
+          "value": "22 Rock chip samples",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "07/08/2012",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "11/10/2013",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.description.stratname": [
+        {
+          "value": "Strangways Metamorphic Complex",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR2012-0482",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR2012",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL25055",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "EL25056",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/76943",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Arunta Region",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Cenozoic sediments",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Alcoota 5752",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Laughlen 5751",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Alice Springs SF5314",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Alcoota SF5310",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Uranium",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Thorium",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Coal",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Rare earth elements",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Geochemical exploration",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Rock chip sampling",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Assay value",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "Group annual report for period ending 12 June 2012",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "",
+          "authority": null,
+          "confidence": 1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "GR122_2012_GA_01.pdf",
+    "original_bundle": "ORIGINAL"
+  },
+  {
+    "document_id": "DOC-ef102690cd02",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/57122300-79fa-468b-9232-19f9051d5a55/content",
+    "target_ids": [
+      "E1:C-068c36e97d756565022437"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:03:42.676848+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/57122300-79fa-468b-9232-19f9051d5a55/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "61d232adfda8f8f71c4bbae0cc4db0e4b708b9fd378611456746251579e2c9ae",
+    "byte_count": 1677797,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ef102690cd02_61d232adfda8f8f7.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://www.geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/92335",
+    "official_handle": "1/92335",
+    "official_item_uuid": "953972d3-c4e7-4563-b00f-bbd444fa779d",
+    "official_item_title": "Browns Range NT Project Annual Group Technical Report for the period 21 August 2015 to 20 August 2016 Exploratio License EL 24193 and EL 24174",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Warburton, K",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Wilson, R",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "Northern Minerals",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2022-10-21T00:28:40Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2022-10-21T00:28:40Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "2016",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "The Browns Range Northern Territory (NT) project incorporates tenements EL 24174 and EL 24193. The two tenements were granted to Northern Minerals Limited on the 21 August 2012. Northern Minerals is currently exploring the project as part of a wider exploration program covering contiguous tenements in Western Australia and the Northern Territory over the greater part of the Browns Range Dome. The targeted commodity is Heavy Rare Earths associated with xenotime mineralization, similar to that at the Wolverine prospect on the Western Australian side of the Browns Range Dome. During the reporting period, on-ground work was limited due to financial constraints. Plans for on-ground exploration have been deferred due to the Company's difficult financial position which has been caused by falling rare earth prices and an inability to raise additional funding in a risk averse equities market.",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.mineprospectname": [
+        {
+          "value": "Wolverine",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Gambit",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Gambit West",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Banshee",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Cyclops",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "20/10/2016",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR2016-0506",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR2016",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL24193",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "EL24174",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/92335",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Tanami Region",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Birrindudu Basin",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Phibbs 4760",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Mallee 4759",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Birrindudu SE5211",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Tanami SE5215",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Rare earth elements",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Xenotime",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Arkose",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Geology",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Regional geology",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Exploration rationale",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "Browns Range NT Project Annual Group Technical Report for the period 21 August 2015 to 20 August 2016 Exploratio License EL 24193 and EL 24174",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "",
+          "authority": null,
+          "confidence": 1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "GR289-13_2016_A_01_report.pdf",
+    "original_bundle": "ORIGINAL"
+  },
+  {
+    "document_id": "DOC-7f47b34ded43",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/77e3cd71-7150-498d-8475-22df0e1fd082/content",
+    "target_ids": [
+      "E1:C-9f98108215f84f2ac58235",
+      "LEGACY:5c319b25-2bb6-5981-af57-5f72b248625d"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:03:51.305287+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/77e3cd71-7150-498d-8475-22df0e1fd082/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "2d51eb165822b0ca707e9061a0b87a221c8efee265c895b5577c7fe0d962d391",
+    "byte_count": 3719483,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-7f47b34ded43_2d51eb165822b0ca.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/78332/1/EL27978_2014_AS.pdf",
+    "official_handle": "1/78332",
+    "official_item_uuid": "173dabef-36f8-40c4-8c08-aa0512e20654",
+    "official_item_title": "EL 27978 Undippa Project Final report for the period 1 November 2010 to 13 January 2014",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Coppin, T",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "Central Australian Rare Earths",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2014-06-26T22:17:46Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2014-06-26T22:17:46Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "No further work was carried out in the third year of tenure. The potential of the tenement was downgraded and it was surrendered at the end of the third year.",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "23/04/2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "30/05/2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "27/06/2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "07/03/2016",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "19/09/2017",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        }
+      ],
+      "dc.description.stratname": [
+        {
+          "value": "Waite Formation, Harts Range Group, Mordor Igneous Complex",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR2013-1231",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR2013",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL27978",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/78332",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Arunta Region",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Aileron Province",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Irindina Province",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Alcoota 5752",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Laughlen 5751",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Riddoch 5851",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Alcoota SF5310",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Alice Springs SF5314",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Rare earth elements",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Regional geology",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Mineralisation",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Reconnaissance",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Reviews",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Literature reviews",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Geophysical interpretation",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "EL 27978 Undippa Project Final report for the period 1 November 2010 to 13 January 2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "",
+          "authority": null,
+          "confidence": 1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "EL27978_2014_AS.pdf",
+    "original_bundle": "ORIGINAL"
+  },
+  {
+    "document_id": "DOC-a01086eee5df",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/7a7f8375-66e0-42c9-a3cd-6cecbfe38c97/content",
+    "target_ids": [
+      "E1:C-0d7bbc17639754ac69ecf3",
+      "E1:C-3ca4020e0ef413e308e981"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:03:42.677506+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/7a7f8375-66e0-42c9-a3cd-6cecbfe38c97/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "1bf876d5e2dba15ff3209d323372850a5d50896da5496a9a7625b73a6c86eb95",
+    "byte_count": 1058412,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-a01086eee5df_1bf876d5e2dba15f.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://www.geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/93711/1/EL33054_2024_P_01.pdf",
+    "official_handle": "1/93711",
+    "official_item_uuid": "a15eeb31-ecec-4f7b-b175-e723054c433d",
+    "official_item_title": "Charley Creek South Project Partial Relinquishment Report EL 33054 05 August 2022 to 22 August 2024",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "4",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Ogden, T",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Coffa, A",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "URO Corporation",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2025-04-15T23:07:02Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2025-04-15T23:07:02Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "2024",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "Exploration License EL 33054, located approximately 125 km west-northwest of Alice Springs, spans Narwietooma Station and portions of Amburla and Hamilton Downs Stations. Access to the project area is facilitated by the Alice Springs airport, railway, and key transport routes such as the Stuart Highway, Tanami Road, and Kintore Road, with additional entry points via Narwietooma Homestead. Secondary roads and station tracks provide further access to various exploration zones within the tenement. The tenement is characterized by diverse terrain, including rugged hills and foothills-such as Mount Chapple and Redbank Hill-and alluvial plains covered with mulga, gum trees, spinifex, and termite mounds. Geologically, the area features Paleoproterozoic metamorphic rocks, notably the Narwietooma Metamorphic Complex, which includes mafic-felsic granulites and gneisses, along with outcrops of the Mount Zeil Granite and Forty-Five Augen Gneiss. Thick Tertiary sediments and Quaternary alluvium overlie portions of the tenement, concealing prospective basement geology. EL 33054 sits within the Aileron and Warumpi Provinces of the Arunta Region, with sections extending into the Ngalia and Amadeus Basins. This complex geological setting supports potential mineral systems for base metals, precious metals, rare earth elements (REEs), and uranium. Multiple deposit styles were considered, including IOCG-U, felsic intrusion-related uranium and REEs, palaeochannel uranium, mafic intrusion-related nickel and copper, and polymetallic metamorphic deposits. Exploration efforts by URO Corporation included desktop studies, field sampling, and data analysis. Initial campaigns were hindered by terrain challenges, such as dense vegetation and mountainous areas, leading to adjustments in field methodologies. Despite the collection and analysis of 95 surface samples - comprising soils and rocks analysed with portable XRF and scintillometers, and laboratory assays for select samples - no significant geochemical anomalies were detected for the target commodities. Large portions of the tenement overlap Northern Territory Aboriginal Sacred Sites, designated by the Aboriginal Areas Protection Authority (AAPA) as Restricted Work Areas or Recorded Sacred Sites. These restrictions rendered further exploration impractical in the relinquished areas. Consequently, these sections were surrendered, while URO continues to recognize the region's potential for REEs, uranium, and polymetallic deposits. The relinquishment decision reflects a strategic focus on more accessible and higher-priority exploration targets. Future work in retained areas will aim to build on regional datasets and refine exploration models for discovery.",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.geochemicalsampling": [
+        {
+          "value": "4 Rock chip samples by Lab",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "16 Soils samples by Lab",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "10 Rock chip samples by pXRF",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "85 Soil samples by pXRF",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "13/03/2025",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "14/04/2025",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.description.stratname": [
+        {
+          "value": "Strangways Metamorphic Complex",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Narwietooma Metamorphic Complex",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Mount Chapple Metamorphics",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Bunghara Metamorphics",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR2024-0600",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR2024",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL33054",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/93711",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Aileron Province",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Warumpi Province",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Narwietooma 5451",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Hermannsburg SF5313",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Uranium",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Rare earth elements",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Base metals",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Precious metals",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Local geology",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Exploration rationale",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Previous exploration",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        },
+        {
+          "value": "Geochemical data",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 7
+        },
+        {
+          "value": "Geochemical exploration",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 8
+        },
+        {
+          "value": "Geochemical sampling",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 9
+        },
+        {
+          "value": "Qualitative analysis",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 10
+        },
+        {
+          "value": "Hand held XRF",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 11
+        },
+        {
+          "value": "X ray fluorescence spectrometers",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 12
+        },
+        {
+          "value": "Soil sampling",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 13
+        },
+        {
+          "value": "Rock chip sampling",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 14
+        },
+        {
+          "value": "Assaying",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 15
+        },
+        {
+          "value": "Assay value",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 16
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "Charley Creek South Project Partial Relinquishment Report EL 33054 05 August 2022 to 22 August 2024",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "EL33054_2024_P_01.pdf",
+    "original_bundle": "ORIGINAL"
+  },
+  {
+    "document_id": "DOC-d6fd171e32bd",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/9b88be1a-2a35-4ab3-a7c3-db6afaf183ed/content",
+    "target_ids": [
+      "E1:C-b05430044e7806e2ced9e9",
+      "LEGACY:7e4ef2a2-7931-5e2f-8a40-d09a8f9723b1"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:04:02.032926+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/9b88be1a-2a35-4ab3-a7c3-db6afaf183ed/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "01cff9791577a3a076a951820683f0cad586bd7ef668c66bae4547b4880bbf3c",
+    "byte_count": 734731,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d6fd171e32bd_01cff9791577a3a0.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/93270/1/GR358_2017_GA.pdf",
+    "official_handle": "1/93270",
+    "official_item_uuid": "bdcdd1a1-7792-4696-9a3c-e21ad943d6ea",
+    "official_item_title": "Annual Technical Report GR358 Entia Project 1 January 2016 to 1 March 2017 Exploration Licences 29347, 29389 and 29512 Yambla, Mt George, and Daicos",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Rawlings, D",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "DBL Blues",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Core Exploration",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2024-11-05T23:13:51Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2024-11-05T23:13:51Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "2017",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "This is the second Group Reporting of Core Exploration's (CXO) Entia Project (GR358) comprising three exploration licences (EL's 29347, 29389 and 29512) which are held 100% by DBL Blues Pty Ltd a wholly owned subsidiary of loration Limited. Each of these tenements are now in their fourth operational year. The previous report included Exploration Licence 29514 (Mount Emma) which has since been surrendered (November 2016). Previously GR348 has been reported on for the period commencing 1 January to 31 December, this was amended in February 2017 allowing CXO to spread their reporting commitments over a three, rather than the existing two months prior. In the current reporting period, the company did not undertake any new on-ground work in the project area, beyond a review of the project data by the new Exploration Manager. This resulted in the surrender of Exploration Licence 29514 reducing the project to three Exploration Licences.",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "27/04/2017",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "16/10/2024",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.description.stratname": [
+        {
+          "value": "Irindina Gneiss",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Riddock Amphibolite",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Bruna Gneiss",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Entia Gneiss",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR2017-0121",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR2017",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL29347",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "EL29389",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "EL29512",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/93270",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Aileron Province",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Irindina Province",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Quartz 5951",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Illogwa Creek SF5315",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Lithium",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Base metals",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Copper",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Uranium",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Precious metals",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Silver",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Amphibolite",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        },
+        {
+          "value": "Mineralisation",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 7
+        },
+        {
+          "value": "Previous exploration",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 8
+        },
+        {
+          "value": "Reviews",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 9
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "Annual Technical Report GR358 Entia Project 1 January 2016 to 1 March 2017 Exploration Licences 29347, 29389 and 29512 Yambla, Mt George, and Daicos",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "GR358_2017_GA.pdf",
+    "original_bundle": "ORIGINAL"
+  },
+  {
+    "document_id": "DOC-90dfbac901dc",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/c2d6d417-7659-4ac6-b8f1-95918fc56f9b/content",
+    "target_ids": [
+      "E1:C-e20c319f305c66c6362d31",
+      "LEGACY:cc0364e8-e634-5189-aa8b-5bf5caf1da38"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:04:07.679470+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/c2d6d417-7659-4ac6-b8f1-95918fc56f9b/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "ad5d636b7372c587d59bbf1bed5162c133b2a14f1c54a24b9c0308bbae201779",
+    "byte_count": 6653524,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-90dfbac901dc_ad5d636b7372c587.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/71453",
+    "official_handle": "1/71453",
+    "official_item_uuid": "2ad530e3-ca42-45d4-8a20-eec6f500ad89",
+    "official_item_title": "1979 Analysis & testing tin-tantalum ore from Mount Finniss Mine",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Pennycuick, SK",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "Koolamara Mining Company",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2013-10-23T18:29:45Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2013-10-23T18:29:45Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "1979",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "This is a report prepared for Mr. John Walton of Koolamara",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "mining Company concerning the amenability to treatment of a",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "parcel of 729 Kg (dry weight) of eluvial ore from the Mount",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Finnis area. The elements to be recovered were primarily",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Tin and secondarily Tantalum. The sample was taken by Mr. Walton and processed at our Southport ore testing facility.",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "1) Analysis of samples was carried out by Australian Laboratory",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Services, Brisbane, and some check analyses of Tantalum and",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        },
+        {
+          "value": "Niobium were carried out by AMDEL in Adelaide.",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 7
+        }
+      ],
+      "dc.description.geochemicalsampling": [
+        {
+          "value": "Three 200 litre drums of sample material was collected.",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.mineprospectname": [
+        {
+          "value": "Mount Finniss",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "07/01/2004",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "08/07/2010",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "22/12/2016",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "09/05/2023",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR1979-0211",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR1979",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "NotKnown",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/71453",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Pine Creek Orogen",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Bynoe 5072",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Darwin SD5204",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Tin",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Tantalum",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Niobium",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Bulk sampling",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Ore sampling",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Assay value",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "1979 Analysis & testing tin-tantalum ore from Mount Finniss Mine",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "",
+          "authority": null,
+          "confidence": 1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "CR19790211.pdf",
+    "original_bundle": "ORIGINAL"
+  },
+  {
+    "document_id": "DOC-ab6f7858fdd0",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/ce9e7d66-71c1-470f-8a70-fdf7d97d129f/content",
+    "target_ids": [
+      "E1:C-3521bba0b005dd8c96880b",
+      "LEGACY:c13593e3-d762-5c95-9299-d883485d0e1b"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:03:42.692159+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/ce9e7d66-71c1-470f-8a70-fdf7d97d129f/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "90ec0563080e9748f31ff7e0bb04eeef4541b7ba8cbb258f62f35eee0e4f9d8a",
+    "byte_count": 842671,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ab6f7858fdd0_90ec0563080e9748.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://www.geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/87106/1/EL29512_2018_S.pdf",
+    "official_handle": "1/87106",
+    "official_item_uuid": "dee97683-4051-418d-9535-eb16372c9857",
+    "official_item_title": "Final technical report EL 29512 Daicos 2 March 2017 to 19 December 2017",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Rawlings, D",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "DBL Blues",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Core Exploration",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2018-04-10T22:09:29Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2018-04-10T22:09:29Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "2017",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "EL 29512 'Daicos' is located about 140 km north-east of Alice Springs. Access into the area is reasonable, via the Ross Highway, through the Arltunga Historical Reserve to Ambalindum Station, past Claraville Homestead and then by station tracks. As part of a regional assessment of lithium potential. Core undertook a review of pegmatites across the Entia Dome, which indicated unfavourable chemistry. Core have not completed any on-ground works over this tenement since last reporting period and therefore have decided to surrender the area in full.",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "23/02/2018",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.stratname": [
+        {
+          "value": "Bruna Gneiss, Entia Gneiss, Irindina Gneiss",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR2017-0623",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR2017",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL29512",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/87106",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Arunta Region",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Aileron Province",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Irindina Province",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Quartz 5951",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Illogwa Creek SF5315",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Base metals",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Copper",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Precious metals",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Gold",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Silver",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Uranium",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Reviews",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        },
+        {
+          "value": "Geology",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 7
+        },
+        {
+          "value": "Mineralisation",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 8
+        },
+        {
+          "value": "Exploration history",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 9
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "Final technical report EL 29512 Daicos 2 March 2017 to 19 December 2017",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "",
+          "authority": null,
+          "confidence": 1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "EL29512_2018_S.pdf",
+    "original_bundle": "ORIGINAL"
+  },
+  {
+    "document_id": "DOC-4e727f694a5a",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/d44d4ce8-dc2c-4fc9-b014-3f6c8109644d/content",
+    "target_ids": [
+      "E1:C-7df4b7f311e45835f868b3",
+      "LEGACY:6a9fc44e-fd8e-516e-a49d-5292844e3770"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:03:49.390246+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/d44d4ce8-dc2c-4fc9-b014-3f6c8109644d/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "ed837e86d4eb11b6664a063e0eb4f78e12cea5d6eea1fdff31144afc26173624",
+    "byte_count": 1531997,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-4e727f694a5a_ed837e86d4eb11b6.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/79044/1/EL28507_2014_AS.pdf",
+    "official_handle": "1/79044",
+    "official_item_uuid": "8780545f-9985-4e95-80f9-9e59e3f856a8",
+    "official_item_title": "EL 28507 Bamboo Creek Tipperary Project Annual and final report for period ending 28 July 2014",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Chapman, A",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "Territory Minerals",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2014-12-01T22:18:55Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2014-12-01T22:18:55Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "Exploration on this tenement was postponed whilst the company re-organised its exploration strategy and land holdings with a view to be listed on the ASX during 2013. This re-organising is progressing successfully, although taking longer than expected. Due to the difficult financial climate the tenement was relinquished.",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "09/10/2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "28/11/2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "19/09/2017",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        }
+      ],
+      "dc.description.stratname": [
+        {
+          "value": "Tolmer Group, Daly River Group, Tindall Limestone, Jinduckin Formation",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR2014-0659",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL28507",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/79044",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Daly Basin",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Birrindudu Basin",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Daly River 5070",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Wingate Mountains 5069",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Pine Creek SD5208",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Fergusson River SD5212",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Uranium",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Rare earth elements",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Base metals",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Copper",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Lead",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Zinc",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Geology",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        },
+        {
+          "value": "Exploration history",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 7
+        },
+        {
+          "value": "Reviews",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 8
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "EL 28507 Bamboo Creek Tipperary Project Annual and final report for period ending 28 July 2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "",
+          "authority": null,
+          "confidence": 1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "EL28507_2014_AS.pdf",
+    "original_bundle": "ORIGINAL"
+  },
+  {
+    "document_id": "DOC-3713d1609084",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/f9463b6c-b16e-4389-8245-c7c415fb6f1d/content",
+    "target_ids": [
+      "E1:C-2f4136cc9af5936a4b5f88",
+      "LEGACY:7b1392a7-a038-5d17-b619-7cfbfc1f6127"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:03:42.666945+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/f9463b6c-b16e-4389-8245-c7c415fb6f1d/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "d5f60ba5a46241a1734c6313d7dc56206aa97b3109afcb9ae98932de61bea49a",
+    "byte_count": 1135087,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-3713d1609084_d5f60ba5a46241a1.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/71980",
+    "official_handle": "1/71980",
+    "official_item_uuid": "47a9f075-971b-48d1-8f50-6ea5bc227a88",
+    "official_item_title": "First and final report for EL 6916 Benmara North",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Hitchman, SP",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "Carpentaria Gold",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2013-10-23T19:10:43Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2013-10-23T19:10:43Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "1991",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "69 stream sediment samples were collected. Samples were of typical material. Sample 771311 returned an anomalous value of 1.4ppm Au. Resampling (sample 771632) returned a value of 0.95ppm Au.",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.geochemicalsampling": [
+        {
+          "value": "69 stream sediment samples",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.mineprospectname": [
+        {
+          "value": "Benmara North",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "22/02/2005",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "20/04/2005",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "24/10/2006",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "07/11/2014",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "31/08/2023",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        }
+      ],
+      "dc.description.stratname": [
+        {
+          "value": "Murphy Metamorphics",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Nicholson Granite Complex",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Cliffdale Volcanics",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Westmoreland Conglomerate",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR1991-0365",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR1991",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL6916",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/71980",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "McArthur Basin",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Nicholson River 6362",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Calvert Hills SE5308",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Gold exploration",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Gold",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Base metals",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Stream sediment sampling",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Diamonds",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Copper",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Arsenic",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "First and final report for EL 6916 Benmara North",
+          "language": "en_US",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "",
+          "authority": null,
+          "confidence": 1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "CR19910365.pdf",
+    "original_bundle": "ORIGINAL"
+  },
+  {
+    "document_id": "DOC-d192f1bf795e",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/fe5a4de6-b654-4922-8000-186a0753f6fa/content",
+    "target_ids": [
+      "E1:C-585496b3cd9e97a11fd4b0",
+      "E1:C-7ab713c0c73dc71271455c",
+      "E1:C-7e5d8529df47725e760ec6"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:03:48.726528+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/fe5a4de6-b654-4922-8000-186a0753f6fa/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c6dc8fa3188b659809f2637e6269717c23ab9916f97c2f7dd8a37cb7e935a0f0",
+    "byte_count": 3621394,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d192f1bf795e_c6dc8fa3188b6598.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://www.geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/91056",
+    "official_handle": "1/91056",
+    "official_item_uuid": "df69339c-aee7-4196-81ab-03a0f30a583e",
+    "official_item_title": "Annual Technical Report EL 28029 Blueys Folley Year 4 2013-2014 30 November 2013 to 29 November 2014",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.author": [
+        {
+          "value": "Chalmers, N",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "DBL Blues",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Core Exploration",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2020-12-20T22:52:17Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2020-12-20T22:52:17Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "2014",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "EL 28029 'Blueys Folley' lies 110 km east-north-east of Alice Springs between the Amarata Range and Hale River. Travel time is just under 2 hours from the township (Figure 2.1). Access from Alice Springs is by way of Ross Highway for 70 km, then northeast towards Arltunga and then heading east - south east along the Ruby Gorge track. During the reporting period Core Exploration undertook a comprehensive review of historical exploration data and reconnaissance field trip of the area. Core believes that further mapping and rock chip sampling is warranted to properly evaluate the prospects.",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.mineprospectname": [
+        {
+          "value": "Blueys Folley",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Valley View",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "02/02/2015",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "30/11/2020",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.description.stratname": [
+        {
+          "value": "Bitter Springs Formation",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Heavitree Quartzite",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR2014-0992",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR2014",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL28029",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/91056",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Arunta Region",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Aileron Province",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Amadeus Basin",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Riddoch 5851",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Fergusson Range 5850",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Alice Springs SF5314",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Base metals",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Copper",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Lead",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Precious metals",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Gold",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Silver",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Rare earth elements",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        },
+        {
+          "value": "Geology",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 7
+        },
+        {
+          "value": "Proterozoic",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 8
+        },
+        {
+          "value": "Sediments",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 9
+        },
+        {
+          "value": "Volcanic rocks",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 10
+        },
+        {
+          "value": "Calc silicate rocks",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 11
+        },
+        {
+          "value": "Amphibolite",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 12
+        },
+        {
+          "value": "Granite",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 13
+        },
+        {
+          "value": "Allanite",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 14
+        },
+        {
+          "value": "Thorium",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 15
+        },
+        {
+          "value": "Pegmatite",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 16
+        },
+        {
+          "value": "Dykes",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 17
+        },
+        {
+          "value": "Mineralisation",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 18
+        },
+        {
+          "value": "Reviews",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 19
+        },
+        {
+          "value": "Previous exploration",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 20
+        },
+        {
+          "value": "Reconnaissance",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 21
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "Annual Technical Report EL 28029 Blueys Folley Year 4 2013-2014 30 November 2013 to 29 November 2014",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "",
+          "authority": null,
+          "confidence": 1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "EL28029_2014_A.pdf",
+    "original_bundle": "ORIGINAL"
+  }
+]

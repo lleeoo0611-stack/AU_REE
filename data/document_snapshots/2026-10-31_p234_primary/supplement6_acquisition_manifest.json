@@ -1,0 +1,64 @@
+[
+  {
+    "document_id": "DOC-012fff91d2bc",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR2012_03/UR2012_03.pdf?download=1",
+    "target_ids": [
+      "E1:C-8bf1bd308bd59a24640d8b"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:30:40.906048+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-44a0aff83df6",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR1947_012_15/UR1947_012-15.pdf?download=1",
+    "target_ids": [
+      "E1:C-1885847c4b67800de0e580",
+      "E1:C-a692d739c9bf954d9e9450"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:30:40.904887+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-58d6df3eb92e",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?download=1",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:30:40.948093+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-5ab766d5fc77",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/24_8933/EDGI%208%20D23-134332%20Wind%20Break_202405_01_EDGI%20Final%20Drilling%20Project%20Report%20May%202024.pdf?download=1",
+    "target_ids": [
+      "E1:C-01249e537d3b128b6ab548"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:30:40.903932+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/24_8933/EDGI%208%20D23-134332%20Wind%20Break_202405_01_EDGI%20Final%20Drilling%20Project%20Report%20May%202024.pdf?download=1",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "7b23fda6190c6c0f1f465a9e6069d59f032c785b2b77c7b21d51a12608677a7d",
+    "byte_count": 3840879,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-5ab766d5fc77_7b23fda6190c6c0f.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-acd9f1176b4f",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/00_4498/00-4498.pdf?download=1",
+    "target_ids": [
+      "E1:C-72a313f37497d655d60b83"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:30:40.905527+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

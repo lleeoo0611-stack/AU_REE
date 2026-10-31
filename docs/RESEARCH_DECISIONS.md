@@ -149,3 +149,11 @@
 - 固定原生內容審查完成、限定桌面文件判讀完成、原始技術文件全文驗證及足以核准 Project 為不同狀態；terminal disposition 可以是 HOLD，不能把 URL／索引或 native commodity 當全文或開發資格核准。
 - Legacy target UUID 與政府 native feature ID 分層保存；52 個 Legacy target IDs 中 30 筆有政府原生來源，22 筆僅 Legacy 原列。原始 source IDs 和一對多 SA feature 關係不刪除、不升格。
 - 原 archive bytes 驗證與衍生選集離線再生分開；本輪外部原始技術文件全文驗證仍為 0，144 個 P3/P4 文件指標的原件／範圍工作保留待辦。
+
+
+## 2026-10-31：144 HOLD 原件內容與範圍判讀
+
+- 延續原對話「整理母體證據查核」最新指示：C1 暫緩，集中 P2/P3/P4。此批補原始文件相關頁，為 proposal Aim A 建立正確 Project 身分與計量基礎；不提前進入 Aim B/C 排名。
+- 判讀 144 個固定 ID，分清本機原件、網頁原件、替代原件與未讀原件。保留原始 339 帳本與凍結來源，以 overlay 更新本批處置，不用重複來源列推算獨立 Project 數。
+- 原件讀到的 commodity/resource 數值、礦權與地理關係僅在相同範圍內使用；鄰接、同名、同公司、群組總量或地區名稱均不構成資源繼承。THM/HM、礦物比例與 TREO 不互換。
+- 保存原件雜湊與頁碼，但完整受限制第三方原件留在本機。公開 CI 驗證研究紀錄，與本機讀原件的驗證明確分開；兩者皆不等同獨立核准。詳見 [本批報告](audits/2026-10-31_p234_144_primary_scope_report.md)。
