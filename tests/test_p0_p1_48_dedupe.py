@@ -54,7 +54,8 @@ class Parent48(unittest.TestCase):
         self.assertEqual(byname["Copi Mineral Sands Project"]["resource_basis_class"], "HM_ONLY_RESOURCE")
 
     def test_snapshot(self):
-        self.assertEqual(p1.read_csv(ROOT / p1.OUT_LINKS), self.links)
+        self.assertEqual(p1.read_csv(ROOT / p1.OUT_LINKS),
+                         [{k: str(v) for k, v in r.items()} for r in self.links])
         self.assertEqual(p1.read_csv(ROOT / p1.OUT_GROUPS),
                          [{k: str(v) for k, v in r.items()} for r in self.groups])
         self.assertEqual(p1.read_csv(ROOT / p1.OUT_RES), self.resources)
