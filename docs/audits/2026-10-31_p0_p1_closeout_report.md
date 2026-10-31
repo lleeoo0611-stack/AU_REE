@@ -2,7 +2,7 @@
 
 **來源快照截止：2026-10-29**  
 **研究版本：P0/P1 C0 census evidence closeout**  
-**正式狀態：`P1_DESK_SEARCH_CLOSED`；`P0_CI_BLOCKED`；`C1_NOT_RELEASED`。**
+**正式狀態：`P1_DESK_SEARCH_CLOSED`；`P0_SOURCE_AND_CI_VERIFIED`；`C1_NOT_RELEASED`。**
 
 ## 1. 範圍與結案標準
 
@@ -64,16 +64,27 @@
 | 4 個 WAMEX 原始政府 PDF + SHA | **0/4 已封存**（5 筆來源） | [來源申請紀錄](../requests/2026-10-31_wamex_primary_pdf_access.md)，[Issue #30](https://github.com/lleeoo0611-stack/AU_REE/issues/30) |
 | Native source identity 正式矛盾校正 | **仍有 Ambergate／Wingellina 4 筆** | [44 案例審核表](2026-10-31_p1_44_case_resolution.csv) |
 | C1 正式 Project/JORC/GIS／Panel 簽核 | **0** | [C1 Admission Protocol](../P0_COHORT_SELECTION_PROTOCOL.md)、[13 案下游核准 Issue #32](https://github.com/lleeoo0611-stack/AU_REE/issues/32) |
-| GitHub Actions CI 可觀測測試通過 | **未通過，根因未判明** | [Issue #29](https://github.com/lleeoo0611-stack/AU_REE/issues/29) |
-| Draft PR 合併 `main` | **不合併，待 CI Gate 通過** | PR [#26](https://github.com/lleeoo0611-stack/AU_REE/pull/26) → [#27](https://github.com/lleeoo0611-stack/AU_REE/pull/27) → [#28](https://github.com/lleeoo0611-stack/AU_REE/pull/28) → P0/P1 closeout PR |
+| GitHub Actions CI 可觀測測試通過 | **已通過：P0/P1 snapshot、Python 3.11/3.13 與 R MCDA synthetic** | [14 筆成功 Workflow 紀錄](2026-10-31_p0_p1_ci_verification.json) |
+| GitHub 分支整合 | **#26 → #27 → #28 已依序合併 `main`**；#31 彙整最後結案資料與 CI 證據 | PR [#26](https://github.com/lleeoo0611-stack/AU_REE/pull/26)、[#27](https://github.com/lleeoo0611-stack/AU_REE/pull/27)、[#28](https://github.com/lleeoo0611-stack/AU_REE/pull/28)、[#31](https://github.com/lleeoo0611-stack/AU_REE/pull/31) |
 
-### CI 查核記錄
+### CI 查核記錄：帳務恢復與真實回歸測試
+
+**結果（2026-10-31）**：原先的所有 Runner 在工作起始前失敗，是私人儲存庫受 GitHub 帳戶 $0 Actions 預算封鎖。儲存庫改為 Public 後，GitHub Actions `Set up job`、Python 與 R 工作均開始正常執行。實測揭露兩個與帳務無關的 reproducibility 問題，均已修復：
+
+1. Aileron `P1G-0010` 有 **4 筆**具日期資源陳述（2025 年 TREO 2 筆、2026 年 Nb₂O₅ 2 筆），舊單元測試錯把總數視為 2；現已同時測試不同化學品位基準與 resource nested relationship。
+2. `audit_p0_p1_48_dedupe.py`、`audit_p0_p1_73_resolution.py` 的文字摘要曾與凍結 JSON 備註不一致；更新來源腳本生成常數，`--check` 與整體 Python tests 已通過。
+
+**已觀測成功的 14 個 GitHub Actions workflows**：PR #26（3）、PR #27（3）、PR #28（3）、PR #31（5），包括 Python 離線回歸（3.11、3.13）、R 合成資料的 AHP/PROMETHEE II/SAW/TOPSIS/Monte Carlo smoke，以及 P0/P1 專用 `--check` 與 unittest。成功 run ID、原始 commit SHA、工作 URL 與結果存在[獨立 CI attestation](2026-10-31_p0_p1_ci_verification.json)。CI 通過證明腳本可重現與測試期望符合，不代表 WAMEX 政府 PDF 已封存或通過 JORC／Project／GIS／C1 獨立簽核。
+
+**以下為恢復公開儲存庫前的歷史故障記錄（已解決）**。
+
+### 舊版 CI 失敗紀錄
 
 GitHub Actions [run 41169549036](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41169549036) 在數秒內結束為 failure，工作 `resolution-regression` 的步驟 API 回傳 `steps=[]`，logs 下載 404 BlobNotFound。同一 head 的既有 Python regression 和 R MCDA smoke 也出現 pre-step 失敗；check-run 顯示 2 個 annotations，但目前連線工具無法讀取文字。**因此不能把此問題確診為測試程式錯誤或 GitHub 帳務錯誤。** P0 保留 `CI_BLOCKED_PRE_STEP_UNDIAGNOSED`。
 
 本次 closeout [run 41173058358](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41173058358) 同樣在約 4 秒內失敗（`steps=[]`、logs 404）。已經重新執行失敗工作一次（attempt 2），依舊在第一步之前失敗，排除了單次偶發成功的可能，但根因仍須閱讀 GitHub UI annotations。
 
-首次檢查需開啟 GitHub Actions Job UI 取得兩個 annotations，檢查 Actions 配額／runner／權限／workflow；再執行下列測試並留存綠燈 run ID：
+目前已由 GitHub 帳務註記定位原始故障。下列 snapshot 及回歸測試已由 GitHub Actions 執行通過，後續修改可重跑：
 
 ```bash
 python scripts/audit_p0_p1_parent_identity.py --check
@@ -84,7 +95,7 @@ python scripts/audit_p0_p1_closeout.py --check
 python -m unittest discover -s tests -p 'test_p0_p1_*.py' -v
 ```
 
-**目前僅已獨立完成連線側 source CSV／JSON 數量、hash 欄位、target–case 對照、20 筆 tenure 精確匹配與 Gate 禁止升格檢查。** 這些核查不代替在 GitHub runner 上觀測 Python tests passed。
+**已完成兩層驗收**：來源 CSV／JSON 數量、hash 欄位、target–case 對照、20 筆 tenure 精確匹配與 Gate 未升格檢查；並由實際 GitHub runner 執行 Python 回歸及 P0/P1 snapshot、R 合成資料 smoke 成功。C1 正式科研母體簽核繼續獨立辦理。
 
 ## 6. 主資料庫一致性
 
