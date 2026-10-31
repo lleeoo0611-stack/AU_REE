@@ -155,9 +155,9 @@ def main():
     rows, summary = build(ROOT)
     if args.write:
         with (ROOT / OUT).open("w", newline="", encoding="utf-8") as fh:
-            writer = csv.DictWriter(fh, fieldnames=COLUMNS, lineterminator="\\n")
+            writer = csv.DictWriter(fh, fieldnames=COLUMNS, lineterminator="\n")
             writer.writeheader(); writer.writerows(rows)
-        (ROOT / SUMMARY).write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+        (ROOT / SUMMARY).write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if args.check:
         assert read(ROOT / OUT) == rows, "P1 CSV differs from regenerated source review"
         stored = json.loads((ROOT / SUMMARY).read_text(encoding="utf-8"))
