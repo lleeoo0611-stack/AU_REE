@@ -1,5 +1,14 @@
 # Change log
 
+## P0 P1: provisional 48-source / 25-parent identity and resource-basis review — 2026-10-31
+
+- Freeze 48 named source candidates from prior 73-row P1 scope; publish 39 distinct state/name site keys and 25 pinned provisional parent review groups. Preserve all native target IDs, coordinates and source hashes; never create formal project_master IDs by name.
+- Record project/deposit documentary scopes (Copi North, Tower, Mia, Yttria, Aileron Green/Emily/Crean, Redlings) and distinguish them from state/tenement polygon overlap (0 physically tested).
+- Publish 12 resource claims: 10 TREO grade rows including nested cutoffs, reported totals and undated conflicting versions, 2 HM basis rows. Record resource date, cutoff, reporting category and no-sum rule.
+- Flag broad historical Willandra West/East source spreads and Fraser Range–Salazar adjacency. No new C1/JORC approvals.
+- Add reproducible Python QA, regression tests, report and README index. Work continues in a stacked draft PR pending CI and official polygon evidence.
+
+
 ## P0 sixth-round source audit: 70 records with no supplemental document — 2026-10-31
 
 - Audit all **70** frozen native source targets from the preceding 109-row source review, keeping project/deposit/occurrence and raw ID distinct; publish editable 70-row review, 59-row non-candidate parent queue, provenance SHA manifest and 25-name source document register.
