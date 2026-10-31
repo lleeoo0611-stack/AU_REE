@@ -120,6 +120,15 @@ python -m unittest discover -s tests -p test_p0_156_project_parents.py -v
 
 使用凍結 272／487 source targets 與 2026-10-29 `data/source_snapshots/`，結合 11 份具名官方／公司報告來源，更新[156 筆審查表](audits/2026-10-31_156_project_parent_evidence_review.csv)與[缺口表](audits/2026-10-31_156_project_parent_gaps.csv)。CI：[P0 156 source evidence review](../.github/workflows/p0-156-source-evidence-review.yml)。不修改 Project ID、JORC、GIS 與正式 C1。
 
+### P0：109 筆原生礦床資料的 Project parent 證據覆核
+
+```bash
+python scripts/audit_p0_109_project_parents.py
+python -m unittest discover -s tests -p test_p0_109_project_parents.py -v
+```
+
+以凍結 156 列審查、272 個原生 source feature、487 列歷史全集與 31 個文件來源名稱，重建[109 筆審核 CSV](audits/2026-10-31_109_project_evidence_review.csv)、[89 筆待查 CSV](audits/2026-10-31_109_project_evidence_gaps.csv)及[SHA 摘要](audits/2026-10-31_109_project_evidence_summary.json)。GitHub CI：[P0 109 source evidence review](../.github/workflows/p0-109-source-evidence-review.yml)。同州同名 44 列不自動合併，對 Ambergate 38.738 km 的原始座標衝突自動 HOLD；既有 C1、JORC、GIS 均不改動。
+
 ## CI 與版本
 
 `.github/workflows/python-offline.yml` 在 push/PR 測試 Python 3.11/3.13、五階段離線重跑、SQLite QA 與 checkpoint；`r-mcda-smoke.yml` 用合成 Alternatives 測試 R 4.4.3 的可重現性。工作包的完整 `rebuild_all.py` 需要封存來源與可選的 `xlsxwriter`，不屬於上述離線 CI 的測試範圍。

@@ -1,0 +1,90 @@
+{
+  "review_date": "2026-10-31",
+  "source_frozen_as_of": "2026-10-29",
+  "unit": "source-target rows, never independent unique mining Projects",
+  "source_target_count": 109,
+  "unique_ids": 109,
+  "new_document_register_unique_names": 31,
+  "new_document_target_rows": 39,
+  "documented_parent_source_rows": 20,
+  "scope_or_tenement_holds": 10,
+  "spatial_identity_conflicts_withheld": 2,
+  "same_state_name_rows": 44,
+  "same_state_name_coordinate_comparable_rows": 42,
+  "same_name_near_1km_rows": 38,
+  "same_name_over_10km_identity_conflicts": [
+    {
+      "target_id": "E1:C-99a85888b57ff255bf8513",
+      "state": "WA",
+      "source_name": "Ambergate",
+      "nearest_source_distance_km": 38.738,
+      "other_source_target_ids": [
+        "E1:C-cb163a795ad29342b05fd6"
+      ]
+    },
+    {
+      "target_id": "E1:C-cb163a795ad29342b05fd6",
+      "state": "WA",
+      "source_name": "Ambergate",
+      "nearest_source_distance_km": 38.738,
+      "other_source_target_ids": [
+        "E1:C-99a85888b57ff255bf8513"
+      ]
+    }
+  ],
+  "independent_deposit_document_no_parent": 9,
+  "without_new_external_document": 70,
+  "project_ID_signoffs": 0,
+  "JORC_REO_signoffs": 0,
+  "C1_release_count": 0,
+  "state_distribution": {
+    "NT": 3,
+    "SA": 19,
+    "NSW": 33,
+    "WA": 33,
+    "QLD": 10,
+    "TAS": 5,
+    "VIC": 6
+  },
+  "original_source_counts": {
+    "GA_AIMR_REE_2026": 67,
+    "SA_CRITICAL_REE": 7,
+    "SA_GEODATA_MINDEP": 7,
+    "STATE_TAS_MRT": 5,
+    "GA_CRITICAL_DEPOSITS_2025": 15,
+    "STATE_QLD_MINOCC": 8
+  },
+  "evidence_class_counts": {
+    "NATIVE_HMS_DEPOSIT_WITHOUT_PROJECT_EVIDENCE": 34,
+    "NATIVE_MULTICOMMODITY_NONPRIMARY_REE_DEPOSIT": 14,
+    "HISTORICAL_GROUP_PARENT_CANDIDATE": 13,
+    "INDEPENDENT_DEPOSIT_DOCUMENT_NO_PROJECT_PARENT": 9,
+    "SCOPE_OR_TENEMENT_ONLY_HOLD": 8,
+    "NATIVE_TAS_GEOLOGICAL_RECORD_ONLY": 5,
+    "DOCUMENTED_HISTORICAL_PARENT_CANDIDATE": 7,
+    "NATIVE_REE_DEPOSIT_WITHOUT_PROJECT_EVIDENCE": 8,
+    "NATIVE_CLAY_REE_DEPOSIT_WITHOUT_PROJECT_EVIDENCE": 1,
+    "NATIVE_QLD_GEOLOGICAL_RECORD_ONLY": 8,
+    "SPATIAL_IDENTITY_CONFLICT_PARENT_WITHHELD": 2
+  },
+  "external_claim_type_counts": {
+    "NO_ADDITIONAL_EXTERNAL_PROJECT_DOCUMENT": 70,
+    "HISTORICAL_GROUPED_DEPOSIT_PARENT_CANDIDATE": 13,
+    "DOCUMENTED_MINERAL_DEPOSIT_ONLY_NO_PROJECT_PARENT": 9,
+    "HISTORICAL_TENEMENT_NOT_PROJECT_PARENT": 3,
+    "REGIONAL_NAME_NO_PARENT_HOLD": 1,
+    "ISSUER_EXPLICIT_DEPOSIT_WITHIN_PROJECT": 4,
+    "GOV_EXPLICIT_NORTH_SOUTH_DEPOSITS_IN_PROJECT": 2,
+    "ISSUER_EXPLICIT_SITE_PROJECT": 1,
+    "ISSUER_EXPLICIT_TARGET_WITHIN_PROJECT": 2,
+    "PARTIAL_SITE_NAME_BOUNDARY_HOLD": 3,
+    "HISTORICAL_ALTERNATE_SPELLING_HOLD": 1
+  },
+  "input_sha256": {
+    "docs/audits/2026-10-31_156_project_parent_evidence_review.csv": "6df948eabb6a41b26f8bc99a9e9b0cb63c7e8a7c6997a5a02ca38bad384bf9dc",
+    "data/source_snapshots/2026-10-29_272_native_features.jsonl": "d9605cc3f2b6953fd466989e25875099674c793495bc2c9405e50231d5f96662",
+    "docs/audits/2026-10-31_487_evidence_round2_review.csv": "62fbd8d529c3c91d7eba0173de9f9e1bcb5d2a5d99ec8bef6f0f9858c729a41b",
+    "inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv": "9e95ba8b3d3e079ad6f0f4b6181e2c34358988fa89a4f37e72d08ec2768c3762"
+  },
+  "decision_note": "Historic resources are HM not TREO; document links are independent leads, not PDF byte archives or independent Project boundary/JORC approval. Exact same state/name is not a confirmed Project parent."
+}

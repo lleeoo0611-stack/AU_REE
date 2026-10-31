@@ -1,5 +1,14 @@
 # Change log
 
+## P0 fifth round: audit 109 original-only source targets — 2026-10-31
+
+- Verify **all 109 source targets** previously lacking independent Project parent text; preserve stable IDs, frozen original government source-feature location and SHA-256. Generate **109-row editable audit**, **89-row pending parent/identity queue** and statistics with input hashes.
+- Curate 31 official/government/issuer/CSIRO documentary source names matched to **39 target rows**: **20 historical Project parent candidates**, 8 scope/tenement/name holds plus **2 Ambergate spatial conflicts**, and **9 independently documented geological or HMS deposits still lacking a Project parent**. **70** rows remain government-native-only; zero formal Project/JORC/C1 approvals.
+- Check cross-source same-state names: **44** same-state-name source rows, **42** with comparable native coordinates, **38** with a source match ≤1km, and **2 Ambergate records 38.738km apart** quarantined as identity conflicts. Never infer unique Projects from matching names or coordinates alone.
+- Publish reproducible standard-library `scripts/audit_p0_109_project_parents.py`, unit tests and auto-publishing GitHub Actions, plus 2014 CSIRO source scope (Twelve Mile/Prungle), ASX Yttria/Mia, WA EPA Happy Valley and issuer Governor Broome/Ambergate leads.
+- Update README, docs index, runbook, research decisions and changelog without modifying C0/C1 primary source matrices, approved GIS, JORC or MCDA.
+
+
 ## P0 fourth-round audit of 156 Project-parent gaps — 2026-10-31
 
 - Review **all 156** frozen native source IDs previously tagged `PROJECT_PARENT_UNLOCATED` using 2026-10-29 source-feature attributes, direct government records, typed deposit/prospect/occurrence status, REE commodity context and same-state duplicate-name relationships. Produce a **156-row editable CSV with per-row trace and source SHA**, a **148-row pending Project relation queue**, and a structured JSON provenance manifest.
