@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — Project identity release gate linked to independent original evidence
+
+- `src/au_ree/identity_policy.py` 新增既有 SQLite 身分資料的核查函式，要求 source Project candidate、有效 `identity_review_decisions`、`EVIDENCE_BACKED_PROJECT` Master、穩定對應 ID 及獨立核准原件 bytes 全部吻合。
+- `src/au_ree/stages/population.py` 不再讓僅取得 `project_reviews.csv` 技術／座標批准、仍屬 `LEGACY_UNVERIFIED` 的 Project 獲得 `RESEARCHER_VERIFIED` 細項與位置。舊資料庫研究准入的 `src/au_ree/stages/eligibility.py` 也增加 `G2_PROJECT_IDENTITY_NOT_INDEPENDENTLY_APPROVED` 阻擋條件，避免原始 Source/Project 未核准時意外釋出 Ranking Dataset。
+- Synthetic v1 GIS/eligibility 測試須建立有效獨立 Project 身分審查，再分別測試 GIS/JORC；並加入撤銷身分、原始 PDF/HTML 位元組遺失、只有技術批准而無身分批准的負向案例。未變動任何真實 C1/C2 簽核、研究母體或準則權重。
+
 ## 2026-11-01 — Source-original leads for unresolved Goschen/Bungalally statements
 
 - 在既有 `docs/audits/structural_round01/REPORT.md` 記錄 Goschen Central 2024-12-03 ACDC ASX JORC PDF 兩個替代原件連結，以及 620Mt@1% HM、190Mt@2% HM、584ppm in-situ TREO 對應表與尚未釐清的 2025 Scoping 表題差異。
