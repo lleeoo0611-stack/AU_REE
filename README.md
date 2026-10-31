@@ -1,5 +1,10 @@
 # Australian REE — Project Database & MCDA
 
+## P2–P4 B05 — 339 筆全量分流、100 組原生 ID 與凍結規則草案（2026-10-31）
+
+[報告與凍結規則討論](docs/audits/2026-10-31_p234_b05_triage_and_freeze_proposal.md) · [339 筆逐列分流 CSV](docs/audits/2026-10-31_p234_b05_source_triage_339.csv) · [P3/P4 100 組 native ID crosswalk](docs/audits/2026-10-31_p34_b05_native_workgroups_100.csv) · [112 組待辦](docs/audits/2026-10-31_p234_b05_priority_work_queue_112.csv) · [B05 摘要 JSON](docs/audits/2026-10-31_p234_b05_triage_summary.json)。新增 **4 筆 P2 具名官方／發行人資料範圍判讀**（Duke、Bruce Prospect、Plenty River、Brumby Clydesdale），P2 待原文補強 **12** 筆；P3/P4 仍有 **87／64** 筆 native-only，這 151 筆依同州政府原生 ID 組織為 **100** 個取件單位、51 組共享 ID，保持全部來源 ID。另獲 NT Skyfall 原始報告索引兩筆 locator，未宣稱來源點 crosswalk 已完成。143 筆有保存原件相關內容、32 筆有公開文字判讀、1 筆網頁快取、12 筆舊 P2 桌面審查、151 筆僅 native。篩選 **119 筆來源層結案審查候選**，**尚未凍結或簽核**；保留 C1/JORC/GIS/13 案/MCDA 0 核准。可重跑 `python scripts/build_p234_source_triage_b05.py --check`。本 PR 疊加尚未合併之 B03/B04，合併順序應依 PR #45 → #46 → 本批處理。
+
+
 ## P2–P4 339 筆全量持續核查 Batch 04（2026-10-31）
 
 [Batch 04 報告](docs/audits/2026-10-31_p234_all_339_continuation_b04_report.md) · [339 筆逐列可編輯進度](docs/audits/2026-10-31_p234_all_339_continuation_b04.csv) · [新增 9 筆 P2 官方原文判讀](inputs/source_review_20261031/p2_external_primary_batch04_20261031.csv) · [8 筆 P3/P4 來源定位嘗試](inputs/source_review_20261031/p34_batch04_locator_attempts.csv)。保留凍結 2026-10-29 基線與 Batch01–03，P2 新增 9 筆直接官方／發行人來源範圍判讀（累計 12/28，16 筆待技術原件）；P3/P4 新增 8 筆定位核查紀錄但**沒有新技術原件核定**，仍各有 87／64 筆僅原生圖徵待補。三類合計 **167 筆仍待技術原文補強**；全部 339 筆持續保有可追蹤分類。原始 PDF bytes/全文與獨立 C1／JORC／GIS／MCDA 核准均未新增。本批依序疊在未合併 Batch 03 之上，獨立 PR 不直接更改 `main`。

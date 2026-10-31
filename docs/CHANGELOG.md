@@ -1,5 +1,13 @@
 # Change log
 
+## P2–P4 B05 native-ID crosswalk / source-scope freeze proposal — 2026-10-31
+
+- Deterministically join all frozen **339 P2–P4 source IDs** to Batch 04 and four new public-primary P2 reviews (Duke, Bruce Prospect, Plenty River, Brumby/Clydesdale). Separate prospect-level TREO drill assays from same-scope JORC REO resource and Stage 1 industrial-mineral economic study from unacquired Stage 2 REE claims.
+- Reduce **151 P3/P4 source rows** to **100 shared native-ID search groups** (51 two-row groups; 30 shared source-key variants; zero name/ >1 km coordinate conflicts) **without merging any source IDs or Projects**. Two P4 Skyfall rows have new official GEMIS report locator only; native-ID spatial crosswalk remains HOLD.
+- Publish 339 mutually exclusive source-review depth classes, 112 work units (12 P2 + 100 native groups), and **119 human-review source-scope closure candidates**. Source-review freeze F1/F2/F3 is **PROPOSED**, not enacted; zero C1, JORC, independent signatures, original PDF bytes or MCDA score changes.
+- Add zero-network standard-library rebuild/check script, regression suite, PR workflow and README + decision proposal; maintain all prior raw snapshots and overlays immutable.
+
+
 ## P2/P3/P4 all-source continuation Batch 04 — 2026-10-31 (stacked after unmerged Batch 03)
 
 - Deterministically reconcile **339 immutable P2–P4 source IDs** into an additive editable current-status overlay without replacing historical 339 or Batch03 167-row snapshots.

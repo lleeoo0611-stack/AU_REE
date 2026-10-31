@@ -173,3 +173,21 @@
 ## Evidence batch decision EXT-TECH-B02（2026-10-31）
 
 新增「區域地質分區（Murray Basin）≠ Project」、「歷史地球化學異常（Pindari）≠ REO MRE」、「IOCG 伴生 REE 化學訊號（Acropolis）≠ REE 產品資源」的來源範圍證據。公開 PDF 索引文字、政府目錄／資料庫與研究摘要只能標為有界來源複核，不得冒充已下載／全篇核對原始 PDF；保留 `original_document_sha256` 空白。新增 [167 筆進度追蹤](audits/2026-10-31_external_primary_progress_167.csv) 只補充查核記錄，不覆寫 frozen source 或變更 C1／13 案 Gate／MCDA。
+
+
+## 2026-10-31 — ADR-P0-028: Source review freeze vs cohort admission（**PROPOSED — 待使用者決定**）
+
+| 決策項目 | 內容 |
+| --- | --- |
+| Decision ID / Status | `ADR-P0-028` / **PROPOSED**；尚未 `ACCEPTED`、沒有實際來源凍結 |
+| Scope | P2–P4 339 筆的 **C0 source-level review workflow**，不涉及 C1 六層 Gate 或 MCDA cohort |
+| 背景證據 | 2026-10-29 固定 339 source IDs；最新 public-text P2 16、P2 desk 12；P3/P4 native-only 151 source rows = 100 州別＋原生 ID 工作群組，51 組來源重複定位；119 筆保存原件相關內容且有明確 non-target/geology/scope-transfer bounded finding |
+| F1 保守方案 | 原件有相關內容、來源精確定位、可重開條件及獨立簽核後才 `SOURCE_SCOPE_FROZEN`；先逐案審 119 候選 |
+| **F2 建議方案** | F1 + 對剩餘 C0 native-only 來源允許 `NATIVE_ONLY_ARCHIVED_PENDING_EXTERNAL_EVIDENCE`，但只表示停止無新線索的重複爬查，**不聲稱 fulltext、無 REE、無 Project 或 C1 EXCLUDE**。兩類都須來源 ID/日期/再開條件/審核與版本；可因新原件或新 Project 規劃重開 |
+| F3 嚴格方案 | 一律要求新技術 PDF 或原始報告全文後才 C0 結案；留作比較，不自動採納 |
+| Source freeze vs raw snapshot | 2026-10-29 原始政府快照已凍結；此 ADR 僅決定 **source review 結案／中止搜尋規則**，必須透過後續簽章與版本覆蓋，不改歷史 row |
+| 單筆最小核對 | `target_id`、官方原生 ID、來源版本/SHA、頁碼或政府 HTML 段落、scoped finding、closure reason、reviewer、reviewed_at、reopen trigger、freeze_rule_version；缺一者保持 HOLD |
+| C1 Gate | 永遠獨立使用 ID/ROLE/WINDOW/JORC/PANEL/GIS_RELEASE，所有 B05 339 筆仍 `NOT_ADMITTED` |
+| 影響／測試 | 影響 Aim A 來源母體清理，避免同一 source-native ID 重複取件；Aim B/C 不得由 C0 freeze 產生正式排名。參見 [B05 總報告](audits/2026-10-31_p234_b05_triage_and_freeze_proposal.md) 與可重跑 Python/tests |
+| Approval | **未填／待使用者明確決定凍結層級與最小證據門檻** |
+
