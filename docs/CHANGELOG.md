@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — SQLite Census publication rollback on second-file failure
+
+- 完成既有 CSV→SQLite 重建安全性修復：資料庫與來源清單為兩個不同檔案，正式寫入前保存原有版本；若 `os.replace` 發布其中一項時發生一般 I/O 錯誤，回復上一版 SQLite 與 manifest，不留下混合版本。
+- `tests/test_p0_487_batch.py` 模擬第二個檔案發佈失敗，驗證舊資料庫 bytes 與來源清單完全未變。跨兩檔的突然斷電仍無法宣稱原子性，使用者讀取資料庫時仍應比對 manifest 內的 database SHA-256。
+- 未修改原始 487 筆來源、Source ID、Project ID、審查決策或任何研究母體定義。
+
 ## 2026-11-01 — Project–source lineage of Structural evidence reviews
 
 - 現有 `scripts/build_structural_round01.py` 在 39 群組技術／來源證據衍生流程前，核對固定 2026-10-29 Census 的 487 筆 `target_id`、39 個候選 Project ID、原始群組名稱、州別與每個 Project 實際所屬來源關係。若證據審查群組沒有來源 parent，或 Project–Deposit source link 指向錯誤群組／州別，拒絕執行。

@@ -246,3 +246,46 @@ def test_csv_sqlite_overwrite_publishes_complete_validated_release(tmp_path):
     assert report["database_sha256"]==sha256(database.read_bytes()).hexdigest()
     assert report["census_relation_check"]["status"]=="NOT_A_CENSUS_REVIEW_BUILD"
     assert not list(tmp_path.glob(".census.sqlite.*"))
+
+
+
+def test_csv_sqlite_rollback_if_manifest_publish_fails(tmp_path):
+    """The previous SQLite+manifest pair survives a failed second replace."""
+    import os
+    from unittest.mock import patch
+    from reproducibility.build_census_database import csv_build
+
+    source = tmp_path / "source"
+    source.mkdir()
+    (source / "test.csv").write_text("key,value\nA,one\n", encoding="utf-8")
+    dest = tmp_path / "census.sqlite"
+    db = sqlite3.connect(dest)
+    try:
+        db.execute("CREATE TABLE previous_release (value TEXT)")
+        db.execute("INSERT INTO previous_release VALUES ('approved snapshot')")
+        db.commit()
+    finally:
+        db.close()
+    manifest_path = tmp_path / "census.sqlite.manifest.json"
+    manifest_path.write_text('{"last_valid":"previous"}\n', encoding="utf-8")
+    old_db = dest.read_bytes()
+    old_manifest = manifest_path.read_bytes()
+
+    original_replace = os.replace
+    failure = {"raised": False}
+
+    def fail_on_second_publish(src, dst):
+        if str(dst).endswith(".manifest.json") and not failure["raised"]:
+            failure["raised"] = True
+            raise OSError("simulated second-file publication failure")
+        return original_replace(src, dst)
+
+    with patch("reproducibility.build_census_database.os.replace",
+               side_effect=fail_on_second_publish):
+        with pytest.raises(OSError, match="second-file publication failure"):
+            csv_build(SimpleNamespace(csv_dir=source, output=dest,
+                                      as_of_date="2026-10-29", overwrite=True))
+    assert failure["raised"]
+    assert dest.read_bytes() == old_db
+    assert manifest_path.read_bytes() == old_manifest
+    assert not list(tmp_path.glob(".census.sqlite.*"))
