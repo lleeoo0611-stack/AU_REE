@@ -6,7 +6,7 @@
 - Wemen historical production now verified by Victorian government 2003/04 Statistical Review (issued April 2005): Wemen mineral sands mine ceased production in January 2004; prior 'catalogue-only' finding superseded.
 - Preserve 204 official tenure source-title intersections, 60 source points with intersecting tenement layers, 20 exact documented title-number matches across 12 cases. No automatic project footprint or C1 promotion.
 - Maintain explicit source/release separation: P1 source research closure does not approve project identity, current REE resource, GIS_RELEASE or criteria panel. All new C1 gates stay HOLD; `main` untouched.
-- CI investigation: existing unrelated Python and R workflows as well as P1 suites fail within ~3–4 seconds with steps=[], logs BlobNotFound. Root cause unconfirmed; issue #29. WAMEX authenticated access remains pending; issue #30, request prepared not sent.
+- CI investigation: existing unrelated Python and R workflows as well as P1 suites fail within ~3–4 seconds with steps=[], logs BlobNotFound. Root cause unconfirmed; issue #29. WAMEX authenticated access remains pending; issue #30, request prepared not sent. 13 source-positive C1 formal-gate handoff tracked in issue #32. Closeout run 41173058358 also fails pre-step on original and retried attempts.
 - Add standard-library closeout generator, unit tests and workflow, editable source CSV and JSON, final report and index.
 
 
