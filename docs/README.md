@@ -66,6 +66,17 @@
 | [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
 | [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
 
+### P2 — Census 72 筆來源優先查核（2026-10-31）
+
+| 文件 | 內容 |
+| --- | --- |
+| [P2 初步證據與分母報告](audits/2026-10-31_p2_72_intake_report.md) | 72 筆不重複來源、47 review cases、7 條定向文件線索／22 筆來源、與研究 P2 Aim B/C 的區別 |
+| [P2 72 筆可編輯來源清單](audits/2026-10-31_p2_72_source_intake.csv) | 逐 target ID 的來源 SHA、舊分類、Review group、文獻頁碼、REE/資源/Stage/GIS Gate |
+| [47 個 case review queue](audits/2026-10-31_p2_case_review_queue.csv) | 22 組既有 review groups + 25 個 unlinked IDs；同一資源不跨 source 反覆加總 |
+| [7 條來源證據輸入](../inputs/source_review_20261031/p2_72_targeted_documentary_leads.csv) | 存入 Kennedy、Narraburra、Deep Leads、Sybella、Milo、Bruce Prospect、Plenty River 來源 |
+| [P2 QA Summary JSON](audits/2026-10-31_p2_72_intake_summary.json) | 72/47/7、原 P1 overlap=0、C1 無自動升格 |
+| [P2 再生腳本](../scripts/audit_p0_p2_72_intake.py) | Python 3.11+，`--write`/`--check`，可對照 frozen inputs |
+
 ### P0／P1 結案與發布門檻（2026-10-31）
 
 | 文件 | 內容 |
