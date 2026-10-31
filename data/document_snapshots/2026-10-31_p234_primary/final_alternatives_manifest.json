@@ -1,0 +1,194 @@
+[
+  {
+    "document_id": "DOC-0487d96a403a",
+    "requested_url": "https://resourcingtheterritory.nt.gov.au/media/docs/commodity-factsheets/REE_Oct2025.pdf?download=2",
+    "target_ids": [
+      "E1:C-50ed67520c1995355b52f2",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:03.466654+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-18910c8a052d",
+    "requested_url": "https://energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/rare_earths?download=1",
+    "target_ids": [
+      "E1:C-f3b786ba841126c4883915"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:03.465370+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-1e2c984c50f0",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/00_4498/00-4498.pdf?v=1",
+    "target_ids": [
+      "E1:C-72a313f37497d655d60b83"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:04.079000+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/00_4498/00-4498.pdf?v=1",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "8791f128dc96189a8237eaa0b737b4bdea3de0bc7e2a4a76e2706a3e88c14723",
+    "byte_count": 5746253,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1e2c984c50f0_8791f128dc96189a.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-245ff021808d",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/00_4498/00-4498.pdf?download=true",
+    "target_ids": [
+      "E1:C-72a313f37497d655d60b83"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:04.064941+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-3554e2fbcb8f",
+    "requested_url": "https://resourcingtheterritory.nt.gov.au/media/docs/commodity-factsheets/REE_Oct2025.pdf?download=true",
+    "target_ids": [
+      "E1:C-50ed67520c1995355b52f2",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:03.539744+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-4024b43c9c62",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?download=2",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:04.156184+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-5961c35a3492",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=onestoptenementshop.com%2Fwp-content%2Fuploads%2F2021%2F07%2FScaddan-Au-REE-Web-Promo-8-October-2024-B.pdf&output=json&filter=statuscode:200&collapse=digest",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:03.886108+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://web.archive.org/cdx/search/cdx?url=onestoptenementshop.com%2Fwp-content%2Fuploads%2F2021%2F07%2FScaddan-Au-REE-Web-Promo-8-October-2024-B.pdf&output=json&filter=statuscode:200&collapse=digest",
+    "http_status": 200,
+    "content_type": "application/json",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "byte_count": 3,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-5961c35a3492_37517e5f3dc66819.bin",
+    "format": "bin"
+  },
+  {
+    "document_id": "DOC-6b4f4cb6cd9b",
+    "requested_url": "https://onestoptenementshop.com.au/wp-content/uploads/2021/07/Scaddan-Au-REE-Web-Promo-8-October-2024-B.pdf",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:03.465983+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+  },
+  {
+    "document_id": "DOC-7eec2a0f4c50",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?download=true",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:04.272491+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-898a4e92423a",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?v=1",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:04.362780+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-8a4e476fdf71",
+    "requested_url": "https://dns.google/resolve?name=onestoptenementshop.com&type=A",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:03.464475+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://dns.google/resolve?name=onestoptenementshop.com&type=A",
+    "http_status": 200,
+    "content_type": "application/json; charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "8806fa57985c0371e5c06a6141311c23fe02edf5af0fb61259e30e1d258b8306",
+    "byte_count": 300,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-8a4e476fdf71_8806fa57985c0371.bin",
+    "format": "bin"
+  },
+  {
+    "document_id": "DOC-8c7e7f5078c2",
+    "requested_url": "https://www.energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/mineral-sands",
+    "target_ids": [
+      "E1:C-f3b786ba841126c4883915"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:03.890219+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "document_id": "DOC-bf64cd257c30",
+    "requested_url": "https://resourcingtheterritory.nt.gov.au/media/docs/commodity-factsheets/REE_Oct2025.pdf?v=1",
+    "target_ids": [
+      "E1:C-50ed67520c1995355b52f2",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:03.680198+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-ed5d8031cf9a",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/00_4498/00-4498.pdf?download=2",
+    "target_ids": [
+      "E1:C-72a313f37497d655d60b83"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:04.060630+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/00_4498/00-4498.pdf?download=2",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "8791f128dc96189a8237eaa0b737b4bdea3de0bc7e2a4a76e2706a3e88c14723",
+    "byte_count": 5746253,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ed5d8031cf9a_8791f128dc96189a.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-f09b809524a5",
+    "requested_url": "https://www.energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/rare-earths",
+    "target_ids": [
+      "E1:C-f3b786ba841126c4883915"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:05:03.942256+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

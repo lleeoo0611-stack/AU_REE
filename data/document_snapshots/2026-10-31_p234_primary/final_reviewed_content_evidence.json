@@ -1,0 +1,191 @@
+{
+  "E1:C-1885847c4b67800de0e580": {
+    "bindings": {
+      "document_id": "DOC-93f4b7e9c9f4",
+      "pdf_pages_or_html_sections": "1,2,4",
+      "verification_anchor": "Stronach",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "b755f15c8f0471a25e8057094879a0099da563fd9ed3da715648331874ea46b5",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-93f4b7e9c9f4_b755f15c8f0471a2.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR1947_012_15/UR1947_012-15.pdf?source=research20261031",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "4",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 4]",
+      "reviewed_page_text_sha256": "2ca58f6c690d6b1a87bbe066ed66b53c144d1ed568bbac5c49d5abb54870d106"
+    }
+  },
+  "E1:C-50ed67520c1995355b52f2": {
+    "bindings": {
+      "document_id": "DOC-edbbf85f0220",
+      "pdf_pages_or_html_sections": "1,2,4,8,16",
+      "verification_anchor": "Quantum",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4af04dcd54b2e5c9193277f6750f54421607e7a831f94841cb63b139e6e23de4",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-edbbf85f0220_4af04dcd54b2e5c9.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/0ab654b4-b044-49bc-940d-71bf9746a68d/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "16",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 4, 8, 16]",
+      "reviewed_page_text_sha256": "2687d9cdd58f4ab89aa1510e37f1835daed4e8bf5bc654304ecaf75eb5aa8d38"
+    }
+  },
+  "E1:C-72a313f37497d655d60b83": {
+    "bindings": {
+      "document_id": "DOC-1e2c984c50f0",
+      "pdf_pages_or_html_sections": "1,3,5,6,7,8,9",
+      "verification_anchor": "Naracoopa-Cowper Point",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "8791f128dc96189a8237eaa0b737b4bdea3de0bc7e2a4a76e2706a3e88c14723",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1e2c984c50f0_8791f128dc96189a.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/00_4498/00-4498.pdf?v=1",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "117",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 3, 5, 6, 7, 8, 9]",
+      "reviewed_page_text_sha256": "273a6d81c52aab677e361fc19e6d10992406c21457d3bfc25eedfb92461ecccc"
+    }
+  },
+  "E1:C-8bf1bd308bd59a24640d8b": {
+    "bindings": {
+      "document_id": "DOC-35df3a91e30e",
+      "pdf_pages_or_html_sections": "1,76,77",
+      "verification_anchor": "20–30% rare earths",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "f0dc943d2d21ee1eebbb51c1d74ad4611d1288cb8ef71a41e627c3aa455081eb",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-35df3a91e30e_f0dc943d2d21ee1e.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR2012_03/UR2012_03.pdf?source=research20261031",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "141",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 76, 77]",
+      "reviewed_page_text_sha256": "ffab6e9ef14c224fc6ee0bf408242a90badf5a22316f70ab4d2b6acb3fd9aef0"
+    }
+  },
+  "E1:C-8bf1bd308bd59a24640d8b::SUPPORT::DOC-93f4b7e9c9f4": {
+    "bindings": {
+      "document_id": "DOC-93f4b7e9c9f4",
+      "pdf_pages_or_html_sections": "2,3,4",
+      "verification_anchor": "monazite",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "b755f15c8f0471a25e8057094879a0099da563fd9ed3da715648331874ea46b5",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-93f4b7e9c9f4_b755f15c8f0471a2.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR1947_012_15/UR1947_012-15.pdf?source=research20261031",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "4",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[2, 3, 4]",
+      "reviewed_page_text_sha256": "8728fe614fa3e8362452004bc4358c0bfac1f7ebef0b3d47fc6a91f0776a49f7"
+    }
+  },
+  "E1:C-a692d739c9bf954d9e9450": {
+    "bindings": {
+      "document_id": "DOC-93f4b7e9c9f4",
+      "pdf_pages_or_html_sections": "2,3,4",
+      "verification_anchor": "monazite",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "b755f15c8f0471a25e8057094879a0099da563fd9ed3da715648331874ea46b5",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-93f4b7e9c9f4_b755f15c8f0471a2.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR1947_012_15/UR1947_012-15.pdf?source=research20261031",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "4",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[2, 3, 4]",
+      "reviewed_page_text_sha256": "8728fe614fa3e8362452004bc4358c0bfac1f7ebef0b3d47fc6a91f0776a49f7"
+    }
+  },
+  "E1:C-e7b38d0c5e15ee38c47684": {
+    "bindings": {
+      "document_id": "DOC-514810021305",
+      "pdf_pages_or_html_sections": "1,4,5,7,8,9",
+      "verification_anchor": "Rubble Flats",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "c7a270d3e61e63bf8d77a0012be74a2366fc7a5838904c9bbf688d8bb53f1f6b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-514810021305_c7a270d3e61e63bf.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?v=2",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "12",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 4, 5, 7, 8, 9]",
+      "reviewed_page_text_sha256": "58224791ed96b502ce7936c0baf941b1f88e7caca6bb42c1885554b513b05695"
+    }
+  },
+  "E1:C-f3b786ba841126c4883915": {
+    "bindings": {
+      "document_id": "DOC-cc2c7fbc9ddc",
+      "pdf_pages_or_html_sections": "HTML: South Australian deposits; Murray Basin; Mindarie",
+      "verification_anchor": "Mindarie",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "02fbf09d342b37324127ae4452ba48d766a02b2cabbe14504bdca4eceadc6603",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-cc2c7fbc9ddc_02fbf09d342b3732.html",
+      "actual_original_url": "https://www.energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/heavy-minerals",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "76afb52a0c17f9b47e588f552f48586308835eba33a5b1a1df58986175090b6d"
+    }
+  },
+  "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2": {
+    "bindings": {
+      "document_id": "DOC-edbbf85f0220",
+      "pdf_pages_or_html_sections": "1,2,4,8,16",
+      "verification_anchor": "Quantum",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4af04dcd54b2e5c9193277f6750f54421607e7a831f94841cb63b139e6e23de4",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-edbbf85f0220_4af04dcd54b2e5c9.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/0ab654b4-b044-49bc-940d-71bf9746a68d/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "16",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 4, 8, 16]",
+      "reviewed_page_text_sha256": "2687d9cdd58f4ab89aa1510e37f1835daed4e8bf5bc654304ecaf75eb5aa8d38"
+    }
+  }
+}

@@ -1,5 +1,11 @@
 # Change log
 
+## P2/P3/P4 final evidence classification and nine retrieval follow-ups — 2026-10-31
+
+- Recover five targets' nominated originals (Yellowband Plain, Stronach, Yellowband Creek, Naracoopa, Rubble Flats) and direct official replacement originals for Quantum (two IDs) and Mindarie. Read relevant pages/sections, distinguish mineral composition from ore TREO, offshore/onshore boundaries, bauxite analogues and historical intercepts from MREs.
+- Preserve Scaddan as cached extracted text with original-byte access HOLD; public DNS/Internet Archive observations and failed attempts remain reproducible. Four nominated-pointer physical-access residuals remain distinct from eight targets with newly archived primary content. No invented byte hashes or complete-fulltext claims.
+- Classify every fixed P2/P3/P4 source (339 rows, P2 27 provisional cases) into eight explicit evidence states with findings/gaps/reopen conditions. Keep 167 native-content-only and 28 inherited P2 desk reviews distinct. Add new editable CSV/JSON, original-review registry, deterministic script and 15 acceptance tests. Redact inherited URL credential parameters in two newly derived rows only; frozen snapshots, P1, approvals, 13-case Gate and MCDA unchanged/paused.
+
 ## 144 HOLD primary-document and scope review — 2026-10-31
 
 - Review relevant original PDF/HTML content for 142 immutable targets, plus one web-rendered original PDF (Scaddan, no archived bytes); leave Yellowband Plain unread/access-blocked. Preserve seven alternative-original cases whose nominated pointers remain unrecovered, nine total access gaps, and all row-level scope/title reopen conditions.

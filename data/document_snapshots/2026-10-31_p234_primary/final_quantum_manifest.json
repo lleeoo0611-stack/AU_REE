@@ -1,0 +1,292 @@
+[
+  {
+    "document_id": "DOC-edbbf85f0220",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/0ab654b4-b044-49bc-940d-71bf9746a68d/content",
+    "target_ids": [
+      "E1:C-50ed67520c1995355b52f2",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:04:55.679845+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/0ab654b4-b044-49bc-940d-71bf9746a68d/content",
+    "http_status": 200,
+    "content_type": "application/pdf;charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "4af04dcd54b2e5c9193277f6750f54421607e7a831f94841cb63b139e6e23de4",
+    "byte_count": 1852331,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-edbbf85f0220_4af04dcd54b2e5c9.pdf",
+    "format": "pdf",
+    "replaces_legacy_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/93987",
+    "official_handle": "1/93987",
+    "official_item_uuid": "30149c03-73df-47c2-980e-a042801a4c54",
+    "official_item_title": "EL 31475 Douglas Project Annual Report for the period 1 September 2017 to 31 August 2018",
+    "official_item_metadata": {
+      "dc.asset.count": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.contributor.holder": [
+        {
+          "value": "CopperOz",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.accessioned": [
+        {
+          "value": "2025-07-21T03:24:23Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.available": [
+        {
+          "value": "2025-07-21T03:24:23Z",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.date.issued": [
+        {
+          "value": "2018",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.abstract": [
+        {
+          "value": "EL 31475 (Project) is located approximately 135 km NW of Katherine and 600 km W of Pine Creek. The Project is located on the western margin of the Pine Creek Orogen. It includes the Quantum REE prospect which is located under Daly Basin sedimentary rocks. CopperOz Pty Ltd is assessing the potential of the application area for bedrock REE, U and Au-Ag deposits, as well as alluvial Au deposits. Previous exploration in the Project revealed elevated U, REE, Au, Ag and base metal values. Drilling located zones of REE mineralisation over a strike length of 400m. Total Rare Earth Oxide (TREO) grades of up to 11% were recorded. Notable drill intersections included 12m at 4.51% TREO (TDD8) and 9.2m at 3.78% TREO within a broader zone of 21.9m at 2.55% TREO (TDD10). During the reporting period, CopperOz Pty Ltd compiled and assessed all available geological, geophysical, remote sensing and exploration work undertaken over the Project area. No ground based exploration was undertaken. Work on the Project is at a preliminary stage. The potential for the Project area to contain significant REE, U and Au-Ag mineralisation appears to be good.",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.description.modifyhistory": [
+        {
+          "value": "18/06/2019",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "27/06/2025",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        }
+      ],
+      "dc.description.stratname": [
+        {
+          "value": "South Alligator Group",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Burrell Creek Formation",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Depot Creek Sandstone",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Stray Creek Sandstone",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Daly River Group",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        }
+      ],
+      "dc.identifier.collectionname": [
+        {
+          "value": "Minerals Exploration Reports (MEX)",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdoc": [
+        {
+          "value": "CR2018-0354",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.govdocprefix": [
+        {
+          "value": "CR2018",
+          "language": "",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.tenure": [
+        {
+          "value": "EL31475",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.identifier.uri": [
+        {
+          "value": "https://geoscience.nt.gov.au/web/handle/1/93987",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatgeolprovince": [
+        {
+          "value": "Daly Basin",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatmap100": [
+        {
+          "value": "Tipperary 5170",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.relation.isatmap250": [
+        {
+          "value": "Pine Creek SD5208",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dc.subject.classification": [
+        {
+          "value": "Uranium",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        },
+        {
+          "value": "Precious metals",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 1
+        },
+        {
+          "value": "Gold",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 2
+        },
+        {
+          "value": "Silver",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 3
+        },
+        {
+          "value": "Rare earth elements",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 4
+        },
+        {
+          "value": "Geological setting",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 5
+        },
+        {
+          "value": "Previous exploration",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 6
+        },
+        {
+          "value": "Geophysical interpretation",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 7
+        }
+      ],
+      "dc.title": [
+        {
+          "value": "EL 31475 Douglas Project Annual Report for the period 1 September 2017 to 31 August 2018",
+          "language": null,
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ],
+      "dspace.entity.type": [
+        {
+          "value": "Publication",
+          "language": "en",
+          "authority": null,
+          "confidence": 5,
+          "place": 1
+        }
+      ],
+      "local.flag.notified": [
+        {
+          "value": "1",
+          "language": "en",
+          "authority": null,
+          "confidence": -1,
+          "place": 0
+        }
+      ]
+    },
+    "original_filename": "EL31475_2018_A.pdf",
+    "original_bundle": "ORIGINAL"
+  }
+]

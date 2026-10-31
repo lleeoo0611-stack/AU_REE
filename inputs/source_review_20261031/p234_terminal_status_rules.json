@@ -1,0 +1,156 @@
+{
+  "execution_id": "P234-FINAL-EVIDENCE-20261031-V1",
+  "scope": "339 immutable source targets, not approved Projects",
+  "frozen_snapshot": "2026-10-29",
+  "rules": {
+    "C0_NATIVE_RECORD_REVIEW_COMPLETE_PROJECT_UNRESOLVED": {
+      "terminal_evidence_status": "NATIVE_ONLY_PROJECT_REE_UNRESOLVED",
+      "meaning": "已核對原生來源，未建立同範圍 Project／REE 開發角色；不宣稱外部技術全文查核完成"
+    },
+    "CITED_DOCUMENT_SCOPE_NOT_SUPPORTED": {
+      "terminal_evidence_status": "NAME_OR_GEOGRAPHY_UNRESOLVED",
+      "meaning": "同名、區域或引用定位不足，保留原 ID 與地理／實體關係缺口"
+    },
+    "CITED_DOCUMENT_SCOPE_TRANSFER_REJECTED": {
+      "terminal_evidence_status": "DOCUMENTED_SCOPE_TRANSFER_REJECTED",
+      "meaning": "原件不支持已提出的跨專案／州／礦權或資源繼承；不是證明來源沒有 REE"
+    },
+    "CROSS_PROJECT_RESOURCE_TRANSFER_REJECTED": {
+      "terminal_evidence_status": "DOCUMENTED_SCOPE_TRANSFER_REJECTED",
+      "meaning": "原件不支持已提出的跨專案／州／礦權或資源繼承；不是證明來源沒有 REE"
+    },
+    "CROSS_STATE_RESOURCE_TRANSFER_REJECTED": {
+      "terminal_evidence_status": "DOCUMENTED_SCOPE_TRANSFER_REJECTED",
+      "meaning": "原件不支持已提出的跨專案／州／礦權或資源繼承；不是證明來源沒有 REE"
+    },
+    "DESK_REVIEW_COMPLETE__DOCUMENTED_HISTORIC_SITE_OUTSIDE_CURRENT_PREFID": {
+      "terminal_evidence_status": "DOCUMENTED_NON_TARGET_OR_HISTORIC_SCOPE",
+      "meaning": "文件範圍為歷史場址、非 REE 經濟主張或不同研究範圍，僅處理該文件所證明的限制"
+    },
+    "DESK_REVIEW_COMPLETE__GOV_NATIVE_FEATURE_ONLY_PROJECT_ROLE_NOT_SHOWN": {
+      "terminal_evidence_status": "NATIVE_ONLY_PROJECT_REE_UNRESOLVED",
+      "meaning": "已核對原生來源，未建立同範圍 Project／REE 開發角色；不宣稱外部技術全文查核完成"
+    },
+    "DESK_REVIEW_COMPLETE__ISSUER_SCOPING_EXCLUDES_REE_RESOURCE_STAGE": {
+      "terminal_evidence_status": "DOCUMENTED_NON_TARGET_OR_HISTORIC_SCOPE",
+      "meaning": "文件範圍為歷史場址、非 REE 經濟主張或不同研究範圍，僅處理該文件所證明的限制"
+    },
+    "DESK_REVIEW_COMPLETE__PRIMARY_DRILL_NEGATIVE_FOR_TESTED_REE_TARGET": {
+      "terminal_evidence_status": "TESTED_TARGET_NEGATIVE_ONLY",
+      "meaning": "僅保留原桌面審查所支持的特定測試標的陰性結果，不外推整個地區不存在 REE"
+    },
+    "DESK_REVIEW_COMPLETE__REGIONAL_SECONDARY_NAME_COLLISION_NO_PRIMARY_JOIN": {
+      "terminal_evidence_status": "NAME_OR_GEOGRAPHY_UNRESOLVED",
+      "meaning": "同名、區域或引用定位不足，保留原 ID 與地理／實體關係缺口"
+    },
+    "DESK_REVIEW_COMPLETE__SCOPED_PRIMARY_OR_ISSUER_FOUND__LEGACY_GIS_AND_C1_HOLD": {
+      "terminal_evidence_status": "DOCUMENTED_REE_CLAIM_SCOPE_HOLD",
+      "meaning": "文件載有具名 REE／Project／資源主張，身分、同範圍或准入仍待核定"
+    },
+    "ISSUER_COPY_CONTENT_REVIEWED_PRIMARY_PUBLISHER_AUTHENTICITY_PENDING": {
+      "terminal_evidence_status": "DOCUMENTED_REE_CLAIM_SCOPE_HOLD",
+      "meaning": "文件載有具名 REE／Project／資源主張，身分、同範圍或准入仍待核定"
+    },
+    "PRIMARY_BAUXITE_ANALOGUE_SCOPE_REVIEWED_REE_TRANSFER_REJECTED": {
+      "terminal_evidence_status": "DOCUMENTED_NON_TARGET_OR_HISTORIC_SCOPE",
+      "meaning": "文件範圍為歷史場址、非 REE 經濟主張或不同研究範圍，僅處理該文件所證明的限制"
+    },
+    "PRIMARY_CONTENT_REVIEWED_SCOPE_LIMITED": {
+      "terminal_evidence_status": "DOCUMENTED_GEO_CONTEXT_SCOPE_HOLD",
+      "meaning": "已讀到礦床／地質／歷史礦物背景，不能直接升級為合格獨立 Project"
+    },
+    "PRIMARY_DOWNSTREAM_SCOPE_DISTINGUISHED_FROM_MINING_PROJECT": {
+      "terminal_evidence_status": "DOCUMENTED_NON_TARGET_OR_HISTORIC_SCOPE",
+      "meaning": "文件範圍為歷史場址、非 REE 經濟主張或不同研究範圍，僅處理該文件所證明的限制"
+    },
+    "PRIMARY_GEOLOGICAL_DOCUMENT_REVIEWED_PROJECT_UNRESOLVED": {
+      "terminal_evidence_status": "DOCUMENTED_GEO_CONTEXT_SCOPE_HOLD",
+      "meaning": "已讀到礦床／地質／歷史礦物背景，不能直接升級為合格獨立 Project"
+    },
+    "PRIMARY_GOVERNMENT_PROJECT_TABLE_REVIEWED_SOURCE_JOIN_PENDING": {
+      "terminal_evidence_status": "DOCUMENTED_REE_CLAIM_SCOPE_HOLD",
+      "meaning": "文件載有具名 REE／Project／資源主張，身分、同範圍或准入仍待核定"
+    },
+    "PRIMARY_GOVERNMENT_RECORD_CONTENT_REVIEWED": {
+      "terminal_evidence_status": "DOCUMENTED_GEO_CONTEXT_SCOPE_HOLD",
+      "meaning": "已讀到礦床／地質／歷史礦物背景，不能直接升級為合格獨立 Project"
+    },
+    "PRIMARY_HISTORICAL_HMS_GROUP_SCOPE_REVIEWED": {
+      "terminal_evidence_status": "DOCUMENTED_GEO_CONTEXT_SCOPE_HOLD",
+      "meaning": "已讀到礦床／地質／歷史礦物背景，不能直接升級為合格獨立 Project"
+    },
+    "PRIMARY_HISTORICAL_MONAZITE_SCOPE_REVIEWED_SOURCE_JOIN_PENDING": {
+      "terminal_evidence_status": "DOCUMENTED_GEO_CONTEXT_SCOPE_HOLD",
+      "meaning": "已讀到礦床／地質／歷史礦物背景，不能直接升級為合格獨立 Project"
+    },
+    "PRIMARY_HISTORICAL_NON_REE_SCOPE_REVIEWED": {
+      "terminal_evidence_status": "DOCUMENTED_NON_TARGET_OR_HISTORIC_SCOPE",
+      "meaning": "文件範圍為歷史場址、非 REE 經濟主張或不同研究範圍，僅處理該文件所證明的限制"
+    },
+    "PRIMARY_HISTORICAL_RESOURCE_SCOPE_REVIEWED": {
+      "terminal_evidence_status": "DOCUMENTED_REE_CLAIM_SCOPE_HOLD",
+      "meaning": "文件載有具名 REE／Project／資源主張，身分、同範圍或准入仍待核定"
+    },
+    "PRIMARY_ISSUER_HMS_SCOPE_REVIEWED": {
+      "terminal_evidence_status": "DOCUMENTED_GEO_CONTEXT_SCOPE_HOLD",
+      "meaning": "已讀到礦床／地質／歷史礦物背景，不能直接升級為合格獨立 Project"
+    },
+    "PRIMARY_MODEL_ZONE_SCOPE_REVIEWED_RESOURCE_TRANSFER_REJECTED": {
+      "terminal_evidence_status": "DOCUMENTED_SCOPE_TRANSFER_REJECTED",
+      "meaning": "原件不支持已提出的跨專案／州／礦權或資源繼承；不是證明來源沒有 REE"
+    },
+    "PRIMARY_NON_REE_DOCUMENT_SCOPE_REVIEWED": {
+      "terminal_evidence_status": "DOCUMENTED_NON_TARGET_OR_HISTORIC_SCOPE",
+      "meaning": "文件範圍為歷史場址、非 REE 經濟主張或不同研究範圍，僅處理該文件所證明的限制"
+    },
+    "PRIMARY_NON_REE_RESOURCE_BASIS_REVIEWED": {
+      "terminal_evidence_status": "DOCUMENTED_NON_TARGET_OR_HISTORIC_SCOPE",
+      "meaning": "文件範圍為歷史場址、非 REE 經濟主張或不同研究範圍，僅處理該文件所證明的限制"
+    },
+    "PRIMARY_ONSHORE_OFFSHORE_SCOPE_TRANSFER_REJECTED": {
+      "terminal_evidence_status": "DOCUMENTED_SCOPE_TRANSFER_REJECTED",
+      "meaning": "原件不支持已提出的跨專案／州／礦權或資源繼承；不是證明來源沒有 REE"
+    },
+    "PRIMARY_PLACER_MODEL_SCOPE_REVIEWED_NO_PROJECT_RESOURCE_APPROVAL": {
+      "terminal_evidence_status": "DOCUMENTED_GEO_CONTEXT_SCOPE_HOLD",
+      "meaning": "已讀到礦床／地質／歷史礦物背景，不能直接升級為合格獨立 Project"
+    },
+    "PRIMARY_PROJECT_DEPOSIT_RELATION_DOCUMENTED_SOURCE_JOIN_PENDING": {
+      "terminal_evidence_status": "DOCUMENTED_REE_CLAIM_SCOPE_HOLD",
+      "meaning": "文件載有具名 REE／Project／資源主張，身分、同範圍或准入仍待核定"
+    },
+    "PRIMARY_PROJECT_LOCALITY_CONTEXT_REVIEWED": {
+      "terminal_evidence_status": "DOCUMENTED_REE_CLAIM_SCOPE_HOLD",
+      "meaning": "文件載有具名 REE／Project／資源主張，身分、同範圍或准入仍待核定"
+    },
+    "PRIMARY_PROJECT_REE_DOCUMENT_REVIEWED_SOURCE_JOIN_PENDING": {
+      "terminal_evidence_status": "DOCUMENTED_REE_CLAIM_SCOPE_HOLD",
+      "meaning": "文件載有具名 REE／Project／資源主張，身分、同範圍或准入仍待核定"
+    },
+    "REGIONAL_TO_PROJECT_SCOPE_TRANSFER_REJECTED": {
+      "terminal_evidence_status": "DOCUMENTED_SCOPE_TRANSFER_REJECTED",
+      "meaning": "原件不支持已提出的跨專案／州／礦權或資源繼承；不是證明來源沒有 REE"
+    },
+    "REPLACEMENT_PRIMARY_HMS_SCOPE_REVIEWED_NOMINATED_POINTER_UNARCHIVED": {
+      "terminal_evidence_status": "DOCUMENTED_GEO_CONTEXT_SCOPE_HOLD",
+      "meaning": "已讀到礦床／地質／歷史礦物背景，不能直接升級為合格獨立 Project"
+    },
+    "REPLACEMENT_PRIMARY_QUANTUM_PROJECT_RELATION_REVIEWED_SOURCE_JOIN_PENDING": {
+      "terminal_evidence_status": "DOCUMENTED_REE_CLAIM_SCOPE_HOLD",
+      "meaning": "文件載有具名 REE／Project／資源主張，身分、同範圍或准入仍待核定"
+    },
+    "WEB_ORIGINAL_REVIEWED_BYTES_UNAVAILABLE_EXTERNAL_ACCESS_HOLD": {
+      "terminal_evidence_status": "WEB_ONLY_ORIGINAL_ACCESS_HOLD",
+      "meaning": "已讀出版者快取頁面；原始位元組不可取得，身分／資源與真實性維持 HOLD"
+    }
+  },
+  "convergence_policy": {
+    "classified_does_not_mean_approval": true,
+    "native_only_is_not_technical_fulltext_review": true,
+    "no_automatic_same_name_or_proximity_merge": true,
+    "no_absence_inference_from_access_failure": true,
+    "same_endpoint_retries_stop_without_new_evidence": true,
+    "reopen_requires": "New verifiable original, changed public access, source-scoped geography/title/resource evidence, or explicit user authorization to resume paused gates",
+    "C1_13_gate_MCDA": "PAUSED_BY_USER"
+  }
+}
