@@ -127,7 +127,15 @@ def stable_approved_project_id(candidate_id):
 def apply_identity_decisions(db,root,freeze_date):
     """Only an independently APPROVED archived document may create/link a Project."""
     path=Path(root)/'inputs'/'project_identity_decisions.csv'
-    rows=sorted(readcsv(path),key=lambda r:r.get('candidate_id','')) if path.exists() else []
+    decisions=readcsv(path) if path.exists() else []
+    # Approve independent Project parents before resolving child/source links.
+    # Otherwise the lexical candidate_id order controls whether an otherwise
+    # valid, same-batch Project–Deposit relationship is accepted.
+    order={'APPROVE_NEW_PROJECT':0,'LINK_EXISTING_PROJECT':1}
+    rows=sorted(decisions,key=lambda r:(
+        order.get((r.get('decision') or '').strip().upper(),2),
+        r.get('candidate_id','')
+    ))
     # Revocation is fail-closed, but preserves prior audit and canonical IDs.
     db.execute("UPDATE project_master SET population_status='IDENTITY_APPROVAL_EXPIRED', activity='UNKNOWN', lifecycle='UNKNOWN', ree_role='REE_UNCONFIRMED' WHERE identity_source LIKE 'APPROVED_CANDIDATE:%'")
     db.execute("UPDATE project_geological_relation SET decision_status='APPROVAL_EXPIRED' WHERE approval_ref IS NOT NULL")
@@ -157,6 +165,8 @@ def apply_identity_decisions(db,root,freeze_date):
         project_name=(r.get('project_name') or '').strip()
         reason='EVIDENCE_APPROVED' if valid else 'INDEPENDENT_DOCUMENT_APPROVAL_REQUIRED'
         if valid and not candidate['state']:valid=False;reason='STATE_REQUIRED'
+        if valid and action=='APPROVE_NEW_PROJECT' and candidate['entity_level']!='PROJECT':
+            valid=False;reason='SOURCE_ENTITY_IS_NOT_A_PROJECT'
         if valid and action=='APPROVE_NEW_PROJECT':
             if not project_name:valid=False;reason='PROJECT_NAME_REQUIRED'
             else:
@@ -191,9 +201,16 @@ def apply_identity_decisions(db,root,freeze_date):
                                    (utc(),pid,'APPROVED_CANDIDATE:'+cid))
                 if valid:stats['approved_new']+=1
         elif valid and action=='LINK_EXISTING_PROJECT':
-            master=db.execute('SELECT project_id,state FROM project_master WHERE project_id=?',(pid,)).fetchone()
+            master=db.execute('''SELECT project_id,state,population_status,identity_source
+                FROM project_master WHERE project_id=?''',(pid,)).fetchone()
             if not master or master['state']!=candidate['state']:
                 valid=False;reason='PROJECT_MISSING_OR_STATE_CONFLICT'
+            elif (master['population_status']!='EVIDENCE_BACKED_PROJECT'
+                  or not str(master['identity_source'] or '').startswith('APPROVED_CANDIDATE:')):
+                valid=False;reason='PARENT_PROJECT_IDENTITY_NOT_INDEPENDENTLY_APPROVED'
+            elif candidate['entity_level']!='PROJECT' and not db.execute(
+                  'SELECT 1 FROM geological_entity_source WHERE candidate_id=?',(cid,)).fetchone():
+                valid=False;reason='GEOLOGICAL_ENTITY_SOURCE_MISSING'
             else:
                 stats['linked_existing']+=1
         if valid:
