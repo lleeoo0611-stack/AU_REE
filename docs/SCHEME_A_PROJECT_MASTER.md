@@ -28,8 +28,8 @@ E1 = 商品欄明確 REE、TREO、NdPr 等（含 GA 已按 REE 篩選的官方�
 
 `candidate_id,decision,project_name,project_id,source_url,source_sha256,evidence_date,approval_ref`
 
-- `APPROVE_NEW_PROJECT`：使用已封存文件和**獨立批准**的 `approval_ref`；需填明確 `project_name`。`project_id` 留空時，以不受來源匯入／核准順序影響的 `candidate_id` 雜湊產生固定 `AU-REE-` 數字 ID（目前 12 位），不再使用當下最大編號加一。同州同名者仍進既有專案連結審查；已核准 ID 有衝突時須獨立更正，不自動改號。
-- `LINK_EXISTING_PROJECT`：指向既有 `project_id`；若來源紀錄是 Deposit／Occurrence，建 `PART_OF_PROJECT` 關係；若是 Project，同意的別名才寫入 `project_aliases`。
+- `APPROVE_NEW_PROJECT`：僅接受原始候選層級為 **Project** 的來源紀錄，Deposit／Prospect／Occurrence 不可直接升格；使用已封存文件和**獨立批准**的 `approval_ref`；需填明確 `project_name`。`project_id` 留空時，以不受來源匯入／核准順序影響的 `candidate_id` 雜湊產生固定 `AU-REE-` 數字 ID（目前 12 位），不再使用當下最大編號加一。同州同名者仍進既有專案連結審查；已核准 ID 有衝突時須獨立更正，不自動改號。
+- `LINK_EXISTING_PROJECT`：僅能指向**已取得獨立 Project 身分核准且核准仍有效**的 `project_id`；`LEGACY_UNVERIFIED` 或已撤回核准的 Master 不可作為已驗證母專案。來源若為 Deposit／Occurrence，必須存在可追溯的 Geological Entity Source，才可建立 `PART_OF_PROJECT`；若為 Project，審查同意的別名才可寫入 `project_aliases`。既有核准 parent 關係要變更，必須另行正式更正，不得默默轉移。
 - `REJECT_PROJECT`：保留原始候選與審查狀態，不新增 Project。
 
 每筆核准須在 `inputs/source_documents.csv` 登記實際封存檔、官方／公司來源 URL 與 SHA256，於 `inputs/evidence_approvals.csv` 由另一欄位明列 `record_type=PROJECT_REVIEW`、審查者、`decision=APPROVED` 和凍結日前審查日期。只有原件位元組、URL、SHA、日期及 `approval_ref` 全部吻合才允許新增／連結。取消審查會將相關新專案標記為 `IDENTITY_APPROVAL_EXPIRED`，其正式分析資格失效；保留永久 ID 與完整稽核紀錄。座標／活動／開發階段的**獨立**核准仍依 `inputs/project_reviews.csv` 進行。
