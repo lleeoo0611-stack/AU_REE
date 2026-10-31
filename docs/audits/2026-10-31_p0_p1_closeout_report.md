@@ -65,7 +65,7 @@
 | Native source identity 正式矛盾校正 | **仍有 Ambergate／Wingellina 4 筆** | [44 案例審核表](2026-10-31_p1_44_case_resolution.csv) |
 | C1 正式 Project/JORC/GIS／Panel 簽核 | **0** | [C1 Admission Protocol](../P0_COHORT_SELECTION_PROTOCOL.md)、[13 案下游核准 Issue #32](https://github.com/lleeoo0611-stack/AU_REE/issues/32) |
 | GitHub Actions CI 可觀測測試通過 | **已通過：P0/P1 snapshot、Python 3.11/3.13 與 R MCDA synthetic** | [14 筆成功 Workflow 紀錄](2026-10-31_p0_p1_ci_verification.json) |
-| GitHub 分支整合 | **#26 → #27 → #28 已依序合併 `main`**；#31 彙整最後結案資料與 CI 證據 | PR [#26](https://github.com/lleeoo0611-stack/AU_REE/pull/26)、[#27](https://github.com/lleeoo0611-stack/AU_REE/pull/27)、[#28](https://github.com/lleeoo0611-stack/AU_REE/pull/28)、[#31](https://github.com/lleeoo0611-stack/AU_REE/pull/31) |
+| GitHub 分支整合 | **#26 → #27 → #28 → #31 已依序合併 `main`**；後續 P2 source priority 在新工作包開始 | PR [#26](https://github.com/lleeoo0611-stack/AU_REE/pull/26)、[#27](https://github.com/lleeoo0611-stack/AU_REE/pull/27)、[#28](https://github.com/lleeoo0611-stack/AU_REE/pull/28)、[#31](https://github.com/lleeoo0611-stack/AU_REE/pull/31) |
 
 ### CI 查核記錄：帳務恢復與真實回歸測試
 
@@ -95,7 +95,7 @@ python scripts/audit_p0_p1_closeout.py --check
 python -m unittest discover -s tests -p 'test_p0_p1_*.py' -v
 ```
 
-**已完成兩層驗收**：來源 CSV／JSON 數量、hash 欄位、target–case 對照、20 筆 tenure 精確匹配與 Gate 未升格檢查；並由實際 GitHub runner 執行 Python 回歸及 P0/P1 snapshot、R 合成資料 smoke 成功。C1 正式科研母體簽核繼續獨立辦理。
+**已完成兩層驗收**：來源 CSV／JSON 數量、hash 欄位、target–case 對照、20 筆 tenure 精確匹配與 Gate 未升格檢查；並由實際 GitHub runner 執行 Python 回歸及 P0/P1 snapshot、R 合成資料 smoke 成功。C1 正式科研母體簽核繼續獨立辦理。P1 文獻審查結案後，[P2 72 筆來源工作佇列](2026-10-31_p2_72_intake_report.md)已啟動，兩者不合併 Project 身分，也不自動繼承已批准狀態。
 
 ## 6. 主資料庫一致性
 
