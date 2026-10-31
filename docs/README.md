@@ -73,7 +73,7 @@
 | [完整 44 案例與 73 筆 P1 報告](audits/2026-10-31_p1_73_resolution_report.md) | 來源判讀、REE／HM／Y₂O₃ 資源分層、原始 PDF 取得及正式 Project 範圍狀態 |
 | [73 筆來源核查 CSV](audits/2026-10-31_p1_73_source_resolution.csv) | 來源 ID／SHA／證據主張／核准 Gate／下一步 |
 | [44 個證據案例](audits/2026-10-31_p1_44_case_resolution.csv) | 逐案例文件發現與同名來源對照、缺失或衝突 |
-| [73 筆官方礦權交集複核](audits/2026-10-31_p1_73_tenure_reconciliation.csv) | 60 source overlaps、204 筆官方礦權交集、14 筆文件號碼精確匹配 |
+| [73 筆官方礦權交集複核](audits/2026-10-31_p1_73_tenure_reconciliation.csv) | 60 source overlaps、204 筆官方礦權交集、20 筆文件號碼精確匹配 |
 | [歷史礦權號碼證據輸入](../inputs/source_review_20261031/p1_73_documented_tenement_numbers.csv) | 13 個案例的文獻礦權與有效時間，區分目前快照和歷史紀錄 |
 | [12 筆新增資源主張](../inputs/source_review_20261031/p1_73_new_resource_claims.csv) | Korella Y₂O₃、Benmara V₂O₅、Nowie THM、Hassell HM 等，與前期資源聲明分開 |
 | [可重跑腳本](../scripts/audit_p0_p1_73_resolution.py)／[官方 Tenement 比對](../scripts/audit_p0_p1_73_tenure.py) | 嚴守 C0/C1 Gate、維持 source snapshot 身分 |
