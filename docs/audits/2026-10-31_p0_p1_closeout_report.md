@@ -63,13 +63,15 @@
 | 13 正向案例的六層 Gate 評估 | **13/13 已完成 HOLD 判讀** | [13 案 Gate 決策](../../inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv) |
 | 4 個 WAMEX 原始政府 PDF + SHA | **0/4 已封存**（5 筆來源） | [來源申請紀錄](../requests/2026-10-31_wamex_primary_pdf_access.md)，[Issue #30](https://github.com/lleeoo0611-stack/AU_REE/issues/30) |
 | Native source identity 正式矛盾校正 | **仍有 Ambergate／Wingellina 4 筆** | [44 案例審核表](2026-10-31_p1_44_case_resolution.csv) |
-| C1 正式 Project/JORC/GIS／Panel 簽核 | **0** | [C1 Admission Protocol](../P0_COHORT_SELECTION_PROTOCOL.md) |
+| C1 正式 Project/JORC/GIS／Panel 簽核 | **0** | [C1 Admission Protocol](../P0_COHORT_SELECTION_PROTOCOL.md)、[13 案下游核准 Issue #32](https://github.com/lleeoo0611-stack/AU_REE/issues/32) |
 | GitHub Actions CI 可觀測測試通過 | **未通過，根因未判明** | [Issue #29](https://github.com/lleeoo0611-stack/AU_REE/issues/29) |
 | Draft PR 合併 `main` | **不合併，待 CI Gate 通過** | PR [#26](https://github.com/lleeoo0611-stack/AU_REE/pull/26) → [#27](https://github.com/lleeoo0611-stack/AU_REE/pull/27) → [#28](https://github.com/lleeoo0611-stack/AU_REE/pull/28) → P0/P1 closeout PR |
 
 ### CI 查核記錄
 
 GitHub Actions [run 41169549036](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41169549036) 在數秒內結束為 failure，工作 `resolution-regression` 的步驟 API 回傳 `steps=[]`，logs 下載 404 BlobNotFound。同一 head 的既有 Python regression 和 R MCDA smoke 也出現 pre-step 失敗；check-run 顯示 2 個 annotations，但目前連線工具無法讀取文字。**因此不能把此問題確診為測試程式錯誤或 GitHub 帳務錯誤。** P0 保留 `CI_BLOCKED_PRE_STEP_UNDIAGNOSED`。
+
+本次 closeout [run 41173058358](https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41173058358) 同樣在約 4 秒內失敗（`steps=[]`、logs 404）。已經重新執行失敗工作一次（attempt 2），依舊在第一步之前失敗，排除了單次偶發成功的可能，但根因仍須閱讀 GitHub UI annotations。
 
 首次檢查需開啟 GitHub Actions Job UI 取得兩個 annotations，檢查 Actions 配額／runner／權限／workflow；再執行下列測試並留存綠燈 run ID：
 
