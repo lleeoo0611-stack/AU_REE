@@ -22,14 +22,30 @@ def fetch(item):
     ARCHIVE.mkdir(parents=True, exist_ok=True)
     path = ARCHIVE / (item['source_id'] + '.bin')
     meta = path.with_suffix('.json')
-    if meta.exists() and not path.exists():
-        # A failed source is reopened by a new, explicitly curated source ID.
-        return dict(json.loads(meta.read_text(encoding='utf-8')), **item)
-    if path.exists() and meta.exists():
+    if meta.exists():
         record = json.loads(meta.read_text(encoding='utf-8'))
-        if hashlib.sha256(path.read_bytes()).hexdigest() != record['sha256']:
-            raise ValueError('archived bytes changed: ' + item['source_id'])
-        return dict(record, **item)
+        # A source ID identifies one immutable URL/publication/review scope.
+        # Metadata cannot be carried over silently to a changed URL or group.
+        for key in ('source_id', 'url', 'format', 'publication_date', 'review_group_ids'):
+            if record.get(key) != item.get(key):
+                raise ValueError('source contract changed; assign a new source_id: ' + item['source_id'])
+        if not path.exists():
+            if record.get('access_status') == 'ORIGINAL_BYTES_LOCAL':
+                raise FileNotFoundError('archived original missing: ' + item['source_id'])
+            # A failed source remains a documented access hold; retry only
+            # with an independently curated new source ID.
+            return record
+        if record.get('access_status') != 'ORIGINAL_BYTES_LOCAL':
+            raise ValueError('orphaned original contradicts access status: ' + item['source_id'])
+        raw = path.read_bytes()
+        if (hashlib.sha256(raw).hexdigest() != record.get('sha256')
+                or len(raw) != record.get('byte_count')):
+            raise ValueError('archived bytes/hash/size changed: ' + item['source_id'])
+        return record
+    if path.exists():
+        # Do not silently fetch over an archived PDF/HTML whose metadata was
+        # deleted or lost; preserve bytes for independent recovery.
+        raise FileExistsError('archived original lacks manifest: ' + item['source_id'])
     result = dict(item, retrieved_at=datetime.now(timezone.utc).isoformat(),
                   archive_path=path.relative_to(ROOT).as_posix(), sha256='', byte_count=0)
     try:
