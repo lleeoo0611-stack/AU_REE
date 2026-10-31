@@ -354,6 +354,18 @@ def validate_census_relations(tables: dict[str, list[dict[str, str]]]) -> dict:
             if m.get("relation") not in ("PROJECT_LINK_REVIEWED_CANDIDATE",
                                          "REVIEW_GROUP_LINK_HOLD"):
                 raise ValueError(f"Census linked source missing review relationship: {target_id}")
+            # Candidate admission must identify the same reviewed parent and
+            # the correct kind of source-to-project relation. Unresolved/HOLD
+            # sources may cite a review group but cannot inherit its gate.
+            if g.get("inclusion_gate") == "INCLUDE_CANDIDATE":
+                parent = (project_candidates[project_id].get("canonical_name") or "").strip().casefold()
+                named_group = (g.get("candidate_group_key") or "").strip().casefold()
+                if not parent or named_group != parent:
+                    raise ValueError(f"Census included source linked to wrong Project group: {target_id}")
+                if m.get("relation") != "PROJECT_LINK_REVIEWED_CANDIDATE":
+                    raise ValueError(f"Census included source has only HOLD group relationship: {target_id}")
+            elif m.get("relation") == "PROJECT_LINK_REVIEWED_CANDIDATE":
+                raise ValueError(f"Census non-included source has Project candidate relation: {target_id}")
             linked += 1
         else:
             if m.get("relation") != "UNRESOLVED_NO_PROJECT_LINK_INFERRED":
