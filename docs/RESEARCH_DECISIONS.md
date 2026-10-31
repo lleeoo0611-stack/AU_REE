@@ -165,3 +165,7 @@
 - 原引用原件、替代官方原件、快取擷取文字、原生內容與沿用桌面審查分開計數。9 筆跟進中 5 筆原引用取件、3 筆替代原件、1 筆 Scaddan 存取 HOLD；4 筆舊引用實體取件殘餘不隱藏。
 - 缺原件不得當作無礦化；獨居石成分不能當整體 TREO；歷史截距不能當 MRE；相鄰近岸／離岸礦權不能繼承資源。沒有新的可驗證原件、入口或範圍證據時停止相同失敗取件，依逐筆重開條件恢復。
 - C1、13 案 Gate、MCDA 暫緩，零核准改動。見 [最終證據分類報告](audits/2026-10-31_p234_final_evidence_report.md)，包含實際內容覆蓋與公開 CI 限制。
+
+## Evidence batch decision EXT-TECH-B01（2026-10-31）
+
+本批採用「原始發行人文件的公開文字定位」與「已保存 PDF 位元組 + 頁面驗證」分層記錄；只有前者時 `original_byte_sha256` 留空。2017 Ketchowla JORC 2012 *Exploration Results* 不代表資源量；2011 Victory REE+Y grab assay、2025 Johnson Dam Nd 截距不能轉換成 TREO MRE。Scaddan 2024/2025 vendor clay 型態衝突另記為 evidence conflict，不憑行銷文案判定 IAC。資料判讀與原始 C1/13 案 Gate 分離；所有已建立正式資格及歷史快照保持不變。[本批報告](audits/2026-10-31_external_primary_batch01_review.md)。

@@ -1,5 +1,11 @@
 # Change log
 
+## External technical originals Batch 01 — 2026-10-31
+
+- Add nine immutable-ID, source-level substantive overlays (five native, three P2, one Scaddan): Havilah Johnson Dam elemental Nd intercept, Archer Ketchowla K2 Mn/Co tables vs uncorroborated native REE peak, Reedy Lagoon Victory REE+Y historical grab sample, Queensland Mary Kathleen historical-mine vs tailings separation, and Scaddan 2024/2025 seller mineral-host contradiction.
+- Reconcile all 28 P2 baseline IDs / 27 cases against the unchanged 339 record ledger; only three new government HTML scope rechecks, explicitly leave 25 technical-original fulltexts open. Keep 162 native originals and Scaddan PDF byte archive outstanding. No invented source PDF hashes, no visual/fulltext claims, no Project/C1/admission changes.
+- Add editable evidence CSV and 28-source tracker, a standard-library cardinality/approval/status validator, regression tests and dedicated PR CI. Original documents are referenced via URLs and text locators; offline original-byte verification requires a separate later acquisition.
+
 ## P2/P3/P4 final evidence classification and nine retrieval follow-ups — 2026-10-31
 
 - Recover five targets' nominated originals (Yellowband Plain, Stronach, Yellowband Creek, Naracoopa, Rubble Flats) and direct official replacement originals for Quantum (two IDs) and Mindarie. Read relevant pages/sections, distinguish mineral composition from ore TREO, offshore/onshore boundaries, bauxite analogues and historical intercepts from MREs.
