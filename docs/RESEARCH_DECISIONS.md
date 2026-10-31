@@ -129,3 +129,10 @@
 | `ADR-P0-026` | `CROSS_JURISDICTION_SCOPE_HOLD` | 2 筆 Wingellina 的來源 state 標為 SA，但原生點位位於 128.938°E（129°E 州界以西），需以官方地籍／矿權判定；Benmara South 兩時期 EL/prospect 範圍差異亦保留 HOLD | 先驗證 native 原始地籍／legal owner、當期 Project polygon，再開放 Project／REE role 核准 |
 | `ADR-P0-027` | `REE_HM_SEMANTIC_GATE` | 政府礦砂數值 HM/THM、銅／鈾的 resource summary、monazite accessory %, 不等於 TREO 或 NdPr resource。第三方 WAMEX 索引只作待取得政府原件的來源指標 | 原始 JORC source scopes、各氧化物、effective date、source bytes SHA + independent reviewer 簽核 |
 
+
+## 2026-10-31 — P0 412 HOLD 後續查核界線
+
+- 凍結原始 412 source targets 與 2026-10-29 source as-of；P1 73、P2 28、P3 216、P4 95 不更動 ID。
+- P3/P4 311 筆採來源層 provenance 稽核；地質 Occurrence 保持 C0，不能僅憑來源點推論 Project。
+- 13 個 P1 正向案例按既有六個 C1 Gate 跨表逐案對證，直到原始文件 bytes、正式資源基準、Project polygon、截止日有效研究與 reviewer sign-off 完備，不予獨立核准。
+- Legacy source 與政府 native feature、名稱相同或附近 tenement 交集不可直接當正式 Project 身分；舊版 draft PR #33 的 P2 72 筆與此版本 P2 28 筆需先分辨分母。
