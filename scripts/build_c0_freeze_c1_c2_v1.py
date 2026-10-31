@@ -81,7 +81,7 @@ def signed_freeze(row,decision):
 
 def gates_with_signatures(decisions,project,metadata):
     """Require signatures and evidence for approved gate PASS; C2 needs ID+ROLE."""
-    status={g:None for g in GATES}
+    status={(gate, cohort):None for gate in GATES for cohort in ("C1","C2")}
     for d in decisions:
         gate=d["gate_id"]
         check(gate in GATES,"unknown C1/C2 gate")
