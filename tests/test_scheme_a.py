@@ -123,3 +123,96 @@ def test_new_project_detail_review_in_same_stage(tmp_path):
     row=db.execute('SELECT population_status,activity,lifecycle,ree_role FROM project_master').fetchone()
     assert tuple(row)==('EVIDENCE_BACKED_PROJECT','ACTIVE','PFS','REE_PRIMARY')
     assert db.execute("SELECT verification FROM project_coordinates").fetchone()[0]=='VERIFIED'
+
+
+def _identity_fixture(root, entries):
+    """Synthetic archived evidence; no real research source is approved."""
+    doc=root/'inputs/evidence/project.txt'
+    doc.parent.mkdir(parents=True,exist_ok=True)
+    doc.write_text('Synthetic Project ID replay fixture',encoding='utf8')
+    sha=hashlib.sha256(doc.read_bytes()).hexdigest()
+    url='https://example.gov.au/replay-project'
+    write_csv(root/'inputs/source_documents.csv',
+              ['document_id','file_path','source_url','sha256'],
+              [{'document_id':'FIXTURE','file_path':'inputs/evidence/project.txt','source_url':url,'sha256':sha}])
+    write_csv(root/'inputs/evidence_approvals.csv',
+              ['approval_ref','record_type','document_id','reviewer','decision','reviewed_at'],
+              [{'approval_ref':'TEST_ONLY','record_type':'PROJECT_REVIEW','document_id':'FIXTURE',
+                'reviewer':'Synthetic Reviewer','decision':'APPROVED','reviewed_at':'2026-10-01'}])
+    heads=['candidate_id','decision','project_name','project_id','source_url','source_sha256',
+           'evidence_date','approval_ref']
+    rows=[dict(candidate_id=cid,decision='APPROVE_NEW_PROJECT',project_name=name,
+               project_id=pid,source_url=url,source_sha256=sha,evidence_date='2026-10-01',
+               approval_ref='TEST_ONLY') for cid,name,pid in entries]
+    write_csv(root/'inputs/project_identity_decisions.csv',heads,rows)
+    return rows,heads
+
+
+def test_approved_project_id_does_not_change_when_new_candidate_is_added(tmp_path):
+    from au_ree.identity_policy import stable_approved_project_id
+    results={}
+    for case,natives in [('original',['B']),('expanded',['A','B'])]:
+        root=tmp_path/case
+        db=memorydb()
+        entries=[]
+        for native in natives:
+            c=record(source='WA_SOURCE',native=native,name=f'Synthetic {native} REE',
+                     commodity='REE',entity='PROJECT')
+            assert candidate_upsert(db,c)=='REVIEW'
+            cid=db.execute('SELECT candidate_id FROM population_candidates WHERE native_id=?',(native,)).fetchone()[0]
+            entries.append((cid,f'Synthetic {native} REE',''))
+        _identity_fixture(root,entries)
+        reload_registry(db,root,'2026-10-29')
+        assert apply_identity_decisions(db,root,'2026-10-29')['approved_new']==len(entries)
+        bcid=db.execute("SELECT candidate_id FROM population_candidates WHERE native_id='B'").fetchone()[0]
+        results[case]=db.execute('SELECT matched_project_id FROM population_candidates WHERE candidate_id=?',(bcid,)).fetchone()[0]
+        assert results[case]==stable_approved_project_id(bcid)
+    assert results['original']==results['expanded']
+
+
+def test_unapproved_id_cannot_poison_future_project_identity(tmp_path):
+    db=memorydb()
+    candidate_upsert(db,record(source='WA_SOURCE',native='X',name='Synthetic X REE',commodity='REE',entity='PROJECT'))
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    rows,heads=_identity_fixture(tmp_path,[(cid,'Synthetic X REE','AU-REE-00555')])
+    rows[0]['source_sha256']='0'*64
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['rejected_or_pending']==1
+    assert db.execute('SELECT resolved_project_id FROM identity_review_decisions').fetchone()[0] is None
+    assert db.execute('SELECT count(*) FROM project_master').fetchone()[0]==0
+    # The unapproved requested ID must not be carried over into later approval.
+    rows[0]['source_sha256']=hashlib.sha256((tmp_path/'inputs/evidence/project.txt').read_bytes()).hexdigest()
+    rows[0]['project_id']=''
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['approved_new']==1
+    from au_ree.identity_policy import stable_approved_project_id
+    assert db.execute('SELECT project_id FROM project_master').fetchone()[0]==stable_approved_project_id(cid)
+
+
+def test_historically_approved_project_id_cannot_be_silently_changed(tmp_path):
+    db=memorydb()
+    candidate_upsert(db,record(source='WA_SOURCE',native='Y',name='Synthetic Y REE',commodity='REE',entity='PROJECT'))
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    rows,heads=_identity_fixture(tmp_path,[(cid,'Synthetic Y REE','AU-REE-00040')])
+    reload_registry(db,tmp_path,'2026-10-29')
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['approved_new']==1
+    rows[0]['project_id']='AU-REE-00041'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['rejected_or_pending']==1
+    assert db.execute('SELECT resolved_project_id FROM identity_review_decisions').fetchone()[0]=='AU-REE-00040'
+    assert db.execute('SELECT review_reason FROM identity_review_decisions').fetchone()[0]=='STABLE_PROJECT_ID_CHANGE_REQUIRES_CORRECTION'
+    assert db.execute('SELECT count(*) FROM project_master').fetchone()[0]==1
+    assert db.execute('SELECT population_status FROM project_master').fetchone()[0]=='IDENTITY_APPROVAL_EXPIRED'
+
+
+def test_invalid_evidence_date_is_not_accepted_as_historical(tmp_path):
+    db=memorydb()
+    candidate_upsert(db,record(source='WA_SOURCE',native='Z',name='Synthetic Z REE',commodity='REE',entity='PROJECT'))
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    rows,heads=_identity_fixture(tmp_path,[(cid,'Synthetic Z REE','')])
+    rows[0]['evidence_date']='2026-1-01'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['rejected_or_pending']==1
+    assert db.execute('SELECT count(*) FROM project_master').fetchone()[0]==0
