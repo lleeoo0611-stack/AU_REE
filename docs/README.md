@@ -66,6 +66,18 @@
 | [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
 | [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
 
+### P1／P2 最終公開證據查核（2026-10-31）
+
+| 路徑 | 可重現成果 |
+|---|---|
+| [P1／P2 完整查核報告](audits/2026-10-31_p1_p2_public_evidence_closeout_report.md) | 19 個 P1 待辦案和 27 個 P2 案例的政府／發行人資料、限界、結案規則 |
+| [P1 31 source 最新證據表](audits/2026-10-31_p1_31_remaining_public_source_review.csv) | 22 REE 正向來源、4 身分衝突來源、5 個 WAMEX 索引來源 |
+| [P2 28 source 逐列結案表](audits/2026-10-31_p2_28_public_terminal_desk_review.csv) | 28 唯一 target IDs，文獻日期、報告 locator、礦權與 REE/MRE scope |
+| [P1 19 案證據輸入](../inputs/source_review_20261031/p1_19_public_remaining_case_adjudications.csv) | 公開索引、政府/發行人文件與重新開案條件 |
+| [P2 27 案證據輸入](../inputs/source_review_20261031/p2_27_public_evidence_adjudications.csv) | 互斥 source-level 判讀的可維護主張 |
+| [機器可讀 QA](audits/2026-10-31_p1_p2_public_review_summary.json) | P1/P2 案例數、文件/身分缺口、零正式 C1 Gate |
+| [重跑程式](../scripts/audit_p1_p2_public_evidence.py) | `--check` 和 `--write`，保留 487 原始快照 |
+
 ### P2 — 28 source / 27 provisional cases（2026-10-31）
 
 | 文件 | 內容 |
