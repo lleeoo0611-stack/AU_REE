@@ -1,5 +1,15 @@
 # Change log
 
+## P0/P1 desk-search closeout, release gates and CI blocked — 2026-10-31
+
+- Publish **73 immutable C0 source-terminal dispositions**: 22 positive Project/REE leads with 13 case-level six-gate reviews; 40 records without project-scoped REE product proof in the searched sources; 2 Benmara South exclusion from a different deposit's TREO resource; 4 native-source identity conflicts; 5 indexed WAMEX source rows requiring 4 government PDF originals.
+- Wemen historical production now verified by Victorian government 2003/04 Statistical Review (issued April 2005): Wemen mineral sands mine ceased production in January 2004; prior 'catalogue-only' finding superseded.
+- Preserve 204 official tenure source-title intersections, 60 source points with intersecting tenement layers, 20 exact documented title-number matches across 12 cases. No automatic project footprint or C1 promotion.
+- Maintain explicit source/release separation: P1 source research closure does not approve project identity, current REE resource, GIS_RELEASE or criteria panel. All new C1 gates stay HOLD; `main` untouched.
+- CI investigation: existing unrelated Python and R workflows as well as P1 suites fail within ~3–4 seconds with steps=[], logs BlobNotFound. Root cause unconfirmed; issue #29. WAMEX authenticated access remains pending; issue #30, request prepared not sent.
+- Add standard-library closeout generator, unit tests and workflow, editable source CSV and JSON, final report and index.
+
+
 ## P0 P1: complete 73 target documentary audit and frozen 487 official-tenure reuse — 2026-10-31
 
 - Audited all **73 P1 source IDs** into 44 distinct documented cases (25 proposed parents + 19 scope/index cases): 22 source rows with project/resource textual leads, 39 sources with only historical/geological/HM or non-REE product proof, 2 Benmara South scope exclusions, 4 sources with identity conflict, 5 indexed WAMEX report sources (four unique report IDs incl. Tutunup West A109188) lacking archived government PDF bytes, 1 catalogue-only source.
