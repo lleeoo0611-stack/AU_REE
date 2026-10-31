@@ -297,7 +297,7 @@ def priority_crosswalk(root: Path, source_rows: list[dict[str, str]]) -> list[di
         "OUTSIDE_412_INCLUDE_CANDIDATE": 38,
         "OUTSIDE_412_HOLD_REE_ROLE": 6,
     }
-    return sorted(cross, key=lambda x: x["target_id"])
+    return cross  # retain source_intake order (case key, then target_id)
 
 
 def write_rows(path: Path, rows: list[dict[str, str]], fields: list[str]):
