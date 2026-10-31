@@ -1,0 +1,173 @@
+{
+  "verification_date": "2026-10-31",
+  "verification_kind": "GitHub Actions real runner completed successful status for frozen source & synthetic QA",
+  "repository": "lleeoo0611-stack/AU_REE",
+  "repository_visibility": "public",
+  "ci_billing_block": "resolved_by_public_standard_runner",
+  "scope": "P0/P1 documentary snapshot and synthetic R/Python regression, not independent published Project/REE/JORC/GIS verification",
+  "verified": [
+    {
+      "pull_request": 26,
+      "head_sha": "defb85941eade6836483e9ad3590845bc775a3b5",
+      "verified_workflows": [
+        {
+          "run_id": 41166378029,
+          "name": "P0 P1 73 project-parent review",
+          "head_sha": "defb85941eade6836483e9ad3590845bc775a3b5",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 2,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41166378029"
+        },
+        {
+          "run_id": 41166377842,
+          "name": "Python offline regression",
+          "head_sha": "defb85941eade6836483e9ad3590845bc775a3b5",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 2,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41166377842"
+        },
+        {
+          "run_id": 41166377916,
+          "name": "R MCDA deterministic smoke test",
+          "head_sha": "defb85941eade6836483e9ad3590845bc775a3b5",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 2,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41166377916"
+        }
+      ]
+    },
+    {
+      "pull_request": 27,
+      "head_sha": "133348a305aca98a90486ca825edcb0481cb3c18",
+      "verified_workflows": [
+        {
+          "run_id": 41174379979,
+          "name": "P0 P1 48 parents source deduplication",
+          "head_sha": "133348a305aca98a90486ca825edcb0481cb3c18",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174379979"
+        },
+        {
+          "run_id": 41174379980,
+          "name": "Python offline regression",
+          "head_sha": "133348a305aca98a90486ca825edcb0481cb3c18",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174379980"
+        },
+        {
+          "run_id": 41174379973,
+          "name": "R MCDA deterministic smoke test",
+          "head_sha": "133348a305aca98a90486ca825edcb0481cb3c18",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174379973"
+        }
+      ]
+    },
+    {
+      "pull_request": 28,
+      "head_sha": "9391989d1b27a6b40a9effc8aea6c7e3f0e66389",
+      "verified_workflows": [
+        {
+          "run_id": 41174389290,
+          "name": "P0 P1 73 evidence resolution",
+          "head_sha": "9391989d1b27a6b40a9effc8aea6c7e3f0e66389",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174389290"
+        },
+        {
+          "run_id": 41174389297,
+          "name": "Python offline regression",
+          "head_sha": "9391989d1b27a6b40a9effc8aea6c7e3f0e66389",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174389297"
+        },
+        {
+          "run_id": 41174389288,
+          "name": "R MCDA deterministic smoke test",
+          "head_sha": "9391989d1b27a6b40a9effc8aea6c7e3f0e66389",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174389288"
+        }
+      ]
+    },
+    {
+      "pull_request": 31,
+      "head_sha": "57d38b8ef835f67322361785d957ac803555e834",
+      "verified_workflows": [
+        {
+          "run_id": 41174288182,
+          "name": "P0 P1 73 terminal desk closeout gate",
+          "head_sha": "57d38b8ef835f67322361785d957ac803555e834",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174288182"
+        },
+        {
+          "run_id": 41174288191,
+          "name": "P0 P1 73 evidence resolution",
+          "head_sha": "57d38b8ef835f67322361785d957ac803555e834",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174288191"
+        },
+        {
+          "run_id": 41174288200,
+          "name": "P0 P1 48 parents source deduplication",
+          "head_sha": "57d38b8ef835f67322361785d957ac803555e834",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174288200"
+        },
+        {
+          "run_id": 41174288163,
+          "name": "Python offline regression",
+          "head_sha": "57d38b8ef835f67322361785d957ac803555e834",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174288163"
+        },
+        {
+          "run_id": 41174288201,
+          "name": "R MCDA deterministic smoke test",
+          "head_sha": "57d38b8ef835f67322361785d957ac803555e834",
+          "conclusion": "success",
+          "status": "completed",
+          "attempt": 1,
+          "url": "https://github.com/lleeoo0611-stack/AU_REE/actions/runs/41174288201"
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "issue": 30,
+      "kind": "WA_WAMEX_4_PRIMARY_PDF_NOT_ARCHIVED"
+    },
+    {
+      "issue": 32,
+      "kind": "C1_13_POSITIVE_CASES_NO_INDEPENDENT_SIGNOFF"
+    }
+  ],
+  "formal_C1_admissions_verified": 0,
+  "original_WAMEX_pdf_archived": 0,
+  "comment": "This attestation records observed prior test runs on commit SHAs. It is not generated from research CSV and must not be conflated with fresh CI runs on later merge commits."
+}
