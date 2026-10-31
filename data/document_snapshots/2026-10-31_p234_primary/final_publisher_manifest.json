@@ -1,0 +1,149 @@
+[
+  {
+    "document_id": "DOC-1e9605223a21",
+    "requested_url": "https://archive.org/wayback/available?url=https%3A%2F%2Fonestoptenementshop.com%2Fwp-content%2Fuploads%2F2021%2F07%2FScaddan-Au-REE-Web-Promo-8-October-2024-B.pdf",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.530789+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://archive.org/wayback/available?url=https%3A%2F%2Fonestoptenementshop.com%2Fwp-content%2Fuploads%2F2021%2F07%2FScaddan-Au-REE-Web-Promo-8-October-2024-B.pdf",
+    "http_status": 200,
+    "content_type": "application/json",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "be3d777a9a08c2fb62d7ec84ff6223d525dabae10c75842d967d4f61736dcd2b",
+    "byte_count": 141,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1e9605223a21_be3d777a9a08c2fb.bin",
+    "format": "bin"
+  },
+  {
+    "document_id": "DOC-2649d88a1a51",
+    "requested_url": "https://resourcingtheterritory.nt.gov.au/minerals/mineral-commodities/rare-earths",
+    "target_ids": [
+      "E1:C-50ed67520c1995355b52f2",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.533443+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-38125c8769ac",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?dl=1",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.948638+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-392e95c6cd13",
+    "requested_url": "https://resourcingtheterritory.nt.gov.au/media/docs/commodity-factsheets/REE_Oct2025.pdf?dl=1",
+    "target_ids": [
+      "E1:C-50ed67520c1995355b52f2",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.532888+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-464393cbee39",
+    "requested_url": "https://www.energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/rare_earths",
+    "target_ids": [
+      "E1:C-f3b786ba841126c4883915"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.939497+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-4753d1ab4e5f",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?download=3",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.985640+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-514810021305",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?v=2",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:41.038806+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?v=2",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c7a270d3e61e63bf8d77a0012be74a2366fc7a5838904c9bbf688d8bb53f1f6b",
+    "byte_count": 843494,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-514810021305_c7a270d3e61e63bf.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-9728250ffcc4",
+    "requested_url": "https://onestoptenementshop.com/wp-content/uploads/2021/07/Scaddan-Au-REE-Promo-1Oct25.pdf",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.532297+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+  },
+  {
+    "document_id": "DOC-b28f5a388370",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=onestoptenementshop.com%2F*Scaddan*&output=json&filter=statuscode:200&collapse=digest",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.563913+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://web.archive.org/cdx/search/cdx?url=onestoptenementshop.com%2F*Scaddan*&output=json&filter=statuscode:200&collapse=digest",
+    "http_status": 200,
+    "content_type": "application/json",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "byte_count": 3,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b28f5a388370_37517e5f3dc66819.bin",
+    "format": "bin"
+  },
+  {
+    "document_id": "DOC-cc2c7fbc9ddc",
+    "requested_url": "https://www.energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/heavy-minerals",
+    "target_ids": [
+      "E1:C-f3b786ba841126c4883915"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.928861+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/heavy-minerals",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "02fbf09d342b37324127ae4452ba48d766a02b2cabbe14504bdca4eceadc6603",
+    "byte_count": 215301,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-cc2c7fbc9ddc_02fbf09d342b3732.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-ffd271075767",
+    "requested_url": "https://mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:06:40.531634+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

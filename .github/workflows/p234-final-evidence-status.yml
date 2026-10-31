@@ -1,0 +1,21 @@
+name: P234 final evidence classification
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  final-evidence-classification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pinned PDF reader for verifier guard tests
+        run: python -m pip install pypdf==6.10.0
+      - name: Reproduce recorded content evidence and 339 source statuses
+        run: python scripts/close_p234_evidence_status.py --check
+      - name: Evidence, identity, access and paused-approval tests
+        run: python -m unittest discover -s tests -p test_p234_final_evidence_status.py -v

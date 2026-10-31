@@ -1,0 +1,59 @@
+[
+  {
+    "document_id": "DOC-5961c35a3492",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=onestoptenementshop.com%2Fwp-content%2Fuploads%2F2021%2F07%2FScaddan-Au-REE-Web-Promo-8-October-2024-B.pdf&output=json&filter=statuscode:200&collapse=digest",
+    "retrieved_at_utc": "2026-10-31T09:05:03.886108+00:00",
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "response_utf8": "[]\n",
+    "parsed_response": []
+  },
+  {
+    "document_id": "DOC-8a4e476fdf71",
+    "requested_url": "https://dns.google/resolve?name=onestoptenementshop.com&type=A",
+    "retrieved_at_utc": "2026-10-31T09:05:03.464475+00:00",
+    "sha256": "8806fa57985c0371e5c06a6141311c23fe02edf5af0fb61259e30e1d258b8306",
+    "response_utf8": "{\"Status\":3,\"TC\":false,\"RD\":true,\"RA\":true,\"AD\":false,\"CD\":false,\"Question\":[{\"name\":\"onestoptenementshop.com.\",\"type\":1}],\"Authority\":[{\"name\":\"com.\",\"type\":6,\"TTL\":900,\"data\":\"a.gtld-servers.net. nstld.verisign-grs.com. 1793437471 1800 900 604800 900\"}],\"Comment\":\"Response from 2001:503:d2d::30.\"}",
+    "parsed_response": {
+      "Status": 3,
+      "TC": false,
+      "RD": true,
+      "RA": true,
+      "AD": false,
+      "CD": false,
+      "Question": [
+        {
+          "name": "onestoptenementshop.com.",
+          "type": 1
+        }
+      ],
+      "Authority": [
+        {
+          "name": "com.",
+          "type": 6,
+          "TTL": 900,
+          "data": "a.gtld-servers.net. nstld.verisign-grs.com. 1793437471 1800 900 604800 900"
+        }
+      ],
+      "Comment": "Response from 2001:503:d2d::30."
+    }
+  },
+  {
+    "document_id": "DOC-1e9605223a21",
+    "requested_url": "https://archive.org/wayback/available?url=https%3A%2F%2Fonestoptenementshop.com%2Fwp-content%2Fuploads%2F2021%2F07%2FScaddan-Au-REE-Web-Promo-8-October-2024-B.pdf",
+    "retrieved_at_utc": "2026-10-31T09:06:40.530789+00:00",
+    "sha256": "be3d777a9a08c2fb62d7ec84ff6223d525dabae10c75842d967d4f61736dcd2b",
+    "response_utf8": "{\"url\": \"https://onestoptenementshop.com/wp-content/uploads/2021/07/Scaddan-Au-REE-Web-Promo-8-October-2024-B.pdf\", \"archived_snapshots\": {}}",
+    "parsed_response": {
+      "url": "https://onestoptenementshop.com/wp-content/uploads/2021/07/Scaddan-Au-REE-Web-Promo-8-October-2024-B.pdf",
+      "archived_snapshots": {}
+    }
+  },
+  {
+    "document_id": "DOC-b28f5a388370",
+    "requested_url": "https://web.archive.org/cdx/search/cdx?url=onestoptenementshop.com%2F*Scaddan*&output=json&filter=statuscode:200&collapse=digest",
+    "retrieved_at_utc": "2026-10-31T09:06:40.563913+00:00",
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "response_utf8": "[]\n",
+    "parsed_response": []
+  }
+]

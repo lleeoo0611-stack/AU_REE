@@ -1,0 +1,155 @@
+[
+  {
+    "document_id": "DOC-00aed7f4b0b9",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/93987",
+    "target_ids": [
+      "E1:C-50ed67520c1995355b52f2",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:18.560553+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/web/handle/1/93987",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c764fa3f152018d4244a39640486458ee09b00f9beca8411d01ea82efe848488",
+    "byte_count": 1117,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-00aed7f4b0b9_c764fa3f152018d4.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-1f80db5635a9",
+    "requested_url": "https://onestoptenementshop.com/wp-content/uploads/2021/07/Scaddan-Au-REE-Web-Promo-8-October-2024-B.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:18.561714+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+  },
+  {
+    "document_id": "DOC-317728b31528",
+    "requested_url": "https://mrt.tas.gov.au/mrtdoc/dominfo/download/UR2012_03/UR2012_03.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-8bf1bd308bd59a24640d8b"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:18.561168+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-35df3a91e30e",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR2012_03/UR2012_03.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-8bf1bd308bd59a24640d8b"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:19.046031+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR2012_03/UR2012_03.pdf?source=research20261031",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "f0dc943d2d21ee1eebbb51c1d74ad4611d1288cb8ef71a41e627c3aa455081eb",
+    "byte_count": 30782415,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-35df3a91e30e_f0dc943d2d21ee1e.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-3a412709dfa4",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR1947_012-15/UR1947_012-15.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-1885847c4b67800de0e580"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:18.957336+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-53df66ecc84c",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:19.933480+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-56f07207688e",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/AR1927/AR1927.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-8bf1bd308bd59a24640d8b"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:18.562721+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-8bbef910b02b",
+    "requested_url": "https://www.onestoptenementshop.com/wp-content/uploads/2021/07/Scaddan-Au-REE-Web-Promo-8-October-2024-B.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:19.980923+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+  },
+  {
+    "document_id": "DOC-93f4b7e9c9f4",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR1947_012_15/UR1947_012-15.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-1885847c4b67800de0e580",
+      "E1:C-a692d739c9bf954d9e9450"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:18.989141+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR1947_012_15/UR1947_012-15.pdf?source=research20261031",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "b755f15c8f0471a25e8057094879a0099da563fd9ed3da715648331874ea46b5",
+    "byte_count": 236426,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-93f4b7e9c9f4_b755f15c8f0471a2.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-df5a8b32d361",
+    "requested_url": "https://resourcingtheterritory.nt.gov.au/media/docs/commodity-factsheets/REE_Oct2025.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-50ed67520c1995355b52f2",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:18.562178+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-f65780e426d2",
+    "requested_url": "https://energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/rare_earths?source=research20261031",
+    "target_ids": [
+      "E1:C-f3b786ba841126c4883915"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:18.559725+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-feb1e275d968",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/00_4498/00-4498.pdf?source=research20261031",
+    "target_ids": [
+      "E1:C-72a313f37497d655d60b83"
+    ],
+    "retrieved_at_utc": "2026-10-31T09:03:19.910672+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

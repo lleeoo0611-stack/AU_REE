@@ -1,0 +1,29 @@
+{
+  "observed_on": "2026-10-31",
+  "retrieval_mode": "Web reader cached publisher content; no original byte payload returned",
+  "Scaddan": {
+    "source_url": "https://onestoptenementshop.com/wp-content/uploads/2021/07/Scaddan-Au-REE-Web-Promo-8-October-2024-B.pdf",
+    "listing_url": "https://onestoptenementshop.com/tenement/scadden-gold/",
+    "pdf_pages_read": [
+      1,
+      5,
+      6
+    ],
+    "total_pdf_pages": 6,
+    "short_anchor": "no REE analyses were carried out",
+    "original_byte_sha256": "",
+    "finding": "Promotional E63/2097 application/soil/gold evidence, not registered title or MRE; OD6 neighbours remain separate.",
+    "current_page_image_retrieval": "Failed: cache miss; only cached extracted text rechecked, no new PDF visual verification"
+  },
+  "Quantum_factsheet": {
+    "source_url": "https://resourcingtheterritory.nt.gov.au/media/docs/commodity-factsheets/REE_Oct2025.pdf",
+    "pdf_pages_read": [
+      1,
+      2
+    ],
+    "total_pdf_pages": 2,
+    "displayed_publication_date": "February 2026",
+    "original_byte_sha256": "",
+    "finding": "Quantum is in exploration-results section, not a resource statement. Filename Oct2025 cannot establish content vintage. Historical Douglas original is archived separately."
+  }
+}
