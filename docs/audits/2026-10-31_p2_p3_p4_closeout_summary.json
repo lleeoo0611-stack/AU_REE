@@ -1,0 +1,69 @@
+{
+  "execution_id": "P234-DOC-CLOSEOUT-20261031-V1",
+  "base_commit": "aeddd2e",
+  "branch": "audit/p2-p3-p4-documentary-closeout",
+  "frozen_snapshot": "2026-10-29",
+  "scope_unit": "immutable source target ID, not independent Project",
+  "counts": {
+    "original_HOLD": 412,
+    "P1_untouched": 73,
+    "P2": 28,
+    "P2_provisional_cases": 27,
+    "P3": 216,
+    "P4": 95,
+    "government_source_content_inspected": 317,
+    "legacy_only_source_rows": 22,
+    "legacy_uuid_rows_verified": 52,
+    "source_review_complete": 339,
+    "new_technical_primary_fulltext_verifications": 0,
+    "new_Project_or_C1_approvals": 0
+  },
+  "dispositions": {
+    "C0_NATIVE_RECORD_REVIEW_COMPLETE_PROJECT_UNRESOLVED": 167,
+    "DESK_REVIEW_COMPLETE__DOCUMENTED_HISTORIC_SITE_OUTSIDE_CURRENT_PREFID": 4,
+    "DESK_REVIEW_COMPLETE__GOV_NATIVE_FEATURE_ONLY_PROJECT_ROLE_NOT_SHOWN": 3,
+    "DESK_REVIEW_COMPLETE__ISSUER_SCOPING_EXCLUDES_REE_RESOURCE_STAGE": 1,
+    "DESK_REVIEW_COMPLETE__PRIMARY_DRILL_NEGATIVE_FOR_TESTED_REE_TARGET": 1,
+    "DESK_REVIEW_COMPLETE__REGIONAL_SECONDARY_NAME_COLLISION_NO_PRIMARY_JOIN": 2,
+    "DESK_REVIEW_COMPLETE__SCOPED_PRIMARY_OR_ISSUER_FOUND__LEGACY_GIS_AND_C1_HOLD": 17,
+    "HOLD_DOCUMENT_POINTER_REQUIRES_PRIMARY_SCOPE_REVIEW": 144
+  },
+  "native_cardinality": {
+    "1": 337,
+    "4": 1,
+    "6": 1
+  },
+  "by_priority_dispositions": {
+    "P2": {
+      "DESK_REVIEW_COMPLETE__DOCUMENTED_HISTORIC_SITE_OUTSIDE_CURRENT_PREFID": 4,
+      "DESK_REVIEW_COMPLETE__GOV_NATIVE_FEATURE_ONLY_PROJECT_ROLE_NOT_SHOWN": 3,
+      "DESK_REVIEW_COMPLETE__ISSUER_SCOPING_EXCLUDES_REE_RESOURCE_STAGE": 1,
+      "DESK_REVIEW_COMPLETE__PRIMARY_DRILL_NEGATIVE_FOR_TESTED_REE_TARGET": 1,
+      "DESK_REVIEW_COMPLETE__REGIONAL_SECONDARY_NAME_COLLISION_NO_PRIMARY_JOIN": 2,
+      "DESK_REVIEW_COMPLETE__SCOPED_PRIMARY_OR_ISSUER_FOUND__LEGACY_GIS_AND_C1_HOLD": 17
+    },
+    "P3": {
+      "C0_NATIVE_RECORD_REVIEW_COMPLETE_PROJECT_UNRESOLVED": 98,
+      "HOLD_DOCUMENT_POINTER_REQUIRES_PRIMARY_SCOPE_REVIEW": 118
+    },
+    "P4": {
+      "C0_NATIVE_RECORD_REVIEW_COMPLETE_PROJECT_UNRESOLVED": 69,
+      "HOLD_DOCUMENT_POINTER_REQUIRES_PRIMARY_SCOPE_REVIEW": 26
+    }
+  },
+  "source_chunk_verification": "At raw extraction only; offline --check verifies derived selection and manifests, not absent original bytes",
+  "primary_document_limit": "Native feature content inspection and inherited scoped desk judgments are not original technical PDF full-text verification; absence of project evidence is not evidence of project absence.",
+  "input_sha256": {
+    "docs/audits/2026-10-31_census_487_batch_review.csv": "8d37a5bbb0eecf6322ba6e4760cd21640980bf2c42114fd1bbf37b54fa558a59",
+    "docs/audits/2026-10-31_p1_73_source_resolution.csv": "ec4d376033521aad2d666284df037903e59256322aa293ad259d593c40b3030f",
+    "docs/audits/2026-10-31_p2_28_public_terminal_desk_review.csv": "60c524d04653cf68cd677153cf57ed7502df1228decc3518c7ad52dfdf1e5c8e",
+    "docs/audits/2026-10-31_487_evidence_round2_review.csv": "62fbd8d529c3c91d7eba0173de9f9e1bcb5d2a5d99ec8bef6f0f9858c729a41b",
+    "docs/audits/2026-10-31_272_project_parent_evidence_queue.csv": "97e92d1801193a7bbb4b5b5f49f2fc0c99a0891b54e7a3d5450718b482344419",
+    "docs/audits/2026-10-31_156_project_parent_evidence_review.csv": "6df948eabb6a41b26f8bc99a9e9b0cb63c7e8a7c6997a5a02ca38bad384bf9dc",
+    "docs/audits/2026-10-31_109_project_evidence_review.csv": "59d0ed99116f2d96349b3f8782b8a5ebca8353750f5dbd004822ce8582b9d0bc",
+    "docs/audits/2026-10-31_70_project_evidence_review.csv": "a724c12ee8940f5c38014dc4088b3621c044ec6b359760fe43c5440be7af3082",
+    "inputs/legacy_r963_census.csv": "420fe80369d1a7ced0f47c8ea1d5d4562279637f3f40688fb57658840d194461",
+    "data/source_snapshots/2026-10-29_p2_p3_p4_selected_features.jsonl": "714ae3649f1d7c9e5c9c0109241e7ebed5a7c83046fcc8d452c52b2e48b08643",
+    "data/source_snapshots/2026-10-29_p2_p3_p4_selection_manifest.json": "d9914519f6c52675ce2fbc9d4d25ecd39de33968d221b76779ed6f5b96aca4f5"
+  }
+}

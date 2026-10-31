@@ -198,7 +198,7 @@ def generate() -> tuple[list[dict], list[dict], list[dict], dict]:
         "P2_legacy_rows": sum(x["target_id"].startswith("LEGACY:") for x in outp2),
         "P2_native_rows": sum(not x["target_id"].startswith("LEGACY:") for x in outp2),
         "PR33_note": "PR #33 draft covers historic action_priority=P2 72-source tranche; not merged or counted as the 28-source HOLD P2 tranche.",
-        "input_paths": [str(p.relative_to(ROOT)) for p in INPUTS.values()] + ["data/source_snapshots/2026-10-29_272_native_features.jsonl"],
+        "input_paths": [p.relative_to(ROOT).as_posix() for p in INPUTS.values()] + ["data/source_snapshots/2026-10-29_272_native_features.jsonl"],
         "status": "C0_PROVENANCE_AUDITED; C1_NOT_RELEASED; NO_FORMAL_NEW_PROJECT_APPROVAL",
     }
     return out311, outp2, outc1, summary
