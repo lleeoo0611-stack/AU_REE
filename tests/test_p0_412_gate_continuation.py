@@ -30,6 +30,8 @@ class CensusContinuationTest(unittest.TestCase):
         self.assertEqual(sum(r["priority"] == "P3" for r in rows), 216)
         self.assertEqual(sum(r["priority"] == "P4" for r in rows), 95)
         self.assertTrue(all(r["C1_gate"] == "NO" for r in rows))
+        self.assertEqual(sum(r["raw_snapshot_crosscheck"] == "EXACT_NATIVE_ID_SOURCE_HASH" for r in rows), 194)
+        self.assertEqual(sum(r["raw_snapshot_crosscheck"] == "NOT_IN_272_SOURCE_SUBSET" for r in rows), 117)
 
     def test_c1_fail_closed(self):
         rows = read("2026-10-31_c1_13_independent_gate_readiness.csv")

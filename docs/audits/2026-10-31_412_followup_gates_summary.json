@@ -54,7 +54,11 @@
     "docs/audits/2026-10-31_p2_28_public_terminal_desk_review.csv",
     "inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv",
     "docs/audits/2026-10-31_p1_44_case_resolution.csv",
-    "docs/audits/2026-10-31_p1_48_resource_basis_review.csv"
+    "docs/audits/2026-10-31_p1_48_resource_basis_review.csv",
+    "data/source_snapshots/2026-10-29_272_native_features.jsonl"
   ],
-  "status": "C0_PROVENANCE_AUDITED; C1_NOT_RELEASED; NO_FORMAL_NEW_PROJECT_APPROVAL"
+  "status": "C0_PROVENANCE_AUDITED; C1_NOT_RELEASED; NO_FORMAL_NEW_PROJECT_APPROVAL",
+  "P3_P4_native_source_raw_exact": 194,
+  "P3_P4_not_in_272_subsnapshot": 117,
+  "P3_P4_native_source_mismatch": 0
 }

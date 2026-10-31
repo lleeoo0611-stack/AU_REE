@@ -64,12 +64,20 @@ def generate() -> tuple[list[dict], list[dict], list[dict], dict]:
     assert len(p1) == 73 and len(p2) == 28 and not (p1 & p2)
     assert p1 | p2 <= hold_ids
     round2 = {r["target_id"]: r for r in data["round2"]}
+    native_jsonl = ROOT / "data/source_snapshots/2026-10-29_272_native_features.jsonl"
+    native = {x["target_id"]: x for x in (json.loads(line) for line in native_jsonl.read_text(encoding="utf-8").splitlines() if line.strip())}
+    assert len(native) == 272
     out311 = []
     for b in hold:
         if b["target_id"] in p1 or b["target_id"] in p2:
             continue
         r = round2[b["target_id"]]
         priority = "P4" if b["source_entity_type"] == "OCCURRENCE" else "P3"
+        raw = native.get(b["target_id"])
+        if raw:
+            assert raw["source_key"] == b["source_key"]
+            assert raw["native_id"] == b["source_native_id"]
+            assert raw["original_chunk_sha256"] == r["native_sha256"]
         out311.append({
             "target_id": b["target_id"], "priority": priority, "state": b["state"],
             "source_record_name": b["source_record_name"], "source_key": b["source_key"],
@@ -92,6 +100,7 @@ def generate() -> tuple[list[dict], list[dict], list[dict], dict]:
                 "Check original geological occurrence; require dated Project parent and REE product source before any Project-level promotion."
                 if priority == "P4" else
                 "Verify source-native feature and dated Project/Deposit/title polygon; obtain project-scoped REE resource/stage original document and reviewer signoff."),
+            "raw_snapshot_crosscheck": "EXACT_NATIVE_ID_SOURCE_HASH" if raw else "NOT_IN_272_SOURCE_SUBSET",
         })
     out311.sort(key=lambda x: x["target_id"])
     assert len(out311) == 311 and Counter(x["priority"] for x in out311) == {"P3": 216, "P4": 95}
@@ -178,6 +187,9 @@ def generate() -> tuple[list[dict], list[dict], list[dict], dict]:
         "P3_state_distribution": count([x for x in out311 if x["priority"] == "P3"], "state"),
         "P4_state_distribution": count([x for x in out311 if x["priority"] == "P4"], "state"),
         "P3_P4_provenance_grades": count(out311, "source_provenance_grade"),
+        "P3_P4_native_source_raw_exact": sum(x["raw_snapshot_crosscheck"] == "EXACT_NATIVE_ID_SOURCE_HASH" for x in out311),
+        "P3_P4_not_in_272_subsnapshot": sum(x["raw_snapshot_crosscheck"] == "NOT_IN_272_SOURCE_SUBSET" for x in out311),
+        "P3_P4_native_source_mismatch": 0,
         "C1_case_count": len(outc1), "C1_source_row_count": 22,
         "C1_independent_approvals": 0,
         "C1_nonapproval_reason": "Original primary PDF bytes+SHA, project-footprint joins, project-scoped REO JORC, completed pre-FID study, six-domain panel and independent reviewer signoff not complete.",
@@ -186,7 +198,7 @@ def generate() -> tuple[list[dict], list[dict], list[dict], dict]:
         "P2_legacy_rows": sum(x["target_id"].startswith("LEGACY:") for x in outp2),
         "P2_native_rows": sum(not x["target_id"].startswith("LEGACY:") for x in outp2),
         "PR33_note": "PR #33 draft covers historic action_priority=P2 72-source tranche; not merged or counted as the 28-source HOLD P2 tranche.",
-        "input_paths": [str(p.relative_to(ROOT)) for p in INPUTS.values()],
+        "input_paths": [str(p.relative_to(ROOT)) for p in INPUTS.values()] + ["data/source_snapshots/2026-10-29_272_native_features.jsonl"],
         "status": "C0_PROVENANCE_AUDITED; C1_NOT_RELEASED; NO_FORMAL_NEW_PROJECT_APPROVAL",
     }
     return out311, outp2, outc1, summary

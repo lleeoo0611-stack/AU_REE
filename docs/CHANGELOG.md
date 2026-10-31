@@ -203,3 +203,5 @@
 - 13 個正向案例（22 source rows）跨接原始 Gate、P1 Case、JORC basis、來源紀錄，確認正式 Project/JORC/GIS/C1 0 核准且全部留 HOLD。
 - P2 28 source／27 cases 補上 Legacy/native source crosswalk 與歷史範圍旗標；不擅自合併同名及不同時點來源。
 - 新增可重跑 Python、unit test 與 GitHub workflow；README 和研究索引同步更新。
+
+- P3/P4 與 2026-10-29 政府原生 272-feature JSONL 做逐筆 ID/source/native SHA 回查：194/311 精確交叉核對，0 不一致，117 不在此 272 子快照內；新增自動 QA。

@@ -14,6 +14,8 @@
 
 P3／P4 [311 筆逐列可編輯核查 CSV](2026-10-31_p3_p4_311_provenance_audit.csv)保存 state、原始 source key/native ID、source-feature 原始 hash/location、既有外部文獻線索與定位缺口。P3/P4 目前完成的是**全量 provenance-level triage**，還沒有逐件重新下載核對所有 311 筆外部原始 PDF，也沒有驗證新的現行 tenement 或 Project polygon。缺文件保持 HOLD，不推論專案不存在。
 
+本輪另外直接比對已封存的 [272 筆官方來源 JSONL](../../data/source_snapshots/2026-10-29_272_native_features.jsonl)：其中 **194/311 筆**可逐一核對 `target_id + source_key + native_id + original_chunk_sha256`，**0 個欄位衝突**；其餘 **117 筆不屬於這份 272-source 子快照**，不可因此視為來源不存在，仍保留在其原本的來源/審查路徑。
+
 P3 州別：NSW 24、NT 6、QLD 16、SA 80、TAS 1、VIC 10、WA 79。P4 州別：NSW 5、NT 32、QLD 9、SA 34、TAS 15。
 
 ## 2. 13 個 C1 正向案例：第二資料表交叉核查
