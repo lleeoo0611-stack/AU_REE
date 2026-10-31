@@ -1,5 +1,15 @@
 # Change log
 
+## P2 Census source-review intake and seven case-level documents — 2026-10-31
+
+- Clarify **P2 487-Census review priority** vs **Research Phase P2 Aim B/C** (distinct tracks). P2 source denominator 72 unique target IDs, exactly 0 overlap with prior P1 73 source IDs.
+- Normalize 72 P2 rows into **47 review cases**: 22 established (unapproved) group IDs and 25 separate unlinked source IDs; preserve all original evidence/provenance IDs and tenure snapshots.
+- Add 7 dated issuer/government document leads covering 22 source rows: Kennedy (3), Narraburra (4), Deep Leads–Rubble Mound–Wind Break (6), Sybella (3), Milo (4), Bruce Prospect (1), Plenty River (1). Preserve 50 remaining source rows with previous evidence and missing review priorities.
+- Preserve cutoff and resource semantics: 2026 source dates, TREO vs TREOY, Ore Mt/grade nesting, multi-deposit resource nonaddition, Planned Scoping ≠ completed economic study, no cross-project evidence inheritance.
+- New deterministic Python generator, unittest, GitHub Actions 3.11/3.13 regression, editable 72/47 CSVs and JSON; P2 **intake/first documentary tranche only**, not 72-case closure. No Project/JORC/GIS/C1 approvals or MCDA ranks.
+- P1 four PRs #26/#27/#28/#31 already merged with green Python/R CI; WAMEX original PDFs remain Issue #30 and 13 positive C1 case approvals remain Issue #32.
+
+
 ## P0/P1 desk-search closeout, CI verified, C1 gate held — 2026-10-31
 
 - Publish **73 immutable C0 source-terminal dispositions**: 22 positive Project/REE leads with 13 case-level six-gate reviews; 40 records without project-scoped REE product proof in the searched sources; 2 Benmara South exclusion from a different deposit's TREO resource; 4 native-source identity conflicts; 5 indexed WAMEX source rows requiring 4 government PDF originals.
