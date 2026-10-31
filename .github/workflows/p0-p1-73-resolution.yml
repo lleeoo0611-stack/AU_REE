@@ -3,6 +3,9 @@ on:
   pull_request:
     paths:
       - scripts/audit_p0_p1_73_resolution.py
+      - scripts/audit_p0_p1_73_tenure.py
+      - tests/test_p0_p1_73_tenure.py
+      - inputs/source_review_20261031/p1_73_documented_tenement_numbers.csv
       - tests/test_p0_p1_73_resolution.py
       - inputs/source_review_20261031/p1_73_*.csv
       - docs/audits/2026-10-31_p1_73_*.csv
@@ -23,3 +26,5 @@ jobs:
           python-version: '3.13'
       - run: python scripts/audit_p0_p1_73_resolution.py --check
       - run: python -m unittest discover -s tests -p test_p0_p1_73_resolution.py -v
+      - run: python scripts/audit_p0_p1_73_tenure.py --check
+      - run: python -m unittest discover -s tests -p test_p0_p1_73_tenure.py -v
