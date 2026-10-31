@@ -1,5 +1,9 @@
 # Australian REE — Project Database & MCDA
 
+## 外部技術原件補查 Batch 01（2026-10-31）
+
+[首批實質證據與結案邊界](docs/audits/2026-10-31_external_primary_batch01_review.md) · [9 筆來源原文判讀 CSV](inputs/source_review_20261031/external_primary_batch01_20261031.csv) · [28 筆 P2 交叉複核及待查清單](docs/audits/2026-10-31_p2_28_recheck_tracker.csv)。167 筆 native-only 中 5 筆補 issuer PDF 公開原文的技術判讀，P2 28 筆完成基線／ID 核對且 3 筆直接重讀州政府原文，Scaddan 增加 2025 年新版供應商資料與 2024 年「ionic clay」描述衝突。公開網頁可讀文本**不等於取得原始 PDF 位元組及 SHA**，162 筆 native 與 25 筆 P2 原件仍待查，Scaddan byte gap 未解。所有固定 ID、2026-10-29 快照、C1／13案 Gate／MCDA 皆不變。
+
 可重現的**澳洲稀土礦業專案資料庫**及多準則決策分析（MCDA）研究。以官方礦產資料、技術報告與 GIS 為證據，評估開發潛力、排名穩健性及影響因素。使用 Python 3.11+、SQLite、R，並以 Git/快照維持可追溯性。
 
 ## P2／P3／P4 證據狀態收斂（2026-10-31）
