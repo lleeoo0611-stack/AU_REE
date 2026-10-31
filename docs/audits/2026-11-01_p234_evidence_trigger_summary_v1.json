@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "source_snapshot": "2026-10-29",
+  "submitted_events": 0,
+  "validated_events": 0,
+  "awaiting_scope_review": 0,
+  "reviewed_source_scope_events": 0,
+  "post_snapshot_events": 0,
+  "trigger_state": "SKIP_NO_NEW_EVIDENCE",
+  "C1_automatic_promotions": 0
+}
