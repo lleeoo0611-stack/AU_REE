@@ -1,5 +1,14 @@
 # Change log
 
+## P2–P4 B06 reason classification and source-scope consistency — 2026-10-31
+
+- After merging #45 → #46 → #47 into main, join all frozen 339 P2–P4 source IDs with **4 newly examined P2 public-primary references** (Arthur Popes, Blueys/Blues Folley, Bells Monazite, Elaine Dorothy). Preserve snapshot and original baseline statuses; public source text is not a PDF SHA/fulltext signoff.
+- Reconcile P2 Elaine Dorothy legacy description with existing two P3 historical-2010 **JORC Inferred REO 83,000 t @ 3,200 ppm TREO, 200 ppm U₃O₈ cutoff**; the parent remains historical and does not qualify C1 without REE study, same dated source/title and GIS. Identify Wolfram Hill Bell's Monazite as **different geography** from Bynoe's Bells Mona Sn-Ta pegmatite.
+- Save eight related official locator rows (Edwards Creek vs Edwards Creek South; Legacy Pyramid vs Pyramid Lake gypsum; P4 Spartacus, North Bleechmore Dykes and Skyfall reports) without promoting exact government native feature joins.
+- Build mutually exclusive **8-class evidence root-cause** and **7-class operational blocker** views over 339 source rows. Source-priority followups **159** = 8 P2 + 87 P3 + 64 P4; P3/P4 still 100 native workgroups, 119 proposed unsigned C0 closures; C1/JORC/MCDA 0.
+- Add rebuild/check Python, regression tests and targeted PR workflow, README and a proposed research evidence-resolution note. No historical raw snapshot, user-unapproved source freeze or independent approval changed.
+
+
 ## P2–P4 B05 native-ID crosswalk / source-scope freeze proposal — 2026-10-31
 
 - Deterministically join all frozen **339 P2–P4 source IDs** to Batch 04 and four new public-primary P2 reviews (Duke, Bruce Prospect, Plenty River, Brumby/Clydesdale). Separate prospect-level TREO drill assays from same-scope JORC REO resource and Stage 1 industrial-mineral economic study from unacquired Stage 2 REE claims.
