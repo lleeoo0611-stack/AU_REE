@@ -40,7 +40,8 @@
       "arg_check": "--check",
       "arg_write": "--write",
       "trigger_input": "inputs/evidence/p234_new_primary_evidence_events_v1.csv",
-      "guard": "ONLY_IF_NEW_PRIMARY_SOURCE_EVENT_NO_AUTO_C1"
+      "guard": "ONLY_IF_NEW_PRIMARY_SOURCE_EVENT_NO_AUTO_C1",
+      "review_decisions_input": "inputs/review_decisions/p234_evidence_event_review_v1.csv"
     },
     "legacy_five_stage": {
       "module": "au_ree",
