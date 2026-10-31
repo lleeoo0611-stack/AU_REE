@@ -62,12 +62,27 @@ def seed_projects(db,tmp_path,active=2,total=19):
                    (layer,item['url'],'local_geojson',1,item['sha'],'APPROVED_ARCHIVED_LAYER','now'))
     for i in range(total):
         pid=f'AU-REE-TEST{i:02d}'
+        cid=f'SYNTHETIC-PROJECT-{i}'
+        verified=i<active
         db.execute('INSERT INTO legacy_id_map(legacy_id,project_id) VALUES(?,?)',(f'LEG-{i}',pid))
-        db.execute('INSERT INTO project_master(project_id,canonical_name,normalized_name,state,country,latitude,longitude,activity,lifecycle,ree_role,deposit_family,population_status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',
+        db.execute('''INSERT INTO project_master(project_id,canonical_name,normalized_name,state,country,
+                    latitude,longitude,activity,lifecycle,ree_role,deposit_family,population_status,identity_source)
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)''',
                    (pid,f'Synthetic project {i}',f'synthetic project {i}','WA','Australia',-25,120,
-                    'ACTIVE' if i<active else 'UNKNOWN','PFS' if i<active else 'UNKNOWN',
-                    'REE_PRIMARY' if i<active else 'REE_UNCONFIRMED','HARD_ROCK','CENSUS'))
+                    'ACTIVE' if verified else 'UNKNOWN','PFS' if verified else 'UNKNOWN',
+                    'REE_PRIMARY' if verified else 'REE_UNCONFIRMED','HARD_ROCK',
+                    'EVIDENCE_BACKED_PROJECT' if verified else 'CENSUS',
+                    ('APPROVED_CANDIDATE:'+cid) if verified else None))
         if i>=active:continue
+        # These are isolated synthetic independent identity decisions, not
+        # human signoffs in the real Australian Census.
+        db.execute('''INSERT INTO population_candidates(candidate_id,source_key,native_id,raw_name,
+                    normalized_name,state,entity_level) VALUES(?,?,?,?,?,?,?)''',
+                   (cid,'SYNTHETIC',str(i),f'Synthetic project {i}',f'synthetic project {i}','WA','PROJECT'))
+        db.execute('''INSERT INTO identity_review_decisions(candidate_id,review_decision,approval_ref,
+                    source_url,source_sha256,review_status,resolved_project_id,review_reason,reviewed_at)
+                    VALUES(?, 'APPROVE_NEW_PROJECT',?,?,?,'DOCUMENT_APPROVED',?,'EVIDENCE_APPROVED',?)''',
+                   (cid,f'project-{i}',url,sha,pid,'2026-10-15'))
         db.execute('INSERT INTO project_coordinates(project_id,latitude,longitude,verification,source_url) VALUES(?,?,?,?,?)',
                    (pid,-25,120,'VERIFIED',url))
         db.execute('INSERT INTO approved_project_reviews(project_id,approval_ref,source_sha256) VALUES(?,?,?)',(pid,f'project-{i}',sha))
