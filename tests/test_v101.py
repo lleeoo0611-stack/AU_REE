@@ -154,6 +154,38 @@ def test_gis_full_global_blocked_but_verified_two_project_subset_released(tmp_pa
     db.close()
 
 
+
+
+def test_independent_identity_revoked_cannot_release_even_with_gis_and_jorc(tmp_path):
+    db=connect(tmp_path/'fixture.sqlite');setup(db)
+    seed_projects(db,tmp_path,active=2)
+    # All old technical/resource/GIS fields stay verified, but an ID signoff
+    # expires. Neither a one-member subset nor a global cohort can be released.
+    db.execute("""UPDATE identity_review_decisions SET review_status='REVIEW_PENDING'
+                  WHERE candidate_id='SYNTHETIC-PROJECT-0'""")
+    out=eligibility_run(db,{'root':tmp_path,'eligibility':ELIGIBILITY,'artifacts':{}})
+    row=db.execute("""SELECT reasons_json FROM eligibility
+                      WHERE project_id='AU-REE-TEST00' AND scenario='R1_STRICT'""").fetchone()
+    assert 'G2_PROJECT_IDENTITY_NOT_INDEPENDENTLY_APPROVED' in json.loads(row[0])
+    assert out['scenarios']['R1_STRICT']['gis_gate']['status']=='BLOCKED'
+    assert out['scenarios']['R1_STRICT']['point_ready']==0
+    assert out['scenarios']['G0_BASELINE']['point_ready']==0
+    db.close()
+
+
+def test_missing_archived_identity_document_blocks_release(tmp_path):
+    db=connect(tmp_path/'fixture.sqlite');setup(db)
+    seed_projects(db,tmp_path,active=2)
+    # Existing registry and project details remain in SQLite; fresh original
+    # byte verification still prevents false identity admission.
+    (tmp_path/'inputs/evidence/report.json').unlink()
+    out=eligibility_run(db,{'root':tmp_path,'eligibility':ELIGIBILITY,'artifacts':{}})
+    assert out['scenarios']['R1_STRICT']['point_ready']==0
+    assert out['scenarios']['G0_BASELINE']['point_ready']==0
+    assert db.execute("""SELECT COUNT(*) FROM eligibility WHERE eligible=1""").fetchone()[0]==0
+    db.close()
+
+
 def test_missing_approval_for_one_layer_revokes_subset_and_matrix(tmp_path):
     db=connect(tmp_path/'fixture.sqlite');setup(db)
     seed_projects(db,tmp_path,active=2)
@@ -242,19 +274,12 @@ def test_project_review_requires_distinct_approval(tmp_path):
     assert db.execute("SELECT activity FROM project_master WHERE project_id='P1'").fetchone()[0]=='UNKNOWN'
     rows[0]['approval_ref']='project-0';csvwrite(f,rows,list(rows[0]))
     result=population_run(db,ctx)
-    assert result['reviewed_project_updates']==1
-    assert db.execute("SELECT activity FROM project_master WHERE project_id='P1'").fetchone()[0]=='ACTIVE'
-    assert db.execute("SELECT verification FROM project_coordinates WHERE project_id='P1'").fetchone()[0]=='VERIFIED'
-    # Revoke previously approved review: replay must not retain stale VERIFIED location.
-    approval_file=tmp_path/'inputs'/'evidence_approvals.csv'
-    allrows=list(csv.DictReader(approval_file.open()))
-    for row in allrows:
-        if row['approval_ref']=='project-0':row['decision']='REJECTED'
-    csvwrite(approval_file,allrows,list(allrows[0]))
-    result=population_run(db,ctx)
+    # Project-review evidence alone may not confer independent identity to
+    # a legacy / unverified Project master, even with a valid document.
     assert result['reviewed_project_updates']==0
     assert db.execute("SELECT activity FROM project_master WHERE project_id='P1'").fetchone()[0]=='UNKNOWN'
     assert db.execute("SELECT COUNT(*) FROM project_coordinates WHERE project_id='P1'").fetchone()[0]==0
+    assert db.execute("SELECT COUNT(*) FROM approved_project_reviews WHERE project_id='P1'").fetchone()[0]==0
     db.close()
 
 
