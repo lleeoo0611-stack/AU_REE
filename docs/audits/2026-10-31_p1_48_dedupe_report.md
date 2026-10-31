@@ -48,7 +48,7 @@
 - **1 組**只有 REE 探勘交集而無來源範圍相容的 JORC MRE（Fraser Range／Talisker）。
 - **17 組**留存礦砂、歷史開發、原生地質及礦種來源，REE 產品／TREO 資源仍待核對。
 
-**12 筆可編輯資源主張**中，10 筆 grade basis = TREO，2 筆 = HM。此為**statement rows**，包含資源總量、子集合、分項、不同範圍及未註明日期版本，不能直接算成 12 個可加總的 REE 資源。
+**14 筆可編輯資源主張**中，10 筆 grade basis = TREO，2 筆 = HM，另 2 筆為 2026 年更新的 Nb₂O₅ 資源。此為**statement rows**，包含資源總量、子集合、分項、不同範圍及未註明日期版本，不能直接算成 12 個可加總的 REE 資源。
 
 | 群組 | 附日期之資源主張 | cut-off | 去重與基準判定 |
 |---|---|---|---|
@@ -61,7 +61,7 @@
 ### 重要來源與 Project–Deposit 邊界證據
 
 1. **Copi North → Copi**：[NSW 2019 政府專案目錄 §3.6](https://www.resources.nsw.gov.au/sites/default/files/2022-11/future-of-minerals-in-nsw-report-appendix-dec-2019.pdf) 直接點名 Copi North 與 Sunshine 等礦床屬於歷史 Copi Project；該份表格 **39.1 Mt @ 4.5% HM** 為重礦物資源，不作 REO。NSW [現行專案目錄](https://www.resources.nsw.gov.au/invest-nsw/investment-pathways/nsw-minerals-and-metals-projects) 列 REE 為其他產品。文字關聯已定位，現行法定 Project footprint 還需圖層交集。
-2. **Aileron → Green／Emily／Crean**：[Encounter 2025-05-14 JORC Table 2](https://www.encounterresources.com.au/download/4/announcements/1887/inferred-niobium-mineral-resource-from-2024-exploration-drilling.pdf) 明列三礦床及 67.6 Mt @ 0.39% TREO（以 0.25% Nb₂O₅ 為資源 cut-off）。19.2 Mt @ 0.65% TREO 是其中的 **高品位子集**。原始 `Aileron` source feature 的實體層級仍待對照，不任意建成第四個礦床。
+2. **Aileron → Green／Emily／Crean**：[Encounter 2025-05-14 JORC Table 2](https://www.encounterresources.com.au/download/4/announcements/1887/inferred-niobium-mineral-resource-from-2024-exploration-drilling.pdf) 明列三礦床及 67.6 Mt @ 0.39% TREO（以 0.25% Nb₂O₅ 為資源 cut-off）。19.2 Mt @ 0.65% TREO 是其中的 **高品位子集**。[Encounter 2026-04-22 更新公告](https://www.marketindex.com.au/asx/enr/announcements/aileron-resources-grow-by-over-50-to-120mt-6A1321405) 已將鈮資源更新為 **120 Mt @ 0.77% Nb₂O₅**，其中 26 Mt @ 1.7% Nb₂O₅ 為子集。上述最新數值是 Nb₂O₅ 而非 TREO；2025 TREO 品位不能直接套用至 2026 更新後的資源範圍，需取得 2026 MRE 表內的 REE 同範圍分項。原始 `Aileron` source feature 的實體層級仍待對照，不任意建成第四個礦床。
 3. **Mia → Mount Ridley**：[2024 年公司年報 Table 1／Figure 5](https://announcements.asx.com.au/asxpdf/20240920/pdf/068421026p0kt4.pdf) 支持 Mia 的 168 Mt @ 1,201 ppm TREO（750 ppm TREO cut-off），與整體 Mt Ridley／Grass Patch 資源尺度分開。
 4. **Redlings**：[公司資源主張](https://www.marqueeresources.com.au/redlings-rare-earths-project) 11 Mt @ 1,130 ppm TREO（800 ppm TREO cut-off），列於 E37/1311、五個已鑽探 prospects。來源 Jungle Well 1–3 的六列屬三個名稱鍵；尚未配給各自礦量。
 5. **Tower → Mt Clere**：[Krakatoa 2023-03-29 ASX](https://www.asx.com.au/asxpdf/20230329/pdf/45n40zttl1v5y5.pdf) 101 Mt @ 840 ppm TREO；[公司現行頁](https://ktaresources.com/projects/mt-clere/) 為 101 Mt @ 801 ppm TREO。將兩個版本分開登錄，待原始 JORC statement 與有效日期說明差異。
@@ -79,7 +79,7 @@
 
 - [48 筆 Project–Deposit source crosswalk](2026-10-31_p1_48_source_parent_crosswalk.csv)
 - [25 個暫定母層去重表](2026-10-31_p1_25_provisional_parent_groups.csv)
-- [12 筆原始數值、cut-off／套疊關係與 REE/HM 判讀](2026-10-31_p1_48_resource_basis_review.csv)
+- [14 筆原始數值、cut-off／套疊關係與 REE/HM 判讀](2026-10-31_p1_48_resource_basis_review.csv)
 - [機器 QA 統計](2026-10-31_p1_48_dedupe_summary.json)
 - [固定母層候選輸入](../../inputs/source_review_20261031/p1_48_parent_group_evidence.csv)／[固定資源主張](../../inputs/source_review_20261031/p1_48_resource_claims.csv)
 - [純標準函式庫 Python](../../scripts/audit_p0_p1_48_dedupe.py)／[回歸測試](../../tests/test_p0_p1_48_dedupe.py)
