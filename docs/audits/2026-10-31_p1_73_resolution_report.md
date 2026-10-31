@@ -9,10 +9,10 @@
 | 證據判讀結果 | 案例數 | 來源列 | 說明 |
 |---|---:|---:|---|
 | Project／Deposit／資源主張已有原文證據，待空間與正式核准 | 13 | 22 | 來源文字支持特定歸屬，但未完成 GIS 交集／同範圍 JORC 簽核 |
-| 已審查來源提供礦砂、地質或歷史礦場脈絡，**未支持可回收 REE 產品** | 24 | 40 | 有證據文件；判定的是目前文件支持的商品，不將未找到 REE 產品寫成地質上沒有 REE |
+| 已審查來源提供礦砂、地質或歷史礦場脈絡，**未支持可回收 REE 產品** | 23 | 39 | 有證據文件；判定的是目前文件支持的商品，不將未找到 REE 產品寫成地質上沒有 REE |
 | Benmara South：原始 JORC 明確排除繼承 Barkly TREO MRE | 1 | 2 | 可保留 V₂O₅ 資源及 REE Exploration Target，但不能分配 40 Mt TREO |
 | 身分矛盾／行政區歸屬不清 | 2 | 4 | Ambergate 兩來源相距 38.738 km；Wingellina 原生來源標 SA、位置在 129°E 以西 |
-| WAMEX 原始報告索引已知，政府 PDF bytes 尚未取得 | 3 | 4 | A119194、A120393、A129842；索引不取代官方原件 SHA |
+| WAMEX 原始報告索引已知，政府 PDF bytes 尚未取得 | 4 | 5 | A119194、A120393、A129842、A109188；索引不取代官方原件 SHA |
 | 目錄中有歷史紀錄，但未取得可審查主文 | 1 | 1 | Wemen |
 | **合計** | **44** | **73** | 每個案例已有獨立的文件判讀及下一步 |
 
@@ -32,8 +32,9 @@
 | [A119194 Hopelands East](https://geothought.nlp-tlp.org/wamex/A119194) | 1 | 2018–19 年度報告，2019 年財務重估為 HM 專案當時不具經濟性 | 政府 WAMEX PDF bytes／SHA 待補 |
 | [A120393 Hassell Beach](https://geothought.nlp-tlp.org/wamex/A120393) | 2 | 2019 年報告指 Indicated **4.54 Mt @ 11.9% HM**、當時不具經濟性 | 政府 WAMEX PDF bytes／SHA 待補 |
 | [A129842 Witchcliffe](https://geothought.nlp-tlp.org/wamex/A129842) | 1 | 2022 最終放棄 E70/5471，未找到新增重礦砂潛力 | 政府 WAMEX PDF bytes／SHA 待補 |
+| [A109188 Tutunup West](https://www.nextmaps.com.au/explorers/cristal-mining-australia) | 1 | 2016 年 Cristal 歷史 `Tutunup West Project`，礦權 M70/1108；與 Iluka 的 Tutunup Project 分開 | 政府 WAMEX PDF bytes／SHA 待補 |
 
-以上三份報告已具有明確名稱、A-number、營運商及查核段落，**並非完全找不到文件**；仍須透過 [WA 官方 WAMEX](https://www.wa.gov.au/service/natural-resources/mineral-resources/access-mineral-exploration-reports-wamex) 取得原始政府下載內容並記錄 SHA-256。GeoThought 轉載索引的原始報告文本可以作文件追蹤，但不代替獨立封存／簽核。
+以上四份報告已具有明確名稱、A-number、營運商及查核段落，**並非完全找不到文件**；仍須透過 [WA 官方 WAMEX](https://www.wa.gov.au/service/natural-resources/mineral-resources/access-mineral-exploration-reports-wamex) 取得原始政府下載內容並記錄 SHA-256。GeoThought 轉載索引的原始報告文本可以作文件追蹤，但不代替獨立封存／簽核。
 
 ## 全 44 個案例：逐案證據結果
 
@@ -106,7 +107,7 @@
 | 精確礦權編號一致的原始來源列 | **20**（12 個案例） |
 | 專案法定 footprint／採礦範圍獨立核准 | **0** |
 
-對有文件 tenement 號碼的 13 案例逐筆比對，發現下列可追溯交集（每個數字均為 source rows）：
+對有文件 tenement 號碼的 18 案例逐筆比對，發現下列可追溯交集（每個數字均為 source rows）：
 
 | 文件對照的身分／項目 | 官方交集核對的礦權 | 來源列 | 判讀 |
 |---|---|---:|---|
@@ -141,7 +142,7 @@
 | 44 個案例有可追溯原文／次級索引／歷史目錄及明確判讀 | **44/44** |
 | 25 個暫定母層完成 source-level 去重 | **25/25** |
 | 追加核對的資源／開發數值主張 | **12 筆**（加上前輪 14 筆，均保留原始基準） |
-| 已取得官方 WAMEX 3 份 PDF 原件和 SHA-256 | **0/3** |
+| 已取得官方 WAMEX 4 份 PDF 原件和 SHA-256 | **0/4** |
 | 凍結官方 Tenement polygon point-in-polygon 有交集 | **60/73**（204 筆交集） |
 | Project 法定開發 footprint 逐來源交集／身分核准 | **0/73** |
 | 獨立核准 Project/JORC/C1 | **0/73** |
