@@ -72,7 +72,7 @@
 | --- | --- |
 | [P1 73 筆審核報告](audits/2026-10-31_p1_parent_identity_report.md) | 48 Project 候選、4 WAMEX 索引、21 身分/範圍 HOLD 的來源分級與重要結論 |
 | [P1 73-row Evidence CSV](audits/2026-10-31_p1_parent_identity_review.csv) | 原始 source ID、SHA、證據 URL/locator、逐筆下一步與維持 HOLD 的 Gate |
-| [14 筆定向來源複核](../inputs/source_review_20261031/p1_parent_identity_web_checks.csv) | 來源原文、二手索引、原生空間 QA 的分級與證據主張 |
+| [25 筆定向來源複核](../inputs/source_review_20261031/p1_parent_identity_web_checks.csv) | 來源原文、二手索引、原生空間 QA 的分級與證據主張 |
 | [P1 QA JSON](audits/2026-10-31_p1_parent_identity_summary.json) | 互斥分類、source snapshot 與數量驗證 |
 
 ### P0 第六輪：70 筆資料重新來源驗證
