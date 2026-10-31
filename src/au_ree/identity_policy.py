@@ -5,6 +5,7 @@ nor an API label is sufficient evidence of an independent development project.
 """
 from __future__ import annotations
 import json,re
+from datetime import date
 from collections import defaultdict
 from pathlib import Path
 from .core import digest,norm,utc,number,readcsv,event
@@ -112,6 +113,17 @@ def propose_parents(db):
     return proposed
 
 
+def stable_approved_project_id(candidate_id):
+    """Order-independent numeric ID for a source candidate with approved Project evidence.
+
+    Explicit human-assigned project IDs are respected instead. The source
+    candidate_id must be stable across rebuilds; conflicting occupied IDs
+    remain blocked, never silently reassigned.
+    """
+    suffix=int(digest(['APPROVED_PROJECT_V1',candidate_id])[:15],16) % 10**12
+    return f'AU-REE-{suffix:012d}'
+
+
 def apply_identity_decisions(db,root,freeze_date):
     """Only an independently APPROVED archived document may create/link a Project."""
     path=Path(root)/'inputs'/'project_identity_decisions.csv'
@@ -128,9 +140,15 @@ def apply_identity_decisions(db,root,freeze_date):
         ref=(r.get('approval_ref') or '').strip()
         source=(r.get('source_url') or '').strip()
         sha=(r.get('source_sha256') or '').strip()
-        date=(r.get('evidence_date') or '').strip()
+        evidence_date=(r.get('evidence_date') or '').strip()
+        try:
+            evidence_day=date.fromisoformat(evidence_date)
+            cutoff_day=date.fromisoformat(str(freeze_date))
+        except ValueError:
+            evidence_day=cutoff_day=None
         valid=bool(candidate and action in ('APPROVE_NEW_PROJECT','LINK_EXISTING_PROJECT')
-          and date and date<=freeze_date and verify(db,ref,'PROJECT_REVIEW',source,sha))
+          and evidence_day is not None and cutoff_day is not None
+          and evidence_day<=cutoff_day and verify(db,ref,'PROJECT_REVIEW',source,sha))
         if candidate is None:
             event(db,'population',cid,'UNKNOWN_IDENTITY_CANDIDATE','No matching source feature')
             stats['rejected_or_pending']+=1
@@ -148,20 +166,29 @@ def apply_identity_decisions(db,root,freeze_date):
                     valid=False;reason='POSSIBLE_EXISTING_PROJECT_USE_LINK_REVIEW'
             if valid:
                 prior=db.execute('SELECT resolved_project_id FROM identity_review_decisions WHERE candidate_id=?',(cid,)).fetchone()
-                pid=(prior['resolved_project_id'] if prior and prior['resolved_project_id'] else '') or pid
-                if not pid:
-                    numbers=[int(x[0]) for x in db.execute("SELECT SUBSTR(project_id,8) FROM project_master WHERE project_id GLOB 'AU-REE-[0-9]*'") if str(x[0]).isdigit()]
-                    pid=f'AU-REE-{max(numbers,default=0)+1:05d}'
-                occupied=db.execute('SELECT identity_source FROM project_master WHERE project_id=?',(pid,)).fetchone()
-                if occupied and occupied['identity_source']!='APPROVED_CANDIDATE:'+cid:
-                    valid=False;reason='PROJECT_ID_ALREADY_OCCUPIED'
-                elif not occupied:
-                    db.execute('''INSERT INTO project_master(project_id,canonical_name,normalized_name,state,
-                      population_status,identity_source,updated_at) VALUES(?,?,?,?,'EVIDENCE_BACKED_PROJECT',?,?)''',
-                      (pid,project_name,norm(project_name),candidate['state'],'APPROVED_CANDIDATE:'+cid,utc()))
-                elif valid:
-                    db.execute("UPDATE project_master SET population_status='EVIDENCE_BACKED_PROJECT',updated_at=? WHERE project_id=? AND identity_source=?",
-                               (utc(),pid,'APPROVED_CANDIDATE:'+cid))
+                prior_id=prior['resolved_project_id'] if prior else None
+                # Only a Project owned by this approved source candidate can
+                # establish a historical ID. Unapproved input must never pin it.
+                owner=(db.execute('SELECT identity_source FROM project_master WHERE project_id=?',(prior_id,)).fetchone()
+                       if prior_id else None)
+                trusted_prior=prior_id if owner and owner['identity_source']=='APPROVED_CANDIDATE:'+cid else None
+                if trusted_prior and pid and pid!=trusted_prior:
+                    valid=False;reason='STABLE_PROJECT_ID_CHANGE_REQUIRES_CORRECTION'
+                if trusted_prior:
+                    pid=trusted_prior
+                elif not pid:
+                    pid=stable_approved_project_id(cid)
+                if valid:
+                    occupied=db.execute('SELECT identity_source FROM project_master WHERE project_id=?',(pid,)).fetchone()
+                    if occupied and occupied['identity_source']!='APPROVED_CANDIDATE:'+cid:
+                        valid=False;reason='PROJECT_ID_ALREADY_OCCUPIED'
+                    elif not occupied:
+                        db.execute('''INSERT INTO project_master(project_id,canonical_name,normalized_name,state,
+                          population_status,identity_source,updated_at) VALUES(?,?,?,?,'EVIDENCE_BACKED_PROJECT',?,?)''',
+                          (pid,project_name,norm(project_name),candidate['state'],'APPROVED_CANDIDATE:'+cid,utc()))
+                    else:
+                        db.execute("UPDATE project_master SET population_status='EVIDENCE_BACKED_PROJECT',updated_at=? WHERE project_id=? AND identity_source=?",
+                                   (utc(),pid,'APPROVED_CANDIDATE:'+cid))
                 if valid:stats['approved_new']+=1
         elif valid and action=='LINK_EXISTING_PROJECT':
             master=db.execute('SELECT project_id,state FROM project_master WHERE project_id=?',(pid,)).fetchone()
@@ -189,7 +216,9 @@ def apply_identity_decisions(db,root,freeze_date):
           review_decision=excluded.review_decision,approval_ref=excluded.approval_ref,
           source_url=excluded.source_url,source_sha256=excluded.source_sha256,
           review_status=excluded.review_status,review_reason=excluded.review_reason,
+          resolved_project_id=CASE WHEN excluded.review_status='DOCUMENT_APPROVED'
+            THEN excluded.resolved_project_id ELSE identity_review_decisions.resolved_project_id END,
           reviewed_at=excluded.reviewed_at''',(cid,action,ref,source,sha,
-          'DOCUMENT_APPROVED' if valid else 'REVIEW_PENDING',pid or None,reason,utc()))
+          'DOCUMENT_APPROVED' if valid else 'REVIEW_PENDING',pid if valid else None,reason,utc()))
         if not valid:event(db,'population',cid,'IDENTITY_DECISION_REJECTED',reason)
     return stats
