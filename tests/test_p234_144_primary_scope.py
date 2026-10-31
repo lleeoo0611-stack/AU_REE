@@ -19,6 +19,7 @@ spec.loader.exec_module(mod)
 class PrimaryScopeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        (ROOT / "work").mkdir(exist_ok=True)
         cls.rows, cls.updated, cls.summary = mod.build()
         cls.byname = {x["source_name"].casefold(): x for x in cls.rows}
         cls.documents = {}
