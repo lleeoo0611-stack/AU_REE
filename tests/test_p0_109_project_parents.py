@@ -26,6 +26,12 @@ class Review109(unittest.TestCase):
         self.assertEqual(stats["project_ID_signoffs"],0)
         self.assertEqual(stats["JORC_REO_signoffs"],0)
         self.assertEqual(stats["C1_release_count"],0)
+        self.assertEqual(stats["spatial_identity_conflicts_withheld"],2)
+        self.assertEqual(stats["documented_parent_source_rows"],20)
+        self.assertEqual(stats["scope_or_tenement_holds"],10)
+        self.assertEqual(stats["same_state_name_rows"],44)
+        self.assertEqual(stats["same_state_name_coordinate_comparable_rows"],42)
+        self.assertEqual(stats["same_name_near_1km_rows"],38)
         self.assertTrue(all(x["independent_project_identity_approved"]=="NO" and
                             x["JORC_REO_approved"]=="NO" and
                             x["C1_approved"]=="NO" and
@@ -44,6 +50,10 @@ class Review109(unittest.TestCase):
                          "HISTORICAL_GROUP_PARENT_CANDIDATE")
         self.assertEqual(byname[("WA","Scott River")][0]["project_parent_claim_status"],
                          "SCOPE_OR_TENEMENT_ONLY_HOLD")
+        self.assertEqual(len(byname[("WA","Ambergate")]),2)
+        self.assertTrue(all(x["project_parent_claim_status"]=="SPATIAL_IDENTITY_CONFLICT_PARENT_WITHHELD"
+                            for x in byname[("WA","Ambergate")]))
+        self.assertEqual(byname[("WA","Ambergate")][0]["same_name_nearest_native_distance_km"],"38.738")
         self.assertTrue(all(x["project_parent_claim_status"]=="INDEPENDENT_DEPOSIT_DOCUMENT_NO_PROJECT_PARENT"
                             for x in byname[("NSW","Gallipoli")]))
     def test_frozen_csv_exact_rerun(self):
