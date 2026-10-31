@@ -56,6 +56,16 @@
 | [11 筆官方／公司具名文件](../inputs/source_review_20261031/round4_156_official_parent_documents.csv) | 8 具名、3 名稱相近待查的有效日期與主張 |
 | [156 Audit Summary](audits/2026-10-31_156_project_parent_evidence_summary.json) | 州別、證據類別及輸入 SHA-256 |
 
+### 109 筆來源 Project 歸屬證據審核
+
+| 檔案 | 用途 |
+| --- | --- |
+| **[109 筆審核報告](audits/2026-10-31_109_project_parent_review_report.md)** | 20 歷史 Project parent 候選、10 範圍 HOLD、9 獨立 Deposit 資料 |
+| [109 筆 Evidence Review CSV](audits/2026-10-31_109_project_evidence_review.csv) | source-native ID、礦種、原始 SHA、文件定位、同名距離與 C1 Gate |
+| [89 筆 Project 關係缺口 CSV](audits/2026-10-31_109_project_evidence_gaps.csv) | 有範圍問題、僅有礦床證據或尚無外部文件 |
+| [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
+| [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
+
 ## 原始來源恢復與實體審查（2026-10-31）
 
 | 檔案 | 用途 |
