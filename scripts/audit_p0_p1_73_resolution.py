@@ -70,7 +70,7 @@ def evidence_verdict(e: dict[str, str]) -> str:
         return "CATALOGUE_CONTEXT_ONLY__PRIMARY_MISSING"
     if e["REE_role_interpretation"] == "REE_PRODUCT_NOT_DOCUMENTED":
         return "SOURCE_REVIEWED__NO_REE_PRODUCT_PROOF_IN_SOURCES"
-    if "EXPLICIT_NO_MRE" in e["resource_basis_interpretation"]:
+    if "EXPLICIT_NO_MRE" in e["REE_role_interpretation"] or "EXPLICIT_NO_MRE" in e["resource_basis_interpretation"]:
         return "ORIGINAL_TECHNICAL_SOURCE_REJECTS_REE_MRE_INHERITANCE"
     return "DOCUMENTARY_CLAIM_EVIDENCED__GIS_AND_APPROVAL_PENDING"
 
