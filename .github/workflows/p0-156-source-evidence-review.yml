@@ -1,0 +1,34 @@
+name: P0 156 source evidence review
+on:
+  push:
+    branches:
+      - research/p0-156-parent-evidence-audit-20261031
+    paths:
+      - scripts/audit_p0_156_project_parents.py
+      - inputs/source_review_20261031/round4_156_official_parent_documents.csv
+      - tests/test_p0_156_project_parents.py
+      - .github/workflows/p0-156-source-evidence-review.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  review-156:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Build all 156 source record evidence rows
+        run: python scripts/audit_p0_156_project_parents.py
+      - name: Assert 156 stable targets and no implied C1 or Project approvals
+        run: python -m unittest discover -s tests -p test_p0_156_project_parents.py -v
+      - name: Commit reproducible editable audit and manifest to research branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/2026-10-31_156_project_parent_evidence_review.csv docs/audits/2026-10-31_156_project_parent_gaps.csv docs/audits/2026-10-31_156_project_parent_evidence_summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p0): publish 156 source-by-source Project evidence audit [skip ci]"
+            git push origin HEAD:research/p0-156-parent-evidence-audit-20261031
+          fi
