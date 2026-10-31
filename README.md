@@ -1,5 +1,10 @@
 # Australian REE — Project Database & MCDA
 
+## P2–P4 339 筆全量持續核查 Batch 04（2026-10-31）
+
+[Batch 04 報告](docs/audits/2026-10-31_p234_all_339_continuation_b04_report.md) · [339 筆逐列可編輯進度](docs/audits/2026-10-31_p234_all_339_continuation_b04.csv) · [新增 9 筆 P2 官方原文判讀](inputs/source_review_20261031/p2_external_primary_batch04_20261031.csv) · [8 筆 P3/P4 來源定位嘗試](inputs/source_review_20261031/p34_batch04_locator_attempts.csv)。保留凍結 2026-10-29 基線與 Batch01–03，P2 新增 9 筆直接官方／發行人來源範圍判讀（累計 12/28，16 筆待技術原件）；P3/P4 新增 8 筆定位核查紀錄但**沒有新技術原件核定**，仍各有 87／64 筆僅原生圖徵待補。三類合計 **167 筆仍待技術原文補強**；全部 339 筆持續保有可追蹤分類。原始 PDF bytes/全文與獨立 C1／JORC／GIS／MCDA 核准均未新增。本批依序疊在未合併 Batch 03 之上，獨立 PR 不直接更改 `main`。
+
+
 ## 外部技術原件補查 Batch 03 — Ketchowla／Oak Dam East（2026-10-31）
 
 [第三批 6 筆來源核對報告](docs/audits/2026-10-31_external_primary_batch03_review.md) · [6 筆可編輯來源判讀](inputs/source_review_20261031/external_primary_batch03_20261031.csv) · [新版 167 筆進度](docs/audits/2026-10-31_external_primary_progress_167_b03.csv)。累計 **16／167** 筆有界外部技術文字查核，**151** 筆待補；本批 Ketchowla K3（2）、Ketchowla Hill（2）與 Oak Dam East（2）確認歷史 Mn/Fe/Cu 資源和 K9 REE 探勘結果不得轉寫為其他礦點的 REO JORC/TREO。外部 PDF 搜尋文字可讀但頁面影像與原始位元組未成功封存，相關 C1、JORC、GIS、13 案 Gate、MCDA 仍 HOLD。保留 Batch-02 原版 167 筆進度，另建新版；維持固定 412 IDs 和 2026-10-29 快照。
