@@ -75,6 +75,7 @@
 | [P2 27 暫定案例表](audits/2026-10-31_p2_27_case_triage.csv) | 來源站址鍵、doc scope 與 evidence provenance |
 | [P2 27 案例證據輸入](../inputs/source_review_20261031/p2_27_case_evidence.csv) | 人工選定、可逐版本擴充的政府／發行人原文來源 |
 | [P2 summary JSON](audits/2026-10-31_p2_phase1_summary.json) | 分母 QA 與零 C1 發布欄位 |
+| [P2 CI 實測成功紀錄](audits/2026-10-31_p2_phase1_ci_verification.json) | 成功的 P2 source 再生、Python offline 與 R synthetic workflow run ID 與 SHA |
 | [P2 可重跑腳本](../scripts/audit_p2_28_initial_triage.py) | Python 標準函式庫 `--write`／`--check` |
 
 ### P0／P1 結案與發布門檻（2026-10-31）
