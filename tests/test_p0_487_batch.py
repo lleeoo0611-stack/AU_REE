@@ -6,6 +6,9 @@ the 487 source targets are independently verified mining Projects.
 from __future__ import annotations
 
 import csv
+import json
+import sqlite3
+from types import SimpleNamespace
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 
@@ -102,3 +105,94 @@ def test_reject_missing_or_duplicate_target_id():
             ROOT, run_date="2026-10-31", source_as_of="2026-10-29",
             expected_count=486,
         )
+
+
+def _historical_census_relations():
+    """Read the existing frozen CSV tables; no parallel review artifacts."""
+    names=(
+        "487_definition_review",
+        "487_inclusion_gate",
+        "project_entity_membership_487",
+        "source_entity_register_487",
+        "project_entity_register",
+    )
+    tables={}
+    for name in names:
+        with (ROOT/"outputs"/(name+".csv")).open(encoding="utf-8-sig",newline="") as source:
+            tables[name]=list(csv.DictReader(source))
+    return tables
+
+
+def test_sqlite_census_rebuild_validates_source_entity_project_crosswalk():
+    from reproducibility.build_census_database import validate_census_relations
+    result=validate_census_relations(_historical_census_relations())
+    assert result=={
+        "status":"CENSUS_RELATIONS_STRUCTURALLY_VERIFIED_NOT_PROJECT_APPROVED",
+        "source_targets":487,
+        "linked_source_targets":78,
+        "unlinked_source_targets":409,
+        "reviewed_project_candidate_groups":39,
+        "unique_native_source_entities":451,
+        "repeated_targets_on_same_native_entity":36,
+    }
+
+
+@pytest.mark.parametrize("tamper",["unmatched_gate","duplicate_source","wrong_entity_id",
+                                   "unknown_project_id","unreviewed_project_relation","native_source_identity_collision"])
+def test_sqlite_census_rebuild_fails_closed_on_broken_identity_links(tamper):
+    from reproducibility.build_census_database import validate_census_relations
+    tables=_historical_census_relations()
+    members=tables["project_entity_membership_487"]
+    if tamper=="unmatched_gate":
+        tables["487_inclusion_gate"].pop()
+    elif tamper=="duplicate_source":
+        tables["source_entity_register_487"].append(tables["source_entity_register_487"][0].copy())
+    elif tamper=="wrong_entity_id":
+        members[0]["entity_id"]="SRCENT-MISMATCH"
+    elif tamper=="unknown_project_id":
+        members[0]["project_entity_id"]="PRJ-UNKNOWN"
+    elif tamper=="unreviewed_project_relation":
+        members[0]["relation"]="UNRESOLVED_NO_PROJECT_LINK_INFERRED"
+    elif tamper=="native_source_identity_collision":
+        # Two frozen targets share the same source/native feature ID by design.
+        # They may not silently diverge on the government native ID.
+        baseline=tables["487_definition_review"]
+        source_ids=tables["source_entity_register_487"]
+        found={}
+        for source in source_ids:
+            key=source["entity_id"]
+            if key in found:
+                target=source["target_id"]
+                next(row for row in baseline if row["target_id"]==target)["source_native_id"]="ALTERED-NATIVE-ID"
+                break
+            found[key]=source["target_id"]
+    with pytest.raises(ValueError):
+        validate_census_relations(tables)
+
+
+def test_frozen_487_sqlite_rebuild_preserves_source_entity_identity(tmp_path):
+    """Real tracked 487 CSV inputs must rebuild into a verifiable SQLite DB."""
+    from reproducibility.build_census_database import csv_build
+    dest=tmp_path/"census_review.sqlite"
+    csv_build(SimpleNamespace(csv_dir=ROOT/"outputs",output=dest,
+                              as_of_date="2026-10-29",overwrite=False))
+    assert dest.is_file()
+    with sqlite3.connect(dest) as db:
+        assert db.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
+        assert db.execute("PRAGMA foreign_key_check").fetchall()==[]
+        for table,expected in (
+            ("487_definition_review",487),
+            ("487_inclusion_gate",487),
+            ("project_entity_membership_487",487),
+            ("source_entity_register_487",487),
+            ("project_entity_register",39),
+        ):
+            # Existing historical SQLite tables beginning with a digit use t_.
+            normalized=('t_'+table) if table[0].isdigit() else table
+            quoted='"'+normalized+'"'
+            assert db.execute(f"SELECT COUNT(*) FROM {quoted}").fetchone()[0]==expected
+    manifest=json.loads((tmp_path/"census_review.sqlite.manifest.json").read_text(encoding="utf-8"))
+    assert manifest["sqlite_integrity_check"]=="ok"
+    assert manifest["census_relation_check"]["unique_native_source_entities"]==451
+    assert manifest["census_relation_check"]["repeated_targets_on_same_native_entity"]==36
+    assert manifest["census_relation_check"]["status"]=="CENSUS_RELATIONS_STRUCTURALLY_VERIFIED_NOT_PROJECT_APPROVED"

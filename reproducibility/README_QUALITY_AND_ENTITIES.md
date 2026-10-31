@@ -2,6 +2,15 @@
 
 `quality_gate_487.py` runs inside `rebuild_all.py` after row adjudication and before CSV-to-SQLite construction. It requires only the Python standard library.
 
+## 現行 487-source SQLite 重建驗證（2026-11-01）
+
+- **487 source targets** 仍各有獨立 `target_id`，對應 **451 個來源原生實體識別**。其中 36 組 Legacy／E1 targets 引用同一 `source_key/native_id`，均保留兩筆 Target ID，不能重複計算為 Project。
+- 現行 `outputs/project_entity_register.csv` 是 **39 個未獨立核准的 Project 審查候選群組**；`project_entity_membership_487.csv` 中 78 筆來源有候選 group link，409 筆未連結。候選關係不代表獨立 Project、JORC 或 C1 簽核。
+- `reproducibility/build_census_database.py csv-build` 現於 SQLite 寫入前驗證這些輸入 CSV 的來源 Target ID、州別、Cohort、Entity ID、已審查候選 Project 的關聯是否一致。同一 native entity 重複時，要求來源原生 ID、名稱、州別、實體類型與 Project 關係一致，否則拒絕重建。
+- `tests/test_p0_487_batch.py` 在 CI 使用既有 `outputs/` CSV 測試實際 SQLite 重建、邏輯關聯和負向破壞案例。這是**程式及結構一致性檢查**，不代表已完成來源全文、人工核准或全澳 Census 科學驗收；正式 C1/C2 仍無核准專案。
+
+以下「Current verified state (2026-10-29)」為**先前歷史工作包版本**的記錄（30 群組／46 筆連結），並非 2026-10-31 後的現行 39 群組資料；保留歷史計數以追溯。
+
 ## Output tables
 
 - `project_entity_register.csv`: deterministic IDs for reviewed Project candidates and source-level entities. Project candidate IDs use the current candidate group key; a key change creates a new ID and must be reviewed as a possible rename/merge/split. Source records are retained separately as Project candidate, deposit, prospect, tenement, occurrence, or historical source-record entities.

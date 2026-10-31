@@ -274,6 +274,101 @@ def compare(args) -> None:
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
+def validate_census_relations(tables: dict[str, list[dict[str, str]]]) -> dict:
+    """Fail closed on source/project crosswalk drift before writing Census SQLite.
+
+    This checks source-record identity and reviewed Project *candidates* only.
+    It never grants independent Project identity or formal C1 eligibility.
+    """
+    required = {
+        "487_definition_review",
+        "487_inclusion_gate",
+        "project_entity_membership_487",
+        "source_entity_register_487",
+        "project_entity_register",
+    }
+    if not required.intersection(tables):
+        return {"status": "NOT_A_CENSUS_REVIEW_BUILD"}
+    missing = sorted(required - set(tables))
+    if missing:
+        raise ValueError(f"Census SQLite build missing relational inputs: {missing}")
+
+    def indexed(name: str, column: str) -> dict[str, dict[str, str]]:
+        rows = tables[name]
+        result = {}
+        for row in rows:
+            key = (row.get(column) or "").strip()
+            if not key or key in result:
+                raise ValueError(f"{name}: missing/duplicate {column}: {key!r}")
+            result[key] = row
+        return result
+
+    baseline = indexed("487_definition_review", "target_id")
+    gate = indexed("487_inclusion_gate", "target_id")
+    member = indexed("project_entity_membership_487", "target_id")
+    source_entity = indexed("source_entity_register_487", "target_id")
+    if len(baseline) != 487:
+        raise ValueError(f"Census source target count differs from frozen 487: {len(baseline)}")
+    for label, rows in (("inclusion gate", gate), ("entity membership", member),
+                        ("source entity", source_entity)):
+        if set(rows) != set(baseline):
+            raise ValueError(f"Census {label} target IDs differ from frozen source targets")
+
+    project_candidates = indexed("project_entity_register", "entity_id")
+    if any(r.get("entity_type") != "Project_candidate"
+           for r in project_candidates.values()):
+        raise ValueError("Project candidate register contains non-candidate entity")
+    linked = 0
+    # Several legacy and E1 targets intentionally point to the same native
+    # government feature. Keep both target IDs while checking their identity.
+    source_entity_ids = {}
+    for target_id, original in baseline.items():
+        g = gate[target_id]
+        m = member[target_id]
+        s = source_entity[target_id]
+        if g.get("cohort") != original.get("cohort") or g.get("state") != original.get("state"):
+            raise ValueError(f"Census inclusion gate source identity mismatch: {target_id}")
+        if m.get("state") != original.get("state"):
+            raise ValueError(f"Census membership source state mismatch: {target_id}")
+        if m.get("entity_id") != s.get("entity_id") or m.get("entity_type") != s.get("entity_type"):
+            raise ValueError(f"Census source entity crosswalk mismatch: {target_id}")
+        source_id = (s.get("entity_id") or "").strip()
+        if not source_id:
+            raise ValueError(f"Census missing source entity ID: {target_id}")
+        project_id = (m.get("project_entity_id") or "").strip()
+        original_identity = (
+            original.get("source_key"), original.get("source_native_id"),
+            original.get("state"), original.get("name"), m.get("entity_type"),
+            project_id, m.get("relation"),
+        )
+        if source_id in source_entity_ids:
+            if not original.get("source_native_id") or source_entity_ids[source_id] != original_identity:
+                raise ValueError(f"Census source entity ID collision/conflicting linkage: {target_id}")
+        else:
+            source_entity_ids[source_id] = original_identity
+        if project_id:
+            if project_id not in project_candidates:
+                raise ValueError(f"Census references unknown Project candidate: {target_id}")
+            if m.get("relation") not in ("PROJECT_LINK_REVIEWED_CANDIDATE",
+                                         "REVIEW_GROUP_LINK_HOLD"):
+                raise ValueError(f"Census linked source missing review relationship: {target_id}")
+            linked += 1
+        else:
+            if m.get("relation") != "UNRESOLVED_NO_PROJECT_LINK_INFERRED":
+                raise ValueError(f"Census unlinked source has a Project relationship: {target_id}")
+            if g.get("inclusion_gate") == "INCLUDE_CANDIDATE":
+                raise ValueError(f"Census Project candidate lacks reviewed group: {target_id}")
+    return {
+        "status": "CENSUS_RELATIONS_STRUCTURALLY_VERIFIED_NOT_PROJECT_APPROVED",
+        "source_targets": len(baseline),
+        "linked_source_targets": linked,
+        "unlinked_source_targets": len(baseline) - linked,
+        "reviewed_project_candidate_groups": len(project_candidates),
+        "unique_native_source_entities": len(source_entity_ids),
+        "repeated_targets_on_same_native_entity": len(baseline) - len(source_entity_ids),
+    }
+
+
 def csv_build(args) -> None:
     """Build a fresh normalized database from the versioned CSV deliverables."""
     source_dir = Path(args.csv_dir).resolve()
@@ -304,6 +399,12 @@ def csv_build(args) -> None:
             raise ValueError(f"CSV row has more values than headers: {path}")
         tables.append((table, path, fields, rows))
         inputs.append({"file": path.name, "sha256": sha256(path), "bytes": path.stat().st_size, "rows": len(rows), "table": table})
+    # Validate the entity and review crosswalk while inputs are still intact.
+    # In particular, a valid SQLite PRAGMA alone cannot detect mistaken source
+    # joins because historical review CSV tables have no relational FKs.
+    relation_check = validate_census_relations(
+        {path.stem: rows for _, path, _, rows in tables}
+    )
     input_digest = hashlib.sha256(canonical_json(inputs).encode("utf-8")).hexdigest()
     if dest.exists():
         dest.unlink()
@@ -355,6 +456,7 @@ def csv_build(args) -> None:
         "table_results": stats,
         "database_sha256": sha256(dest),
         "sqlite_integrity_check": integrity,
+        "census_relation_check": relation_check,
     }
     manifest_path = Path(str(dest) + ".manifest.json")
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

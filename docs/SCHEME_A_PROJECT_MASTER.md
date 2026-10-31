@@ -28,7 +28,7 @@ E1 = 商品欄明確 REE、TREO、NdPr 等（含 GA 已按 REE 篩選的官方�
 
 `candidate_id,decision,project_name,project_id,source_url,source_sha256,evidence_date,approval_ref`
 
-- `APPROVE_NEW_PROJECT`：使用已封存文件和**獨立批准**的 `approval_ref`；需填明確 `project_name`，`project_id` 留空由系統指派穩定 ID；同州同名者進既有專案連結審查。
+- `APPROVE_NEW_PROJECT`：使用已封存文件和**獨立批准**的 `approval_ref`；需填明確 `project_name`。`project_id` 留空時，以不受來源匯入／核准順序影響的 `candidate_id` 雜湊產生固定 `AU-REE-` 數字 ID（目前 12 位），不再使用當下最大編號加一。同州同名者仍進既有專案連結審查；已核准 ID 有衝突時須獨立更正，不自動改號。
 - `LINK_EXISTING_PROJECT`：指向既有 `project_id`；若來源紀錄是 Deposit／Occurrence，建 `PART_OF_PROJECT` 關係；若是 Project，同意的別名才寫入 `project_aliases`。
 - `REJECT_PROJECT`：保留原始候選與審查狀態，不新增 Project。
 

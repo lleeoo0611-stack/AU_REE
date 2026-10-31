@@ -10,6 +10,16 @@
 
 實作完成的是**管線調度、資料來源範圍查核與獨立 Gate 的保護**。尚有原件全文/當期 JORC/Project 邊界/人審/固定 Panel 依賴，**正式 C1=0、C2=0**，因此目前不發布研究級實際 MCDA。既有文件中關於 r983/v1 legacy 行為與 P0 未准入原則仍然有效。
 
+## 目前執行優先順序（2026-11-01 起）
+
+**現階段只以 Project Census & Entity Resolution 的實際驗收作為進度。** 先檢查最新 GitHub、原始來源截止日、Project–Deposit 關係、身分衝突、REE relevance、Stable Project ID 與 SQLite 一致性，沿用現有程式及資料。當前的 487 筆來源和 39 個候選群組是不同實體層級；尚無已簽核的正式 C1/C2。
+
+只有在指定來源截止日的每筆來源有明確處置、已確認的 Project 具穩定 ID、關鍵身分證據可追溯、未決保留具體待查事項、且重建與回歸檢查通過後，才進入下一項必要的 Project Evidence Database 工作。其後依序為 GIS/Eligibility、Criteria/Scoring、MCDA/Robustness 與 Drivers。
+
+**本文件以下的 P0–P3 工作包為既有研究設計與技術相依規格，不代表多個工作包應同時啟動，更不要求每一項另增腳本、資料庫、CSV 或進度報告。** 不因已產生部分中間結果，就宣稱前置工作完成；不得另外建立小型 Pilot 取代全澳 Census。
+
+現行 `scripts/run_research_pipeline.py` 只涵蓋部分 C0/C1 審查與新證據事件；`python -m au_ree` 為 v1 五階段，`reproducibility/rebuild_all.py` 為歷史工作包重建。整合這些功能須先確認相依、原始快照、輸出及測試，不得把「單一入口」視為已達成。
+
 ## 1. 單一規格入口
 
 | 優先 | 文件 | 約束 |
