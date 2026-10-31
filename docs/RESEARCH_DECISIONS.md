@@ -104,3 +104,11 @@
 | `ADR-P0-019` | `SOURCE_FEATURE_IDS_RESOLVED` | SA MINDEP 3000/11849 各自具有 4/6 列不同 OBJECTID／FID；以 `SA_CRITICAL_REE:MINDEP_NO:OBJECTID` 保持 10 個唯一來源圖徵，仍只有 2 個礦床 | 不能重複建 Project ID 或重複計 JORC |
 | `ADR-P0-020` | `PARENT_EVIDENCE_CANDIDATES_ONLY` | 原始 272 筆中 13 新 + 6 既有文件關聯＝15 稀土相關 Project 候選 source rows、4 非稀土項目；92 nonproject entities；2 TAS parent deposit；3 VIC generic category；156 無 Project 母層 | [272 筆 Evidence Queue](audits/2026-10-31_272_project_parent_evidence_queue.csv)；需 source scope、Project 邊界及 reviewer approvals |
 
+
+### 156 筆未建立 Project 母層的來源審查（2026-10-31）
+
+| Decision ID | Status | Evidence | Next requirement |
+| --- | --- | --- | --- |
+| `ADR-P0-021` | `FULL_SOURCE_REVIEW` | 156 source-native ID 原始圖徵與 URL／status／REE 商品逐列保留；70 筆同州同名僅是跨來源去重候選 | [156 筆 Evidence Audit](audits/2026-10-31_156_project_parent_evidence_review.csv) |
+| `ADR-P0-022` | `NAMED_PROJECT_EVIDENCE_CANDIDATES` | 8 筆政府／公司具名 Project 文獻、3 筆名稱或範圍尚未證明相同、145 筆尚無新增具名 Project 文獻；Project/JORC/C1 approved 全部 0 | [報告](audits/2026-10-31_156_project_parent_review_report.md)；須 original Project extent、時間/礦權與 REE role 核准 |
+
