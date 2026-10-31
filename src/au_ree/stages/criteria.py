@@ -25,7 +25,7 @@ def ingest(db,rows,tag,as_of=None):
         if tag=='r968_frozen':
             verification='LEGACY_FROZEN_'+str(claimed)
         else:
-            approved=verify(db,r.get('approval_ref'),'OBSERVATION',r.get('source_url'),r.get('source_sha256'))
+            approved=verify(db,r.get('approval_ref'),'OBSERVATION',r.get('source_url'),r.get('source_sha256'),root=ctx['root'])
             verification='VERIFIED' if approved else 'REVIEW_PENDING'
             if not approved:
                 event(db,'criteria',oid,'EVIDENCE_APPROVAL_PENDING',str(r.get('approval_ref') or 'MISSING_APPROVAL_REF'))
