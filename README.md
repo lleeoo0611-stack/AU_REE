@@ -58,8 +58,10 @@ flowchart TD
     QUEUE -. "核准的新證據與 Project 對應" .-> CO
     M -. "明確指定 legacy profile 才能執行" .-> OLD["src/au_ree/cli.py<br/>舊五階段 SQLite pipeline"]
     OLD --> V1["population → criteria → GIS → eligibility → R export"]
-    C1{"C1 六 Gate + 固定 Panel + GIS 全批准？"} -. "未通過不執行正式排名" .-> R["R/run_mcda.R<br/>保留的舊 R 分析入口"]
-    CI --> C1
+    GATE{"C1 六 Gate + 固定 Panel + GIS 全批准？"}
+    CI --> GATE
+    GATE -- "未通過" --> BLOCK["正式 MCDA 暫緩"]
+    GATE -- "全部獨立核准後，另行啟動" --> R["R/run_mcda.R<br/>保留的舊 R 分析入口"]
 ```
 
 主線優先驗證 C1 Project，**沒有新證據事件就跳過 P2–P4 子腳本**；事件只建立可審查的來源工作項目，不會自動取得原始 PDF 或核准 JORC/C1。舊版五階段運算與 `reproducibility/rebuild_all.py` 皆保留，不破壞既有 487-row Census／SQLite 快照。
