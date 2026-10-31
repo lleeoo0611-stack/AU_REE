@@ -28,6 +28,37 @@ class StructuralRound01Test(unittest.TestCase):
         self.assertEqual(len(cases), 13)
         self.assertTrue(all(x['new_project_counted']=='False' for x in cases))
 
+    def test_documentary_groups_have_the_correct_frozen_source_parents(self):
+        result = m.validate_frozen_source_lineage(m.read_csv(m.BASE))
+        self.assertEqual(result['frozen_source_target_count'], 487)
+        self.assertEqual(result['reviewed_candidate_groups'], 39)
+        self.assertEqual(result['source_rows_linked_to_candidate_groups'], 78)
+        self.assertEqual(result['source_rows_without_candidate_group'], 409)
+
+        actual_read = m.read_csv
+        def corrupt(path):
+            rows = actual_read(path)
+            if path.name == 'project_entity_membership_487.csv':
+                rows[0]['project_entity_id'] = 'PRJ-DOES-NOT-EXIST'
+            return rows
+        with patch.object(m, 'read_csv', side_effect=corrupt):
+            with self.assertRaisesRegex(ValueError, 'unknown documentary group'):
+                m.validate_frozen_source_lineage(actual_read(m.BASE))
+
+    def test_frozen_source_missing_orphaned_project_group_blocked(self):
+        actual_read = m.read_csv
+        def drop_link(path):
+            rows = actual_read(path)
+            if path.name == 'project_entity_membership_487.csv':
+                for row in rows:
+                    if row['project_entity_id'] == 'PRJ-679f5da200a4564c':
+                        row['project_entity_id'] = ''
+                        row['relation'] = 'UNRESOLVED_NO_PROJECT_LINK_INFERRED'
+            return rows
+        with patch.object(m, 'read_csv', side_effect=drop_link):
+            with self.assertRaisesRegex(ValueError, 'lacks frozen source-target'):
+                m.validate_frozen_source_lineage(actual_read(m.BASE))
+
     def test_date_leak_and_undated_source_rejected(self):
         for bad_date in ('2026-10-30', ''):
             sources = copy.deepcopy(self.sources)
