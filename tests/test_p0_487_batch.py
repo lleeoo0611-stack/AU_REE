@@ -138,7 +138,8 @@ def test_sqlite_census_rebuild_validates_source_entity_project_crosswalk():
 
 
 @pytest.mark.parametrize("tamper",["unmatched_gate","duplicate_source","wrong_entity_id",
-                                   "unknown_project_id","unreviewed_project_relation","native_source_identity_collision"])
+                                   "unknown_project_id","unreviewed_project_relation","native_source_identity_collision",
+                                   "candidate_gate_group_mismatch","candidate_gate_hold_relation"])
 def test_sqlite_census_rebuild_fails_closed_on_broken_identity_links(tamper):
     from reproducibility.build_census_database import validate_census_relations
     tables=_historical_census_relations()
@@ -153,6 +154,10 @@ def test_sqlite_census_rebuild_fails_closed_on_broken_identity_links(tamper):
         members[0]["project_entity_id"]="PRJ-UNKNOWN"
     elif tamper=="unreviewed_project_relation":
         members[0]["relation"]="UNRESOLVED_NO_PROJECT_LINK_INFERRED"
+    elif tamper=="candidate_gate_group_mismatch":
+        tables["487_inclusion_gate"][0]["candidate_group_key"]="Completely different Project"
+    elif tamper=="candidate_gate_hold_relation":
+        members[0]["relation"]="REVIEW_GROUP_LINK_HOLD"
     elif tamper=="native_source_identity_collision":
         # Two frozen targets share the same source/native feature ID by design.
         # They may not silently diverge on the government native ID.

@@ -1,5 +1,10 @@
 # Change log
 
+## 2026-11-01 — Census candidate-parent identity crosswalk safety
+
+- 強化既有 `reproducibility/build_census_database.py`：487 筆 CSV→SQLite 重建時，核對每一個 `INCLUDE_CANDIDATE` 的原始 `candidate_group_key` 與 `project_entity_register` 的已審查群組名稱及 `PROJECT_LINK_REVIEWED_CANDIDATE` 關係一致；HOLD 來源不能藉由連到候選群組而繼承納入狀態。Mary Kathleen tailings 原本 2 個保留未決 group-link 名稱差異仍保持 HOLD，不強制合併。
+- 在原 `tests/test_p0_487_batch.py` 加入錯誤 parent group 及 HOLD→Candidate relation 的拒絕測試。這是資料跨表一致性驗收，不代表 Project 已獨立核准或可進入 C1。
+
 ## 2026-11-01 — Census CSV→SQLite overwrite integrity
 
 - 現有 `reproducibility/build_census_database.py csv-build` 改為在同目錄暫存建構、執行跨表與 SQLite 驗證，再以 `os.replace` 發布完整資料庫及 manifest；資料輸入、SQL、完整性或雜湊檢查失敗時不刪除上一版 SQLite／manifest。
