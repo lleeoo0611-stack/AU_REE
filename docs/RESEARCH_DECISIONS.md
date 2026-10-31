@@ -120,3 +120,12 @@
 | `ADR-P0-023` | `ALL_109_SOURCE_CLAIMS_REVIEWED` | 以 2026-10-29 原始 native feature + 31 個有定位的官方／公司／CSIRO 文獻名稱審核 109 筆；其中 20 筆有歷史 Project 候選、10 筆範圍/礦權/空間 HOLD、9 筆只有 Deposit 文件、70 筆仍只有 native evidence | [109-row CSV](audits/2026-10-31_109_project_evidence_review.csv)、[審核報告](audits/2026-10-31_109_project_parent_review_report.md) |
 | `ADR-P0-024` | `SOURCE_SPATIAL_IDENTITY_CONFLICT_HOLD` | 同州同名 44 source rows 中 42 筆雙端原生座標可比，38 筆 ≤1km；兩筆 Ambergate 官方座標相距 38.738km，因此不得基於名稱自動合併 Project/Deposit | [原始來源 JSONL](../data/source_snapshots/2026-10-29_272_native_features.jsonl)，需官方歷史 Project polygon、report effective date 和 reviewer signoff；全部 C1 仍未發布 |
 
+
+### P0 第六輪：70 筆沒有新增 Project 文獻的 source-targets（2026-10-31）
+
+| Decision ID | Status | Evidence and approach | Next gate |
+| --- | --- | --- | --- |
+| `ADR-P0-025` | `SOURCE_EVIDENCE_REVIEW_COMPLETED` | 逐一核對 70 筆 2026-10-29 frozen source-native ID／SHA，補入 25 個官方／公司／WAMEX 來源名稱對 34 個 target 的文件定位：7 直接歷史 Project 文獻、4 WAMEX 報告索引、8 範圍疑慮、15 地質證據；36 仍只含官方原生地質紀錄 | [70-row 審核](audits/2026-10-31_70_project_evidence_review.csv)、[報告](audits/2026-10-31_70_project_parent_review_report.md) |
+| `ADR-P0-026` | `CROSS_JURISDICTION_SCOPE_HOLD` | 2 筆 Wingellina 的來源 state 標為 SA，但原生點位位於 128.938°E（129°E 州界以西），需以官方地籍／矿權判定；Benmara South 兩時期 EL/prospect 範圍差異亦保留 HOLD | 先驗證 native 原始地籍／legal owner、當期 Project polygon，再開放 Project／REE role 核准 |
+| `ADR-P0-027` | `REE_HM_SEMANTIC_GATE` | 政府礦砂數值 HM/THM、銅／鈾的 resource summary、monazite accessory %, 不等於 TREO 或 NdPr resource。第三方 WAMEX 索引只作待取得政府原件的來源指標 | 原始 JORC source scopes、各氧化物、effective date、source bytes SHA + independent reviewer 簽核 |
+

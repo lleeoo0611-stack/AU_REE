@@ -129,6 +129,15 @@ python -m unittest discover -s tests -p test_p0_109_project_parents.py -v
 
 以凍結 156 列審查、272 個原生 source feature、487 列歷史全集與 31 個文件來源名稱，重建[109 筆審核 CSV](audits/2026-10-31_109_project_evidence_review.csv)、[89 筆待查 CSV](audits/2026-10-31_109_project_evidence_gaps.csv)及[SHA 摘要](audits/2026-10-31_109_project_evidence_summary.json)。GitHub CI：[P0 109 source evidence review](../.github/workflows/p0-109-source-evidence-review.yml)。同州同名 44 列不自動合併，對 Ambergate 38.738 km 的原始座標衝突自動 HOLD；既有 C1、JORC、GIS 均不改動。
 
+### P0：70 筆原生礦床 Project 母層重新審核
+
+```bash
+python scripts/audit_p0_70_project_parents.py
+python -m unittest discover -s tests -p test_p0_70_project_parents.py -v
+```
+
+使用原 [109 筆審核](audits/2026-10-31_109_project_evidence_review.csv)、[272 個原始 source features](../data/source_snapshots/2026-10-29_272_native_features.jsonl) 及 [25 個有時間/定位的文獻名稱](../inputs/source_review_20261031/round6_70_official_issuer_document_leads.csv) 重建 [70-row Evidence CSV](audits/2026-10-31_70_project_evidence_review.csv)、[59-row 非母專案候選佇列](audits/2026-10-31_70_project_evidence_pending.csv) 與來源 SHA manifest。GitHub CI：[P0 70 source evidence review](../.github/workflows/p0-70-source-evidence-review.yml)。原本 C1／JORC／GIS／MCDA 不更動。
+
 ## CI 與版本
 
 `.github/workflows/python-offline.yml` 在 push/PR 測試 Python 3.11/3.13、五階段離線重跑、SQLite QA 與 checkpoint；`r-mcda-smoke.yml` 用合成 Alternatives 測試 R 4.4.3 的可重現性。工作包的完整 `rebuild_all.py` 需要封存來源與可選的 `xlsxwriter`，不屬於上述離線 CI 的測試範圍。

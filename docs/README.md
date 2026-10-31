@@ -66,6 +66,16 @@
 | [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
 | [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
 
+### P0 第六輪：70 筆資料重新來源驗證
+
+| 文件 | 用途 |
+| --- | --- |
+| **[70 筆完整來源審核報告](audits/2026-10-31_70_project_parent_review_report.md)** | 歷史 Project parent、REE/HM 基準、州界／tenure scope 檢查 |
+| [70 筆 Evidence Review CSV](audits/2026-10-31_70_project_evidence_review.csv) | 每列原生 ID、SHA、技術文獻來源、日期／locator、正式 Gate |
+| [59 筆無具名歷史母專案候選的證據待查](audits/2026-10-31_70_project_evidence_pending.csv) | 需額外 Project 原件的樣本；全部 70 仍未正式 Project 核准 |
+| [25 筆政府／公司與歷史 WAMEX 來源名稱](../inputs/source_review_20261031/round6_70_official_issuer_document_leads.csv) | 34 個來源列有補充文件；WAMEX 二手索引單獨標示 |
+| [70-row Evidence Summary](audits/2026-10-31_70_project_evidence_summary.json) | 州別、證據升級、原始 SHA 與跨州邊界 flag |
+
 ## 原始來源恢復與實體審查（2026-10-31）
 
 | 檔案 | 用途 |

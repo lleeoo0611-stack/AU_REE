@@ -1,5 +1,14 @@
 # Change log
 
+## P0 sixth-round source audit: 70 records with no supplemental document — 2026-10-31
+
+- Audit all **70** frozen native source targets from the preceding 109-row source review, keeping project/deposit/occurrence and raw ID distinct; publish editable 70-row review, 59-row non-candidate parent queue, provenance SHA manifest and 25-name source document register.
+- **34** targets gain external source/locator context (7 independently named historic Project/deposit candidate links; 4 indexed original-WAMEX government-held reports awaiting primary PDF; 8 Project/tenement/state scope holds; 15 only geological or non-REE primary commodity evidence). **36** still have no new independent external document.
+- Explicit government and issuer evidence for Mt Clere/Tower, Tiwi/Puwanapi, historic VIC Ouyen/Galileo–Mercury–Titan, Jurien, WAMEX Hopelands East/Hassell Beach/Witchcliffe; separate HM/THM from TREO resources. No Project/JORC/C1 admission.
+- Flag two `SA` Wingellina source rows west of 129°E as jurisdictional mismatch candidates; preserve existing source state pending official cadastral verification. Keep Benmara South historical EL6836 vs 2023 Barkly resource scope unresolved.
+- Add `scripts/audit_p0_70_project_parents.py`, `tests/test_p0_70_project_parents.py`, and GitHub Actions snapshot regeneration. README, docs index, runbook, decision log and changelog updated; original 487/272/156/109 inventories and MCDA unchanged.
+
+
 ## P0 fifth round: audit 109 original-only source targets — 2026-10-31
 
 - Verify **all 109 source targets** previously lacking independent Project parent text; preserve stable IDs, frozen original government source-feature location and SHA-256. Generate **109-row editable audit**, **89-row pending parent/identity queue** and statistics with input hashes.
