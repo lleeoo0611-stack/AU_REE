@@ -1,34 +1,27 @@
-## 研究目的與 Gate
+## 當前核心問題
 
-- **Aim：** <!-- A / B / C / Infrastructure --> 
-- **工作包／Gate：** <!-- P0.1, P0.2, P1.1, P1.2, P2.1, P2.2, P3 -->
-- **現有行為 → 預期行為：**
-- **Gate Status：** <!-- PASS / PARTIAL / BLOCKED -->
-- **關聯規格：** [Research Architecture](https://github.com/lleeoo0611-stack/AU_REE/blob/main/docs/RESEARCH_ARCHITECTURE.md) · [Implementation Plan](https://github.com/lleeoo0611-stack/AU_REE/blob/main/docs/RESEARCH_IMPLEMENTATION_PLAN.md)
+- **正在處理且尚未完成的研究問題：** <!-- 說明已知問題，不另創工作階段 -->
+- **現有程式、資料與來源：** <!-- 路徑、相關 PR、已通過／未通過的驗收 -->
+- **本次修改與理由：** <!-- 優先更新既有檔案；如新增檔案，解釋不可替代的用途 -->
+- **明確不修改的範圍：** <!-- 防止擴張成平行流程 -->
+- **對 Proposal Aim A/B/C 的關係：** <!-- 現有前置工作可填 Census / Entity Resolution -->
 
-## 研究契約檢查
+## 驗證與完成狀態
 
-- [ ] 已核對 C0/C1/C2/C3 的定義、Project/Deposit 身分和關聯；或本 PR 不涉及
-- [ ] 已核對來源、文件 SHA-256、effective/publication dates、approval 狀態；或本 PR 不涉及
-- [ ] 已核對 JORC／TREO／REE oxide basis、Resource Statement、重複計算；或本 PR 不涉及
-- [ ] 已核對 Criteria Dictionary、固定效用、Dependency、AHP/Scenario 和 `G0 != 六構面`；或本 PR 不涉及
-- [ ] 已核對 B1–B4／SMAA 假設及 Aim C Stage/D1 循環風險；或本 PR 不涉及
-- [ ] 原始資料、穩定 `project_id`、凍結快照和 v1 baseline 可重建；或清楚說明 migration
-- [ ] 任何參數/母體/科學假說的改動已加入 `docs/RESEARCH_DECISIONS.md`
+- [ ] 已確認最新 `main`、相關 PR、目前程式與研究決策
+- [ ] 已執行相關測試與資料 QA，或列出無法執行的具體原因
+- [ ] 已檢查來源、單位、時間、Project／Deposit 與 REE role（不適用時註明）
+- [ ] 原始快照、Source ID、已確認 Project ID、簽核與歷史重建未受破壞
+- [ ] 沒有新增功能重疊的腳本、資料庫、工作階段或重複報告
+- [ ] 研究母體、Schema、Criteria、權重或方法變更已記錄決策及版本（不適用時註明）
+- [ ] README、必要的 Change Log 與操作說明已同步（不適用時註明）
 
-## 驗收與可重現性
+**驗證指令與實際結果：** <!-- 例如 test suite、source count、rebuild checksum；CI 通過不等於來源真實核准 -->
 
-- **測試／結果：** <!-- pytest; R synthetic; lineage; acceptance tests; QA -->
-- **研究數據狀態：** <!-- SYNTHETIC / REVIEW_PENDING / APPROVED / NOT_APPLICABLE -->
-- **Snapshot ID／版本／Seed：** <!-- dataset, schema, criteria, utility, weights, method, commit -->
-- **輸出與來源：** <!-- CSV/SVG/GPKG + manifest path; no unapproved ranking -->
-- **保留的問題／下一步：**
+**完成狀態：** <!-- VERIFIED / PARTIAL / BLOCKED；不可將只有腳本或中間檔視為完成 -->
 
-## 文件同步
+**尚未達到的驗收條件與下一個必要動作：** <!-- 原工作未完成就繼續，不自動開下一個階段 -->
 
-- [ ] README 的已實作／待實作狀態如有變更已更新
-- [ ] `docs/CHANGELOG.md` 已更新
-- [ ] 相關的 DATA / MCDA / VALIDATION Protocol 與 [研究需求](https://github.com/lleeoo0611-stack/AU_REE/blob/main/docs/RESEARCH_REQUIREMENTS_AIMS_ABC.md) 如有方法變動已更新
-- [ ] PR 不直接改寫已發布歷史檔案；新增輸出有新 snapshot ID 與 checksum
+---
 
-> 設計契約：[docs/RESEARCH_ARCHITECTURE.md](https://github.com/lleeoo0611-stack/AU_REE/blob/main/docs/RESEARCH_ARCHITECTURE.md)。若 v2 參數尚未定稿，請先提出 docs/decision PR，再進行演算法／資料庫修改。
+參考：[研究架構](../../docs/RESEARCH_ARCHITECTURE.md) · [執行計畫](../../docs/RESEARCH_IMPLEMENTATION_PLAN.md) · [文件導覽](../../docs/README.md)。正式 C1/MCDA 需要獨立來源證據與 Gate 核准；未通過不得聲稱已有研究級排名。
