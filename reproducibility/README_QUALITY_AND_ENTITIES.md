@@ -2,6 +2,10 @@
 
 `quality_gate_487.py` runs inside `rebuild_all.py` after row adjudication and before CSV-to-SQLite construction. It requires only the Python standard library.
 
+## 原始 ArcGIS Source bytes 的重建檢查
+
+`src/au_ree/source_adapters.py load_arcgis()` 在同一 query-source snapshot 首次成功下載後建立 `manifest.json`，內容包含 metadata／IDs／每個原始 feature chunk 的 SHA-256、筆數、source URL 與查詢。後續離線重建重新比對，若同一 Object ID 的礦點內容被改寫、metadata/IDs 變動或查詢契約不同，立即拒絕重建；不得重新計算 hash 後覆蓋原先 manifest。修正資料必須另建版本化 source snapshot，不直接修改不可變原始檔。
+
 ## 現行 487-source SQLite 重建驗證（2026-11-01）
 
 - **487 source targets** 仍各有獨立 `target_id`，對應 **451 個來源原生實體識別**。其中 36 組 Legacy／E1 targets 引用同一 `source_key/native_id`，均保留兩筆 Target ID，不能重複計算為 Project。
