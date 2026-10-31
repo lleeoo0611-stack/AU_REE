@@ -91,7 +91,7 @@ def build(root: Path = ROOT):
     assert len(groups) == 25
     assert len({r["source_parent_label"] for r in groups}) == 25
     assert len({r["provisional_group_key"] for r in groups}) == 25
-    assert len(claims) == len({r["statement_id"] for r in claims}) == 12
+    assert len(claims) == len({r["statement_id"] for r in claims}) == 14
     assert all(r["geometry_polygon_intersection"] == "NOT_PERFORMED" for r in groups)
     assert all(r["approval_status"] == "C0_REVIEW_NOT_APPROVED" for r in groups)
     by_label = {r["source_parent_label"]: r for r in groups}
