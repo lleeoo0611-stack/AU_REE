@@ -1,5 +1,14 @@
 # Change log
 
+## P0 fourth-round audit of 156 Project-parent gaps — 2026-10-31
+
+- Review **all 156** frozen native source IDs previously tagged `PROJECT_PARENT_UNLOCATED` using 2026-10-29 source-feature attributes, direct government records, typed deposit/prospect/occurrence status, REE commodity context and same-state duplicate-name relationships. Produce a **156-row editable CSV with per-row trace and source SHA**, a **148-row pending Project relation queue**, and a structured JSON provenance manifest.
+- Add **11** government/issuer Project documentation leads: **8 named Project candidates**, **3 similar-name/scope holds**; the other **145** have no newly sourced named Project documentation. Cross-source same-state names occur in **70** source rows and cannot alone establish either Project membership or a JORC statement.
+- Distinguish existing C0 geological records (including WA Prospect/Occurrence/Target/Infrastructure and TAS `RESOURCES=N`) from a true development Project. Keep all 156 Project boundary signoffs and C1 gates pending.
+- Introduce standard-library reproducible `scripts/audit_p0_156_project_parents.py`, independent regression tests and auto-generating GitHub Actions workflow. No changes to the underlying 272/487 target snapshots, MCDA scoring, GIS or resource database.
+- Update README, documents index, runbook, research decisions and changelog.
+
+
 ## P0 third round: 272 original-source entity / Project parent reconciliation — 2026-10-31
 
 - Recovered and source-byte verified original GA AIMR JSON chunk, original SA critical REE CSV and 16 Legacy historical source rows; **23/23 previously missing native records** tied to physically archived original source bytes or original repo bytes.
