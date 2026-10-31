@@ -53,7 +53,13 @@ class Parent48(unittest.TestCase):
     def test_ree_resource_vs_tenement_scope(self):
         byname = {r["canonical_parent_candidate"]: r for r in self.groups}
         self.assertEqual(byname["Fraser Range / Talisker Project (separate Salazar)"]["resource_claim_rows"], 0)
-        self.assertEqual(byname["Aileron Niobium–REE Project"]["resource_claim_rows"], 2)
+        # Four dated statements: two historical TREO grades (2025), and two
+        # 2026 Nb2O5 grades. Do not treat Nb2O5 grade as TREO or sum nested subsets.
+        self.assertEqual(byname["Aileron Niobium–REE Project"]["resource_claim_rows"], 4)
+        aileron = [r for r in self.resources if r["provisional_group_key"] == "P1G-0010"]
+        self.assertEqual(dict(Counter(r["grade_basis"] for r in aileron)), {"TREO": 2, "Nb2O5": 2})
+        self.assertEqual(len({r["statement_id"] for r in aileron}), 4)
+        self.assertTrue(all(r["scoreable_TREO_resource_value"] == "NO_NOT_SIGNED_OFF" for r in aileron))
         self.assertEqual(byname["Copi Mineral Sands Project"]["resource_basis_class"], "HM_ONLY_RESOURCE")
 
     def test_snapshot(self):
