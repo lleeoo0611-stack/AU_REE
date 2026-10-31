@@ -1,0 +1,24 @@
+name: P0 P1 73 terminal desk closeout gate
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_p0_p1_closeout.py'
+      - 'tests/test_p0_p1_closeout.py'
+      - 'inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv'
+      - 'docs/audits/2026-10-31_p0_p1_*.csv'
+      - 'docs/audits/2026-10-31_p0_p1_*.json'
+      - '.github/workflows/p0-p1-closeout.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  closeout-consistency:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python scripts/audit_p0_p1_closeout.py --check
+      - run: python -m unittest discover -s tests -p 'test_p0_p1_closeout.py' -v

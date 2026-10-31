@@ -1,0 +1,33 @@
+{
+  "audit_date": "2026-10-31",
+  "frozen_source_snapshot": "2026-10-29",
+  "p1_desk_source_rows_closed": 73,
+  "p1_desk_cases_accounted_for": 44,
+  "positive_cases_gate_reviewed": 13,
+  "positive_source_rows_gate_reviewed": 22,
+  "source_dispositions": {
+    "C0_EXPLICIT_RESOURCE_SCOPE_EXCLUSION": 2,
+    "C0_INDEXED_PRIMARY_DOCUMENT_ACCESS_BLOCKED": 5,
+    "C0_NO_PROJECT_SCOPED_REE_PRODUCT_PROOF": 40,
+    "C0_POSITIVE_PROJECT_OR_REE_LEAD": 22,
+    "C0_UNRESOLVED_NATIVE_IDENTITY_CONFLICT": 4
+  },
+  "source_title_number_matches": 20,
+  "official_tenure_polygon_intersecting_source_rows": 60,
+  "legal_project_footprint_approved": 0,
+  "independent_project_signoffs": 0,
+  "independent_JORC_REO_signoffs": 0,
+  "published_C1_project_rows": 0,
+  "original_WAMEX_pdf_bytes_archived": 0,
+  "CI_validated": false,
+  "all_P1_search_scopes_desk_closed": true,
+  "all_P1_primary_documents_archived": false,
+  "all_P1_formal_eligibility_gates_passed": false,
+  "inputs": [
+    "docs/audits/2026-10-31_p1_73_source_resolution.csv",
+    "docs/audits/2026-10-31_p1_44_case_resolution.csv",
+    "docs/audits/2026-10-31_p1_73_tenure_reconciliation.csv",
+    "inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv"
+  ],
+  "meaning": "P1 desk-search closure only. C0 source rows are NOT project IDs or MCDA C1 admissions. Unretrieved WAMEX primary bytes, original source identity conflicts, and independent JORC/project/GIS approval remain separate release blockers."
+}

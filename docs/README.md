@@ -66,6 +66,18 @@
 | [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
 | [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
 
+### P0／P1 結案與發布門檻（2026-10-31）
+
+| 文件 | 內容 |
+| --- | --- |
+| [P0／P1 結案及 Gate 報告](audits/2026-10-31_p0_p1_closeout_report.md) | 73 筆來源桌面審核結案、13 案 Gate HOLD、Python/R CI 綠燈與 C1 尚未核准的研究階段分離 |
+| [73 筆最終處置表](audits/2026-10-31_p0_p1_73_terminal_decisions.csv) | 逐個 target ID、證據、tenure 交集、六 Gate、C0 路由、重新開案條件與審查簽名欄 |
+| [13 正向案例 Gate 決策](../inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv) | 22 source rows 的 REE 角色／資源／Window／ID／GIS Hold 判讀 |
+| [P0/P1 machine summary](audits/2026-10-31_p0_p1_closeout_summary.json) | 73 筆分流與建立當下的 CI 未驗證靜態紀錄，實際 CI 結果另見下列 attestation | 
+| [CI 實測通過證據](audits/2026-10-31_p0_p1_ci_verification.json) | PR #26、#27、#28、#31 共 14 個成功的 GitHub Actions workflow run，含 commit SHA／run IDs |
+| [WAMEX 原始文件申請稿](requests/2026-10-31_wamex_primary_pdf_access.md) | A119194、A120393、A129842、A109188；標記尚未寄送 |
+| [可重跑結案腳本與測試](../scripts/audit_p0_p1_closeout.py) | 不自動修改 project master、JORC、C1 與 MCDA |
+
 ### P0 P1：73 筆完整文件判讀與既有 Tenement Polygon 疊合審計
 
 | 文件 | 用途 |

@@ -202,10 +202,9 @@ def build(root: Path = ROOT):
         "C1_admissions": 0,
         "external_WAMEX_government_report_bytes_retrieved": 0,
         "inputs": [str(x) for x in (SOURCE, RAW, GROUPS, EVIDENCE, RESOURCE)],
-        "interpretation": "Every case has a source-specific documentary decision. It does not prove "
-                         "exhaustive web absence, historical Project geometry, or MCDA admission; "
-                         "four WAMEX indexed original reports (A119194 A120393 A129842 A109188) need "
-                         "original government PDF bytes and project footprint validation."
+        "interpretation": "All 44 cases have reviewed documentary scope, including original Victorian government Wemen production evidence. "
+                         "Four WAMEX reports (A119194, A120393, A129842, A109188) have indexed text but official PDF bytes are not retrieved. "
+                         "Documentation review does not imply Project footprint/REE JORC/C1 release, and incomplete search is never evidence of geological absence."
     }
     return source_rows, case_rows, stats
 

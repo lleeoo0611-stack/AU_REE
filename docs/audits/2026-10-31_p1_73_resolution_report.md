@@ -9,12 +9,13 @@
 | 證據判讀結果 | 案例數 | 來源列 | 說明 |
 |---|---:|---:|---|
 | Project／Deposit／資源主張已有原文證據，待空間與正式核准 | 13 | 22 | 來源文字支持特定歸屬，但未完成 GIS 交集／同範圍 JORC 簽核 |
-| 已審查來源提供礦砂、地質或歷史礦場脈絡，**未支持可回收 REE 產品** | 23 | 39 | 有證據文件；判定的是目前文件支持的商品，不將未找到 REE 產品寫成地質上沒有 REE |
+| 已審查來源提供礦砂、地質或歷史礦場脈絡，**未支持可回收 REE 產品** | 24 | 40 | 有證據文件；判定的是目前文件支持的商品，不將未找到 REE 產品寫成地質上沒有 REE |
 | Benmara South：原始 JORC 明確排除繼承 Barkly TREO MRE | 1 | 2 | 可保留 V₂O₅ 資源及 REE Exploration Target，但不能分配 40 Mt TREO |
 | 身分矛盾／行政區歸屬不清 | 2 | 4 | Ambergate 兩來源相距 38.738 km；Wingellina 原生來源標 SA、位置在 129°E 以西 |
 | WAMEX 原始報告索引已知，政府 PDF bytes 尚未取得 | 4 | 5 | A119194、A120393、A129842、A109188；索引不取代官方原件 SHA |
-| 目錄中有歷史紀錄，但未取得可審查主文 | 1 | 1 | Wemen |
 | **合計** | **44** | **73** | 每個案例已有獨立的文件判讀及下一步 |
+
+另據 [維多利亞州 Department of Primary Industries 2003/04 年度統計（2005 年 4 月發行）](https://resources.vic.gov.au/__data/assets/pdf_file/0008/462734/Earth-Resources-Annual-statistical-report-2003-2004.pdf)，Wemen 礦砂礦場於 2004 年 1 月停產，足以確認曾為生產礦場且不符合 pre-FID 主分析時間窗；來源點仍保留獨立地理紀錄。
 
 ## 重要資源／身分查核結果
 
@@ -50,7 +51,7 @@
 | `P1G-0006` | VIC Ouyen historical mineral sands project | 3 | HM_HISTORICAL_NOT_TREO | 文件確認地質/礦砂脈絡；未確認 REE 產品 |
 | `P1G-0007` | VIC Fingerboards Critical Minerals Project | 1 | PROJECT_ORE_PLAN_NOT_JORC_TREO | 有具體專案/資源文字證據；GIS/簽核待處理 |
 | `P1G-0008` | VIC Nowie (VHM) Project | 1 | THM_JORC_WITH_NO_TREO_MRE | 有具體專案/資源文字證據；GIS/簽核待處理 |
-| `P1G-0009` | VIC Wemen mineral sands historical mine | 1 | NO_TREO_MRE_LOCATED | 僅有歷史目錄；原件仍缺 |
+| `P1G-0009` | VIC Wemen mineral sands historical mine | 1 | HISTORICAL_HM_PRODUCTION_NO_TREO_MRE | 維多利亞政府統計確認 2004 年 1 月已停止生產 |
 | `P1G-0010` | WA Aileron Niobium–REE Project | 1 | 2026_NB2O5_MRE_NOT_CURRENT_TREO_GRADE | 有具體專案/資源文字證據；GIS/簽核待處理 |
 | `P1G-0011` | WA Coburn mineral sands operation | 1 | HM_NOT_TREO | 文件確認地質/礦砂脈絡；未確認 REE 產品 |
 | `P1G-0012` | WA Cooljarloo mineral sands operation | 1 | HM_NOT_TREO | 文件確認地質/礦砂脈絡；未確認 REE 產品 |
@@ -139,7 +140,7 @@
 | 階段 | 覆蓋情形 |
 |---|---:|
 | 73 筆來源 ID、原生 SHA、文獻線索及範圍判讀 | **73/73** |
-| 44 個案例有可追溯原文／次級索引／歷史目錄及明確判讀 | **44/44** |
+| 44 個案例有可追溯政府／發行人原文或次級索引及明確判讀 | **44/44** |
 | 25 個暫定母層完成 source-level 去重 | **25/25** |
 | 追加核對的資源／開發數值主張 | **12 筆**（加上前輪 14 筆，均保留原始基準） |
 | 已取得官方 WAMEX 4 份 PDF 原件和 SHA-256 | **0/4** |
