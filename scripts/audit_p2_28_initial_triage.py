@@ -117,8 +117,10 @@ def build(root: Path = ROOT):
         # Legacy rows have no verified point and cannot inherit native coordinates.
         if r["cohort"] == "LEGACY_86":
             assert not r["latitude"] and not r["longitude"]
-        assert r["C1_project_approval"] == r["C1_resource_approval"] == \
-               r["C1_gis_approval"] == "NO"
+        assert (r["C1_project_approval"] == "NOT_INDEPENDENTLY_APPROVED"
+                and r["C1_resource_approval"] == "NOT_EVALUATED_AS_PROJECT_RESOURCE"
+                and r["C1_gis_approval"] == "NOT_APPROVED"
+                and r["C1_release_status"] == "C1_NOT_RELEASED")
         by_case[k].append(r)
         source_rows.append({
             "target_id": r["target_id"], "case_id": d["case_id"],
