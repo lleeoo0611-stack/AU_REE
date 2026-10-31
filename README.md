@@ -96,6 +96,10 @@ flowchart TB
 
 [完整審查報告](docs/audits/2026-10-31_156_project_parent_review_report.md) · [156 筆逐列 CSV](docs/audits/2026-10-31_156_project_parent_evidence_review.csv) · [148 筆待補 Project 關係](docs/audits/2026-10-31_156_project_parent_gaps.csv) · [摘要與來源 SHA](docs/audits/2026-10-31_156_project_parent_evidence_summary.json)。保留政府原始 source feature 與來源稽核，新增 **8 筆具名 Project 文件候選、3 筆名稱／範圍待查**；145 筆仍無新增 Project 文獻，70 筆有跨來源同州同名線索。**來源具名 ≠ 獨立 REE Project 核准；全部 C1 維持 NO。**
 
+### P0 第五輪：109 筆 Project 母層證據審查（2026-10-31）
+
+[109 筆逐列原始來源與外部文件審核](docs/audits/2026-10-31_109_project_evidence_review.csv) · [完整研究報告](docs/audits/2026-10-31_109_project_parent_review_report.md) · [來源 SHA 與計數](docs/audits/2026-10-31_109_project_evidence_summary.json)。**39 筆有新增獨立文件線索**：20 筆歷史 Project parent 候選、10 筆地理／礦權／名稱範圍 HOLD、9 筆僅增加地質／HMS 文件；70 筆仍只有政府原生地質紀錄。全體保留 C0，**0 筆 Project/JORC/C1 自動核准**。對同州同名 44 筆另作座標交叉稽核，其中 Ambergate 2 個來源相距 38.738 km，已暫停同名配對。可重跑：[scripts/audit_p0_109_project_parents.py](scripts/audit_p0_109_project_parents.py)。
+
 ## 專案結構
 
 ```text
