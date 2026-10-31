@@ -27,12 +27,18 @@ class ParentPipelineTest(unittest.TestCase):
             file=root/cfg["stages"]["p234_event_router"]["trigger_input"]
             file.parent.mkdir(parents=True)
             file.write_text("event_id,target_id\nEV-P234-TEST01,example\n",encoding="utf-8")
+            decision=root/cfg["stages"]["p234_event_router"]["review_decisions_input"]
+            decision.parent.mkdir(parents=True)
+            decision.write_text("event_id,review_status\n",encoding="utf-8")
             script=root/cfg["stages"]["p234_event_router"]["script"]
             script.parent.mkdir(parents=True)
             script.touch()
             plan=build_plan("p234","check",root=root,manifest=cfg)
             self.assertEqual(plan[0]["action"],"EXECUTE")
             self.assertEqual(plan[0]["command"][-1],"--check")
+            decision.write_text("event_id,review_status\nEV-P234-TEST01,SOURCE_SCOPE_REVIEWED\n",encoding="utf-8")
+            second=build_plan("p234","check",root=root,manifest=cfg)
+            self.assertEqual(second[0]["action"],"SKIP_NO_NEW_EVIDENCE")
     def test_zero_external_approvals_and_unknown_profile_rejected(self):
         self.assertEqual(execute("all","check",dry_run=True)["C1_automatic_admissions"],0)
         with self.assertRaises(ValueError):
