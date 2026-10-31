@@ -102,8 +102,8 @@
 | 交集紀錄（含歷史／不同種類礦權） | **204** |
 | 已查層無交集 | **11** |
 | 官方圖層未驗證（SA Wingellina） | **2** |
-| 已有明確技術文件礦權編號可比較的案例 | **13** |
-| 精確礦權編號一致的原始來源列 | **14**（7 個案例） |
+| 已有明確技術文件礦權編號可比較的案例 | **18** |
+| 精確礦權編號一致的原始來源列 | **20**（12 個案例） |
 | 專案法定 footprint／採礦範圍獨立核准 | **0** |
 
 對有文件 tenement 號碼的 13 案例逐筆比對，發現下列可追溯交集（每個數字均為 source rows）：
@@ -117,10 +117,16 @@
 | Fingerboards／Glenaladale | **RL2026** | 1 | 與 2026 官方案載 retention licence 一致；整個 Glenaladale ≠ Fingerboards |
 | Jurien | **M70/436** | 1 | 原始 WAMEX C198/1994 列 M70/434–436，單一 M70/435 來源描述不可視為完整範圍 |
 | Hopelands East | **M70/603** | 1 | A119194 列 M70/599–603，官方交集支持其中一個礦權，政府 PDF 仍待封存 |
+| Governor Broome | **R70/53** | 1 | 2022 年公司 JORC 文件明示 Governor Broome West 礦床歸屬；HM 並非 TREO |
+| Gwindinup North | **M70/895** | 2 | 2000 年 WA EPA 原始 CER 指明 Gwindinup 開發礦權，僅確認 HMS 與 trace monazite |
+| Gwindinup South | **M70/899** | 1 | 同份 WA EPA 原始 CER；仍須礦床 pit boundary |
+| Tutunup West | **M70/1108** | 1 | WAMEX A109188 為具名 Tutunup West 歷史 HMS Project；與 Iluka Tutunup 開發提案分開 |
+| Yalyalup | **M70/1400** | 1 | Doral 官方工程申請書確認該礦權為 Yalyalup 礦床所在地 |
 
 另外的歷史礦權/位置差異保留為**有解釋的分流**：
 
 - **Ambergate**：2017 年發行人文件報 E70/4799，但 2026 快照第一來源點相交的是 E70/4793，第二點沒有交集；兩點距離 38.738 km，且第二點與 `Witchcliffe` 相同，應查原始 geocoding／同名來源。
+- **Yttria／Mt Stirling**：兩個來源點間隔 3.697 km，分別與 M37/1430、M37/1305 相交；[GoldArc 2026 年公告](https://investorpa.com/announcement-pdf/20260209/254104.pdf) 將 M37/1305 列為 Mt Stirling Well 的金礦活動範圍，故仍需 Yttria 稀土礦床的正式資源範圍 polygon，禁止把任何一個地質來源點直接當成 Yttria MRE 的代表座標。
 - **Benmara South**：1991 年 EL6836 不在目前相交的 EL32474 之中；年代與法律主體不同，不能由現在礦權倒推歷史 Project 身分。
 - **Bullant-Karridale**：歷史 E70/467 與目前來源點相交 E70/6333 不相同。
 - **Hassell Beach M70/562／Witchcliffe E70/5471**：目前查詢無交集，與歷史或 surrender 記錄相容，不能解讀成歷史礦權從未存在。
