@@ -139,6 +139,10 @@ def build(root=ROOT):
     by_status=Counter()
     states=Counter()
     by_doc=Counter()
+    duplicate_state_name_rows=0
+    coordinate_comparable=0
+    coordinate_near_1km=0
+    coordinate_conflicts=[]
     for x in target:
         tid=x["target_id"]
         src=native.get(tid)
@@ -204,6 +208,14 @@ def build(root=ROOT):
             else:
                 grade="NATIVE_REE_DEPOSIT_WITHOUT_PROJECT_EVIDENCE"
                 next_action="Locate published Project parent boundary and REE development evidence"
+        # Quarantine same-state names with conflicting government source coordinates.
+        spatial_conflict=bool(dupdist and min(dupdist)>10.0)
+        if spatial_conflict:
+            grade="SPATIAL_IDENTITY_CONFLICT_PARENT_WITHHELD"
+            next_action=("Resolve same-name original source points and historic project "
+                         "polygon; no name-only parent merge")
+            qualification=(qualification+"; " if qualification else "")+(
+                "Official same-name features differ by more than 10 km")
         r=dict(zip(COLUMNS,[
             tid,x["state"],x["source_name"],x["source_key"],x["source_native_id"],
             ent,status,comm,major,typ,resource,
@@ -221,6 +233,16 @@ def build(root=ROOT):
         by_doc[docclass]+=1
         states[x["state"]]+=1
         source_count[x["source_key"]]+=1
+        if dupids:duplicate_state_name_rows+=1
+        if dupdist:
+            coordinate_comparable+=1
+            if min(dupdist)<=1:coordinate_near_1km+=1
+            if min(dupdist)>10.0:
+                coordinate_conflicts.append({
+                    "target_id":tid,"state":x["state"],"source_name":x["source_name"],
+                    "nearest_source_distance_km":round(min(dupdist),3),
+                    "other_source_target_ids":dupids
+                })
     if len(result)!=109 or len({x["target_id"] for x in result})!=109 or any(
         x["C1_approved"]!="NO" or x["independent_project_identity_approved"]!="NO" or
         x["JORC_REO_approved"]!="NO" for x in result):
@@ -238,7 +260,14 @@ def build(root=ROOT):
         "documented_parent_source_rows":(
             by_status["DOCUMENTED_HISTORICAL_PARENT_CANDIDATE"]+
             by_status["HISTORICAL_GROUP_PARENT_CANDIDATE"]),
-        "scope_or_tenement_holds":by_status["SCOPE_OR_TENEMENT_ONLY_HOLD"],
+        "scope_or_tenement_holds":(
+            by_status["SCOPE_OR_TENEMENT_ONLY_HOLD"]+
+            by_status["SPATIAL_IDENTITY_CONFLICT_PARENT_WITHHELD"]),
+        "spatial_identity_conflicts_withheld":by_status["SPATIAL_IDENTITY_CONFLICT_PARENT_WITHHELD"],
+        "same_state_name_rows":duplicate_state_name_rows,
+        "same_state_name_coordinate_comparable_rows":coordinate_comparable,
+        "same_name_near_1km_rows":coordinate_near_1km,
+        "same_name_over_10km_identity_conflicts":coordinate_conflicts,
         "independent_deposit_document_no_parent":by_status["INDEPENDENT_DEPOSIT_DOCUMENT_NO_PROJECT_PARENT"],
         "without_new_external_document":109-leads_reached,
         "project_ID_signoffs":0,"JORC_REO_signoffs":0,"C1_release_count":0,
