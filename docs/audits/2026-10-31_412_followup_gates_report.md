@@ -41,7 +41,7 @@ P3 州別：NSW 24、NT 6、QLD 16、SA 80、TAS 1、VIC 10、WA 79。P4 州別�
 
 ## 4. PR 與可重現驗收
 
-截至本分支建立，PR #31、#36、#37 均已合併 main（base commit `ac1735d`）；[PR #33](https://github.com/lleeoo0611-stack/AU_REE/pull/33) **仍為 Draft**。#33 使用較早版本原始 `action_priority=P2` 的 72 筆／47 案，而本報告 P2 是由 412 HOLD 固定分流的 28 筆。兩者不可在未建立交叉索引前直接合併當作同一 P2。尚未改動 #33。
+截至本分支建立，PR #31、#36、#37 均已合併 main（base commit `ac1735d`）；[PR #33](https://github.com/lleeoo0611-stack/AU_REE/pull/33) **已於後續 PR 合併並建立交叉索引**。#33 使用較早版本原始 `action_priority=P2` 的 72 筆／47 案，與本報告 P2（412 HOLD 的 28 筆）精確重疊 28 筆；另有 38 筆 INCLUDE_CANDIDATE、6 筆 HOLD_REE_ROLE。兩者不得重複計數。
 
 可重跑指令：
 
