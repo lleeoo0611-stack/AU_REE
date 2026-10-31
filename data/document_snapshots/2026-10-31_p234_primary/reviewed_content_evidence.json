@@ -1,0 +1,2984 @@
+{
+  "E1:C-002a514148b34670da95b2": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "37",
+      "verification_anchor": "Byfield",
+      "expected_government_record_id": "",
+      "table_context": "Byfield QLD Mineral deposit 150.6999876 -22.796865 Rutile, zircon, ilmenite, monazite, mineral sands Basinal Placer Heavy-mineral sands (High dune) Byrnes Tank NSW Mineral deposit 142.8 -33.64 Zircon, rutile, ilmenite, leucoxene Basinal Pla"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[37]",
+      "reviewed_page_text_sha256": "aabb4086d77c21747921825e2b368039b3b06c46550e4cf6007235bfe251f241"
+    }
+  },
+  "E1:C-01249e537d3b128b6ab548": {
+    "bindings": {
+      "document_id": "DOC-5ab766d5fc77",
+      "pdf_pages_or_html_sections": "1,8,15,23,27",
+      "verification_anchor": "Alluvial Flats",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "7b23fda6190c6c0f1f465a9e6069d59f032c785b2b77c7b21d51a12608677a7d",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-5ab766d5fc77_7b23fda6190c6c0f.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/24_8933/EDGI%208%20D23-134332%20Wind%20Break_202405_01_EDGI%20Final%20Drilling%20Project%20Report%20May%202024.pdf?download=1",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "40",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 8, 15, 23, 27]",
+      "reviewed_page_text_sha256": "6f065ef29efa421923e0ad4509369452459106886ab4dc944f458b08b26cf215"
+    }
+  },
+  "E1:C-01c15e61bc1754b309c28a": {
+    "bindings": {
+      "document_id": "DOC-6e9393dcd445",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "1927",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "139.3301673",
+      "reviewed_government_latitude": "-32.6797185",
+      "original_document_sha256": "5b365624fafa646652296c30c7fb2a65a126afcf170a5103587951da6c09d794",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-6e9393dcd445_5b365624fafa6466.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=1927",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "6da807e445c27a416def42f0cfa72600da4f228a489d421f522af1bfd228666d"
+    }
+  },
+  "E1:C-02dd325c3ff772161081b4": {
+    "bindings": {
+      "document_id": "DOC-95e76720858d",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Mangaroon North",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "9af9c8575d72e9817c5234c9378d6f0c3aaebf1d96f400e2e4b876a56881b652",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-95e76720858d_9af9c8575d72e981.pdf",
+      "actual_original_url": "https://labwest.net/media/vtjh40jp/vmc_mangaroon_north_project_ree-pd_and_au_targets_identified.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "9",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "525d3b3001c01d1793ff3c4928040039bae312dde4f01d30d13f46a627e03254"
+    }
+  },
+  "E1:C-05319c76370a9ff4899333": {
+    "bindings": {
+      "document_id": "DOC-913f418f43f6",
+      "pdf_pages_or_html_sections": "HTML: Bungalally project section",
+      "verification_anchor": "BUNGALALLY",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e81a929457e314631b01ce4cfee55d2e7cbdb7faf4c3907914be8b6e1d106d7c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-913f418f43f6_e81a929457e31463.html",
+      "actual_original_url": "https://wimresource.com.au/project/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "63b8b414dda226a20e661fcc2e19d6ca220326ce1575992016e4e48a73f8753b"
+    }
+  },
+  "E1:C-05a33fdf2479d876055f64": {
+    "bindings": {
+      "document_id": "DOC-78504c076335",
+      "pdf_pages_or_html_sections": "109,117,118,120",
+      "verification_anchor": "Shamrock",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+      "actual_original_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "132",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[109, 117, 118, 120]",
+      "reviewed_page_text_sha256": "1a50675ba451609ea77676afb11cc20bf6a1de14e204a81b15982af4cfa07456"
+    }
+  },
+  "E1:C-068c36e97d756565022437": {
+    "bindings": {
+      "document_id": "DOC-ef102690cd02",
+      "pdf_pages_or_html_sections": "1,3,6,8,9",
+      "verification_anchor": "EL24193",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "61d232adfda8f8f71c4bbae0cc4db0e4b708b9fd378611456746251579e2c9ae",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ef102690cd02_61d232adfda8f8f7.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/57122300-79fa-468b-9232-19f9051d5a55/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "12",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 3, 6, 8, 9]",
+      "reviewed_page_text_sha256": "19561ea6e8eb251ffeb3b99c3a53c7969c737bed012724c2f30706a65ba97ab4"
+    }
+  },
+  "E1:C-0a21b1d10e16ddf09a8461": {
+    "bindings": {
+      "document_id": "DOC-f3819ad0cec9",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Cummins Range",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "f6d62e77a7bba2950c6a175eb8cf6615ecf0f63068f024eeae5369b43f89b933",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-f3819ad0cec9_f6d62e77a7bba295.pdf",
+      "actual_original_url": "https://minedocs.com/28/RareX-PR-08302024.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "5",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "d408d0bcac73c67a158f7f6bc3f429951f3599730d64f8ce4d92160d5b430647"
+    }
+  },
+  "E1:C-0b40952eb36db9727be42c": {
+    "bindings": {
+      "document_id": "DOC-60591b4a8aa1",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "4856",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "138.9179992",
+      "reviewed_government_latitude": "-34.3465785",
+      "original_document_sha256": "c50d6ea5b6dca876f32c1b3e467914fc8888bbc013a140f52cafa1ee91b2f27c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-60591b4a8aa1_c50d6ea5b6dca876.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4856",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "9a8df5b1410dc56e3f5d98842f9fc0742205f6f4f6eb450a2352fe5197a21c2a"
+    }
+  },
+  "E1:C-0b411a4fe451fafdf43955": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "36-46",
+      "verification_anchor": "APPENDIX 8",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]",
+      "reviewed_page_text_sha256": "bbc33295551d3a336fe18fad8fa28fb114c7c68d27e4a01e733f6afb7574a43e"
+    }
+  },
+  "E1:C-0d29778cc532d2f90ce53a": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "42",
+      "verification_anchor": "Moreton Island",
+      "expected_government_record_id": "",
+      "table_context": "Moreton Island N.P. QLD Mineral deposit 153.3999761 -27.076808 Rutile, zircon, ilmenite, monazite, mineral sands Basinal Placer Heavy-mineral sands (High dune) Mount Gee SA Mineral deposit 139.3391 -30.2224 Uranium, uranium oxide, rare-eart"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[42]",
+      "reviewed_page_text_sha256": "538f059b04b0337ac42ccf72789fc3a39f06123d1c401eb6f4a033bdeae13747"
+    }
+  },
+  "E1:C-0d7bbc17639754ac69ecf3": {
+    "bindings": {
+      "document_id": "DOC-a01086eee5df",
+      "pdf_pages_or_html_sections": "1,4,7",
+      "verification_anchor": "just south",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "1bf876d5e2dba15ff3209d323372850a5d50896da5496a9a7625b73a6c86eb95",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-a01086eee5df_1bf876d5e2dba15f.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/7a7f8375-66e0-42c9-a3cd-6cecbfe38c97/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "10",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 4, 7]",
+      "reviewed_page_text_sha256": "cbc49d3f6b354f60d928d0f37713cd7196a5120e587e546e3ae58fa923a05658"
+    }
+  },
+  "E1:C-0f605aa53ea7731720d810": {
+    "bindings": {
+      "document_id": "DOC-15d3864d77dc",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "3000",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "136.8893697",
+      "reviewed_government_latitude": "-30.4403264",
+      "original_document_sha256": "4223d12e1f27d78e87d5f44ab7c041bb3b5f1b7940486a9c99f83404451c13c7",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-15d3864d77dc_4223d12e1f27d78e.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3000",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "62765548b121b3033b437749cc2632773811d36acafce3394f66be98438100c7"
+    }
+  },
+  "E1:C-12faff6d9a3b83c37cd658": {
+    "bindings": {
+      "document_id": "DOC-ec1a2854fb6b",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "3899",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "138.3875214",
+      "reviewed_government_latitude": "-33.2234464",
+      "original_document_sha256": "b287e64a721a7dc2be9e4a669a2088ae4ee16272a0003fb2e5c4eab44ef9c7b2",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ec1a2854fb6b_b287e64a721a7dc2.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3899",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "466160b8def27b969a4344ad7b5bbd68813dd5ef0ee132514966de9e15b31e28"
+    }
+  },
+  "E1:C-137e5d7c0dccf189a6b0a1": {
+    "bindings": {
+      "document_id": "DOC-e5f7e4b31176",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "11849",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "135.5028013",
+      "reviewed_government_latitude": "-32.8527095",
+      "original_document_sha256": "3daf811abca155e8c13f0c7dc0ce48b6e798b6af2c59a4c00d4f7bf92282755f",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e5f7e4b31176_3daf811abca155e8.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11849",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "0a0efcbc33e8e17b8be889f2a93a65e8842a4ba17dfb90c7efc4a1c80562d74c"
+    }
+  },
+  "E1:C-138fd59ae49a811b4eadc5": {
+    "bindings": {
+      "document_id": "DOC-d9c7b718e4c7",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Perth Basin",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "17b9f01aee27ab41b9bfeff1edc1dce86e354377e004b178e8ce867b93c51840",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d9c7b718e4c7_17b9f01aee27ab41.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159143/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "57c96251955d261fa531183f08f63b30f839cb8a8c82dc31aa941cdd9b1a8217"
+    }
+  },
+  "E1:C-16eaad2c06585cbe4e47e6": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "40",
+      "verification_anchor": "Jacinth",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[40]",
+      "reviewed_page_text_sha256": "278fbc45e0d149fa25ae2a242b4e0c11cadfd6addaf95c09cb28440e4350e605"
+    }
+  },
+  "E1:C-1885847c4b67800de0e580": {
+    "bindings": {
+      "document_id": "DOC-43966a9fe6a8",
+      "pdf_pages_or_html_sections": "1 (map index)",
+      "verification_anchor": "Stronach",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4f25cbab1714ccaafd1ef885b88105f9ed25e4c27c0267a719edb6aff37d2178",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-43966a9fe6a8_4f25cbab1714ccaa.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/__data/assets/pdf_file/0006/229533/mindep500_2.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "1",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1]",
+      "reviewed_page_text_sha256": "72cf53f3b814055ce365f9c22483aac60b3558d7c9bdcfae59c8c2acf7e0f084"
+    }
+  },
+  "E1:C-1a0155973cdb745d7d8963": {
+    "bindings": {
+      "document_id": "DOC-78504c076335",
+      "pdf_pages_or_html_sections": "109,117,118,120",
+      "verification_anchor": "Jacks Tank",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+      "actual_original_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "132",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[109, 117, 118, 120]",
+      "reviewed_page_text_sha256": "1a50675ba451609ea77676afb11cc20bf6a1de14e204a81b15982af4cfa07456"
+    }
+  },
+  "E1:C-202346d0e624eef81add0f": {
+    "bindings": {
+      "document_id": "DOC-78504c076335",
+      "pdf_pages_or_html_sections": "109,117,118,120",
+      "verification_anchor": "Winchester",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+      "actual_original_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "132",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[109, 117, 118, 120]",
+      "reviewed_page_text_sha256": "1a50675ba451609ea77676afb11cc20bf6a1de14e204a81b15982af4cfa07456"
+    }
+  },
+  "E1:C-227e3f8f825f1b6f6d4f79": {
+    "bindings": {
+      "document_id": "DOC-f56b57572f30",
+      "pdf_pages_or_html_sections": "1,2,3,4",
+      "verification_anchor": "North Stanmore",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "84c6772fc664fe27dc5612efec8f651b485883c943cdeb3fd464810957eaed6f",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-f56b57572f30_84c6772fc664fe27.pdf",
+      "actual_original_url": "https://victorymetalsaustralia.com/wp-content/uploads/2025/11/03017126.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "23",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 3, 4]",
+      "reviewed_page_text_sha256": "a7b4014eb2d96328e5e9973c12338c3f91da7455baca8000d698ec784312d5d9"
+    }
+  },
+  "E1:C-2422bf5ed202b1c4a0af80": {
+    "bindings": {
+      "document_id": "DOC-fbff1cdd6ea1",
+      "pdf_pages_or_html_sections": "1,2,3",
+      "verification_anchor": "Elaine",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "2b51da2697dc28d0f30b0098d75ef97d565b2aedf056f7ff49052a19dda8cbb0",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-fbff1cdd6ea1_2b51da2697dc28d0.pdf",
+      "actual_original_url": "https://announcements.asx.com.au/asxpdf/20100324/pdf/31pffb666j6sbj.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "7",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 3]",
+      "reviewed_page_text_sha256": "2e9214bb75f77a5ad7487ef5fcffecf60c4961d5667501f0ae625ff895afe24b"
+    }
+  },
+  "E1:C-263e33939d35b3763d9385": {
+    "bindings": {
+      "document_id": "DOC-745cd54537d5",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Projects with REE resources",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a4392118bfbb95fc082b5ca74c47c92da40cbcdfb5a4bd60855187e6bc0cd8eb",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-745cd54537d5_a4392118bfbb95fc.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159141/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "669030db7cfe8bfc3a9e57daa368c08e7e845249bf8190bcb770e09e439eb613"
+    }
+  },
+  "E1:C-26c7400882a8b62f0630d4": {
+    "bindings": {
+      "document_id": "DOC-6746952cbc69",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "6205",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "138.2150075",
+      "reviewed_government_latitude": "-32.0363964",
+      "original_document_sha256": "47505c5b370ab27d61a65e083b7c07af2dc66613fe3479f81aac7bf7d42e86b6",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-6746952cbc69_47505c5b370ab27d.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=6205",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "6e6bbfc3a915446efaf2fecafa40a63bd11e759cf3477f661e9fad208a40b4f3"
+    }
+  },
+  "E1:C-2712b98fa8881d78c664c7": {
+    "bindings": {
+      "document_id": "DOC-f8ce19a6ea03",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "8303",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "137.4963096",
+      "reviewed_government_latitude": "-31.2193554",
+      "original_document_sha256": "7bce1f2522542745b7ced2c55638bb24a5404b99153526c4d8e8a4f566a6e123",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-f8ce19a6ea03_7bce1f2522542745.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8303",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "35d254f0d1b30d7816616993f3f5cf73f1c1cfa9c9dceceb3ab151748f6fef3a"
+    }
+  },
+  "E1:C-28f33f5dc49e92a912ac60": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "42",
+      "verification_anchor": "Myall Lakes",
+      "expected_government_record_id": "",
+      "table_context": "Myall Lakes N.P. NSW Historic mine 152.392487 -32.459314 Ilmenite, corundum - ruby, zircon, rutile Basinal Placer Heavy-mineral sands (Beach)"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[42]",
+      "reviewed_page_text_sha256": "538f059b04b0337ac42ccf72789fc3a39f06123d1c401eb6f4a033bdeae13747"
+    }
+  },
+  "E1:C-2e851400e1a41c40e925ec": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "38",
+      "verification_anchor": "Cooljarloo North",
+      "expected_government_record_id": "",
+      "table_context": "Cooljarloo North WA Mineral deposit 115.2333333 -30.533333 Rare-earth elements Basinal Placer Heavy-mineral sands (Beach) Cooloola N.P. QLD Mineral deposit 152.9999814 -26.126816 Rutile, zircon, ilmenite, monazite, mineral sands Basinal Pla"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[38]",
+      "reviewed_page_text_sha256": "86bbc04a75f3864a7618f1288058e24dc0bd0d10b2a1fc75d88c8cecb5f4f856"
+    }
+  },
+  "E1:C-2f4136cc9af5936a4b5f88": {
+    "bindings": {
+      "document_id": "DOC-3713d1609084",
+      "pdf_pages_or_html_sections": "1,4 (visually inspected scan)",
+      "verification_anchor": "",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "d5f60ba5a46241a1734c6313d7dc56206aa97b3109afcb9ae98932de61bea49a",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-3713d1609084_d5f60ba5a46241a1.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/f9463b6c-b16e-4389-8245-c7c415fb6f1d/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "36",
+      "content_review_method": "ORIGINAL_SCANNED_RELEVANT_PAGES_VISUALLY_READ_NO_OCR",
+      "inspected_pdf_pages": "[1, 4]",
+      "reviewed_page_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "E1:C-2ffd64ff516ddca18534e8": {
+    "bindings": {
+      "document_id": "DOC-fbff1cdd6ea1",
+      "pdf_pages_or_html_sections": "1,2,3",
+      "verification_anchor": "Elaine",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "2b51da2697dc28d0f30b0098d75ef97d565b2aedf056f7ff49052a19dda8cbb0",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-fbff1cdd6ea1_2b51da2697dc28d0.pdf",
+      "actual_original_url": "https://announcements.asx.com.au/asxpdf/20100324/pdf/31pffb666j6sbj.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "7",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 3]",
+      "reviewed_page_text_sha256": "2e9214bb75f77a5ad7487ef5fcffecf60c4961d5667501f0ae625ff895afe24b"
+    }
+  },
+  "E1:C-326f298e33a4db5f55e21b": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "39",
+      "verification_anchor": "Fraser Island",
+      "expected_government_record_id": "",
+      "table_context": "Fraser Island N.P. QLD Mineral deposit 152.9999841 -25.516816 Rutile, zircon, ilmenite, monazite, Mineral sands Basinal Placer Heavy-mineral sands (High dune) Frasers REE WA Mineral deposit 116.3119 -23.95093 Rare-earth oxides, thorium, rar"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[39]",
+      "reviewed_page_text_sha256": "9998ce9872d1ccd8ca6e796f65bbb6c5141dc679c1178dbf73ca6f16ae4c9be8"
+    }
+  },
+  "E1:C-33741dbf1f6c171bcf6098": {
+    "bindings": {
+      "document_id": "DOC-745cd54537d5",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Projects with REE resources",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a4392118bfbb95fc082b5ca74c47c92da40cbcdfb5a4bd60855187e6bc0cd8eb",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-745cd54537d5_a4392118bfbb95fc.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159141/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "669030db7cfe8bfc3a9e57daa368c08e7e845249bf8190bcb770e09e439eb613"
+    }
+  },
+  "E1:C-34621be01cf0ee3caedb55": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "43",
+      "verification_anchor": "Rodds Peninsula",
+      "expected_government_record_id": "",
+      "table_context": "Rodds Peninsula N.P. QLD Mineral deposit 151.6999813 -24.02684 Rutile, zircon, ilmenite, monazite Basinal Placer Heavy-mineral sands (Unknown) Round Hill Head–Deepwater QLD Mineral deposit 151.891464 -24.183744 Rutile, zircon, ilmenite, mon"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[43]",
+      "reviewed_page_text_sha256": "6fd25aeb1c3b686130d2319fbbf99991dd41b7dd9f2f6aab916a1862d51275d5"
+    }
+  },
+  "E1:C-3521bba0b005dd8c96880b": {
+    "bindings": {
+      "document_id": "DOC-ab6f7858fdd0",
+      "pdf_pages_or_html_sections": "1,3,6,7",
+      "verification_anchor": "Daicos",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "90ec0563080e9748f31ff7e0bb04eeef4541b7ba8cbb258f62f35eee0e4f9d8a",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ab6f7858fdd0_90ec0563080e9748.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/ce9e7d66-71c1-470f-8a70-fdf7d97d129f/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "9",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 3, 6, 7]",
+      "reviewed_page_text_sha256": "0f8460b53f18afb916eddfe06664f8c08a284d1a96ef014dc7c1c7dd4d626fb2"
+    }
+  },
+  "E1:C-3ca4020e0ef413e308e981": {
+    "bindings": {
+      "document_id": "DOC-a01086eee5df",
+      "pdf_pages_or_html_sections": "1,4,7",
+      "verification_anchor": "just south",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "1bf876d5e2dba15ff3209d323372850a5d50896da5496a9a7625b73a6c86eb95",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-a01086eee5df_1bf876d5e2dba15f.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/7a7f8375-66e0-42c9-a3cd-6cecbfe38c97/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "10",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 4, 7]",
+      "reviewed_page_text_sha256": "cbc49d3f6b354f60d928d0f37713cd7196a5120e587e546e3ae58fa923a05658"
+    }
+  },
+  "E1:C-3ed222c7b905618352b06f": {
+    "bindings": {
+      "document_id": "DOC-745cd54537d5",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Projects with REE resources",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a4392118bfbb95fc082b5ca74c47c92da40cbcdfb5a4bd60855187e6bc0cd8eb",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-745cd54537d5_a4392118bfbb95fc.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159141/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "669030db7cfe8bfc3a9e57daa368c08e7e845249bf8190bcb770e09e439eb613"
+    }
+  },
+  "E1:C-401acac46e31ada2273813": {
+    "bindings": {
+      "document_id": "DOC-6746952cbc69",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "6205",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "138.2150075",
+      "reviewed_government_latitude": "-32.0363964",
+      "original_document_sha256": "47505c5b370ab27d61a65e083b7c07af2dc66613fe3479f81aac7bf7d42e86b6",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-6746952cbc69_47505c5b370ab27d.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=6205",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "6e6bbfc3a915446efaf2fecafa40a63bd11e759cf3477f661e9fad208a40b4f3"
+    }
+  },
+  "E1:C-4231b7667aefd6b4dcdcff": {
+    "bindings": {
+      "document_id": "DOC-fbff1cdd6ea1",
+      "pdf_pages_or_html_sections": "1,2,3",
+      "verification_anchor": "Elaine",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "2b51da2697dc28d0f30b0098d75ef97d565b2aedf056f7ff49052a19dda8cbb0",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-fbff1cdd6ea1_2b51da2697dc28d0.pdf",
+      "actual_original_url": "https://announcements.asx.com.au/asxpdf/20100324/pdf/31pffb666j6sbj.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "7",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 3]",
+      "reviewed_page_text_sha256": "2e9214bb75f77a5ad7487ef5fcffecf60c4961d5667501f0ae625ff895afe24b"
+    }
+  },
+  "E1:C-42bd9f12230d39a3b6b726": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "38",
+      "verification_anchor": "Crowdy Bay",
+      "expected_government_record_id": "",
+      "table_context": "Crowdy Bay N.P. NSW Unknown 152.711 -31.838866 Ilmenite, rutile, zircon, (monazite) Basinal Placer Heavy-mineral sands (High dune?) Cummins Range WA Mineral deposit 127.1760141 -19.285821 Rare-earth oxides, uranium, (thorium, phosphorous ox"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[38]",
+      "reviewed_page_text_sha256": "86bbc04a75f3864a7618f1288058e24dc0bd0d10b2a1fc75d88c8cecb5f4f856"
+    }
+  },
+  "E1:C-43dcc3a383dcce7862066d": {
+    "bindings": {
+      "document_id": "DOC-b5f109eb6903",
+      "pdf_pages_or_html_sections": "HTML: Overview; Phase 1; Phase 2; Phase 3",
+      "verification_anchor": "Phase 3",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "6eb033e2c11daa29afe6356f8ca6382804ee5de1dd55205c9c503f6a4da73bef",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b5f109eb6903_6eb033e2c11daa29.html",
+      "actual_original_url": "https://www.iluka.com/community-engagement/eneabba/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "a2a9b12276f486c190f94481dbd0b1bde3f63e6147f917b17ad188c4bbc76928"
+    }
+  },
+  "E1:C-441aaee22e27d43fa78bab": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "40",
+      "verification_anchor": "Inskip Point",
+      "expected_government_record_id": "",
+      "table_context": "Inskip Point QLD Mineral deposit 152.9999867 -25.816815 Rutile, zircon, ilmenite, monazite, Mineral sands Basinal Placer Heavy-mineral sands (Beach) Israelite Bay WA Mineral deposit 123.869217 -33.600922 Ilmenite, zircon, leucoxene Basinal "
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[40]",
+      "reviewed_page_text_sha256": "278fbc45e0d149fa25ae2a242b4e0c11cadfd6addaf95c09cb28440e4350e605"
+    }
+  },
+  "E1:C-44231157fc05d671db1b23": {
+    "bindings": {
+      "document_id": "DOC-5ddd80174f0d",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "9140",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "137.8561054",
+      "reviewed_government_latitude": "-33.8270424",
+      "original_document_sha256": "6b6d767f3d3a066bdd90908c3ddf1606b787a2e8ccbd81d4c46b3b9bf12c5354",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-5ddd80174f0d_6b6d767f3d3a066b.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9140",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "7557ebc79224b1094dfbe59a7c8409533fbad91963797d80a8d0a7892b686219"
+    }
+  },
+  "E1:C-474ba427c55ee26823a94d": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "43",
+      "verification_anchor": "North Stradbroke Island",
+      "expected_government_record_id": "",
+      "table_context": "North Stradbroke Island QLD Operating mine 153.4435 -27.476791 Zircon, rutile, ilmenite Basinal Placer Heavy-mineral sands (High dune) Nyngan NSW Mineral deposit 146.983333 -31.633333 Scandium, nickel, cobalt, (platinum, gold) Regolith Resi"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[43]",
+      "reviewed_page_text_sha256": "6fd25aeb1c3b686130d2319fbbf99991dd41b7dd9f2f6aab916a1862d51275d5"
+    }
+  },
+  "E1:C-49b9b6a9601a806072b9d2": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "38",
+      "verification_anchor": "Cooloola",
+      "expected_government_record_id": "",
+      "table_context": "Cooloola N.P. QLD Mineral deposit 152.9999814 -26.126816 Rutile, zircon, ilmenite, monazite, mineral sands Basinal Placer Heavy-mineral sands (High dune) Coolup WA Mineral deposit 115.93924 -32.769043 Rare-earth elements Basinal Placer Heav"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[38]",
+      "reviewed_page_text_sha256": "86bbc04a75f3864a7618f1288058e24dc0bd0d10b2a1fc75d88c8cecb5f4f856"
+    }
+  },
+  "E1:C-49f7b1f8bc495129ed97b7": {
+    "bindings": {
+      "document_id": "DOC-23213f26dd9d",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "990",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "139.8446852",
+      "reviewed_government_latitude": "-31.9363085",
+      "original_document_sha256": "2285eec577f4663368b4b23d372b47ccb110ffb617b44f360c31179230cbdfb0",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-23213f26dd9d_2285eec577f46633.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=990",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "cbceec345c488118260a8b91061231c6d4e43c44f7d39c17a381012e183486da"
+    }
+  },
+  "E1:C-4dcb639af483e2cc059557": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "37",
+      "verification_anchor": "Cooljarloo",
+      "expected_government_record_id": "",
+      "table_context": "Cooljarloo WA Operating mine 115.413696 -30.625429 Ilmenite, zircon, rutile, leucoxene, mineral sands Basinal Placer Heavy-mineral sands (Beach)"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[37]",
+      "reviewed_page_text_sha256": "aabb4086d77c21747921825e2b368039b3b06c46550e4cf6007235bfe251f241"
+    }
+  },
+  "E1:C-50ed67520c1995355b52f2": {
+    "bindings": {
+      "document_id": "DOC-4e727f694a5a",
+      "pdf_pages_or_html_sections": "9",
+      "verification_anchor": "Quantum",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "ed837e86d4eb11b6664a063e0eb4f78e12cea5d6eea1fdff31144afc26173624",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-4e727f694a5a_ed837e86d4eb11b6.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/d44d4ce8-dc2c-4fc9-b014-3f6c8109644d/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "14",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[9]",
+      "reviewed_page_text_sha256": "7c53e8f5b95e7716d69a97b4c78eda4cdc99956ff0e8323b505d18c2795ab47a"
+    }
+  },
+  "E1:C-5501689ac20544b38f689c": {
+    "bindings": {
+      "document_id": "DOC-3b8a41ae579a",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "9768",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "137.5190026",
+      "reviewed_government_latitude": "-31.2044824",
+      "original_document_sha256": "2d83f3b860e0c93b3cd9ba125fc9a915653586e97dac5b51ed604b8471b8f331",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-3b8a41ae579a_2d83f3b860e0c93b.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9768",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "ba1ca123eba14aaa6b43a73a0dd6e4127c6837662868aa85142567a24c00a604"
+    }
+  },
+  "E1:C-5641c75daf19d651dcd02c": {
+    "bindings": {
+      "document_id": "DOC-53ad9e2f7546",
+      "pdf_pages_or_html_sections": "HTML: Watchem; Douglas",
+      "verification_anchor": "EL7642",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "68e5c14356edf75d8d965711575c86884f946a2e30f5ad6bd1b096ff402356ca",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-53ad9e2f7546_68e5c14356edf75d.html",
+      "actual_original_url": "https://acdcmetals.com.au/projects/victorian-projects-rare-earths-mineral-sands/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "99d7c88195aa6a9592bd37ec7446b9edcef2b75b06b871e81f7ab5e5861ba6ba"
+    }
+  },
+  "E1:C-585496b3cd9e97a11fd4b0": {
+    "bindings": {
+      "document_id": "DOC-d192f1bf795e",
+      "pdf_pages_or_html_sections": "3,4,5",
+      "verification_anchor": "Blueys Folley",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "c6dc8fa3188b659809f2637e6269717c23ab9916f97c2f7dd8a37cb7e935a0f0",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d192f1bf795e_c6dc8fa3188b6598.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/fe5a4de6-b654-4922-8000-186a0753f6fa/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "7",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[3, 4, 5]",
+      "reviewed_page_text_sha256": "cb245602a34cc467ee1626b0309f1062c4fd55c6918de737920b536f344f17d2"
+    }
+  },
+  "E1:C-58f6d949ba8556af07a512": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "41",
+      "verification_anchor": "Limeburners Creek",
+      "expected_government_record_id": "",
+      "table_context": "Limeburners Creek N.P. NSW Unknown 152.972724 -31.317698 Ilmenite, rutile, zircon, (monazite) Basinal Placer Heavy-mineral sands (Unknown) Lucknow QLD Mineral deposit 144.9554727 -19.025366 Nickel, cobalt, scandium Regolith Residual laterit"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[41]",
+      "reviewed_page_text_sha256": "c87e8e82e087fcc3f9134f03a602f4f2c38db283ece677974edf07a8268f9635"
+    }
+  },
+  "E1:C-5921eded957803d1b32229": {
+    "bindings": {
+      "document_id": "DOC-149cfd3ac31d",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "3010",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "135.382682",
+      "reviewed_government_latitude": "-29.5896743",
+      "original_document_sha256": "854c9c7243690105394ccde306d622afca6e4f94058b7967aafddc538ff89f45",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-149cfd3ac31d_854c9c7243690105.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3010",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "06b949e1acec9b30af4f36e734aa66336ace06d523e60c5d8a3da82ec9912c17"
+    }
+  },
+  "E1:C-5b813d08e4532015f7b345": {
+    "bindings": {
+      "document_id": "DOC-e2b9eb986768",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "9629",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "140.4826502",
+      "reviewed_government_latitude": "-31.7491565",
+      "original_document_sha256": "270448013dc14d6c1bd51df53deef9922b45c29e1c888ecaf4a487b687e5c606",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e2b9eb986768_270448013dc14d6c.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9629",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "c92a91aa510a9fc7a272264e98c3016598d03eabfc605d4359431ad75974d3b3"
+    }
+  },
+  "E1:C-5bedac873ca78a7c50bce2": {
+    "bindings": {
+      "document_id": "DOC-78504c076335",
+      "pdf_pages_or_html_sections": "109,117,118,120",
+      "verification_anchor": "Gallipoli",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+      "actual_original_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "132",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[109, 117, 118, 120]",
+      "reviewed_page_text_sha256": "1a50675ba451609ea77676afb11cc20bf6a1de14e204a81b15982af4cfa07456"
+    }
+  },
+  "E1:C-5e12b8efb35d6edd3574d5": {
+    "bindings": {
+      "document_id": "DOC-745cd54537d5",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Projects with REE resources",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a4392118bfbb95fc082b5ca74c47c92da40cbcdfb5a4bd60855187e6bc0cd8eb",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-745cd54537d5_a4392118bfbb95fc.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159141/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "669030db7cfe8bfc3a9e57daa368c08e7e845249bf8190bcb770e09e439eb613"
+    }
+  },
+  "E1:C-6814f6ba8fe76a3f602bb6": {
+    "bindings": {
+      "document_id": "DOC-cd7804f763e9",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "4150",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "139.3628224",
+      "reviewed_government_latitude": "-30.2039295",
+      "original_document_sha256": "c2098627b51f3d1ab566a69c599399e3c30768cad6180a79b417f33da74c1145",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-cd7804f763e9_c2098627b51f3d1a.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4150",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "06b1ec44fbfdc5c6caf2b9f8996b808abf1438d997d735e99f539e0ee7bb794b"
+    }
+  },
+  "E1:C-69b4167171830120b320a8": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "39",
+      "verification_anchor": "Gladstone–Eurimbula",
+      "expected_government_record_id": "",
+      "table_context": "Gladstone–Eurimbula QLD Mineral deposit 151.2676818 -23.845292 Rutile, zircon, ilmenite Basinal Placer Heavy-mineral sands (Unknown) Goliath NSW Mineral deposit 142.97 -34.27 Rutile, zircon, ilmenite, leucoxene Basinal Placer Heavy-mineral "
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[39]",
+      "reviewed_page_text_sha256": "9998ce9872d1ccd8ca6e796f65bbb6c5141dc679c1178dbf73ca6f16ae4c9be8"
+    }
+  },
+  "E1:C-6acba9a68e4747803cd2c8": {
+    "bindings": {
+      "document_id": "DOC-1989bf6d1da0",
+      "pdf_pages_or_html_sections": "2,3,8,15",
+      "verification_anchor": "E63/1496",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4ffc305700eda42aecf51ceda93984d1fbfa1531c7eb8387fba82bc572875b4d",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1989bf6d1da0_4ffc305700eda42a.pdf",
+      "actual_original_url": "https://announcements.asx.com.au/asxpdf/20250814/pdf/06mvmb9r2vhdhs.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "19",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[2, 3, 8, 15]",
+      "reviewed_page_text_sha256": "b5ef4d5a12210f356f924e3cc59889d57b75ab23c2abc53c2aea8ba206e6add2"
+    }
+  },
+  "E1:C-6be472701609731db26034": {
+    "bindings": {
+      "document_id": "DOC-149cfd3ac31d",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "3010",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "135.382682",
+      "reviewed_government_latitude": "-29.5896743",
+      "original_document_sha256": "854c9c7243690105394ccde306d622afca6e4f94058b7967aafddc538ff89f45",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-149cfd3ac31d_854c9c7243690105.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3010",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "06b949e1acec9b30af4f36e734aa66336ace06d523e60c5d8a3da82ec9912c17"
+    }
+  },
+  "E1:C-701c4ff26f7181c3b6c8c4": {
+    "bindings": {
+      "document_id": "DOC-7b9139f6d7f9",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "962",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "140.6380061",
+      "reviewed_government_latitude": "-32.3459705",
+      "original_document_sha256": "704f1734aba2172e5ec258c0170ce4ba7cae0349bbd11fca19db73271d283ba1",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-7b9139f6d7f9_704f1734aba2172e.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=962",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "3b40b8e40e6e6a0eabe0b5d1bd0ddb6d897d5c2c678b8483d8306d61bfff9b32"
+    }
+  },
+  "E1:C-706be67b514e27fac287c4": {
+    "bindings": {
+      "document_id": "DOC-78504c076335",
+      "pdf_pages_or_html_sections": "109,117,118,120",
+      "verification_anchor": "Laburnum",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+      "actual_original_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "132",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[109, 117, 118, 120]",
+      "reviewed_page_text_sha256": "1a50675ba451609ea77676afb11cc20bf6a1de14e204a81b15982af4cfa07456"
+    }
+  },
+  "E1:C-7197e29449ac7c75ea1d4e": {
+    "bindings": {
+      "document_id": "DOC-7b9139f6d7f9",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "962",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "140.6380061",
+      "reviewed_government_latitude": "-32.3459705",
+      "original_document_sha256": "704f1734aba2172e5ec258c0170ce4ba7cae0349bbd11fca19db73271d283ba1",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-7b9139f6d7f9_704f1734aba2172e.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=962",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "3b40b8e40e6e6a0eabe0b5d1bd0ddb6d897d5c2c678b8483d8306d61bfff9b32"
+    }
+  },
+  "E1:C-72a313f37497d655d60b83": {
+    "bindings": {
+      "document_id": "DOC-43966a9fe6a8",
+      "pdf_pages_or_html_sections": "1 (map index)",
+      "verification_anchor": "Naracoopa",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4f25cbab1714ccaafd1ef885b88105f9ed25e4c27c0267a719edb6aff37d2178",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-43966a9fe6a8_4f25cbab1714ccaa.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/__data/assets/pdf_file/0006/229533/mindep500_2.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "1",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1]",
+      "reviewed_page_text_sha256": "72cf53f3b814055ce365f9c22483aac60b3558d7c9bdcfae59c8c2acf7e0f084"
+    }
+  },
+  "E1:C-72b4392ec5c894a311bb90": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "37",
+      "verification_anchor": "Brockman",
+      "expected_government_record_id": "",
+      "table_context": "Brockman WA Mineral deposit 127.7820325 -18.319196 Rare-earth oxides Magmatic Orthomagmatic (Per)alkaline rocks Brooks Bore SA Mineral deposit 140.75 -32.9 Ilmenite, rutile, zircon, xenotime Basinal Placer Heavy-mineral sands (Beach) Bullan"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[37]",
+      "reviewed_page_text_sha256": "aabb4086d77c21747921825e2b368039b3b06c46550e4cf6007235bfe251f241"
+    }
+  },
+  "E1:C-74c3b808d8bbf022959b50": {
+    "bindings": {
+      "document_id": "DOC-b9e998408caa",
+      "pdf_pages_or_html_sections": "1,2,3",
+      "verification_anchor": "E70/4688",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "27867277733451cd40a7f46b8e9966b4ac41932b1faac64ec0a9f6977a0c09da",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b9e998408caa_27867277733451cd.pdf",
+      "actual_original_url": "https://www.igo.com.au/site/pdf/c9af7f92-4602-4846-a19e-5876e9f12522/MOH-Ionic-Clay-Rare-Earth-Development-at-Burracoppin.pdf?Platform=ListPage",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "12",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 3]",
+      "reviewed_page_text_sha256": "55d0f5fbe5d8cb8cd095526dadaa77efbcbc48b97bdb7a50e79d534f0c49bc88"
+    }
+  },
+  "E1:C-79eaeef4d4e5fd4eef8566": {
+    "bindings": {
+      "document_id": "DOC-3b8a41ae579a",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "9768",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "137.5190026",
+      "reviewed_government_latitude": "-31.2044824",
+      "original_document_sha256": "2d83f3b860e0c93b3cd9ba125fc9a915653586e97dac5b51ed604b8471b8f331",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-3b8a41ae579a_2d83f3b860e0c93b.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9768",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "ba1ca123eba14aaa6b43a73a0dd6e4127c6837662868aa85142567a24c00a604"
+    }
+  },
+  "E1:C-7a1f2283fb92b442fc7945": {
+    "bindings": {
+      "document_id": "DOC-78504c076335",
+      "pdf_pages_or_html_sections": "109,117,118,120",
+      "verification_anchor": "Jacks Tank",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+      "actual_original_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "132",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[109, 117, 118, 120]",
+      "reviewed_page_text_sha256": "1a50675ba451609ea77676afb11cc20bf6a1de14e204a81b15982af4cfa07456"
+    }
+  },
+  "E1:C-7ab713c0c73dc71271455c": {
+    "bindings": {
+      "document_id": "DOC-d192f1bf795e",
+      "pdf_pages_or_html_sections": "3,4,5",
+      "verification_anchor": "Blueys Folley",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "c6dc8fa3188b659809f2637e6269717c23ab9916f97c2f7dd8a37cb7e935a0f0",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d192f1bf795e_c6dc8fa3188b6598.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/fe5a4de6-b654-4922-8000-186a0753f6fa/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "7",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[3, 4, 5]",
+      "reviewed_page_text_sha256": "cb245602a34cc467ee1626b0309f1062c4fd55c6918de737920b536f344f17d2"
+    }
+  },
+  "E1:C-7ac7e4e1cdf386c0d37c9e": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "38",
+      "verification_anchor": "Coolup",
+      "expected_government_record_id": "",
+      "table_context": "Coolup WA Mineral deposit 115.93924 -32.769043 Rare-earth elements Basinal Placer Heavy-mineral sands (Beach) Coombah 1 NSW Mineral deposit 141.7499891 -32.907005 Zircon, ilmenite, rutile, leucoxene Basinal Placer Heavy-mineral sands (Beach"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[38]",
+      "reviewed_page_text_sha256": "86bbc04a75f3864a7618f1288058e24dc0bd0d10b2a1fc75d88c8cecb5f4f856"
+    }
+  },
+  "E1:C-7aff124b1af68b46bcb7a8": {
+    "bindings": {
+      "document_id": "DOC-95e76720858d",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Mangaroon North",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "9af9c8575d72e9817c5234c9378d6f0c3aaebf1d96f400e2e4b876a56881b652",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-95e76720858d_9af9c8575d72e981.pdf",
+      "actual_original_url": "https://labwest.net/media/vtjh40jp/vmc_mangaroon_north_project_ree-pd_and_au_targets_identified.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "9",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "525d3b3001c01d1793ff3c4928040039bae312dde4f01d30d13f46a627e03254"
+    }
+  },
+  "E1:C-7be5e7ac5a5663d656c9eb": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "43",
+      "verification_anchor": "Round Hill Head–Deepwater",
+      "expected_government_record_id": "",
+      "table_context": "Round Hill Head–Deepwater QLD Mineral deposit 151.891464 -24.183744 Rutile, zircon, ilmenite, monazite Basinal Placer Heavy-mineral sands (Unknown)"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[43]",
+      "reviewed_page_text_sha256": "6fd25aeb1c3b686130d2319fbbf99991dd41b7dd9f2f6aab916a1862d51275d5"
+    }
+  },
+  "E1:C-7cf22b39f3f264aba1bed9": {
+    "bindings": {
+      "document_id": "DOC-78504c076335",
+      "pdf_pages_or_html_sections": "109,117,118,120",
+      "verification_anchor": "Coombah 1",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+      "actual_original_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "132",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[109, 117, 118, 120]",
+      "reviewed_page_text_sha256": "1a50675ba451609ea77676afb11cc20bf6a1de14e204a81b15982af4cfa07456"
+    }
+  },
+  "E1:C-7df4b7f311e45835f868b3": {
+    "bindings": {
+      "document_id": "DOC-4e727f694a5a",
+      "pdf_pages_or_html_sections": "1,3,8,9",
+      "verification_anchor": "Stromberg",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "ed837e86d4eb11b6664a063e0eb4f78e12cea5d6eea1fdff31144afc26173624",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-4e727f694a5a_ed837e86d4eb11b6.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/d44d4ce8-dc2c-4fc9-b014-3f6c8109644d/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "14",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 3, 8, 9]",
+      "reviewed_page_text_sha256": "852e8d44b3e040f1c87a3f3123b984eed42f818e190a85145f66db5b65bbcff8"
+    }
+  },
+  "E1:C-7e5d8529df47725e760ec6": {
+    "bindings": {
+      "document_id": "DOC-d192f1bf795e",
+      "pdf_pages_or_html_sections": "3,4,5",
+      "verification_anchor": "Blueys Folley",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "c6dc8fa3188b659809f2637e6269717c23ab9916f97c2f7dd8a37cb7e935a0f0",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d192f1bf795e_c6dc8fa3188b6598.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/fe5a4de6-b654-4922-8000-186a0753f6fa/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "7",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[3, 4, 5]",
+      "reviewed_page_text_sha256": "cb245602a34cc467ee1626b0309f1062c4fd55c6918de737920b536f344f17d2"
+    }
+  },
+  "E1:C-8462647e44dac21cff6850": {
+    "bindings": {
+      "document_id": "DOC-9058a1c20ae5",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "8908",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "138.0028404",
+      "reviewed_government_latitude": "-33.1656804",
+      "original_document_sha256": "1659390f18898ca8c289f28fbc6874f1c6b0e528c9da5a72e4a025996c024ef5",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-9058a1c20ae5_1659390f18898ca8.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8908",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "04e23fd301802bd1a0bfb05cf105ed2c4a1dadb24f0423db52c6482ad19bec44"
+    }
+  },
+  "E1:C-8605a7c4dd8ac2d24da7e5": {
+    "bindings": {
+      "document_id": "DOC-cd7804f763e9",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "4150",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "139.3628224",
+      "reviewed_government_latitude": "-30.2039295",
+      "original_document_sha256": "c2098627b51f3d1ab566a69c599399e3c30768cad6180a79b417f33da74c1145",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-cd7804f763e9_c2098627b51f3d1a.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4150",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "06b1ec44fbfdc5c6caf2b9f8996b808abf1438d997d735e99f539e0ee7bb794b"
+    }
+  },
+  "E1:C-8b610e8755402764f55a3e": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "40",
+      "verification_anchor": "Israelite Bay",
+      "expected_government_record_id": "",
+      "table_context": "Israelite Bay WA Mineral deposit 123.869217 -33.600922 Ilmenite, zircon, leucoxene Basinal Placer Heavy-mineral sands (Beach) Jacinth–Ambrosia SA Operating mine 132.228669 -30.861125 Zircon, (rutile, ilmenite) Basinal Placer Heavy-mineral s"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[40]",
+      "reviewed_page_text_sha256": "278fbc45e0d149fa25ae2a242b4e0c11cadfd6addaf95c09cb28440e4350e605"
+    }
+  },
+  "E1:C-8b96806259b05bc9d9235e": {
+    "bindings": {
+      "document_id": "DOC-f56b57572f30",
+      "pdf_pages_or_html_sections": "1,2,3,4",
+      "verification_anchor": "North Stanmore",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "84c6772fc664fe27dc5612efec8f651b485883c943cdeb3fd464810957eaed6f",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-f56b57572f30_84c6772fc664fe27.pdf",
+      "actual_original_url": "https://victorymetalsaustralia.com/wp-content/uploads/2025/11/03017126.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "23",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 3, 4]",
+      "reviewed_page_text_sha256": "a7b4014eb2d96328e5e9973c12338c3f91da7455baca8000d698ec784312d5d9"
+    }
+  },
+  "E1:C-8c2269b43a6f62bafcece0": {
+    "bindings": {
+      "document_id": "DOC-913f418f43f6",
+      "pdf_pages_or_html_sections": "HTML: Wedderburn project section",
+      "verification_anchor": "WEDDERBURN",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e81a929457e314631b01ce4cfee55d2e7cbdb7faf4c3907914be8b6e1d106d7c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-913f418f43f6_e81a929457e31463.html",
+      "actual_original_url": "https://wimresource.com.au/project/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "63b8b414dda226a20e661fcc2e19d6ca220326ce1575992016e4e48a73f8753b"
+    }
+  },
+  "E1:C-905e55cdebb506a612cd39": {
+    "bindings": {
+      "document_id": "DOC-78504c076335",
+      "pdf_pages_or_html_sections": "109,117,118,120",
+      "verification_anchor": "Somme",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+      "actual_original_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "132",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[109, 117, 118, 120]",
+      "reviewed_page_text_sha256": "1a50675ba451609ea77676afb11cc20bf6a1de14e204a81b15982af4cfa07456"
+    }
+  },
+  "E1:C-97c4e9042f9fe5d3777563": {
+    "bindings": {
+      "document_id": "DOC-f3819ad0cec9",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Cummins Range",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "f6d62e77a7bba2950c6a175eb8cf6615ecf0f63068f024eeae5369b43f89b933",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-f3819ad0cec9_f6d62e77a7bba295.pdf",
+      "actual_original_url": "https://minedocs.com/28/RareX-PR-08302024.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "5",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "d408d0bcac73c67a158f7f6bc3f429951f3599730d64f8ce4d92160d5b430647"
+    }
+  },
+  "E1:C-9d6d395ffaa3c5367806f5": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "36",
+      "verification_anchor": "Bidaminna",
+      "expected_government_record_id": "",
+      "table_context": "Bidaminna WA Mineral deposit 115.6033936 -31.100482 Ilmenite, leucoxene, rutile, zircon Basinal Placer Heavy-mineral sands (Beach) Birthday Gift NSW Mineral deposit 142.9166899 -33.480284 Zircon, rutile, ilmenite, mineral sands, leucoxene B"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[36]",
+      "reviewed_page_text_sha256": "4d529e5f7eb31cddda536e113c6893abe3baeb984982fa7064e662dd75f234f7"
+    }
+  },
+  "E1:C-9ea5fd5f63a48363981c00": {
+    "bindings": {
+      "document_id": "DOC-745cd54537d5",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Projects with REE resources",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a4392118bfbb95fc082b5ca74c47c92da40cbcdfb5a4bd60855187e6bc0cd8eb",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-745cd54537d5_a4392118bfbb95fc.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159141/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "669030db7cfe8bfc3a9e57daa368c08e7e845249bf8190bcb770e09e439eb613"
+    }
+  },
+  "E1:C-9f046ce7f9bb475411d21a": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "43",
+      "verification_anchor": "Port Gregory",
+      "expected_government_record_id": "",
+      "table_context": "Port Gregory WA Operating mine 114.281448 -28.178205 Garnet, ilmenite Basinal Placer Heavy-mineral sands (Beach) Puwanapi NT Mineral deposit 130.065651 -11.72027 Rare-earth elements Basinal Placer Heavy-mineral sands (Beach) Rocky Point QLD"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[43]",
+      "reviewed_page_text_sha256": "6fd25aeb1c3b686130d2319fbbf99991dd41b7dd9f2f6aab916a1862d51275d5"
+    }
+  },
+  "E1:C-9f98108215f84f2ac58235": {
+    "bindings": {
+      "document_id": "DOC-7f47b34ded43",
+      "pdf_pages_or_html_sections": "1,7",
+      "verification_anchor": "Holsteins",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "2d51eb165822b0ca707e9061a0b87a221c8efee265c895b5577c7fe0d962d391",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-7f47b34ded43_2d51eb165822b0ca.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/77e3cd71-7150-498d-8475-22df0e1fd082/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "22",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 7]",
+      "reviewed_page_text_sha256": "e98b2b34a76ac854414d1ac2fecd9135b010f60c55fde8206e71d48ad761ad0c"
+    }
+  },
+  "E1:C-a025a8469420121fde05b6": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "43",
+      "verification_anchor": "Rocky Point",
+      "expected_government_record_id": "",
+      "table_context": "Rocky Point QLD Mineral deposit 151.9499792 -24.276837 Rutile, zircon, ilmenite, monazite Basinal Placer Heavy-mineral sands (Unknown) Rodds Peninsula N.P. QLD Mineral deposit 151.6999813 -24.02684 Rutile, zircon, ilmenite, monazite Basinal"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[43]",
+      "reviewed_page_text_sha256": "6fd25aeb1c3b686130d2319fbbf99991dd41b7dd9f2f6aab916a1862d51275d5"
+    }
+  },
+  "E1:C-a692d739c9bf954d9e9450": {
+    "bindings": {
+      "document_id": "DOC-43966a9fe6a8",
+      "pdf_pages_or_html_sections": "1 (map index)",
+      "verification_anchor": "Yellowband Creek",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4f25cbab1714ccaafd1ef885b88105f9ed25e4c27c0267a719edb6aff37d2178",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-43966a9fe6a8_4f25cbab1714ccaa.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/__data/assets/pdf_file/0006/229533/mindep500_2.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "1",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1]",
+      "reviewed_page_text_sha256": "72cf53f3b814055ce365f9c22483aac60b3558d7c9bdcfae59c8c2acf7e0f084"
+    }
+  },
+  "E1:C-a73ec4609b8b2923f36b70": {
+    "bindings": {
+      "document_id": "DOC-ec1a2854fb6b",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "3899",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "138.3875214",
+      "reviewed_government_latitude": "-33.2234464",
+      "original_document_sha256": "b287e64a721a7dc2be9e4a669a2088ae4ee16272a0003fb2e5c4eab44ef9c7b2",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ec1a2854fb6b_b287e64a721a7dc2.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3899",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "466160b8def27b969a4344ad7b5bbd68813dd5ef0ee132514966de9e15b31e28"
+    }
+  },
+  "E1:C-a8a0698ea0195610abed49": {
+    "bindings": {
+      "document_id": "DOC-1989bf6d1da0",
+      "pdf_pages_or_html_sections": "3,5,6",
+      "verification_anchor": "Glenmorangie",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4ffc305700eda42aecf51ceda93984d1fbfa1531c7eb8387fba82bc572875b4d",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1989bf6d1da0_4ffc305700eda42a.pdf",
+      "actual_original_url": "https://announcements.asx.com.au/asxpdf/20250814/pdf/06mvmb9r2vhdhs.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "19",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[3, 5, 6]",
+      "reviewed_page_text_sha256": "d12a4403702ef4f0870b8e57f3e626f08f2c3c8ae9fb078277675e370af6653f"
+    }
+  },
+  "E1:C-a98fd093fe2807da3e1f57": {
+    "bindings": {
+      "document_id": "DOC-c97ef5e59a2e",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities",
+      "verification_anchor": "4322",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "139.3404714",
+      "reviewed_government_latitude": "-30.2232535",
+      "original_document_sha256": "9de369bee817b1cce0f25f15323066ce1196be35dec0739088992c7715a977e0",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-c97ef5e59a2e_9de369bee817b1cc.html",
+      "actual_original_url": "https://drillhole.pir.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4322",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "5cc013a4003ca055a1e0f87fd53f19b5cc10abb277699ae3c5b1e896e5dfcf66"
+    }
+  },
+  "E1:C-a9b13845d69d3e935055aa": {
+    "bindings": {
+      "document_id": "DOC-5ddd80174f0d",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "9140",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "137.8561054",
+      "reviewed_government_latitude": "-33.8270424",
+      "original_document_sha256": "6b6d767f3d3a066bdd90908c3ddf1606b787a2e8ccbd81d4c46b3b9bf12c5354",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-5ddd80174f0d_6b6d767f3d3a066b.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9140",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "7557ebc79224b1094dfbe59a7c8409533fbad91963797d80a8d0a7892b686219"
+    }
+  },
+  "E1:C-ae388d3a2da0e451965475": {
+    "bindings": {
+      "document_id": "DOC-6e9393dcd445",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "1927",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "139.3301673",
+      "reviewed_government_latitude": "-32.6797185",
+      "original_document_sha256": "5b365624fafa646652296c30c7fb2a65a126afcf170a5103587951da6c09d794",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-6e9393dcd445_5b365624fafa6466.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=1927",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "6da807e445c27a416def42f0cfa72600da4f228a489d421f522af1bfd228666d"
+    }
+  },
+  "E1:C-aefc4edeb76a0817972b8f": {
+    "bindings": {
+      "document_id": "DOC-1989bf6d1da0",
+      "pdf_pages_or_html_sections": "2,3,8,15",
+      "verification_anchor": "E63/1496",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4ffc305700eda42aecf51ceda93984d1fbfa1531c7eb8387fba82bc572875b4d",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1989bf6d1da0_4ffc305700eda42a.pdf",
+      "actual_original_url": "https://announcements.asx.com.au/asxpdf/20250814/pdf/06mvmb9r2vhdhs.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "19",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[2, 3, 8, 15]",
+      "reviewed_page_text_sha256": "b5ef4d5a12210f356f924e3cc59889d57b75ab23c2abc53c2aea8ba206e6add2"
+    }
+  },
+  "E1:C-b052c4ef9e0426f1a15c0a": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "36",
+      "verification_anchor": "Bribie Island",
+      "expected_government_record_id": "",
+      "table_context": "Bribie Island N.P. QLD Mineral deposit 153.1699798 -27.04681 Rutile, zircon, ilmenite, monazite, mineral sands Basinal Placer Heavy-mineral sands (High dune) Brigantine NSW Mineral deposit 142.8 -33.65 Rutile, zircon, ilmenite, leucoxene Ba"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[36]",
+      "reviewed_page_text_sha256": "4d529e5f7eb31cddda536e113c6893abe3baeb984982fa7064e662dd75f234f7"
+    }
+  },
+  "E1:C-b05430044e7806e2ced9e9": {
+    "bindings": {
+      "document_id": "DOC-d6fd171e32bd",
+      "pdf_pages_or_html_sections": "1,5",
+      "verification_anchor": "Haddock",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "01cff9791577a3a076a951820683f0cad586bd7ef668c66bae4547b4880bbf3c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d6fd171e32bd_01cff9791577a3a0.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/9b88be1a-2a35-4ab3-a7c3-db6afaf183ed/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "12",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 5]",
+      "reviewed_page_text_sha256": "97ba8c5d6f18e17b55ece0a4f5ae59d233e63e70417d49f5e56004ce4b3a4949"
+    }
+  },
+  "E1:C-b0abe53f6856bea40f8aad": {
+    "bindings": {
+      "document_id": "DOC-1989bf6d1da0",
+      "pdf_pages_or_html_sections": "2,3,8,15",
+      "verification_anchor": "E63/1496",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4ffc305700eda42aecf51ceda93984d1fbfa1531c7eb8387fba82bc572875b4d",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1989bf6d1da0_4ffc305700eda42a.pdf",
+      "actual_original_url": "https://announcements.asx.com.au/asxpdf/20250814/pdf/06mvmb9r2vhdhs.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "19",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[2, 3, 8, 15]",
+      "reviewed_page_text_sha256": "b5ef4d5a12210f356f924e3cc59889d57b75ab23c2abc53c2aea8ba206e6add2"
+    }
+  },
+  "E1:C-b1db29452893e491a50358": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "36",
+      "verification_anchor": "Angourie",
+      "expected_government_record_id": "",
+      "table_context": "Angourie NSW Unknown 153.268 -29.815 Ilmenite, rutile, zircon, (monazite) Basinal Placer Heavy-mineral sands (Beach) Atlas NSW Mineral deposit 143.35 -33.883333 Rutile, zircon, ilmenite, leucoxene, uranium Basinal Placer Heavy-mineral sands"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[36]",
+      "reviewed_page_text_sha256": "4d529e5f7eb31cddda536e113c6893abe3baeb984982fa7064e662dd75f234f7"
+    }
+  },
+  "E1:C-b4acdc7c9ef2a823c0e709": {
+    "bindings": {
+      "document_id": "DOC-23213f26dd9d",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "990",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "139.8446852",
+      "reviewed_government_latitude": "-31.9363085",
+      "original_document_sha256": "2285eec577f4663368b4b23d372b47ccb110ffb617b44f360c31179230cbdfb0",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-23213f26dd9d_2285eec577f46633.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=990",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "cbceec345c488118260a8b91061231c6d4e43c44f7d39c17a381012e183486da"
+    }
+  },
+  "E1:C-b9549149cbe083e88991d4": {
+    "bindings": {
+      "document_id": "DOC-d9c7b718e4c7",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Perth Basin",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "17b9f01aee27ab41b9bfeff1edc1dce86e354377e004b178e8ce867b93c51840",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d9c7b718e4c7_17b9f01aee27ab41.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159143/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "57c96251955d261fa531183f08f63b30f839cb8a8c82dc31aa941cdd9b1a8217"
+    }
+  },
+  "E1:C-bd69043bb3298304800dde": {
+    "bindings": {
+      "document_id": "DOC-745cd54537d5",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Projects with REE resources",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a4392118bfbb95fc082b5ca74c47c92da40cbcdfb5a4bd60855187e6bc0cd8eb",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-745cd54537d5_a4392118bfbb95fc.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159141/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "669030db7cfe8bfc3a9e57daa368c08e7e845249bf8190bcb770e09e439eb613"
+    }
+  },
+  "E1:C-be9bb9b4b2185c4643d2ac": {
+    "bindings": {
+      "document_id": "DOC-745cd54537d5",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Projects with REE resources",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a4392118bfbb95fc082b5ca74c47c92da40cbcdfb5a4bd60855187e6bc0cd8eb",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-745cd54537d5_a4392118bfbb95fc.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159141/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "669030db7cfe8bfc3a9e57daa368c08e7e845249bf8190bcb770e09e439eb613"
+    }
+  },
+  "E1:C-c3529cfabd886a9dedc3d3": {
+    "bindings": {
+      "document_id": "DOC-4e22c1d79518",
+      "pdf_pages_or_html_sections": "HTML: Location; Status",
+      "verification_anchor": "Toongi",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "966d505f7d5cadeef957dbbac5c75251e48c2ee55e18742c8c28dc8186dad8f1",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-4e22c1d79518_966d505f7d5cadee.html",
+      "actual_original_url": "https://asm-au.com/mines/the-dubbo-project/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "5f46c2f4c1d7587ea1f158919c864646e358c0b8892a7e9f5735059429a5c672"
+    }
+  },
+  "E1:C-c38ac0c899150192e6345f": {
+    "bindings": {
+      "document_id": "DOC-60591b4a8aa1",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "4856",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "138.9179992",
+      "reviewed_government_latitude": "-34.3465785",
+      "original_document_sha256": "c50d6ea5b6dca876f32c1b3e467914fc8888bbc013a140f52cafa1ee91b2f27c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-60591b4a8aa1_c50d6ea5b6dca876.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4856",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "9a8df5b1410dc56e3f5d98842f9fc0742205f6f4f6eb450a2352fe5197a21c2a"
+    }
+  },
+  "E1:C-c4ccdf7a5e293c2cebdc3e": {
+    "bindings": {
+      "document_id": "DOC-b1a9f4906f25",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "11900",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "138.6237267",
+      "reviewed_government_latitude": "-31.9918532",
+      "original_document_sha256": "9e32a7a814a4c9f07aa22cba9bda5a30bd5f83d3d90eb9c8dda745c73844bd06",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b1a9f4906f25_9e32a7a814a4c9f0.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11900",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "a8f01760eb5875010c986e5147f8dec61ace0c7e8cb93b0dad86cf7dfff14558"
+    }
+  },
+  "E1:C-c666561f789a6e3a369334": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "36",
+      "verification_anchor": "Boambee",
+      "expected_government_record_id": "",
+      "table_context": "Boambee NSW Unknown 153.11553 -30.3341 Ilmenite, rutile, zircon, (monazite) Basinal Placer Heavy-mineral sands (Beach) Bribie Island N.P. QLD Mineral deposit 153.1699798 -27.04681 Rutile, zircon, ilmenite, monazite, mineral sands Basinal Pl"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[36]",
+      "reviewed_page_text_sha256": "4d529e5f7eb31cddda536e113c6893abe3baeb984982fa7064e662dd75f234f7"
+    }
+  },
+  "E1:C-c8101c62c8c3da29dcac53": {
+    "bindings": {
+      "document_id": "DOC-b9e998408caa",
+      "pdf_pages_or_html_sections": "1,2,3",
+      "verification_anchor": "E70/4688",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "27867277733451cd40a7f46b8e9966b4ac41932b1faac64ec0a9f6977a0c09da",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b9e998408caa_27867277733451cd.pdf",
+      "actual_original_url": "https://www.igo.com.au/site/pdf/c9af7f92-4602-4846-a19e-5876e9f12522/MOH-Ionic-Clay-Rare-Earth-Development-at-Burracoppin.pdf?Platform=ListPage",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "12",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2, 3]",
+      "reviewed_page_text_sha256": "55d0f5fbe5d8cb8cd095526dadaa77efbcbc48b97bdb7a50e79d534f0c49bc88"
+    }
+  },
+  "E1:C-c814933e61a4aa09fb2473": {
+    "bindings": {
+      "document_id": "DOC-e5f7e4b31176",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "11849",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "135.5028013",
+      "reviewed_government_latitude": "-32.8527095",
+      "original_document_sha256": "3daf811abca155e8c13f0c7dc0ce48b6e798b6af2c59a4c00d4f7bf92282755f",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e5f7e4b31176_3daf811abca155e8.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11849",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "0a0efcbc33e8e17b8be889f2a93a65e8842a4ba17dfb90c7efc4a1c80562d74c"
+    }
+  },
+  "E1:C-cd6c59c62aa7acbfe73e94": {
+    "bindings": {
+      "document_id": "DOC-e5f7e4b31176",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "11849",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "135.5028013",
+      "reviewed_government_latitude": "-32.8527095",
+      "original_document_sha256": "3daf811abca155e8c13f0c7dc0ce48b6e798b6af2c59a4c00d4f7bf92282755f",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e5f7e4b31176_3daf811abca155e8.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11849",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "0a0efcbc33e8e17b8be889f2a93a65e8842a4ba17dfb90c7efc4a1c80562d74c"
+    }
+  },
+  "E1:C-cf1a7143a26830a7502518": {
+    "bindings": {
+      "document_id": "DOC-bb9586855d04",
+      "pdf_pages_or_html_sections": "HTML: Circle Valley Gold Project",
+      "verification_anchor": "Circle Valley",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a2242641258570256b8a5841702b9fcf722cdc26973b8938515b2a27758ba30c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-bb9586855d04_a224264125857025.html",
+      "actual_original_url": "https://meekametals.com.au/circle-valley-gold-project/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "09ea2b32785468366a8e8e8f95d722dcf7d9dd2cacca9a578b190976fc9a4897"
+    }
+  },
+  "E1:C-cfa0f28a7b765fbee0372a": {
+    "bindings": {
+      "document_id": "DOC-2991ae9b03fb",
+      "pdf_pages_or_html_sections": "1,3,5,6,8,9",
+      "verification_anchor": "Blackwood South",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "0890c782b922555bd13b31b7ee70e468eec936d2db2be50229f83ffbccdc55e1",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-2991ae9b03fb_0890c782b922555b.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/16_7419/EL162012_201605_R_01_Reportbody.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "9",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 3, 5, 6, 8, 9]",
+      "reviewed_page_text_sha256": "9c498559d930f8486429db1796e072bde015344640ecaec9a2db33cb24de0469"
+    }
+  },
+  "E1:C-d212ae7ebec90db165357b": {
+    "bindings": {
+      "document_id": "DOC-ceb59bb3a197",
+      "pdf_pages_or_html_sections": "16",
+      "verification_anchor": "John Galt",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "8eb89326d0034f5368b23b82e502fd4b18b680a0eeedde36354339457637671b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ceb59bb3a197_8eb89326d0034f53.pdf",
+      "actual_original_url": "https://yourir.info/resources/f912a5b0cde73f4b/announcements/ntu.asx/6A1218450/NTU_Quarterly_Activities_Report.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "28",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[16]",
+      "reviewed_page_text_sha256": "7c0182f9122d237913e57c9a10aceace14ae409fbffe27ae766e4ede86db85e0"
+    }
+  },
+  "E1:C-ddcb108b01d47c52feffac": {
+    "bindings": {
+      "document_id": "DOC-78504c076335",
+      "pdf_pages_or_html_sections": "109,117,118,120",
+      "verification_anchor": "Yabbie",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e67ca15f0b5a9fe571bd711cbc1b162f718d18c8c3c0cc1e2f72793a35a7cd1b",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-78504c076335_e67ca15f0b5a9fe5.pdf",
+      "actual_original_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "132",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[109, 117, 118, 120]",
+      "reviewed_page_text_sha256": "1a50675ba451609ea77676afb11cc20bf6a1de14e204a81b15982af4cfa07456"
+    }
+  },
+  "E1:C-dde198a94ae1ceebaea95d": {
+    "bindings": {
+      "document_id": "DOC-3ec967e58b71",
+      "pdf_pages_or_html_sections": "HTML: Mineral Sands",
+      "verification_anchor": "Thunderbird",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "91aeec8286d274ab684bd2dc0ac3c6dad92e75f83d5c875aadd7ac8a379d88c4",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-3ec967e58b71_91aeec8286d274ab.html",
+      "actual_original_url": "https://www.kdc.wa.gov.au/our-region/invest-in-the-kimberley/minerals-energy/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "3895e3752e45ff89664ad66fe87749757d28a5abe8ab232409f21bff5bf1b2ca"
+    }
+  },
+  "E1:C-ded6839137ea15101b9328": {
+    "bindings": {
+      "document_id": "DOC-1989bf6d1da0",
+      "pdf_pages_or_html_sections": "2,3,8,15",
+      "verification_anchor": "E63/1496",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4ffc305700eda42aecf51ceda93984d1fbfa1531c7eb8387fba82bc572875b4d",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1989bf6d1da0_4ffc305700eda42a.pdf",
+      "actual_original_url": "https://announcements.asx.com.au/asxpdf/20250814/pdf/06mvmb9r2vhdhs.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "19",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[2, 3, 8, 15]",
+      "reviewed_page_text_sha256": "b5ef4d5a12210f356f924e3cc59889d57b75ab23c2abc53c2aea8ba206e6add2"
+    }
+  },
+  "E1:C-df69530228b855dca7cf7d": {
+    "bindings": {
+      "document_id": "DOC-11d5e18bc61a",
+      "pdf_pages_or_html_sections": "7,23,29-33",
+      "verification_anchor": "Bleechmore",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "0e4473dcba2a81ee2a5dc986cd495c1af85d5bf0af805eb6d73602fe744a1a14",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-11d5e18bc61a_0e4473dcba2a81ee.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/38084d91-c2fd-4b13-9000-e8b3a43088f5/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "38",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[7, 23, 29, 30, 31, 32, 33]",
+      "reviewed_page_text_sha256": "1a5c6ad0980a68c6c3196bfb6b2315e32fe0a4c8ebd658fc79bb21d580b60848"
+    }
+  },
+  "E1:C-df8e992afe35c91aaa917c": {
+    "bindings": {
+      "document_id": "DOC-913f418f43f6",
+      "pdf_pages_or_html_sections": "HTML: Bungalally project section",
+      "verification_anchor": "BUNGALALLY",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e81a929457e314631b01ce4cfee55d2e7cbdb7faf4c3907914be8b6e1d106d7c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-913f418f43f6_e81a929457e31463.html",
+      "actual_original_url": "https://wimresource.com.au/project/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "63b8b414dda226a20e661fcc2e19d6ca220326ce1575992016e4e48a73f8753b"
+    }
+  },
+  "E1:C-e0217ffa83ccd343493e56": {
+    "bindings": {
+      "document_id": "DOC-d9c7b718e4c7",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Perth Basin",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "17b9f01aee27ab41b9bfeff1edc1dce86e354377e004b178e8ce867b93c51840",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d9c7b718e4c7_17b9f01aee27ab41.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159143/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "57c96251955d261fa531183f08f63b30f839cb8a8c82dc31aa941cdd9b1a8217"
+    }
+  },
+  "E1:C-e20c319f305c66c6362d31": {
+    "bindings": {
+      "document_id": "DOC-90dfbac901dc",
+      "pdf_pages_or_html_sections": "1,3,4",
+      "verification_anchor": "Tantalum",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "ad5d636b7372c587d59bbf1bed5162c133b2a14f1c54a24b9c0308bbae201779",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-90dfbac901dc_ad5d636b7372c587.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/c2d6d417-7659-4ac6-b8f1-95918fc56f9b/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "19",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 3, 4]",
+      "reviewed_page_text_sha256": "60336abbc3794f8dee791313c02040985dedf756c11892dcbee4a59f1eeb6006"
+    }
+  },
+  "E1:C-e3ce58bb44f59060ae4035": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "46",
+      "verification_anchor": "WIM 150",
+      "expected_government_record_id": "",
+      "table_context": "WIM 150 VIC Mineral deposit 142.3400494 -36.806155 Leucoxene, rutile, zircon, xenotime, ilmenite, (mineral sands) Basinal Placer Heavy-mineral sands (Offshore shallow marine) WIM 200 (Jackson) VIC Mineral deposit 142.6346869 -36.678866 Rare"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[46]",
+      "reviewed_page_text_sha256": "32777cb0ae1418b009f6e92200a4946f2d1b474b4dc896ff60842f9f33141e06"
+    }
+  },
+  "E1:C-e5cc6ec45406fff096981e": {
+    "bindings": {
+      "document_id": "DOC-913f418f43f6",
+      "pdf_pages_or_html_sections": "HTML: Wedderburn project section",
+      "verification_anchor": "WEDDERBURN",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "e81a929457e314631b01ce4cfee55d2e7cbdb7faf4c3907914be8b6e1d106d7c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-913f418f43f6_e81a929457e31463.html",
+      "actual_original_url": "https://wimresource.com.au/project/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "63b8b414dda226a20e661fcc2e19d6ca220326ce1575992016e4e48a73f8753b"
+    }
+  },
+  "E1:C-e7b38d0c5e15ee38c47684": {
+    "bindings": {
+      "document_id": "DOC-2991ae9b03fb",
+      "pdf_pages_or_html_sections": "5",
+      "verification_anchor": "Rubble Flats",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "0890c782b922555bd13b31b7ee70e468eec936d2db2be50229f83ffbccdc55e1",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-2991ae9b03fb_0890c782b922555b.pdf",
+      "actual_original_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/16_7419/EL162012_201605_R_01_Reportbody.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "9",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[5]",
+      "reviewed_page_text_sha256": "4534d473e0e334dbf8bb5585c32bd2cb039f6ab5f8217153a79272b70c8d5852"
+    }
+  },
+  "E1:C-e9f22984ca47b6cdcfdd17": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "37",
+      "verification_anchor": "Bundjalung",
+      "expected_government_record_id": "",
+      "table_context": "Bundjalung N.P. NSW Unknown 153.322287 -29.428164 Ilmenite, rutile, zircon, (monazite) Basinal Placer Heavy-mineral sands (High dune) Bunker Bay WA Mineral deposit 115.043976 -33.545716 Ilmenite, zircon, (leucoxene) Basinal Placer Heavy-min"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[37]",
+      "reviewed_page_text_sha256": "aabb4086d77c21747921825e2b368039b3b06c46550e4cf6007235bfe251f241"
+    }
+  },
+  "E1:C-eaaab238ed070b7f31d821": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "46",
+      "verification_anchor": "Wild Cattle Island",
+      "expected_government_record_id": "",
+      "table_context": "Wild Cattle Island QLD Mineral deposit 151.3999727 -23.976851 Rutile, zircon, ilmenite, monazite, mineral sands Basinal Placer Heavy-mineral sands (Unknown) WIM 50 VIC Mineral deposit 141.8846887 -37.062241 Ilmenite, rutile, zircon, xenotim"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[46]",
+      "reviewed_page_text_sha256": "32777cb0ae1418b009f6e92200a4946f2d1b474b4dc896ff60842f9f33141e06"
+    }
+  },
+  "E1:C-ecb079c3dfee53e980c224": {
+    "bindings": {
+      "document_id": "DOC-f8ce19a6ea03",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "8303",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "137.4963096",
+      "reviewed_government_latitude": "-31.2193554",
+      "original_document_sha256": "7bce1f2522542745b7ced2c55638bb24a5404b99153526c4d8e8a4f566a6e123",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-f8ce19a6ea03_7bce1f2522542745.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8303",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "35d254f0d1b30d7816616993f3f5cf73f1c1cfa9c9dceceb3ab151748f6fef3a"
+    }
+  },
+  "E1:C-eda3d0ab9064d663179358": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "40",
+      "verification_anchor": "Hat Head",
+      "expected_government_record_id": "",
+      "table_context": "Hat Head N.P. NSW Unknown 153.047296 -31.055851 Ilmenite, rutile, zircon, (monazite) Basinal Placer Heavy-mineral sands (High dune) Hopelands WA Mineral deposit 115.906189 -32.396255 Zircon, ilmenite, rutile, leucoxene Basinal Placer Heavy-"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[40]",
+      "reviewed_page_text_sha256": "278fbc45e0d149fa25ae2a242b4e0c11cadfd6addaf95c09cb28440e4350e605"
+    }
+  },
+  "E1:C-ee1e2f5df447957c498748": {
+    "bindings": {
+      "document_id": "DOC-15d3864d77dc",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "3000",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "136.8893697",
+      "reviewed_government_latitude": "-30.4403264",
+      "original_document_sha256": "4223d12e1f27d78e87d5f44ab7c041bb3b5f1b7940486a9c99f83404451c13c7",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-15d3864d77dc_4223d12e1f27d78e.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3000",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "62765548b121b3033b437749cc2632773811d36acafce3394f66be98438100c7"
+    }
+  },
+  "E1:C-f3b786ba841126c4883915": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "42",
+      "verification_anchor": "Mindarie",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[42]",
+      "reviewed_page_text_sha256": "538f059b04b0337ac42ccf72789fc3a39f06123d1c401eb6f4a033bdeae13747"
+    }
+  },
+  "E1:C-f4bda3a525e798745b41fb": {
+    "bindings": {
+      "document_id": "DOC-bb9586855d04",
+      "pdf_pages_or_html_sections": "HTML: Circle Valley Gold Project",
+      "verification_anchor": "Circle Valley",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a2242641258570256b8a5841702b9fcf722cdc26973b8938515b2a27758ba30c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-bb9586855d04_a224264125857025.html",
+      "actual_original_url": "https://meekametals.com.au/circle-valley-gold-project/",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "09ea2b32785468366a8e8e8f95d722dcf7d9dd2cacca9a578b190976fc9a4897"
+    }
+  },
+  "E1:C-f61b7dff6135ac737d7124": {
+    "bindings": {
+      "document_id": "DOC-fb5514ea9d21",
+      "pdf_pages_or_html_sections": "2,3,4,8,10,11",
+      "verification_anchor": "WIM100",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "01c46a6ec9e28d34e1b51a8a69132a67e7beaee4eb0a3cb8c0a8339bc8f2df7f",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-fb5514ea9d21_01c46a6ec9e28d34.pdf",
+      "actual_original_url": "https://www.iluka.com/media/viyl3h5a/wimmera-project-emm-s180481-wim100-ees-referral-rev-1-re-issued-for-use.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "76",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[2, 3, 4, 8, 10, 11]",
+      "reviewed_page_text_sha256": "79518be1a498645445df2ed00b6bcc5025bb4460ef1c87524076aadb9a232293"
+    }
+  },
+  "E1:C-f829ef7e6827499c9d4fba": {
+    "bindings": {
+      "document_id": "DOC-15d3864d77dc",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "3000",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "136.8893697",
+      "reviewed_government_latitude": "-30.4403264",
+      "original_document_sha256": "4223d12e1f27d78e87d5f44ab7c041bb3b5f1b7940486a9c99f83404451c13c7",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-15d3864d77dc_4223d12e1f27d78e.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3000",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "62765548b121b3033b437749cc2632773811d36acafce3394f66be98438100c7"
+    }
+  },
+  "E1:C-f901d5edd05bd6959eb191": {
+    "bindings": {
+      "document_id": "DOC-745cd54537d5",
+      "pdf_pages_or_html_sections": "1,2",
+      "verification_anchor": "Projects with REE resources",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "a4392118bfbb95fc082b5ca74c47c92da40cbcdfb5a4bd60855187e6bc0cd8eb",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-745cd54537d5_a4392118bfbb95fc.pdf",
+      "actual_original_url": "https://www.wa.gov.au/media/159141/download?inline=",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "2",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 2]",
+      "reviewed_page_text_sha256": "669030db7cfe8bfc3a9e57daa368c08e7e845249bf8190bcb770e09e439eb613"
+    }
+  },
+  "E1:C-f961e830d773ff4b1dfb9e": {
+    "bindings": {
+      "document_id": "DOC-b1a9f4906f25",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "11900",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "138.6237267",
+      "reviewed_government_latitude": "-31.9918532",
+      "original_document_sha256": "9e32a7a814a4c9f07aa22cba9bda5a30bd5f83d3d90eb9c8dda745c73844bd06",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b1a9f4906f25_9e32a7a814a4c9f0.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11900",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "a8f01760eb5875010c986e5147f8dec61ace0c7e8cb93b0dad86cf7dfff14558"
+    }
+  },
+  "E1:C-fa205c1a7f9e4c5ce5958c": {
+    "bindings": {
+      "document_id": "DOC-e86946138122",
+      "pdf_pages_or_html_sections": "36",
+      "verification_anchor": "Bidaminna",
+      "expected_government_record_id": "",
+      "table_context": "Bidaminna WA Mineral deposit 115.6033936 -31.100482 Ilmenite, leucoxene, rutile, zircon Basinal Placer Heavy-mineral sands (Beach) Birthday Gift NSW Mineral deposit 142.9166899 -33.480284 Zircon, rutile, ilmenite, mineral sands, leucoxene B"
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+      "actual_original_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "51",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[36]",
+      "reviewed_page_text_sha256": "4d529e5f7eb31cddda536e113c6893abe3baeb984982fa7064e662dd75f234f7"
+    }
+  },
+  "E1:C-fd36b33ba598e909293c9f": {
+    "bindings": {
+      "document_id": "DOC-e2b9eb986768",
+      "pdf_pages_or_html_sections": "HTML: Deposit Number; Details; Location; Commodities; References",
+      "verification_anchor": "Deposit Number:",
+      "expected_government_record_id": "9629",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "140.4826502",
+      "reviewed_government_latitude": "-31.7491565",
+      "original_document_sha256": "270448013dc14d6c1bd51df53deef9922b45c29e1c888ecaf4a487b687e5c606",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e2b9eb986768_270448013dc14d6c.html",
+      "actual_original_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=9629",
+      "original_format": "html",
+      "original_total_pdf_pages": "0",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[]",
+      "reviewed_page_text_sha256": "c92a91aa510a9fc7a272264e98c3016598d03eabfc605d4359431ad75974d3b3"
+    }
+  },
+  "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2": {
+    "bindings": {
+      "document_id": "DOC-4e727f694a5a",
+      "pdf_pages_or_html_sections": "9",
+      "verification_anchor": "Quantum",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "ed837e86d4eb11b6664a063e0eb4f78e12cea5d6eea1fdff31144afc26173624",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-4e727f694a5a_ed837e86d4eb11b6.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/d44d4ce8-dc2c-4fc9-b014-3f6c8109644d/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "14",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[9]",
+      "reviewed_page_text_sha256": "7c53e8f5b95e7716d69a97b4c78eda4cdc99956ff0e8323b505d18c2795ab47a"
+    }
+  },
+  "LEGACY:5c319b25-2bb6-5981-af57-5f72b248625d": {
+    "bindings": {
+      "document_id": "DOC-7f47b34ded43",
+      "pdf_pages_or_html_sections": "1,7",
+      "verification_anchor": "Holsteins",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "2d51eb165822b0ca707e9061a0b87a221c8efee265c895b5577c7fe0d962d391",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-7f47b34ded43_2d51eb165822b0ca.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/77e3cd71-7150-498d-8475-22df0e1fd082/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "22",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 7]",
+      "reviewed_page_text_sha256": "e98b2b34a76ac854414d1ac2fecd9135b010f60c55fde8206e71d48ad761ad0c"
+    }
+  },
+  "LEGACY:6a9fc44e-fd8e-516e-a49d-5292844e3770": {
+    "bindings": {
+      "document_id": "DOC-4e727f694a5a",
+      "pdf_pages_or_html_sections": "1,3,8,9",
+      "verification_anchor": "Stromberg",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "ed837e86d4eb11b6664a063e0eb4f78e12cea5d6eea1fdff31144afc26173624",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-4e727f694a5a_ed837e86d4eb11b6.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/d44d4ce8-dc2c-4fc9-b014-3f6c8109644d/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "14",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 3, 8, 9]",
+      "reviewed_page_text_sha256": "852e8d44b3e040f1c87a3f3123b984eed42f818e190a85145f66db5b65bbcff8"
+    }
+  },
+  "LEGACY:7b1392a7-a038-5d17-b619-7cfbfc1f6127": {
+    "bindings": {
+      "document_id": "DOC-3713d1609084",
+      "pdf_pages_or_html_sections": "1,4 (visually inspected scan)",
+      "verification_anchor": "",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "d5f60ba5a46241a1734c6313d7dc56206aa97b3109afcb9ae98932de61bea49a",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-3713d1609084_d5f60ba5a46241a1.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/f9463b6c-b16e-4389-8245-c7c415fb6f1d/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "36",
+      "content_review_method": "ORIGINAL_SCANNED_RELEVANT_PAGES_VISUALLY_READ_NO_OCR",
+      "inspected_pdf_pages": "[1, 4]",
+      "reviewed_page_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "LEGACY:7e4ef2a2-7931-5e2f-8a40-d09a8f9723b1": {
+    "bindings": {
+      "document_id": "DOC-d6fd171e32bd",
+      "pdf_pages_or_html_sections": "1,5",
+      "verification_anchor": "Haddock",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "01cff9791577a3a076a951820683f0cad586bd7ef668c66bae4547b4880bbf3c",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d6fd171e32bd_01cff9791577a3a0.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/9b88be1a-2a35-4ab3-a7c3-db6afaf183ed/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "12",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 5]",
+      "reviewed_page_text_sha256": "97ba8c5d6f18e17b55ece0a4f5ae59d233e63e70417d49f5e56004ce4b3a4949"
+    }
+  },
+  "LEGACY:a5a649f8-183f-5dba-adf6-431d6fa22772": {
+    "bindings": {
+      "document_id": "DOC-1989bf6d1da0",
+      "pdf_pages_or_html_sections": "3,5,6",
+      "verification_anchor": "Glenmorangie",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "4ffc305700eda42aecf51ceda93984d1fbfa1531c7eb8387fba82bc572875b4d",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1989bf6d1da0_4ffc305700eda42a.pdf",
+      "actual_original_url": "https://announcements.asx.com.au/asxpdf/20250814/pdf/06mvmb9r2vhdhs.pdf",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "19",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[3, 5, 6]",
+      "reviewed_page_text_sha256": "d12a4403702ef4f0870b8e57f3e626f08f2c3c8ae9fb078277675e370af6653f"
+    }
+  },
+  "LEGACY:be600996-0aaf-5fd5-86f8-0f38cfb95060": {
+    "bindings": {
+      "document_id": "DOC-11d5e18bc61a",
+      "pdf_pages_or_html_sections": "7,23,29-33",
+      "verification_anchor": "Bleechmore",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "0e4473dcba2a81ee2a5dc986cd495c1af85d5bf0af805eb6d73602fe744a1a14",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-11d5e18bc61a_0e4473dcba2a81ee.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/38084d91-c2fd-4b13-9000-e8b3a43088f5/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "38",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[7, 23, 29, 30, 31, 32, 33]",
+      "reviewed_page_text_sha256": "1a5c6ad0980a68c6c3196bfb6b2315e32fe0a4c8ebd658fc79bb21d580b60848"
+    }
+  },
+  "LEGACY:c13593e3-d762-5c95-9299-d883485d0e1b": {
+    "bindings": {
+      "document_id": "DOC-ab6f7858fdd0",
+      "pdf_pages_or_html_sections": "1,3,6,7",
+      "verification_anchor": "Daicos",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "90ec0563080e9748f31ff7e0bb04eeef4541b7ba8cbb258f62f35eee0e4f9d8a",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ab6f7858fdd0_90ec0563080e9748.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/ce9e7d66-71c1-470f-8a70-fdf7d97d129f/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "9",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 3, 6, 7]",
+      "reviewed_page_text_sha256": "0f8460b53f18afb916eddfe06664f8c08a284d1a96ef014dc7c1c7dd4d626fb2"
+    }
+  },
+  "LEGACY:cc0364e8-e634-5189-aa8b-5bf5caf1da38": {
+    "bindings": {
+      "document_id": "DOC-90dfbac901dc",
+      "pdf_pages_or_html_sections": "1,3,4",
+      "verification_anchor": "Tantalum",
+      "expected_government_record_id": "",
+      "table_context": ""
+    },
+    "metadata": {
+      "reviewed_government_longitude": "",
+      "reviewed_government_latitude": "",
+      "original_document_sha256": "ad5d636b7372c587d59bbf1bed5162c133b2a14f1c54a24b9c0308bbae201779",
+      "original_archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-90dfbac901dc_ad5d636b7372c587.pdf",
+      "actual_original_url": "https://geoscience.nt.gov.au/gemis/server/api/core/bitstreams/c2d6d417-7659-4ac6-b8f1-95918fc56f9b/content",
+      "original_format": "pdf",
+      "original_total_pdf_pages": "19",
+      "content_review_method": "ORIGINAL_RELEVANT_PAGES_OR_HTML_CONTENT_READ",
+      "inspected_pdf_pages": "[1, 3, 4]",
+      "reviewed_page_text_sha256": "60336abbc3794f8dee791313c02040985dedf756c11892dcbee4a59f1eeb6006"
+    }
+  }
+}

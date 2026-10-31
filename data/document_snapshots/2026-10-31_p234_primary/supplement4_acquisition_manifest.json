@@ -1,0 +1,49 @@
+[
+  {
+    "document_id": "DOC-43966a9fe6a8",
+    "requested_url": "https://www.mrt.tas.gov.au/__data/assets/pdf_file/0006/229533/mindep500_2.pdf",
+    "target_ids": [
+      "E1:C-1885847c4b67800de0e580",
+      "E1:C-72a313f37497d655d60b83",
+      "E1:C-a692d739c9bf954d9e9450"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:12:38.964767+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.mrt.tas.gov.au/__data/assets/pdf_file/0006/229533/mindep500_2.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "4f25cbab1714ccaafd1ef885b88105f9ed25e4c27c0267a719edb6aff37d2178",
+    "byte_count": 16092392,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-43966a9fe6a8_4f25cbab1714ccaa.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-4e22c1d79518",
+    "requested_url": "https://asm-au.com/mines/the-dubbo-project/",
+    "target_ids": [
+      "E1:C-c3529cfabd886a9dedc3d3"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:12:38.965431+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://asm-au.com/mines/the-dubbo-project/",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "966d505f7d5cadeef957dbbac5c75251e48c2ee55e18742c8c28dc8186dad8f1",
+    "byte_count": 308729,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-4e22c1d79518_966d505f7d5cadee.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-f2a7f2ff923e",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR1947_012-15/UR1947_012-15.pdf",
+    "target_ids": [
+      "E1:C-1885847c4b67800de0e580"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:12:38.963863+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

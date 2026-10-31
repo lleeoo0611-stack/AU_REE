@@ -1,0 +1,15 @@
+{
+  "WEB-SCADDAN-PDF": {
+    "document_id": "WEB-SCADDAN-PDF",
+    "source_url": "https://onestoptenementshop.com/wp-content/uploads/2021/07/Scaddan-Au-REE-Web-Promo-8-October-2024-B.pdf",
+    "access_method": "Web PDF reader, cached publisher document; direct hostname acquisition failed",
+    "observed_on": "2026-10-31",
+    "original_pdf_byte_sha256": "",
+    "original_pdf_bytes_archived": false,
+    "total_pdf_pages": 6,
+    "relevant_pages_read": [1, 5, 6],
+    "short_verification_anchor": "no REE analyses were carried out",
+    "evidence_scope": "Vendor promotional PDF describes E63/2097 as an application, soil anomalies and gold drilling without REE analyses. Neighbouring OD6 tenements are separate. No technical MRE, registered-title or current Project approval follows.",
+    "publication_date": "Not established; 8 October 2024 is in the filename only, not independently authenticated"
+  }
+}

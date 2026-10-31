@@ -2,6 +2,12 @@
 
 可重現的**澳洲稀土礦業專案資料庫**及多準則決策分析（MCDA）研究。以官方礦產資料、技術報告與 GIS 為證據，評估開發潛力、排名穩健性及影響因素。使用 Python 3.11+、SQLite、R，並以 Git/快照維持可追溯性。
 
+## 144 HOLD 原始文件與範圍查核（2026-10-31）
+
+[本批報告](docs/audits/2026-10-31_p234_144_primary_scope_report.md)：固定 P3 118／P4 26 筆中，142 筆已讀本機原件相關頁，Scaddan 1 筆為網頁 PDF 閱讀，Yellowband Plain 1 筆仍未讀到原件。另 7 筆雖有替代原始內容，原指標文件仍未取得；共 9 筆保留取件缺口。全部保留逐筆範圍／礦權缺口，沒有新增 Project／C1／JORC 核准，13 案 Gate 與 MCDA 暫緩。
+
+[144 筆 CSV](docs/audits/2026-10-31_p234_144_primary_scope_review.csv)／[JSON](docs/audits/2026-10-31_p234_144_primary_scope_review.json)、[339 筆更新對照](docs/audits/2026-10-31_p234_144_primary_scope_updated_339.csv)及[取件缺口](docs/audits/2026-10-31_p234_144_primary_scope_remaining_access.csv)可編輯。固定 412 ID 與 2026-10-29 快照保持不變。完整第三方原件留在本機，公開 CI 重跑雜湊／頁碼綁定及判讀帳本；不能將公開紀錄重跑等同於重新驗證未公開全文。
+
 ## 研究目標
 
 | Aim | 研究問題 |

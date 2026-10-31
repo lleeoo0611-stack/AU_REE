@@ -1,0 +1,882 @@
+[
+  {
+    "document_id": "DOC-0072fd7daa6e",
+    "requested_url": "https://www.ga.gov.au/education/minerals-energy/australian-energy-facts/uranium-and-thorium",
+    "target_ids": [
+      "E1:C-a98fd093fe2807da3e1f57"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:19.856485+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.ga.gov.au/education/minerals-energy/australian-energy-facts/uranium-and-thorium",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "db202a12bb3cae3d53ecda03f280b4beaf925e31556e52775a8d00e2d1362ea8",
+    "byte_count": 55776,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-0072fd7daa6e_db202a12bb3cae3d.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-05fe3662aac9",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/79044/1/EL28507_2014_AS.pdf",
+    "target_ids": [
+      "E1:C-7df4b7f311e45835f868b3",
+      "LEGACY:6a9fc44e-fd8e-516e-a49d-5292844e3770"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:16.874141+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/web//bitstreams/d44d4ce8-dc2c-4fc9-b014-3f6c8109644d/download",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c764fa3f152018d4244a39640486458ee09b00f9beca8411d01ea82efe848488",
+    "byte_count": 1117,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-05fe3662aac9_c764fa3f152018d4.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-15d3864d77dc",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3000",
+    "target_ids": [
+      "E1:C-0f605aa53ea7731720d810",
+      "E1:C-ee1e2f5df447957c498748",
+      "E1:C-f829ef7e6827499c9d4fba"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:56.561003+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=3000",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "d9cb3b3585460adac7b176130653fc70f20027e1de0e7ea092cac1cff30055b2",
+    "byte_count": 116160,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-15d3864d77dc_d9cb3b3585460ada.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-1989bf6d1da0",
+    "requested_url": "https://announcements.asx.com.au/asxpdf/20250814/pdf/06mvmb9r2vhdhs.pdf",
+    "target_ids": [
+      "E1:C-6acba9a68e4747803cd2c8",
+      "E1:C-a8a0698ea0195610abed49",
+      "E1:C-aefc4edeb76a0817972b8f",
+      "E1:C-b0abe53f6856bea40f8aad",
+      "E1:C-ded6839137ea15101b9328",
+      "LEGACY:a5a649f8-183f-5dba-adf6-431d6fa22772"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:14.905103+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://announcements.asx.com.au/asxpdf/20250814/pdf/06mvmb9r2vhdhs.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "4ffc305700eda42aecf51ceda93984d1fbfa1531c7eb8387fba82bc572875b4d",
+    "byte_count": 1425995,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1989bf6d1da0_4ffc305700eda42a.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-1f36a6f8a154",
+    "requested_url": "https://onestoptenementshop.com/wp-content/uploads/2021/07/Scaddan-Au-REE-Web-Promo-8-October-2024-B.pdf",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:21.499064+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+  },
+  {
+    "document_id": "DOC-1fb2a5dbadf2",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/93270/1/GR358_2017_GA.pdf",
+    "target_ids": [
+      "E1:C-b05430044e7806e2ced9e9",
+      "LEGACY:7e4ef2a2-7931-5e2f-8a40-d09a8f9723b1"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:20.772721+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/web//bitstreams/9b88be1a-2a35-4ab3-a7c3-db6afaf183ed/download",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c764fa3f152018d4244a39640486458ee09b00f9beca8411d01ea82efe848488",
+    "byte_count": 1117,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-1fb2a5dbadf2_c764fa3f152018d4.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-21280746b5c1",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/17_7797/EL32012_201709_F_01_Reportbody.pdf",
+    "target_ids": [
+      "E1:C-e7b38d0c5e15ee38c47684"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:27.771139+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-23213f26dd9d",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=990",
+    "target_ids": [
+      "E1:C-49f7b1f8bc495129ed97b7",
+      "E1:C-b4acdc7c9ef2a823c0e709"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:09.342228+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=990",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "ffe3ca97fd1c621afd933158af283b4cf08016c77d68917b23f9159189892571",
+    "byte_count": 86004,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-23213f26dd9d_ffe3ca97fd1c621a.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-24a76241161c",
+    "requested_url": "https://www.geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/87106/1/EL29512_2018_S.pdf",
+    "target_ids": [
+      "E1:C-3521bba0b005dd8c96880b",
+      "LEGACY:c13593e3-d762-5c95-9299-d883485d0e1b"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:07.679725+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.geoscience.nt.gov.au'. (_ssl.c:1032)>"
+  },
+  {
+    "document_id": "DOC-2991ae9b03fb",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/16_7419/EL162012_201605_R_01_Reportbody.pdf",
+    "target_ids": [
+      "E1:C-cfa0f28a7b765fbee0372a"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:24.324822+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/16_7419/EL162012_201605_R_01_Reportbody.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "0890c782b922555bd13b31b7ee70e468eec936d2db2be50229f83ffbccdc55e1",
+    "byte_count": 920213,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-2991ae9b03fb_0890c782b922555b.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-2dbf4134c04f",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR2012_03/UR2012_03.pdf",
+    "target_ids": [
+      "E1:C-8bf1bd308bd59a24640d8b"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:17.375738+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-353b7d56b068",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/76943/1/GR122_2012_GA_01.pdf",
+    "target_ids": [
+      "E1:C-df69530228b855dca7cf7d",
+      "LEGACY:be600996-0aaf-5fd5-86f8-0f38cfb95060"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:25.823614+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/web//bitstreams/38084d91-c2fd-4b13-9000-e8b3a43088f5/download",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c764fa3f152018d4244a39640486458ee09b00f9beca8411d01ea82efe848488",
+    "byte_count": 1117,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-353b7d56b068_c764fa3f152018d4.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-3ec967e58b71",
+    "requested_url": "https://www.kdc.wa.gov.au/our-region/invest-in-the-kimberley/minerals-energy/",
+    "target_ids": [
+      "E1:C-dde198a94ae1ceebaea95d"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:25.394655+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.kdc.wa.gov.au/our-region/invest-in-the-kimberley/minerals-energy/",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "91aeec8286d274ab684bd2dc0ac3c6dad92e75f83d5c875aadd7ac8a379d88c4",
+    "byte_count": 165990,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-3ec967e58b71_91aeec8286d274ab.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-406182859713",
+    "requested_url": "https://data.geus.dk/pure-pdf/MiMa-R_2022_01_web.pdf",
+    "target_ids": [
+      "E1:C-12faff6d9a3b83c37cd658",
+      "E1:C-a73ec4609b8b2923f36b70"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:57.314410+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://data.geus.dk/pure-pdf/MiMa-R_2022_01_web.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "3633fec2d76b098eafe468fde1183ce23b6efc2030a279dfbe9387cb210a215f",
+    "byte_count": 12260417,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-406182859713_3633fec2d76b098e.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-464393cbee39",
+    "requested_url": "https://www.energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/rare_earths",
+    "target_ids": [
+      "E1:C-16eaad2c06585cbe4e47e6"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:01.914763+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-4b8c8c9a353d",
+    "requested_url": "https://www.epa.wa.gov.au/proposals/rare-earths-mining-and-processing-mount-weld",
+    "target_ids": [
+      "E1:C-be9bb9b4b2185c4643d2ac"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:21.034324+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-53ad9e2f7546",
+    "requested_url": "https://acdcmetals.com.au/projects/victorian-projects-rare-earths-mineral-sands/",
+    "target_ids": [
+      "E1:C-5641c75daf19d651dcd02c"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:11.820632+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://acdcmetals.com.au/projects/victorian-projects-rare-earths-mineral-sands/",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "68e5c14356edf75d8d965711575c86884f946a2e30f5ad6bd1b096ff402356ca",
+    "byte_count": 46988,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-53ad9e2f7546_68e5c14356edf75d.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-5a391b1b409b",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/71453",
+    "target_ids": [
+      "E1:C-e20c319f305c66c6362d31",
+      "LEGACY:cc0364e8-e634-5189-aa8b-5bf5caf1da38"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:26.841473+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/web/handle/1/71453",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c764fa3f152018d4244a39640486458ee09b00f9beca8411d01ea82efe848488",
+    "byte_count": 1117,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-5a391b1b409b_c764fa3f152018d4.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-5c940dc6b97b",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/00_4498/00-4498.pdf",
+    "target_ids": [
+      "E1:C-72a313f37497d655d60b83"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:16.162424+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-5f6058e34a0a",
+    "requested_url": "https://www.geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/93711/1/EL33054_2024_P_01.pdf",
+    "target_ids": [
+      "E1:C-0d7bbc17639754ac69ecf3",
+      "E1:C-3ca4020e0ef413e308e981"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:56.115872+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.geoscience.nt.gov.au'. (_ssl.c:1032)>"
+  },
+  {
+    "document_id": "DOC-636212df6890",
+    "requested_url": "https://www.geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/91056",
+    "target_ids": [
+      "E1:C-585496b3cd9e97a11fd4b0",
+      "E1:C-7ab713c0c73dc71271455c",
+      "E1:C-7e5d8529df47725e760ec6"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:12.124702+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.geoscience.nt.gov.au'. (_ssl.c:1032)>"
+  },
+  {
+    "document_id": "DOC-6746952cbc69",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=6205",
+    "target_ids": [
+      "E1:C-26c7400882a8b62f0630d4",
+      "E1:C-401acac46e31ada2273813"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:07.043135+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=6205",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "9d8eaa5e81ee1af3ed82719e9aa496ffb8c6f7f86af884fbf349adc1dd8112d7",
+    "byte_count": 82441,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-6746952cbc69_9d8eaa5e81ee1af3.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-6e9393dcd445",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=1927",
+    "target_ids": [
+      "E1:C-01c15e61bc1754b309c28a",
+      "E1:C-ae388d3a2da0e451965475"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:53.515929+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=1927",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "37c5fd5462052990d00b6d27f623d4809fa4799cdc9a8a6930e6318098153e22",
+    "byte_count": 101948,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-6e9393dcd445_37c5fd5462052990.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-745cd54537d5",
+    "requested_url": "https://www.wa.gov.au/media/159141/download?inline=",
+    "target_ids": [
+      "E1:C-263e33939d35b3763d9385",
+      "E1:C-33741dbf1f6c171bcf6098",
+      "E1:C-3ed222c7b905618352b06f",
+      "E1:C-5e12b8efb35d6edd3574d5",
+      "E1:C-bd69043bb3298304800dde",
+      "E1:C-f901d5edd05bd6959eb191"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:04.901810+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.wa.gov.au/media/159141/download?inline=",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "a4392118bfbb95fc082b5ca74c47c92da40cbcdfb5a4bd60855187e6bc0cd8eb",
+    "byte_count": 22611552,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-745cd54537d5_a4392118bfbb95fc.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-76be8a1a5341",
+    "requested_url": "https://www.energymining.sa.gov.au/industry/minerals-and-mining/mining/major-projects-and-mining-activities/major-operating-and-approved-mines/jacinth-and-ambrosia",
+    "target_ids": [
+      "E1:C-16eaad2c06585cbe4e47e6"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:00.637778+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-7ceb513f7224",
+    "requested_url": "https://energymining.sa.gov.au/industry/minerals-and-mining/mineral-commodities/rare_earths",
+    "target_ids": [
+      "E1:C-701c4ff26f7181c3b6c8c4",
+      "E1:C-7197e29449ac7c75ea1d4e",
+      "E1:C-f3b786ba841126c4883915"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:16.149689+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-8c8a7acfbcf4",
+    "requested_url": "https://www.planning.vic.gov.au/environmental-assessments/browse-projects/wim150-mineral-sands",
+    "target_ids": [
+      "E1:C-e3ce58bb44f59060ae4035"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:27.526597+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-9058a1c20ae5",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8908",
+    "target_ids": [
+      "E1:C-8462647e44dac21cff6850"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:17.286700+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8908",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "e6f843bb180b323688f87ed24d8185c05ab71183fa3afbecc18b3f4f3e617fbb",
+    "byte_count": 69939,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-9058a1c20ae5_e6f843bb180b3236.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-913f418f43f6",
+    "requested_url": "https://wimresource.com.au/project/",
+    "target_ids": [
+      "E1:C-05319c76370a9ff4899333",
+      "E1:C-8c2269b43a6f62bafcece0",
+      "E1:C-df8e992afe35c91aaa917c",
+      "E1:C-e5cc6ec45406fff096981e"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:53.639235+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://wimresource.com.au/project/",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "e81a929457e314631b01ce4cfee55d2e7cbdb7faf4c3907914be8b6e1d106d7c",
+    "byte_count": 158007,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-913f418f43f6_e81a929457e31463.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-95e76720858d",
+    "requested_url": "https://labwest.net/media/vtjh40jp/vmc_mangaroon_north_project_ree-pd_and_au_targets_identified.pdf",
+    "target_ids": [
+      "E1:C-02dd325c3ff772161081b4",
+      "E1:C-7aff124b1af68b46bcb7a8"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:53.516484+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://labwest.net/media/vtjh40jp/vmc_mangaroon_north_project_ree-pd_and_au_targets_identified.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "9af9c8575d72e9817c5234c9378d6f0c3aaebf1d96f400e2e4b876a56881b652",
+    "byte_count": 3565742,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-95e76720858d_9af9c8575d72e981.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-961bfb8ef2f3",
+    "requested_url": "https://drillhole.pir.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4150",
+    "target_ids": [
+      "E1:C-6814f6ba8fe76a3f602bb6",
+      "E1:C-8605a7c4dd8ac2d24da7e5"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:13.285466+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://drillhole.pir.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4150",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c43d5f0a3c4b38d080eaaa0138f3207140608313221118ff51b52a2add081972",
+    "byte_count": 73539,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-961bfb8ef2f3_c43d5f0a3c4b38d0.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-a14e598b6349",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8455",
+    "target_ids": [
+      "E1:C-5b813d08e4532015f7b345",
+      "E1:C-fd36b33ba598e909293c9f"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:12.557395+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=8455",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "57eb93efaf42d6a4432fb086ff86b6e4ee61da017bd042ad4b93ccb51c0f9fca",
+    "byte_count": 97268,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-a14e598b6349_57eb93efaf42d6a4.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-a2416f80355b",
+    "requested_url": "https://www.epa.wa.gov.au/sites/default/files/Referral_Documentation/Referral%20Supporting%20Document_6.pdf",
+    "target_ids": [
+      "E1:C-43dcc3a383dcce7862066d"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:08.125765+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-a6572cf39201",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/dominfo/download/UR1947_012_15/UR1947_012-15.pdf",
+    "target_ids": [
+      "E1:C-1885847c4b67800de0e580",
+      "E1:C-a692d739c9bf954d9e9450"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:02.650539+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-b11581aab894",
+    "requested_url": "https://majorprojects.planningportal.nsw.gov.au/prweb/PRRestService/mp/01/getContent?AttachRef=SUB-41199985%2120220418T002007.900+GMT",
+    "target_ids": [
+      "E1:C-c3529cfabd886a9dedc3d3"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:21.558704+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://majorprojects.planningportal.nsw.gov.au/prweb/PRRestService/mp/01/getContent?AttachRef=SUB-41199985%2120220418T002007.900+GMT",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c84fb127b0f87a77e4221740886101d6588404d90aec00af896eeb92a9e6ffff",
+    "byte_count": 146320,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b11581aab894_c84fb127b0f87a77.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-b1a9f4906f25",
+    "requested_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11900",
+    "target_ids": [
+      "E1:C-c4ccdf7a5e293c2cebdc3e",
+      "E1:C-f961e830d773ff4b1dfb9e"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:22.202453+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minerals.sarig.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=11900",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "72248b72385d614e9b4dfa33d04b0717bcbfdf8337280806e008a493983aea76",
+    "byte_count": 58931,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b1a9f4906f25_72248b72385d614e.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-b462f62950f6",
+    "requested_url": "https://resourcingtheterritory.nt.gov.au/media/docs/commodity-factsheets/REE_Oct2025.pdf",
+    "target_ids": [
+      "E1:C-50ed67520c1995355b52f2",
+      "LEGACY:2add4a20-4df1-5462-8663-4d7a34d428e2"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:09.379343+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-b98a82e9d4f7",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/71980",
+    "target_ids": [
+      "E1:C-2f4136cc9af5936a4b5f88",
+      "LEGACY:7b1392a7-a038-5d17-b619-7cfbfc1f6127"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:07.572530+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/web/handle/1/71980",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c764fa3f152018d4244a39640486458ee09b00f9beca8411d01ea82efe848488",
+    "byte_count": 1117,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b98a82e9d4f7_c764fa3f152018d4.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-b9e998408caa",
+    "requested_url": "https://www.igo.com.au/site/pdf/c9af7f92-4602-4846-a19e-5876e9f12522/MOH-Ionic-Clay-Rare-Earth-Development-at-Burracoppin.pdf?Platform=ListPage",
+    "target_ids": [
+      "E1:C-74c3b808d8bbf022959b50",
+      "E1:C-c8101c62c8c3da29dcac53"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:16.357285+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.igo.com.au/site/pdf/c9af7f92-4602-4846-a19e-5876e9f12522/MOH-Ionic-Clay-Rare-Earth-Development-at-Burracoppin.pdf?Platform=ListPage",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "27867277733451cd40a7f46b8e9966b4ac41932b1faac64ec0a9f6977a0c09da",
+    "byte_count": 1332047,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-b9e998408caa_27867277733451cd.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-bb9586855d04",
+    "requested_url": "https://meekametals.com.au/circle-valley-gold-project/",
+    "target_ids": [
+      "E1:C-cf1a7143a26830a7502518",
+      "E1:C-f4bda3a525e798745b41fb"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:22.749935+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://meekametals.com.au/circle-valley-gold-project/",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "a2242641258570256b8a5841702b9fcf722cdc26973b8938515b2a27758ba30c",
+    "byte_count": 165315,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-bb9586855d04_a224264125857025.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-bba9fca022e2",
+    "requested_url": "https://www.aukingmining.com/site/pdf/69270e44-d780-40f0-9aec-b1e695241a0e/CuCoREEU-Mineralisation-at-Elaine-Dorothy-Project.pdf",
+    "target_ids": [
+      "E1:C-2422bf5ed202b1c4a0af80",
+      "E1:C-2ffd64ff516ddca18534e8",
+      "E1:C-4231b7667aefd6b4dcdcff"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:03.062767+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "document_id": "DOC-bd2c2a7faf24",
+    "requested_url": "https://map.sarig.sa.gov.au/CrystalRunner/Report/Export/2?exportName=DevelopingProjects",
+    "target_ids": [
+      "E1:C-0b40952eb36db9727be42c",
+      "E1:C-137e5d7c0dccf189a6b0a1",
+      "E1:C-44231157fc05d671db1b23",
+      "E1:C-5501689ac20544b38f689c",
+      "E1:C-79eaeef4d4e5fd4eef8566",
+      "E1:C-a9b13845d69d3e935055aa",
+      "E1:C-c38ac0c899150192e6345f",
+      "E1:C-c814933e61a4aa09fb2473",
+      "E1:C-cd6c59c62aa7acbfe73e94"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:55.951391+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 500: Internal Server Error"
+  },
+  {
+    "document_id": "DOC-c97ef5e59a2e",
+    "requested_url": "https://drillhole.pir.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4322",
+    "target_ids": [
+      "E1:C-a98fd093fe2807da3e1f57"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:19.973583+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://drillhole.pir.sa.gov.au/MineralDepositDetails.aspx?DEPOSIT_NO=4322",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "9de369bee817b1cce0f25f15323066ce1196be35dec0739088992c7715a977e0",
+    "byte_count": 75534,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-c97ef5e59a2e_9de369bee817b1cc.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-ceb59bb3a197",
+    "requested_url": "https://yourir.info/resources/f912a5b0cde73f4b/announcements/ntu.asx/6A1218450/NTU_Quarterly_Activities_Report.pdf",
+    "target_ids": [
+      "E1:C-d212ae7ebec90db165357b"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:25.323994+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://yourir.info/resources/f912a5b0cde73f4b/announcements/ntu.asx/6A1218450/NTU_Quarterly_Activities_Report.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "8eb89326d0034f5368b23b82e502fd4b18b680a0eeedde36354339457637671b",
+    "byte_count": 1393207,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ceb59bb3a197_8eb89326d0034f53.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-d0c2e894cf91",
+    "requested_url": "https://australianminingreview.com.au/wp-content/uploads/2024/06/AMR_APR2024_WEB.pdf",
+    "target_ids": [
+      "E1:C-9ea5fd5f63a48363981c00"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:17.482470+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "Document exceeds 35MiB retrieval limit"
+  },
+  {
+    "document_id": "DOC-d6a9dd3a1246",
+    "requested_url": "https://www.iluka.com/community-engagement/wimmera",
+    "target_ids": [
+      "E1:C-f61b7dff6135ac737d7124"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:27.941950+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.iluka.com/community-engagement/wimmera",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "d4e9d99f0d05572bf708aee68713e7b22ded318edb008254554a84729baa9b39",
+    "byte_count": 142625,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d6a9dd3a1246_d4e9d99f0d05572b.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-d9c7b718e4c7",
+    "requested_url": "https://www.wa.gov.au/media/159143/download?inline=",
+    "target_ids": [
+      "E1:C-138fd59ae49a811b4eadc5",
+      "E1:C-b9549149cbe083e88991d4",
+      "E1:C-e0217ffa83ccd343493e56"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:59.182091+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.wa.gov.au/media/159143/download?inline=",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "17b9f01aee27ab41b9bfeff1edc1dce86e354377e004b178e8ce867b93c51840",
+    "byte_count": 22132182,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-d9c7b718e4c7_17b9f01aee27ab41.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-de5e813c6488",
+    "requested_url": "https://www.mrt.tas.gov.au/mrtdoc/tasxplor/download/24_8933/EDGI%208%20D23-134332%20Wind%20Break_202405_01_EDGI%20Final%20Drilling%20Project%20Report%20May%202024.pdf",
+    "target_ids": [
+      "E1:C-01249e537d3b128b6ab548"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:53.515255+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-e31227d6364e",
+    "requested_url": "https://geoscience-unclassified.s3.ap-southeast-2.amazonaws.com/ERPublications/reports/external-agency/G171659_Mineral-sands-processing-technology-issues-Murray-basin_CSIRO_EP14184.pdf",
+    "target_ids": [
+      "E1:C-05a33fdf2479d876055f64",
+      "E1:C-1a0155973cdb745d7d8963",
+      "E1:C-202346d0e624eef81add0f",
+      "E1:C-5bedac873ca78a7c50bce2",
+      "E1:C-706be67b514e27fac287c4",
+      "E1:C-7a1f2283fb92b442fc7945",
+      "E1:C-7cf22b39f3f264aba1bed9",
+      "E1:C-905e55cdebb506a612cd39",
+      "E1:C-ddcb108b01d47c52feffac"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:53.756877+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-e86946138122",
+    "requested_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+    "target_ids": [
+      "E1:C-002a514148b34670da95b2",
+      "E1:C-0b411a4fe451fafdf43955",
+      "E1:C-0d29778cc532d2f90ce53a",
+      "E1:C-28f33f5dc49e92a912ac60",
+      "E1:C-2e851400e1a41c40e925ec",
+      "E1:C-326f298e33a4db5f55e21b",
+      "E1:C-34621be01cf0ee3caedb55",
+      "E1:C-42bd9f12230d39a3b6b726",
+      "E1:C-441aaee22e27d43fa78bab",
+      "E1:C-474ba427c55ee26823a94d",
+      "E1:C-49b9b6a9601a806072b9d2",
+      "E1:C-4dcb639af483e2cc059557",
+      "E1:C-58f6d949ba8556af07a512",
+      "E1:C-69b4167171830120b320a8",
+      "E1:C-72b4392ec5c894a311bb90",
+      "E1:C-7ac7e4e1cdf386c0d37c9e",
+      "E1:C-7be5e7ac5a5663d656c9eb",
+      "E1:C-8b610e8755402764f55a3e",
+      "E1:C-9d6d395ffaa3c5367806f5",
+      "E1:C-9f046ce7f9bb475411d21a",
+      "E1:C-a025a8469420121fde05b6",
+      "E1:C-b052c4ef9e0426f1a15c0a",
+      "E1:C-b1db29452893e491a50358",
+      "E1:C-c666561f789a6e3a369334",
+      "E1:C-e9f22984ca47b6cdcfdd17",
+      "E1:C-eaaab238ed070b7f31d821",
+      "E1:C-eda3d0ab9064d663179358",
+      "E1:C-fa205c1a7f9e4c5ce5958c"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:53.514407+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://www.ga.gov.au/bigobj/GA19665.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "95aab2583cd6ae50528fdffcd2b66c22036bcfbc2518903388233acced3574e8",
+    "byte_count": 6235734,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-e86946138122_95aab2583cd6ae50.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-e8a4fb1511f6",
+    "requested_url": "https://www.geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/92335",
+    "target_ids": [
+      "E1:C-068c36e97d756565022437"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:54.338874+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.geoscience.nt.gov.au'. (_ssl.c:1032)>"
+  },
+  {
+    "document_id": "DOC-ef832b5d5743",
+    "requested_url": "https://geoscience.nt.gov.au/gemis/ntgsjspui/bitstream/1/78332/1/EL27978_2014_AS.pdf",
+    "target_ids": [
+      "E1:C-9f98108215f84f2ac58235",
+      "LEGACY:5c319b25-2bb6-5981-af57-5f72b248625d"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:18.833454+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://geoscience.nt.gov.au/web//bitstreams/77e3cd71-7150-498d-8475-22df0e1fd082/download",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "c764fa3f152018d4244a39640486458ee09b00f9beca8411d01ea82efe848488",
+    "byte_count": 1117,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-ef832b5d5743_c764fa3f152018d4.html",
+    "format": "html"
+  },
+  {
+    "document_id": "DOC-f3819ad0cec9",
+    "requested_url": "https://minedocs.com/28/RareX-PR-08302024.pdf",
+    "target_ids": [
+      "E1:C-0a21b1d10e16ddf09a8461",
+      "E1:C-97c4e9042f9fe5d3777563"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:58:54.821330+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://minedocs.com/28/RareX-PR-08302024.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "f6d62e77a7bba2950c6a175eb8cf6615ecf0f63068f024eeae5369b43f89b933",
+    "byte_count": 507886,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-f3819ad0cec9_f6d62e77a7bba295.pdf",
+    "format": "pdf"
+  },
+  {
+    "document_id": "DOC-f56b57572f30",
+    "requested_url": "https://victorymetalsaustralia.com/wp-content/uploads/2025/11/03017126.pdf",
+    "target_ids": [
+      "E1:C-227e3f8f825f1b6f6d4f79",
+      "E1:C-8b96806259b05bc9d9235e"
+    ],
+    "retrieved_at_utc": "2026-10-31T07:59:02.959889+00:00",
+    "acquisition_is_scope_verification": false,
+    "final_url": "https://victorymetalsaustralia.com/wp-content/uploads/2025/11/03017126.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "status": "BYTES_ARCHIVED_NOT_SCOPE_APPROVED",
+    "sha256": "84c6772fc664fe27dc5612efec8f651b485883c943cdeb3fd464810957eaed6f",
+    "byte_count": 1373538,
+    "archive_path": "data/document_snapshots/2026-10-31_p234_primary/DOC-f56b57572f30_84c6772fc664fe27.pdf",
+    "format": "pdf"
+  }
+]

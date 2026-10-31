@@ -1,5 +1,11 @@
 # Change log
 
+## 144 HOLD primary-document and scope review — 2026-10-31
+
+- Review relevant original PDF/HTML content for 142 immutable targets, plus one web-rendered original PDF (Scaddan, no archived bytes); leave Yellowband Plain unread/access-blocked. Preserve seven alternative-original cases whose nominated pointers remain unrecovered, nine total access gaps, and all row-level scope/title reopen conditions.
+- Recover exact GEMIS ORIGINAL bundles, CSIRO EP14184 and Wind Break EDGI; correct Kalkaroo West MINDEP 9629 versus 8455, prevent cross-project/state/resource-basis inheritance, and record 61 point comparisons without geography approval. Preserve P2 and all other 195 rows in the 339-source disposition overlay.
+- Add editable CSV/JSON, acquisition manifests, reviewed-page hash/binding registry, local original verification, public offline ledger reproduction and adversarial tests. Keep restricted third-party full text local; CI does not claim absent-byte/full-text revalidation. C1, 13-case Gate and MCDA stay paused; zero approvals changed.
+
 ## P2/P3/P4 frozen-source documentary dispositions — 2026-10-31
 
 - Preserve 412 immutable HOLD IDs (P1 73 untouched, P2 28/27 provisional cases, P3 216, P4 95). Inspect selected original government feature content for 317 targets and 22 Legacy-only rows; verify all 52 Legacy UUID rows, including 30 targets also linked to government records. Validate original archive manifests/chunk SHA during extraction.

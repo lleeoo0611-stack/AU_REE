@@ -13,3 +13,8 @@ outputs/*
 *.db
 *.gpkg
 .DS_Store
+# Full third-party originals remain in the local research archive; public Git
+# retains hashes, page locators and bounded findings, not restricted full text.
+data/document_snapshots/2026-10-31_p234_primary/*.pdf
+data/document_snapshots/2026-10-31_p234_primary/*.html
+data/document_snapshots/2026-10-31_p234_primary/*.bin

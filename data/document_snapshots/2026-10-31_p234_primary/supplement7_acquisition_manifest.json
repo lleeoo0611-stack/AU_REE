@@ -1,0 +1,24 @@
+[
+  {
+    "document_id": "DOC-43315cf238fe",
+    "requested_url": "https://mrt.tas.gov.au/mrtdoc/dominfo/download/UR2012_03/UR2012_03.pdf",
+    "target_ids": [
+      "E1:C-8bf1bd308bd59a24640d8b"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:31:53.898895+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "document_id": "DOC-bebffde61482",
+    "requested_url": "https://www.onestoptenementshop.com/wp-content/uploads/2021/07/Scaddan-Au-REE-Web-Promo-8-October-2024-B.pdf",
+    "target_ids": [
+      "E1:C-c1e7aa1538298437b0bdec"
+    ],
+    "retrieved_at_utc": "2026-10-31T08:31:53.899738+00:00",
+    "acquisition_is_scope_verification": false,
+    "status": "ACQUISITION_FAILED",
+    "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+  }
+]
