@@ -5,6 +5,7 @@
 - 修正已核准新 Project 在乾淨 SQLite 重建時依 `max(project_id)+1` 分配編號、可能因新候選插入導致舊 ID 改變的問題；未明確指定 ID 時以穩定 source candidate ID 決定數字編號，明確指定及已核准的既有 Project ID 保留。
 - 身分核准原始來源須通過獨立文件驗證及有效 ISO 日期；尚未核准的輸入不再預先釘選 resolved_project_id；嘗試修改歷史已核准 ID 會保留原 ID 並標記待更正。
 - 於現有 Scheme A 測試新增跨新候選重建、無效簽核污染、歷史 ID 變更與無效日期的回歸案例；僅使用 synthetic evidence fixture，不改動 487 原始資料、C1/C2 簽核、JORC/GIS/MCDA。正式 Census 科學驗證與 Project 身分核准仍未完成。
+- 強化既有 `reproducibility/build_census_database.py`：CSV→SQLite 寫入前，對 487 筆來源、納入 Gate、Source Entity、Project membership 及候選 Project group 進行跨表完整性檢查；若 target ID、entity ID 或關係錯位，拒絕重建並保留舊資料庫。新增正向與破壞關係的負向測試；此 QA 為結構驗證，不代表身分或 JORC 的獨立科學核准。
 
 ## 2026-11-01 — Mainline supervisor, README diagrams, C1 Stage-1 and source-triggered P234 evidence (PR pending)
 
