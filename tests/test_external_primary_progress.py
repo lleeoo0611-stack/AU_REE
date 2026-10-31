@@ -12,8 +12,8 @@ class ExternalPrimaryProgressTests(unittest.TestCase):
         items = [r for r in data if r["source_name"] == "PINDARI"]
         self.assertEqual(len(items), 2)
         self.assertEqual(len({x["target_id"] for x in items}), 2)
-        self.assertTrue(all("no scoped REO" in x["resource_basis_review"].lower()
-                            or "no published prospect-specific TREO" in x["resource_basis_review"] for x in items))
+        self.assertTrue(all("no scoped reo" in x["resource_basis_review"].lower()
+                            or "no published prospect-specific treo" in x["resource_basis_review"].lower() for x in items))
 
     def test_progress_preserves_unverified_157(self):
         with INDEX.open(encoding="utf-8-sig", newline="") as f:
