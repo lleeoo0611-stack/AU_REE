@@ -1,5 +1,14 @@
 # Change log
 
+## P1/P2 publicly accessible evidence closing review — 2026-10-31
+
+- Reassessed **P1 19 remaining cases / 31 immutable sources** on freely accessible government, issuer and secondary-index documents: 13 positive REE/Project leads (22 rows), 2 geographic identity conflicts (4), and 4 indexed WAMEX reports (5). New primary/context sources distinguish WA Wingellina Ni-Co from SA Claude Hills and Ambergate vs Witchcliffe name/tenement conflict; P1 C1 gates all remain HOLD.
+- Official original PDFs for WAMEX A119194/A120393/A129842/A109188 remain unarchived; company-submitted page-text indexing yields bounded documentary claims but **does not supply original PDF SHA**. No email was sent.
+- **P2 all 28 source rows / 27 provisional cases** assigned unique terminal scoped documentary review results and reopen conditions: 17 direct government/issuer leads still lacking approved Legacy source-to-Project identity, 1 REE stage outside issuer Scoping, 3 historic sites, 1 negative single drill target, 3 native features not Project proof, 2 regional index/name collisions. Factual report excerpts support Arthur Popes, Bell's Monazite, Blueys Folley, Duke, Blue Tier, Cruncher, DC, Tunnel Hill, Brumby Clydesdale and Wedderburn.
+- Add editable source and case evidence inputs, reproducible 31+28 target CSV derivation, machine-readable QA, dedicated unit tests and CI. Preserve 412 original HOLD source IDs, 73 prior P1, untouched P3 216/P4 95, zero independent formal C1 or JORC/GIS approvals.
+- Follow-up for inaccessible original archive (#30), P1 positive case signoffs (#32), and P2 source–Project/tenure checks (#35) remains open.
+
+
 ## P2 first-pass source triage within 412 HOLD — 2026-10-31
 
 - Freeze historical denominator 412 = P1 73 + P2 28 + P3 216 + P4 95 (no re-ranking, no C1 admission).
