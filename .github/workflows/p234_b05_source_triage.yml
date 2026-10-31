@@ -1,0 +1,25 @@
+name: P2-P4 B05 source triage integrity
+
+on:
+  pull_request:
+    paths:
+      - "docs/audits/2026-10-31_p234_b05_*"
+      - "docs/audits/2026-10-31_p34_b05_*"
+      - "inputs/source_review_20261031/p234_b05_*"
+      - "scripts/build_p234_source_triage_b05.py"
+      - "tests/test_p234_source_triage_b05.py"
+      - ".github/workflows/p234_b05_source_triage.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check immutable 339-source ID map and derived files
+        run: python scripts/build_p234_source_triage_b05.py --check
+      - name: Test separate C0 source freeze candidate and C1 gate
+        run: python -m unittest discover -s tests -p test_p234_source_triage_b05.py -v
