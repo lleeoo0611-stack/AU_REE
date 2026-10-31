@@ -6,8 +6,32 @@
   "unique_ids": 109,
   "new_document_register_unique_names": 31,
   "new_document_target_rows": 39,
-  "documented_parent_source_rows": 22,
-  "scope_or_tenement_holds": 8,
+  "documented_parent_source_rows": 20,
+  "scope_or_tenement_holds": 10,
+  "spatial_identity_conflicts_withheld": 2,
+  "same_state_name_rows": 44,
+  "same_state_name_coordinate_comparable_rows": 42,
+  "same_name_near_1km_rows": 38,
+  "same_name_over_10km_identity_conflicts": [
+    {
+      "target_id": "E1:C-99a85888b57ff255bf8513",
+      "state": "WA",
+      "source_name": "Ambergate",
+      "nearest_source_distance_km": 38.738,
+      "other_source_target_ids": [
+        "E1:C-cb163a795ad29342b05fd6"
+      ]
+    },
+    {
+      "target_id": "E1:C-cb163a795ad29342b05fd6",
+      "state": "WA",
+      "source_name": "Ambergate",
+      "nearest_source_distance_km": 38.738,
+      "other_source_target_ids": [
+        "E1:C-99a85888b57ff255bf8513"
+      ]
+    }
+  ],
   "independent_deposit_document_no_parent": 9,
   "without_new_external_document": 70,
   "project_ID_signoffs": 0,
@@ -37,10 +61,11 @@
     "INDEPENDENT_DEPOSIT_DOCUMENT_NO_PROJECT_PARENT": 9,
     "SCOPE_OR_TENEMENT_ONLY_HOLD": 8,
     "NATIVE_TAS_GEOLOGICAL_RECORD_ONLY": 5,
-    "DOCUMENTED_HISTORICAL_PARENT_CANDIDATE": 9,
+    "DOCUMENTED_HISTORICAL_PARENT_CANDIDATE": 7,
     "NATIVE_REE_DEPOSIT_WITHOUT_PROJECT_EVIDENCE": 8,
     "NATIVE_CLAY_REE_DEPOSIT_WITHOUT_PROJECT_EVIDENCE": 1,
-    "NATIVE_QLD_GEOLOGICAL_RECORD_ONLY": 8
+    "NATIVE_QLD_GEOLOGICAL_RECORD_ONLY": 8,
+    "SPATIAL_IDENTITY_CONFLICT_PARENT_WITHHELD": 2
   },
   "external_claim_type_counts": {
     "NO_ADDITIONAL_EXTERNAL_PROJECT_DOCUMENT": 70,
