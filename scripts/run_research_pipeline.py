@@ -22,10 +22,15 @@ def read_manifest():
         raise ValueError("unknown pipeline manifest version")
     return data
 
-def new_source_events(path):
+def new_source_events(path,decision_path):
+    """Count unreviewed source events, not all historical events in the ledger."""
     with path.open(encoding="utf-8-sig",newline="") as f:
         records=list(csv.DictReader(f))
-    return len(records)
+    with decision_path.open(encoding="utf-8-sig",newline="") as f:
+        decisions=list(csv.DictReader(f))
+    reviewed={d["event_id"] for d in decisions if d["review_status"] in
+              {"SOURCE_SCOPE_REVIEWED","HOLD_UNRESOLVED"}}
+    return sum(r["event_id"] not in reviewed for r in records)
 
 def build_plan(profile="all",mode="check",*,root=None,manifest=None):
     """Return deterministic child commands for inspection and regression tests."""
@@ -38,7 +43,7 @@ def build_plan(profile="all",mode="check",*,root=None,manifest=None):
         stage=cfg["stages"][stage_name]
         if stage_name=="p234_event_router":
             source=root/stage["trigger_input"]
-            events=new_source_events(source)
+            events=new_source_events(source,root/stage["review_decisions_input"])
             if events==0:
                 planned.append({"name":stage_name,"action":"SKIP_NO_NEW_EVIDENCE",
                                 "event_count":0,"command":[]})
