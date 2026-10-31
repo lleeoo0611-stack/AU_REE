@@ -1,0 +1,25 @@
+name: P0 P1 48 parents source deduplication
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_p0_p1_48_dedupe.py'
+      - 'tests/test_p0_p1_48_dedupe.py'
+      - 'inputs/source_review_20261031/p1_48_*.csv'
+      - 'docs/audits/2026-10-31_p1_48_*.csv'
+      - 'docs/audits/2026-10-31_p1_25_*.csv'
+      - 'docs/audits/2026-10-31_p1_48_*.json'
+      - '.github/workflows/p0-p1-48-dedupe-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dedupe-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python scripts/audit_p0_p1_48_dedupe.py --check
+      - run: python -m unittest discover -s tests -p test_p0_p1_48_dedupe.py -v
