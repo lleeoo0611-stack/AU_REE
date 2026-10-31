@@ -112,9 +112,15 @@ flowchart TB
 
 ### P0 P1 — 48 筆具名母層去重與 REE 資源範圍（2026-10-31）
 
-在 [73 筆 P1 查核](docs/audits/2026-10-31_p1_parent_identity_report.md) 中固定 **48 筆 Project 母層候選**，產生 **39 個來源名稱鍵、25 個暫定 Project 母層群組**，保留原始 target/source ID 與 SHA；跨專案、跨礦床的資源不重複計數；Aileron 2026 年 Nb₂O₅ 資源更新與 2025 年 TREO 品位分別保存，禁止自動跨年混用。**5 組**有 TREO 數值主張、**2 組**有 REE 產品證據但 HM 與 REO 基準須拆分、**1 組**只有 REE 探勘交集，另 **17 組**維持 REE 資源待查。已完成來源座標分散度 QA，官方 Project／Tenement polygon 交集與 C1 核准仍待執行。
+在 [73 筆 P1 查核](docs/audits/2026-10-31_p1_parent_identity_report.md) 中固定 **48 筆 Project 母層候選**，產生 **39 個來源名稱鍵、25 個暫定 Project 母層群組**，保留原始 target/source ID 與 SHA；跨專案、跨礦床的資源不重複計數；Aileron 2026 年 Nb₂O₅ 資源更新與 2025 年 TREO 品位分別保存，禁止自動跨年混用。**5 組**有 TREO 數值主張、**2 組**有 REE 產品證據但 HM 與 REO 基準須拆分、**1 組**只有 REE 探勘交集，另 **17 組**維持 REE 資源待查。已完成來源座標分散度 QA，既有官方 Tenement polygon 點位交集已可查，正式 Project 開發範圍與 C1 核准仍待執行。
 
 [逐群組報告](docs/audits/2026-10-31_p1_48_dedupe_report.md) · [48 筆 source crosswalk](docs/audits/2026-10-31_p1_48_source_parent_crosswalk.csv) · [25 組去重總表](docs/audits/2026-10-31_p1_25_provisional_parent_groups.csv) · [14 筆資源基準](docs/audits/2026-10-31_p1_48_resource_basis_review.csv) · [審核腳本](scripts/audit_p0_p1_48_dedupe.py) · [統計 JSON](docs/audits/2026-10-31_p1_48_dedupe_summary.json)。
+
+### P0 P1 — 73 筆完整文件判讀與官方礦權對照（2026-10-31）
+
+將 73 個原始來源 ID 整理為 **44 個證據案例**（25 個父層候選、19 個身分或 WAMEX 案例），全部有文件主張／查無支持的範圍與下一步。結果：22 筆來源有特定 Project 或資源文字證據、39 筆僅支持非 REE 產品／地質／歷史背景、2 筆明確不可繼承 REE MRE、4 筆身分衝突、5 筆 WAMEX 待官方原件、1 筆僅有目錄。重用官方 487 Tenement spatial snapshot 發現 **60/73** 筆有礦權圖層交集，**20 筆**與文件礦權號碼一致；**Project 開發 footprint 與正式 C1 仍待獨立核准**。
+
+[完整 44 案例報告](docs/audits/2026-10-31_p1_73_resolution_report.md) · [73 筆來源判讀 CSV](docs/audits/2026-10-31_p1_73_source_resolution.csv) · [44 案例決策 CSV](docs/audits/2026-10-31_p1_44_case_resolution.csv) · [73 筆官方礦權對照](docs/audits/2026-10-31_p1_73_tenure_reconciliation.csv) · [再生腳本](scripts/audit_p0_p1_73_resolution.py)／[礦權比對腳本](scripts/audit_p0_p1_73_tenure.py)。
 
 ## 專案結構
 

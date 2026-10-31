@@ -1,0 +1,43 @@
+{
+  "audit_date": "2026-10-31",
+  "source_snapshot_as_of": "2026-10-29",
+  "source_rows": 73,
+  "official_intersection_rows": 204,
+  "official_tenure_query_status_counts": {
+    "NO_OVERLAP_IN_QUERIED_LAYERS": 11,
+    "OFFICIAL_TENEMENT_LAYER_NOT_VERIFIED": 2,
+    "TENURE_INTERSECTS_PENDING_COMPANY_VERIFICATION": 60
+  },
+  "documented_title_comparison_counts": {
+    "DOCUMENTED_TENEMENT_NUMBER_INTERSECTS_SOURCE_POINT": 20,
+    "DOCUMENTED_TITLE_DIFFERS_FROM_INTERSECTED_TITLES": 4,
+    "DOCUMENTED_TITLE_NOT_FOUND_IN_QUERIED_CURRENT_LAYERS": 5,
+    "NO_CASE_LEVEL_DOCUMENTED_TENEMENT_FOR_MATCH": 42,
+    "OFFICIAL_TENURE_LAYER_UNVERIFIED": 2
+  },
+  "case_level_reported_tenement_numbers": 18,
+  "rows_with_exact_documented_title_number_overlap": 20,
+  "distinct_cases_with_exact_title_overlap": [
+    "P1G-0007",
+    "P1G-0010",
+    "P1G-0015",
+    "P1G-0017",
+    "P1G-0019",
+    "P1G-0021",
+    "P1G-0023",
+    "P1G-0024",
+    "P1X-0010",
+    "P1X-0011",
+    "P1X-0013",
+    "P1X-0018"
+  ],
+  "official_project_polygon_intersection_performed": 0,
+  "C1_approvals": 0,
+  "input_sources": [
+    "docs/audits/2026-10-31_p1_73_source_resolution.csv",
+    "outputs/487_official_tenure_trace_status.csv",
+    "outputs/487_official_tenure_intersection_evidence_compact.csv",
+    "inputs/source_review_20261031/p1_73_documented_tenement_numbers.csv"
+  ],
+  "interpretation": "Official tenement overlap does not establish legal Project boundary or REE resource eligibility. No-overlap in snapshot is not proof historic title absent; records retain as-of source vintage."
+}

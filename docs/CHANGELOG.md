@@ -1,5 +1,14 @@
 # Change log
 
+## P0 P1: complete 73 target documentary audit and frozen 487 official-tenure reuse — 2026-10-31
+
+- Audited all **73 P1 source IDs** into 44 distinct documented cases (25 proposed parents + 19 scope/index cases): 22 source rows with project/resource textual leads, 39 sources with only historical/geological/HM or non-REE product proof, 2 Benmara South scope exclusions, 4 sources with identity conflict, 5 indexed WAMEX report sources (four unique report IDs incl. Tutunup West A109188) lacking archived government PDF bytes, 1 catalogue-only source.
+- Added 12 scoped resource claims (Y₂O₃ Korella version conflict, V₂O₅ Benmara South vs excluded Barkly TREO, Nowie THM, etc.) without modifying prior 14 resource entries.
+- Reused **official polygon intersection inventory** from nationwide 487 targets: 73 P1 sources yield **204 official tenure intersection records**, 60 source rows with at least one tenure overlap, 11 with none in queried layers, 2 without verified official state layer. In 18 document-title cases, 20 source rows in 12 cases match documented tenement numbers.
+- Distinguish tenement overlap from mining Project development footprints; flag Ambergate E70/4799 vs observed E70/4793, Jurien M70/436 within named M70/434–436, expired historic WAMEX titles and Wingellina SA cross-border.
+- Reproducible standard-library Python, CSV and JSON source/tenure reconciliation, regression tests and README indexes. Formal Project/JORC/GIS Project footprint/C1 admissions remain 0.
+
+
 ## P0 P1: provisional 48-source / 25-parent identity and resource-basis review — 2026-10-31
 
 - Freeze 48 named source candidates from prior 73-row P1 scope; publish 39 distinct state/name site keys and 25 pinned provisional parent review groups. Preserve all native target IDs, coordinates and source hashes; never create formal project_master IDs by name.

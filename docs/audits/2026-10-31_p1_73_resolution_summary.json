@@ -1,0 +1,52 @@
+{
+  "review_date": "2026-10-31",
+  "frozen_source_as_of": "2026-10-29",
+  "source_rows_reviewed": 73,
+  "source_id_count_unique": 73,
+  "case_count": 44,
+  "prior_provisional_parent_cases": 25,
+  "source_identity_or_index_cases": 19,
+  "source_count_by_category": {
+    "IDENTITY_SCOPE_HOLD": 21,
+    "INDEX_PRIMARY_PENDING": 4,
+    "PARENT_CANDIDATE": 48
+  },
+  "case_documentary_dispositions": {
+    "CATALOGUE_CONTEXT_ONLY__PRIMARY_MISSING": 1,
+    "DOCUMENTARY_CLAIM_EVIDENCED__GIS_AND_APPROVAL_PENDING": 13,
+    "IDENTITY_CONFLICT_DOCUMENTED__NO_AUTOMERGE": 2,
+    "ORIGINAL_TECHNICAL_SOURCE_REJECTS_REE_MRE_INHERITANCE": 1,
+    "REPORT_INDEX_FOUND__OFFICIAL_PDF_NOT_RETRIEVED": 4,
+    "SOURCE_REVIEWED__NO_REE_PRODUCT_PROOF_IN_SOURCES": 23
+  },
+  "source_documentary_dispositions": {
+    "CATALOGUE_CONTEXT_ONLY__PRIMARY_MISSING": 1,
+    "DOCUMENTARY_CLAIM_EVIDENCED__GIS_AND_APPROVAL_PENDING": 22,
+    "IDENTITY_CONFLICT_DOCUMENTED__NO_AUTOMERGE": 4,
+    "ORIGINAL_TECHNICAL_SOURCE_REJECTS_REE_MRE_INHERITANCE": 2,
+    "REPORT_INDEX_FOUND__OFFICIAL_PDF_NOT_RETRIEVED": 5,
+    "SOURCE_REVIEWED__NO_REE_PRODUCT_PROOF_IN_SOURCES": 39
+  },
+  "additional_resource_statements": 12,
+  "additional_resource_basis_counts": {
+    "HM": 5,
+    "ORE_TONNAGE": 2,
+    "THM": 1,
+    "TREO": 1,
+    "V2O5": 1,
+    "Y2O3": 2
+  },
+  "independently_approved_project_identity": 0,
+  "independently_approved_TREO_JORC": 0,
+  "official_polygon_source_row_intersections_tested": 0,
+  "C1_admissions": 0,
+  "external_WAMEX_government_report_bytes_retrieved": 0,
+  "inputs": [
+    "docs/audits/2026-10-31_p1_parent_identity_review.csv",
+    "docs/audits/2026-10-31_census_487_batch_review.csv",
+    "docs/audits/2026-10-31_p1_25_provisional_parent_groups.csv",
+    "inputs/source_review_20261031/p1_73_resolution_evidence_cases.csv",
+    "inputs/source_review_20261031/p1_73_new_resource_claims.csv"
+  ],
+  "interpretation": "Every case has a source-specific documentary decision. It does not prove exhaustive web absence, historical Project geometry, or MCDA admission; four WAMEX indexed original reports (A119194 A120393 A129842 A109188) need original government PDF bytes and project footprint validation."
+}

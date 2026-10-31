@@ -1,0 +1,19 @@
+case_id,source_state,documented_tenement_numbers,tenement_time_context,evidence_url,source_locator_and_limitation
+P1G-0004,NT,EL24328,HISTORICAL,https://geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/89265,"2012 GEMIS Tiwi EL24328; historical tenure, not current polygon"
+P1G-0007,VIC,RL2026,CURRENT_2026,https://resources.vic.gov.au/landholders-and-community/key-site-updates/fingerboards-mineral-sands-project,2026 revised Fingerboards RL2026; not original Glenaladale whole deposit
+P1G-0010,WA,E80/5469,CURRENT_2026,https://www.marketindex.com.au/asx/enr/announcements/aileron-resources-grow-by-over-50-to-120mt-6A1321405,Aileron Green/Emily Resource located E80/5469; other Aileron leases possible
+P1G-0017,WA,M70/434|M70/435|M70/436,HISTORICAL_GROUP,https://geothought.nlp-tlp.org/wamex/A118831,Jurien historic combined reporting C198/1994 includes M70/434/435/436
+P1G-0019,WA,E63/1564|E63/2112,CURRENT_2026,https://company-announcements.afr.com/asx/mrd/d109804f-17c0-11ef-88a0-8e4399f1c3fc.pdf,"Mount Ridley Mia Table 4 E63/1564, E63/2112; deposit footprint figure"
+P1G-0021,WA,E37/1311,CURRENT_2026,https://www.marqueeresources.com.au/redlings-rare-earths-project,Redlings issuer exploration project E37/1311; six native source features
+P1G-0023,WA,E09/2357,CURRENT_2026,https://announcements.asx.com.au/asxpdf/20221121/pdf/45ht5fzls7pc7t.pdf,Original Tower JORC 21 Nov 2022 states Tower lies within E09/2357
+P1X-0004,NT,EL6836,HISTORICAL,https://geoscience.nt.gov.au/gemis/ntgsjspui/handle/1/71979,1991 Benmara South EL6836; 2023 Barkly rights may not be same tenure
+P1X-0008,WA,E70/4799,HISTORICAL,https://www.asx.com.au/asxpdf/20170130/pdf/43flm3q4b7bcnb.pdf,2017 Ambergate ASX E70/4799; native site points 38.738 km apart
+P1X-0009,WA,E70/467,HISTORICAL,https://geothought.nlp-tlp.org/wamex/A37443,WAMEX A37443 Bullant-Karridale historically E70/467
+P1X-0012,WA,M70/562,HISTORICAL,https://geothought.nlp-tlp.org/wamex/A120393,2019 Hassell Beach M70/562; no current title overlap should not erase historic record
+P1X-0013,WA,M70/599|M70/600|M70/601|M70/602|M70/603,HISTORICAL_GROUP,https://geothought.nlp-tlp.org/wamex/A119194,2019 Hopelands East group covers M70/599–603; note source overlap current only M70/603
+P1X-0019,WA,E70/5471,HISTORICAL_SURRENDERED,https://geothought.nlp-tlp.org/wamex/A129842,2022 Witchcliffe E70/5471 surrendered; no current tenure overlap is consistent
+P1G-0015,WA,R70/53,HISTORICAL_2022,https://announcements.asx.com.au/asxpdf/20220919/pdf/45f7jqr22hnm1r.pdf,Governor Broome West deposit 2022 issuer JORC within R70/53
+P1X-0010,WA,M70/895,HISTORICAL_2000,https://www.epa.wa.gov.au/sites/default/files/PER_documentation/A1259_R1185_CER.pdf,Gwindinup mining EPA CER 2000 names four leases incl M70/895 (north review)
+P1X-0011,WA,M70/899,HISTORICAL_2000,https://www.epa.wa.gov.au/sites/default/files/PER_documentation/A1259_R1185_CER.pdf,Gwindinup mining EPA CER 2000 names four leases incl M70/899 (south review)
+P1X-0018,WA,M70/1108,HISTORICAL_2016,https://www.nextmaps.com.au/explorers/cristal-mining-australia,WAMEX A109188 Tutunup West Project M70/1108 2016; distinct from Iluka Tutunup Project
+P1G-0024,WA,M70/1400,CURRENT_PROJECT_2021,https://www.der.wa.gov.au/images/L9342_Att8C-504-557.pdf,Doral Yalyalup works approval introduction identifies M70/1400 ore deposit

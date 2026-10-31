@@ -66,6 +66,18 @@
 | [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
 | [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
 
+### P0 P1：73 筆完整文件判讀與既有 Tenement Polygon 疊合審計
+
+| 文件 | 用途 |
+| --- | --- |
+| [完整 44 案例與 73 筆 P1 報告](audits/2026-10-31_p1_73_resolution_report.md) | 來源判讀、REE／HM／Y₂O₃ 資源分層、原始 PDF 取得及正式 Project 範圍狀態 |
+| [73 筆來源核查 CSV](audits/2026-10-31_p1_73_source_resolution.csv) | 來源 ID／SHA／證據主張／核准 Gate／下一步 |
+| [44 個證據案例](audits/2026-10-31_p1_44_case_resolution.csv) | 逐案例文件發現與同名來源對照、缺失或衝突 |
+| [73 筆官方礦權交集複核](audits/2026-10-31_p1_73_tenure_reconciliation.csv) | 60 source overlaps、204 筆官方礦權交集、20 筆文件號碼精確匹配 |
+| [歷史礦權號碼證據輸入](../inputs/source_review_20261031/p1_73_documented_tenement_numbers.csv) | 13 個案例的文獻礦權與有效時間，區分目前快照和歷史紀錄 |
+| [12 筆新增資源主張](../inputs/source_review_20261031/p1_73_new_resource_claims.csv) | Korella Y₂O₃、Benmara V₂O₅、Nowie THM、Hassell HM 等，與前期資源聲明分開 |
+| [可重跑腳本](../scripts/audit_p0_p1_73_resolution.py)／[官方 Tenement 比對](../scripts/audit_p0_p1_73_tenure.py) | 嚴守 C0/C1 Gate、維持 source snapshot 身分 |
+
 ### P0 P1：48 筆具名母層去重、REE resource 與空間 QA
 
 | 文件 | 用途 |
@@ -73,7 +85,7 @@
 | [48→25 去重與資料檢核報告](audits/2026-10-31_p1_48_dedupe_report.md) | 25 個候選母層、REE vs HM 基準、dated/undated 資源與 geometry 審查狀態 |
 | [48 筆來源母層關聯](audits/2026-10-31_p1_48_source_parent_crosswalk.csv) | 原始 target ID／source ID／SHA、來源座標、審查群組與去重判斷 |
 | [25 組母層總表](audits/2026-10-31_p1_25_provisional_parent_groups.csv) | 暫定 group key、source IDs、空間距離、Project 角色與下一步 |
-| [12 筆資源聲明及 cut-off 核查](audits/2026-10-31_p1_48_resource_basis_review.csv) | TREO／HM、同一 JORC 子集合、Total/分項、不同日期版本的數值比對 |
+| [14 筆資源聲明及 cut-off 核查](audits/2026-10-31_p1_48_resource_basis_review.csv) | TREO／HM、同一 JORC 子集合、Total/分項、不同日期版本的數值比對 |
 | [固定群組／資源輸入](../inputs/source_review_20261031/p1_48_parent_group_evidence.csv) | 25 個固定候選母層名稱與原始證據 |
 | [可重跑 Python 與 QA 測試](../scripts/audit_p0_p1_48_dedupe.py) | 不自動升格 Project/MCDA 的來源分組與統計 |
 

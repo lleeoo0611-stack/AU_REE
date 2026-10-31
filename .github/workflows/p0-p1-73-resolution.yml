@@ -1,0 +1,30 @@
+name: P0 P1 73 evidence resolution
+on:
+  pull_request:
+    paths:
+      - scripts/audit_p0_p1_73_resolution.py
+      - scripts/audit_p0_p1_73_tenure.py
+      - tests/test_p0_p1_73_tenure.py
+      - inputs/source_review_20261031/p1_73_documented_tenement_numbers.csv
+      - tests/test_p0_p1_73_resolution.py
+      - inputs/source_review_20261031/p1_73_*.csv
+      - docs/audits/2026-10-31_p1_73_*.csv
+      - docs/audits/2026-10-31_p1_44_*.csv
+      - docs/audits/2026-10-31_p1_73_*.json
+      - .github/workflows/p0-p1-73-resolution.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  resolution-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python scripts/audit_p0_p1_73_resolution.py --check
+      - run: python -m unittest discover -s tests -p test_p0_p1_73_resolution.py -v
+      - run: python scripts/audit_p0_p1_73_tenure.py --check
+      - run: python -m unittest discover -s tests -p test_p0_p1_73_tenure.py -v
