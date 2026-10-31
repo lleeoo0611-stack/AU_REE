@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — Source-original leads for unresolved Goschen/Bungalally statements
+
+- 在既有 `docs/audits/structural_round01/REPORT.md` 記錄 Goschen Central 2024-12-03 ACDC ASX JORC PDF 兩個替代原件連結，以及 620Mt@1% HM、190Mt@2% HM、584ppm in-situ TREO 對應表與尚未釐清的 2025 Scoping 表題差異。
+- 補入 WIM 2016 Company Update 中 Bungalally 205Mt @ 2.7% THM 原始公司佐證，保留現行網站 207Mt 的未勘誤衝突。
+- 原件仍須由既有封存機制取得、保存 SHA256 與完成 JORC／scope 審核；未產生核准、更改 `R01-GC-MRE` 或改動 39 個候選群組的正式 Gate。沒有建立新 CSV／腳本／平行 workflow。
+
 ## 2026-11-01 — Independent approved Project parent and current-byte evidence gate
 
 - `apply_identity_decisions` 先處理有獨立核准原件的 **Project parent**，再處理依其建立的 Deposit/Prospect/Occurrence 子實體連結；不讓 `candidate_id` 字典排序決定合法父子關係是否建立。

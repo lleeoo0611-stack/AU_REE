@@ -50,6 +50,11 @@
 
 上述六張關鍵資源表（Browns Range、Jupiter、Dubbo、Goschen Central、WIM100、Donald）另以本機 PDF 渲染檢查表頭、欄位與註解；有視覺問題或原件矛盾者未以文字擷取強制修正。
 
+### 2026-11-01 後續原始文件定位（未完成封存驗收）
+
+- **Goschen Central — 原 2024 MRE PDF 的替代存取位置：**找到 2024-12-03 ACDC Metals JORC 更新公告（ASX document 02889628）的[公開存取副本](https://www.aspecthuntley.com.au/asxdata/20241203/pdf/02889628.pdf)及[技術顧問網站副本](https://snowdenoptiro.com/wp-content/uploads/2025/01/ACDC-Metals-Announcements.pdf)。公告文字之 p1 Table 1 為 **620Mt（210Mt Indicated＋410Mt Inferred），1% THM cut-off**；p3 Table 2 報告全資源 **584ppm in-situ TREO**；p4 Table 3 同時報告 **1% cut-off 620Mt** 與 **2% cut-off 190Mt**，不是同一 cut-off 的兩個可加總資源。2025 Scoping Study p9 的「2023／2% HM」表題與 620Mt 註解尚需原始表引用／issuer clarification 對照，**不能因找到 2024 MRE 就直接視為原 2025 Scoping 表誤植已正式更正**。原原件 source ID `R01-GC-MRE` 的 URL／SHA 不覆寫；本次找到的是可重新取件的替代 URL。網路 PDF 文字可查，來源 bytes 未存入受控 archive、SHA-256 未獨立核對、視覺表格截圖亦未完成，因此其 Gate/Review 狀態保持原有 `BLOCKED_EVIDENCE`／`REVIEW_PENDING`。
+- **Bungalally — 歷史公司原件佐證：**WIM Resource 的[May 2016 Company Update](https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/GENERALCOMPANYUPDATEMAY2016.pdf) 封面及 p2 Table 1 均報告 **205Mt @ 2.7% THM**，並將 Avonbank、Wedderburn、Bungalally 列為三個不同的 JORC 2012 資源／Project。WIM 現行網站同時於 Overview/JORC 段落報告 205Mt、於 Resource Geology 段落報告 207Mt，**207Mt 的差異仍無正式勘誤證據**。2016 Company Update 不是 Bungalally 完整 JORC Table 1，更未證明完成 Scoping Study 或可比較 REO 基準；保留既有 JORC/ROLE/WINDOW 的 HOLD。新原件連結仍須封存 bytes/hash、核對原表格並審查，不能將文字檢索結果當作獨立簽核。
+
 ## 4. 擴展核查的成果與停止條件
 
 - **Donald：**取得 [31-Mar-2026 BFS](https://wcsecure.weblink.com.au/pdf/ATR/03073797.pdf)。實體 p35 Tables8-2/8-3 具 MIN5532 的 530Mt M/I/I、1% HM cut-off 及 REO-in-HM；p3 Figure1 區分 Phase1 MIN5532 與 Phase2 RL2002，p36 將 Jackson 別列。BFS 的 Q2-2026 FID 是目標，尚未證明 cutoff 狀態。
