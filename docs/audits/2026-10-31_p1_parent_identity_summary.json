@@ -1,0 +1,35 @@
+{
+  "audit_date": "2026-10-31",
+  "source_snapshot_as_of": "2026-10-29",
+  "source_baseline_commit": "54fc23d304d309dc8f4570b81584c8afe5f39d0d",
+  "cohort_original_hold": 412,
+  "p1_target_rows": 73,
+  "category_counts": {
+    "IDENTITY_SCOPE_HOLD": 21,
+    "PARENT_CANDIDATE": 48,
+    "INDEX_PRIMARY_PENDING": 4
+  },
+  "manual_evidence_review_rows": 25,
+  "manual_evidence_review_by_level": {
+    "FROZEN_NATIVE_SPATIAL_QA_REVIEWED": 2,
+    "GOVERNMENT_PRIMARY_WEB_TEXT_REVIEWED": 5,
+    "INDEPENDENT_HISTORICAL_REPORT_TEXT_REVIEWED": 3,
+    "ISSUER_PRIMARY_PDF_TEXT_REVIEWED": 2,
+    "ISSUER_PRIMARY_TEXT_REVIEWED": 2,
+    "ISSUER_PRIMARY_WEB_TEXT_REVIEWED": 6,
+    "OPERATOR_PRIMARY_WEB_TEXT_REVIEWED": 1,
+    "SECONDARY_REPORT_INDEX_READ_GOVERNMENT_ORIGINAL_PENDING": 4
+  },
+  "project_approval_count": 0,
+  "jorc_reo_approval_count": 0,
+  "c1_approval_count": 0,
+  "unique_source_target_ids": 73,
+  "source_inputs": [
+    "docs/audits/2026-10-31_census_487_batch_review.csv",
+    "docs/audits/2026-10-31_272_project_parent_evidence_queue.csv",
+    "docs/audits/2026-10-31_156_project_parent_evidence_review.csv",
+    "docs/audits/2026-10-31_109_project_evidence_review.csv",
+    "docs/audits/2026-10-31_70_project_evidence_review.csv"
+  ],
+  "manual_source_input": "inputs/source_review_20261031/p1_parent_identity_web_checks.csv"
+}

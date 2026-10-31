@@ -104,6 +104,12 @@ flowchart TB
 
 [70 筆逐列可編輯證據表](docs/audits/2026-10-31_70_project_evidence_review.csv) · [完整科學判讀報告](docs/audits/2026-10-31_70_project_parent_review_report.md) · [來源 SHA、結果與分布](docs/audits/2026-10-31_70_project_evidence_summary.json)。以 frozen GA/州政府 native source 回查，**34 筆新增外部文獻線索**：7 筆官方／公司歷史 Project parent 候選、4 筆歷史 WAMEX 報告索引候選、8 筆礦權／行政區／地理 scope HOLD、15 筆地質／非主要稀土證據；**36 筆**仍無新外部文獻。所有 **70 筆獨立 Project/JORC/C1 均未核准**。可重跑：[70-row 原始來源審查 Python](scripts/audit_p0_70_project_parents.py)。
 
+### P0 P1 — 73 筆母體 Project 身分優先查核（2026-10-31）
+
+從 412 筆 HOLD 以 frozen source target IDs 選出 **73 筆 P1**：48 筆具名或歷史 Project 父層候選、4 筆 WAMEX 報告索引、21 筆身分／tenement／州界範圍 HOLD。Ambergate 2 筆同名來源相距 38.738 km，已列身分 HOLD，禁止直接合併。本輪另新增 25 筆來源列的定向政府／發行人／獨立技術報告及 WAMEX 索引／原生空間 QA 查核，全部保留 C0，**Project/JORC/C1 正式核准維持 0**。
+
+[完整報告](docs/audits/2026-10-31_p1_parent_identity_report.md) · [73 筆可編輯 CSV](docs/audits/2026-10-31_p1_parent_identity_review.csv) · [25 筆逐列核查登錄](inputs/source_review_20261031/p1_parent_identity_web_checks.csv) · [統計 JSON](docs/audits/2026-10-31_p1_parent_identity_summary.json) · [可重跑腳本](scripts/audit_p0_p1_parent_identity.py)。
+
 ## 專案結構
 
 ```text
