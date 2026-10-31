@@ -205,3 +205,31 @@
 | Freeze and Gate | 前輪 ADR-P0-028 **仍為 PROPOSED**，119 份 C0 closure candidates 沒有任何人工簽核；C1 ID/ROLE/WINDOW/JORC/PANEL/GIS_RELEASE、資料庫核准和 MCDA 一律 HOLD。 |
 | Approval | **尚未核准**；需要原始法定礦權、Competent Person/JORC 表、官方 native feature／Project 範圍及審查簽名才可進入其他 Gate。 |
 
+
+
+## 2026-10-31 — ADR-P0-030: 雙層 C0 Source Freeze Rule（**ACCEPTED policy; per-source signoff pending**）
+
+| 欄位 | 決策 |
+| --- | --- |
+| Decision | 採用 F1 來源範圍結案 + F2 原生圖徵暫停搜尋的雙層 C0 規則；凍結的是**某日來源判讀/暫停取件工作**，不更改原始檔案或真實地質潛力 |
+| 前置草案 | `ADR-P0-028` 討論的 F2 方案被核定為正式政策；原決策歷史不刪改 |
+| Source snapshot | 2026-10-29 的 frozen source IDs 與 `selected_feature_sha256` 永久保留，不回寫舊 approval |
+| F1 | 只接受原件相關頁面有界的地質、歷史/非 REE 或跨範圍轉移不成立的判讀；證據定位、原始 SHA、審核人及重開條件必需 |
+| F2 | 只有 native-only source 可以申請；附明確、可重現的「負向查詢紀錄」，有尚待精確來源對應的新報告 locator 者不得暫停 |
+| Current inventory | F1 119 審核候選；F2 151 預審（其中 6 有未解 source locator）；實際 signed F1 0、F2 0 |
+| Governance | `config/c0_freeze_policy_v1.json`、`inputs/review_decisions/c0_source_freeze_signoffs_v1.csv`、[操作規範](C0_FREEZE_AND_C1_C2_POLICY.md)；未簽核者一律待審，不得宣稱完成 |
+| Reopen | 新官方原件/礦權/REE Resource/Project footprint/重要反證新增版本，舊資料不刪除 |
+| Cohort/MCDA | F1/F2 不修改 C1/C2、不產出 JORC 或 MCDA 主排名；研究 Aim A 資料查核與 Aim B/C 後續模型隔離 |
+
+## 2026-10-31 — ADR-P0-031: Strict C1, verified-identity C2 and changed research priority（**ACCEPTED cohort definition**）
+
+| 欄位 | 決策 |
+| --- | --- |
+| C1 | 限經獨立核准的澳洲 active pre-FID REE Project，必須通過 ID / ROLE / WINDOW / JORC / PANEL / GIS_RELEASE 六 Gate；同範圍稀土氧化物資源、原始經濟研究與截止日版本必須核准 |
+| C2 | 具**獨立 Project ID 與 REE 產品角色簽核**、但未滿足 C1 其他條件的 verified extended Project，僅供 coverage 與獨立探索性分析；不因名稱/來源圖徵/群組自動納入 |
+| C3 | 超出 2026-10-29 pre-FID 但有可核歷史時點者，另建歷史/事件研究；不能混入 C1 |
+| Panel | 六構面研究要求維持；9/12 準則仍是候選，尚待事前 selection decision，不能看排名後調整 |
+| Priority | **C1 主線，P2–P4 補查為支線**；先 7 個已有 Study 線索群組、8 個時窗待驗證群組，P1 13 source cases 維持獨立 identity crosswalk queue |
+| Current data state | 39 group reviews，28 初步 C2 身分審查候選（未准入），13 個 P1 正向 source-case 另列；**C1 0、C2 0 signed**，皆待獨立來源文件與審核 |
+| Inputs/outputs | [C1/C2 39 groups](audits/2026-10-31_c1_c2_project_review_39.csv)、[P1 crosswalk 13](audits/2026-10-31_c1_p1_positive_case_crosswalk_13.csv)、`config/cohort_c1_c2_policy_v1.json` |
+| QA | 可重跑 `python scripts/build_c0_freeze_c1_c2_v1.py --check`；任何後續 signed `C1_PASS` 先驗證 Project identity、當期 Study、REE JORC、approved panel 與 GIS 原件，否則程式阻止 |

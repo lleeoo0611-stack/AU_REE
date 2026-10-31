@@ -1,0 +1,44 @@
+{
+  "$schema_version": "1.0",
+  "policy_id": "C0_F1F2_COHORT_C1C2_V1_20261031",
+  "source_asof": "2026-10-29",
+  "decision_date": "2026-10-31",
+  "decision_status": "ACCEPTED_POLICY_ONLY",
+  "source_id_rule": "IMMUTABLE_TARGET_ID_SOURCE_SNAPSHOT",
+  "cohort_effect": "NONE",
+  "tiers": {
+    "F1": {
+      "candidate_label": "F1_SOURCE_SCOPE_EVIDENCE_REVIEW",
+      "accepted_close_label": "F1_SOURCE_SCOPE_FROZEN",
+      "evidence_depth_required": "ARCHIVED_RELEVANT_PAGES",
+      "accepted_bounded_decisions": [
+        "GEO_CONTEXT_ONLY",
+        "HISTORIC_NON_TARGET",
+        "SCOPE_TRANSFER_REJECTED"
+      ],
+      "require_human_reviewer": true,
+      "require_source_feature_sha256": true,
+      "require_relevant_original_pages": true,
+      "require_reopen_trigger": true
+    },
+    "F2": {
+      "candidate_label": "F2_NATIVE_SEARCH_PAUSE_CONSIDERATION",
+      "accepted_pause_label": "F2_NATIVE_SEARCH_PAUSED",
+      "evidence_depth_required": "NATIVE_FEATURE_ONLY",
+      "negative_search_log_token": "NEGATIVE_SOURCE_SEARCH_LOG",
+      "block_when_open_source_locator_lead": true,
+      "require_human_reviewer": true,
+      "require_source_feature_sha256": true,
+      "require_reopen_trigger": true
+    }
+  },
+  "approval_input": "inputs/review_decisions/c0_source_freeze_signoffs_v1.csv",
+  "reopen_policy": "ADD_DATE_VERSIONED_EVIDENCE_OVERLAY_NEVER_EDIT_FROZEN_BASELINE",
+  "forbidden_automatic_promotions": [
+    "SOURCE_IS_NOT_PROJECT",
+    "F1_OR_F2_NEVER_C1",
+    "NO_JORC_FROM_THM",
+    "NO_PROJECT_MERGE_BY_NAME",
+    "NO_NEGATIVE_GEOLOGY_INFERENCE_FROM_MISSING_REPORT"
+  ]
+}

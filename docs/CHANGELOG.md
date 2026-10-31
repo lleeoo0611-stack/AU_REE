@@ -1,5 +1,13 @@
 # Change log
 
+## Research P0 policy acceptance — C0 F1/F2 and strict C1/C2 cohort (2026-10-31)
+
+- User accepted two-tier C0 source freeze policy (bounded F1 source-scope closeout, F2 native-feature search pause with documented negative query and reopening); **no source frozen automatically**. Source audit 339 rows: 119 F1 approval candidates, 151 F2 precheck (6 existing locator leads cannot directly pause), the other 69 stay in evidence/identity/access review.
+- Add gate-ready **39 candidate Project group** rows (7 pre-FID Study screen; 8 dated stage check; 14 exploration/resource; 7 REE-role hold; 2 beyond pre-FID; 1 inactive) and **13 P1 positive source-case records** as a separate overlap-unverified queue; never count 52 unique Projects.
+- C1 requires independent ID/ROLE/WINDOW/JORC/PANEL/GIS_RELEASE; C2 requires independently signed Project ID and REE role, and must not mix with main C1 ranking. 28 Project groups are C2 identity **review candidates**, zero approved C1/C2. Existing 12- and 9-criterion panels not auto selected.
+- Add accepted config, decision inputs with no fake signatures, deterministic Python builder/checker, regression tests, GitHub Actions workflow, README and method documents. Preserve all 2026-10-29 immutable snapshots and v1 legacy analysis.
+
+
 ## P2–P4 B06 reason classification and source-scope consistency — 2026-10-31
 
 - After merging #45 → #46 → #47 into main, join all frozen 339 P2–P4 source IDs with **4 newly examined P2 public-primary references** (Arthur Popes, Blueys/Blues Folley, Bells Monazite, Elaine Dorothy). Preserve snapshot and original baseline statuses; public source text is not a PDF SHA/fulltext signoff.

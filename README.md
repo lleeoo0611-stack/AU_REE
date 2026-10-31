@@ -1,5 +1,10 @@
 # Australian REE — Project Database & MCDA
 
+## 已採納 C0 F1/F2 凍結政策及 C1/C2 研究母體 v1（2026-10-31）
+
+[正式政策與 Gate 說明](docs/C0_FREEZE_AND_C1_C2_POLICY.md) · [C0 339 筆凍結預審](docs/audits/2026-10-31_c0_freeze_review_339.csv) · [C1/C2 39 群組逐 Gate 審查](docs/audits/2026-10-31_c1_c2_project_review_39.csv) · [P1 13 案獨立來源清單](docs/audits/2026-10-31_c1_p1_positive_case_crosswalk_13.csv) · [統計 JSON](docs/audits/2026-10-31_c0_c1_c2_policy_summary.json)。**規則已核定、逐來源簽核尚未執行**：F1 結案候選 119、F2 原生來源暫停預審 151（其中 6 筆有已知新文件線索，不能直接暫停），F1/F2 實際簽核 0。嚴格 C1 六 Gate 全部必須經獨立核准，同一 Project 身分與 REE 產品角色核准才可作為 C2；目前 C1 0、C2 0。39 個群組中 7 個 Study 證據先審、8 個研究時窗再核；28 個有 C2 身分核查線索但不等於 C2 核准。P1 13 案可能與 39 群組重疊，不自動計作新 Project。**Aim A/C1 為主線，P2–P4 補查為支線**。歷史來源 2026-10-29 快照、現有 C1/P1 Gate、v1 MCDA 不改寫。
+
+
 ## P2–P4 Batch 06 — 339 筆阻礙原因分類與跨層技術補查（2026-10-31）
 
 [原因分類與實證核查報告](docs/audits/2026-10-31_p234_b06_reasons_and_followups_report.md) · [339 筆逐列原因 CSV](docs/audits/2026-10-31_p234_b06_reason_classification_339.csv) · [原因摘要 JSON](docs/audits/2026-10-31_p234_b06_reason_summary.json) · [4 筆 P2 官方原文](inputs/source_review_20261031/p234_b06_p2_public_primary_reviews.csv) · [8 筆相關但未核准相同來源的索引](inputs/source_review_20261031/p234_b06_related_locator_cases.csv)。PR #45／#46／#47 已先依序合併。新增 P2 Arthur Popes、Blues Folley、Bells Monazite、Elaine Dorothy 來源判讀：P2 公開文字有界複核 **20／28**、仍待技術原件 **8**；P3／P4 原生圖徵 87＋64 筆待補，維持 **100** 個共同取件單位；全部 **159 筆／108 工作單位**為技術原件優先佇列。原始證據八類原因與現況七類工作阻礙分開，特別修正 Elaine Dorothy P2 與 P3 對 2010 **83,000t @ 3,200ppm TREO** 歷史 JORC 記載的不一致，並隔離 Wolfram Hill Bell's Monazite／Cox Peninsula Bells Mona 同名誤認。P4 Spartacus、North Bleechmore Dykes、Skyfall 新定位證據尚待 exact native ID 相符，**不虛增完成原件數**。119 筆 C0 來源結案候選與 ADR-P0-028 凍結規則仍未核准；C1/JORC/GIS/MCDA 不更動。驗證：`python scripts/build_p234_reason_classification_b06.py --check`。

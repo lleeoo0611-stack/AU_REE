@@ -1,0 +1,45 @@
+{
+  "policy_version": "C0_F1F2_COHORT_C1C2_V1_20261031",
+  "snapshot_asof": "2026-10-29",
+  "C0_source_rows": 339,
+  "C0_priority_counts": {
+    "P2": 28,
+    "P3": 216,
+    "P4": 95
+  },
+  "C0_freeze_route_counts": {
+    "C0_ACCESS_HOLD": 1,
+    "C0_ACTIVE_PROJECT_GATE_REVIEW": 40,
+    "C0_IDENTITY_RECONCILIATION": 3,
+    "CONTINUE_EVIDENCE_REVIEW": 25,
+    "F1_SOURCE_SCOPE_EVIDENCE_REVIEW": 119,
+    "F2_NATIVE_SEARCH_PAUSE_CONSIDERATION": 151
+  },
+  "proposed_F1_candidates": 119,
+  "proposed_F2_native_search_pause_prechecks": 151,
+  "F2_with_b06_known_unresolved_locator_lead": 6,
+  "F2_without_b06_locator_lead_requiring_negative_search_log": 145,
+  "signed_F1_closures": 0,
+  "signed_F2_pauses": 0,
+  "project_review_group_count": 39,
+  "screening_class_counts": {
+    "ON_HOLD_ACTIVITY": 1,
+    "OUTSIDE_PRE_FID_CONFIRMED": 2,
+    "REE_ROLE_HOLD": 7,
+    "RESOURCE_EXPLORATION_NO_STUDY_CHECKED": 14,
+    "STUDY_DOCUMENTED_PRE_FID_SCREEN": 7,
+    "STUDY_WINDOW_RECHECK": 8
+  },
+  "preFID_study_documented_first_review_queue": 7,
+  "preFID_stage_recheck_queue": 8,
+  "C2_identity_review_candidates": 28,
+  "independently_confirmed_C2_project_ids": 0,
+  "approved_C2_cohort_projects": 0,
+  "approved_C1_cohort_projects": 0,
+  "P1_positive_source_case_records": 13,
+  "P1_distinct_project_additions_approved": 0,
+  "criteria_panel_selected": "NO",
+  "six_domain_C1_released": "NO",
+  "pipeline_policy_accepted": "YES_SOURCE_FREEZE_AND_STRICT_C1_C2_BOUNDARY",
+  "formal_per_source_freeze_signatures": "NONE"
+}

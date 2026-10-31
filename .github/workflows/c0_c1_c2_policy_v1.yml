@@ -1,0 +1,28 @@
+name: C0 F1-F2 freeze and C1-C2 strict cohort policy
+
+on:
+  pull_request:
+    paths:
+      - "config/c0_freeze_policy_v1.json"
+      - "config/cohort_c1_c2_policy_v1.json"
+      - "inputs/review_decisions/**"
+      - "docs/audits/2026-10-31_c0_*"
+      - "docs/audits/2026-10-31_c1_c2_*"
+      - "docs/audits/2026-10-31_c1_p1_positive_case_crosswalk_13.csv"
+      - "scripts/build_c0_freeze_c1_c2_v1.py"
+      - "tests/test_c0_freeze_c1_c2_v1.py"
+      - ".github/workflows/c0_c1_c2_policy_v1.yml"
+  workflow_dispatch:
+
+jobs:
+  cohort-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check generated source/cohort review ledgers
+        run: python scripts/build_c0_freeze_c1_c2_v1.py --check
+      - name: Gate rejection and source ID tests
+        run: python -m unittest discover -s tests -p test_c0_freeze_c1_c2_v1.py -v
