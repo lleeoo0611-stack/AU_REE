@@ -80,7 +80,8 @@ def build(root: Path = ROOT):
     new_leads = read(root, LEADS)
     assert len(original) == len(prior) == 487
     assert len(screenings) == 39 and len(past_p1) == 73
-    assert len(new_leads) == 7
+    # New source leads can be appended as review advances; counts are derived.
+    assert len(new_leads) >= 1
     full = one_to_one(original, "target_id")
     rounds = one_to_one(prior, "target_id")
     screened = one_to_one(screenings, "review_group_id")
