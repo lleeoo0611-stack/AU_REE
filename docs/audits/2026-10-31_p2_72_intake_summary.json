@@ -1,0 +1,50 @@
+{
+  "audit_date": "2026-10-31",
+  "frozen_as_of": "2026-10-29",
+  "scope": "487-census P2 source-review priority; not research P2/Aim B-C",
+  "original_census_rows": 487,
+  "p2_frozen_source_rows": 72,
+  "p2_distinct_review_case_keys": 47,
+  "p2_reviewed_group_cases": 22,
+  "p2_unlinked_source_cases": 25,
+  "prior_p1_73_exact_target_overlaps": 0,
+  "original_p2_action_counts": {
+    "CHECK_REE_RESOURCE_AND_COMPLETED_STUDY": 37,
+    "ESTABLISH_DISTINCT_PROJECT_IDENTITY_AND_SOURCE_LINK": 25,
+    "REVIEW_REE_ROLE_AND_INDEPENDENT_PROJECT_ID": 9,
+    "VERIFY_CURRENT_ACTIVE_STATUS": 1
+  },
+  "source_rows_with_new_document_context": 22,
+  "distinct_case_documentary_leads": 7,
+  "p2_case_documentary_leads": 7,
+  "document_progress_counts": {
+    "INHERITED_REVIEW_GROUP_DOCUMENT_CONTEXT__UNAPPROVED": 27,
+    "INHERITED_TRACE_OR_SOURCE_LEAD_ONLY": 23,
+    "NEW_ISSUER_OR_GOV_DOCUMENT_LOCATED__CASE_SCOPE_ONLY": 22
+  },
+  "c1_approved": 0,
+  "project_footprints_approved": 0,
+  "source_scope_review": "GROUP_DOCUMENT_CONTEXT_ONLY_NOT_POINT_TO_PROJECT_PROOF",
+  "stage_gate": "P2_INTAKE_COMPLETE_TARGETED_PRIMARY_LEADS_ADDED_NOT_CASE_CLOSED",
+  "inputs": [
+    "docs/audits/2026-10-31_census_487_batch_review.csv",
+    "docs/audits/2026-10-31_487_evidence_round2_review.csv",
+    "docs/audits/2026-10-31_project_source_screen_39.csv",
+    "docs/audits/2026-10-31_p0_p1_73_terminal_decisions.csv",
+    "inputs/source_review_20261031/p2_72_targeted_documentary_leads.csv"
+  ],
+  "outputs": [
+    "docs/audits/2026-10-31_p2_72_source_intake.csv",
+    "docs/audits/2026-10-31_p2_case_review_queue.csv",
+    "docs/audits/2026-10-31_p2_72_intake_summary.json"
+  ],
+  "warnings": [
+    "P2 here is a work queue, not the v2 research phase P2 Aim B/C.",
+    "Review group IDs and matching names do not constitute Project approvals.",
+    "Original Legacy source records may not have a 64-char native SHA; blanks are preserved.",
+    "A disclosed group Mineral Resource cannot be duplicated among multiple source rows.",
+    "TREOY and TREO are separate source-reported basis labels; nested grades cannot be summed.",
+    "Reports and company web URLs are source locators, not an independently archived original-file SHA.",
+    "No formal Project, JORC, GIS, C1 or MCDA rankings are released."
+  ]
+}
