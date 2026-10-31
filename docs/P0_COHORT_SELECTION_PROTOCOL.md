@@ -2,7 +2,11 @@
 
 **研究階段：**P0.1（Cohort 定義、資料覆蓋盤點與審查規則）  
 **基準來源截止日：**2026-10-29；**設計與盤點日：**2026-10-31。  
-**文件狀態：**`ADMISSION_RULES_PROPOSED / C1_LIST_NOT_FROZEN`。現行 v1 eligibility 和已封存的 G0/R1/S1/RS **完全不變**。對應 [研究總架構](RESEARCH_ARCHITECTURE.md) 與 [P0 資料盤點](audits/P0_C1_READINESS_2026-10-31.md)。
+**文件狀態：**`COHORT_BOUNDARIES_ACCEPTED / C1_LIST_NOT_FROZEN / PANEL_SELECTION_PENDING`。現行 v1 eligibility 和已封存的 G0/R1/S1/RS **完全不變**。對應 [研究總架構](RESEARCH_ARCHITECTURE.md) 與 [P0 資料盤點](audits/P0_C1_READINESS_2026-10-31.md)。
+
+## 2026-10-31 研究方法決策補註：C0 雙層凍結與 C1/C2 界線已採納
+
+依 [新規範](C0_FREEZE_AND_C1_C2_POLICY.md) 及 `ADR-P0-030/031`，C0 F1（來源有界結案）與 F2（原生來源暫停搜尋）、嚴格 C1 六 Gate、C2 僅獨立核准 Project ID+REE 產品角色之案例，均已採納為**研究流程規則**；沒有據此替任何特定 Source 或 Project 簽核。兩份研究母體候選表皆已建置，但 **C1=0、C2=0 正式核准**。本文件既有六 Gate 定義、9/12 Panel 候選及「沒有六域共同 Panel 不發布主要 MCDA」條件保持不變。
 
 ## 1. Project 定義與研究母體
 
