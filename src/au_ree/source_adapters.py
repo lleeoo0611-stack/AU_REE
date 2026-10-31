@@ -135,7 +135,19 @@ def load_arcgis(source,cache_root,offline=False,chunk_size=200):
     manifest={'source_key':source['key'],'url':url,'where':where,'source_type':'arcgis',
               'metadata_sha256':filehash(meta),'ids_sha256':filehash(idpath),
               'chunks':chunks,'records':len(features),'outSR':4326,'snapshot_format_version':2}
-    (root/'manifest.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding='utf8')
+    manifest_path=root/'manifest.json'
+    if manifest_path.exists():
+        frozen=json.loads(manifest_path.read_text(encoding='utf8'))
+        if canonical(frozen)!=canonical(manifest):
+            raise RuntimeError(
+                'Frozen ArcGIS snapshot content/contract changed; preserve original '
+                'and open a versioned snapshot instead: '+str(manifest_path)
+            )
+    else:
+        # Never rewrite the original manifest merely because the cache was
+        # replayed. Exact feature hashes bind the snapshot to its raw bytes.
+        with manifest_path.open('x',encoding='utf8') as target:
+            target.write(json.dumps(manifest,indent=2,ensure_ascii=False))
     return [parse_arcgis(f,source) for f in features],digest(manifest),root
 
 
