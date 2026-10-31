@@ -224,7 +224,7 @@ def run(db,ctx):
         for row in readcsv(reviews):
             pid=row.get('project_id');source=row.get('source_url','')
             if not pid or not db.execute('SELECT 1 FROM project_master WHERE project_id=?',(pid,)).fetchone():continue
-            if not(row.get('evidence_date') and row.get('evidence_date')<=ctx['criteria']['freeze_date'] and verify(db,row.get('approval_ref'),'PROJECT_REVIEW',source,row.get('source_sha256'))):
+            if not(row.get('evidence_date') and row.get('evidence_date')<=ctx['criteria']['freeze_date'] and verify(db,row.get('approval_ref'),'PROJECT_REVIEW',source,row.get('source_sha256'),root=ctx['root'])):
                 event(db,'population',pid,'REVIEW_REJECTED','Missing verifiable source URL/date/hash');continue
             fields={k:row.get(k) for k in ('activity','lifecycle','ree_role','deposit_family') if row.get(k)}
             if fields:
