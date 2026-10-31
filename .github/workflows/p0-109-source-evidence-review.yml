@@ -1,0 +1,34 @@
+name: P0 109 source evidence review
+on:
+  push:
+    branches:
+      - research/p0-109-evidence-audit-20261031
+    paths:
+      - scripts/audit_p0_109_project_parents.py
+      - tests/test_p0_109_project_parents.py
+      - inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv
+      - .github/workflows/p0-109-source-evidence-review.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  evidence-109:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Build all 109 source-specific evidence records
+        run: python scripts/audit_p0_109_project_parents.py
+      - name: Verify original provenance, evidence and C1 non-approval
+        run: python -m unittest discover -s tests -p test_p0_109_project_parents.py -v
+      - name: Commit editable audit and SHA manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audits/2026-10-31_109_project_evidence_review.csv docs/audits/2026-10-31_109_project_evidence_gaps.csv docs/audits/2026-10-31_109_project_evidence_summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p0): publish full 109 evidence and parent-scope review [skip ci]"
+            git push origin HEAD:research/p0-109-evidence-audit-20261031
+          fi
