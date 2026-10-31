@@ -196,3 +196,48 @@ def test_frozen_487_sqlite_rebuild_preserves_source_entity_identity(tmp_path):
     assert manifest["census_relation_check"]["unique_native_source_entities"]==451
     assert manifest["census_relation_check"]["repeated_targets_on_same_native_entity"]==36
     assert manifest["census_relation_check"]["status"]=="CENSUS_RELATIONS_STRUCTURALLY_VERIFIED_NOT_PROJECT_APPROVED"
+
+
+def test_csv_sqlite_overwrite_preserves_prior_release_on_failure(tmp_path):
+    """A failed SQLite build may not destroy a previous verified census release."""
+    from unittest.mock import patch
+    from reproducibility.build_census_database import csv_build
+    source=tmp_path/"inputs"
+    source.mkdir()
+    (source/"test.csv").write_text("key,value\nA,one\n",encoding="utf-8")
+    database=tmp_path/"census.sqlite"
+    previous=b"PREVIOUS_CENSUS_DATABASE"
+    database.write_bytes(previous)
+    meta=tmp_path/"census.sqlite.manifest.json"
+    meta.write_text('{"original":"retained"}\n',encoding="utf-8")
+    prior_manifest=meta.read_bytes()
+
+    with patch("reproducibility.build_census_database.sqlite3.connect",
+               side_effect=sqlite3.OperationalError("simulated build failure")):
+        with pytest.raises(sqlite3.OperationalError, match="simulated build failure"):
+            csv_build(SimpleNamespace(csv_dir=source,output=database,
+                                      as_of_date="2026-10-29",overwrite=True))
+    assert database.read_bytes()==previous
+    assert meta.read_bytes()==prior_manifest
+    assert not list(tmp_path.glob(".census.sqlite.*"))
+
+
+def test_csv_sqlite_overwrite_publishes_complete_validated_release(tmp_path):
+    from hashlib import sha256
+    from reproducibility.build_census_database import csv_build
+    source=tmp_path/"inputs"
+    source.mkdir()
+    (source/"test.csv").write_text("key,value\nA,one\n",encoding="utf-8")
+    database=tmp_path/"census.sqlite"
+    database.write_bytes(b"OLD_RELEASE")
+    manifest=tmp_path/"census.sqlite.manifest.json"
+    manifest.write_text('{"old":true}\n',encoding="utf-8")
+    csv_build(SimpleNamespace(csv_dir=source,output=database,
+                              as_of_date="2026-10-29",overwrite=True))
+    with sqlite3.connect(database) as db:
+        assert db.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
+        assert db.execute('SELECT key,value FROM test').fetchall()==[("A","one")]
+    report=json.loads(manifest.read_text(encoding="utf-8"))
+    assert report["database_sha256"]==sha256(database.read_bytes()).hexdigest()
+    assert report["census_relation_check"]["status"]=="NOT_A_CENSUS_REVIEW_BUILD"
+    assert not list(tmp_path.glob(".census.sqlite.*"))

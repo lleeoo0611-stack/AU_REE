@@ -1,9 +1,12 @@
 """Scientific evidence boundaries and reproducibility, not inferred approvals."""
 import copy
 import csv
+import hashlib
 import io
 import json
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 from scripts import build_structural_round01 as m
 
@@ -98,6 +101,63 @@ class StructuralRound01Test(unittest.TestCase):
         with patch.object(m, 'read_csv', return_value=[]):
             with self.assertRaisesRegex(ValueError, '39 frozen'):
                 m.build()
+
+
+    def test_original_cache_contract_and_missing_bytes_fail_closed(self):
+        """An evidence hash without the corresponding immutable bytes is not a verified original."""
+        from scripts import acquire_structural_round01 as acquire
+        item={
+            'source_id':'R01-SYNTHETIC',
+            'url':'https://example.gov.au/original.pdf',
+            'format':'pdf',
+            'publication_date':'2026-10-01',
+            'review_group_ids':['PRJ-SYNTHETIC'],
+        }
+        raw=b'%PDF synthetic fixture bytes only'
+        with tempfile.TemporaryDirectory() as temporary:
+            archive=Path(temporary)/'originals'
+            archive.mkdir()
+            orig=archive/'R01-SYNTHETIC.bin'
+            metadata=archive/'R01-SYNTHETIC.json'
+            orig.write_bytes(raw)
+            record={
+                **item,
+                'access_status':'ORIGINAL_BYTES_LOCAL',
+                'sha256':hashlib.sha256(raw).hexdigest(),
+                'byte_count':len(raw),
+            }
+            metadata.write_text(json.dumps(record),encoding='utf-8')
+            with patch.object(acquire,'ARCHIVE',archive):
+                self.assertEqual(acquire.fetch(item)['sha256'],record['sha256'])
+                altered={**item,'url':'https://example.gov.au/revised.pdf'}
+                with self.assertRaisesRegex(ValueError,'source contract changed'):
+                    acquire.fetch(altered)
+                orig.unlink()
+                with self.assertRaisesRegex(FileNotFoundError,'archived original missing'):
+                    acquire.fetch(item)
+                orig.write_bytes(b'not the original data')
+                with self.assertRaisesRegex(ValueError,'archived bytes/hash/size changed'):
+                    acquire.fetch(item)
+                metadata.unlink()
+                with self.assertRaisesRegex(FileExistsError,'lacks manifest'):
+                    acquire.fetch(item)
+
+    def test_access_holds_remain_holds_without_retrieval(self):
+        from scripts import acquire_structural_round01 as acquire
+        item={
+            'source_id':'R01-MISSING-SYNTHETIC',
+            'url':'https://example.gov.au/unavailable.pdf',
+            'format':'pdf',
+            'publication_date':'2026-10-01',
+            'review_group_ids':['PRJ-SYNTHETIC'],
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            archive=Path(temporary)/'originals'
+            archive.mkdir()
+            record={**item,'access_status':'SOURCE_UNAVAILABLE','sha256':'','byte_count':0}
+            (archive/'R01-MISSING-SYNTHETIC.json').write_text(json.dumps(record),encoding='utf-8')
+            with patch.object(acquire,'ARCHIVE',archive):
+                self.assertEqual(acquire.fetch(item)['access_status'],'SOURCE_UNAVAILABLE')
 
 
 if __name__ == '__main__':
