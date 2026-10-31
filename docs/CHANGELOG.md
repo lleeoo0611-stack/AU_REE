@@ -1,5 +1,12 @@
 # Change log
 
+## 2026-11-01 — Independent approved Project parent and current-byte evidence gate
+
+- `apply_identity_decisions` 先處理有獨立核准原件的 **Project parent**，再處理依其建立的 Deposit/Prospect/Occurrence 子實體連結；不讓 `candidate_id` 字典排序決定合法父子關係是否建立。
+- 無法再以僅有歷史名稱的 `LEGACY_UNVERIFIED` 或失效的 Project Master 當成已核准 parent。原生 Deposit／Occurrence 不能透過 `APPROVE_NEW_PROJECT` 直接產生獨立 Project；缺少 geological entity source 或核准 parent 變更時保持 review pending。重複 Candidate 審查紀錄在資料庫修改前拒絕。
+- 使用既有 `evidence.verify` 直接重新檢查 `inputs/evidence` 原始檔 bytes/sha256，避免核准登記表載入後原件被改動、刪除而沿用舊的核准狀態。Scheme A 的 Project、Observation 及 GIS stage 都傳入實際研究根目錄。
+- 新增 synthetic regression：未經身分核准的 Legacy parent、Deposit→Project 誤升格、Project 先於 child 核准的重建順序、歷史 parent 轉移、重複核准行、source bytes 在載入後遭修改或遺失。以上不產生任何真實候選的核准，不改動歷史 487 source rows 或正式 C1/C2。
+
 ## 2026-11-01 — SQLite Census publication rollback on second-file failure
 
 - 完成既有 CSV→SQLite 重建安全性修復：資料庫與來源清單為兩個不同檔案，正式寫入前保存原有版本；若 `os.replace` 發布其中一項時發生一般 I/O 錯誤，回復上一版 SQLite 與 manifest，不留下混合版本。
