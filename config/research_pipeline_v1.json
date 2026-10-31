@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "snapshot_asof": "2026-10-29",
+  "research_priority": "C1_MAINLINE_P234_ON_NEW_EVIDENCE_ONLY",
+  "profiles": {
+    "c1": [
+      "c0_cohort",
+      "c1_stage1"
+    ],
+    "p234": [
+      "p234_event_router"
+    ],
+    "all": [
+      "c0_cohort",
+      "c1_stage1",
+      "p234_event_router"
+    ],
+    "legacy": [
+      "legacy_five_stage"
+    ]
+  },
+  "stages": {
+    "c0_cohort": {
+      "script": "scripts/build_c0_freeze_c1_c2_v1.py",
+      "type": "python_script",
+      "arg_check": "--check",
+      "arg_write": "--write",
+      "guard": "NO_UNAPPROVED_F1_F2_C1_C2_PROMOTION"
+    },
+    "c1_stage1": {
+      "script": "scripts/review_c1_stage1_v1.py",
+      "type": "python_script",
+      "arg_check": "--check",
+      "arg_write": "--write",
+      "guard": "SIX_GATE_C1_NOT_RELEASED"
+    },
+    "p234_event_router": {
+      "script": "scripts/route_p234_new_evidence_v1.py",
+      "type": "python_script",
+      "arg_check": "--check",
+      "arg_write": "--write",
+      "trigger_input": "inputs/evidence/p234_new_primary_evidence_events_v1.csv",
+      "guard": "ONLY_IF_NEW_PRIMARY_SOURCE_EVENT_NO_AUTO_C1",
+      "review_decisions_input": "inputs/review_decisions/p234_evidence_event_review_v1.csv"
+    },
+    "legacy_five_stage": {
+      "module": "au_ree",
+      "type": "python_module",
+      "args_check": [
+        "plan",
+        "--through",
+        "r_export"
+      ],
+      "args_write": [
+        "run",
+        "--through",
+        "r_export",
+        "--offline"
+      ],
+      "guard": "EXPLICIT_LEGACY_PROFILE_ONLY_NEVER_AUTORUN_R_MCDA"
+    }
+  },
+  "source_trigger": "GITHUB_PR_ON_PRIMARY_EVIDENCE_EVENT_CSV_CHANGE",
+  "stage_approval_gate": "RESEARCH_GRADE_R_MCDA_NOT_RELEASED_UNTIL_SIGNED_C1_AND_FIXED_PANEL",
+  "immutable_inputs": [
+    "2026-10-29_frozen_sources",
+    "P1_13_positive_source_cases",
+    "C0_339_original_target_ids"
+  ]
+}

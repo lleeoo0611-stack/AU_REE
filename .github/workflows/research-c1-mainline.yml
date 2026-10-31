@@ -1,0 +1,34 @@
+name: Research C1 mainline supervisor
+
+on:
+  pull_request:
+    paths:
+      - "scripts/run_research_pipeline.py"
+      - "scripts/review_c1_stage1_v1.py"
+      - "scripts/route_p234_new_evidence_v1.py"
+      - "config/research_pipeline_v1.json"
+      - "inputs/source_review_20261101/**"
+      - "docs/audits/2026-11-01_c1_first_pass_*"
+      - "tests/test_c1_stage1_v1.py"
+      - "tests/test_research_pipeline_supervisor_v1.py"
+      - "tests/test_p234_new_evidence_trigger_v1.py"
+      - ".github/workflows/research-c1-mainline.yml"
+  workflow_dispatch:
+
+jobs:
+  validate-supervisor-and-c1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Supervisor -- C0 cohort and C1 first-pass; P234 skipped absent new evidence
+        run: python scripts/run_research_pipeline.py --profile all --mode check
+      - name: Regression tests for new child scripts and trigger
+        run: |
+          python -m unittest discover -s tests -p test_c1_stage1_v1.py -v
+          python -m unittest discover -s tests -p test_research_pipeline_supervisor_v1.py -v
+          python -m unittest discover -s tests -p test_p234_new_evidence_trigger_v1.py -v
+      - name: Check P2-P4 empty-or-pending event output reproducibility
+        run: python scripts/route_p234_new_evidence_v1.py --check

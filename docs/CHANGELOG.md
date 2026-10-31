@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-11-01 — Mainline supervisor, README diagrams, C1 Stage-1 and source-triggered P234 evidence (PR pending)
+
+- Replaced sprawling root README with a concise current-project guide, **editable Mermaid research architecture and mother/child pipeline diagrams**; archived entire previous README under `docs/archive/README_pre_mainline_2026-11-01.md` to retain historical case/PR links.
+- Reviewed actual repository structure across `src/au_ree/`, `scripts/`, `config/`, `inputs/`, `data/`, `reproducibility/`, `db/`, `R/`, `outputs/`, `tests/` and `.github/workflows/`; see `docs/DATA_STRUCTURE_AND_PIPELINE.md`.
+- New parent `scripts/run_research_pipeline.py` dispatches `build_c0_freeze_c1_c2_v1.py`, `review_c1_stage1_v1.py`, and **only on genuinely submitted new evidence events**, `route_p234_new_evidence_v1.py`. Legacy five-stage CLI is explicit only; no live crawler and no automatic R/MCDA main ranking.
+- Added seven detailed issuer/government original-public-text **C1 Stage 1 Project reviews** (Browns Range, Bungalally, Copi, Dubbo, Goschen Central, Jupiter, Wimmera) with dated studies vs merely being at Scoping Stage, resource basis, footprint and missing approvals preserved; overlay 39 candidates, 7 new documentary checks, **C1=0 and C2=0 signed**.
+- P2–P4 new event CSV and independent source review ledger start empty; event router enforces frozen target IDs, exact native key, new report locator, published-as-of separation, duplicate rejection and SHA if original PDF bytes are claimed. Source routing remains a **side branch triggered by PR/event**, no repeated old URL crawl. Zero new event trigger presently.
+- Dedicated CI for master supervisor and evidence events; tests validate replay/negative cases, C1 six-Gate release invariants. Snapshot 2026-10-29 and 487 baseline unchanged. No original PDF bytes or human approvals invented.
+
+
 ## Research P0 policy acceptance — C0 F1/F2 and strict C1/C2 cohort (2026-10-31)
 
 - User accepted two-tier C0 source freeze policy (bounded F1 source-scope closeout, F2 native-feature search pause with documented negative query and reopening); **no source frozen automatically**. Source audit 339 rows: 119 F1 approval candidates, 151 F2 precheck (6 existing locator leads cannot directly pause), the other 69 stay in evidence/identity/access review.

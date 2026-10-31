@@ -4,6 +4,12 @@
 
 **目前狀態：**只將 v2 契約納入版本控制；本次**不修改**既有 Python/R/SQLite scripts、不調整 v1 eligibility/weights、不產出正式排名。v2 實作仍需逐 Gate 的獨立 PR。
 
+### 2026-11-01：已開始實作 C1 主線（母腳本與事件路由）
+
+本節更新先前「只制定 v2 架構、尚未修改 scripts」的歷史描述。新增 [可編輯架構/資料層級盤點](DATA_STRUCTURE_AND_PIPELINE.md)、[母腳本與子腳本](../scripts/run_research_pipeline.py)、[C1 第一輪七案來源判讀](audits/2026-11-01_c1_stage1_source_review.md)、[39 群組 Gate 預審](audits/2026-11-01_c1_first_pass_gate_39.csv) 和 [新證據事件入口](../inputs/evidence/p234_new_primary_evidence_events_v1.csv)。母腳本標準 `all` profile 僅執行 C0/ C1 的資料重建或驗證，P2–P4 只有在事件表收到符合原生 ID 的**新原始來源事件**時才重新產生待查；舊五階段 GIS/MCDA 運算保留獨立 profile，不自動參與 C1 Release。
+
+實作完成的是**管線調度、資料來源範圍查核與獨立 Gate 的保護**。尚有原件全文/當期 JORC/Project 邊界/人審/固定 Panel 依賴，**正式 C1=0、C2=0**，因此目前不發布研究級實際 MCDA。既有文件中關於 r983/v1 legacy 行為與 P0 未准入原則仍然有效。
+
 ## 1. 單一規格入口
 
 | 優先 | 文件 | 約束 |

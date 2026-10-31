@@ -1,0 +1,17 @@
+{
+  "row_count": 39,
+  "documentary_scope_rechecked": 7,
+  "remaining_group_screen_only": 32,
+  "source_snapshot": "2026-10-29",
+  "original_PDF_bytes_collected": 0,
+  "independent_C1_admitted": 0,
+  "independent_C2_admitted": 0,
+  "stage1_study_evidence_counts": {
+    "DATED_DFS_REPORTED": 1,
+    "DATED_SCOPING_STUDY_REPORTED": 2,
+    "MULTIPLE_DATED_STUDIES_REPORTED": 1,
+    "PFS_2023_AND_DFS_IN_PROGRESS_REPORTED": 1,
+    "PFS_REFERENCED_ORIGINAL_NOT_ACQUIRED": 1,
+    "SCOPING_STAGE_ONLY_COMPLETION_NOT_PROVEN": 1
+  }
+}

@@ -1,0 +1,33 @@
+name: P2-P4 new primary evidence event gate
+
+on:
+  pull_request:
+    paths:
+      - "inputs/evidence/p234_new_primary_evidence_events_v1.csv"
+      - "inputs/review_decisions/p234_evidence_event_review_v1.csv"
+      - "scripts/route_p234_new_evidence_v1.py"
+      - "docs/audits/2026-11-01_p234_evidence_trigger_*"
+      - ".github/workflows/p234-new-evidence-event.yml"
+  push:
+    branches: [main]
+    paths:
+      - "inputs/evidence/p234_new_primary_evidence_events_v1.csv"
+      - "inputs/review_decisions/p234_evidence_event_review_v1.csv"
+  workflow_dispatch:
+
+jobs:
+  evidence-only-routing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Rebuild source-native event work queue (NO external crawling or C1 approval)
+        run: python scripts/route_p234_new_evidence_v1.py --write
+      - name: Re-check deterministic source event work queue
+        run: python scripts/route_p234_new_evidence_v1.py --check
+      - name: Require evidence queue CSV/JSON to be committed by the PR author
+        run: git diff --exit-code -- docs/audits/2026-11-01_p234_evidence_trigger_queue_v1.csv docs/audits/2026-11-01_p234_evidence_trigger_summary_v1.json
+      - name: Trigger safeguards (dedupe, native key, time leakage)
+        run: python -m unittest discover -s tests -p test_p234_new_evidence_trigger_v1.py -v
