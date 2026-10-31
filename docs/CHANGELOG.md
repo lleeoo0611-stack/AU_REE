@@ -1,5 +1,11 @@
 # Change log
 
+## External primary evidence Batch 02 and 167-row progress — 2026-10-31
+
+- Add five fixed native-source substantive scope reviews: Pindari pair (2011 Archer drill report vs released SARIG annual-report synopsis, historical anomalism versus later cuttings not conflated); Acropolis pair (official SARIG deposit 3018 Cu major/REE minor and 2019 hematite-associated REE whole-rock research); and the generic Murray Basin source (government basin scope versus distinct WIM, Donald and Goschen projects; HM ≠ TREO).
+- Publish additive, editable 167-row progress CSV joining both batches by exact fixed IDs: 10 public-text technical scope reviews and 157 primary-original follow-ups. Keep originals byte/SHA unknown, independent approvals negative; previous frozen 339 and P2 28/27-case tracker unchanged.
+- Add deterministic progression checks, regression tests, CI workflow, report, README and research decision note. C1, 13-case Gate and MCDA remain paused.
+
 ## External technical originals Batch 01 — 2026-10-31
 
 - Add nine immutable-ID, source-level substantive overlays (five native, three P2, one Scaddan): Havilah Johnson Dam elemental Nd intercept, Archer Ketchowla K2 Mn/Co tables vs uncorroborated native REE peak, Reedy Lagoon Victory REE+Y historical grab sample, Queensland Mary Kathleen historical-mine vs tailings separation, and Scaddan 2024/2025 seller mineral-host contradiction.

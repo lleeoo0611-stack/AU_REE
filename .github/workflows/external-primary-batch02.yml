@@ -1,0 +1,19 @@
+name: External technical primary batches 01 and 02
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  substantive-evidence-progress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Reconcile 167 native IDs and both substantive review batches
+        run: python scripts/check_external_primary_progress.py
+      - name: Validate evidence hierarchy and no premature C1 admission
+        run: python -m unittest discover -s tests -p test_external_primary_progress.py -v

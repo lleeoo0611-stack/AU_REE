@@ -1,5 +1,9 @@
 # Australian REE — Project Database & MCDA
 
+## 外部技術原件 Batch 02 — 來源範圍與持續查核（2026-10-31）
+
+[第二批具體來源核對報告](docs/audits/2026-10-31_external_primary_batch02_review.md) · [第二批 5 筆可編輯判讀表](inputs/source_review_20261031/external_primary_batch02_20261031.csv) · [完整 167 筆逐列進度](docs/audits/2026-10-31_external_primary_progress_167.csv)。兩批共有 **10／167** 筆取得有界的發行人／官方／原始研究文本判讀，另外 **157** 筆仍需技術原件；本環境未取得這些 PDF 位元組，不能當成已完成原件驗證。新增 Pindari（2）、Acropolis（2）、Murray Basin（1）的 Project/Deposit、REE 品位與原件範圍判讀。P2 仍為 3 筆新複核／25 筆待全文，Scaddan 原始 PDF 缺口繼續 HOLD。412 ID、2026-10-29 快照與全部正式 Gate 不變。
+
 ## 外部技術原件補查 Batch 01（2026-10-31）
 
 [首批實質證據與結案邊界](docs/audits/2026-10-31_external_primary_batch01_review.md) · [9 筆來源原文判讀 CSV](inputs/source_review_20261031/external_primary_batch01_20261031.csv) · [28 筆 P2 交叉複核及待查清單](docs/audits/2026-10-31_p2_28_recheck_tracker.csv)。167 筆 native-only 中 5 筆補 issuer PDF 公開原文的技術判讀，P2 28 筆完成基線／ID 核對且 3 筆直接重讀州政府原文，Scaddan 增加 2025 年新版供應商資料與 2024 年「ionic clay」描述衝突。公開網頁可讀文本**不等於取得原始 PDF 位元組及 SHA**，162 筆 native 與 25 筆 P2 原件仍待查，Scaddan byte gap 未解。所有固定 ID、2026-10-29 快照、C1／13案 Gate／MCDA 皆不變。
