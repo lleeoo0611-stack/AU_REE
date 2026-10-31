@@ -81,8 +81,15 @@ def build(root: Path = ROOT):
     # No re-ranking of the 412 historical HOLD categories or reinterpreting P1.
     p2 = [r for r in all_hold if r["action_priority"] == "P2"
           and r["target_id"] not in p1_ids]
-    p3 = [r for r in all_hold if r["action_priority"] == "P3"]
-    p4 = [r for r in all_hold if r["action_priority"] == "P4"]
+    # P1 was a separate evidence-based lift of 73 records originally marked
+    # action_priority=P3 in the 487 snapshot. Never count them again in P3.
+    p3 = [r for r in all_hold if r["action_priority"] == "P3"
+          and r["target_id"] not in p1_ids]
+    p4 = [r for r in all_hold if r["action_priority"] == "P4"
+          and r["target_id"] not in p1_ids]
+    assert Counter(r["action_priority"] for r in all_hold) == {
+        "P3": 289, "P4": 95, "P2": 28
+    }
     assert len(p2) == 28 and len(p3) == 216 and len(p4) == 95
     assert len(p1_ids | {x["target_id"] for x in p2+p3+p4}) == 412
     assert len(p1_ids & {x["target_id"] for x in p2+p3+p4}) == 0
