@@ -54,7 +54,7 @@ def build(root: Path = ROOT):
     for x in overlaps:
         grouped[x["target_id"]].append(x)
     docs = {r["case_id"]: r for r in documents}
-    assert len(docs) == len(documents) == 13
+    assert len(docs) == len(documents) == 18
     assert all(x["case_id"] in {s["case_id"] for s in sources} for x in documents)
 
     output = []
@@ -109,7 +109,7 @@ def build(root: Path = ROOT):
     st_counts = dict(sorted(Counter(r["official_tenure_query_status"] for r in output).items()))
     compare_counts = dict(sorted(Counter(r["documented_title_comparison"] for r in output).items()))
     matches = [r for r in output if r["exact_title_matches"]]
-    assert len(output) == 73 and len(matches) == 14
+    assert len(output) == 73 and len(matches) == 20
     assert st_counts == {
         "NO_OVERLAP_IN_QUERIED_LAYERS": 11,
         "OFFICIAL_TENEMENT_LAYER_NOT_VERIFIED": 2,
