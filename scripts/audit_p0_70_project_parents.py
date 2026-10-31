@@ -131,7 +131,7 @@ def build(root: Path = ROOT):
          if line], "target_id", "original source feature")
     leads = read_csv(root, LEADS)
     target = [x for x in old if x["new_document_evidence_available"] == "NO"]
-    if len(old) != 109 or len(target) != 70 or len(sources) != 272 or len(leads) != 24:
+    if len(old) != 109 or len(target) != 70 or len(sources) != 272 or len(leads) != 25:
         raise ValueError("Changed frozen P0 source population: version a new run")
 
     lead_lookup = unique(
