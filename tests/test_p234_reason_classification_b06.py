@@ -28,8 +28,9 @@ class B06AuditRegression(unittest.TestCase):
     def test_bells_homonym_holds_separate_sites(self):
         bell=[x for x in self.records if x["source_name"]=="Bells Monazite" and x["priority"]=="P2"]
         self.assertEqual(len(bell),1)
-        self.assertIn("HOMONYM_BELLS_MONAZITE",bell[0]["resource_basis_annotation"]+
-                      bell[0]["new_bounded_finding"]+bell[0]["cross_source_consistency_issue"])
+        self.assertIn("Wolfram Hill", bell[0]["new_bounded_finding"])
+        self.assertIn("Cox Peninsula", bell[0]["new_bounded_finding"])
+        self.assertIn("HOMONYM_DIFFERENT_GEO", bell[0]["cross_source_consistency_issue"])
     def test_never_claim_pdf_freeze_project_or_C1_approval(self):
         self.assertTrue(all(x["source_snapshot"]=="2026-10-29" and x["original_pdf_bytes_new"]=="NO"
                             and x["source_freeze_approval"]==x["identity_approval"]==
