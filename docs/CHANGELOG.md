@@ -1,5 +1,15 @@
 # Change log
 
+## P2 first-pass source triage within 412 HOLD — 2026-10-31
+
+- Freeze historical denominator 412 = P1 73 + P2 28 + P3 216 + P4 95 (no re-ranking, no C1 admission).
+- Audit all 28 P2 source IDs (22 Legacy / 6 E1) into 27 provisional source-site cases. Preserve a separate historical Mary Kathleen mine (two native deposit points) and Mary Kathleen tailings legacy research source.
+- Curate government/issuer / native context: Mary Kathleen government remediation + 2026 Bayan bench testwork, Port Pirie SA SARIG #8908 treatment tailings, Tasmanian Anchor Tin Deeps 2024 EDGI REE drilling, Northern Territory Boulder Ridge and Bruce/Plenty River/Edwards Creek exploration, Elaine Dorothy historical REE, Douglas 2004–2012 historic Iluka HMS, P1 Talisker legacy cross-reference. VIC Bondi native feature prohibited from name-only joining Iluka Douglas Bondi mine.
+- Current provenance: 11 documentary source-case leads pending same-scope identity, 12 Legacy names only, 3 VIC native features, 1 regional secondary index; all remain C0 without independent Project / JORC REO / GIS release / C1 approvals.
+- Add `scripts/audit_p2_28_initial_triage.py`, dedicated `unittest`, CI workflow, evidence CSV, frozen source/case CSVs, snapshot JSON, report and index.
+- P1 file-access (#30) and downstream C1 case approvals (#32) remain explicitly open. P2 subsequent research tracked in #35.
+
+
 ## P0/P1 desk-search closeout, CI verified, C1 gate held — 2026-10-31
 
 - Publish **73 immutable C0 source-terminal dispositions**: 22 positive Project/REE leads with 13 case-level six-gate reviews; 40 records without project-scoped REE product proof in the searched sources; 2 Benmara South exclusion from a different deposit's TREO resource; 4 native-source identity conflicts; 5 indexed WAMEX source rows requiring 4 government PDF originals.
