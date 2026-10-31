@@ -136,6 +136,14 @@ flowchart TB
 
 [完整 P2 Phase 1 報告](docs/audits/2026-10-31_p2_phase1_report.md) · [28 筆來源 CSV](docs/audits/2026-10-31_p2_28_source_triage.csv) · [27 案例 CSV](docs/audits/2026-10-31_p2_27_case_triage.csv) · [27 案證據輸入](inputs/source_review_20261031/p2_27_case_evidence.csv) · [P2 QA JSON](docs/audits/2026-10-31_p2_phase1_summary.json) · [P2 CI 實測](docs/audits/2026-10-31_p2_phase1_ci_verification.json) · [可重跑腳本](scripts/audit_p2_28_initial_triage.py) · [後續 Project/Title 核對 #35](https://github.com/lleeoo0611-stack/AU_REE/issues/35)。
 
+### P1／P2 公開證據收尾（2026-10-31）
+
+在固定 **412 HOLD = P1 73 + P2 28 + P3 216 + P4 95** 母數下，針對 **P1 剩餘 19 案／31 個來源**完成公開可取得資料的限定複核；13 個正向案例、2 個 Ambergate/Wingellina 身分衝突與 4 份 WAMEX 索引（5 source rows）均有逐案最新證據、頁面／日期與再開案條件。**四份 WAMEX 官方 PDF 位元組與 SHA 仍無法公開直接取得**，本輪不寄信、無正式 C1 簽核。
+
+P2 **28/28 source rows、27 個暫定案例完成公開文件審核處置**：17 案具政府／發行人原始線索而待來源–Project 身分核准、1 案研究階段不包含 REE、3 案歷史礦場／尾礦處理場、1 案指定鑽探的 REE 負結果、3 案僅政府原生 feature、2 案區域索引／名稱歧義。新增可追溯證據包含 NT Bell's Monazite、Arthur Popes、Blueys Folley、Duke，及 TAS Blue Tier／Cruncher／DC／Tunnel Hill、VIC Wedderburn／QLD Brumby 等。**C1、JORC、GIS_RELEASE 及六構面正式 Panel 依原 Gate 保持未核准。**
+
+[完整研究報告](docs/audits/2026-10-31_p1_p2_public_evidence_closeout_report.md) · [P1 31 筆來源 CSV](docs/audits/2026-10-31_p1_31_remaining_public_source_review.csv) · [P2 28 筆來源 CSV](docs/audits/2026-10-31_p2_28_public_terminal_desk_review.csv) · [機器 QA 摘要](docs/audits/2026-10-31_p1_p2_public_review_summary.json) · [可再生程式](scripts/audit_p1_p2_public_evidence.py)。
+
 ## 專案結構
 
 ```text
