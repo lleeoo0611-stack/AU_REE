@@ -294,3 +294,53 @@ def test_approved_project_parent_precedes_deposit_link_regardless_of_candidate_s
     assert again['approved_new']==1 and again['linked_existing']==1
     assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==1
     assert db.execute('SELECT COUNT(*) FROM project_geological_relation').fetchone()[0]==1
+
+
+def test_duplicate_identity_ledger_rejected_before_project_mutation(tmp_path):
+    import pytest
+    db=memorydb()
+    candidate_upsert(db,record(source='WA_SOURCE',native='DUP',name='Duplicate REE Project',
+                               commodity='REE',entity='PROJECT'))
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    rows,heads=_identity_fixture(tmp_path,[(cid,'Duplicate REE Project','')])
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows+rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    with pytest.raises(ValueError,match='Duplicate candidate_id'):
+        apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
+
+
+def test_approved_deposit_parent_cannot_be_silently_reassigned(tmp_path):
+    db=memorydb()
+    source='WA_SOURCE'
+    entries=[]
+    for native,name,level,pid in (
+        ('P1','North Project','PROJECT','AU-REE-01001'),
+        ('P2','South Project','PROJECT','AU-REE-01002'),
+        ('D1','Ree orebody','DEPOSIT','AU-REE-01001'),
+    ):
+        candidate_upsert(db,record(source=source,native=native,name=name,
+                                   commodity='REE',entity=level))
+        entries.append((digest([source,native])[:32],name if level=='PROJECT' else '',pid))
+    rows,heads=_identity_fixture(tmp_path,entries)
+    for row in rows:
+        if row['candidate_id']==digest([source,'D1'])[:32]:
+            row['decision']='LINK_EXISTING_PROJECT'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    first=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert first['approved_new']==2 and first['linked_existing']==1
+    cid=digest([source,'D1'])[:32]
+    for row in rows:
+        if row['candidate_id']==cid:
+            row['project_id']='AU-REE-01002'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    second=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert second['approved_new']==2
+    assert second['linked_existing']==0
+    assert second['rejected_or_pending']==1
+    decision=db.execute('SELECT resolved_project_id,review_status,review_reason FROM identity_review_decisions WHERE candidate_id=?',
+                        (cid,)).fetchone()
+    assert tuple(decision)==('AU-REE-01001','REVIEW_PENDING',
+                            'STABLE_PROJECT_LINK_CHANGE_REQUIRES_CORRECTION')
+    assert db.execute("SELECT COUNT(*) FROM project_geological_relation WHERE decision_status='DOCUMENT_APPROVED'").fetchone()[0]==0
