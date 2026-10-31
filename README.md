@@ -1,5 +1,10 @@
 # Australian REE — Project Database & MCDA
 
+## 外部技術原件補查 Batch 03 — Ketchowla／Oak Dam East（2026-10-31）
+
+[第三批 6 筆來源核對報告](docs/audits/2026-10-31_external_primary_batch03_review.md) · [6 筆可編輯來源判讀](inputs/source_review_20261031/external_primary_batch03_20261031.csv) · [新版 167 筆進度](docs/audits/2026-10-31_external_primary_progress_167_b03.csv)。累計 **16／167** 筆有界外部技術文字查核，**151** 筆待補；本批 Ketchowla K3（2）、Ketchowla Hill（2）與 Oak Dam East（2）確認歷史 Mn/Fe/Cu 資源和 K9 REE 探勘結果不得轉寫為其他礦點的 REO JORC/TREO。外部 PDF 搜尋文字可讀但頁面影像與原始位元組未成功封存，相關 C1、JORC、GIS、13 案 Gate、MCDA 仍 HOLD。保留 Batch-02 原版 167 筆進度，另建新版；維持固定 412 IDs 和 2026-10-29 快照。
+
+
 ## 外部技術原件 Batch 02 — 來源範圍與持續查核（2026-10-31）
 
 [第二批具體來源核對報告](docs/audits/2026-10-31_external_primary_batch02_review.md) · [第二批 5 筆可編輯判讀表](inputs/source_review_20261031/external_primary_batch02_20261031.csv) · [完整 167 筆逐列進度](docs/audits/2026-10-31_external_primary_progress_167.csv)。兩批共有 **10／167** 筆取得有界的發行人／官方／原始研究文本判讀，另外 **157** 筆仍需技術原件；本環境未取得這些 PDF 位元組，不能當成已完成原件驗證。新增 Pindari（2）、Acropolis（2）、Murray Basin（1）的 Project/Deposit、REE 品位與原件範圍判讀。P2 仍為 3 筆新複核／25 筆待全文，Scaddan 原始 PDF 缺口繼續 HOLD。412 ID、2026-10-29 快照與全部正式 Gate 不變。
