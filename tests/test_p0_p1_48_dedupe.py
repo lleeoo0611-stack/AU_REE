@@ -37,14 +37,17 @@ class Parent48(unittest.TestCase):
         self.assertEqual(n["Willandra West / Twelve Mile historical HMS area"], 8)
 
     def test_resource_basis_cutoff_and_nesting(self):
-        self.assertEqual(len(self.resources), 12)
-        self.assertEqual(dict(Counter(r["grade_basis"] for r in self.resources)), {"TREO": 10, "HM": 2})
+        self.assertEqual(len(self.resources), 14)
+        self.assertEqual(dict(Counter(r["grade_basis"] for r in self.resources)), {"TREO": 10, "HM": 2, "Nb2O5": 2})
         self.assertTrue(all(r["scoreable_TREO_resource_value"] == "NO_NOT_SIGNED_OFF" for r in self.resources))
         m = {r["statement_id"]: r for r in self.resources}
         self.assertTrue(m["P1R-002"]["resource_relationship"].startswith("STRICT_SUBSET_OF_"))
         self.assertEqual(m["P1R-009"]["resource_relationship"], "TOTAL_CHECK_ONLY_NO_SUM_WITH_COMPONENTS")
         self.assertEqual(m["P1R-003"]["scope_name"], "Central Mia prospect")
         self.assertEqual(m["P1R-010"]["grade_basis"], "HM")
+        self.assertEqual(m["P1R-013"]["grade_basis"], "Nb2O5")
+        self.assertEqual(m["P1R-014"]["resource_relationship"], "STRICT_SUBSET_OF_P1R-013_DO_NOT_SUM")
+        self.assertEqual(m["P1R-013"]["as_of_cutoff_admissibility"], "DATE_WITHIN_CUTOFF")
         self.assertEqual(m["P1R-012"]["as_of_cutoff_admissibility"], "UNDETERMINED_UNDATED_SOURCE")
 
     def test_ree_resource_vs_tenement_scope(self):
