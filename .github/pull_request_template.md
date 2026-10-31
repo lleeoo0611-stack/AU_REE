@@ -24,4 +24,4 @@
 
 ---
 
-參考：[研究架構](../../docs/RESEARCH_ARCHITECTURE.md) · [執行計畫](../../docs/RESEARCH_IMPLEMENTATION_PLAN.md) · [文件導覽](../../docs/README.md)。正式 C1/MCDA 需要獨立來源證據與 Gate 核准；未通過不得聲稱已有研究級排名。
+參考：[研究架構](../docs/RESEARCH_ARCHITECTURE.md) · [執行計畫](../docs/RESEARCH_IMPLEMENTATION_PLAN.md) · [文件導覽](../docs/README.md)。正式 C1/MCDA 需要獨立來源證據與 Gate 核准；未通過不得聲稱已有研究級排名。
