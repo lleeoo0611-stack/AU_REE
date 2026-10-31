@@ -203,9 +203,9 @@ def build(root: Path = ROOT):
         "external_WAMEX_government_report_bytes_retrieved": 0,
         "inputs": [str(x) for x in (SOURCE, RAW, GROUPS, EVIDENCE, RESOURCE)],
         "interpretation": "Every case has a source-specific documentary decision. It does not prove "
-                         "an exhaustive web absence, historical project geometry, or admission to MCDA; "
-                         "three WAMEX source names need original government bytes and official geometry "
-                         "intersection remains unperformed."
+                         "exhaustive web absence, historical Project geometry, or MCDA admission; "
+                         "four WAMEX indexed original reports (A119194 A120393 A129842 A109188) need "
+                         "original government PDF bytes and project footprint validation."
     }
     return source_rows, case_rows, stats
 
