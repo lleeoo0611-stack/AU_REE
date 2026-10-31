@@ -8,6 +8,7 @@
 - Current provenance: 11 documentary source-case leads pending same-scope identity, 12 Legacy names only, 3 VIC native features, 1 regional secondary index; all remain C0 without independent Project / JORC REO / GIS release / C1 approvals.
 - Add `scripts/audit_p2_28_initial_triage.py`, dedicated `unittest`, CI workflow, evidence CSV, frozen source/case CSVs, snapshot JSON, report and index.
 - P1 file-access (#30) and downstream C1 case approvals (#32) remain explicitly open. P2 subsequent research tracked in #35.
+- Observed dedicated P2 phase-one, Python offline and R synthetic CI all successful on commit 787fa9f7 (GitHub Actions 41176845661, 41176845732, 41176841192); CI attestation saved under docs/audits.
 
 
 ## P0/P1 desk-search closeout, CI verified, C1 gate held — 2026-10-31
