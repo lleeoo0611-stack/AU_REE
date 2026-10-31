@@ -259,9 +259,13 @@ def test_csv_sqlite_rollback_if_manifest_publish_fails(tmp_path):
     source.mkdir()
     (source / "test.csv").write_text("key,value\nA,one\n", encoding="utf-8")
     dest = tmp_path / "census.sqlite"
-    with sqlite3.connect(dest) as db:
+    db = sqlite3.connect(dest)
+    try:
         db.execute("CREATE TABLE previous_release (value TEXT)")
         db.execute("INSERT INTO previous_release VALUES ('approved snapshot')")
+        db.commit()
+    finally:
+        db.close()
     manifest_path = tmp_path / "census.sqlite.manifest.json"
     manifest_path.write_text('{"last_valid":"previous"}\n', encoding="utf-8")
     old_db = dest.read_bytes()
