@@ -1,0 +1,42 @@
+{
+  "execution_id": "P234-B05-NATIVE-WORKGROUP-TRIAGE-20261031",
+  "source_snapshot": "2026-10-29",
+  "evidence_review_date": "2026-10-31",
+  "baseline_source_targets": 339,
+  "priority_counts": {
+    "P2": 28,
+    "P3": 216,
+    "P4": 95
+  },
+  "new_P2_official_source_reviews": 4,
+  "P2_prior_direct_source_scope_reviews": 12,
+  "P2_current_public_source_scope_reviews": 16,
+  "P2_remaining_desk_only": 12,
+  "P3_pending_native_only": 87,
+  "P4_pending_native_only": 64,
+  "P34_pending_source_rows": 151,
+  "P34_pending_native_work_groups": 100,
+  "P34_shared_native_id_groups": 51,
+  "P34_groups_with_native_name_conflict": 0,
+  "P34_groups_over_1km": 0,
+  "P34_shared_across_source_keys": 30,
+  "all_priority_pending_source_rows": 163,
+  "all_priority_work_units": 112,
+  "source_review_levels": {
+    "ARCHIVED_RELEVANT_PAGES": 143,
+    "INHERITED_DESK_NO_NEW_ORIGINAL": 12,
+    "NATIVE_FEATURE_ONLY": 151,
+    "PUBLIC_PRIMARY_TEXT_SCOPE_ONLY": 32,
+    "WEB_CACHED_TEXT_ONLY": 1
+  },
+  "proposed_source_scope_closure_candidates": 119,
+  "proposed_closure_by_priority": {
+    "P2": 0,
+    "P3": 96,
+    "P4": 23
+  },
+  "formally_frozen_source_rows": 0,
+  "new_original_pdf_bytes_archived": 0,
+  "new_independent_C1_approvals": 0,
+  "policy_status": "FREEZE_RULES_PROPOSED_FOR_USER_DECISION_NOT_APPLIED"
+}
