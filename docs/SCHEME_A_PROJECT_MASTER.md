@@ -32,7 +32,7 @@ E1 = 商品欄明確 REE、TREO、NdPr 等（含 GA 已按 REE 篩選的官方�
 - `LINK_EXISTING_PROJECT`：僅能指向**已取得獨立 Project 身分核准且核准仍有效**的 `project_id`；`LEGACY_UNVERIFIED` 或已撤回核准的 Master 不可作為已驗證母專案。來源若為 Deposit／Occurrence，必須存在可追溯的 Geological Entity Source，才可建立 `PART_OF_PROJECT`；若為 Project，審查同意的別名才可寫入 `project_aliases`。既有核准 parent 關係要變更，必須另行正式更正，不得默默轉移。
 - `REJECT_PROJECT`：保留原始候選與審查狀態，不新增 Project。
 
-每筆核准須在 `inputs/source_documents.csv` 登記實際封存檔、官方／公司來源 URL 與 SHA256，於 `inputs/evidence_approvals.csv` 由另一欄位明列 `record_type=PROJECT_REVIEW`、審查者、`decision=APPROVED` 和凍結日前審查日期。只有原件位元組、URL、SHA、日期及 `approval_ref` 全部吻合才允許新增／連結。取消審查會將相關新專案標記為 `IDENTITY_APPROVAL_EXPIRED`，其正式分析資格失效；保留永久 ID 與完整稽核紀錄。座標／活動／開發階段的**獨立**核准仍依 `inputs/project_reviews.csv` 進行。
+每筆核准須在 `inputs/source_documents.csv` 登記實際封存檔、官方／公司來源 URL 與 SHA256，於 `inputs/evidence_approvals.csv` 由另一欄位明列 `record_type=PROJECT_REVIEW`、審查者、`decision=APPROVED` 和凍結日前審查日期。只有原件位元組、URL、SHA、日期及 `approval_ref` 全部吻合才允許新增／連結。取消審查會將相關新專案標記為 `IDENTITY_APPROVAL_EXPIRED`，其正式分析資格失效；保留永久 ID 與完整稽核紀錄。**Project 細項及座標即使另有已核准來源，也不得在母專案未取得獨立身分核准時覆寫 Master；eligibility 必須再次確認有效的身分決策、母專案與核准原件 bytes，否則標記 `G2_PROJECT_IDENTITY_NOT_INDEPENDENTLY_APPROVED` 並禁止正式釋出。**座標／活動／開發階段的**獨立**核准仍依 `inputs/project_reviews.csv` 進行。
 
 歷史 `legacy_r963_frozen` 的 203 個 Project ID 保持在主檔，狀態維持 `LEGACY_UNVERIFIED`，不能以此宣稱最新政府已核准 203 個正式開發專案。其 MCDA 釋出條件與新增專案一致。
 

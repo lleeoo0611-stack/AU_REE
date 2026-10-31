@@ -62,12 +62,27 @@ def seed_projects(db,tmp_path,active=2,total=19):
                    (layer,item['url'],'local_geojson',1,item['sha'],'APPROVED_ARCHIVED_LAYER','now'))
     for i in range(total):
         pid=f'AU-REE-TEST{i:02d}'
+        cid=f'SYNTHETIC-PROJECT-{i}'
+        verified=i<active
         db.execute('INSERT INTO legacy_id_map(legacy_id,project_id) VALUES(?,?)',(f'LEG-{i}',pid))
-        db.execute('INSERT INTO project_master(project_id,canonical_name,normalized_name,state,country,latitude,longitude,activity,lifecycle,ree_role,deposit_family,population_status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)',
+        db.execute('''INSERT INTO project_master(project_id,canonical_name,normalized_name,state,country,
+                    latitude,longitude,activity,lifecycle,ree_role,deposit_family,population_status,identity_source)
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)''',
                    (pid,f'Synthetic project {i}',f'synthetic project {i}','WA','Australia',-25,120,
-                    'ACTIVE' if i<active else 'UNKNOWN','PFS' if i<active else 'UNKNOWN',
-                    'REE_PRIMARY' if i<active else 'REE_UNCONFIRMED','HARD_ROCK','CENSUS'))
+                    'ACTIVE' if verified else 'UNKNOWN','PFS' if verified else 'UNKNOWN',
+                    'REE_PRIMARY' if verified else 'REE_UNCONFIRMED','HARD_ROCK',
+                    'EVIDENCE_BACKED_PROJECT' if verified else 'CENSUS',
+                    ('APPROVED_CANDIDATE:'+cid) if verified else None))
         if i>=active:continue
+        # These are isolated synthetic independent identity decisions, not
+        # human signoffs in the real Australian Census.
+        db.execute('''INSERT INTO population_candidates(candidate_id,source_key,native_id,raw_name,
+                    normalized_name,state,entity_level) VALUES(?,?,?,?,?,?,?)''',
+                   (cid,'SYNTHETIC',str(i),f'Synthetic project {i}',f'synthetic project {i}','WA','PROJECT'))
+        db.execute('''INSERT INTO identity_review_decisions(candidate_id,review_decision,approval_ref,
+                    source_url,source_sha256,review_status,resolved_project_id,review_reason,reviewed_at)
+                    VALUES(?, 'APPROVE_NEW_PROJECT',?,?,?,'DOCUMENT_APPROVED',?,'EVIDENCE_APPROVED',?)''',
+                   (cid,f'project-{i}',url,sha,pid,'2026-10-15'))
         db.execute('INSERT INTO project_coordinates(project_id,latitude,longitude,verification,source_url) VALUES(?,?,?,?,?)',
                    (pid,-25,120,'VERIFIED',url))
         db.execute('INSERT INTO approved_project_reviews(project_id,approval_ref,source_sha256) VALUES(?,?,?)',(pid,f'project-{i}',sha))
@@ -136,6 +151,38 @@ def test_gis_full_global_blocked_but_verified_two_project_subset_released(tmp_pa
     assert result['scenarios']['R1_STRICT']['point_ready']==2
     assert len(ctx['artifacts']['matrix_R1_STRICT.csv'][0])==2
     assert not ctx['artifacts']['matrix_G0_BASELINE.csv'][0]
+    db.close()
+
+
+
+
+def test_independent_identity_revoked_cannot_release_even_with_gis_and_jorc(tmp_path):
+    db=connect(tmp_path/'fixture.sqlite');setup(db)
+    seed_projects(db,tmp_path,active=2)
+    # All old technical/resource/GIS fields stay verified, but an ID signoff
+    # expires. Neither a one-member subset nor a global cohort can be released.
+    db.execute("""UPDATE identity_review_decisions SET review_status='REVIEW_PENDING'
+                  WHERE candidate_id='SYNTHETIC-PROJECT-0'""")
+    out=eligibility_run(db,{'root':tmp_path,'eligibility':ELIGIBILITY,'artifacts':{}})
+    row=db.execute("""SELECT reasons_json FROM eligibility
+                      WHERE project_id='AU-REE-TEST00' AND scenario='R1_STRICT'""").fetchone()
+    assert 'G2_PROJECT_IDENTITY_NOT_INDEPENDENTLY_APPROVED' in json.loads(row[0])
+    assert out['scenarios']['R1_STRICT']['gis_gate']['status']=='BLOCKED'
+    assert out['scenarios']['R1_STRICT']['point_ready']==0
+    assert out['scenarios']['G0_BASELINE']['point_ready']==0
+    db.close()
+
+
+def test_missing_archived_identity_document_blocks_release(tmp_path):
+    db=connect(tmp_path/'fixture.sqlite');setup(db)
+    seed_projects(db,tmp_path,active=2)
+    # Existing registry and project details remain in SQLite; fresh original
+    # byte verification still prevents false identity admission.
+    (tmp_path/'inputs/evidence/report.json').unlink()
+    out=eligibility_run(db,{'root':tmp_path,'eligibility':ELIGIBILITY,'artifacts':{}})
+    assert out['scenarios']['R1_STRICT']['point_ready']==0
+    assert out['scenarios']['G0_BASELINE']['point_ready']==0
+    assert db.execute("""SELECT COUNT(*) FROM eligibility WHERE eligible=1""").fetchone()[0]==0
     db.close()
 
 
@@ -227,19 +274,12 @@ def test_project_review_requires_distinct_approval(tmp_path):
     assert db.execute("SELECT activity FROM project_master WHERE project_id='P1'").fetchone()[0]=='UNKNOWN'
     rows[0]['approval_ref']='project-0';csvwrite(f,rows,list(rows[0]))
     result=population_run(db,ctx)
-    assert result['reviewed_project_updates']==1
-    assert db.execute("SELECT activity FROM project_master WHERE project_id='P1'").fetchone()[0]=='ACTIVE'
-    assert db.execute("SELECT verification FROM project_coordinates WHERE project_id='P1'").fetchone()[0]=='VERIFIED'
-    # Revoke previously approved review: replay must not retain stale VERIFIED location.
-    approval_file=tmp_path/'inputs'/'evidence_approvals.csv'
-    allrows=list(csv.DictReader(approval_file.open()))
-    for row in allrows:
-        if row['approval_ref']=='project-0':row['decision']='REJECTED'
-    csvwrite(approval_file,allrows,list(allrows[0]))
-    result=population_run(db,ctx)
+    # Project-review evidence alone may not confer independent identity to
+    # a legacy / unverified Project master, even with a valid document.
     assert result['reviewed_project_updates']==0
     assert db.execute("SELECT activity FROM project_master WHERE project_id='P1'").fetchone()[0]=='UNKNOWN'
     assert db.execute("SELECT COUNT(*) FROM project_coordinates WHERE project_id='P1'").fetchone()[0]==0
+    assert db.execute("SELECT COUNT(*) FROM approved_project_reviews WHERE project_id='P1'").fetchone()[0]==0
     db.close()
 
 

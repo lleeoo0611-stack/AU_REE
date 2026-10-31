@@ -124,6 +124,30 @@ def stable_approved_project_id(candidate_id):
     return f'AU-REE-{suffix:012d}'
 
 
+def independently_approved_project(db, project_id, *, root=None):
+    """Check the independent Project identity, not only a scored/GIS review.
+
+    A legacy or merely named Project has no admitted development identity.
+    Release requires the approved source Project candidate, a matching stable
+    master ID and a currently verifiable original approval document.
+    """
+    row=db.execute('''SELECT p.project_id,p.state,p.population_status,
+        p.identity_source,c.candidate_id,c.entity_level,c.state AS source_state,
+        i.review_status,i.review_decision,i.resolved_project_id,i.approval_ref,
+        i.source_url,i.source_sha256
+        FROM project_master p
+        JOIN population_candidates c ON p.identity_source='APPROVED_CANDIDATE:' || c.candidate_id
+        JOIN identity_review_decisions i ON i.candidate_id=c.candidate_id
+        WHERE p.project_id=?''',(project_id,)).fetchone()
+    return bool(row and row['population_status']=='EVIDENCE_BACKED_PROJECT'
+        and row['entity_level']=='PROJECT' and row['state']==row['source_state']
+        and row['review_status']=='DOCUMENT_APPROVED'
+        and row['review_decision']=='APPROVE_NEW_PROJECT'
+        and row['resolved_project_id']==row['project_id']
+        and verify(db,row['approval_ref'],'PROJECT_REVIEW',
+                   row['source_url'],row['source_sha256'],root=root))
+
+
 def apply_identity_decisions(db,root,freeze_date):
     """Only an independently APPROVED archived document may create/link a Project."""
     path=Path(root)/'inputs'/'project_identity_decisions.csv'
