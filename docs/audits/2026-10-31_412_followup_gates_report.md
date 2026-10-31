@@ -51,3 +51,7 @@ python -m unittest discover -s tests -p 'test_p0_412_gate_continuation.py' -v
 ```
 
 輸入來自不可變原始快照及 Git 已追蹤 CSV，輸出只寫 `docs/audits/`。新增來源需先加入經審查的 evidence input 或下一版 snapshot，再由 `--write` 產生新版本；不得用推測的 reviewer 簽章、原始 PDF SHA 或 Project ID 通過 C1。
+
+## 5. 後續 PR #33 的原 72 筆 `action_priority=P2` 對照
+
+[精確 72-source 交叉 CSV](2026-10-31_legacy_p2_72_to_412_crosswalk.csv) 顯示 72 筆原 487 P2 來源中，只有 **28 筆**屬本報告固定 412 HOLD 的 P2；另外 **38 筆為 INCLUDE_CANDIDATE，6 筆為 HOLD_REE_ROLE**，所以不能增加 412 分母。#33 的七條定向文獻線索涵蓋 22 筆來源，仍只屬 source-scoped review，不是新 Project/JORC/C1 核准。此節為本報告完成後的版本對照補充。

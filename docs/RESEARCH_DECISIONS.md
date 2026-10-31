@@ -136,3 +136,9 @@
 - P3/P4 311 筆採來源層 provenance 稽核；地質 Occurrence 保持 C0，不能僅憑來源點推論 Project。
 - 13 個 P1 正向案例按既有六個 C1 Gate 跨表逐案對證，直到原始文件 bytes、正式資源基準、Project polygon、截止日有效研究與 reviewer sign-off 完備，不予獨立核准。
 - Legacy source 與政府 native feature、名稱相同或附近 tenement 交集不可直接當正式 Project 身分；舊版 draft PR #33 的 P2 72 筆與此版本 P2 28 筆需先分辨分母。
+
+## 2026-10-31 — PR #33 historical action_priority=P2 admission separation
+
+- 舊版 487 action_priority=P2 72 筆已精確對回最新 412 原 HOLD：28 筆目前 P2；另 38 筆原 INCLUDE_CANDIDATE 與 6 筆 HOLD_REE_ROLE 均不計入 412 HOLD。
+- 兩組標籤只是任務優先級／來源證據分流，未建立新增 72/47 個獨立 Projects；保留原 source ID 和 reviewer signoff=空。
+- 舊版 72 筆來源的經濟研究／資源證據僅作已公布且 source-scoped 的文件主張，不得把同一個群組 JORC 合計值分配至不同 source rows。

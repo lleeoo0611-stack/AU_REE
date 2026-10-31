@@ -100,3 +100,8 @@
 | P3 Historical | **protocol documented** | pending | Not released |
 
 **下一個可執行的研究工作**：先針對 C1 的 required criteria／樣本 coverage 審查，並鎖定 Project–Deposit–JORC Resource Statement 欄位。完成該決策後再啟動對應 P0 migration PR。此順序直接服務 Aim A/B/C 的研究驗證。
+
+
+### Census legacy priority mapping (2026-10-31)
+
+Original frozen `487.action_priority=P2` 72-row source-triage is a separate work queue from the `412 HOLD` P2 28-row documentary closeout. An immutable target-ID crosswalk records 28 overlap, 38 INCLUDE_CANDIDATE and 6 HOLD_REE_ROLE. See [legacy P2 72 intake](audits/2026-10-31_p2_72_intake_report.md). Both remain C0 unless the six C1 gates are independently signed.

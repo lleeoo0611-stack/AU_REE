@@ -205,3 +205,9 @@
 - 新增可重跑 Python、unit test 與 GitHub workflow；README 和研究索引同步更新。
 
 - P3/P4 與 2026-10-29 政府原生 272-feature JSONL 做逐筆 ID/source/native SHA 回查：194/311 精確交叉核對，0 不一致，117 不在此 272 子快照內；新增自動 QA。
+
+## 2026-10-31 — Reconcile legacy 487 priority P2 72 and original HOLD P2 28
+
+- 合併原 PR #33 的 72-row／47 case source intake、7 dated documentary leads（涵蓋 22 sources）及 stdlib Python 重建。
+- 以 source ID 建立 72-row priority crosswalk：28 原 412 HOLD P2、38 INCLUDE_CANDIDATE、6 HOLD_REE_ROLE；不得重複相加。
+- 保留 2026-10-29 as-of、研究 C1/JORC/GIS 0 核准；補強 README／決策紀錄、測試、CI。

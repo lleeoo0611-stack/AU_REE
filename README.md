@@ -151,6 +151,10 @@ P2 **28/28 source rows、27 個暫定案例完成公開文件審核處置**：17
 
 412 個原 HOLD ID 無遺漏、無重覆：P1 73／P2 28／P3 216／P4 95。P3/P4 本輪完成來源級 provenance triage，並核對 194 筆已封存政府 native source 的 ID/source key/hash（0 衝突；不是逐份新 PDF 全文核准）；13 案／22 來源完成跨表 Gate readiness 對照，**正式獨立 C1 Project／JORC／GIS 核准仍為 0**。P2 27 案完成源 ID／Legacy crosswalk 缺口補強。PR #33 的舊 action_priority P2 72 筆定義不同，仍為 Draft、未納入本輪凍結母數。可重跑 \`python scripts/audit_p0_412_gate_continuation.py --check\`。
 
+### Legacy 487 優先級 P2 的 72 筆整併（2026-10-31）
+
+[72-row intake](docs/audits/2026-10-31_p2_72_intake_report.md) · [72 筆 priority 映射 CSV](docs/audits/2026-10-31_legacy_p2_72_to_412_crosswalk.csv) · [47 案例表](docs/audits/2026-10-31_p2_case_review_queue.csv)。此處 `action_priority=P2` 的 72 筆，與原 412 HOLD 的 P2 28 筆 **重疊 28**；另外 38 筆原 INCLUDE_CANDIDATE、6 筆原 HOLD_REE_ROLE 不在 412 HOLD 中。增列 7 筆具日期文件線索，對應 22 筆來源，僅作 source-scoped documentation；正式 Project/JORC/C1 仍為 0。對應 [PR #33](https://github.com/lleeoo0611-stack/AU_REE/pull/33)。
+
 ## 專案結構
 
 ```text

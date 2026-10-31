@@ -174,3 +174,5 @@
 **資料集合不可混為一談**：legacy 203、凍結 G0 19、1,006 來源候選、487 個固定審閱目標均有不同定義。審閱狀態不代表已核准 Project 或可正式排名。
 
 - [P0 412 HOLD 延伸證據查核、P3/P4、C1 13 案與 P2 身分交叉表](audits/2026-10-31_412_followup_gates_report.md)（資料截止 2026-10-29；source-level triage，0 C1 核准）
+
+- [Legacy Census priority P2 72 筆來源與 412 HOLD P2 28 交叉對照](audits/2026-10-31_p2_72_intake_report.md)（72 筆：28 HOLD P2、38 INCLUDE_CANDIDATE、6 HOLD_REE_ROLE；0 C1 核准）
