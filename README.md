@@ -122,13 +122,21 @@ flowchart TB
 
 [完整 44 案例報告](docs/audits/2026-10-31_p1_73_resolution_report.md) · [73 筆來源判讀 CSV](docs/audits/2026-10-31_p1_73_source_resolution.csv) · [44 案例決策 CSV](docs/audits/2026-10-31_p1_44_case_resolution.csv) · [73 筆官方礦權對照](docs/audits/2026-10-31_p1_73_tenure_reconciliation.csv) · [再生腳本](scripts/audit_p0_p1_73_resolution.py)／[礦權比對腳本](scripts/audit_p0_p1_73_tenure.py)。
 
+### P2 — 72 筆來源審查首輪（2026-10-31）
+
+**Census 來源優先佇列 P2** 已建立可重跑的 72 筆 source-level 審查與 47 個 review cases（既有 review group 22、尚未連結來源 25）。此 **P2 優先順序** 與研究計畫的 **P2 Aim B/C 方法學**分開。原 P1 73 筆來源與本次 72 筆 `target_id` **零重複**。
+
+首批新增 **7 個發行人／政府文件案例**，提供 **22 筆來源**的同 Project／礦床群文獻脈絡；另 50 筆保留前次證據狀態，逐案繼續核對 Project 身分、REE 產品、JORC、研究階段與 GIS。**正式 C1／JORC／Project footprint 核准仍為 0**，不得把候選 group 當成 MCDA Alternatives。
+
+[72 筆來源 CSV](docs/audits/2026-10-31_p2_72_source_intake.csv) · [47 個案例 Queue](docs/audits/2026-10-31_p2_case_review_queue.csv) · [7 筆文件線索](inputs/source_review_20261031/p2_72_targeted_documentary_leads.csv) · [方法與證據報告](docs/audits/2026-10-31_p2_72_intake_report.md) · [重跑腳本](scripts/audit_p0_p2_72_intake.py)。
+
 ### P0／P1 桌面審核結案與發布 Gate（2026-10-31）
 
 固定 73 筆原始 P1 來源完成 **44 案例**文獻查核與最終來源級處置：**22** 筆保留 Project／REE 正向線索並逐案六層 Gate HOLD、**40** 筆已查來源不支持同範圍 REE 產品、**2** 筆禁止錯誤資源繼承、**4** 筆位置／州界身分衝突、**5** 筆已定位 4 份 WAMEX 報告但原始檔封存受阻。Wemen 已以維多利亞政府 2003/04 統計確認是 2004 年停止生產的歷史礦場；不再標記成只有目錄。
 
-既有政府來源級 **204** 筆 tenement 交集對應 **60/73** source points；文件號碼精確對上 **20** 筆來源（12 個案例）。這不等於 Project 開發區界。**P1 73 筆文件搜尋與來源判讀已結案；Repository 公開後 GitHub Actions 已正常執行，P0/P1 快照、Python 離線回歸與 R MCDA 合成資料測試皆通過。PR #26、#27、#28 已依序合併 `main`，PR #31 彙整正式結案記錄。Project／JORC／GIS／C1 獨立簽核維持 0，未發布研究級排名。**
+既有政府來源級 **204** 筆 tenement 交集對應 **60/73** source points；文件號碼精確對上 **20** 筆來源（12 個案例）。這不等於 Project 開發區界。**P1 73 筆文件搜尋與來源判讀已結案；Repository 公開後 GitHub Actions 已正常執行，P0/P1 快照、Python 離線回歸與 R MCDA 合成資料測試皆通過。PR #26、#27、#28、#31 已依序合併 `main`，P0/P1 的 CI 已完成驗收。Project／JORC／GIS／C1 獨立簽核維持 0，未發布研究級排名。**
 
-[結案報告](docs/audits/2026-10-31_p0_p1_closeout_report.md) · [73 筆結案 CSV](docs/audits/2026-10-31_p0_p1_73_terminal_decisions.csv) · [13 案 C1 Gate 審核](inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv) · [重跑腳本](scripts/audit_p0_p1_closeout.py) · [CI 實測通過紀錄](docs/audits/2026-10-31_p0_p1_ci_verification.json) · [CI 問題追蹤 #29](https://github.com/lleeoo0611-stack/AU_REE/issues/29) · [WAMEX #30](https://github.com/lleeoo0611-stack/AU_REE/issues/30) · [C1 13 案正式 Gate #32](https://github.com/lleeoo0611-stack/AU_REE/issues/32)。
+[結案報告](docs/audits/2026-10-31_p0_p1_closeout_report.md) · [73 筆結案 CSV](docs/audits/2026-10-31_p0_p1_73_terminal_decisions.csv) · [13 案 C1 Gate 審核](inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv) · [重跑腳本](scripts/audit_p0_p1_closeout.py) · [CI 實測通過紀錄](docs/audits/2026-10-31_p0_p1_ci_verification.json) · [已結案 CI #29](https://github.com/lleeoo0611-stack/AU_REE/issues/29) · [WAMEX #30](https://github.com/lleeoo0611-stack/AU_REE/issues/30) · [C1 13 案正式 Gate #32](https://github.com/lleeoo0611-stack/AU_REE/issues/32)。
 
 ## 專案結構
 
