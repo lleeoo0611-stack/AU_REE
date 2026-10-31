@@ -187,7 +187,9 @@ def test_frozen_487_sqlite_rebuild_preserves_source_entity_identity(tmp_path):
             ("source_entity_register_487",487),
             ("project_entity_register",39),
         ):
-            quoted='"'+table+'"'
+            # Existing historical SQLite tables beginning with a digit use t_.
+            normalized=('t_'+table) if table[0].isdigit() else table
+            quoted='"'+normalized+'"'
             assert db.execute(f"SELECT COUNT(*) FROM {quoted}").fetchone()[0]==expected
     manifest=json.loads((tmp_path/"census_review.sqlite.manifest.json").read_text(encoding="utf-8"))
     assert manifest["sqlite_integrity_check"]=="ok"
