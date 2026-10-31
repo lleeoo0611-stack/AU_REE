@@ -5,13 +5,13 @@
   "original_109_rows": 109,
   "source_target_count": 70,
   "unique_source_target_ids": 70,
-  "curated_external_source_names": 24,
-  "new_external_source_target_rows": 33,
-  "remaining_without_new_external_source": 37,
+  "curated_external_source_names": 25,
+  "new_external_source_target_rows": 34,
+  "remaining_without_new_external_source": 36,
   "parent_document_candidate_rows": 7,
   "indexed_project_report_primary_pending": 4,
   "scope_and_jurisdiction_holds": 8,
-  "external_geological_only_rows": 14,
+  "external_geological_only_rows": 15,
   "cross_state_coordinate_flagged": 2,
   "all_project_approvals": 0,
   "all_JORC_TREO_approvals": 0,
@@ -27,8 +27,8 @@
   },
   "by_grade": {
     "HISTORICAL_PROJECT_PARENT_DOCUMENT_CANDIDATE": 7,
-    "EXTERNAL_GEOLOGICAL_OR_NON_REE_CONTEXT_ONLY": 14,
-    "REGIONAL_SOURCE_LABEL_NOT_PROJECT": 4,
+    "EXTERNAL_GEOLOGICAL_OR_NON_REE_CONTEXT_ONLY": 15,
+    "REGIONAL_SOURCE_LABEL_NOT_PROJECT": 3,
     "NATIVE_DEPOSIT_WITHOUT_NEW_EXTERNAL_PROJECT_DOCUMENT": 18,
     "PROJECT_OR_JURISDICTION_IDENTITY_HOLD": 6,
     "NATIVE_SA_NONPRIMARY_REE_DEPOSIT": 4,
@@ -40,9 +40,10 @@
   "by_evidence_type": {
     "EXPLICIT_DEPOSIT_IN_HISTORIC_EXPLORATION_PROJECT": 1,
     "OFFICIAL_NONPRIMARY_REE_DEPOSIT": 4,
-    "NO_EXTERNAL_DOCUMENT_LOCATED_THIS_ROUND": 37,
+    "NO_EXTERNAL_DOCUMENT_LOCATED_THIS_ROUND": 36,
     "OFFICIAL_MAP_ONLY_NOT_PROJECT_PARENT": 2,
     "INDEXED_WAMEX_PROSPECT_ONLY": 1,
+    "REGIONAL_GEOLOGICAL_LABEL_NOT_PROJECT": 2,
     "OFFICIAL_HISTORIC_MONAZITE_ALLUVIAL": 2,
     "EXPLICIT_DEPOSIT_IN_REE_PROJECT": 2,
     "HISTORICAL_OUYEN_HMS_PROJECT_PARENT": 3,
@@ -50,7 +51,6 @@
     "OFFICIAL_MINERAL_SANDS_PROJECT_HISTORICAL": 1,
     "INDEXED_WAMEX_HISTORICAL_HMS_PROJECT": 4,
     "OFFICIAL_URANIUM_DEPOSIT_PROTECTED": 1,
-    "REGIONAL_GEOLOGICAL_LABEL_NOT_PROJECT": 1,
     "DIFFERENT_COMMODITY_SAME_LOCALITY": 1,
     "REGIONAL_NEAR_PROJECT_ONLY": 1,
     "INDEXED_WAMEX_HISTORIC_TENEMENT_HOLD": 1,
@@ -60,7 +60,7 @@
   "source_input_sha256": {
     "docs/audits/2026-10-31_109_project_evidence_review.csv": "59d0ed99116f2d96349b3f8782b8a5ebca8353750f5dbd004822ce8582b9d0bc",
     "data/source_snapshots/2026-10-29_272_native_features.jsonl": "d9605cc3f2b6953fd466989e25875099674c793495bc2c9405e50231d5f96662",
-    "inputs/source_review_20261031/round6_70_official_issuer_document_leads.csv": "2348796e3ef7cad5aff71f7f605cb80dc5256eee89e3d0530c81cd9b31dff9e2"
+    "inputs/source_review_20261031/round6_70_official_issuer_document_leads.csv": "cb544c427de62629f87b74a5ad31670da217b2d65cab87c7f5df2045a5059f25"
   },
   "source_scope_note": "Primary external documents and indexed government-held reports are cited as pointers, not independently archived byte hashes. HM/THM resources are never treated as TREO. No Project spatial/legal/current-stage gate passed."
 }
