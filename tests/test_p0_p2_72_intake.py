@@ -69,6 +69,17 @@ class P2Intake(unittest.TestCase):
                          "P2_INTAKE_COMPLETE_TARGETED_PRIMARY_LEADS_ADDED_NOT_CASE_CLOSED")
         self.assertTrue(all(not x["reviewer_signature"] for x in self.sources))
 
+    def test_distinct_legacy_p2_72_vs_412_hold_p2_28(self):
+        cross = p2.priority_crosswalk(ROOT, self.sources)
+        self.assertEqual(len(cross), 72)
+        count = Counter(x["modern_412_partition"] for x in cross)
+        self.assertEqual(count, {
+            "HOLD_P2_28": 28,
+            "OUTSIDE_412_INCLUDE_CANDIDATE": 38,
+            "OUTSIDE_412_HOLD_REE_ROLE": 6,
+        })
+        self.assertEqual(p2.read(ROOT, p2.OUT_CROSSWALK), cross)
+
     def test_frozen_csv_and_summary_rebuild(self):
         self.assertEqual(p2.read(ROOT, p2.OUT_SOURCE), self.sources)
         self.assertEqual(p2.read(ROOT, p2.OUT_CASE), [

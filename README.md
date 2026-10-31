@@ -122,21 +122,38 @@ flowchart TB
 
 [完整 44 案例報告](docs/audits/2026-10-31_p1_73_resolution_report.md) · [73 筆來源判讀 CSV](docs/audits/2026-10-31_p1_73_source_resolution.csv) · [44 案例決策 CSV](docs/audits/2026-10-31_p1_44_case_resolution.csv) · [73 筆官方礦權對照](docs/audits/2026-10-31_p1_73_tenure_reconciliation.csv) · [再生腳本](scripts/audit_p0_p1_73_resolution.py)／[礦權比對腳本](scripts/audit_p0_p1_73_tenure.py)。
 
-### P2 — 72 筆來源審查首輪（2026-10-31）
-
-**Census 來源優先佇列 P2** 已建立可重跑的 72 筆 source-level 審查與 47 個 review cases（既有 review group 22、尚未連結來源 25）。此 **P2 優先順序** 與研究計畫的 **P2 Aim B/C 方法學**分開。原 P1 73 筆來源與本次 72 筆 `target_id` **零重複**。
-
-首批新增 **7 個發行人／政府文件案例**，提供 **22 筆來源**的同 Project／礦床群文獻脈絡；另 50 筆保留前次證據狀態，逐案繼續核對 Project 身分、REE 產品、JORC、研究階段與 GIS。**正式 C1／JORC／Project footprint 核准仍為 0**，不得把候選 group 當成 MCDA Alternatives。
-
-[72 筆來源 CSV](docs/audits/2026-10-31_p2_72_source_intake.csv) · [47 個案例 Queue](docs/audits/2026-10-31_p2_case_review_queue.csv) · [7 筆文件線索](inputs/source_review_20261031/p2_72_targeted_documentary_leads.csv) · [方法與證據報告](docs/audits/2026-10-31_p2_72_intake_report.md) · [重跑腳本](scripts/audit_p0_p2_72_intake.py)。
-
 ### P0／P1 桌面審核結案與發布 Gate（2026-10-31）
 
 固定 73 筆原始 P1 來源完成 **44 案例**文獻查核與最終來源級處置：**22** 筆保留 Project／REE 正向線索並逐案六層 Gate HOLD、**40** 筆已查來源不支持同範圍 REE 產品、**2** 筆禁止錯誤資源繼承、**4** 筆位置／州界身分衝突、**5** 筆已定位 4 份 WAMEX 報告但原始檔封存受阻。Wemen 已以維多利亞政府 2003/04 統計確認是 2004 年停止生產的歷史礦場；不再標記成只有目錄。
 
-既有政府來源級 **204** 筆 tenement 交集對應 **60/73** source points；文件號碼精確對上 **20** 筆來源（12 個案例）。這不等於 Project 開發區界。**P1 73 筆文件搜尋與來源判讀已結案；Repository 公開後 GitHub Actions 已正常執行，P0/P1 快照、Python 離線回歸與 R MCDA 合成資料測試皆通過。PR #26、#27、#28、#31 已依序合併 `main`，P0/P1 的 CI 已完成驗收。Project／JORC／GIS／C1 獨立簽核維持 0，未發布研究級排名。**
+既有政府來源級 **204** 筆 tenement 交集對應 **60/73** source points；文件號碼精確對上 **20** 筆來源（12 個案例）。這不等於 Project 開發區界。**P1 73 筆文件搜尋與來源判讀已結案；Repository 公開後 GitHub Actions 已正常執行，P0/P1 快照、Python 離線回歸與 R MCDA 合成資料測試皆通過。PR #26、#27、#28 已依序合併 `main`，PR #31 彙整正式結案記錄。Project／JORC／GIS／C1 獨立簽核維持 0，未發布研究級排名。**
 
-[結案報告](docs/audits/2026-10-31_p0_p1_closeout_report.md) · [73 筆結案 CSV](docs/audits/2026-10-31_p0_p1_73_terminal_decisions.csv) · [13 案 C1 Gate 審核](inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv) · [重跑腳本](scripts/audit_p0_p1_closeout.py) · [CI 實測通過紀錄](docs/audits/2026-10-31_p0_p1_ci_verification.json) · [已結案 CI #29](https://github.com/lleeoo0611-stack/AU_REE/issues/29) · [WAMEX #30](https://github.com/lleeoo0611-stack/AU_REE/issues/30) · [C1 13 案正式 Gate #32](https://github.com/lleeoo0611-stack/AU_REE/issues/32)。
+[結案報告](docs/audits/2026-10-31_p0_p1_closeout_report.md) · [73 筆結案 CSV](docs/audits/2026-10-31_p0_p1_73_terminal_decisions.csv) · [13 案 C1 Gate 審核](inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv) · [重跑腳本](scripts/audit_p0_p1_closeout.py) · [CI 實測通過紀錄](docs/audits/2026-10-31_p0_p1_ci_verification.json) · [CI 問題追蹤 #29](https://github.com/lleeoo0611-stack/AU_REE/issues/29) · [WAMEX #30](https://github.com/lleeoo0611-stack/AU_REE/issues/30) · [C1 13 案正式 Gate #32](https://github.com/lleeoo0611-stack/AU_REE/issues/32)。
+
+### P2 — 原 412 筆 HOLD 中 28 筆來源初審（2026-10-31）
+
+以原本固定優先順序重建 **P1 73 + P2 28 + P3 216 + P4 95 = 412**。P2 包含 **22 筆 Legacy + 6 筆 E1 原始紀錄**，整理為 **27 個暫定來源站址案例**；不等於 27 個獨立 Project。已建立資料可再生腳本和 28 筆逐列 CSV、27 案例證據表，並確認政府／發行人文件脈絡：Mary Kathleen 舊礦場與尾礦研發分離、Port Pirie REE 為歷史處理場、Anchor Tin Deeps 2024 年 REE 鑽探、NT Boulder Ridge、Bruce/Plenty River、Elaine Dorothy、Iluka Douglas 等。**P2 仍在證據第一輪（Phase 1），原 412 Census、P1 結案、C1 身分／JORC／GIS／Panel Gate 皆維持不變。**
+
+[完整 P2 Phase 1 報告](docs/audits/2026-10-31_p2_phase1_report.md) · [28 筆來源 CSV](docs/audits/2026-10-31_p2_28_source_triage.csv) · [27 案例 CSV](docs/audits/2026-10-31_p2_27_case_triage.csv) · [27 案證據輸入](inputs/source_review_20261031/p2_27_case_evidence.csv) · [P2 QA JSON](docs/audits/2026-10-31_p2_phase1_summary.json) · [P2 CI 實測](docs/audits/2026-10-31_p2_phase1_ci_verification.json) · [可重跑腳本](scripts/audit_p2_28_initial_triage.py) · [後續 Project/Title 核對 #35](https://github.com/lleeoo0611-stack/AU_REE/issues/35)。
+
+### P1／P2 公開證據收尾（2026-10-31）
+
+在固定 **412 HOLD = P1 73 + P2 28 + P3 216 + P4 95** 母數下，針對 **P1 剩餘 19 案／31 個來源**完成公開可取得資料的限定複核；13 個正向案例、2 個 Ambergate/Wingellina 身分衝突與 4 份 WAMEX 索引（5 source rows）均有逐案最新證據、頁面／日期與再開案條件。**四份 WAMEX 官方 PDF 位元組與 SHA 仍無法公開直接取得**，本輪不寄信、無正式 C1 簽核。
+
+P2 **28/28 source rows、27 個暫定案例完成公開文件審核處置**：17 案具政府／發行人原始線索而待來源–Project 身分核准、1 案研究階段不包含 REE、3 案歷史礦場／尾礦處理場、1 案指定鑽探的 REE 負結果、3 案僅政府原生 feature、2 案區域索引／名稱歧義。新增可追溯證據包含 NT Bell's Monazite、Arthur Popes、Blueys Folley、Duke，及 TAS Blue Tier／Cruncher／DC／Tunnel Hill、VIC Wedderburn／QLD Brumby 等。**C1、JORC、GIS_RELEASE 及六構面正式 Panel 依原 Gate 保持未核准。**
+
+[完整研究報告](docs/audits/2026-10-31_p1_p2_public_evidence_closeout_report.md) · [P1 31 筆來源 CSV](docs/audits/2026-10-31_p1_31_remaining_public_source_review.csv) · [P2 28 筆來源 CSV](docs/audits/2026-10-31_p2_28_public_terminal_desk_review.csv) · [機器 QA 摘要](docs/audits/2026-10-31_p1_p2_public_review_summary.json) · [可再生程式](scripts/audit_p1_p2_public_evidence.py)。
+
+
+### P0 — 412 HOLD 的 P3／P4 provenance、13 案 C1 與 P2 身分覆核（2026-10-31）
+
+[完整報告](docs/audits/2026-10-31_412_followup_gates_report.md) · [P3/P4 311 筆可編輯證據表](docs/audits/2026-10-31_p3_p4_311_provenance_audit.csv) · [13 案 C1 Gate](docs/audits/2026-10-31_c1_13_independent_gate_readiness.csv) · [P2 28 筆原始身分對照](docs/audits/2026-10-31_p2_28_identity_crosswalk.csv) · [QA 統計](docs/audits/2026-10-31_412_followup_gates_summary.json)。
+
+412 個原 HOLD ID 無遺漏、無重覆：P1 73／P2 28／P3 216／P4 95。P3/P4 本輪完成來源級 provenance triage，並核對 194 筆已封存政府 native source 的 ID/source key/hash（0 衝突；不是逐份新 PDF 全文核准）；13 案／22 來源完成跨表 Gate readiness 對照，**正式獨立 C1 Project／JORC／GIS 核准仍為 0**。P2 27 案完成源 ID／Legacy crosswalk 缺口補強。PR #33 的舊 action_priority P2 72 筆定義不同，仍為 Draft、未納入本輪凍結母數。可重跑 \`python scripts/audit_p0_412_gate_continuation.py --check\`。
+
+### Legacy 487 優先級 P2 的 72 筆整併（2026-10-31）
+
+[72-row intake](docs/audits/2026-10-31_p2_72_intake_report.md) · [72 筆 priority 映射 CSV](docs/audits/2026-10-31_legacy_p2_72_to_412_crosswalk.csv) · [47 案例表](docs/audits/2026-10-31_p2_case_review_queue.csv)。此處 `action_priority=P2` 的 72 筆，與原 412 HOLD 的 P2 28 筆 **重疊 28**；另外 38 筆原 INCLUDE_CANDIDATE、6 筆原 HOLD_REE_ROLE 不在 412 HOLD 中。增列 7 筆具日期文件線索，對應 22 筆來源，僅作 source-scoped documentation；正式 Project/JORC/C1 仍為 0。對應 [PR #33](https://github.com/lleeoo0611-stack/AU_REE/pull/33)。
 
 ## 專案結構
 

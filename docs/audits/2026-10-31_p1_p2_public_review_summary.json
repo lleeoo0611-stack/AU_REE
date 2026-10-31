@@ -1,0 +1,47 @@
+{
+  "audit_date": "2026-10-31",
+  "frozen_asof": "2026-10-29",
+  "source_inventory_total": 487,
+  "HOLD_source_total": 412,
+  "P1_original_HOLD_sources": 73,
+  "P1_cases_with_remaining_issues_reviewed": 19,
+  "P1_remaining_issue_source_rows_reviewed": 31,
+  "P1_remaining_source_tracks": {
+    "GEO_IDENTITY_CONFLICT": 4,
+    "POSITIVE_REE_OR_PROJECT_LEAD": 22,
+    "WAMEX_OFFICIAL_PRIMARY_ACCESS": 5
+  },
+  "P1_positive_cases_still_formal_C1_HOLD": 13,
+  "P1_WAMEX_unique_reports_indexed": 4,
+  "P1_WAMEX_source_rows": 5,
+  "P1_WAMEX_official_pdf_originals_archived": 0,
+  "P1_identity_conflict_case_count": 2,
+  "P1_identity_conflict_source_rows": 4,
+  "P2_initial_source_rows": 28,
+  "P2_provisional_cases_public_reviewed": 27,
+  "P2_terminal_source_rows_documentary_scope_reviewed": 28,
+  "P2_case_documentary_verdict_counts": {
+    "DOCUMENTED_HISTORIC_SITE_OUTSIDE_CURRENT_PREFID": 3,
+    "GOV_NATIVE_FEATURE_ONLY_PROJECT_ROLE_NOT_SHOWN": 3,
+    "ISSUER_SCOPING_EXCLUDES_REE_RESOURCE_STAGE": 1,
+    "PRIMARY_DRILL_NEGATIVE_FOR_TESTED_REE_TARGET": 1,
+    "REGIONAL_SECONDARY_NAME_COLLISION_NO_PRIMARY_JOIN": 2,
+    "SCOPED_PRIMARY_OR_ISSUER_FOUND__LEGACY_GIS_AND_C1_HOLD": 17
+  },
+  "P2_legal_Project_or_JORC_resource_gate_approved": 0,
+  "P2_C1_admissions": 0,
+  "P3_source_rows_unchanged": 216,
+  "P4_source_rows_unchanged": 95,
+  "all_412_source_ids_reprioritised": false,
+  "all_new_formal_C1_gates_approved": false,
+  "WAMEX_public_search_only_no_email_sent": true,
+  "evidence_retrieval_mode": "public government/issuer site and carefully attributed secondary indexed government-report text",
+  "input_paths": [
+    "docs/audits/2026-10-31_p1_73_source_resolution.csv",
+    "inputs/source_review_20261031/p1_19_public_remaining_case_adjudications.csv",
+    "docs/audits/2026-10-31_p2_28_source_triage.csv",
+    "docs/audits/2026-10-31_p2_27_case_triage.csv",
+    "inputs/source_review_20261031/p2_27_public_evidence_adjudications.csv"
+  ],
+  "interpretation": "Desk evidence review is bounded and assigned a terminal documentary disposition on all 28 P2 targets. No archived original WAMEX PDFs, independent source-to-Project polygons, JORC REO approvals, or six-domain C1 signoffs are inferred. Future new original documents reopen cases with retained IDs."
+}

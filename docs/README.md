@@ -66,16 +66,29 @@
 | [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
 | [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
 
-### P2 — Census 72 筆來源優先查核（2026-10-31）
+### P1／P2 最終公開證據查核（2026-10-31）
+
+| 路徑 | 可重現成果 |
+|---|---|
+| [P1／P2 完整查核報告](audits/2026-10-31_p1_p2_public_evidence_closeout_report.md) | 19 個 P1 待辦案和 27 個 P2 案例的政府／發行人資料、限界、結案規則 |
+| [P1 31 source 最新證據表](audits/2026-10-31_p1_31_remaining_public_source_review.csv) | 22 REE 正向來源、4 身分衝突來源、5 個 WAMEX 索引來源 |
+| [P2 28 source 逐列結案表](audits/2026-10-31_p2_28_public_terminal_desk_review.csv) | 28 唯一 target IDs，文獻日期、報告 locator、礦權與 REE/MRE scope |
+| [P1 19 案證據輸入](../inputs/source_review_20261031/p1_19_public_remaining_case_adjudications.csv) | 公開索引、政府/發行人文件與重新開案條件 |
+| [P2 27 案證據輸入](../inputs/source_review_20261031/p2_27_public_evidence_adjudications.csv) | 互斥 source-level 判讀的可維護主張 |
+| [機器可讀 QA](audits/2026-10-31_p1_p2_public_review_summary.json) | P1/P2 案例數、文件/身分缺口、零正式 C1 Gate |
+| [重跑程式](../scripts/audit_p1_p2_public_evidence.py) | `--check` 和 `--write`，保留 487 原始快照 |
+
+### P2 — 28 source / 27 provisional cases（2026-10-31）
 
 | 文件 | 內容 |
-| --- | --- |
-| [P2 初步證據與分母報告](audits/2026-10-31_p2_72_intake_report.md) | 72 筆不重複來源、47 review cases、7 條定向文件線索／22 筆來源、與研究 P2 Aim B/C 的區別 |
-| [P2 72 筆可編輯來源清單](audits/2026-10-31_p2_72_source_intake.csv) | 逐 target ID 的來源 SHA、舊分類、Review group、文獻頁碼、REE/資源/Stage/GIS Gate |
-| [47 個 case review queue](audits/2026-10-31_p2_case_review_queue.csv) | 22 組既有 review groups + 25 個 unlinked IDs；同一資源不跨 source 反覆加總 |
-| [7 條來源證據輸入](../inputs/source_review_20261031/p2_72_targeted_documentary_leads.csv) | 存入 Kennedy、Narraburra、Deep Leads、Sybella、Milo、Bruce Prospect、Plenty River 來源 |
-| [P2 QA Summary JSON](audits/2026-10-31_p2_72_intake_summary.json) | 72/47/7、原 P1 overlap=0、C1 無自動升格 |
-| [P2 再生腳本](../scripts/audit_p0_p2_72_intake.py) | Python 3.11+，`--write`/`--check`，可對照 frozen inputs |
+|---|---|
+| [P2 首輪分析與 P1 交接報告](audits/2026-10-31_p2_phase1_report.md) | 412 的 P1/P2/P3/P4 分母、原生來源與 Project 層級拆分、先行證據、WAMEX/C1 未完成事項 |
+| [P2 28 筆 source 逐列審查](audits/2026-10-31_p2_28_source_triage.csv) | 原 Target ID、舊資料證據狀態、原生 SHA、Project 角色、來源 URL、再開案條件 |
+| [P2 27 暫定案例表](audits/2026-10-31_p2_27_case_triage.csv) | 來源站址鍵、doc scope 與 evidence provenance |
+| [P2 27 案例證據輸入](../inputs/source_review_20261031/p2_27_case_evidence.csv) | 人工選定、可逐版本擴充的政府／發行人原文來源 |
+| [P2 summary JSON](audits/2026-10-31_p2_phase1_summary.json) | 分母 QA 與零 C1 發布欄位 |
+| [P2 CI 實測成功紀錄](audits/2026-10-31_p2_phase1_ci_verification.json) | 成功的 P2 source 再生、Python offline 與 R synthetic workflow run ID 與 SHA |
+| [P2 可重跑腳本](../scripts/audit_p2_28_initial_triage.py) | Python 標準函式庫 `--write`／`--check` |
 
 ### P0／P1 結案與發布門檻（2026-10-31）
 
@@ -159,3 +172,7 @@
 - [`docs/archive/`](archive/)：舊版 README、先前規格；[r983 README](previous_r983_modular_README.md) 保留作歷史比較。
 
 **資料集合不可混為一談**：legacy 203、凍結 G0 19、1,006 來源候選、487 個固定審閱目標均有不同定義。審閱狀態不代表已核准 Project 或可正式排名。
+
+- [P0 412 HOLD 延伸證據查核、P3/P4、C1 13 案與 P2 身分交叉表](audits/2026-10-31_412_followup_gates_report.md)（資料截止 2026-10-29；source-level triage，0 C1 核准）
+
+- [Legacy Census priority P2 72 筆來源與 412 HOLD P2 28 交叉對照](audits/2026-10-31_p2_72_intake_report.md)（72 筆：28 HOLD P2、38 INCLUDE_CANDIDATE、6 HOLD_REE_ROLE；0 C1 核准）

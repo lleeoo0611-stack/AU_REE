@@ -1,0 +1,64 @@
+{
+  "audit_date": "2026-10-31",
+  "frozen_source_asof": "2026-10-29",
+  "repository": "lleeoo0611-stack/AU_REE",
+  "input_reference_commit": "ac1735da2d13e32039cde504d8fa4fcf563d1623",
+  "scope": "Original 412 HOLD source target IDs, not unique mining Projects",
+  "counts": {
+    "original_HOLD": 412,
+    "P1_source_desk_closed": 73,
+    "P2_public_documentary_closed": 28,
+    "P3_source_provenance_triage": 216,
+    "P4_occurrence_provenance_triage": 95,
+    "all_source_ids_accounted_for": 412
+  },
+  "P3_state_distribution": {
+    "NSW": 24,
+    "NT": 6,
+    "QLD": 16,
+    "SA": 80,
+    "TAS": 1,
+    "VIC": 10,
+    "WA": 79
+  },
+  "P4_state_distribution": {
+    "NSW": 5,
+    "NT": 32,
+    "QLD": 9,
+    "SA": 34,
+    "TAS": 15
+  },
+  "P3_P4_provenance_grades": {
+    "ARCHIVED_TEXT_NOT_PRIMARY_BYTES": 28,
+    "DOCUMENTARY_PROJECT_LEAD_NOT_APPROVED": 38,
+    "EXTERNAL_POINTER_NATIVE_RECOVERY_REQUIRED": 6,
+    "HISTORICAL_GEOLOGY_CONTEXT_NOT_PROJECT": 23,
+    "NATIVE_ID_AMBIGUITY_REVIEW": 2,
+    "NATIVE_SOURCE_RECOVERY_REQUIRED": 1,
+    "OFFICIAL_NATIVE_RECORD_ONLY": 194,
+    "URL_NO_DIRECT_SOURCE_LOCATOR": 19
+  },
+  "C1_case_count": 13,
+  "C1_source_row_count": 22,
+  "C1_independent_approvals": 0,
+  "C1_nonapproval_reason": "Original primary PDF bytes+SHA, project-footprint joins, project-scoped REO JORC, completed pre-FID study, six-domain panel and independent reviewer signoff not complete.",
+  "P2_source_rows": 28,
+  "P2_distinct_case_ids": 27,
+  "P2_legacy_rows": 22,
+  "P2_native_rows": 6,
+  "PR33_note": "PR #33 draft covers historic action_priority=P2 72-source tranche; not merged or counted as the 28-source HOLD P2 tranche.",
+  "input_paths": [
+    "docs/audits/2026-10-31_census_487_batch_review.csv",
+    "docs/audits/2026-10-31_487_evidence_round2_review.csv",
+    "docs/audits/2026-10-31_p1_73_source_resolution.csv",
+    "docs/audits/2026-10-31_p2_28_public_terminal_desk_review.csv",
+    "inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv",
+    "docs/audits/2026-10-31_p1_44_case_resolution.csv",
+    "docs/audits/2026-10-31_p1_48_resource_basis_review.csv",
+    "data/source_snapshots/2026-10-29_272_native_features.jsonl"
+  ],
+  "status": "C0_PROVENANCE_AUDITED; C1_NOT_RELEASED; NO_FORMAL_NEW_PROJECT_APPROVAL",
+  "P3_P4_native_source_raw_exact": 194,
+  "P3_P4_not_in_272_subsnapshot": 117,
+  "P3_P4_native_source_mismatch": 0
+}

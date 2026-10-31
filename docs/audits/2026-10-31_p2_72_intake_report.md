@@ -18,6 +18,10 @@
 
 來源分布：QLD 17、VIC 12、TAS 12、SA 11、NT 8、NSW 6、WA 6。
 
+### 與 412 筆 HOLD 的不可混用交叉表
+
+本批 72 筆用的是原始 **487 census `action_priority=P2`**：逐 ID 與 [原 412 HOLD 的 P2 28 筆](2026-10-31_p2_28_public_terminal_desk_review.csv) 對照，得到 **28 筆交集**、**38 筆不屬於 412 HOLD 的原 INCLUDE_CANDIDATE**、**6 筆原 HOLD_REE_ROLE**；這三個群集互斥，無任何新增 72 個 C1 核准。完整 [72 筆分母交叉表](2026-10-31_legacy_p2_72_to_412_crosswalk.csv)由相同 source ID 可重跑，不得將 72 + 28 算成 100 筆新來源。
+
 ## 2. 首批定向證據（7 條，覆蓋 22 筆來源）
 
 所列數值是**發行人／政府文本內同一 Project 或礦床群的主張**；尚未通過獨立 Project–Deposit 關聯、JORC、GIS 或正式 C1 六層 Gate，因此不能按來源列數倍增，也不能拿來直接評分。

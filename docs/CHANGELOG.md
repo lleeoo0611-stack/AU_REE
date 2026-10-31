@@ -1,13 +1,23 @@
 # Change log
 
-## P2 Census source-review intake and seven case-level documents — 2026-10-31
+## P1/P2 publicly accessible evidence closing review — 2026-10-31
 
-- Clarify **P2 487-Census review priority** vs **Research Phase P2 Aim B/C** (distinct tracks). P2 source denominator 72 unique target IDs, exactly 0 overlap with prior P1 73 source IDs.
-- Normalize 72 P2 rows into **47 review cases**: 22 established (unapproved) group IDs and 25 separate unlinked source IDs; preserve all original evidence/provenance IDs and tenure snapshots.
-- Add 7 dated issuer/government document leads covering 22 source rows: Kennedy (3), Narraburra (4), Deep Leads–Rubble Mound–Wind Break (6), Sybella (3), Milo (4), Bruce Prospect (1), Plenty River (1). Preserve 50 remaining source rows with previous evidence and missing review priorities.
-- Preserve cutoff and resource semantics: 2026 source dates, TREO vs TREOY, Ore Mt/grade nesting, multi-deposit resource nonaddition, Planned Scoping ≠ completed economic study, no cross-project evidence inheritance.
-- New deterministic Python generator, unittest, GitHub Actions 3.11/3.13 regression, editable 72/47 CSVs and JSON; P2 **intake/first documentary tranche only**, not 72-case closure. No Project/JORC/GIS/C1 approvals or MCDA ranks.
-- P1 four PRs #26/#27/#28/#31 already merged with green Python/R CI; WAMEX original PDFs remain Issue #30 and 13 positive C1 case approvals remain Issue #32.
+- Reassessed **P1 19 remaining cases / 31 immutable sources** on freely accessible government, issuer and secondary-index documents: 13 positive REE/Project leads (22 rows), 2 geographic identity conflicts (4), and 4 indexed WAMEX reports (5). New primary/context sources distinguish WA Wingellina Ni-Co from SA Claude Hills and Ambergate vs Witchcliffe name/tenement conflict; P1 C1 gates all remain HOLD.
+- Official original PDFs for WAMEX A119194/A120393/A129842/A109188 remain unarchived; company-submitted page-text indexing yields bounded documentary claims but **does not supply original PDF SHA**. No email was sent.
+- **P2 all 28 source rows / 27 provisional cases** assigned unique terminal scoped documentary review results and reopen conditions: 17 direct government/issuer leads still lacking approved Legacy source-to-Project identity, 1 REE stage outside issuer Scoping, 3 historic sites, 1 negative single drill target, 3 native features not Project proof, 2 regional index/name collisions. Factual report excerpts support Arthur Popes, Bell's Monazite, Blueys Folley, Duke, Blue Tier, Cruncher, DC, Tunnel Hill, Brumby Clydesdale and Wedderburn.
+- Add editable source and case evidence inputs, reproducible 31+28 target CSV derivation, machine-readable QA, dedicated unit tests and CI. Preserve 412 original HOLD source IDs, 73 prior P1, untouched P3 216/P4 95, zero independent formal C1 or JORC/GIS approvals.
+- Follow-up for inaccessible original archive (#30), P1 positive case signoffs (#32), and P2 source–Project/tenure checks (#35) remains open.
+
+
+## P2 first-pass source triage within 412 HOLD — 2026-10-31
+
+- Freeze historical denominator 412 = P1 73 + P2 28 + P3 216 + P4 95 (no re-ranking, no C1 admission).
+- Audit all 28 P2 source IDs (22 Legacy / 6 E1) into 27 provisional source-site cases. Preserve a separate historical Mary Kathleen mine (two native deposit points) and Mary Kathleen tailings legacy research source.
+- Curate government/issuer / native context: Mary Kathleen government remediation + 2026 Bayan bench testwork, Port Pirie SA SARIG #8908 treatment tailings, Tasmanian Anchor Tin Deeps 2024 EDGI REE drilling, Northern Territory Boulder Ridge and Bruce/Plenty River/Edwards Creek exploration, Elaine Dorothy historical REE, Douglas 2004–2012 historic Iluka HMS, P1 Talisker legacy cross-reference. VIC Bondi native feature prohibited from name-only joining Iluka Douglas Bondi mine.
+- Current provenance: 11 documentary source-case leads pending same-scope identity, 12 Legacy names only, 3 VIC native features, 1 regional secondary index; all remain C0 without independent Project / JORC REO / GIS release / C1 approvals.
+- Add `scripts/audit_p2_28_initial_triage.py`, dedicated `unittest`, CI workflow, evidence CSV, frozen source/case CSVs, snapshot JSON, report and index.
+- P1 file-access (#30) and downstream C1 case approvals (#32) remain explicitly open. P2 subsequent research tracked in #35.
+- Observed dedicated P2 phase-one, Python offline and R synthetic CI all successful on commit 787fa9f7 (GitHub Actions 41176845661, 41176845732, 41176841192); CI attestation saved under docs/audits.
 
 
 ## P0/P1 desk-search closeout, CI verified, C1 gate held — 2026-10-31
@@ -186,3 +196,18 @@
 - Preserve original public-government records and extended REE-mineral occurrence inventory.
 - Require independently approved project-identity documents for new Project Master entries; legacy 203 frozen seeds remain distinct.
 - Add geological entity/provenance, parent links, cross-source review pairs, and identity audit tables, with editable CSV exports and repeatable tests.
+
+## 2026-10-31 — P0 412 HOLD provenance/Gate continuation
+
+- 完整保留 412 筆 target IDs，與 P1 73／P2 28 分離，產出 P3 216 Deposit/Prospect 與 P4 95 Occurrence 的 311-row 來源追溯工作表；本輪僅完成 provenance triage。
+- 13 個正向案例（22 source rows）跨接原始 Gate、P1 Case、JORC basis、來源紀錄，確認正式 Project/JORC/GIS/C1 0 核准且全部留 HOLD。
+- P2 28 source／27 cases 補上 Legacy/native source crosswalk 與歷史範圍旗標；不擅自合併同名及不同時點來源。
+- 新增可重跑 Python、unit test 與 GitHub workflow；README 和研究索引同步更新。
+
+- P3/P4 與 2026-10-29 政府原生 272-feature JSONL 做逐筆 ID/source/native SHA 回查：194/311 精確交叉核對，0 不一致，117 不在此 272 子快照內；新增自動 QA。
+
+## 2026-10-31 — Reconcile legacy 487 priority P2 72 and original HOLD P2 28
+
+- 合併原 PR #33 的 72-row／47 case source intake、7 dated documentary leads（涵蓋 22 sources）及 stdlib Python 重建。
+- 以 source ID 建立 72-row priority crosswalk：28 原 412 HOLD P2、38 INCLUDE_CANDIDATE、6 HOLD_REE_ROLE；不得重複相加。
+- 保留 2026-10-29 as-of、研究 C1/JORC/GIS 0 核准；補強 README／決策紀錄、測試、CI。

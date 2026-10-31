@@ -21,6 +21,9 @@ ROUND2 = Path("docs/audits/2026-10-31_487_evidence_round2_review.csv")
 SCREEN = Path("docs/audits/2026-10-31_project_source_screen_39.csv")
 P1 = Path("docs/audits/2026-10-31_p0_p1_73_terminal_decisions.csv")
 LEADS = Path("inputs/source_review_20261031/p2_72_targeted_documentary_leads.csv")
+HOLD28 = Path("docs/audits/2026-10-31_p2_28_public_terminal_desk_review.csv")
+OUT_CROSSWALK = Path("docs/audits/2026-10-31_legacy_p2_72_to_412_crosswalk.csv")
+CROSSWALK_FIELDS = ["target_id", "source_name", "state", "legacy_487_action_priority", "original_inclusion_gate", "modern_412_partition", "source_cohort", "old_review_group_key", "p2_case_key", "documentary_stage", "c1_approved"]
 OUT_SOURCE = Path("docs/audits/2026-10-31_p2_72_source_intake.csv")
 OUT_CASE = Path("docs/audits/2026-10-31_p2_case_review_queue.csv")
 OUT_SUMMARY = Path("docs/audits/2026-10-31_p2_72_intake_summary.json")
@@ -265,6 +268,38 @@ def build(root: Path = ROOT):
     }
     return result, case_rows, summary
 
+def priority_crosswalk(root: Path, source_rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Crosswalk two different priority vocabularies, never sum their denominators."""
+    hold28 = {r["target_id"] for r in read(root, HOLD28)}
+    assert len(hold28) == 28
+    cross = []
+    for x in source_rows:
+        if x["target_id"] in hold28:
+            priority = "HOLD_P2_28"
+        elif x["original_inclusion_gate"] == "INCLUDE_CANDIDATE":
+            priority = "OUTSIDE_412_INCLUDE_CANDIDATE"
+        elif x["original_inclusion_gate"] == "HOLD_REE_ROLE":
+            priority = "OUTSIDE_412_HOLD_REE_ROLE"
+        else:
+            raise AssertionError("Unreconciled 487-vs-412 source: " + x["target_id"])
+        cross.append({
+            "target_id": x["target_id"], "source_name": x["source_name"], "state": x["state"],
+            "legacy_487_action_priority": x["original_review_priority"],
+            "original_inclusion_gate": x["original_inclusion_gate"],
+            "modern_412_partition": priority, "source_cohort": x["source_cohort"],
+            "old_review_group_key": x["review_group_id_NOT_APPROVED_PROJECT"],
+            "p2_case_key": x["p2_case_key"], "documentary_stage": x["p2_documentary_progress"],
+            "c1_approved": "NO",
+        })
+    counts = Counter(x["modern_412_partition"] for x in cross)
+    assert counts == {
+        "HOLD_P2_28": 28,
+        "OUTSIDE_412_INCLUDE_CANDIDATE": 38,
+        "OUTSIDE_412_HOLD_REE_ROLE": 6,
+    }
+    return sorted(cross, key=lambda x: x["target_id"])
+
+
 def write_rows(path: Path, rows: list[dict[str, str]], fields: list[str]):
     with path.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
@@ -277,14 +312,17 @@ def main():
     p.add_argument("--check", action="store_true")
     args = p.parse_args()
     sources, cases, stats = build(ROOT)
+    cross = priority_crosswalk(ROOT, sources)
     if args.write:
         write_rows(ROOT / OUT_SOURCE, sources, SOURCE_FIELDS)
         write_rows(ROOT / OUT_CASE, cases, CASE_FIELDS)
+        write_rows(ROOT / OUT_CROSSWALK, cross, CROSSWALK_FIELDS)
         (ROOT / OUT_SUMMARY).write_text(
             json.dumps(stats, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
         )
     if args.check:
         assert read(ROOT, OUT_SOURCE) == sources, OUT_SOURCE
+        assert read(ROOT, OUT_CROSSWALK) == cross, OUT_CROSSWALK
         assert read(ROOT, OUT_CASE) == [
             {k: str(r[k]) for k in CASE_FIELDS} for r in cases
         ], OUT_CASE
