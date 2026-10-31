@@ -1,0 +1,39 @@
+{
+  "audit_date": "2026-10-31",
+  "snapshot_as_of": "2026-10-29",
+  "baseline_branch": "research/p0-p1-parent-identity-20261031",
+  "total_source_rows": 48,
+  "distinct_source_site_name_keys": 39,
+  "provisional_parent_groups": 25,
+  "independently_approved_project_count": 0,
+  "verified_source_point_in_project_polygon_count": 0,
+  "C1_approved_count": 0,
+  "resource_claim_rows": 14,
+  "resource_basis_counts": {
+    "HM": 2,
+    "Nb2O5": 2,
+    "TREO": 10
+  },
+  "ree_role_evidence_counts": {
+    "NOT_DEMONSTRATED_REE_PRODUCT": 2,
+    "REE_COPRODUCT_GOVERNMENT_LISTED": 1,
+    "REE_EXPLORATION_INTERCEPTS_ONLY": 1,
+    "REE_NOT_SUBSTANTIATED": 1,
+    "REE_NOT_SUPPORTED_AS_RECOVERED_PRODUCT": 1,
+    "REE_PRODUCT_DOCUMENTED": 1,
+    "REE_UNCONFIRMED": 13,
+    "TREO_COMPONENT_REPORTED_IN_NB_JORC": 1,
+    "TREO_MRE_REPORTED": 4
+  },
+  "wide_group_source_spreads_gt25km": [
+    "P1G-0001",
+    "P1G-0002"
+  ],
+  "data_inputs": [
+    "docs/audits/2026-10-31_p1_parent_identity_review.csv",
+    "docs/audits/2026-10-31_census_487_batch_review.csv",
+    "inputs/source_review_20261031/p1_48_parent_group_evidence.csv",
+    "inputs/source_review_20261031/p1_48_resource_claims.csv"
+  ],
+  "warning": "25 pinned parent labels are review groups, NOT verified unique Australian REE Projects. Government GIS boundary intersection has not been performed. 2026 Aileron niobium MRE updates 2025 tonnage, and 2025 TREO grade does not transfer to 2026 resource by assumption. HM/TREO/Nb2O5 grade bases and nested resource statements cannot be aggregated."
+}

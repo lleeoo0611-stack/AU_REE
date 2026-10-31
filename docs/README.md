@@ -66,6 +66,17 @@
 | [31 個來源文件名稱線索](../inputs/source_review_20261031/round5_109_documented_project_deposit_leads.csv) | ASX、WA EPA、CSIRO 歷史 Project 與 geological-only claims |
 | [109 證據統計與來源指紋](audits/2026-10-31_109_project_evidence_summary.json) | 跨來源同名座標、稽核結果與 SHA-256 |
 
+### P0 P1：48 筆具名母層去重、REE resource 與空間 QA
+
+| 文件 | 用途 |
+| --- | --- |
+| [48→25 去重與資料檢核報告](audits/2026-10-31_p1_48_dedupe_report.md) | 25 個候選母層、REE vs HM 基準、dated/undated 資源與 geometry 審查狀態 |
+| [48 筆來源母層關聯](audits/2026-10-31_p1_48_source_parent_crosswalk.csv) | 原始 target ID／source ID／SHA、來源座標、審查群組與去重判斷 |
+| [25 組母層總表](audits/2026-10-31_p1_25_provisional_parent_groups.csv) | 暫定 group key、source IDs、空間距離、Project 角色與下一步 |
+| [12 筆資源聲明及 cut-off 核查](audits/2026-10-31_p1_48_resource_basis_review.csv) | TREO／HM、同一 JORC 子集合、Total/分項、不同日期版本的數值比對 |
+| [固定群組／資源輸入](../inputs/source_review_20261031/p1_48_parent_group_evidence.csv) | 25 個固定候選母層名稱與原始證據 |
+| [可重跑 Python 與 QA 測試](../scripts/audit_p0_p1_48_dedupe.py) | 不自動升格 Project/MCDA 的來源分組與統計 |
+
 ### P0 P1：412 HOLD 的 73 筆母層優先查核
 
 | 文件 | 用途 |
