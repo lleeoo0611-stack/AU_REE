@@ -231,7 +231,7 @@ def run(db,ctx):
                 source_savepoint=False
             failures.append({'source':src['key'],'error':str(ex)})
             db.execute('''INSERT INTO source_registry(source_key,source_url,source_type,dataset_date,fetched_at,record_count,fetch_status,error) VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(source_key) DO UPDATE SET fetched_at=excluded.fetched_at,fetch_status=excluded.fetch_status,error=excluded.error''',
-                      (src['key'],src.get('url') or src.get('source_documentation'),src['type'],cfg.get('as_of'),utc(),n,'OFFLINE_CACHE_MISSING' if ctx['offline'] and 'OFFLINE:' in str(ex) else 'FETCH_FAILED',str(ex)[:2000]))
+                      (src['key'],src.get('url') or src.get('source_documentation'),src['type'],cfg.get('as_of'),utc(),0,'OFFLINE_CACHE_MISSING' if ctx['offline'] and 'OFFLINE:' in str(ex) else 'FETCH_FAILED',str(ex)[:2000]))
             event(db,'population',src['key'],'SOURCE_FETCH_FAIL',str(ex))
     # Independent Project identity approval precedes project detail/coordinate review.
     # A newly approved Project may receive its separately reviewed parameters in
