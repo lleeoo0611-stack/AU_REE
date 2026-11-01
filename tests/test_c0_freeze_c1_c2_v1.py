@@ -85,6 +85,9 @@ class CohortFreezePolicyTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "published after source cutoff"):
             gates_with_signatures(decisions, self.projects[0],
                                   {**meta, "study_published_asof": "2026-10-30"})
+        with self.assertRaisesRegex(ValueError, "future-dated reviewer signature"):
+            gates_with_signatures([{**decisions[0], "reviewed_at": "2099-01-01"}] + decisions[1:],
+                                  self.projects[0], meta)
 
     def test_synthetic_signoffs_flow_through_cohort_builder(self):
         group = next(p for p in self.projects
