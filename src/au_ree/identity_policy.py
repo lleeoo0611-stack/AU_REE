@@ -142,7 +142,7 @@ def independently_approved_project(db, project_id, *, root=None):
     return bool(row and row['population_status']=='EVIDENCE_BACKED_PROJECT'
         and row['entity_level']=='PROJECT' and row['state']==row['source_state']
         and row['review_status']=='DOCUMENT_APPROVED'
-        and row['review_decision']=='APPROVE_NEW_PROJECT'
+        and row['review_decision'] in ('APPROVE_NEW_PROJECT','CONFIRM_LEGACY_PROJECT')
         and row['resolved_project_id']==row['project_id']
         and verify(db,row['approval_ref'],'PROJECT_REVIEW',
                    row['source_url'],row['source_sha256'],root=root))
@@ -158,7 +158,7 @@ def apply_identity_decisions(db,root,freeze_date):
     # Approve independent Project parents before resolving child/source links.
     # Otherwise the lexical candidate_id order controls whether an otherwise
     # valid, same-batch Project–Deposit relationship is accepted.
-    order={'APPROVE_NEW_PROJECT':0,'LINK_EXISTING_PROJECT':1}
+    order={'APPROVE_NEW_PROJECT':0,'CONFIRM_LEGACY_PROJECT':0,'LINK_EXISTING_PROJECT':1}
     rows=sorted(decisions,key=lambda r:(
         order.get((r.get('decision') or '').strip().upper(),2),
         r.get('candidate_id','')
@@ -167,7 +167,7 @@ def apply_identity_decisions(db,root,freeze_date):
     db.execute("UPDATE project_master SET population_status='IDENTITY_APPROVAL_EXPIRED', activity='UNKNOWN', lifecycle='UNKNOWN', ree_role='REE_UNCONFIRMED' WHERE identity_source LIKE 'APPROVED_CANDIDATE:%'")
     db.execute("UPDATE project_geological_relation SET decision_status='APPROVAL_EXPIRED' WHERE approval_ref IS NOT NULL")
     db.execute("UPDATE population_candidates SET decision='REVIEW',reason='IDENTITY_APPROVAL_RECHECK',matched_project_id=NULL WHERE decision='APPROVED_PROJECT_IDENTITY'")
-    stats={'approved_new':0,'linked_existing':0,'rejected_or_pending':0}
+    stats={'approved_new':0,'confirmed_legacy':0,'linked_existing':0,'rejected_or_pending':0}
     for r in rows:
         cid=(r.get('candidate_id') or '').strip()
         action=(r.get('decision') or '').strip().upper()
@@ -181,7 +181,7 @@ def apply_identity_decisions(db,root,freeze_date):
             cutoff_day=date.fromisoformat(str(freeze_date))
         except ValueError:
             evidence_day=cutoff_day=None
-        valid=bool(candidate and action in ('APPROVE_NEW_PROJECT','LINK_EXISTING_PROJECT')
+        valid=bool(candidate and action in ('APPROVE_NEW_PROJECT','CONFIRM_LEGACY_PROJECT','LINK_EXISTING_PROJECT')
           and evidence_day is not None and cutoff_day is not None
           and evidence_day<=cutoff_day and verify(db,ref,'PROJECT_REVIEW',source,sha,root=root))
         if candidate is None:
@@ -192,7 +192,7 @@ def apply_identity_decisions(db,root,freeze_date):
         project_name=(r.get('project_name') or '').strip()
         reason='EVIDENCE_APPROVED' if valid else 'INDEPENDENT_DOCUMENT_APPROVAL_REQUIRED'
         if valid and not candidate['state']:valid=False;reason='STATE_REQUIRED'
-        if valid and action=='APPROVE_NEW_PROJECT' and candidate['entity_level']!='PROJECT':
+        if valid and action in ('APPROVE_NEW_PROJECT','CONFIRM_LEGACY_PROJECT') and candidate['entity_level']!='PROJECT':
             valid=False;reason='SOURCE_ENTITY_IS_NOT_A_PROJECT'
         if valid and action=='APPROVE_NEW_PROJECT':
             if not project_name:valid=False;reason='PROJECT_NAME_REQUIRED'
@@ -227,6 +227,40 @@ def apply_identity_decisions(db,root,freeze_date):
                         db.execute("UPDATE project_master SET population_status='EVIDENCE_BACKED_PROJECT',updated_at=? WHERE project_id=? AND identity_source=?",
                                    (utc(),pid,'APPROVED_CANDIDATE:'+cid))
                 if valid:stats['approved_new']+=1
+        elif valid and action=='CONFIRM_LEGACY_PROJECT':
+            # A signed issuer report may verify an existing historical Project
+            # without creating a duplicate Project or changing its stable ID.
+            # This is an explicit correction, never an automatic name merge.
+            master=db.execute('''SELECT project_id,canonical_name,normalized_name,state,
+                population_status,identity_source FROM project_master WHERE project_id=?''',
+                (pid,)).fetchone()
+            prior=db.execute('SELECT resolved_project_id FROM identity_review_decisions WHERE candidate_id=?',
+                             (cid,)).fetchone()
+            prior_id=prior['resolved_project_id'] if prior else None
+            if not pid or not master:
+                valid=False;reason='LEGACY_PROJECT_ID_REQUIRED'
+            elif master['state']!=candidate['state']:
+                valid=False;reason='LEGACY_PROJECT_STATE_CONFLICT'
+            elif not project_name or norm(project_name)!=master['normalized_name']:
+                valid=False;reason='LEGACY_PROJECT_SCOPE_NAME_REQUIRES_REVIEW'
+            elif prior_id and prior_id!=pid:
+                valid=False;reason='STABLE_LEGACY_PROJECT_ID_CHANGE_REQUIRES_CORRECTION'
+            elif not db.execute('SELECT 1 FROM legacy_id_map WHERE project_id=?',(pid,)).fetchone():
+                valid=False;reason='LEGACY_PROVENANCE_MAPPING_MISSING'
+            elif master['identity_source'] not in ('legacy_r963_frozen','APPROVED_CANDIDATE:'+cid):
+                valid=False;reason='LEGACY_PROJECT_ALREADY_CLAIMED_OR_NOT_LEGACY'
+            elif master['population_status'] not in ('LEGACY_UNVERIFIED',
+                                                       'IDENTITY_APPROVAL_EXPIRED'):
+                valid=False;reason='LEGACY_PROJECT_STATUS_CONFLICT'
+            else:
+                db.execute('''UPDATE project_master SET population_status='EVIDENCE_BACKED_PROJECT',
+                    identity_source=?,updated_at=? WHERE project_id=?''',
+                    ('APPROVED_CANDIDATE:'+cid,utc(),pid))
+                event(db,'population',pid,'LEGACY_PROJECT_IDENTITY_CONFIRMED',
+                      json.dumps({'candidate_id':cid,'approval_ref':ref,
+                                  'prior_identity_source':master['identity_source']},
+                                 ensure_ascii=False))
+                stats['confirmed_legacy']+=1
         elif valid and action=='LINK_EXISTING_PROJECT':
             old=db.execute('SELECT resolved_project_id FROM identity_review_decisions WHERE candidate_id=?',
                            (cid,)).fetchone()
