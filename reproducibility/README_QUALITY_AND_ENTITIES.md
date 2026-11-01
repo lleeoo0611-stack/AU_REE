@@ -4,7 +4,7 @@
 
 ## 原始 ArcGIS Source bytes 的重建檢查
 
-`src/au_ree/source_adapters.py load_arcgis()` 在同一 query-source snapshot 首次成功下載後建立 `manifest.json`，內容包含 metadata／IDs／每個原始 feature chunk 的 SHA-256、筆數、source URL 與查詢。後續離線重建重新比對，若同一 Object ID 的礦點內容被改寫、metadata/IDs 變動或查詢契約不同，立即拒絕重建；不得重新計算 hash 後覆蓋原先 manifest。修正資料必須另建版本化 source snapshot，不直接修改不可變原始檔。
+`src/au_ree/source_adapters.py load_arcgis()` 在同一 query-source snapshot 首次成功下載後建立 `manifest.json`，內容包含 metadata／IDs／每個原始 feature chunk 的 SHA-256、筆數、source URL 與查詢。後續離線重建重新比對，若同一 Object ID 的礦點內容被改寫、metadata/IDs 變動或查詢契約不同，立即拒絕重建；不得重新計算 hash 後覆蓋原先 manifest。**在任何重新下載／寫入前，先驗證全部舊 metadata、IDs、feature chunks 均存在且 SHA-256 不變；遺失檔案也不得自新 API 回應補入既有快照。原生 Object ID 清單若包含重複 ID 則明確拒絕，不可靜默去重。**修正資料必須另建版本化 source snapshot，不直接修改不可變原始檔。
 
 ## 現行 487-source SQLite 重建驗證（2026-11-01）
 

@@ -56,7 +56,7 @@ def test_arcgis_snapshot_offline_resume(monkeypatch,tmp_path):
     # An incomplete cached chunk must be rejected rather than passed as complete.
     f=directory/'features_0000000.json'
     f.write_text(json.dumps({'features':[]}))
-    with pytest.raises(RuntimeError,match='truncated/mismatched'):
+    with pytest.raises(RuntimeError,match='Frozen ArcGIS snapshot component SHA256 mismatch'):
         load_arcgis(fake_source(),tmp_path,offline=True,chunk_size=1)
 
 
@@ -71,7 +71,7 @@ def test_arcgis_frozen_manifest_blocks_same_oid_content_mutation(monkeypatch,tmp
     chunk.write_text(json.dumps(obj),encoding='utf8')
     monkeypatch.setattr('au_ree.source_adapters.fetch_json',
                         lambda *args,**kwargs: (_ for _ in ()).throw(RuntimeError('NO_NETWORK')))
-    with pytest.raises(RuntimeError,match='Frozen ArcGIS snapshot content/contract changed'):
+    with pytest.raises(RuntimeError,match='Frozen ArcGIS snapshot component SHA256 mismatch'):
         load_arcgis(fake_source(),tmp_path,offline=True,chunk_size=1)
     assert (directory/'manifest.json').read_bytes()==original_manifest
     assert frozen_digest!=None
@@ -87,9 +87,56 @@ def test_arcgis_frozen_manifest_blocks_source_metadata_rewrite(monkeypatch,tmp_p
     meta.write_text(json.dumps(modified),encoding='utf8')
     monkeypatch.setattr('au_ree.source_adapters.fetch_json',
                         lambda *args,**kwargs: (_ for _ in ()).throw(RuntimeError('NO_NETWORK')))
-    with pytest.raises(RuntimeError,match='Frozen ArcGIS snapshot content/contract changed'):
+    with pytest.raises(RuntimeError,match='Frozen ArcGIS snapshot component SHA256 mismatch'):
         load_arcgis(fake_source(),tmp_path,offline=True,chunk_size=1)
     assert (directory/'manifest.json').read_bytes()==original
+
+
+def test_arcgis_frozen_snapshot_missing_raw_chunk_cannot_be_refetched(monkeypatch,tmp_path):
+    calls=mock_http(monkeypatch)
+    _,_,directory=load_arcgis(fake_source(),tmp_path,chunk_size=1)
+    frozen_manifest=(directory/'manifest.json').read_bytes()
+    chunk=directory/'features_0000000.json'
+    chunk.unlink()
+    attempted=[]
+    def unexpected_http(*args,**kwargs):
+        attempted.append(args)
+        raise AssertionError('frozen source must not fetch missing original bytes')
+    monkeypatch.setattr('au_ree.source_adapters.fetch_json',unexpected_http)
+    with pytest.raises(RuntimeError,match='Frozen ArcGIS snapshot missing component'):
+        load_arcgis(fake_source(),tmp_path,offline=False,chunk_size=1)
+    assert not chunk.exists()
+    assert not attempted
+    assert (directory/'manifest.json').read_bytes()==frozen_manifest
+    assert len(calls)==4
+
+
+def test_arcgis_frozen_snapshot_missing_metadata_cannot_be_refetched(monkeypatch,tmp_path):
+    mock_http(monkeypatch)
+    _,_,directory=load_arcgis(fake_source(),tmp_path,chunk_size=1)
+    frozen_manifest=(directory/'manifest.json').read_bytes()
+    (directory/'metadata.json').unlink()
+    monkeypatch.setattr('au_ree.source_adapters.fetch_json',
+                        lambda *a,**k: (_ for _ in ()).throw(AssertionError('unapproved refetch')))
+    with pytest.raises(RuntimeError,match='Frozen ArcGIS snapshot missing component'):
+        load_arcgis(fake_source(),tmp_path,offline=False,chunk_size=1)
+    assert (directory/'manifest.json').read_bytes()==frozen_manifest
+    assert not (directory/'metadata.json').exists()
+
+
+def test_arcgis_duplicate_object_ids_not_silently_deduplicated(monkeypatch,tmp_path):
+    mock_http(monkeypatch)
+    from au_ree import source_adapters
+    original_fetch=source_adapters.fetch_json
+    def invalid_ids(url,params=None,offline=False):
+        if params and params.get('returnIdsOnly')=='true':
+            raw=json.dumps({'objectIds':[1,1], 'objectIdFieldName':'oid'}).encode()
+            return json.loads(raw),raw
+        return original_fetch(url,params,offline)
+    monkeypatch.setattr('au_ree.source_adapters.fetch_json',invalid_ids)
+    with pytest.raises(RuntimeError,match='Duplicate OIDs'):
+        load_arcgis(fake_source(),tmp_path,chunk_size=1)
+    assert not list(tmp_path.rglob('manifest.json'))
 
 
 def test_ga_deposit_exact_project_name_not_merged():
