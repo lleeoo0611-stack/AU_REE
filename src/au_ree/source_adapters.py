@@ -96,6 +96,32 @@ def load_arcgis(source,cache_root,offline=False,chunk_size=200):
     root=Path(cache_root)/source['key']/signature
     root.mkdir(parents=True,exist_ok=True)
     meta=root/'metadata.json'; idpath=root/'ids.json'
+    manifest_path=root/'manifest.json'
+    # An existing manifest freezes the *entire* source response bundle.
+    # Validate before network requests or writes: a missing chunk or changed
+    # metadata may never be filled from today's server into an old snapshot.
+    if manifest_path.exists():
+        frozen=json.loads(manifest_path.read_text(encoding='utf8'))
+        if (frozen.get('source_key')!=source['key']
+                or frozen.get('url')!=url or frozen.get('where')!=where
+                or frozen.get('source_type')!='arcgis'
+                or frozen.get('snapshot_format_version')!=2):
+            raise RuntimeError('Frozen ArcGIS source/query contract changed')
+        files=[(meta,frozen.get('metadata_sha256')),
+               (idpath,frozen.get('ids_sha256'))]
+        for item in frozen.get('chunks',[]):
+            name=item.get('file','')
+            p=(root/name).resolve()
+            if not name or not p.is_relative_to(root.resolve()):
+                raise RuntimeError('Unsafe ArcGIS snapshot chunk path')
+            files.append((p,item.get('sha256')))
+        if not frozen.get('chunks') and frozen.get('records',0):
+            raise RuntimeError('Frozen ArcGIS source manifest lacks chunks')
+        for p,expected in files:
+            if not p.is_file():
+                raise RuntimeError('Frozen ArcGIS snapshot missing component: '+str(p))
+            if not expected or filehash(p)!=expected:
+                raise RuntimeError('Frozen ArcGIS snapshot component SHA256 mismatch: '+str(p))
     if not meta.is_file():
         obj,raw=fetch_json(url,{'f':'json'},offline=offline)
         if obj.get('type')!='Feature Layer':raise RuntimeError('Layer is not an ArcGIS Feature Layer')
@@ -108,7 +134,9 @@ def load_arcgis(source,cache_root,offline=False,chunk_size=200):
         idpath.write_bytes(raw)
     idsobj=json.loads(idpath.read_text());ids=idsobj.get('objectIds')
     if not isinstance(ids,list):raise RuntimeError('Malformed frozen ID manifest')
-    ids=sorted(set(ids),key=lambda x:(isinstance(x,str),x))
+    if len({str(x) for x in ids})!=len(ids):
+        raise RuntimeError('Duplicate OIDs in frozen ArcGIS ID manifest')
+    ids=sorted(ids,key=lambda x:(isinstance(x,str),x))
     oid=metadata.get('objectIdField') or (idsobj.get('objectIdFieldName')) or next((f['name'] for f in metadata.get('fields',[]) if f.get('type')=='esriFieldTypeOID'),None)
     if not oid:raise RuntimeError('Cannot identify unique ArcGIS OBJECTID field')
     chunks=[];all_ids=set();features=[]
