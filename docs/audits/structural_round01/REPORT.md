@@ -24,6 +24,12 @@
 
 **實際已修正資料**：在原有 `structural_round01_reviews.json` 兩個群組的 `conflicts`、`reopen_condition`、受影響 `JORC`／`WINDOW` `limit` 和各 `next_evidence` 精確保留年份、表號、單位及缺口；六份既有衍生 CSV 與 summary 輸入 SHA 同步。**39 群組、29/195 文件格 ready、9 個 ID＋ROLE review packages、原始來源資料、source SHA、Project ID、C1/C2=0 全部未變**。下一個必需動作仍是**受控 PDF 原始 bytes 封存＋hash、2015 Optiro MRE／更正、官方 2015–2026 礦權紀錄及獨立審查簽核**；本次網頁來源定位不替代上述驗收。
 
+### 2026-11-01 Project 身分 cross-check：地方議會委託資料非法律簽核
+
+新增 [Urban Enterprise 2026-02-16 `Resource Ready` Final Report](https://www.yarriambiack.vic.gov.au/files/sharedassets/public/v/1/documents/your-council/council-agendas/2026/25-march-2026/15.5-resource-ready-north-western-victoria-energy-and-mining-impact-and-readiness-strategy.pdf) Appendix B **Table 25（報告印刷 pp.89–90）** 的來源定位：`M5 Bungalally` 與 `M6 Avonbank` 分別列名 WIM Resource，`M18 Wedderburn` 列名 WIM Resource、Wychitella North／Loddon；資料基礎標示為 2025 年彙整，`Exploration Phase` 可包含早期 Feasibility／Scoping。這是**第三方不同開發 Project 單位的支持證據**，不構成 Victorian 礦權登記、REE 商業產品角色證明、JORC 氧化物資源或 2026-10-29 研究時窗完結證明。Wedderburn 三個既有未連結 source IDs 保持 HOLD，不增新 40th candidate 或正式 Project–Deposit link；Bungalally／Avonbank 文件 Gate 亦保持原先驗證狀態，來源原件尚須受控封存。
+
+另外，Census 正式 `src/au_ree/identity_policy.py` 已要求 `project_identity_decisions.csv` 的每個來源候選具有**不重複的獨立 `approval_ref`**；共用一份封存 PDF 不得以同一簽核編號批准多個不同 Project／Deposit 決策。可多個簽核各自引用相同原件，但須各有可追溯研究判斷；偵測重複則在撤銷或寫入 Project Master 前失敗。詳見 [Census acceptance](../2026-11-01_census_entity_acceptance.md) 與同版本回歸測試。正式簽核表仍為空。
+
 ## 1. 驗收口徑及限制
 
 本輪依本次使用者的 Execution Round 01 要求，結合既有 [研究架構](../../RESEARCH_ARCHITECTURE.md)、[Cohort protocol](../../P0_COHORT_SELECTION_PROTOCOL.md)、[資源規格](../../P0_PROJECT_RESOURCE_SCHEMA.md)、[C1/C2 政策](../../C0_FREEZE_AND_C1_C2_POLICY.md) 執行。最新 main 未找到另一本以 `AU_REE Pre-MCDA Research Pipeline Completion Protocol` 為檔名／標題的文件；沒有據此另建一套管線或改動准入契約。

@@ -1,5 +1,12 @@
 # Change log
 
+## 2026-11-01 — Identity approvals cannot be reused across Project/Deposit candidates
+
+- `src/au_ree/identity_policy.py` 在載入 `inputs/project_identity_decisions.csv` 後、任何身份 revoked/replayed 之前，檢查所有非空 `approval_ref` 在不同 `candidate_id` 決策間唯一；不允許將一次有簽名的文件批准挪給另一個礦床／Project 來源。若重複，整批中止且既有 Project ID/對應狀態不變。不同簽核可引用同一份真實封存原件，但每筆候選需獨立審查。
+- 修復既有 `tests/test_scheme_a.py` 的 synthetic fixture：單一 PDF 可共用，但兩筆不同 Project／Deposit 必須有獨立簽核 `approval_ref`；新增正向 2 筆身分通過、重複編號負向 fail-atomic、空白簽核維持 pending 回歸。正式 `inputs/evidence_approvals.csv`、`inputs/project_identity_decisions.csv` 仍只有表頭，不補研究者姓名／簽名。
+- 額外查核九個地方議會委託的 Urban Enterprise [Resource Ready (16-Feb-2026)](https://www.yarriambiack.vic.gov.au/files/sharedassets/public/v/1/documents/your-council/council-agendas/2026/25-march-2026/15.5-resource-ready-north-western-victoria-energy-and-mining-impact-and-readiness-strategy.pdf)，Appendix B, Table 25 分別列名 WIM 的 Bungalally（M5）、Avonbank（M6）、Wedderburn（M18），資料取自 2025 年政府／proponent/議會渠道。作為具界限的歷史 Project 身分交叉驗證，未取得本地 SHA 原件或法律 tenement 註冊，未提升 REE ROLE/JORC，未新設第 40 個 Project 群組。
+- 保留 2026-10-29 的 **487 targets、39 groups、78 linked／409 unlinked、29/195 documentary ready、C1/C2=0**；維持已有 SQLite／GIS／MCDA 正式門檻，不改研究模型。
+
 ## 2026-11-01 — C1/C2 核准工作流日期與正向驗收修復（PR #73）
 
 - 修正 `src/au_ree/evidence.py` 把 `reviewed_at` 誤要求小於或等於 2026-10-29 來源截止日的問題；允許實際審查日在截止日之後、禁止未來日期、維持 Project 原始文件 `evidence_date <= source cutoff`。允許經 SHA-256 重新核對的既有 `work/structural_round01/originals/` 原件路徑，禁止越界與任意檔案路徑。

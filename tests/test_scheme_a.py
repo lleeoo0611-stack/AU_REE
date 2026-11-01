@@ -184,13 +184,15 @@ def _identity_fixture(root, entries):
               [{'document_id':'FIXTURE','file_path':'inputs/evidence/project.txt','source_url':url,'sha256':sha}])
     write_csv(root/'inputs/evidence_approvals.csv',
               ['approval_ref','record_type','document_id','reviewer','decision','reviewed_at'],
-              [{'approval_ref':'TEST_ONLY','record_type':'PROJECT_REVIEW','document_id':'FIXTURE',
-                'reviewer':'Synthetic Reviewer','decision':'APPROVED','reviewed_at':'2026-10-01'}])
+              [{'approval_ref':'TEST_ONLY-'+cid,'record_type':'PROJECT_REVIEW',
+                'document_id':'FIXTURE','reviewer':'Synthetic Reviewer',
+                'decision':'APPROVED','reviewed_at':'2026-10-01'}
+               for cid,name,pid in entries])
     heads=['candidate_id','decision','project_name','project_id','source_url','source_sha256',
            'evidence_date','approval_ref']
     rows=[dict(candidate_id=cid,decision='APPROVE_NEW_PROJECT',project_name=name,
                project_id=pid,source_url=url,source_sha256=sha,evidence_date='2026-10-01',
-               approval_ref='TEST_ONLY') for cid,name,pid in entries]
+               approval_ref='TEST_ONLY-'+cid) for cid,name,pid in entries]
     write_csv(root/'inputs/project_identity_decisions.csv',heads,rows)
     return rows,heads
 
@@ -355,6 +357,45 @@ def test_duplicate_identity_ledger_rejected_before_project_mutation(tmp_path):
     with pytest.raises(ValueError,match='Duplicate candidate_id'):
         apply_identity_decisions(db,tmp_path,'2026-10-29')
     assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
+
+
+def test_same_signed_approval_cannot_authorize_two_project_identities(tmp_path):
+    """Two unrelated Project identities require separate signed decisions."""
+    import pytest
+    db=memorydb()
+    entries=[]
+    for native in ('SIGNED-A','SIGNED-B'):
+        candidate=record(source='WA_SOURCE',native=native,
+                         name='Synthetic '+native+' REE Project',
+                         commodity='REE',entity='PROJECT')
+        assert candidate_upsert(db,candidate)=='REVIEW'
+        cid=digest(['WA_SOURCE',native])[:32]
+        entries.append((cid,candidate['name'],''))
+    rows,heads=_identity_fixture(tmp_path,entries)
+    reload_registry(db,tmp_path,'2026-10-29')
+    # Each identity has its own signoff even when the original document is shared.
+    accepted=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert accepted['approved_new']==2
+    before={r['candidate_id']:r['matched_project_id']
+            for r in db.execute('SELECT candidate_id,matched_project_id FROM population_candidates')}
+    # A reused (otherwise valid) ref must not transfer the first signer's
+    # authority to a different source candidate.
+    rows[1]['approval_ref']=rows[0]['approval_ref']
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    with pytest.raises(ValueError,match='Duplicate approval_ref'):
+        apply_identity_decisions(db,tmp_path,'2026-10-29')
+    after={r['candidate_id']:r['matched_project_id']
+           for r in db.execute('SELECT candidate_id,matched_project_id FROM population_candidates')}
+    assert after==before
+    assert db.execute("SELECT COUNT(*) FROM project_master WHERE population_status='EVIDENCE_BACKED_PROJECT'").fetchone()[0]==2
+    # Pending rows with blank refs are still reviewable: no artificial signatures.
+    rows[0]['approval_ref']=''
+    rows[1]['approval_ref']=''
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    pending=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert pending['approved_new']==0
+    assert pending['rejected_or_pending']==2
+    db.close()
 
 
 def test_approved_deposit_parent_cannot_be_silently_reassigned(tmp_path):
