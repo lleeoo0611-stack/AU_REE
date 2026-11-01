@@ -152,7 +152,7 @@ class StructuralRound01Test(unittest.TestCase):
         row = self.jupiter()
         event = next(x for x in row['events'] if x['study_original_verified'])
         event['publication_date'] = '2025-01-01'
-        with self.assertRaisesRegex(ValueError, 'study event publication date mismatches original'):
+        with self.assertRaisesRegex(ValueError, 'event publication date mismatches archived source metadata'):
             m.validate_review(row, self.sources)
 
     def test_study_original_from_different_project_is_rejected(self):
