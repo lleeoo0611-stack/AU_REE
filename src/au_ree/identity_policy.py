@@ -155,6 +155,14 @@ def apply_identity_decisions(db,root,freeze_date):
     candidate_ids=[(r.get('candidate_id') or '').strip() for r in decisions]
     if len(candidate_ids)!=len(set(candidate_ids)):
         raise ValueError('Duplicate candidate_id in Project identity decision ledger')
+    # Every Project/Deposit relationship is a separate scientific identity
+    # decision. A signed approval_ref may cite the same archived document in
+    # separate reviews, but must not authorize unrelated candidates by reuse.
+    # Check before revoking/replaying historical identities (fail atomically).
+    approval_refs=[str(r.get('approval_ref') or '').strip() for r in decisions]
+    signed_refs=[ref for ref in approval_refs if ref]
+    if len(signed_refs)!=len(set(signed_refs)):
+        raise ValueError('Duplicate approval_ref across Project identity decisions')
     # Approve independent Project parents before resolving child/source links.
     # Otherwise the lexical candidate_id order controls whether an otherwise
     # valid, same-batch Project–Deposit relationship is accepted.
