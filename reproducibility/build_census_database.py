@@ -522,7 +522,9 @@ def csv_build(args) -> None:
             if current_idx.keys() != verified_idx.keys():
                 raise ValueError("Committed cohort differs from independently verified gates")
             for gid in verified_idx:
-                for key in ("C2_project_id_approved", "formal_identity_signoff", "C1_release_status"):
+                for key in ("C2_project_id_approved", "formal_identity_signoff", "C1_release_status",
+                            "ID_gate", "ROLE_gate", "WINDOW_gate", "JORC_gate",
+                            "PANEL_gate", "GIS_RELEASE_gate"):
                     if current_idx[gid][key] != verified_idx[gid][key]:
                         raise ValueError("Signed cohort CSV must be rebuilt from approved gate inputs")
             cohort = verified_cohort
