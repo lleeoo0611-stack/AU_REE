@@ -1,6 +1,8 @@
 """Acceptance tests for accepted C0 two-tier policy and strict C1/C2 cohorts."""
 import unittest
 import json
+from unittest.mock import patch
+from scripts import build_c0_freeze_c1_c2_v1 as cohort_module
 from collections import Counter
 from scripts.build_c0_freeze_c1_c2_v1 import (
     build, read_rows, OUT_C0, OUT_COHORT, OUT_P1, OUT_SUM,
@@ -80,6 +82,49 @@ class CohortFreezePolicyTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "published after source cutoff"):
             gates_with_signatures(decisions, self.projects[0],
                                   {**meta, "study_published_asof": "2026-10-30"})
+
+    def test_synthetic_signoffs_flow_through_cohort_builder(self):
+        group = next(p for p in self.projects
+                     if p["screening_class"] == "STUDY_DOCUMENTED_PRE_FID_SCREEN")
+        gid = group["review_group_id"]
+        metadata = {
+            "review_group_id": gid,
+            "verified_project_id": "SYNTHETIC-VERIFIED-PROJECT",
+            "project_identity_scope": "Synthetic separate Project scope",
+            "project_footprint_ref": "SYNTHETIC-FOOTPRINT",
+            "ree_product_role_ref": "SYNTHETIC-REE-ROLE",
+            "resource_statement_id": "SYNTHETIC-RESOURCE",
+            "resource_basis": "TREO", "original_jorc_ref": "SYNTHETIC-JORC",
+            "approved_study_document_id": "SYNTHETIC-STUDY",
+            "study_published_asof": "2026-10-01",
+            "approved_panel_version": "SYNTHETIC-PANEL",
+            "approved_gis_evidence_id": "SYNTHETIC-GIS"
+        }
+        def signed(cohort, gate):
+            return {
+                "review_group_id": gid, "cohort": cohort, "gate_id": gate,
+                "decision_status": "PASS", "reason_code": "SYNTHETIC_TEST",
+                "document_id": "SYNTHETIC-DOC", "original_sha256_or_html_ref": "SYNTHETIC-HASH",
+                "source_asof": "2026-10-29", "reviewer_id": "Synthetic Reviewer",
+                "reviewed_at": "2026-11-01", "approval_ref": "SYNTHETIC-SIGNOFF"
+            }
+        signed_rows = ([signed("C2", g) for g in ("ID", "ROLE")] +
+                       [signed("C1", g) for g in ("ID", "ROLE", "WINDOW",
+                                                 "JORC", "PANEL", "GIS_RELEASE")])
+        original_read = cohort_module.read_rows
+        def read_fixture(path):
+            if path == cohort_module.GATE_APPROVAL:
+                return signed_rows
+            if path == cohort_module.PROJ_METADATA:
+                return [metadata]
+            return original_read(path)
+        with patch.object(cohort_module, "read_rows", side_effect=read_fixture):
+            _, projects, _, summary = cohort_module.build()
+        updated = next(p for p in projects if p["review_group_id"] == gid)
+        self.assertEqual(updated["C1_release_status"], "C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES")
+        self.assertEqual(updated["C2_project_id_approved"], "YES")
+        self.assertEqual(summary["approved_C1_cohort_projects"], 1)
+        self.assertEqual(summary["approved_C2_cohort_projects"], 1)
 
     def test_output_rebuild_is_identical(self):
         self.assertEqual(read_rows(OUT_C0),self.c0)
