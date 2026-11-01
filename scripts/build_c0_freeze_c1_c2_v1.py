@@ -11,6 +11,7 @@ import csv
 import io
 import json
 from collections import Counter
+from datetime import date
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -91,6 +92,11 @@ def gates_with_signatures(decisions,project,metadata):
         for k in ("reason_code","document_id","original_sha256_or_html_ref",
                   "reviewer_id","reviewed_at","approval_ref"):
             check(bool(d[k].strip()),f"{gate}: unsigned or missing original source {k}")
+        try:
+            reviewed = date.fromisoformat(d["reviewed_at"])
+        except (TypeError, ValueError):
+            check(False, f"{gate}: invalid reviewer date")
+        check(reviewed <= date.today(), f"{gate}: future-dated reviewer signature")
         if d["cohort"]=="C1" and d["decision_status"]=="PASS":
             check(metadata is not None,"C1 requires verified Project metadata")
             keys={"ID":("verified_project_id","project_identity_scope","project_footprint_ref"),
@@ -101,6 +107,13 @@ def gates_with_signatures(decisions,project,metadata):
                   "GIS_RELEASE":("approved_gis_evidence_id",)}
             for k in keys[gate]:
                 check(bool(metadata[k]),f"cannot PASS {gate} without {k}")
+            if gate=="WINDOW":
+                try:
+                    published = date.fromisoformat(metadata["study_published_asof"])
+                except (TypeError, ValueError):
+                    check(False, "WINDOW study publication date must be ISO-formatted")
+                check(published <= date.fromisoformat(SNAPSHOT),
+                      "WINDOW study published after source cutoff")
             if gate=="JORC":
                 check(metadata["resource_basis"].upper() in {"TREO","REO_SCOPED_BREAKDOWN"},
                       "HM/THM/Y2O3-only figures cannot PASS JORC without approved REO conversion")
@@ -239,6 +252,7 @@ def build():
             row["C2_release_status"]="C2_VERIFIED_PROJECT_ID_AND_REE_ROLE_ADMITTED"
         c1_all=all(gate_status[g,"C1"]=="PASS" for g in GATES)
         if c1_all:
+            check(c2_ok, "C1 requires independently signed C2 ID and ROLE")
             check(not outside,"project outside 2026 preFID cannot be C1")
             check(meta is not None and meta["verified_project_id"] and
                   meta["approved_panel_version"] and meta["approved_gis_evidence_id"],

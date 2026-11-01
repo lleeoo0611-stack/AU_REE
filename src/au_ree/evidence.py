@@ -2,8 +2,9 @@
 
 Approval requires: separately curated source_documents.csv and evidence_approvals.csv,
 actual archived bytes matching SHA-256, a named reviewer, explicit APPROVED
-status and a review date no later than the frozen snapshot. A checksum alone
-establishes byte identity, not the reliability or authorship of a publication.
+status and a valid non-future review date. The source cutoff is checked against
+source evidence dates by its consumer, not against reviewer sign-off time.
+A checksum alone establishes byte identity, not the reliability or authorship of a publication.
 """
 from __future__ import annotations
 import re
@@ -21,13 +22,20 @@ def _day(text):
 
 
 def _archive_path(root,raw):
-    """Only files under the repository input archive may count as research evidence."""
-    if not raw or not str(raw).startswith('inputs/evidence/'):
+    """Allow only approved local evidence archives; never accept arbitrary paths."""
+    if not raw:
         return None
-    root=Path(root).resolve()
-    p=(root / str(raw)).resolve()
-    archive=(root/'inputs'/'evidence').resolve()
-    return p if p.is_relative_to(archive) else None
+    rel = str(raw).replace('\\', '/')
+    allowed = ('inputs/evidence/', 'work/structural_round01/originals/')
+    if not any(rel.startswith(prefix) for prefix in allowed):
+        return None
+    root = Path(root).resolve()
+    p = (root / rel).resolve()
+    for prefix in allowed:
+        archive = (root / prefix).resolve()
+        if rel.startswith(prefix) and p.is_relative_to(archive):
+            return p
+    return None
 
 
 def reload_registry(db,root,as_of):
@@ -63,7 +71,7 @@ def reload_registry(db,root,as_of):
         if not ref:continue
         d=db.execute('SELECT * FROM source_documents WHERE document_id=?',(did,)).fetchone()
         valid=(typ in VALID_TYPES and decision=='APPROVED' and bool(who)
-               and _day(dt) is not None and _day(as_of) is not None and _day(dt)<=_day(as_of)
+               and _day(dt) is not None and _day(dt) <= date.today() and _day(as_of) is not None
                and d is not None and d['hash_status']=='HASH_MATCH_REVIEW_REQUIRED')
         status='APPROVED' if valid else 'NOT_APPROVED'
         db.execute('''INSERT INTO evidence_approvals(approval_ref,record_type,document_id,reviewer,decision,reviewed_at,status,notes)

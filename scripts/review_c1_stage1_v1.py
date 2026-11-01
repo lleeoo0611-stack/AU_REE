@@ -51,8 +51,15 @@ def generate():
                item["formal_C1_admitted"]=="NO","manual six gate cannot be auto approved")
     results=[]
     for g in groups:
-        ensure(g["source_snapshot"]=="2026-10-29" and g["C1_release_status"]==
-               "NOT_ADMITTED_SIX_GATES_UNAPPROVED","unverified C1 baseline changed")
+        ensure(g["source_snapshot"]=="2026-10-29","C1 source snapshot changed")
+        ensure(g["C1_release_status"] in
+               {"NOT_ADMITTED_SIX_GATES_UNAPPROVED", "C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES"},
+               "unknown signed C1 release status")
+        ensure(g["C2_project_id_approved"] in {"YES", "NO"}, "unknown C2 identity status")
+        c1_admitted = g["C1_release_status"]=="C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES"
+        c2_admitted = g["C2_project_id_approved"]=="YES"
+        gates = ("ID", "ROLE", "WINDOW", "JORC", "PANEL", "GIS_RELEASE")
+        signed_gate_count = sum(g[gate+"_gate"].startswith("PASS_") for gate in gates)
         e=byid.get(g["review_group_id"])
         results.append({
             "review_group_id":g["review_group_id"],"project_name":g["project_name"],
@@ -70,19 +77,19 @@ def generate():
             "REE_resource_evidence_status":e["REE_resource_evidence_class"] if e else g["resource_basis_screen"],
             "source_scope_issue":e["source_scoped_finding"] if e else g["original_evidence_finding"],
             "next_first_gate_action":e["critical_next_check"] if e else g["next_gate_action"],
-            "original_fulltext_verified":"NO","source_project_identity_signed":"NO",
-            "approved_C1_gate_count":"0","independent_C1_release":"NO",
+            "original_fulltext_verified":"NO","source_project_identity_signed":"YES" if c2_admitted else "NO",
+            "approved_C1_gate_count":str(signed_gate_count),
+            "independent_C1_release":"YES" if c1_admitted else "NO",
             "C2_status":g["C2_release_status"],
         })
     study=Counter(e["study_evidence_class"] for e in checks)
     summary={
         "row_count":39,"documentary_scope_rechecked":7,"remaining_group_screen_only":32,
         "source_snapshot":"2026-10-29","original_PDF_bytes_collected":0,
-        "independent_C1_admitted":0,"independent_C2_admitted":0,
+        "independent_C1_admitted":sum(r["independent_C1_release"]=="YES" for r in results),
+        "independent_C2_admitted":sum(r["source_project_identity_signed"]=="YES" for r in results),
         "stage1_study_evidence_counts":dict(sorted(study.items()))
     }
-    ensure(sum(v=="NO" for v in (r["independent_C1_release"] for r in results))==39,
-           "unauthorized C1 release")
     return results,summary
 
 def csv_text(rs):
@@ -105,7 +112,8 @@ def main():
         ensure(read(OUT)==rows,"derived 39-row C1 first-pass CSV changed")
         ensure(json.loads(SUMMARY.read_text(encoding="utf-8"))==stats,"C1 first-pass summary changed")
     print("PASS C1 Stage1: 39 candidate groups, seven source-scoped evidence checks; "
-          "0 signed C1 and 0 signed C2")
+          f"{stats['independent_C1_admitted']} signed C1 and "
+          f"{stats['independent_C2_admitted']} signed C2")
 
 if __name__=="__main__":
     main()

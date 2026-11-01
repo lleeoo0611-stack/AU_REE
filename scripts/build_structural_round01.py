@@ -191,6 +191,10 @@ def build(verify_originals=False):
                 require(path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'],
                         'original archive missing or changed: ' + record['source_id'])
     base_idx = {r['review_group_id']: r for r in base}
+    signed = {(r['review_group_id'], r['cohort'], r['gate_id']): r for r in
+              read_csv(ROOT / 'inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv')}
+    identity_meta = {r['review_group_id']: r for r in
+                     read_csv(ROOT / 'inputs/review_decisions/c1_c2_project_identity_metadata_v1.csv')}
     gap_ids = [gap['gap_id'] for r in reviews for gap in r['resolved_gaps']]
     require(len(gap_ids) == len(set(gap_ids)), 'duplicate gap reduction counted')
     for r in reviews:
@@ -205,6 +209,21 @@ def build(verify_originals=False):
                                   'gap_priority_queue', 'criterion_coverage', 'source_gap_resolution')}
     for r in reviews:
         b = base_idx[r['review_group_id']]
+        gid = r['review_group_id']
+        c1_admitted = b['C1_release_status'] == 'C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES'
+        c2_admitted = b['C2_project_id_approved'] == 'YES'
+        c2_identity = signed.get((gid, 'C2', 'ID'), {})
+        c2_role = signed.get((gid, 'C2', 'ROLE'), {})
+        meta = identity_meta.get(gid, {})
+        if c2_admitted:
+            require(c2_identity.get('decision_status') == 'PASS' and
+                    c2_role.get('decision_status') == 'PASS' and
+                    bool(meta.get('verified_project_id')),
+                    'signed C2 evidence missing for admitted Project')
+        if c1_admitted:
+            require(c2_admitted and all(signed.get((gid, 'C1', g), {}).get('decision_status') == 'PASS'
+                                        for g in ('ID', 'ROLE', 'WINDOW', 'JORC', 'PANEL', 'GIS_RELEASE')),
+                    'C1 requires independently approved identity and six signed gates')
         require(r['project_name'] == b['project_name'], 'renamed original project group')
         validate_review(r, sm)
         common = dict(review_group_id=r['review_group_id'], project_name=r['project_name'],
@@ -213,14 +232,23 @@ def build(verify_originals=False):
         status = 'REVIEW_READY' if ready == 5 else 'BLOCKED_EVIDENCE'
         tables['identity_crosswalk'].append(dict(common, project_scope=r['project_scope'],
             deposits=r['deposits'], excluded_or_unresolved_entities=r['excluded_entities'],
-            proposed_project_id=b['review_group_id'], verified_independent_project_id='',
+            proposed_project_id=b['review_group_id'],
+            verified_independent_project_id=meta.get('verified_project_id', '') if c2_admitted else '',
             source_target_link='UNCHANGED_EXISTING_GROUP_NOT_NEW_PROJECT', product_role=r['product_role'],
             footprint_source=r['footprint_source'], geometry_role=r['geometry_role'],
             original_CRS=r['original_CRS'], review_depth=r['review_depth'],
-            original_identity_decision=b['ID_gate'], approval_ref='', researcher_signature=''))
+            original_identity_decision=b['ID_gate'],
+            approval_ref=c2_identity.get('approval_ref', '') if c2_admitted else '',
+            researcher_signature=c2_identity.get('reviewer_id', '') if c2_admitted else ''))
         for gate in GATES:
             e = r['gates'][gate]
             refs = e['source_ids']
+            formal_gate = 'GIS_RELEASE' if gate == 'GIS_SOURCE' else gate
+            signoff = signed.get((gid, 'C1', formal_gate), {})
+            if signoff:
+                require(b[formal_gate + '_gate'] ==
+                        signoff['decision_status'] + '_' + signoff['reason_code'],
+                        'formal gate signoff differs from C1 ledger')
             row = dict(common, gate=gate, original_gate=('GIS_RELEASE' if gate == 'GIS_SOURCE' else gate),
                 original_decision=b['GIS_RELEASE_gate' if gate == 'GIS_SOURCE' else gate + '_gate'],
                 evidence_status=e['status'], reason_code=e['reason'], source_ids='|'.join(refs),
@@ -228,7 +256,9 @@ def build(verify_originals=False):
                 original_access_levels='|'.join(sm[s]['access_status'] for s in refs),
                 original_sha256s='|'.join(sm[s]['sha256'] for s in refs),
                 conflict_or_limit=e['limit'], next_required_evidence=e['next_evidence'],
-                formal_gate_decision='UNCHANGED_HOLD', approval_ref='', researcher_signature='')
+                formal_gate_decision=signoff.get('decision_status', 'UNCHANGED_HOLD'),
+                approval_ref=signoff.get('approval_ref', ''),
+                researcher_signature=signoff.get('reviewer_id', ''))
             tables['gate_evidence_resolution'].append(row)
             if e['status'] != 'REVIEW_READY':
                 tables['gap_priority_queue'].append(dict(common, priority=r['priority'], gate=gate,
@@ -240,18 +270,24 @@ def build(verify_originals=False):
             tables['study_stage_timeline'].append(dict(common, **event, approval_ref=''))
         tables['structural_candidates'].append(dict(common, priority=r['priority'],
             ready_evidence_gates=ready, evidence_status=status,
-            data_complete=(ready == 5), structural_eligibility='NOT_FORMALLY_APPROVED',
-            independently_verified_project_id=False, same_scope_REO_evidence=any(x['same_scope_REO_evidence'] for x in r['resources']),
+            data_complete=(ready == 5),
+            structural_eligibility='C1_FORMALLY_APPROVED' if c1_admitted else 'NOT_FORMALLY_APPROVED',
+            independently_verified_project_id=c2_admitted, same_scope_REO_evidence=any(x['same_scope_REO_evidence'] for x in r['resources']),
             dated_economic_study_original=any(x['study_original_verified'] for x in r['events']),
             original_access='|'.join(sorted({sm[x]['access_status'] for e in r['gates'].values() for x in e['source_ids']})),
-            conflicts=r['conflicts'], next_action=r['reopen_condition'], C1_admitted=False,
-            GIS_release_approved=False, readiness_scope='FIVE_DOCUMENTARY_GATES_INCLUDING_SOURCE_MAPPING_ONLY',
+            conflicts=r['conflicts'], next_action=r['reopen_condition'], C1_admitted=c1_admitted,
+            GIS_release_approved=bool(signed.get((gid, 'C1', 'GIS_RELEASE'), {}).get('decision_status') == 'PASS'), readiness_scope='FIVE_DOCUMENTARY_GATES_INCLUDING_SOURCE_MAPPING_ONLY',
             core_panel='UNSELECTED', extended_panel='UNSELECTED'))
         c2_ready = all(r['gates'][g]['status'] == 'REVIEW_READY' for g in ('ID', 'ROLE'))
         tables['c2_identity_review'].append(dict(common, candidate_status='REVIEW_READY_ID_ROLE' if c2_ready else 'PENDING_ID_ROLE_EVIDENCE',
             identity_scope=r['project_scope'], ree_role=r['product_role'], footprint_ref=r['footprint_source'],
-            verified_project_id='', C2_approved=False, approval_ref='', researcher_signature='',
-            next_action='Independent ID/ROLE decision and vetted footprint metadata; ' + r['reopen_condition']))
+            verified_project_id=meta.get('verified_project_id', '') if c2_admitted else '',
+            C2_approved=c2_admitted,
+            approval_ref=c2_identity.get('approval_ref', '') if c2_admitted else '',
+            researcher_signature=c2_identity.get('reviewer_id', '') if c2_admitted else '',
+            next_action=('C2 identity approved; remaining C1 criteria and GIS gate review'
+                         if c2_admitted else
+                         'Independent ID/ROLE decision and vetted footprint metadata; ' + r['reopen_condition'])))
         for c in json.loads((ROOT/'config/criteria.json').read_text(encoding='utf-8'))['criteria']:
             tables['criterion_coverage'].append(dict(common, criterion=c['code'], domain=c['domain'],
                 evidence_status='SOURCE_LOCATED_REVIEW_PENDING' if c['code'] in r['coverage_source_ids'] else 'REVIEW_PENDING',
@@ -284,18 +320,22 @@ def build(verify_originals=False):
         group_review_depths=dict(Counter(r['review_depth'] for r in reviews)),
         source_urls_attempted=len(access), originals_archived=sum(r['access_status']=='ORIGINAL_BYTES_LOCAL' for r in access),
         pdf_originals_archived=sum(r['access_status']=='ORIGINAL_BYTES_LOCAL' and r['format']=='pdf' for r in access),
-        new_independently_approved_project_IDs=0,
+        new_independently_approved_project_IDs=sum(b['C2_project_id_approved'] == 'YES' for b in base),
         source_supported_ID_ROLE_review_candidates=sum(r['candidate_status']=='REVIEW_READY_ID_ROLE' for r in tables['c2_identity_review']),
         same_scope_REO_source_evidence_projects=sum(r['same_scope_REO_evidence'] for r in candidates),
         JORC_documentary_review_ready_projects=sum(r['gates']['JORC']['status']=='REVIEW_READY' for r in reviews),
         dated_economic_study_original_projects=sum(r['dated_economic_study_original'] for r in candidates),
         structural_review_ready=sum(r['evidence_status']=='REVIEW_READY' for r in candidates),
-        formal_structural_eligibility=0, C1_approved=0, C2_approved=0, C2_pending=39,
+        formal_structural_eligibility=sum(b['C1_release_status'] == 'C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES' for b in base),
+        C1_approved=sum(b['C1_release_status'] == 'C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES' for b in base),
+        C2_approved=sum(b['C2_project_id_approved'] == 'YES' for b in base),
+        C2_pending=sum(b['C2_project_id_approved'] != 'YES' for b in base),
         readiness_scope='DOCUMENTARY_PACKET_NOT_OFFICIAL_GIS_RELEASE_OR_INDEPENDENT_APPROVAL',
         ready_gate_evidence_cells=sum(r['evidence_status']=='REVIEW_READY' for r in tables['gate_evidence_resolution']),
         remaining_gate_evidence_cells=sum(r['evidence_status']!='REVIEW_READY' for r in tables['gate_evidence_resolution']),
         documentary_gaps_resolved=len(tables['source_gap_resolution']), blocker_counts_by_gate=counts,
-        GIS_release_approvals=0, core_panel='UNSELECTED', extended_panel='UNSELECTED', MCDA_executed=False,
+        GIS_release_approvals=sum(signed.get((b['review_group_id'], 'C1', 'GIS_RELEASE'), {}).get('decision_status') == 'PASS' for b in base),
+        core_panel='UNSELECTED', extended_panel='UNSELECTED', MCDA_executed=False,
         input_sha256={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
                       for p in (INPUT,SOURCES,ACCESS,BASE,P1,ROOT/'config/criteria.json')})
     result = {key+'.csv': csv_text(rows) for key, rows in tables.items()}

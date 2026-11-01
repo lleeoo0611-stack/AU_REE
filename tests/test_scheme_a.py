@@ -90,6 +90,53 @@ def test_approved_project_identity_and_revocation(tmp_path):
     assert db.execute('SELECT population_status FROM project_master').fetchone()[0]=='IDENTITY_APPROVAL_EXPIRED'
 
 
+
+def test_post_cutoff_reviewer_can_approve_older_source_using_structural_archive(tmp_path):
+    """A later human review must not rewrite the frozen source's publication date."""
+    db=memorydb()
+    candidate_upsert(db,record(source='SA_PRIMARY',native='P2',entity='PROJECT',
+                                commodity='REE',name='Synthetic pre-cutoff REE Project'))
+    cid=db.execute('SELECT candidate_id FROM population_candidates').fetchone()[0]
+    original=tmp_path/'work/structural_round01/originals/R01-TEST.bin'
+    original.parent.mkdir(parents=True)
+    original.write_bytes(b'Synthetic dated primary document; no real Project approval')
+    sha=hashlib.sha256(original.read_bytes()).hexdigest()
+    url='https://example.gov.au/synthetic-2026.pdf'
+    write_csv(tmp_path/'inputs/source_documents.csv',
+              ['document_id','file_path','source_url','sha256'],
+              [{'document_id':'SYNTH','file_path':'work/structural_round01/originals/R01-TEST.bin',
+                'source_url':url,'sha256':sha}])
+    write_csv(tmp_path/'inputs/evidence_approvals.csv',
+              ['approval_ref','record_type','document_id','reviewer','decision','reviewed_at'],
+              [{'approval_ref':'SYNTH-APP','record_type':'PROJECT_REVIEW','document_id':'SYNTH',
+                'reviewer':'Synthetic Fixture Reviewer','decision':'APPROVED','reviewed_at':'2026-11-01'}])
+    decisions=tmp_path/'inputs/project_identity_decisions.csv'
+    heads=['candidate_id','decision','project_name','project_id','source_url','source_sha256',
+           'evidence_date','approval_ref']
+    payload={'candidate_id':cid,'decision':'APPROVE_NEW_PROJECT',
+             'project_name':'Synthetic pre-cutoff REE Project','project_id':'',
+             'source_url':url,'source_sha256':sha,'evidence_date':'2026-10-01',
+             'approval_ref':'SYNTH-APP'}
+    write_csv(decisions,heads,[payload])
+    assert reload_registry(db,tmp_path,'2026-10-29')['approved']==1
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['approved_new']==1
+    project_id=db.execute("SELECT project_id FROM project_master WHERE population_status='EVIDENCE_BACKED_PROJECT'").fetchone()[0]
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['approved_new']==1
+    assert db.execute("SELECT project_id FROM project_master WHERE population_status='EVIDENCE_BACKED_PROJECT'").fetchone()[0]==project_id
+    # A post-cutoff source date is never rescued by a valid later reviewer sign-off.
+    write_csv(decisions,heads,[{**payload,'evidence_date':'2026-10-30'}])
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['rejected_or_pending']==1
+    assert db.execute("SELECT population_status FROM project_master WHERE project_id=?",(project_id,)).fetchone()[0]=='IDENTITY_APPROVAL_EXPIRED'
+    db.close()
+
+
+def test_structural_archive_paths_cannot_escape_allowlisted_directory(tmp_path):
+    from au_ree.evidence import _archive_path
+    assert _archive_path(tmp_path,'work/structural_round01/originals/file.pdf') == (tmp_path/'work/structural_round01/originals/file.pdf').resolve()
+    assert _archive_path(tmp_path,'work/structural_round01/originals/../../../inputs/other.txt') is None
+    assert _archive_path(tmp_path,'work/untrusted/file.pdf') is None
+
+
 def test_new_project_detail_review_in_same_stage(tmp_path):
     from au_ree.stages.population import run as population_run
     from au_ree.core import filehash

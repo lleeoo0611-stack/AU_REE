@@ -80,8 +80,11 @@ class StructuralRound01Test(unittest.TestCase):
         same = [x for x in studies if x['review_group_id'] == row['review_group_id']]
         self.assertEqual(len(same), 2)
         self.assertTrue(any(x['event_type'] == 'FID_DATE_CORROBORATION' for x in same))
-        self.assertEqual(summary['C1_approved'], 0)
-        self.assertEqual(summary['C2_approved'], 0)
+        cohort = m.read_csv(m.BASE)
+        self.assertEqual(summary['C1_approved'],
+                         sum(x['C1_release_status'] == 'C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES' for x in cohort))
+        self.assertEqual(summary['C2_approved'],
+                         sum(x['C2_project_id_approved'] == 'YES' for x in cohort))
         self.assertEqual(summary['dated_economic_study_original_projects'], 8)
 
     def test_copi_archived_contractor_supports_documentary_id_role_only(self):
@@ -115,12 +118,38 @@ class StructuralRound01Test(unittest.TestCase):
         rows = list(csv.DictReader(io.StringIO(outputs['c2_identity_review.csv'])))
         record = next(x for x in rows if x['review_group_id'] == copi['review_group_id'])
         self.assertEqual(record['candidate_status'], 'REVIEW_READY_ID_ROLE')
-        self.assertEqual(record['C2_approved'], 'False')
+        coproject = next(b for b in m.read_csv(m.BASE) if b['review_group_id'] == copi['review_group_id'])
+        self.assertEqual(record['C2_approved'], str(coproject['C2_project_id_approved'] == 'YES'))
         self.assertEqual(summary['ready_gate_evidence_cells'], 29)
         self.assertEqual(summary['remaining_gate_evidence_cells'], 166)
         self.assertEqual(summary['source_supported_ID_ROLE_review_candidates'], 9)
-        self.assertEqual(summary['C1_approved'], 0)
-        self.assertEqual(summary['C2_approved'], 0)
+        self.assertEqual(summary['C1_approved'], sum(
+            b['C1_release_status'] == 'C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES' for b in m.read_csv(m.BASE)))
+        self.assertEqual(summary['C2_approved'], sum(
+            b['C2_project_id_approved'] == 'YES' for b in m.read_csv(m.BASE)))
+
+    def test_structural_output_can_reflect_synthetic_signed_c2_identity(self):
+        gid = 'PRJ-42437b4a11115372'
+        actual_read = m.read_csv
+        def synthetic_signoffs(path):
+            records = actual_read(path)
+            if path == m.BASE:
+                records = [dict(item) for item in records]
+                next(row for row in records if row['review_group_id'] == gid)['C2_project_id_approved'] = 'YES'
+            elif path.name == 'c1_c2_project_gate_signoffs_v1.csv':
+                records = [{'review_group_id': gid, 'cohort': 'C2', 'gate_id': gate,
+                            'decision_status': 'PASS', 'approval_ref': 'SYNTHETIC-C2-SIGN',
+                            'reviewer_id': 'Synthetic Fixture Reviewer'} for gate in ('ID', 'ROLE')]
+            elif path.name == 'c1_c2_project_identity_metadata_v1.csv':
+                records = [{'review_group_id': gid, 'verified_project_id': 'SYNTHETIC-COPI-ID'}]
+            return records
+        with patch.object(m, 'read_csv', side_effect=synthetic_signoffs):
+            outputs, summary = m.build()
+        records = list(csv.DictReader(io.StringIO(outputs['c2_identity_review.csv'])))
+        row = next(r for r in records if r['review_group_id'] == gid)
+        self.assertEqual(row['C2_approved'], 'True')
+        self.assertEqual(row['verified_project_id'], 'SYNTHETIC-COPI-ID')
+        self.assertEqual(summary['C2_approved'], 1)
 
     def test_date_leak_and_undated_source_rejected(self):
         for bad_date in ('2026-10-30', ''):

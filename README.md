@@ -52,6 +52,10 @@ Entity Resolution 的官方來源原生 ID、Project 名稱、已審查 Alias �
 
 **C1 的六項准入 Gate：** `ID → ROLE → WINDOW → JORC → PANEL → GIS_RELEASE`，須獨立證據及簽核。C2 只在 Project ID 與 REE 角色確實核准、其餘 C1 Gate 尚未全通過時建立，絕不直接混入正式 C1 排名。
 
+**核准流程的日期與資料層級（2026-11-01 修復）：**來源快照日期 `2026-10-29` 用來限制當時可用的發行文件／事件；獨立研究者可以在之後的真實日期完成審查，不必倒填 `reviewed_at`。正式 `source_documents.csv`、`evidence_approvals.csv`、`project_identity_decisions.csv` 仍須輸入可驗證的原件 SHA、實際審查者及其決策；既有本地 `work/structural_round01/originals/` 可作為受限封存來源。C1/C2 另由既有 `inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv` 與 `c1_c2_project_identity_metadata_v1.csv` 明確簽核；**文件 `REVIEW_READY` 不會自動升格核准**。現有不同核准帳本尚無全自動互認，跨帳本身分與原件關聯仍需明確核對。
+
+首輪 `review_c1_stage1_v1.py` 與 `build_structural_round01.py` 現會依已驗證的正式輸入反映 C1/C2 的簽核狀態；無有效簽核時維持目前 **C1=0、C2=0**。更新核准後按原順序重建 `build_c0_freeze_c1_c2_v1.py --write`、`review_c1_stage1_v1.py --write`、`build_structural_round01.py --write`，再執行 `--check` 與測試。請勿在 `docs/audits/` 衍生表直接填寫核准，或以「審查後仍為 HOLD」觸發相同來源的無限制重搜。
+
 ## 腳本架構圖：母腳本控制子腳本
 
 ```mermaid
