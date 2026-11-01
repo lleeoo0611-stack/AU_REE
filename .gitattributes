@@ -1,0 +1,3 @@
+# Snapshot hashes and byte-for-byte generated-output checks must survive clones.
+# Preserve committed bytes, including original source line endings, on every OS.
+* -text

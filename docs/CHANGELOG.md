@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — Census/Entity SQLite integration and Windows verification
+
+- `csv-build --review-dir` 將最新 39 群組／195 個文件 Gate 審閱格納入 Census SQLite，檢查完整群組集合、穩定候選 ID、名稱、州別、截止日及所有附加表的群組引用；文件表不得自行聲稱正式獨立 Project 核准。衝突於發布前拒絕，保留既有資料庫。
+- 關閉 CLI 交易完成後的 SQLite 連線，修正 Windows 暫存資料庫發布／失敗清理鎖定；本機圖層相對路徑使用一致的 `/`，使原件核准比對可跨平台。
+- Git 屬性保存所有已提交檔案的原始位元組，避免 Windows 自動換行改變來源 SHA 及衍生表。驗證 262 tests、51 資料表整合重建及原件封存；正式 C1/C2 核准維持 0。詳見 Census/Entity 驗收紀錄。
+
 ## 2026-11-01 — Evidence-approved confirmation of existing stable Legacy Project IDs
 
 - 既有 `apply_identity_decisions` 增加明確 `CONFIRM_LEGACY_PROJECT` 核准動作，允許經原件 SHA256、發表／審查日期、Project 範圍與獨立 `approval_ref` 確認的歷史 Project **沿用既有 Stable Project ID**。不必另建重複同名 Project；`legacy_id_map`、原始 Legacy Record 及事件審查紀錄均保留。
