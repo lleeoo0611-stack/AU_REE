@@ -15,6 +15,12 @@
 
 **39/39 是有界分類完成，不是 39 份完整技術報告核准。** 深度分為 9 個技術原件相關頁面審查、17 個原始 HTML 層級審查、13 個沿用先前判讀並明列原件存取限制。後兩類未取得的研究／JORC 日期與範圍保留未知，不以空白推定不存在。沒有重複把 13 個 P1 source cases 加成 13 個新 Project。
 
+### 2026-11-01 Project 身分來源層級的補充驗證
+
+依現行 `outputs/project_entity_register.csv` 與 `outputs/project_entity_membership_487.csv` 原始關聯實際交叉核對，39 個候選 Project 審查群組中，**29 個至少有一筆 `SOURCE_PROJECT_RECORD`，10 個只有 Deposit／Occurrence 等來源紀錄**；29 個之中 **22 個有 `INCLUDE_CANDIDATE` 的 Project 層級來源，另 7 個僅為 HOLD**。其中無 Project 層級來源的 10 個群組是 Barkly、Browns Range、Caralue Bluff、Dubbo、Ironback Hill、Jupiter、Koppamurra、Nolans、Splinter Rock 與 Wudinna。這 10 個已有研究上的候選群組關係，但**不能因官方地質圖資只有 Deposit／Occurrence 就直接升格為獨立開發 Project**；正式審查還需要有明確公司／政府 Project scope 的原始文件、確認與 Legacy 身分的對應，及獨立核准紀錄。
+
+原有 Scheme A 在遇到「既有 Legacy Master 與正式來源 Project 同名」時，`APPROVE_NEW_PROJECT` 會拒絕重複建立，但 `LINK_EXISTING_PROJECT` 也不能連至尚未核准的 Legacy Master。新的明確 `CONFIRM_LEGACY_PROJECT` 審查動作可以在取得簽核後**沿用已存在的 Stable Project ID**，保留 Legacy 對照、來源紀錄與更正稽核。未取得原件與獨立核准的群組維持 Review Pending；這項補強沒有將 39 個候選當成 39 個已證實 Project。
+
 ## 2. 本輪十項結果
 
 | 指標 | 本輪已驗證結果 |
