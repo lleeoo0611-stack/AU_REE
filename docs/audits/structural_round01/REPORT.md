@@ -5,6 +5,15 @@
 
 本輪實際取得原件，解決 **24 個明確列名的文件／範圍／口徑缺口**，並將 **27/195 個五項文件證據格**整理至可送審。**沒有正式 Gate PASS、研究者簽名、獨立 Project ID 核准或 MCDA。** 正式 Structural Cohort 仍未凍結。
 
+### 2026-11-01 延續驗收：Copi 已封存原件交叉審查
+
+下列 Round 01 首輪的 **27/195**、**8 個 ID＋ROLE 文件候選**及 Gate 表為當時的歷史基準；本次在不增加原件／不新建流程的情況下，複核既有發行人委託之工程承包商原件 **`R01-CO-PFS-CONTRACTOR`**。最新 [summary.json](summary.json) 更新為 **29/195 文件格可送審、166/195 仍未就緒、9 個 ID＋ROLE 文件候選**，正式獨立核准 Project、C1、C2 仍均為零。
+
+- **ID 文件格由 BLOCKED_EVIDENCE → REVIEW_READY：**[Ausenco 2025-09-30 Copi DFS 承包公告](https://ausenco.com/insights/ausenco-to-lead-the-definitive-feasibility-study-for-the-copi-project/)（正文第 1、3–4 段）明確命名 RZ Resources 的 Copi 開發計畫，工程研究範圍包含礦山、濕式選礦、稀土精礦廠、尾礦與運輸／供電基礎設施；因此可提供 Copi *開發 Project 層級* 的有界原始文件。**Copi North 的礦床／資源是否屬同一 JORC 或採礦範圍仍待官方 tenement／PFS 核對；Gilligans 不合併。**此文件格仍須獨立 Project 身分決策，無正式 ID 核准。
+- **ROLE 文件格由 BLOCKED_EVIDENCE → REVIEW_READY：**同一日期原件的礦種、稀土精礦廠及「About RZ Resources」段落，支持 Copi 計畫將產出含 monazite／xenotime 的 **稀土礦物精礦（planned REE concentrate）**。未確認分離氧化物產量、TREO／NdPr/DyTb 品位、選冶回收率、目前實際投產或 REE 精礦計入當期可比 JORC。
+- **可追溯封存：**此文已在原 2026-10-31 archive manifest 以 `R01-CO-PFS-CONTRACTOR` 記錄原始 HTML 32,421 bytes、SHA-256 `d6e9d2f503854ab05e9da0060ca6578ed11836fe6f9b61083e51418bcf05c8cc`、發表日期 2025-09-30，且僅對應 Copi 審查群組。原始 bytes 與 hash 沒有修改；新增文件證據格的可送審狀態須以本地 archive 持續驗證。
+- **未變動 Gate：**WINDOW 仍待 2023 PFS 全文和截止日 FID 事件；JORC 仍待 2024 同範圍 REO 原表，GIS_SOURCE/GIS_RELEASE 仍待原生幾何、CRS 與批准。完整五格文件包仍為 BLOCKED_EVIDENCE，C2 只是文件可送審，未獲核准。
+
 ## 1. 驗收口徑及限制
 
 本輪依本次使用者的 Execution Round 01 要求，結合既有 [研究架構](../../RESEARCH_ARCHITECTURE.md)、[Cohort protocol](../../P0_COHORT_SELECTION_PROTOCOL.md)、[資源規格](../../P0_PROJECT_RESOURCE_SCHEMA.md)、[C1/C2 政策](../../C0_FREEZE_AND_C1_C2_POLICY.md) 執行。最新 main 未找到另一本以 `AU_REE Pre-MCDA Research Pipeline Completion Protocol` 為檔名／標題的文件；沒有據此另建一套管線或改動准入契約。
