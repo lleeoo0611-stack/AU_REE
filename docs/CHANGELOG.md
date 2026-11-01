@@ -1,5 +1,14 @@
 # Change log
 
+## 2026-11-01 — 核准跨帳本驗證與 SQLite 正向整合驗收（Census 修復）
+
+- 在既有 `build_c0_freeze_c1_c2_v1.py` 將簽核 `PASS` 綁定 `source_documents.csv`、`evidence_approvals.csv`、實體 SHA-256 bytes 與具名審查決策。C2 ID 額外要求現有 `identity_policy.independently_approved_project` 與 Canonical Project Master 相符，包括 Project ID、州別、名稱／Alias 與身分原件核准引用。未提供正式 identity SQLite 時，不接受真實 `PASS`；不再僅以填滿簽核欄位視為成功。
+- 既有 `review_c1_stage1_v1.py` 與 `build_structural_round01.py` 於偵測到正式 PASS（含尚未重建衍生 CSV）時，皆重新核對權威身分審查；Structural C2 必須 ID/ROLE 文件就緒，C1 必須五個 documentary gate 皆有合規原件，且另有六項正式 Gate。
+- `reproducibility/build_census_database.py csv-build` 延續既有單一 Census SQLite，僅在已重建且核准來源與 canonical 身分一致時匯入 Project ID 並回報正式核准計數；過時／偽造交叉表一律拒絕，失敗不能覆蓋既有發行資料庫。
+- 增加獨立合成來源、核准原件、Project Master、C2／C1 Gate、Structural／SQLite 的正反向回歸測試，包含撤銷、來源 bytes 竄改、錯誤來源日期與簽核資料表不一致。**未產生任何真實簽核，C1/C2 仍維持 0；正式地質／JORC／GIS 來源仍需要逐案判讀。**
+
+
+
 ## 2026-11-01 — Identity approvals cannot be reused across Project/Deposit candidates
 
 - `src/au_ree/identity_policy.py` 在載入 `inputs/project_identity_decisions.csv` 後、任何身份 revoked/replayed 之前，檢查所有非空 `approval_ref` 在不同 `candidate_id` 決策間唯一；不允許將一次有簽名的文件批准挪給另一個礦床／Project 來源。若重複，整批中止且既有 Project ID/對應狀態不變。不同簽核可引用同一份真實封存原件，但每筆候選需獨立審查。

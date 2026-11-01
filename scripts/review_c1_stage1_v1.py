@@ -9,6 +9,7 @@ import argparse
 import csv
 import io
 import json
+import os
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -27,8 +28,28 @@ def read(path):
 def ensure(b,msg):
     if not b: raise ValueError(msg)
 
-def generate():
+def generate(identity_db=None, approval_root=ROOT):
     groups,checks=read(INPUT),read(REVIEWS)
+    signoff_path=ROOT/"inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv"
+    gate_input=read(signoff_path)
+    if (any(g["C2_project_id_approved"]=="YES" or
+            g["C1_release_status"]=="C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES"
+            for g in groups) or
+        any(d["decision_status"]=="PASS" for d in gate_input)):
+        ensure(identity_db is not None,
+               "signed Stage1 review requires independently approved identity database")
+        from scripts import build_c0_freeze_c1_c2_v1 as cohort_builder
+        _,verified,_,_=cohort_builder.build(
+            identity_db=identity_db, approval_root=approval_root)
+        checked={r["review_group_id"]:r for r in verified}
+        for r in groups:
+            expected=checked.get(r["review_group_id"])
+            ensure(expected is not None and
+                   all(r[k]==expected[k] for k in
+                       ("C1_release_status","C2_project_id_approved","formal_identity_signoff",
+                        "ID_gate","ROLE_gate","WINDOW_gate","JORC_gate",
+                        "PANEL_gate","GIS_RELEASE_gate")),
+                   "Stage1 cohort CSV differs from authenticated signed review")
     ensure(len(groups)==39 and len(checks)==7, "expected 39 groups and 7 scoped evidence checks")
     idx={r["review_group_id"]:r for r in groups}
     byid={r["review_group_id"]:r for r in checks}
@@ -103,8 +124,9 @@ def main():
     sub=ap.add_mutually_exclusive_group(required=True)
     sub.add_argument("--check",action="store_true")
     sub.add_argument("--write",action="store_true")
+    ap.add_argument("--identity-db",default=os.environ.get("AU_REE_APPROVED_IDENTITY_DB"))
     args=ap.parse_args()
-    rows,stats=generate()
+    rows,stats=generate(identity_db=args.identity_db)
     if args.write:
         OUT.write_text(csv_text(rows),encoding="utf-8")
         SUMMARY.write_text(json.dumps(stats,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")

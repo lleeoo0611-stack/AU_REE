@@ -383,6 +383,52 @@ def validate_census_relations(tables: dict[str, list[dict[str, str]]]) -> dict:
     }
 
 
+def validate_signed_structural_import(data, cohort_rows, as_of_date):
+    """Require every approved identity to agree across Cohort and Census review.
+
+    A structural CSV cannot itself establish independent approval. The supplied
+    cohort_rows must first have been reconstructed from the signed gate ledger
+    and independently verified Project Master through the canonical builder.
+    """
+    project_rows = {r["review_group_id"]: r for r in cohort_rows}
+    crosswalk = data.get("identity_crosswalk", [])
+    c2_rows = {r["review_group_id"]: r for r in data.get("c2_identity_review", [])}
+    candidates = {r["review_group_id"]: r for r in data.get("structural_candidates", [])}
+    if set(project_rows) != {r["review_group_id"] for r in crosswalk}:
+        raise ValueError("Signed cohort does not match frozen Structural Project groups")
+    if set(c2_rows) != set(project_rows) or set(candidates) != set(project_rows):
+        raise ValueError("Signed C2/Structural review groups mismatch")
+    approved = []
+    for item in crosswalk:
+        gid = item["review_group_id"]
+        expected = project_rows[gid]
+        if expected["source_snapshot"] != as_of_date:
+            raise ValueError("Signed cohort source cutoff differs from Census")
+        real_id = expected["C2_project_id_approved"] == "YES"
+        real_c1 = expected["C1_release_status"] == "C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES"
+        linked_id = item.get("verified_independent_project_id", "").strip()
+        c2 = c2_rows[gid]
+        candidate = candidates[gid]
+        if real_id:
+            if (not linked_id or
+                    c2.get("verified_project_id") != linked_id or
+                    c2.get("C2_approved") != "True" or
+                    item.get("approval_ref") != expected["formal_identity_signoff"] or
+                    c2.get("approval_ref") != expected["formal_identity_signoff"]):
+                raise ValueError("Approved Project ID/signoff not reconciled between Census and C2")
+            approved.append((gid, linked_id, expected["formal_identity_signoff"]))
+        elif (linked_id or item.get("approval_ref") or
+              c2.get("verified_project_id") or c2.get("C2_approved") != "False"):
+            raise ValueError("Unapproved Project identity in documentary CSV")
+        if ((candidate.get("C1_admitted") == "True") != real_c1 or
+            (candidate.get("independently_verified_project_id") == "True") != real_id):
+            raise ValueError("C1/Structural release disagrees with signed cohort")
+    ids = [item[1] for item in approved]
+    if len(ids) != len(set(ids)):
+        raise ValueError("One approved canonical Project ID assigned to multiple review groups")
+    return approved
+
+
 def csv_build(args) -> None:
     """Build a fresh normalized database from the versioned CSV deliverables."""
     source_dir = Path(args.csv_dir).resolve()
@@ -440,15 +486,58 @@ def csv_build(args) -> None:
                     or row.get("state") != parent["state_or_territory"]
                     or row.get("snapshot_asof") != args.as_of_date):
                 raise ValueError("Structural identity scope/snapshot mismatch: " + parent["entity_id"])
-            if row.get("verified_independent_project_id"):
-                raise ValueError("Independent identity needs approval-ledger import, not documentary CSV")
         for path in reviews:
             for row in data[path.stem]:
                 key = row.get("review_group_id")
                 if key is not None and key not in parents:
                     raise ValueError("Structural review references unknown Census group: " + str(key))
+        cohort_path = review_dir.parent / "2026-10-31_c1_c2_project_review_39.csv"
+        if not cohort_path.is_file():
+            raise FileNotFoundError("Missing canonical signed C1/C2 cohort CSV: " + str(cohort_path))
+        with cohort_path.open(encoding="utf-8-sig", newline="") as f:
+            current_cohort = list(csv.DictReader(f))
+        signed_in_cohort = any(
+            r.get("C2_project_id_approved") == "YES" or
+            r.get("C1_release_status") == "C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES"
+            for r in current_cohort
+        )
+        signed_in_structural = any(r.get("verified_independent_project_id") for r in crosswalk)
+        root = Path(getattr(args, "approval_root", None) or
+                    Path(__file__).resolve().parents[1]).resolve()
+        approval_input = root / "inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv"
+        with approval_input.open(encoding="utf-8-sig", newline="") as f:
+            source_signoffs = list(csv.DictReader(f))
+        signed_in_source = any(r.get("decision_status") == "PASS" for r in source_signoffs)
+        identity_db = getattr(args, "identity_db", None)
+        if (signed_in_cohort or signed_in_structural or signed_in_source) and not identity_db:
+            raise ValueError("Signed Structural identity requires canonical --identity-db verification")
+        if identity_db:
+            if str(root) not in sys.path:
+                sys.path.insert(0, str(root))
+            from scripts import build_c0_freeze_c1_c2_v1 as cohort_builder
+            _, verified_cohort, _, _ = cohort_builder.build(
+                identity_db=identity_db, approval_root=root)
+            current_idx = {r["review_group_id"]: r for r in current_cohort}
+            verified_idx = {r["review_group_id"]: r for r in verified_cohort}
+            if current_idx.keys() != verified_idx.keys():
+                raise ValueError("Committed cohort differs from independently verified gates")
+            for gid in verified_idx:
+                for key in ("C2_project_id_approved", "formal_identity_signoff", "C1_release_status",
+                            "ID_gate", "ROLE_gate", "WINDOW_gate", "JORC_gate",
+                            "PANEL_gate", "GIS_RELEASE_gate"):
+                    if current_idx[gid][key] != verified_idx[gid][key]:
+                        raise ValueError("Signed cohort CSV must be rebuilt from approved gate inputs")
+            cohort = verified_cohort
+        else:
+            cohort = current_cohort
+        approved = validate_signed_structural_import(data, cohort, args.as_of_date)
         relation_check["structural_review_groups"] = len(keys)
-        relation_check["independently_approved_projects"] = 0
+        relation_check["independently_approved_projects"] = len(approved)
+        if approved:
+            relation_check["independently_approved_project_refs"] = [
+                {"review_group_id": gid, "project_id": pid, "identity_approval_ref": ref}
+                for gid, pid, ref in approved
+            ]
     input_digest = hashlib.sha256(canonical_json(inputs).encode("utf-8")).hexdigest()
     # Construct a fresh database beside the previous release.
     # TemporaryDirectory cleans up failed builds without harming prior data.
@@ -561,6 +650,9 @@ def main():
     csvp.add_argument("--output", required=True)
     csvp.add_argument("--as-of-date", required=True)
     csvp.add_argument("--review-dir", help="Attach the validated structural review CSV directory to the same Census database")
+    csvp.add_argument("--identity-db", default=os.environ.get("AU_REE_APPROVED_IDENTITY_DB"),
+                      help="Existing canonical Project identity SQLite, required when signed approvals are present")
+    csvp.add_argument("--approval-root", help="Repository root containing the archived original bytes and approval ledgers")
     csvp.add_argument("--overwrite", action="store_true")
     csvp.set_defaults(fn=csv_build)
     args = parser.parse_args()

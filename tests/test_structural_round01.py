@@ -9,6 +9,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 from scripts import build_structural_round01 as m
+from scripts import build_c0_freeze_c1_c2_v1 as cohort_module
 
 
 class StructuralRound01Test(unittest.TestCase):
@@ -44,6 +45,22 @@ class StructuralRound01Test(unittest.TestCase):
         with patch.object(m, 'read_csv', side_effect=corrupt):
             with self.assertRaisesRegex(ValueError, 'unknown documentary group'):
                 m.validate_frozen_source_lineage(actual_read(m.BASE))
+
+    def test_stale_partial_signed_gate_cannot_enter_structural_snapshot(self):
+        original_read = m.read_csv
+        groups = original_read(m.BASE)
+        verified = copy.deepcopy(groups)
+        verified[0]["JORC_gate"] = "PASS_SYNTHETIC_PARTIAL_GATE"
+        def supplied(path):
+            if path.name == 'c1_c2_project_gate_signoffs_v1.csv':
+                return [{"decision_status": "PASS"}]
+            return original_read(path)
+        with patch.object(m, 'read_csv', side_effect=supplied):
+            with patch.object(cohort_module, 'build',
+                              return_value=([], verified, [], {})):
+                with self.assertRaisesRegex(ValueError,
+                                            "Structural signed release differs"):
+                    m.build(identity_db=object())
 
     def test_frozen_source_missing_orphaned_project_group_blocked(self):
         actual_read = m.read_csv
@@ -128,28 +145,89 @@ class StructuralRound01Test(unittest.TestCase):
         self.assertEqual(summary['C2_approved'], sum(
             b['C2_project_id_approved'] == 'YES' for b in m.read_csv(m.BASE)))
 
-    def test_structural_output_can_reflect_synthetic_signed_c2_identity(self):
-        gid = 'PRJ-42437b4a11115372'
-        actual_read = m.read_csv
-        def synthetic_signoffs(path):
-            records = actual_read(path)
-            if path == m.BASE:
-                records = [dict(item) for item in records]
-                next(row for row in records if row['review_group_id'] == gid)['C2_project_id_approved'] = 'YES'
-            elif path.name == 'c1_c2_project_gate_signoffs_v1.csv':
-                records = [{'review_group_id': gid, 'cohort': 'C2', 'gate_id': gate,
-                            'decision_status': 'PASS', 'approval_ref': 'SYNTHETIC-C2-SIGN',
-                            'reviewer_id': 'Synthetic Fixture Reviewer'} for gate in ('ID', 'ROLE')]
-            elif path.name == 'c1_c2_project_identity_metadata_v1.csv':
-                records = [{'review_group_id': gid, 'verified_project_id': 'SYNTHETIC-COPI-ID'}]
-            return records
-        with patch.object(m, 'read_csv', side_effect=synthetic_signoffs):
-            outputs, summary = m.build()
-        records = list(csv.DictReader(io.StringIO(outputs['c2_identity_review.csv'])))
-        row = next(r for r in records if r['review_group_id'] == gid)
-        self.assertEqual(row['C2_approved'], 'True')
-        self.assertEqual(row['verified_project_id'], 'SYNTHETIC-COPI-ID')
-        self.assertEqual(summary['C2_approved'], 1)
+    def test_structural_signed_c2_requires_authenticated_cohort(self):
+        gid = 'PRJ-42437b4a11115372'  # Copi has real document-ready ID and ROLE.
+        original_read=m.read_csv
+        copied=[dict(r) for r in original_read(m.BASE)]
+        project=next(r for r in copied if r['review_group_id']==gid)
+        project['C2_project_id_approved']='YES'
+        project['formal_identity_signoff']='SYNTHETIC-APP'
+        def fixture(path):
+            if path==m.BASE:
+                return copied
+            if path.name == 'c1_c2_project_gate_signoffs_v1.csv':
+                return [{'review_group_id':gid,'cohort':'C2','gate_id':gate,
+                         'decision_status':'PASS','approval_ref':'SYNTHETIC-APP',
+                         'reviewer_id':'Synthetic Reviewer'} for gate in ('ID','ROLE')]
+            if path.name == 'c1_c2_project_identity_metadata_v1.csv':
+                return [{'review_group_id':gid,'verified_project_id':'SYNTHETIC-ID'}]
+            return original_read(path)
+        with patch.object(m,'read_csv',side_effect=fixture):
+            with self.assertRaisesRegex(ValueError,'requires independently approved identity'):
+                m.build()
+            # Stubbed trusted cohort only tests propagation. Cryptographic
+            # gate validation is exercised with real bytes/SQLite in cohort tests.
+            with patch.object(cohort_module,'build',
+                              return_value=([],copied,[],{})):
+                outputs,summary=m.build(identity_db=object())
+        rows=list(csv.DictReader(io.StringIO(outputs['c2_identity_review.csv'])))
+        row=next(r for r in rows if r['review_group_id']==gid)
+        self.assertEqual(row['C2_approved'],'True')
+        self.assertEqual(row['verified_project_id'],'SYNTHETIC-ID')
+        self.assertEqual(summary['C2_approved'],1)
+
+    def test_structural_c1_cannot_pass_with_unready_originals(self):
+        gid='PRJ-42437b4a11115372'
+        original_read=m.read_csv
+        copied=[dict(r) for r in original_read(m.BASE)]
+        project=next(r for r in copied if r['review_group_id']==gid)
+        project['C2_project_id_approved']='YES'
+        project['formal_identity_signoff']='SYNTHETIC-ID-APP'
+        project['C1_release_status']='C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES'
+        def fixture(path):
+            if path==m.BASE:
+                return copied
+            return original_read(path)
+        with patch.object(m,'read_csv',side_effect=fixture):
+            with patch.object(cohort_module,'build',return_value=([],copied,[],{})):
+                with self.assertRaisesRegex(ValueError,
+                                            'five ready documentary evidence gates'):
+                    m.build(identity_db=object())
+
+    def test_sqlite_approved_crosswalk_requires_same_signed_cohort(self):
+        from reproducibility.build_census_database import validate_signed_structural_import
+        outputs,_=m.build()
+        names=('identity_crosswalk','c2_identity_review','structural_candidates')
+        raw={name:list(csv.DictReader(io.StringIO(outputs[name+'.csv']))) for name in names}
+        cohort=cohort_module.build()[1]
+        self.assertEqual(validate_signed_structural_import(raw,cohort,'2026-10-29'),[])
+        gid='PRJ-42437b4a11115372'
+        signed=copy.deepcopy(cohort)
+        accepted=next(r for r in signed if r['review_group_id']==gid)
+        accepted['C2_project_id_approved']='YES'
+        accepted['formal_identity_signoff']='SYNTHETIC-APP'
+        candidate=copy.deepcopy(raw)
+        project=next(r for r in candidate['identity_crosswalk'] if r['review_group_id']==gid)
+        project['verified_independent_project_id']='SYNTHETIC-ID'
+        project['approval_ref']='SYNTHETIC-APP'
+        c2=next(r for r in candidate['c2_identity_review'] if r['review_group_id']==gid)
+        c2['C2_approved']='True'
+        c2['verified_project_id']='SYNTHETIC-ID'
+        c2['approval_ref']='SYNTHETIC-APP'
+        structural=next(r for r in candidate['structural_candidates'] if r['review_group_id']==gid)
+        structural['independently_verified_project_id']='True'
+        self.assertEqual(validate_signed_structural_import(candidate,signed,'2026-10-29'),
+                         [(gid,'SYNTHETIC-ID','SYNTHETIC-APP')])
+        with self.assertRaisesRegex(ValueError,'not reconciled'):
+            validate_signed_structural_import(
+                {**candidate,'identity_crosswalk':[{
+                    **r, 'approval_ref':'FORGED-REF' if r['review_group_id']==gid
+                    else r['approval_ref']} for r in candidate['identity_crosswalk']]},
+                signed,'2026-10-29')
+        with self.assertRaisesRegex(ValueError,'Unapproved Project identity'):
+            validate_signed_structural_import(candidate,cohort,'2026-10-29')
+        with self.assertRaisesRegex(ValueError,'source cutoff'):
+            validate_signed_structural_import(candidate,signed,'2026-10-28')
 
     def test_date_leak_and_undated_source_rejected(self):
         for bad_date in ('2026-10-30', ''):
