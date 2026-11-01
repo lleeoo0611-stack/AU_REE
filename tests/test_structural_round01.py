@@ -207,6 +207,40 @@ class StructuralRound01Test(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'resolved gap source scope transfer denied'):
             m.validate_review(row, self.sources)
 
+    def test_wim_2016_external_source_cannot_upgrade_unarchived_resource_or_product(self):
+        wim_url = 'GENERALCOMPANYUPDATEMAY2016.pdf'
+        avonbank = copy.deepcopy(next(g for g in self.reviews
+                                     if g['review_group_id'] == 'PRJ-679f5da200a4564c'))
+        bungalally = copy.deepcopy(next(g for g in self.reviews
+                                       if g['review_group_id'] == 'PRJ-867a533642228a73'))
+        self.assertIn(wim_url, avonbank['conflicts'])
+        self.assertIn('6,000 t/y REE concentrate', avonbank['conflicts'])
+        self.assertIn('May-2016', avonbank['reopen_condition'])
+        self.assertIn(wim_url, bungalally['conflicts'])
+        self.assertIn('207Mt', bungalally['conflicts'])
+        self.assertIn('205Mt', bungalally['conflicts'])
+        self.assertIn('1.4% OF THM', bungalally['conflicts'])
+        self.assertIn('2015 Optiro CP MRE', bungalally['reopen_condition'])
+        for group,source_id in ((avonbank,'R01-S01'), (bungalally,'R01-S05')):
+            self.assertFalse(group['resources'][0]['same_scope_REO_evidence'])
+            self.assertEqual(group['resources'][0]['resource_or_reserve'], 'UNVERIFIED')
+            self.assertEqual(group['resources'][0]['tonnage_Mt'], '')
+            self.assertEqual(group['gates']['ID']['status'], 'BLOCKED_EVIDENCE')
+            self.assertEqual(group['gates']['ROLE']['status'], 'BLOCKED_EVIDENCE')
+            self.assertEqual(group['gates']['JORC']['status'], 'BLOCKED_EVIDENCE')
+            self.assertEqual(group['gates']['ID']['source_ids'], [source_id])
+            self.assertFalse(any(e['study_original_verified'] for e in group['events']))
+            m.validate_review(group, self.sources)
+        self.assertFalse(any(wim_url in src['url'] for src in self.sources.values()))
+        outputs, summary = m.build()
+        self.assertEqual(summary['groups_bounded_reviewed'], 39)
+        self.assertEqual(summary['ready_gate_evidence_cells'], 29)
+        self.assertEqual(summary['remaining_gate_evidence_cells'], 166)
+        self.assertEqual(summary['C1_approved'], 0)
+        self.assertEqual(summary['C2_approved'], 0)
+        self.assertEqual(len(list(csv.DictReader(io.StringIO(
+            outputs['gate_evidence_resolution.csv'])))), 195)
+
     def test_hm_and_mzeq_cannot_become_direct_reo(self):
         for basis in ('HM', 'THM', 'MZEQ', 'EXPLORATION_TARGET'):
             row = self.jupiter()
