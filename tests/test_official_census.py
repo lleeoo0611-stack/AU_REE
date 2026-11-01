@@ -249,6 +249,103 @@ def test_same_project_company_conflict_requires_review():
     assert db.execute("SELECT reason FROM population_candidates WHERE source_key='TWO'").fetchone()[0]=='COMPANY_OPERATOR_CONFLICT'
 
 
+
+def _legacy_project_for_conflict(db,name,native_id,lat=-25.0,lon=121.0):
+    record={'source':'legacy_r963_frozen','native_id':native_id,
+            'name':name,'state':'WA','company':'Legacy Pty Ltd',
+            'latitude':lat,'longitude':lon,'commodity':'REE',
+            'entity_level':'PROJECT','official':False}
+    assert candidate_upsert(db,record)=='ADDED'
+    return db.execute('SELECT project_id FROM project_master WHERE canonical_name=?',(name,)).fetchone()[0]
+
+
+def test_conflicting_native_id_never_falls_back_to_matching_project_name():
+    db=memorydb()
+    a=_legacy_project_for_conflict(db,'Alpha REE Project','LEGACY-A')
+    b=_legacy_project_for_conflict(db,'Beta REE Project','LEGACY-B',lat=-27,lon=123)
+    for pid in (a,b):
+        db.execute('INSERT INTO project_aliases VALUES(?,?,?,?,?)',
+                   (pid,'Old survey name','old survey name','WA_SOURCE','NATIVE-42'))
+    official={'source':'WA_SOURCE','native_id':'NATIVE-42',
+              'name':'Alpha REE Project','state':'WA','latitude':-25.0,
+              'longitude':121.0,'commodity':'REE','entity_level':'PROJECT',
+              'official':True}
+    assert candidate_upsert(db,official)=='REVIEW'
+    row=db.execute("SELECT decision,reason,matched_project_id FROM population_candidates WHERE source_key='WA_SOURCE'").fetchone()
+    assert row['reason']=='REVIEW_NATIVE_ID_CONFLICT'
+    assert row['matched_project_id'] is None
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==2
+    db.close()
+
+
+def test_exact_project_name_disagrees_with_curated_alias_is_review():
+    db=memorydb()
+    a=_legacy_project_for_conflict(db,'Alpha REE Project','LEGACY-A')
+    b=_legacy_project_for_conflict(db,'Beta REE Project','LEGACY-B',lat=-27,lon=123)
+    db.execute('INSERT INTO project_aliases VALUES(?,?,?,?,?)',
+               (b,'Alpha REE Project','alpha ree project','CURATED','OLD-B'))
+    official={'source':'WA_SOURCE','native_id':'NATIVE-43',
+              'name':'Alpha REE Project','state':'WA','latitude':-25,
+              'longitude':121,'commodity':'REE','entity_level':'PROJECT','official':True}
+    assert candidate_upsert(db,official)=='REVIEW'
+    result=db.execute("SELECT reason,matched_project_id FROM population_candidates WHERE source_key='WA_SOURCE'").fetchone()
+    assert result['reason']=='REVIEW_CONFLICTING_IDENTITY_EVIDENCE'
+    assert result['matched_project_id'] is None
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==2
+    db.close()
+
+
+def test_native_id_same_as_other_project_name_stays_unresolved():
+    db=memorydb()
+    a=_legacy_project_for_conflict(db,'Alpha REE Project','LEGACY-A')
+    b=_legacy_project_for_conflict(db,'Beta REE Project','LEGACY-B',lat=-27,lon=123)
+    db.execute('INSERT INTO project_aliases VALUES(?,?,?,?,?)',
+               (b,'Old Beta Project','old beta project','WA_SOURCE','NATIVE-44'))
+    official={'source':'WA_SOURCE','native_id':'NATIVE-44',
+              'name':'Alpha REE Project','state':'WA','latitude':-25,
+              'longitude':121,'commodity':'REE','entity_level':'PROJECT','official':True}
+    assert candidate_upsert(db,official)=='REVIEW'
+    record=db.execute("SELECT reason,matched_project_id FROM population_candidates WHERE source_key='WA_SOURCE'").fetchone()
+    assert record['reason']=='REVIEW_CONFLICTING_IDENTITY_EVIDENCE'
+    assert record['matched_project_id'] is None
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==2
+    db.close()
+
+
+def test_native_id_state_conflict_remains_review_and_not_linked():
+    db=memorydb()
+    pid=_legacy_project_for_conflict(db,'Alpha REE Project','LEGACY-A')
+    db.execute('INSERT INTO project_aliases VALUES(?,?,?,?,?)',
+               (pid,'Source name','source name','GA_SOURCE','NATIVE-5'))
+    official={'source':'GA_SOURCE','native_id':'NATIVE-5','name':'Different QLD REE Project',
+              'state':'QLD','latitude':-22,'longitude':146,'commodity':'REE',
+              'entity_level':'PROJECT','official':True}
+    assert candidate_upsert(db,official)=='REVIEW'
+    record=db.execute("SELECT reason,matched_project_id FROM population_candidates WHERE source_key='GA_SOURCE'").fetchone()
+    assert record['reason']=='REVIEW_NATIVE_ID_STATE_CONFLICT'
+    assert record['matched_project_id'] is None
+    db.close()
+
+
+def test_geological_deposit_records_preserve_conflicting_source_native_id():
+    db=memorydb()
+    a=_legacy_project_for_conflict(db,'Alpha REE Project','LEGACY-A')
+    b=_legacy_project_for_conflict(db,'Beta REE Project','LEGACY-B',lat=-27,lon=123)
+    for pid in (a,b):
+        db.execute('INSERT INTO project_aliases VALUES(?,?,?,?,?)',
+                   (pid,'Other name','other name','GA_SOURCE','NATIVE-6'))
+    deposit={'source':'GA_SOURCE','native_id':'NATIVE-6','name':'Alpha REE Project',
+             'state':'WA','latitude':-25,'longitude':121,'commodity':'REE',
+             'entity_level':'DEPOSIT','official':True}
+    assert candidate_upsert(db,deposit)=='REVIEW'
+    record=db.execute("SELECT entity_level,reason,matched_project_id FROM population_candidates WHERE source_key='GA_SOURCE'").fetchone()
+    assert record['entity_level']=='DEPOSIT'
+    assert record['reason']=='REVIEW_NATIVE_ID_CONFLICT'
+    assert record['matched_project_id'] is None
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==2
+    db.close()
+
+
 def test_state_mismatch_is_rejected_for_automatic_inclusion():
     db=memorydb();c={'source':'WA','native_id':'99','name':'Out of jurisdiction','state':'QLD','state_jurisdiction':'WA',
                       'latitude':-21,'longitude':146,'commodity':'REE','entity_level':'PROJECT','official':True}
