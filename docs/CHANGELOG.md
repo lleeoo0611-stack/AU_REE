@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — No refetch into incomplete frozen ArcGIS snapshots
+
+- 修補現有 `src/au_ree/source_adapters.py load_arcgis()` 已封存來源的完整性缺口：重建時先以原封存 `manifest.json` 驗證 metadata、Object ID 清單及每個原始 chunk 的 SHA-256，缺失或不同即拒絕，且檢查發生於任何新網路請求或原件寫入前；拒絕從同日不同版本政府 API 回應拼接歷史快照。
+- 原生 Object ID 列表若重複，不能先 `set()` 靜默去重；以明確錯誤保留來源異常供審查。
+- 既有 `tests/test_official_census.py` 新增 cache chunk／metadata 遺失時不重新抓取及重複 ID 的負向測試，既有內容 SHA 不符的測試改用更嚴格的早期檢查預期。未更動來源 cutoff、任何 Target ID／Project 審查表及 C1/C2。
+
 ## 2026-11-01 — Government ArcGIS feature snapshot replay integrity
 
 - 修正 `src/au_ree/source_adapters.py`：同一來源 query 的 ArcGIS raw `manifest.json` 第一次成功寫入後不可在重跑時自動覆寫。重新計算 source metadata、ID 和每個 feature chunk SHA-256，與已封存 manifest 不一致即回報來源變動並拒絕重建。
