@@ -46,6 +46,22 @@ class StructuralRound01Test(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'unknown documentary group'):
                 m.validate_frozen_source_lineage(actual_read(m.BASE))
 
+    def test_stale_partial_signed_gate_cannot_enter_structural_snapshot(self):
+        original_read = m.read_csv
+        groups = original_read(m.BASE)
+        verified = copy.deepcopy(groups)
+        verified[0]["JORC_gate"] = "PASS_SYNTHETIC_PARTIAL_GATE"
+        def supplied(path):
+            if path.name == 'c1_c2_project_gate_signoffs_v1.csv':
+                return [{"decision_status": "PASS"}]
+            return original_read(path)
+        with patch.object(m, 'read_csv', side_effect=supplied):
+            with patch.object(cohort_module, 'build',
+                              return_value=([], verified, [], {})):
+                with self.assertRaisesRegex(ValueError,
+                                            "Structural signed release differs"):
+                    m.build(identity_db=object())
+
     def test_frozen_source_missing_orphaned_project_group_blocked(self):
         actual_read = m.read_csv
         def drop_link(path):
