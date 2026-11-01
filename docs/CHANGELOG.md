@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — Atomic government-source ingestion and frozen-source provenance
+
+- 修正 `src/au_ree/stages/population.py` 在單一官方 CSV/ArcGIS Source 第 N 筆發生例外時仍留下前面 Project／Deposit 候選、地質實體或來源雜湊的問題：逐來源採 SQLite SAVEPOINT，全部匯入成功後才發布該來源資料與計數；出錯則還原本次來源寫入並留下明確失敗紀錄。
+- 同一 `source_key` 與 Census 資料截止日已存在且已有凍結 SHA-256 時，若原始來源 bytes/hash 或 URL 在重新執行時不同，必須人工確認新的來源版本；不得直接覆寫 `source_registry.raw_sha256` 或舊 Project/Deposit 身分。存取遺失時保留上一版實際來源筆數，避免標示為 0 筆而無聲抹去來源。
+- 在既有 `tests/test_official_census.py` 使用合成來源故障注入驗證部分匯入回復、同截止日 SHA 變動及 URL 變動；不更動既有 487/451/39 census、正式核准或 MCDA。
+
 ## 2026-11-01 — Source-level cutoff and Project scope verification for technical evidence
 
 - 修復既有 `scripts/build_structural_round01.py` 文件證據檢查：資源敘述（含 JORC 與 REO）、經驗證的開發研究事件與原始文件缺口處置皆須指向**同一受審 Project group** 的原件；禁止跨 Project 移用證據。
