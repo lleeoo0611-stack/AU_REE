@@ -41,3 +41,9 @@ This quality layer makes the gaps explicit and machine-checkable. It does not cl
 
 Target ID lists accept pipe, semicolon and newline separators. All 487 IDs are retained; 46 have existing review-group links (37 candidate rows and 9 HOLD rows), with 441 unlinked. Three Mary Kathleen HOLD rows link only to a review group while their admission gate remains unresolved. Independent ID extraction, unknown/duplicate-ID checks and gate/group reconciliation guard against silent loss. The workbook includes 487 entity-link rows and cross-table differences. Release snapshot: 2026-10-29-r18-delimiter-release.
 
+# Current Census/Entity integration (2026-11-01)
+
+`build_census_database.py csv-build --csv-dir outputs --review-dir docs/audits/structural_round01 --output work/census_with_identity.sqlite --as-of-date 2026-10-29` attaches the current documentary review to the historical source-level Census without promoting candidate IDs. The optional review directory must have exactly the same candidate group IDs, names, states and cutoff; foreign group references and claimed independent IDs are rejected before replacing any existing database. Omit `--review-dir` to reproduce the original CSV-only database.
+
+The integrated build contains 51 CSV data tables plus two build/manifest tables. Original-file validation is separate: run `scripts/build_structural_round01.py --check --verify-originals` with the local original archive present. Successful reconstruction is not an independent Project approval.
+

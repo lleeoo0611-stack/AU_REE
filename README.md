@@ -72,6 +72,14 @@ flowchart TD
 
 ## 快速執行
 
+Census 與最新 Entity Resolution 審閱表可重建到同一 SQLite：
+
+```bash
+python reproducibility/build_census_database.py csv-build --csv-dir outputs --review-dir docs/audits/structural_round01 --output work/census_with_identity.sqlite --as-of-date 2026-10-29
+```
+
+此入口驗證 487 target IDs、39 群組穩定候選 ID、Project 名稱／州別／來源截止日及審閱外鍵，拒絕把文件候選當成已核准 Project。既有資料庫僅在明確指定 `--overwrite` 且完整驗證成功後更換。實測與剩餘證據依賴見 [Census / Entity 驗收](docs/audits/2026-11-01_census_entity_acceptance.md)。
+
 需求：Python 3.11+；主線審查／事件路由只使用 Python 標準函式庫。舊 GIS/資料庫/R 運算的額外套件依 `pyproject.toml` 和既有說明安裝。
 
 ```bash

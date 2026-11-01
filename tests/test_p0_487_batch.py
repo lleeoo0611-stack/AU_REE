@@ -16,6 +16,37 @@ import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_structural_review_attached_to_census_and_scope_drift_preserves_database(tmp_path):
+    import shutil
+    from reproducibility.build_census_database import csv_build
+    reviews = tmp_path / "reviews"
+    shutil.copytree(ROOT / "docs/audits/structural_round01", reviews)
+    dest = tmp_path / "combined.sqlite"
+    args = SimpleNamespace(csv_dir=ROOT / "outputs", review_dir=reviews,
+                           output=dest, as_of_date="2026-10-29", overwrite=False)
+    csv_build(args)
+    with sqlite3.connect(dest) as db:
+        assert db.execute('SELECT COUNT(*) FROM identity_crosswalk').fetchone()[0] == 39
+        assert db.execute('SELECT COUNT(*) FROM gate_evidence_resolution').fetchone()[0] == 195
+        assert db.execute('''SELECT COUNT(*) FROM project_entity_membership_487 m
+            JOIN identity_crosswalk i ON i.review_group_id=m.project_entity_id''').fetchone()[0] == 78
+    original = dest.read_bytes()
+    path = reviews / "identity_crosswalk.csv"
+    with path.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        fields, rows = reader.fieldnames, list(reader)
+    rows[0]["state"] = "WRONG_STATE"
+    with path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+    args.overwrite = True
+    with pytest.raises(ValueError, match="scope/snapshot mismatch"):
+        csv_build(args)
+    assert dest.read_bytes() == original
+
 SPEC = spec_from_file_location("p0_487_audit", ROOT / "scripts" / "build_p0_census_487_audit.py")
 assert SPEC and SPEC.loader
 MODULE = module_from_spec(SPEC)

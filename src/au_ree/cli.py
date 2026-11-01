@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse,json,os,shutil,sqlite3,sys,tempfile
 from pathlib import Path
 from datetime import datetime,timezone
+from contextlib import closing
 from . import __version__
 from .core import ROOT, STAGES,canonical,config,connect,digest,filehash,setup,utc,writecsv
 from .stages import RUNNERS
@@ -54,11 +55,11 @@ def own_fingerprint(stage,db,cfg,root,workspace,offline,source_keys=None):
 def ensure_database(path):
     path.parent.mkdir(parents=True,exist_ok=True)
     if not path.exists():
-        with connect(path) as db:setup(db)
+        with closing(connect(path)) as db, db:setup(db)
 
 def run_one(stage,args,allcfg,force=False):
     root=ROOT;dbpath=args.db;workspace=args.workspace;ensure_database(dbpath)
-    with connect(dbpath) as db:
+    with closing(connect(dbpath)) as db, db:
         setup(db)
         idx=STAGES.index(stage)
         if idx:
@@ -91,8 +92,8 @@ def run_one(stage,args,allcfg,force=False):
             shutil.move(str(cache),str(archive))
     with tempfile.TemporaryDirectory(prefix='.stage-'+stage+'-',dir=workspace) as temp:
         staged=Path(temp)/'candidate.sqlite';artifacts={}
-        with connect(dbpath) as source,connect(staged) as dest:source.backup(dest)
-        with connect(staged) as db:
+        with closing(connect(dbpath)) as source, closing(connect(staged)) as dest, dest:source.backup(dest)
+        with closing(connect(staged)) as db, db:
             setup(db);db.execute('BEGIN')
             context={'root':root,'workspace':workspace,'offline':args.offline,'artifacts':artifacts,
                      'hash_file':filehash, 'source_keys':getattr(args,'source_keys',None), 'sources':allcfg['population'], 'criteria':allcfg['criteria'], 'gis':allcfg['gis'], 'eligibility':allcfg['eligibility'], 'r_analysis':allcfg['r_export']}
@@ -115,7 +116,7 @@ def run_one(stage,args,allcfg,force=False):
                   'snapshot_time':utc(),'offline':args.offline}
         (prepared/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf8')
         if stage=='population':
-            with connect(staged) as db:
+            with closing(connect(staged)) as db, db:
                 writecsv(prepared/'population_master.csv',[dict(x) for x in db.execute('SELECT * FROM project_master ORDER BY project_id')],[x[1] for x in db.execute('PRAGMA table_info(project_master)')])
                 writecsv(prepared/'population_review_queue.csv',[dict(x) for x in db.execute("SELECT * FROM population_candidates WHERE decision IN ('REVIEW','EXCLUDED') ORDER BY source_key,raw_name")],[x[1] for x in db.execute('PRAGMA table_info(population_candidates)')])
                 writecsv(prepared/'population_source_registry.csv',[dict(x) for x in db.execute('SELECT * FROM source_registry ORDER BY source_key')],[x[1] for x in db.execute('PRAGMA table_info(source_registry)')])
@@ -211,7 +212,7 @@ def main(argv=None):
         return 0
     if a.command=='status':
         if not a.db.exists():print('No SQLite database yet');return 0
-        with connect(a.db) as db:
+        with closing(connect(a.db)) as db, db:
             setup(db)
             for stage in STAGES:
                 record=db.execute('SELECT status,run_time FROM stage_runs WHERE stage=?',(stage,)).fetchone()

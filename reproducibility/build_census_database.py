@@ -389,6 +389,13 @@ def csv_build(args) -> None:
     files = sorted(source_dir.glob("*.csv"), key=lambda p: p.name.casefold())
     if not files:
         raise FileNotFoundError(f"No CSV inputs found in {source_dir}")
+    review_dir = getattr(args, "review_dir", None)
+    if review_dir:
+        review_dir = Path(review_dir).resolve()
+        reviews = sorted(review_dir.glob("*.csv"), key=lambda p: p.name.casefold())
+        if not reviews:
+            raise FileNotFoundError(f"No review CSV inputs found in {review_dir}")
+        files += reviews
     dest = Path(args.output).resolve()
     if dest.exists() and not args.overwrite:
         raise FileExistsError(f"Refusing to overwrite database: {dest}; pass --overwrite explicitly")
@@ -419,6 +426,29 @@ def csv_build(args) -> None:
     relation_check = validate_census_relations(
         {path.stem: rows for _, path, _, rows in tables}
     )
+    if review_dir:
+        data = {path.stem: rows for _, path, _, rows in tables}
+        parents = {r["entity_id"]: r for r in data["project_entity_register"]}
+        crosswalk = data.get("identity_crosswalk", [])
+        keys = [r.get("review_group_id") for r in crosswalk]
+        if len(keys) != len(set(keys)) or set(keys) != set(parents):
+            raise ValueError("Structural identity crosswalk differs from Census candidate groups")
+        for row in crosswalk:
+            parent = parents[row["review_group_id"]]
+            if (row.get("proposed_project_id") != parent["entity_id"]
+                    or row.get("project_name") != parent["canonical_name"]
+                    or row.get("state") != parent["state_or_territory"]
+                    or row.get("snapshot_asof") != args.as_of_date):
+                raise ValueError("Structural identity scope/snapshot mismatch: " + parent["entity_id"])
+            if row.get("verified_independent_project_id"):
+                raise ValueError("Independent identity needs approval-ledger import, not documentary CSV")
+        for path in reviews:
+            for row in data[path.stem]:
+                key = row.get("review_group_id")
+                if key is not None and key not in parents:
+                    raise ValueError("Structural review references unknown Census group: " + str(key))
+        relation_check["structural_review_groups"] = len(keys)
+        relation_check["independently_approved_projects"] = 0
     input_digest = hashlib.sha256(canonical_json(inputs).encode("utf-8")).hexdigest()
     # Construct a fresh database beside the previous release.
     # TemporaryDirectory cleans up failed builds without harming prior data.
@@ -530,6 +560,7 @@ def main():
     csvp.add_argument("--csv-dir", required=True)
     csvp.add_argument("--output", required=True)
     csvp.add_argument("--as-of-date", required=True)
+    csvp.add_argument("--review-dir", help="Attach the validated structural review CSV directory to the same Census database")
     csvp.add_argument("--overwrite", action="store_true")
     csvp.set_defaults(fn=csv_build)
     args = parser.parse_args()

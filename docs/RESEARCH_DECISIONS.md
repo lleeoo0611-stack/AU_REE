@@ -233,3 +233,7 @@
 | Current data state | 39 group reviews，28 初步 C2 身分審查候選（未准入），13 個 P1 正向 source-case 另列；**C1 0、C2 0 signed**，皆待獨立來源文件與審核 |
 | Inputs/outputs | [C1/C2 39 groups](audits/2026-10-31_c1_c2_project_review_39.csv)、[P1 crosswalk 13](audits/2026-10-31_c1_p1_positive_case_crosswalk_13.csv)、`config/cohort_c1_c2_policy_v1.json` |
 | QA | 可重跑 `python scripts/build_c0_freeze_c1_c2_v1.py --check`；任何後續 signed `C1_PASS` 先驗證 Project identity、當期 Study、REE JORC、approved panel 與 GIS 原件，否則程式阻止 |
+# 2026-11-01 implementation verification note
+
+`CENSUS-ENTITY-20261101` integrates the existing 487-source Census and 39-group documentary review through `csv-build --review-dir`. This is an implementation of existing identity/cutoff/approval constraints; it changes no Project definition, evidence decision, cohort, criterion or weight. Stable candidate IDs are retained, independent approval remains required, C1/C2 stay 0. [Acceptance and reproducible commands](audits/2026-11-01_census_entity_acceptance.md).
+
