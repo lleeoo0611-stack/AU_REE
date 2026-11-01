@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — Project-level issuer source locators for unresolved Census evidence
+
+- 既有 Structural Round 01 報告補上 Arafura 2019-02-07 Nolans DFS 的 Project／Nolans Bore Deposit 原始頁碼與發行人 PDF 連結，保留 Legacy 對應、原件 SHA256 及正式 Project ID 審查待辦。
+- 定位 Critica 2026-10-21 至 10-26 Jupiter 公告事件範圍，明確排除晚於 2026-10-29 Census 截止日的 10-30 季報；21 日簡報尚無受控原件位元組，事件連續性與 WINDOW Gate 維持待核。
+- 只有來源定位與公開原件文字核對；不更動 487 筆來源、39 群組、任何人工核准、C1/C2、GIS 或 MCDA。
+
 ## 2026-11-01 — Census/Entity SQLite integration and Windows verification
 
 - `csv-build --review-dir` 將最新 39 群組／195 個文件 Gate 審閱格納入 Census SQLite，檢查完整群組集合、穩定候選 ID、名稱、州別、截止日及所有附加表的群組引用；文件表不得自行聲稱正式獨立 Project 核准。衝突於發布前拒絕，保留既有資料庫。
