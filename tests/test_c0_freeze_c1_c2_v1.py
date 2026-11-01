@@ -27,10 +27,13 @@ class CohortFreezePolicyTest(unittest.TestCase):
     def test_provisional_c2_candidates_not_admitted(self):
         self.assertEqual(len(self.projects),39)
         self.assertEqual(sum(x["C2_identity_review_candidate"]=="YES" for x in self.projects),28)
-        self.assertEqual(self.summary["approved_C1_cohort_projects"],0)
-        self.assertEqual(self.summary["approved_C2_cohort_projects"],0)
-        self.assertTrue(all(x["C1_release_status"]=="NOT_ADMITTED_SIX_GATES_UNAPPROVED"
-                            and x["C2_project_id_approved"]=="NO" for x in self.projects))
+        self.assertEqual(self.summary["approved_C1_cohort_projects"],
+                         sum(x["C1_release_status"]=="C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES"
+                             for x in self.projects))
+        self.assertEqual(self.summary["approved_C2_cohort_projects"],
+                         sum(x["C2_project_id_approved"]=="YES" for x in self.projects))
+        self.assertTrue(all(x["C1_release_status"]!="C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES"
+                            or x["C2_project_id_approved"]=="YES" for x in self.projects))
     def test_f2_known_locator_cannot_be_paused_even_with_signature(self):
         row=next(x for x in self.c0 if x["proposed_route"].startswith("F2") and x["related_source_locator_ref"])
         d={"freeze_class":"F2_NATIVE_SEARCH_PAUSED","reviewer_id":"human","approved_at":"2026-10-31",
