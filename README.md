@@ -44,6 +44,8 @@ flowchart TD
     D -. "已超出 pre-FID" .-> C3["C3：歷史／事件研究（另行分析）"]
 ```
 
+Entity Resolution 的官方來源原生 ID、Project 名稱、已審查 Alias 或州別若有矛盾，必須在既有 Review Queue 保留具體衝突原因；不得退回單一名稱相似直接合併，亦不得因此改變 Stable Project ID。所有真實 Project 仍須獨立原件及簽核。
+
 **C1 的六項准入 Gate：** `ID → ROLE → WINDOW → JORC → PANEL → GIS_RELEASE`，須獨立證據及簽核。C2 只在 Project ID 與 REE 角色確實核准、其餘 C1 Gate 尚未全通過時建立，絕不直接混入正式 C1 排名。
 
 ## 腳本架構圖：母腳本控制子腳本

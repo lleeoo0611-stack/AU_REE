@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — Conflicting native-ID/name/alias evidence must stay in Entity Resolution review
+
+- 修正既有 `src/au_ree/stages/population.py` 的 `existing_match`：同來源原生 ID 對多個 Project、原生 ID 與 Project 名稱／已審查 Alias 相互矛盾、或原生 ID 指到不同州 Project 時，直接保留 `REVIEW_*` 衝突原因，不再退回較弱的單一名稱匹配。Deposit／Prospect 仍為地質來源，不會繼承虛構 Project parent。
+- 沿用原有 `population_candidates.reason` 和 Review Queue，不新增欄位／資料表／並行流程。既有沒有衝突的 native ID、名稱與 Alias 匹配維持原本順序；任何正式 Project 身分依然需要獨立原件簽核。
+- 在既有 `tests/test_official_census.py` 加入 native ID 多主體、名稱／Alias 矛盾、跨州原生 ID、以及 Deposit 原生 ID 衝突的合成負向測試。保留 2026-10-29 487 筆來源、39 審查群組、Stable Project ID、C1/C2=0 與原始快照，不做 MCDA。
+
 ## 2026-11-01 — Project-level issuer source locators for unresolved Census evidence
 
 - 既有 Structural Round 01 報告補上 Arafura 2019-02-07 Nolans DFS 的 Project／Nolans Bore Deposit 原始頁碼與發行人 PDF 連結，保留 Legacy 對應、原件 SHA256 及正式 Project ID 審查待辦。

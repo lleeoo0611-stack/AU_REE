@@ -49,17 +49,42 @@ def spatial_suggestions(db, candidate):
     return sorted(results,key=lambda x:x['distance_km'])[:8]
 
 def existing_match(db,candidate):
-    """Persistent native ID > exact name + state > curated alias; never spatial autolink."""
+    """Prioritise native IDs, but hold any contradictory identity evidence.
+
+    Native identifiers, official names and curated aliases are suggestions
+    until independent Project approval. Conflicting identifiers must never
+    fall through to a weaker exact-name match.
+    """
     name=norm(candidate.get('name'));state=normalize_state(candidate.get('state'))
     native=str(candidate.get('native_id') or '')
+    native_ids=set()
     if native:
-        mapped=db.execute('SELECT project_id FROM project_aliases WHERE source_key=? AND native_id=? AND native_id<>""',(candidate['source'],native)).fetchall()
-        if len({r['project_id'] for r in mapped})==1:return mapped[0]['project_id'],'NATIVE_ID'
-    row=db.execute('SELECT project_id FROM project_master WHERE normalized_name=? AND UPPER(COALESCE(state,""))=?',(name,state)).fetchall()
-    if len(row)==1:return row[0]['project_id'],'EXACT_NAME_STATE'
-    aliases=db.execute('''SELECT DISTINCT p.project_id FROM project_aliases a JOIN project_master p ON a.project_id=p.project_id WHERE a.normalized_alias=? AND UPPER(COALESCE(p.state,''))=?''',(name,state)).fetchall()
-    if len(aliases)==1:return aliases[0]['project_id'],'EXACT_ALIAS_STATE'
-    return None,'REVIEW_AMBIGUOUS' if (len(row)>1 or len(aliases)>1) else 'NEW'
+        native_ids={r['project_id'] for r in db.execute(
+            'SELECT project_id FROM project_aliases WHERE source_key=? AND native_id=? AND native_id<>""',
+            (candidate['source'],native))}
+    name_ids={r['project_id'] for r in db.execute(
+        'SELECT project_id FROM project_master WHERE normalized_name=? AND UPPER(COALESCE(state,""))=?',
+        (name,state))}
+    alias_ids={r['project_id'] for r in db.execute(
+        """SELECT DISTINCT p.project_id FROM project_aliases a
+           JOIN project_master p ON a.project_id=p.project_id
+           WHERE a.normalized_alias=? AND UPPER(COALESCE(p.state,''))=?""",
+        (name,state))}
+    if len(native_ids)>1:
+        return None,'REVIEW_NATIVE_ID_CONFLICT'
+    if len(native_ids|name_ids|alias_ids)>1:
+        return None,'REVIEW_CONFLICTING_IDENTITY_EVIDENCE'
+    if native_ids:
+        project_id=next(iter(native_ids))
+        master=db.execute('SELECT state FROM project_master WHERE project_id=?',(project_id,)).fetchone()
+        if not master or normalize_state(master['state'])!=state:
+            return None,'REVIEW_NATIVE_ID_STATE_CONFLICT'
+        return project_id,'NATIVE_ID'
+    if name_ids:
+        return next(iter(name_ids)),'EXACT_NAME_STATE'
+    if alias_ids:
+        return next(iter(alias_ids)),'EXACT_ALIAS_STATE'
+    return None,'NEW'
 
 def candidate_upsert(db,c):
     """Census inclusion is not MCDA eligibility nor identity verification."""
@@ -90,7 +115,8 @@ def candidate_upsert(db,c):
             matched,method=existing_match(db,c)
             if entity!='PROJECT':
                 status='REVIEW'
-                reason='ENTITY_LEVEL_'+entity if not matched else 'DEPOSIT_POSSIBLE_PARENT_'+method
+                reason=(method if method.startswith('REVIEW_')
+                        else 'ENTITY_LEVEL_'+entity if not matched else 'DEPOSIT_POSSIBLE_PARENT_'+method)
                 pid=matched  # suggestion only; NOT a verified relation nor a merged Project.
                 possible=spatial_suggestions(db,c)
             elif matched and c['source']!='legacy_r963_frozen':
@@ -109,7 +135,7 @@ def candidate_upsert(db,c):
                     db.execute('INSERT OR IGNORE INTO project_aliases(project_id,alias,normalized_alias,source_key,native_id) VALUES(?,?,?,?,?)',
                                (pid,name,norm(name),c['source'],native))
                     if c.get('legacy_id'):db.execute('INSERT OR REPLACE INTO legacy_id_map(legacy_id,project_id) VALUES(?,?)',(c['legacy_id'],pid))
-            elif method=='REVIEW_AMBIGUOUS':status,reason='REVIEW',method
+            elif method.startswith('REVIEW_'):status,reason='REVIEW',method
             elif c['source']!='legacy_r963_frozen':
                 possible=spatial_suggestions(db,c)
                 status,reason,pid='REVIEW','NEARBY_PROJECT_POSSIBLE_DUPLICATE' if possible else 'PROJECT_IDENTITY_NEEDS_DOCUMENT_APPROVAL',None
