@@ -50,6 +50,37 @@ class CohortFreezePolicyTest(unittest.TestCase):
            "reviewed_at":"2026-10-31","approval_ref":"approval-not-verified"}
         with self.assertRaises(ValueError):
             gates_with_signatures([d],group,None)
+    def test_signed_gate_decisions_can_pass_after_cutoff_without_early_release(self):
+        """Synthetic approvals test valid decisions; they do not sign real Project evidence."""
+        meta = {
+            "verified_project_id": "SYNTHETIC-PROJECT", "project_identity_scope": "Synthetic mine",
+            "project_footprint_ref": "SYNTHETIC-FOOTPRINT", "ree_product_role_ref": "SYNTHETIC-ROLE",
+            "resource_statement_id": "SYNTHETIC-MRE", "resource_basis": "TREO",
+            "original_jorc_ref": "SYNTHETIC-JORC", "approved_study_document_id": "SYNTHETIC-STUDY",
+            "study_published_asof": "2026-10-01", "approved_panel_version": "SYNTHETIC-PANEL",
+            "approved_gis_evidence_id": "SYNTHETIC-GIS"
+        }
+        def sign(cohort, gate):
+            return {
+                "gate_id": gate, "cohort": cohort, "decision_status": "PASS",
+                "source_asof": "2026-10-29", "reason_code": "SYNTHETIC_FIXTURE",
+                "document_id": "SYNTHETIC-DOC",
+                "original_sha256_or_html_ref": "SYNTHETIC-ARCHIVE-REF",
+                "reviewer_id": "Synthetic Fixture Reviewer", "reviewed_at": "2026-11-01",
+                "approval_ref": "SYNTHETIC-APP"
+            }
+        decisions = [sign("C2", g) for g in ("ID", "ROLE")]
+        decisions += [sign("C1", g) for g in ("ID", "ROLE", "WINDOW", "JORC", "PANEL", "GIS_RELEASE")]
+        status = gates_with_signatures(decisions, self.projects[0], meta)
+        self.assertTrue(all(status[g, "C1"] == "PASS" for g in
+                            ("ID", "ROLE", "WINDOW", "JORC", "PANEL", "GIS_RELEASE")))
+        self.assertEqual(status["ID", "C2"], "PASS")
+        self.assertEqual(status["ROLE", "C2"], "PASS")
+        # Publication date after the cutoff must still fail even for a later signed review.
+        with self.assertRaisesRegex(ValueError, "published after source cutoff"):
+            gates_with_signatures(decisions, self.projects[0],
+                                  {**meta, "study_published_asof": "2026-10-30"})
+
     def test_output_rebuild_is_identical(self):
         self.assertEqual(read_rows(OUT_C0),self.c0)
         self.assertEqual(read_rows(OUT_COHORT),self.projects)
