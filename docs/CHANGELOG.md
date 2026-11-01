@@ -1,5 +1,12 @@
 # Change log
 
+## 2026-11-01 — Bungalally 205/207Mt issuer-source collision and WIM Project/Deposit scope audit
+
+- 由 WIM 2016-05 官方公開 [Company Update PDF](https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/GENERALCOMPANYUPDATEMAY2016.pdf) 定位 Bungalally **同頁文字 207 Mt vs Table 3 205 Mt @ 2.7% THM（1% THM cutoff，monazite 1.4% of THM）** 的**同文件內部矛盾**，避免將兩個值當成兩個不同 Project/Resource、或將 THM／monazite 轉成 TREO。2015 Optiro CP MRE／corrigendum 及原件 SHA 仍缺。
+- 同原件 Wedderburn p11 Table 4 記載 **223 Mt @ 2.9% THM、monazite 1.8% of THM**；2015-12-09 [RL006195 WIM 公司原件](https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/WEDDERBURNRL006195SUMMARYPROGRAMOFWORK.pdf) 分別列 Avonbank/Wedderburn/Bungalally，並同時出現 `RL001695` 申請編號衝突；現行未連結三筆 Wedderburn Legacy/GA source records 維持不增列第 40 群組，須先查核官方原生 tenement／獨立 REE 產品計畫。
+- WIM 2016 PDF pp3–4 的 Avonbank 完成 Scoping 與歷史 **6,000 t/year REE concentrate** 屬當時預期，不替代 2026 BFS／DFS、正式 JORC TREO、FID／投產狀態。
+- 在現有 `structural_round01_reviews.json` 只更新 Avonbank／Bungalally 的衝突來源界線、日期／表格定位、封存需求、下個必要動作，更新 6 個既有衍生 CSV、`summary.json` 輸入 SHA 及回歸測試；無新增 source ID、原始 PDF bytes、簽核或分類，**39 群組、29/195 文件格、C1/C2=0** 不變。所有新增 PDF 原件仍須 byte-level archive 驗證後才能聲稱正式來源核可。
+
 ## 2026-11-01 — Copi archived ID/ROLE evidence acceptance and unlinked Project-source triage
 
 - Existing Copi `R01-CO-PFS-CONTRACTOR` (Ausenco 2025-09-30, archived HTML 32,421 bytes, SHA-256 `d6e9d2f503854ab05e9da0060ca6578ed11836fe6f9b61083e51418bcf05c8cc`) explicitly covers the RZ Copi commercial DFS mine scope and planned rare-earth concentrate plant. Reassessed only **ID and ROLE documentary gates** as `REVIEW_READY`, retaining Copi North linkage, JORC REO, cutoff FID continuity and GIS original as unresolved. No fabricated independent approval.
