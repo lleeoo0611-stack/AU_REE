@@ -192,7 +192,9 @@ def build(verify_originals=False, identity_db=None, approval_root=ROOT):
             original=official.get(b['review_group_id'])
             require(original is not None and
                     all(original[key]==b[key] for key in
-                        ('C2_project_id_approved','formal_identity_signoff','C1_release_status')),
+                        ('C2_project_id_approved','formal_identity_signoff','C1_release_status',
+                         'ID_gate','ROLE_gate','WINDOW_gate','JORC_gate',
+                         'PANEL_gate','GIS_RELEASE_gate')),
                     'Structural signed release differs from canonical independently verified cohort')
 
     require(len({r['review_group_id'] for r in reviews}) == 39, 'duplicate group')
