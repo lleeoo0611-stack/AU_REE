@@ -5,6 +5,7 @@
 - 修復既有 `scripts/build_structural_round01.py` 文件證據檢查：資源敘述（含 JORC 與 REO）、經驗證的開發研究事件與原始文件缺口處置皆須指向**同一受審 Project group** 的原件；禁止跨 Project 移用證據。
 - `same_scope_REO_evidence` 和 `study_original_verified` 除需具原始來源封存與 2026-10-29 之前的發表日期，現在也要求敘述上的 `publication_date` 與 `structural_round01_access_manifest.json` 來源實際發表日期一致，阻止把 2026-10-30 公告或較晚報告標成較早的 resource/study。
 - 核對現有 39 個群組的 **25 筆已註記同範圍 REO 資源行、8 筆已驗證研究事件、24 筆缺口處置**，目前無跨群組或日期不一致。直接更新既有 `tests/test_structural_round01.py` 的 5 個負向案例；不改原始 487 Target ID、39 候選 Project、批准欄位或 MCDA。
+- 同步於既有 Structural 證據報告補回原先 404 的 `R01-WI-AR25` 對應 Iluka 官方 2025 Annual Report 正式 URL（2026-02-18 發布，PDF 實體 p23／印刷 p21 Wimmera 段落）。官方文件顯示該發表時點 DFS／EES 仍在進行；尚未在受控 archive 保存可重驗的 PDF bytes/hash，因此原 access status 與正式核准均不變。
 
 ## 2026-11-01 — No refetch into incomplete frozen ArcGIS snapshots
 
