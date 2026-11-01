@@ -77,8 +77,20 @@ def validate_review(r, sources):
         require(source is not None, 'study event references unknown source')
         require(r['review_group_id'] in source['review_group_ids'],
                 'study event source scope transfer denied')
-        require(event['publication_date'] <= CUTOFF if event['publication_date'] else
-                not event['study_original_verified'], 'unverified study date')
+        if event['publication_date']:
+            require(source['publication_date'] == event['publication_date'],
+                    'event publication date mismatches archived source metadata')
+            require(source['access_status'] == 'ORIGINAL_BYTES_LOCAL',
+                    'dated event requires archived original bytes')
+            require(event['publication_date'] <= CUTOFF,
+                    'event publication date after source cutoff')
+        else:
+            require(not event['effective_date'],
+                    'effective event date requires verified publication date')
+            require(not event['study_original_verified'], 'unverified study date')
+        if event['effective_date']:
+            require(event['effective_date'] <= CUTOFF,
+                    'event effective date after source cutoff')
         if event['study_original_verified']:
             require(source['publication_date'] and source['publication_date'] <= CUTOFF,
                     'study original is undated/post-cutoff')
