@@ -2,6 +2,10 @@
 
 `quality_gate_487.py` runs inside `rebuild_all.py` after row adjudication and before CSV-to-SQLite construction. It requires only the Python standard library.
 
+## 同一截止日的政府 Source→Entity 匯入
+
+正式 `src/au_ree/stages/population.py` 現對每個啟用的 CSV／ArcGIS 來源使用 SQLite SAVEPOINT。單一來源的候選 Project、Deposit、Geological Entity 與 Source Registry 在全部來源資料列成功前不會部分提交；途中出錯即回復該來源的本次寫入並記錄明確錯誤。既有 `source_registry` 若顯示相同 `as_of` 日期已具有原始 SHA-256，來源 URL 或原始雜湊改變時不允許直接覆寫。更新來源必須經由可追溯的新版本／來源審查，不因在線資料變動就改寫 2026-10-29 Census。
+
 ## 原始 ArcGIS Source bytes 的重建檢查
 
 `src/au_ree/source_adapters.py load_arcgis()` 在同一 query-source snapshot 首次成功下載後建立 `manifest.json`，內容包含 metadata／IDs／每個原始 feature chunk 的 SHA-256、筆數、source URL 與查詢。後續離線重建重新比對，若同一 Object ID 的礦點內容被改寫、metadata/IDs 變動或查詢契約不同，立即拒絕重建；不得重新計算 hash 後覆蓋原先 manifest。**在任何重新下載／寫入前，先驗證全部舊 metadata、IDs、feature chunks 均存在且 SHA-256 不變；遺失檔案也不得自新 API 回應補入既有快照。原生 Object ID 清單若包含重複 ID 則明確拒絕，不可靜默去重。**修正資料必須另建版本化 source snapshot，不直接修改不可變原始檔。

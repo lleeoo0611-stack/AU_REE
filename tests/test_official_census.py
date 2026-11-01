@@ -139,6 +139,89 @@ def test_arcgis_duplicate_object_ids_not_silently_deduplicated(monkeypatch,tmp_p
     assert not list(tmp_path.rglob('manifest.json'))
 
 
+def _source_ingest_fixture(tmp_path):
+    source={'key':'FROZEN_WA_CSV','type':'csv','enabled':True,
+            'source_documentation':'https://example.gov.au/frozen-source'}
+    def row(native):
+        return {'source':'FROZEN_WA_CSV','native_id':native,
+                'name':f'Synthetic REE deposit {native}','state':'WA','latitude':-25.1,
+                'longitude':120.3,'commodity':'REE','entity_level':'DEPOSIT',
+                'official':True,'source_url':source['source_documentation'],
+                'source_raw_attributes':{'native_id':native,'commodity':'REE'}}
+    ctx={'root':tmp_path,'workspace':tmp_path/'workspace','offline':False,
+         'criteria':{'freeze_date':'2026-10-29'},
+         'sources':{'as_of':'2026-10-29','sources':[source]},
+         'hash_file':lambda _: '0'*64}
+    return source,ctx,row
+
+
+def test_census_source_ingest_rolls_back_partial_entity_import(monkeypatch,tmp_path):
+    """If source row 2 is invalid, row 1 may not survive in any identity table."""
+    from au_ree.stages import population
+    source,ctx,row=_source_ingest_fixture(tmp_path)
+    monkeypatch.setattr(population,'load_csv',
+                        lambda src,root:([row('D1'),row('D2')],'a'*64,'OK_LOCAL_EXPORT_UNVERIFIED'))
+    original=population.candidate_upsert
+    def fail_after_one(db,record):
+        if record['native_id']=='D2':
+            raise RuntimeError('synthetic invalid second source row')
+        return original(db,record)
+    monkeypatch.setattr(population,'candidate_upsert',fail_after_one)
+    db=memorydb()
+    result=population.run(db,ctx)
+    assert len(result['source_failures'])==1
+    assert 'synthetic invalid second source row' in result['source_failures'][0]['error']
+    for table in ('population_candidates','source_feature_snapshot','geological_entity',
+                  'geological_entity_source','extended_occurrence_inventory',
+                  'project_master'):
+        assert db.execute(f'SELECT COUNT(*) FROM {table}').fetchone()[0]==0,table
+    registry=db.execute('SELECT raw_sha256,record_count,fetch_status FROM source_registry').fetchone()
+    assert registry['raw_sha256'] is None
+    assert registry['record_count']==0
+    assert registry['fetch_status']=='FETCH_FAILED'
+    assert result['counts'].get('REVIEW',0)==0
+    db.close()
+
+
+def test_census_same_cutoff_source_hash_drift_preserves_imported_records(monkeypatch,tmp_path):
+    from au_ree.stages import population
+    source,ctx,row=_source_ingest_fixture(tmp_path)
+    current=['a'*64]
+    monkeypatch.setattr(population,'load_csv',
+                        lambda src,root:([row('D1')],current[0],'OK_LOCAL_EXPORT_UNVERIFIED'))
+    db=memorydb()
+    first=population.run(db,ctx)
+    assert first['source_failures']==[]
+    first_original=db.execute('SELECT original_json FROM population_candidates').fetchone()[0]
+    first_sha=db.execute('SELECT record_sha256 FROM source_feature_snapshot').fetchone()[0]
+    current[0]='b'*64
+    second=population.run(db,ctx)
+    assert 'FROZEN_SOURCE_SHA_CHANGED_REVIEW_REQUIRED' in second['source_failures'][0]['error']
+    assert db.execute('SELECT raw_sha256 FROM source_registry').fetchone()[0]=='a'*64
+    assert db.execute('SELECT original_json FROM population_candidates').fetchone()[0]==first_original
+    assert db.execute('SELECT record_sha256 FROM source_feature_snapshot').fetchone()[0]==first_sha
+    assert db.execute('SELECT COUNT(*) FROM source_feature_snapshot').fetchone()[0]==1
+    assert db.execute('SELECT COUNT(*) FROM geological_entity_source').fetchone()[0]==1
+    db.close()
+
+
+def test_census_same_cutoff_source_url_changed_requires_versioned_source(monkeypatch,tmp_path):
+    from au_ree.stages import population
+    source,ctx,row=_source_ingest_fixture(tmp_path)
+    monkeypatch.setattr(population,'load_csv',
+                        lambda src,root:([row('D1')],'a'*64,'OK_LOCAL_EXPORT_UNVERIFIED'))
+    db=memorydb()
+    assert population.run(db,ctx)['source_failures']==[]
+    old_source=db.execute('SELECT source_url,raw_sha256 FROM source_registry').fetchone()
+    source['source_documentation']='https://example.gov.au/different-unapproved-source'
+    result=population.run(db,ctx)
+    assert 'FROZEN_SOURCE_URL_CHANGED_REVIEW_REQUIRED' in result['source_failures'][0]['error']
+    after=db.execute('SELECT source_url,raw_sha256 FROM source_registry').fetchone()
+    assert tuple(old_source)==tuple(after)
+    assert db.execute('SELECT COUNT(*) FROM population_candidates').fetchone()[0]==1
+    db.close()
+
+
 def test_ga_deposit_exact_project_name_not_merged():
     db=memorydb()
     project={'source':'OFFICIAL_PROJECT','native_id':'p1','name':'Test Rare Earth Project','state':'WA',

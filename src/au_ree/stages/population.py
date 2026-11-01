@@ -188,29 +188,54 @@ def run(db,ctx):
                 event(db,'population',link['project_id'],'FROZEN_COORDINATE_SEED','Legacy r974 project location; independent evidence review required')
     for src in sources:
         if not src.get('enabled',False):continue
-        n=0;rawhash=None
+        n=0;rawhash=None;source_savepoint=False
+        successful_counts={}
         try:
             if src['type']=='arcgis':
                 rows,rawhash,snapshot_dir=load_arcgis(src,ctx['workspace']/'cache'/'census',offline=ctx['offline'])
             elif src['type']=='csv':
                 rows,rawhash,fetch_status=load_csv(src,ctx['root'])
                 if rows is None:
-                    db.execute('''INSERT INTO source_registry(source_key,source_url,source_type,dataset_date,fetched_at,raw_sha256,record_count,fetch_status,error) VALUES(?,?,?,?,?,?,?,?,?) ON CONFLICT(source_key) DO UPDATE SET fetched_at=excluded.fetched_at,record_count=excluded.record_count,fetch_status=excluded.fetch_status,error=excluded.error''',
+                    db.execute('''INSERT INTO source_registry(source_key,source_url,source_type,dataset_date,fetched_at,raw_sha256,record_count,fetch_status,error) VALUES(?,?,?,?,?,?,?,?,?) ON CONFLICT(source_key) DO UPDATE SET fetched_at=excluded.fetched_at,
+                        record_count=CASE WHEN source_registry.raw_sha256 IS NOT NULL
+                          THEN source_registry.record_count ELSE excluded.record_count END,
+                        fetch_status=excluded.fetch_status,error=excluded.error''',
                       (src['key'],src.get('source_documentation'),src['type'],cfg.get('as_of'),utc(),None,0,fetch_status,None))
                     counts[fetch_status]=counts.get(fetch_status,0)+1
                     continue
             else:raise ValueError('Unsupported source type '+str(src['type']))
+            # A frozen source/version cannot silently replace its source hash
+            # while leaving previously ingested Project and Deposit rows behind.
+            old=db.execute('''SELECT raw_sha256,dataset_date,source_url FROM source_registry
+                              WHERE source_key=?''',(src['key'],)).fetchone()
+            if (old and old['raw_sha256'] and
+                    str(old['dataset_date'] or '')==str(cfg.get('as_of') or '')):
+                source_url=src.get('url') or src.get('source_documentation') or ''
+                if old['source_url'] and old['source_url']!=source_url:
+                    raise RuntimeError('FROZEN_SOURCE_URL_CHANGED_REVIEW_REQUIRED:'+src['key'])
+                if old['raw_sha256']!=rawhash:
+                    raise RuntimeError('FROZEN_SOURCE_SHA_CHANGED_REVIEW_REQUIRED:'+src['key'])
+            db.execute('SAVEPOINT census_source')
+            source_savepoint=True
             for row in rows:
                 row['source_snapshot_sha256']=rawhash
                 status=candidate_upsert(db,row)
-                counts[status]=counts.get(status,0)+1
+                successful_counts[status]=successful_counts.get(status,0)+1
                 n+=1
             db.execute('''INSERT INTO source_registry(source_key,source_url,source_type,dataset_date,fetched_at,raw_sha256,record_count,fetch_status,error) VALUES(?,?,?,?,?,?,?,?,?) ON CONFLICT(source_key) DO UPDATE SET source_url=excluded.source_url,fetched_at=excluded.fetched_at,raw_sha256=excluded.raw_sha256,record_count=excluded.record_count,fetch_status=excluded.fetch_status,error=excluded.error''',
                  (src['key'],src.get('url') or src.get('source_documentation'),src['type'],cfg.get('as_of'),utc(),rawhash,n,'CACHED_OR_FETCHED_UNVERIFIED',None))
+            db.execute('RELEASE SAVEPOINT census_source')
+            source_savepoint=False
+            for status,amount in successful_counts.items():
+                counts[status]=counts.get(status,0)+amount
         except Exception as ex:
+            if source_savepoint:
+                db.execute('ROLLBACK TO SAVEPOINT census_source')
+                db.execute('RELEASE SAVEPOINT census_source')
+                source_savepoint=False
             failures.append({'source':src['key'],'error':str(ex)})
             db.execute('''INSERT INTO source_registry(source_key,source_url,source_type,dataset_date,fetched_at,record_count,fetch_status,error) VALUES(?,?,?,?,?,?,?,?) ON CONFLICT(source_key) DO UPDATE SET fetched_at=excluded.fetched_at,fetch_status=excluded.fetch_status,error=excluded.error''',
-                      (src['key'],src.get('url') or src.get('source_documentation'),src['type'],cfg.get('as_of'),utc(),n,'OFFLINE_CACHE_MISSING' if ctx['offline'] and 'OFFLINE:' in str(ex) else 'FETCH_FAILED',str(ex)[:2000]))
+                      (src['key'],src.get('url') or src.get('source_documentation'),src['type'],cfg.get('as_of'),utc(),0,'OFFLINE_CACHE_MISSING' if ctx['offline'] and 'OFFLINE:' in str(ex) else 'FETCH_FAILED',str(ex)[:2000]))
             event(db,'population',src['key'],'SOURCE_FETCH_FAIL',str(ex))
     # Independent Project identity approval precedes project detail/coordinate review.
     # A newly approved Project may receive its separately reviewed parameters in
