@@ -11,8 +11,8 @@
     "geometry_role": "LOCATOR_ONLY_NOT_VETTED_PROJECT_POLYGON",
     "original_CRS": "UNKNOWN_PENDING_ORIGINAL",
     "review_depth": "PRIMARY_HTML_SCOPED",
-    "conflicts": "Olderinformation sheet says30year life; currentissuer36year life. Need versionedstudy, not silentreplacement.",
-    "reopen_condition": "BFS/DFS original and dated no-FID update; project-scoped oxide resource",
+    "conflicts": "WIM May-2016 issuer update (public original physical pp3-4) reports completed Avonbank Scoping, historical 32-year project and planned approx 6,000 t/y REE concentrate; later issuer overview gives different mine-life numbers (30/36 years). These are versioned historical projections, not actual production or current REO/JORC and not an approved 2026 pre-FID stage; May-2016 original PDF bytes/SHA not yet archived: https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/GENERALCOMPANYUPDATEMAY2016.pdf",
+    "reopen_condition": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC",
     "gates": {
       "ID": {
         "status": "BLOCKED_EVIDENCE",
@@ -22,7 +22,7 @@
         ],
         "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
         "limit": "WIM reports feasibility completed; VIC granted mining licence 2026-10-06; verify actual FID and REE resource basis",
-        "next_evidence": "BFS/DFS original and dated no-FID update; project-scoped oxide resource"
+        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
       },
       "ROLE": {
         "status": "BLOCKED_EVIDENCE",
@@ -32,7 +32,7 @@
         ],
         "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
         "limit": "WIM reports feasibility completed; VIC granted mining licence 2026-10-06; verify actual FID and REE resource basis",
-        "next_evidence": "BFS/DFS original and dated no-FID update; project-scoped oxide resource"
+        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
       },
       "WINDOW": {
         "status": "REVIEW_PENDING",
@@ -41,8 +41,8 @@
           "R01-AV-BFS-SUM"
         ],
         "locator": "physical p2 BFScompleted; documentundated",
-        "limit": "Filenamepath2024/11notpublicationproof; fullBFSnotobtained",
-        "next_evidence": "BFS/DFS original and dated no-FID update; project-scoped oxide resource"
+        "limit": "Undated Avonbank BFS summary: 2024/11 upload path not publication date. Separate public WIM May-2016 original documents earlier Scoping and historic concentrate plan but is not locally hash-archived; it does not prove a completed 2026 BFS/DFS or no-FID status",
+        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
       },
       "JORC": {
         "status": "BLOCKED_EVIDENCE",
@@ -52,7 +52,7 @@
         ],
         "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
         "limit": "WIM reports feasibility completed; VIC granted mining licence 2026-10-06; verify actual FID and REE resource basis",
-        "next_evidence": "BFS/DFS original and dated no-FID update; project-scoped oxide resource"
+        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
       },
       "GIS_SOURCE": {
         "status": "BLOCKED_EVIDENCE",
@@ -62,7 +62,7 @@
         ],
         "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
         "limit": "WIM reports feasibility completed; VIC granted mining licence 2026-10-06; verify actual FID and REE resource basis",
-        "next_evidence": "BFS/DFS original and dated no-FID update; project-scoped oxide resource"
+        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
       }
     },
     "resources": [
@@ -83,7 +83,7 @@
         "cutoff_unit": "",
         "same_scope_REO_evidence": false,
         "normalization_status": "NOT_PERFORMED",
-        "next_evidence": "BFS/DFS original and dated no-FID update; project-scoped oxide resource"
+        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
       }
     ],
     "events": [
@@ -98,7 +98,7 @@
         "study_original_verified": false,
         "preFID_at_publication": "UNVERIFIED",
         "asof_continuity": "UNVERIFIED",
-        "next_evidence": "BFS/DFS original and dated no-FID update; project-scoped oxide resource"
+        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
       }
     ],
     "resolved_gaps": [],
@@ -550,8 +550,8 @@
     "geometry_role": "LOCATOR_ONLY_NOT_VETTED_PROJECT_POLYGON",
     "original_CRS": "UNKNOWN_PENDING_ORIGINAL",
     "review_depth": "PRIMARY_HTML_SCOPED",
-    "conflicts": "Issuer same page:205Mt headline/JORC subsection versus207Mt ResourceGeology; undated page and noTREO table",
-    "reopen_condition": "Dated completed economic study, commercial REE product plan, original 2015 statement resolving 205/207Mt",
+    "conflicts": "Source-version conflict is demonstrably present in WIM May-2016 issuer company update (public PDF, physical p10): prose states 207Mt, Table 3 states Inferred 205Mt @ 2.7% THM (1% THM cutoff), with monazite 1.4% OF THM; current undated issuer page repeats 205/207. Do not infer 205Mt TREO or 1.4% TREO. May-2016 PDF not yet in controlled SHA archive: https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/GENERALCOMPANYUPDATEMAY2016.pdf",
+    "reopen_condition": "Archive/hash WIM May-2016 primary report (physical p10 Table 3) and 2015 Optiro CP MRE; adjudicate body 207Mt vs table 205Mt; obtain dated completed Bungalally study and independent commercial REE product plan",
     "gates": {
       "ID": {
         "status": "BLOCKED_EVIDENCE",
@@ -561,7 +561,7 @@
         ],
         "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
         "limit": "Company says Scoping Study and Inferred JORC 205Mt @ 2.7% THM; THM cannot be directly converted to contained TREO",
-        "next_evidence": "Dated completed economic study, commercial REE product plan, original 2015 statement resolving 205/207Mt"
+        "next_evidence": "Archive/hash WIM May-2016 primary report (physical p10 Table 3) and 2015 Optiro CP MRE; adjudicate body 207Mt vs table 205Mt; obtain dated completed Bungalally study and independent commercial REE product plan"
       },
       "ROLE": {
         "status": "BLOCKED_EVIDENCE",
@@ -571,7 +571,7 @@
         ],
         "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
         "limit": "Company says Scoping Study and Inferred JORC 205Mt @ 2.7% THM; THM cannot be directly converted to contained TREO",
-        "next_evidence": "Dated completed economic study, commercial REE product plan, original 2015 statement resolving 205/207Mt"
+        "next_evidence": "Archive/hash WIM May-2016 primary report (physical p10 Table 3) and 2015 Optiro CP MRE; adjudicate body 207Mt vs table 205Mt; obtain dated completed Bungalally study and independent commercial REE product plan"
       },
       "WINDOW": {
         "status": "BLOCKED_EVIDENCE",
@@ -581,7 +581,7 @@
         ],
         "locator": "WIM Bungalally Overview",
         "limit": "AtScopingStudy stage is not a released completed economic study",
-        "next_evidence": "Dated completed economic study, commercial REE product plan, original 2015 statement resolving 205/207Mt"
+        "next_evidence": "Archive/hash WIM May-2016 primary report (physical p10 Table 3) and 2015 Optiro CP MRE; adjudicate body 207Mt vs table 205Mt; obtain dated completed Bungalally study and independent commercial REE product plan"
       },
       "JORC": {
         "status": "BLOCKED_EVIDENCE",
@@ -590,8 +590,8 @@
           "R01-S05"
         ],
         "locator": "WIM Bungalally Overview/ResourceGeology/JORCResource",
-        "limit": "Issuer same page:205Mt headline/JORC subsection versus207Mt ResourceGeology; undated page and noTREO table",
-        "next_evidence": "Dated completed economic study, commercial REE product plan, original 2015 statement resolving 205/207Mt"
+        "limit": "WIM May-2016 primary public PDF (physical p10, Table 3) itself has 207Mt in body and 205Mt @ 2.7% THM in original resource table; 1.4% monazite is a mineral assemblage fraction of THM, not TREO; PDF bytes/SHA and 2015 Optiro CP original still unarchived",
+        "next_evidence": "Archive/hash WIM May-2016 primary report (physical p10 Table 3) and 2015 Optiro CP MRE; adjudicate body 207Mt vs table 205Mt; obtain dated completed Bungalally study and independent commercial REE product plan"
       },
       "GIS_SOURCE": {
         "status": "BLOCKED_EVIDENCE",
@@ -601,7 +601,7 @@
         ],
         "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
         "limit": "Company says Scoping Study and Inferred JORC 205Mt @ 2.7% THM; THM cannot be directly converted to contained TREO",
-        "next_evidence": "Dated completed economic study, commercial REE product plan, original 2015 statement resolving 205/207Mt"
+        "next_evidence": "Archive/hash WIM May-2016 primary report (physical p10 Table 3) and 2015 Optiro CP MRE; adjudicate body 207Mt vs table 205Mt; obtain dated completed Bungalally study and independent commercial REE product plan"
       }
     },
     "resources": [
@@ -622,7 +622,7 @@
         "cutoff_unit": "",
         "same_scope_REO_evidence": false,
         "normalization_status": "NOT_PERFORMED",
-        "next_evidence": "Dated completed economic study, commercial REE product plan, original 2015 statement resolving 205/207Mt"
+        "next_evidence": "Archive/hash WIM May-2016 primary report (physical p10 Table 3) and 2015 Optiro CP MRE; adjudicate body 207Mt vs table 205Mt; obtain dated completed Bungalally study and independent commercial REE product plan"
       }
     ],
     "events": [
@@ -637,7 +637,7 @@
         "study_original_verified": false,
         "preFID_at_publication": "UNVERIFIED",
         "asof_continuity": "UNVERIFIED",
-        "next_evidence": "Dated completed economic study, commercial REE product plan, original 2015 statement resolving 205/207Mt"
+        "next_evidence": "Archive/hash WIM May-2016 primary report (physical p10 Table 3) and 2015 Optiro CP MRE; adjudicate body 207Mt vs table 205Mt; obtain dated completed Bungalally study and independent commercial REE product plan"
       }
     ],
     "resolved_gaps": [],

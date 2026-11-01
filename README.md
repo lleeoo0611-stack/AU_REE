@@ -23,6 +23,8 @@
 
 來源與 Project 層級不可混算：487 筆凍結 source targets 中，78 筆已關聯至未核准 Project 候選群組；409 筆仍未關聯，其中 283 筆為 Deposit、95 筆為 Occurrence、21 筆為歷史／來源標籤的 Project Record、6 筆為 Prospect、4 筆為 Historical Record。未連結的 Project Record 還需原始 Project 範圍、REE 產品角色與 Legacy／官方 ID 對照，不自動增列 21 個 Project。完整逐筆狀態依 [487 筆 Source–Entity 關聯表](outputs/project_entity_membership_487.csv) 與既有 Census 複核資料追溯。
 
+**2016 年 5 月原始 WIM Resource 文件增量核查：**Bungalally 的 207 Mt（正文）／205 Mt（同份 Table 3）衝突已定位到同一份歷史 issuer report；Wedderburn Table 4 為 223 Mt @ 2.9% THM，monazite 比例仍屬 THM 礦物組成；Avonbank 2016 Scoping 與 REE concentrate 規劃不得作為 2026 BFS／正式氧化物產出。新增 PDF 尚未受控封存 SHA，故只更新 [Structural Round 01 的缺口與重開條件](docs/audits/structural_round01/REPORT.md)，**正式證據格仍 29/195、C1/C2 仍 0**。
+
 ## 研究架構圖
 
 ```mermaid

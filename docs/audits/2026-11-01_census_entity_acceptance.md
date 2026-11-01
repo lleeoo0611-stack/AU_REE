@@ -34,6 +34,12 @@ Local checkout: `C:\Users\whatt\.codex\.chatgpt-projects\g-p-6a74fa8105f88191b58
 
 此筆已完成**公開原件文字與頁碼定位**，但本次未取得並保存新增 PDF 原始 bytes／SHA-256，亦未驗證官方 RL 當期有效性、REE 產品角色或正式 Project/Deposit 對應。因此 Wedderburn 仍在既有 Review Queue，**不增列第 40 個 Project、不得與 Avonbank／Bungalally 合併、亦不建立正式 Project–Deposit link 或 C1/C2 准入**。下一必要查核是封存該 2015 PDF、核對原生 RL/EL、確認 2026-10-29 截止日實際開發與 REE 產品角色，並以正式獨立審查決策處理三筆既有 source IDs。
 
+### Wedderburn 與 Bungalally：2016 發行人原始資源表對照（2026-11-01 續查）
+
+原 [WIM 2015-12-09 RL 006195 申請來源](https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/WEDDERBURNRL006195SUMMARYPROGRAMOFWORK.pdf) 提供三個獨立 WIM HMS Project 名稱、Wedderburn `EL4912`、申請 `RL006195` 及正文 `RL001695` 矛盾。另取得 [WIM May 2016 Company Update](https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/GENERALCOMPANYUPDATEMAY2016.pdf)（2016-05-13 發布索引）的公開 PDF 頁面文字：**Bungalally p10** 同時有正文 207 Mt 與 **Table 3 的 Inferred 205 Mt @ 2.7% THM（1% THM cutoff，monazite 1.4% of THM）**；**Wedderburn p11 Table 4** 列 **223 Mt @ 2.9% THM，monazite 1.8% of THM**。2016 表格清楚區分 WIM 的 Avonbank、Wedderburn、Bungalally 資源範圍，但沒有直接可比的 TREO 原位品位。Avonbank **pp3–4** 的 2016 Scoping 結果與歷史 `6,000 t/year REE concentrate` 設想，也不可覆蓋後續 BFS／DFS 版本。
+
+本次新增的是有頁碼的 issuer original **公開文字定位**，未取得受控原始 PDF bytes／SHA，故僅更新現有 **Bungalally／Avonbank** Review Queue 缺口與來源範圍；**Wedderburn 原 Legacy／GA 三筆 source target_id 仍無正式 Parent join、未新增第 40 個 Project**。Bungalally 的 205／207 Mt 仍需 2015 Optiro CP 完整 MRE 或更正公告才能裁決；Monazite/THM 無法換算為 TREO；正式 487 Census、39 群組、C1/C2=0、獨立核准 0 均保留。
+
 ## Reproduce
 
 ```bash

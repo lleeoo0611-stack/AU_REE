@@ -70,7 +70,7 @@
   "extended_panel": "UNSELECTED",
   "MCDA_executed": false,
   "input_sha256": {
-    "inputs/source_review_20261101/structural_round01_reviews.json": "4bc99057e0fdd7bce273724d25d665a3c7b67da13fc4adac8705022f388e6542",
+    "inputs/source_review_20261101/structural_round01_reviews.json": "1d68c41b86ff51c2be5a96bab19e9fe805ddacc5ff9935bf5c429ca55b839508",
     "inputs/source_review_20261101/structural_round01_sources.json": "afe2db3c71ee296508864e383cb330170b35541d2b95de5e2933a03675455ffa",
     "inputs/source_review_20261101/structural_round01_access_manifest.json": "32b88a1a03c6091370e36b4fb70d53a78e5e5afa7e2d051f8259954c4ca20f90",
     "docs/audits/2026-10-31_c1_c2_project_review_39.csv": "b338675597693b3e3f1a6d47eb6666b5bfd562159c4fb5a824a7e33c5c02b1f1",
