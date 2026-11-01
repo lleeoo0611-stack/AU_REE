@@ -13,13 +13,15 @@
 | C0 F2：政府原生圖徵暫停重複搜尋 | 151 筆候選，6 筆有待對應的新報告線索 | **0** 筆暫停簽核 |
 | C1 / C2 母體 | 39 個 Project 審查群組；另有 13 個 P1 正向 source cases 待交叉對照 | **C1 = 0、C2 = 0** |
 | C1 首輪原文查核（2026-11-01） | **7 個**經濟研究線索群組有新的有界政府／發行人來源文字；32 個保留先前初審 | 7/39 是證據補查，不是准入 |
-| Execution Round 01（接續首輪） | **39 群組有界分類、9 群組技術原件頁面審查；13 PDF＋23 HTML 原件；24 個文件缺口解決** | 27/195 文件格可送審；Jupiter 五項文件包 ready 1；正式 Structural/C1/C2 仍 0 |
+| Execution Round 01（接續首輪） | **39 群組有界分類、9 群組技術原件頁面審查；13 PDF＋23 HTML 原件；24 個文件缺口解決** | 29/195 文件格可送審（Copi ID＋ROLE 兩格新增）；Jupiter 五項文件包 ready 1；正式 Structural/C1/C2 仍 0 |
 | P2–P4 備查 | P2 8 筆、P3 87 筆、P4 64 筆需外部技術原文補強；P3/P4 151 筆可整理為 100 組原生 ID 取件工作單位 | 只在新的來源事件出現時重新啟動 |
 | MCDA | 舊版 Python 五階段與 R 運算程式保留；六構面 9/12 準則候選尚未固定 | **不得宣稱正式 C1 排名** |
 
 原始來源快照截止日：**2026-10-29**；本版腳本與來源複核：**2026-11-01**。完整詳細資料見 [C0/C1/C2 政策](docs/C0_FREEZE_AND_C1_C2_POLICY.md)、[C1 首輪 7 案核查](docs/audits/2026-11-01_c1_stage1_source_review.md)、[339 筆 P2–P4 原因分類](docs/audits/2026-10-31_p234_b06_reasons_and_followups_report.md)。
 
-**最新成果：[Structural Round 01 報告與完整表格索引](docs/audits/structural_round01/REPORT.md)。** 同範圍 REO 原始表有 7 組，其中 4 組 JORC 文件格可送審；8 組取得截止日前經濟研究發布原件，但研究完成不自動證明 cutoff 時仍 pre-FID。GIS_SOURCE 只定位原圖件，**不是 GIS_RELEASE 核准**；8 組 ID＋ROLE 文件候選均未獨立核准，C2 仍 0。Core／Extended Panel 未選定。
+**最新成果：[Structural Round 01 報告與完整表格索引](docs/audits/structural_round01/REPORT.md)。** 同範圍 REO 原始表有 7 組，其中 4 組 JORC 文件格可送審；8 組取得截止日前經濟研究發布原件，但研究完成不自動證明 cutoff 時仍 pre-FID。GIS_SOURCE 只定位原圖件，**不是 GIS_RELEASE 核准**；9 組 ID＋ROLE 文件候選均未獨立核准，C2 仍 0。Core／Extended Panel 未選定。
+
+來源與 Project 層級不可混算：487 筆凍結 source targets 中，78 筆已關聯至未核准 Project 候選群組；409 筆仍未關聯，其中 283 筆為 Deposit、95 筆為 Occurrence、21 筆為歷史／來源標籤的 Project Record、6 筆為 Prospect、4 筆為 Historical Record。未連結的 Project Record 還需原始 Project 範圍、REE 產品角色與 Legacy／官方 ID 對照，不自動增列 21 個 Project。完整逐筆狀態依 [487 筆 Source–Entity 關聯表](outputs/project_entity_membership_487.csv) 與既有 Census 複核資料追溯。
 
 ## 研究架構圖
 
