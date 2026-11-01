@@ -10,6 +10,7 @@ import csv
 import hashlib
 import io
 import json
+import os
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -167,15 +168,33 @@ def validate_frozen_source_lineage(groups):
             'source_rows_without_candidate_group': len(membership)-sum(linked_counts.values())}
 
 
-def build(verify_originals=False):
+def build(verify_originals=False, identity_db=None, approval_root=ROOT):
     reviews = json.loads(INPUT.read_text(encoding='utf-8'))
     definitions = json.loads(SOURCES.read_text(encoding='utf-8'))
     access = json.loads(ACCESS.read_text(encoding='utf-8'))
     base = read_csv(BASE)
+    approval_rows=read_csv(ROOT / 'inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv')
     require(len(base) == len(reviews) == 39, '39 frozen groups required')
     validate_frozen_source_lineage(base)
     require({r['review_group_id'] for r in reviews} == {r['review_group_id'] for r in base},
             'frozen group IDs changed')
+    if (any(b['C2_project_id_approved'] == 'YES' or
+            b['C1_release_status'] == 'C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES'
+            for b in base) or
+        any(d['decision_status'] == 'PASS' for d in approval_rows)):
+        require(identity_db is not None,
+                'signed Structural release requires independently approved identity database')
+        from scripts import build_c0_freeze_c1_c2_v1 as cohort_builder
+        _, verified_cohort, _, _ = cohort_builder.build(
+            identity_db=identity_db, approval_root=approval_root)
+        official={b['review_group_id']:b for b in verified_cohort}
+        for b in base:
+            original=official.get(b['review_group_id'])
+            require(original is not None and
+                    all(original[key]==b[key] for key in
+                        ('C2_project_id_approved','formal_identity_signoff','C1_release_status')),
+                    'Structural signed release differs from canonical independently verified cohort')
+
     require(len({r['review_group_id'] for r in reviews}) == 39, 'duplicate group')
     sm = {r['source_id']: r for r in access}
     require(len(sm) == len(access) == len(definitions), 'source manifest cardinality')
@@ -191,8 +210,7 @@ def build(verify_originals=False):
                 require(path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == record['sha256'],
                         'original archive missing or changed: ' + record['source_id'])
     base_idx = {r['review_group_id']: r for r in base}
-    signed = {(r['review_group_id'], r['cohort'], r['gate_id']): r for r in
-              read_csv(ROOT / 'inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv')}
+    signed = {(r['review_group_id'], r['cohort'], r['gate_id']): r for r in approval_rows}
     identity_meta = {r['review_group_id']: r for r in
                      read_csv(ROOT / 'inputs/review_decisions/c1_c2_project_identity_metadata_v1.csv')}
     gap_ids = [gap['gap_id'] for r in reviews for gap in r['resolved_gaps']]
@@ -216,11 +234,15 @@ def build(verify_originals=False):
         c2_role = signed.get((gid, 'C2', 'ROLE'), {})
         meta = identity_meta.get(gid, {})
         if c2_admitted:
+            require(all(r['gates'][g]['status'] == 'REVIEW_READY' for g in ('ID', 'ROLE')),
+                    'C2 signed release requires Project ID/ROLE documentary readiness')
             require(c2_identity.get('decision_status') == 'PASS' and
                     c2_role.get('decision_status') == 'PASS' and
                     bool(meta.get('verified_project_id')),
                     'signed C2 evidence missing for admitted Project')
         if c1_admitted:
+            require(all(r['gates'][g]['status'] == 'REVIEW_READY' for g in GATES),
+                    'C1 signed release requires five ready documentary evidence gates')
             require(c2_admitted and all(signed.get((gid, 'C1', g), {}).get('decision_status') == 'PASS'
                                         for g in ('ID', 'ROLE', 'WINDOW', 'JORC', 'PANEL', 'GIS_RELEASE')),
                     'C1 requires independently approved identity and six signed gates')
@@ -349,8 +371,10 @@ def main():
     group.add_argument('--write', action='store_true')
     group.add_argument('--check', action='store_true')
     parser.add_argument('--verify-originals', action='store_true')
+    parser.add_argument('--identity-db', default=os.environ.get('AU_REE_APPROVED_IDENTITY_DB'),
+                        help='Existing authoritative Project Master SQLite for verified signed releases')
     args = parser.parse_args()
-    outputs, summary = build(args.verify_originals)
+    outputs, summary = build(args.verify_originals, identity_db=args.identity_db)
     if args.write:
         OUT.mkdir(parents=True, exist_ok=True)
         for name, content in outputs.items():

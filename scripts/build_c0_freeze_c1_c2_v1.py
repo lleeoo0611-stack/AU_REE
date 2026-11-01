@@ -10,6 +10,9 @@ import argparse
 import csv
 import io
 import json
+import os
+import sqlite3
+import sys
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -80,7 +83,87 @@ def signed_freeze(row,decision):
              "SCOPE_TRANSFER_REJECTED"},"F1 decision must be bounded, not claim geological absence")
     return decision["freeze_class"]
 
-def gates_with_signatures(decisions,project,metadata):
+def open_verified_identity_registry(identity_db, root=ROOT):
+    """Copy the canonical identity database for read-only gate verification.
+
+    Refresh source-document/approval hashes in the private copy, so revoked
+    signatures and modified original bytes cannot survive a cached DB state.
+    """
+    check(identity_db is not None, "signed PASS requires independently approved identity database")
+    source = None
+    if isinstance(identity_db, sqlite3.Connection):
+        source = identity_db
+    else:
+        path = Path(identity_db).resolve()
+        check(path.is_file(), f"identity database missing: {path}")
+        source = sqlite3.connect(f"file:{path.as_posix()}?mode=ro", uri=True)
+    db = sqlite3.connect(":memory:")
+    db.row_factory = sqlite3.Row
+    try:
+        source.backup(db)
+    finally:
+        if not isinstance(identity_db, sqlite3.Connection):
+            source.close()
+    if str((Path(root) / "src").resolve()) not in sys.path:
+        sys.path.insert(0, str((Path(root) / "src").resolve()))
+    from au_ree.evidence import reload_registry
+    reload_registry(db, root, SNAPSHOT)
+    return db
+
+
+def verify_signed_gate(db, decision, project, metadata, root=ROOT):
+    """A PASS needs an actual matching independent approval and original bytes."""
+    check(db is not None, "signed PASS has no independently verified identity database")
+    from au_ree.evidence import verify
+    from au_ree.identity_policy import independently_approved_project
+    ref = decision["approval_ref"]
+    approval = db.execute("""
+        SELECT a.record_type, a.document_id, a.reviewer, a.reviewed_at,
+               a.status, d.source_url, d.actual_sha256
+        FROM evidence_approvals a
+        JOIN source_documents d ON d.document_id=a.document_id
+        WHERE a.approval_ref=?
+    """, (ref,)).fetchone()
+    gate = decision["gate_id"]
+    check(approval is not None and approval["status"] == "APPROVED",
+          f"{gate}: independently approved source record missing")
+    required_types = ({"GIS_LAYER"} if gate == "GIS_RELEASE" else
+                      {"PROJECT_REVIEW", "OBSERVATION"} if gate in {"JORC", "WINDOW"} else
+                      {"PROJECT_REVIEW"})
+    check(approval["record_type"] in required_types, f"{gate}: approval record type mismatch")
+    check(approval["document_id"] == decision["document_id"], f"{gate}: document ID mismatch")
+    check(approval["actual_sha256"] == decision["original_sha256_or_html_ref"].lower(),
+          f"{gate}: original archived source SHA mismatch")
+    check(approval["reviewer"] == decision["reviewer_id"] and
+          approval["reviewed_at"] == decision["reviewed_at"],
+          f"{gate}: reviewer/signature ledger conflict")
+    check(verify(db, ref, approval["record_type"], approval["source_url"],
+                 approval["actual_sha256"], root=root),
+          f"{gate}: original source bytes or approval revoked")
+    if gate == "ID" and decision["cohort"] == "C2":
+        check(metadata is not None and bool(metadata.get("verified_project_id")),
+              "C2 ID requires verified Project metadata")
+        project_id = metadata["verified_project_id"]
+        check(independently_approved_project(db, project_id, root=root),
+              "C2 ID: canonical Project Master identity is not independently approved")
+        identity = db.execute("""SELECT i.approval_ref, p.canonical_name, p.state
+            FROM project_master p JOIN identity_review_decisions i
+            ON p.identity_source='APPROVED_CANDIDATE:' || i.candidate_id
+            WHERE p.project_id=?""", (project_id,)).fetchone()
+        check(identity is not None and identity["approval_ref"] == ref,
+              "C2 ID: gate source approval differs from canonical identity approval")
+        check(identity["state"] == project["state"],
+              "C2 ID: canonical Project state differs from Census review group")
+        canonical = identity["canonical_name"].strip().casefold()
+        expected = project["project_name"].strip().casefold()
+        if canonical != expected:
+            aliases = {r[0].strip().casefold() for r in db.execute(
+                "SELECT alias FROM project_aliases WHERE project_id=?", (project_id,))}
+            check(expected in aliases,
+                  "C2 ID: Census review group is not an approved Project name/alias")
+
+
+def gates_with_signatures(decisions,project,metadata,approval_db=None,approval_root=ROOT):
     """Require signatures and evidence for approved gate PASS; C2 needs ID+ROLE."""
     status={(gate, cohort):None for gate in GATES for cohort in ("C1","C2")}
     for d in decisions:
@@ -97,6 +180,8 @@ def gates_with_signatures(decisions,project,metadata):
         except (TypeError, ValueError):
             check(False, f"{gate}: invalid reviewer date")
         check(reviewed <= date.today(), f"{gate}: future-dated reviewer signature")
+        if d["decision_status"]=="PASS":
+            verify_signed_gate(approval_db, d, project, metadata, root=approval_root)
         if d["cohort"]=="C1" and d["decision_status"]=="PASS":
             check(metadata is not None,"C1 requires verified Project metadata")
             keys={"ID":("verified_project_id","project_identity_scope","project_footprint_ref"),
@@ -125,11 +210,13 @@ def gates_with_signatures(decisions,project,metadata):
         status[gate,d["cohort"]]=d["decision_status"]
     return status
 
-def build():
+def build(identity_db=None, approval_root=ROOT):
     src,raw,screen,base_groups,p1,freezes,review_gates,metadata=map(
         read_rows,(SRC,RAW,SCREEN,GRP,P1,FREEZE_APPROVAL,GATE_APPROVAL,PROJ_METADATA))
     check(len(src)==len(raw)==339 and len(screen)==len(base_groups)==39 and len(p1)==13,
           "frozen 339/39/13 source universe changed")
+    approval_db = (open_verified_identity_registry(identity_db, approval_root)
+                   if any(d["decision_status"]=="PASS" for d in review_gates) else None)
     original=by_unique(raw,"target_id")
     by_unique(src,"target_id");by_unique(screen,"review_group_id")
     by_unique(base_groups,"review_group_id")
@@ -234,7 +321,8 @@ def build():
                 "Verify Project identity/dated activity and distinguish REO, HM, Nb or other resource basis")
         }
         meta=metadata_by.get(x["review_group_id"])
-        gate_status=gates_with_signatures(signed_by_group.get(x["review_group_id"],[]),x,meta)
+        gate_status=gates_with_signatures(signed_by_group.get(x["review_group_id"],[]),x,meta,
+                                          approval_db=approval_db, approval_root=approval_root)
         for gate in GATES:
             rec=review_by.get((x["review_group_id"],"C1",gate))
             if rec:
@@ -329,8 +417,10 @@ def run():
     flag=parser.add_mutually_exclusive_group(required=True)
     flag.add_argument("--check",action="store_true")
     flag.add_argument("--write",action="store_true")
+    parser.add_argument("--identity-db", default=os.environ.get("AU_REE_APPROVED_IDENTITY_DB"),
+                        help="Canonical independently approved identity SQLite; required for signed PASS")
     args=parser.parse_args()
-    source,project,p1,summ=build()
+    source,project,p1,summ=build(identity_db=args.identity_db)
     outputs={
         OUT_C0:csv_text(source),OUT_COHORT:csv_text(project),OUT_P1:csv_text(p1),
         OUT_SUM:json.dumps(summ,ensure_ascii=False,indent=2)+"\n"

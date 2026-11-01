@@ -58,6 +58,18 @@ Entity Resolution 的官方來源原生 ID、Project 名稱、已審查 Alias �
 
 首輪 `review_c1_stage1_v1.py` 與 `build_structural_round01.py` 現會依已驗證的正式輸入反映 C1/C2 的簽核狀態；無有效簽核時維持目前 **C1=0、C2=0**。更新核准後按原順序重建 `build_c0_freeze_c1_c2_v1.py --write`、`review_c1_stage1_v1.py --write`、`build_structural_round01.py --write`，再執行 `--check` 與測試。請勿在 `docs/audits/` 衍生表直接填寫核准，或以「審查後仍為 HOLD」觸發相同來源的無限制重搜。
 
+**核准閉環補強（2026-11-01）：**正式 `PASS` 現需同時核對 `inputs/source_documents.csv` 與 `inputs/evidence_approvals.csv` 的原件 SHA-256、有效簽核者／日期，以及既有 SQLite Project Master 的獨立核准結果。C2 的 ID 原件簽核必須與 canonical identity decision 相同，Project ID、州別、專案名稱或核准別名亦須一致。來源簽核被撤銷或封存原件 bytes 被修改時，簽核不得繼續使用。C1 的正式准入仍需六 Gate 與完整同範圍原件證據，Structural Round 01 的五格文件來源不能仍是 `BLOCKED_EVIDENCE`。
+
+有新獨立簽核時，必須提供**既有**可信 Project Identity SQLite，並從 Repo 根目錄執行（其餘原流程不變）：
+
+```bash
+export AU_REE_APPROVED_IDENTITY_DB=/path/to/approved-identity.sqlite
+python scripts/run_research_pipeline.py --profile c1 --mode write
+python reproducibility/build_census_database.py csv-build --csv-dir outputs --review-dir docs/audits/structural_round01 --output work/census_with_identity.sqlite --as-of-date 2026-10-29 --identity-db "$AU_REE_APPROVED_IDENTITY_DB" --overwrite
+```
+
+第二步只匯入已由正式簽核、Project Master 與 Structural 表一致驗證的 Project ID；即使衍生 CSV 已標示准入，也不會繞過來源驗證。若存在 `PASS` 但缺有效 identity DB、原件或來源簽核資料，流程會明確失敗。程式回歸測試使用合成案例，不代表任何真實 Project 已獲准入；目前正式資料仍為 **C1=0、C2=0**。需保留既有 Project 身分 SQLite 與核准帳本的對應快照，才能重建曾經核准的狀態。
+
 ## 腳本架構圖：母腳本控制子腳本
 
 ```mermaid
