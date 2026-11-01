@@ -59,6 +59,29 @@ class StructuralRound01Test(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'lacks frozen source-target'):
                 m.validate_frozen_source_lineage(actual_read(m.BASE))
 
+    def test_nolans_dated_government_fid_remains_outside_prefid_without_approval(self):
+        """A dated public government report is evidence, not a signed Project gate."""
+        row = next(r for r in self.reviews if r['review_group_id'] == 'PRJ-7f2aa9b3a0cabe53')
+        event = next(e for e in row['events'] if e['event_type'] == 'FID_DATE_CORROBORATION')
+        self.assertEqual(event['source_id'], 'R01-S27')
+        self.assertEqual(event['publication_date'], '2026-10-27')
+        self.assertEqual(event['effective_date'], '2026-05-21')
+        self.assertFalse(event['study_original_verified'])
+        self.assertEqual(row['gates']['WINDOW']['status'], 'OUTSIDE_WINDOW')
+        self.assertEqual(row['gates']['WINDOW']['reason'],
+                         'GOVERNMENT_FID_DATE_2026_10_27_C3_REVIEW_PENDING')
+        self.assertEqual(self.sources['R01-S27']['access_status'], 'ORIGINAL_BYTES_LOCAL')
+        self.assertEqual(self.sources['R01-S27']['sha256'],
+                         '2bbc7f637693bd71e7875a170cf236e50b8e517a24c6244e072724312debb200')
+        outputs, summary = m.build()
+        studies = list(csv.DictReader(io.StringIO(outputs['study_stage_timeline.csv'])))
+        same = [x for x in studies if x['review_group_id'] == row['review_group_id']]
+        self.assertEqual(len(same), 2)
+        self.assertTrue(any(x['event_type'] == 'FID_DATE_CORROBORATION' for x in same))
+        self.assertEqual(summary['C1_approved'], 0)
+        self.assertEqual(summary['C2_approved'], 0)
+        self.assertEqual(summary['dated_economic_study_original_projects'], 8)
+
     def test_date_leak_and_undated_source_rejected(self):
         for bad_date in ('2026-10-30', ''):
             sources = copy.deepcopy(self.sources)

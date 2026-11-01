@@ -43,7 +43,8 @@
       "BFS_COMPLETION_SUMMARY_UNDATED_FULL_STUDY_MISSING": 1,
       "COMPLETED_ECONOMIC_STUDY_OR_ASOF_WINDOW_PENDING": 24,
       "DATED_STUDY_FOUND_ASOF_EVENT_CONTINUITY_PENDING": 5,
-      "FID_OR_PRODUCTION_REPORTED_REQUIRES_DATED_ORIGINAL": 2,
+      "FID_OR_PRODUCTION_REPORTED_REQUIRES_DATED_ORIGINAL": 1,
+      "GOVERNMENT_FID_DATE_2026_10_27_C3_REVIEW_PENDING": 1,
       "PFS_DELIVERY_CORROBORATED_ORIGINAL_MISSING": 1,
       "SCOPING_STAGE_NOT_COMPLETED_STUDY": 1,
       "STUDY_SUMMARY_OR_HISTORICAL_CONTINUITY_PENDING": 3
@@ -69,7 +70,7 @@
   "extended_panel": "UNSELECTED",
   "MCDA_executed": false,
   "input_sha256": {
-    "inputs/source_review_20261101/structural_round01_reviews.json": "3e66c3617fb3750b136ba3b05aa300884e89d77a4e14c2a1d1a61fa0c3098413",
+    "inputs/source_review_20261101/structural_round01_reviews.json": "14aba1ed89dd92cbe3d1af06d68f2d9ab93655393bcfaf1c8ee510009fd754bd",
     "inputs/source_review_20261101/structural_round01_sources.json": "afe2db3c71ee296508864e383cb330170b35541d2b95de5e2933a03675455ffa",
     "inputs/source_review_20261101/structural_round01_access_manifest.json": "32b88a1a03c6091370e36b4fb70d53a78e5e5afa7e2d051f8259954c4ca20f90",
     "docs/audits/2026-10-31_c1_c2_project_review_39.csv": "b338675597693b3e3f1a6d47eb6666b5bfd562159c4fb5a824a7e33c5c02b1f1",
