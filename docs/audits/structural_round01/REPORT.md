@@ -14,6 +14,16 @@
 - **可追溯封存：**此文已在原 2026-10-31 archive manifest 以 `R01-CO-PFS-CONTRACTOR` 記錄原始 HTML 32,421 bytes、SHA-256 `d6e9d2f503854ab05e9da0060ca6578ed11836fe6f9b61083e51418bcf05c8cc`、發表日期 2025-09-30，且僅對應 Copi 審查群組。原始 bytes 與 hash 沒有修改；新增文件證據格的可送審狀態須以本地 archive 持續驗證。
 - **未變動 Gate：**WINDOW 仍待 2023 PFS 全文和截止日 FID 事件；JORC 仍待 2024 同範圍 REO 原表，GIS_SOURCE/GIS_RELEASE 仍待原生幾何、CRS 與批准。完整五格文件包仍為 BLOCKED_EVIDENCE，C2 只是文件可送審，未獲核准。
 
+### 2026-11-01 來源重訪：WIM 2016 同份原件內的資源基準衝突與獨立 Project 邊界
+
+針對最新 Census **Bungalally `PRJ-867a533642228a73`** 的 `THM_ONLY_AND_205_207MT_SOURCE_CONFLICT` 和 **Avonbank `PRJ-679f5da200a4564c`** 的歷史研究版本，查得同一份 WIM Resource 公司正式原始 PDF：[WIM Company Update, May 2016](https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/GENERALCOMPANYUPDATEMAY2016.pdf)，發布索引為 [2016-05-13 公司公告](https://wimresource.com.au/media/media-centre/announcements/)。以下是公開原件 **頁面文字核對**，非已完成本機受控 PDF bytes／SHA 的新封存；因此所有新增主張均作為 **外部來源定位線索**，不可冒用原 `R01-S05`、`R01-S01` 受控 HTML 作為 2016 PDF 的原件證明。
+
+- **Bungalally**：PDF 實體 **p10**（0-based p9），`BUNGALALLY PROJECT` 正文寫 **207 Mt**，同頁 **Table 3** 卻將 `Inferred / Total` 記成 **205 Mt @ 2.7% THM**（**1% THM cut-off**），並列 **monazite 1.4%（在 THM 內的礦物組成百分比）**。這證明 205／207 Mt 分歧至少在 2016 同一份 issuer document 的文字／表格內已存在，不能假定是 2026 官網更新造成的版本差異。**205 Mt Table 3 是歷史資源表的原文讀值；207 Mt 正文也保留，兩者仍未正式 adjudicate。**1.4% monazite ≠ 1.4% TREO，未取得分離 REO 氧化物含量，也不能推算 C1 的 REO-in-situ。原始 **2015 Optiro CP MRE**（及可能的 corrigendum）仍須查核。
+- **Wedderburn**：同份 PDF 實體 **p11**（0-based p10）`WEDDERBURN PROJECT`／**Table 4** 記載 **223 Mt @ 2.9% THM**、**monazite 1.8% of THM**；目前已取得的 [2015-12-09 RL006195 申請文件](https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/WEDDERBURNRL006195SUMMARYPROGRAMOFWORK.pdf) 實體 pp1–2 將 Wedderburn Deposit／RL 006195 申請範圍與 WIM 的三個獨立 Project 名稱分開，然而頁內 **RL001695／RL006195** 編號衝突尚待官方礦權檔確認。相關未連結來源為 Legacy `LEGACY:4fb6883c-bded-5363-af78-6fbfef190048`，及 GA `E1:C-8c2269b43a6f62bafcece0`、`E1:C-e5cc6ec45406fff096981e`。三筆僅維持待審，不因共同公司或名稱而自動新建第 40 個 Project 或 Project–Deposit 正式連結。
+- **Avonbank**：2016 PDF 實體 **pp3–4**（0-based p2–3）`AVONBANK PROJECT – SCOPING STUDY`、`FINAL PRODUCTS` 說明當時 **Scoping Study 已完成**，提出 **32 年**採礦與約 **6,000 t/year Rare Earth Concentrate**（出口後精礦分選的歷史方案）；另有後續資訊表 **30／36 年**之差。這些屬**不同日期和研究版本的預測**；不得把 2016 已完成 Scoping 誤作 2026 BFS/DFS 原件，或把 2016 濃縮礦計畫當作 2026 實際 REE 產出。現行 `WINDOW`、`JORC` 仍未核准。
+
+**實際已修正資料**：在原有 `structural_round01_reviews.json` 兩個群組的 `conflicts`、`reopen_condition`、受影響 `JORC`／`WINDOW` `limit` 和各 `next_evidence` 精確保留年份、表號、單位及缺口；六份既有衍生 CSV 與 summary 輸入 SHA 同步。**39 群組、29/195 文件格 ready、9 個 ID＋ROLE review packages、原始來源資料、source SHA、Project ID、C1/C2=0 全部未變**。下一個必需動作仍是**受控 PDF 原始 bytes 封存＋hash、2015 Optiro MRE／更正、官方 2015–2026 礦權紀錄及獨立審查簽核**；本次網頁來源定位不替代上述驗收。
+
 ## 1. 驗收口徑及限制
 
 本輪依本次使用者的 Execution Round 01 要求，結合既有 [研究架構](../../RESEARCH_ARCHITECTURE.md)、[Cohort protocol](../../P0_COHORT_SELECTION_PROTOCOL.md)、[資源規格](../../P0_PROJECT_RESOURCE_SCHEMA.md)、[C1/C2 政策](../../C0_FREEZE_AND_C1_C2_POLICY.md) 執行。最新 main 未找到另一本以 `AU_REE Pre-MCDA Research Pipeline Completion Protocol` 為檔名／標題的文件；沒有據此另建一套管線或改動准入契約。
