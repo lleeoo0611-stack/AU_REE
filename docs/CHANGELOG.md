@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — Evidence-approved confirmation of existing stable Legacy Project IDs
+
+- 既有 `apply_identity_decisions` 增加明確 `CONFIRM_LEGACY_PROJECT` 核准動作，允許經原件 SHA256、發表／審查日期、Project 範圍與獨立 `approval_ref` 確認的歷史 Project **沿用既有 Stable Project ID**。不必另建重複同名 Project；`legacy_id_map`、原始 Legacy Record 及事件審查紀錄均保留。
+- 僅接受 Project 層級的來源候選，以及有 Legacy 映射、相同正式名稱／州別、目前仍屬未核准或已過期且核准者一致的 Master。Deposit／Occurrence 不可直接升格；試圖改用另一 Project ID 或遭其他候選占用時拒絕。
+- `independently_approved_project` 現亦驗證已完成上述確認且原始文件仍有效的 Legacy Project；撤銷證據時保留 ID 但取消正式分析資格。增加 synthetic Project/Deposit/撤銷/重建與衝突負向測試。**真實 Census 仍無任何人工批准；本次不代替獨立簽核。**
+
 ## 2026-11-01 — Atomic government-source ingestion and frozen-source provenance
 
 - 修正 `src/au_ree/stages/population.py` 在單一官方 CSV/ArcGIS Source 第 N 筆發生例外時仍留下前面 Project／Deposit 候選、地質實體或來源雜湊的問題：逐來源採 SQLite SAVEPOINT，全部匯入成功後才發布該來源資料與計數；出錯則還原本次來源寫入並留下明確失敗紀錄。
