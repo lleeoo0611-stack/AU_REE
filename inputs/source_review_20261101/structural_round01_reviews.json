@@ -3367,13 +3367,13 @@
       },
       "WINDOW": {
         "status": "OUTSIDE_WINDOW",
-        "reason": "GOVERNMENT_FID_DATE_2026_10_27_C3_REVIEW_PENDING",
+        "reason": "GOVERNMENT_FID_PUBLIC_LOCATOR_ARCHIVE_DATE_REVIEW_PENDING",
         "source_ids": [
           "R01-S27"
         ],
-        "locator": "Austrade government source R01-S27: article published 2026-10-27; May-2026 FID and Sep-2026 construction (public page); archived bytes/date recheck pending",
-        "limit": "27-Oct Austrade date and 21-May NT government FID release establish outside-pre-FID status by cutoff; do not infer a signed gate from the online locator",
-        "next_evidence": "Cross-check 27-Oct publication date against unchanged local R01-S27 archived bytes/SHA; independent historical C3 review and project-mine footprint mapping"
+        "locator": "Austrade public page displays 2026-10-27; NT Government FID release 2026-05-21, federal construction announcement 2026-10-08; archived R01-S27 publication date is unverified",
+        "limit": "Public primary-source dates support a provisional post-FID screen; R01-S27 source inventory remains undated and independent C3/identity decision is still pending",
+        "next_evidence": "Match public article date/body with unchanged archived R01-S27 bytes and metadata before recording typed publication/effective dates; then independent C3/identity review"
       },
       "JORC": {
         "status": "BLOCKED_EVIDENCE",
@@ -3435,13 +3435,13 @@
         "event_type": "FID_DATE_CORROBORATION",
         "source_id": "R01-S27",
         "locator": "Austrade 27-Oct-2026 official story, first paragraph and dated title; NT Government 21-May-2026 FID news release corroboration (external locator, not separately archived here)",
-        "publication_date": "2026-10-27",
-        "effective_date": "2026-05-21",
-        "event_status": "DATED_PUBLIC_PRIMARY_GOVERNMENT_FID_CROSSCHECK_NOT_INDEPENDENTLY_SIGNED",
+        "publication_date": "",
+        "effective_date": "",
+        "event_status": "PUBLIC_GOVERNMENT_DATED_LOCATOR_ONLY_ARCHIVE_DATE_NOT_VERIFIED",
         "study_scope": "Nolans integrated mine and processing Project; Nolans Bore remains Deposit, not second Project",
         "study_original_verified": false,
-        "preFID_at_publication": "OUTSIDE_PREFID_FID_REACHED_2026_05_21",
-        "asof_continuity": "GOVERNMENT_RELEASE_DATED_2026_10_27_WITHIN_CUTOFF_ARCHIVED_BODY_RECHECK_PENDING",
+        "preFID_at_publication": "PUBLIC_FID_REPORTED_MAY_2026_ARCHIVED_DATE_UNVERIFIED",
+        "asof_continuity": "PUBLIC_LOCATOR_BEFORE_CUTOFF_ARCHIVED_BODY_DATE_REVIEW_PENDING",
         "next_evidence": "Verify published page content/date against unchanged R01-S27 local archived bytes/SHA 2bbc7f637693bd71e7875a170cf236e50b8e517a24c6244e072724312debb200; review and independently sign historic C3 context only"
       }
     ],

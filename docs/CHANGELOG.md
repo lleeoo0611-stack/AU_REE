@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — Event publication provenance held until source inventory and archive agree
+
+- 修正既有 `scripts/build_structural_round01.py`：所有有結構化發布日期的 study／non-study 事件，都必須與同一 source_id 的已封存來源發布日期一致且具有原始 bytes 存取證據；不能使用其他網頁的公開日期冒充受控來源 metadata。具有效日期的事件亦不得缺少已匹配的來源發布日期或超出 2026-10-29 截止日。
+- 複查現有 11 筆有日期事件，發現 Nolans `R01-S27` inventory 發布日期空白，原 `FID_DATE_CORROBORATION` 卻有 `2026-10-27` 與 `2026-05-21` 型別化日期。將這兩欄轉回待驗證空白，保留原政府公開網址、日期與 FID 的文字查核線索，不覆寫原始來源、不改 `OUTSIDE_WINDOW` 或任何核准 Gate。
+- 同步更新既有 `study_stage_timeline.csv`、`gate_evidence_resolution.csv`、`gap_priority_queue.csv`、`summary.json` 的來源 SHA / reason，並於現有結構證據測試補上來源不符、bytes 缺失、有效日期越界等負向檢查。正式 487 targets、39 groups、Stable Project ID、C1/C2=0 均保持。
+
 ## 2026-11-01 — Nolans dated FID event scoped to existing archived government source
 
 - 維持 2026-10-29 Census 截止日及原件 `R01-S27` URL/SHA；在既有 39 群組審查輸入中，將澳洲 Austrade 2026-10-27 政府公開頁與 NT 2026-05-21 FID 公告核對，新增一個 Nolans `FID_DATE_CORROBORATION` 事件；原件仍需本機 bytes／日期比對及獨立簽核。
