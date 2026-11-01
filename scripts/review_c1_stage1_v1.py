@@ -46,7 +46,9 @@ def generate(identity_db=None, approval_root=ROOT):
             expected=checked.get(r["review_group_id"])
             ensure(expected is not None and
                    all(r[k]==expected[k] for k in
-                       ("C1_release_status","C2_project_id_approved","formal_identity_signoff")),
+                       ("C1_release_status","C2_project_id_approved","formal_identity_signoff",
+                        "ID_gate","ROLE_gate","WINDOW_gate","JORC_gate",
+                        "PANEL_gate","GIS_RELEASE_gate")),
                    "Stage1 cohort CSV differs from authenticated signed review")
     ensure(len(groups)==39 and len(checks)==7, "expected 39 groups and 7 scoped evidence checks")
     idx={r["review_group_id"]:r for r in groups}
