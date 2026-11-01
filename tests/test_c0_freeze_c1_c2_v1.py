@@ -299,6 +299,22 @@ class CohortFreezePolicyTest(unittest.TestCase):
                 self.assertEqual(manifest["census_relation_check"]
                                  ["independently_approved_projects"],1)
                 baseline_sha=hashlib.sha256(args.output.read_bytes()).hexdigest()
+                # Even a *partial* gate signoff must agree with the official
+                # signed cohort before the existing SQLite can be replaced.
+                cohort_csv=audits/"2026-10-31_c1_c2_project_review_39.csv"
+                baseline_csv=cohort_csv.read_bytes()
+                altered=list(csv.DictReader(cohort_csv.open(encoding="utf-8")))
+                next(r for r in altered if r["review_group_id"]==gid)["JORC_gate"] = (
+                    "PASS_FORGED_PARTIAL_GATE")
+                with cohort_csv.open("w",encoding="utf-8",newline="") as handle:
+                    writer=csv.DictWriter(handle,fieldnames=list(altered[0]))
+                    writer.writeheader();writer.writerows(altered)
+                args.overwrite=True
+                with self.assertRaisesRegex(ValueError,"Signed cohort CSV must be rebuilt"):
+                    census_db.csv_build(args)
+                self.assertEqual(hashlib.sha256(args.output.read_bytes()).hexdigest(),
+                                 baseline_sha)
+                cohort_csv.write_bytes(baseline_csv)
                 # A detached or revoked signature cannot replace a validated SQLite release.
                 approval_file=root/"inputs/evidence_approvals.csv"
                 records=list(csv.DictReader(approval_file.open(encoding="utf-8")))
