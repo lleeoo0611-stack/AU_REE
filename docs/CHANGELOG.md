@@ -1,5 +1,11 @@
 # Change log
 
+## 2026-11-01 — Nolans dated FID event scoped to existing archived government source
+
+- 維持 2026-10-29 Census 截止日及原件 `R01-S27` URL/SHA；在既有 39 群組審查輸入中，將澳洲 Austrade 2026-10-27 政府公開頁與 NT 2026-05-21 FID 公告核對，新增一個 Nolans `FID_DATE_CORROBORATION` 事件；原件仍需本機 bytes／日期比對及獨立簽核。
+- 原 WINDOW `OUTSIDE_WINDOW` 不升格或更改母體；重新產生既有 Stage Timeline、Gate Evidence、Gap Queue、Summary SHA。保留 Project–Deposit 關係未獲批准，未新增 Project、未更新 source manifest、未覆寫歷史原始來源，C1／C2 為零。
+- 增補既有 structural 回歸測試；GitHub Actions 的正式驗證結果以 PR 為準。
+
 ## 2026-11-01 — Conflicting native-ID/name/alias evidence must stay in Entity Resolution review
 
 - 修正既有 `src/au_ree/stages/population.py` 的 `existing_match`：同來源原生 ID 對多個 Project、原生 ID 與 Project 名稱／已審查 Alias 相互矛盾、或原生 ID 指到不同州 Project 時，直接保留 `REVIEW_*` 衝突原因，不再退回較弱的單一名稱匹配。Deposit／Prospect 仍為地質來源，不會繼承虛構 Project parent。
