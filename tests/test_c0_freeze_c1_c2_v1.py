@@ -45,7 +45,9 @@ def approved_fixture(root, group):
     }
     docs={}
     for label, (_,content) in specs.items():
-        path=root/"inputs"/"evidence"/(label.lower()+".txt")
+        path=(root/"work/structural_round01/originals/identity.txt"
+              if label=="IDENTITY" else
+              root/"inputs"/"evidence"/(label.lower()+".txt"))
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(content)
         docs[label]={
