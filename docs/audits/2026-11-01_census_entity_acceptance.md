@@ -26,6 +26,14 @@ Local checkout: `C:\Users\whatt\.codex\.chatgpt-projects\g-p-6a74fa8105f88191b58
 - Missing/undated Project scope, source-to-Project mapping, resource-basis conflicts, actual Project geometry and independent reviewer records remain in the existing `gap_priority_queue.csv`, `identity_crosswalk.csv` and `c2_identity_review.csv`. Exact reopen requirements remain visible in those tables.
 - The work is **not** a claim that all Australian Projects are resolved or every original is available. Independent identity decisions must be supplied through the existing source-document and approval ledgers, with actual archived bytes, named reviewer and valid dates; no automatic signatures were introduced.
 
+## 2026-11-01 後續 Census 來源層級複核（原基準不變）
+
+最新 `outputs/project_entity_membership_487.csv` 重新依 entity type 交叉統計，409 個未連至 39 群組的 source targets，包含 **283 Deposit、95 Occurrence、21 SOURCE_PROJECT_RECORD、6 Prospect、4 Historical Record**。21 個「Source Project Record」仍是來源記錄類型，**不等於 21 個待核准新 Project**；當中多數是 Legacy 歷史名稱，沒有明確的當期獨立開發／REE 產品角色證據。原 487 個 target_id、78 候選群組連結、39 個群組及所有核准表不變。
+
+**Wedderburn Project（VIC）是這 21 筆中具有更明確原始 Project 範圍線索的個案：**原 Legacy `LEGACY:4fb6883c-bded-5363-af78-6fbfef190048` 為尚未連結的 SOURCE_PROJECT_RECORD；GA `E1:C-8c2269b43a6f62bafcece0`（AIMR Wedderburn）與 `E1:C-e5cc6ec45406fff096981e`（Critical Deposits native 2259）均仍為個別 DEPOSIT 記錄、無已核准 Parent。WIM Resource 的 [2015-12-09 公告索引](https://wimresource.com.au/media/media-centre/announcements/)對應 [`RL 006195 – Overview & Details of Work Program` 原始 PDF](https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/WEDDERBURNRL006195SUMMARYPROGRAMOFWORK.pdf)：PDF 實體 p1「Key Projects and Interests」將 Avonbank、Wedderburn、Bungalally **分別列為三個 HMS Project**；p2「About the Wedderburn HMS Project」稱 EL4912、約 93 km² 與申請 RL006195。**申請被受理不等於許可獲准／目前有效**，且 p2 同一段另有 `RL 001695` 與 `RL 006195` **編號不一致**，必須由 VIC 官方原生 licence ID/歷史核對。p3–4 計畫的 Scoping/PFS/DFS 年度進度不可作為已完成研究。現行 [WIM 專案頁](https://wimresource.com.au/project/)自稱 Wedderburn 2015 JORC HMS 223Mt @ 2.9% **THM**，不是可比較 REO/TREO 估值，也未證明 Wedderburn 獨立的商業 REE 回收計畫。
+
+此筆已完成**公開原件文字與頁碼定位**，但本次未取得並保存新增 PDF 原始 bytes／SHA-256，亦未驗證官方 RL 當期有效性、REE 產品角色或正式 Project/Deposit 對應。因此 Wedderburn 仍在既有 Review Queue，**不增列第 40 個 Project、不得與 Avonbank／Bungalally 合併、亦不建立正式 Project–Deposit link 或 C1/C2 准入**。下一必要查核是封存該 2015 PDF、核對原生 RL/EL、確認 2026-10-29 截止日實際開發與 REE 產品角色，並以正式獨立審查決策處理三筆既有 source IDs。
+
 ## Reproduce
 
 ```bash

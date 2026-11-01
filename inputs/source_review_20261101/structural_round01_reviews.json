@@ -995,24 +995,24 @@
     "reopen_condition": "2023 PFS original, July 2024 MRE oxide basis and Copi North-to-mine polygon crosswalk",
     "gates": {
       "ID": {
-        "status": "BLOCKED_EVIDENCE",
-        "reason": "DATED_SCOPE_IDENTITY_PENDING",
+        "status": "REVIEW_READY",
+        "reason": "DATED_CONTRACTOR_COPI_PROJECT_SCOPE_AND_PROPONENT_DOCUMENTED",
         "source_ids": [
-          "R01-S09"
+          "R01-CO-PFS-CONTRACTOR"
         ],
-        "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
-        "limit": "NSW identifies PFS 2023 and rare earth byproduct; planning consent approved May 2026; planning approval alone is not FID",
-        "next_evidence": "2023 PFS original, July 2024 MRE oxide basis and Copi North-to-mine polygon crosswalk"
+        "locator": "Ausenco primary announcement 30-Sep-2025, body paras 1 and 3-4: RZ Resources commissions Copi DFS; whole Copi mine including REE concentrate plant, wet concentrator, mine/dredges and infrastructure",
+        "limit": "Named proposed Copi commercial development is documentary-scoped only; Copi North deposit and title/polygon parentage unresolved, Gilligans separate pending documents; neither Project ID nor tenure geometry independently approved",
+        "next_evidence": "Independent Copi Project identity and Legacy/source-native crosswalk approval; obtain Copi North-to-mine title/polygon relation and full 2023 PFS before release"
       },
       "ROLE": {
-        "status": "BLOCKED_EVIDENCE",
-        "reason": "DATED_REE_PRODUCT_PLAN_PENDING",
+        "status": "REVIEW_READY",
+        "reason": "DATED_COPI_RARE_EARTH_CONCENTRATE_PRODUCT_PLAN_DOCUMENTED",
         "source_ids": [
-          "R01-S09"
+          "R01-CO-PFS-CONTRACTOR"
         ],
-        "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
-        "limit": "NSW identifies PFS 2023 and rare earth byproduct; planning consent approved May 2026; planning approval alone is not FID",
-        "next_evidence": "2023 PFS original, July 2024 MRE oxide basis and Copi North-to-mine polygon crosswalk"
+        "locator": "Ausenco primary announcement 30-Sep-2025: 'Located in south-west New South Wales', 'The DFS scope covers', and 'About RZ Resources' paragraphs; proposed REE concentrate plant, monazite/xenotime",
+        "limit": "Planned REE-bearing mineral concentrates are documented; no verified current REO/TREO oxide output or separated NdPr/DyTb, metallurgical recovery, completed DFS, or comparable JORC TREO from this source",
+        "next_evidence": "Independent REE ROLE review, obtain project-specific product specification and processing boundaries; JORC and WINDOW remain blocked pending same-scope dated originals"
       },
       "WINDOW": {
         "status": "REVIEW_PENDING",

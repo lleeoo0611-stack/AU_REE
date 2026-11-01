@@ -84,6 +84,44 @@ class StructuralRound01Test(unittest.TestCase):
         self.assertEqual(summary['C2_approved'], 0)
         self.assertEqual(summary['dated_economic_study_original_projects'], 8)
 
+    def test_copi_archived_contractor_supports_documentary_id_role_only(self):
+        copi = copy.deepcopy(next(r for r in self.reviews
+                                  if r['review_group_id'] == 'PRJ-42437b4a11115372'))
+        source = self.sources['R01-CO-PFS-CONTRACTOR']
+        self.assertEqual(source['publication_date'], '2025-09-30')
+        self.assertEqual(source['access_status'], 'ORIGINAL_BYTES_LOCAL')
+        self.assertEqual(source['sha256'],
+                         'd6e9d2f503854ab05e9da0060ca6578ed11836fe6f9b61083e51418bcf05c8cc')
+        for name in ('ID', 'ROLE'):
+            self.assertEqual(copi['gates'][name]['status'], 'REVIEW_READY')
+            self.assertEqual(copi['gates'][name]['source_ids'], ['R01-CO-PFS-CONTRACTOR'])
+            self.assertIn('Independent', copi['gates'][name]['next_evidence'])
+        for name in ('WINDOW', 'JORC', 'GIS_SOURCE'):
+            self.assertNotEqual(copi['gates'][name]['status'], 'REVIEW_READY')
+        self.assertFalse(any(x['same_scope_REO_evidence'] for x in copi['resources']))
+        m.validate_review(copi, self.sources)
+
+        bad_sources = copy.deepcopy(self.sources)
+        bad_sources['R01-CO-PFS-CONTRACTOR']['publication_date'] = ''
+        with self.assertRaisesRegex(ValueError, 'undated/post-cutoff source'):
+            m.validate_review(copi, bad_sources)
+
+        bad_sources = copy.deepcopy(self.sources)
+        bad_sources['R01-CO-PFS-CONTRACTOR']['access_status'] = 'SOURCE_UNAVAILABLE'
+        with self.assertRaisesRegex(ValueError, 'original required for readiness'):
+            m.validate_review(copi, bad_sources)
+
+        outputs, summary = m.build()
+        rows = list(csv.DictReader(io.StringIO(outputs['c2_identity_review.csv'])))
+        record = next(x for x in rows if x['review_group_id'] == copi['review_group_id'])
+        self.assertEqual(record['candidate_status'], 'REVIEW_READY_ID_ROLE')
+        self.assertEqual(record['C2_approved'], 'False')
+        self.assertEqual(summary['ready_gate_evidence_cells'], 29)
+        self.assertEqual(summary['remaining_gate_evidence_cells'], 166)
+        self.assertEqual(summary['source_supported_ID_ROLE_review_candidates'], 9)
+        self.assertEqual(summary['C1_approved'], 0)
+        self.assertEqual(summary['C2_approved'], 0)
+
     def test_date_leak_and_undated_source_rejected(self):
         for bad_date in ('2026-10-30', ''):
             sources = copy.deepcopy(self.sources)

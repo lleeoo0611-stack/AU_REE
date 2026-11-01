@@ -1,5 +1,12 @@
 # Change log
 
+## 2026-11-01 — Copi archived ID/ROLE evidence acceptance and unlinked Project-source triage
+
+- Existing Copi `R01-CO-PFS-CONTRACTOR` (Ausenco 2025-09-30, archived HTML 32,421 bytes, SHA-256 `d6e9d2f503854ab05e9da0060ca6578ed11836fe6f9b61083e51418bcf05c8cc`) explicitly covers the RZ Copi commercial DFS mine scope and planned rare-earth concentrate plant. Reassessed only **ID and ROLE documentary gates** as `REVIEW_READY`, retaining Copi North linkage, JORC REO, cutoff FID continuity and GIS original as unresolved. No fabricated independent approval.
+- Updated existing `structural_round01_reviews.json`, `gate_evidence_resolution.csv`, `gap_priority_queue.csv`, `structural_candidates.csv`, `c2_identity_review.csv` and `summary.json` as one consistent research snapshot. Documentary-ready cells increase **27→29 of 195**, ID+ROLE packets **8→9**; formal independent IDs/C1/C2 remain zero. Original Round 01 historical report numbers remain labelled as its initial baseline.
+- Cross-checked the **409** unlinked frozen source targets by entity level: 283 Deposit / 95 Occurrence / 21 Source Project Record / 6 Prospect / 4 Historical Record. Located WIM's dated 2015 Wedderburn Project/RL006195 source and noted a `RL001695` typo, THM-versus-REE-role limitation, and the three unchanged Legacy/GA source target IDs in the existing Census acceptance report. No new 40th candidate/approved Project, no raw bytes replacement or signed source judgement.
+- Added a negative and positive regression test for dated original, Project scope, archival absence, and blocked C1/C2. This is source-documentary progress, **not** JORC/GIS/MCDA release.
+
 ## 2026-11-01 — Event publication provenance held until source inventory and archive agree
 
 - 修正既有 `scripts/build_structural_round01.py`：所有有結構化發布日期的 study／non-study 事件，都必須與同一 source_id 的已封存來源發布日期一致且具有原始 bytes 存取證據；不能使用其他網頁的公開日期冒充受控來源 metadata。具有效日期的事件亦不得缺少已匹配的來源發布日期或超出 2026-10-29 截止日。
