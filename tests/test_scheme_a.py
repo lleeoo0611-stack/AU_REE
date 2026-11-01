@@ -368,3 +368,93 @@ def test_archived_original_rehashed_after_approval_registry_load(tmp_path):
     again=apply_identity_decisions(db,tmp_path,'2026-10-29')
     assert again['approved_new']==0
     assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==0
+
+
+def test_confirm_legacy_identity_retains_stable_id_after_replay_and_revoke(tmp_path):
+    from au_ree.identity_policy import independently_approved_project
+    db=memorydb()
+    legacy=record(source='legacy_r963_frozen',native='HIST-101',
+                  name='Synthetic Acacia REE Project',commodity='REE',entity='PROJECT')
+    legacy['legacy_id']='HIST-101'
+    assert candidate_upsert(db,legacy)=='ADDED'
+    legacy_id=db.execute('SELECT project_id FROM project_master').fetchone()[0]
+    official=record(source='STATE_PROJECTS',native='PROJECT-001',
+                    name='Synthetic Acacia REE Project',commodity='REE',entity='PROJECT')
+    assert candidate_upsert(db,official)=='REVIEW'
+    cid=digest(['STATE_PROJECTS','PROJECT-001'])[:32]
+    rows,heads=_identity_fixture(tmp_path,[(cid,'Synthetic Acacia REE Project',legacy_id)])
+    rows[0]['decision']='CONFIRM_LEGACY_PROJECT'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    first=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert first['confirmed_legacy']==1
+    assert first['approved_new']==0
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==1
+    master=db.execute('SELECT project_id,identity_source,population_status FROM project_master').fetchone()
+    assert tuple(master)==(legacy_id,'APPROVED_CANDIDATE:'+cid,'EVIDENCE_BACKED_PROJECT')
+    assert db.execute('SELECT project_id FROM legacy_id_map WHERE legacy_id=?',
+                      ('HIST-101',)).fetchone()[0]==legacy_id
+    assert independently_approved_project(db,legacy_id,root=tmp_path)
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['confirmed_legacy']==1
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==1
+    # Revoke the independent signer: preserve historical ID but disallow release.
+    approvals=tmp_path/'inputs/evidence_approvals.csv'
+    write_csv(approvals,['approval_ref','record_type','document_id','reviewer',
+                         'decision','reviewed_at'],[])
+    reload_registry(db,tmp_path,'2026-10-29')
+    revoked=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert revoked['confirmed_legacy']==0 and revoked['rejected_or_pending']==1
+    assert db.execute('SELECT project_id FROM project_master').fetchone()[0]==legacy_id
+    assert db.execute('SELECT population_status FROM project_master').fetchone()[0]=='IDENTITY_APPROVAL_EXPIRED'
+    assert not independently_approved_project(db,legacy_id,root=tmp_path)
+
+
+def test_confirm_legacy_cannot_promote_deposit_to_project(tmp_path):
+    db=memorydb()
+    legacy=record(source='legacy_r963_frozen',native='HIST-102',
+                  name='Synthetic Orebody Development',commodity='REE',entity='PROJECT')
+    legacy['legacy_id']='HIST-102'
+    assert candidate_upsert(db,legacy)=='ADDED'
+    pid=db.execute('SELECT project_id FROM project_master').fetchone()[0]
+    assert candidate_upsert(db,record(source='WA_DEPOSITS',native='D-1',
+                                     name='Synthetic Orebody Development',
+                                     commodity='REE',entity='DEPOSIT'))=='REVIEW'
+    cid=digest(['WA_DEPOSITS','D-1'])[:32]
+    rows,heads=_identity_fixture(tmp_path,[(cid,'Synthetic Orebody Development',pid)])
+    rows[0]['decision']='CONFIRM_LEGACY_PROJECT'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    result=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert result['confirmed_legacy']==0 and result['rejected_or_pending']==1
+    assert db.execute('SELECT population_status FROM project_master').fetchone()[0]=='LEGACY_UNVERIFIED'
+    assert db.execute('SELECT review_reason FROM identity_review_decisions WHERE candidate_id=?',
+                      (cid,)).fetchone()[0]=='SOURCE_ENTITY_IS_NOT_A_PROJECT'
+
+
+def test_confirm_legacy_requires_exact_stable_id_and_project_scope(tmp_path):
+    db=memorydb()
+    legacy=record(source='legacy_r963_frozen',native='HIST-103',
+                  name='Old Stable Project',commodity='REE',entity='PROJECT')
+    legacy['legacy_id']='HIST-103'
+    assert candidate_upsert(db,legacy)=='ADDED'
+    pid=db.execute('SELECT project_id FROM project_master').fetchone()[0]
+    assert candidate_upsert(db,record(source='STATE_PROJECTS',native='STATE-103',
+                                     name='Old Stable Project',
+                                     commodity='REE',entity='PROJECT'))=='REVIEW'
+    cid=digest(['STATE_PROJECTS','STATE-103'])[:32]
+    rows,heads=_identity_fixture(tmp_path,[(cid,'Unrelated Neighbor Project',pid)])
+    rows[0]['decision']='CONFIRM_LEGACY_PROJECT'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    reload_registry(db,tmp_path,'2026-10-29')
+    result=apply_identity_decisions(db,tmp_path,'2026-10-29')
+    assert result['confirmed_legacy']==0
+    assert db.execute('SELECT review_reason FROM identity_review_decisions').fetchone()[0]=='LEGACY_PROJECT_SCOPE_NAME_REQUIRES_REVIEW'
+    rows[0]['project_name']='Old Stable Project'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['confirmed_legacy']==1
+    # Approved existing ID cannot be reattached to an invented second ID.
+    rows[0]['project_id']='AU-REE-99999'
+    write_csv(tmp_path/'inputs/project_identity_decisions.csv',heads,rows)
+    assert apply_identity_decisions(db,tmp_path,'2026-10-29')['confirmed_legacy']==0
+    assert db.execute('SELECT COUNT(*) FROM project_master').fetchone()[0]==1
+    assert db.execute('SELECT review_reason FROM identity_review_decisions').fetchone()[0]=='LEGACY_PROJECT_ID_REQUIRED'
