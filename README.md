@@ -25,6 +25,8 @@
 
 **2016 年 5 月原始 WIM Resource 文件增量核查：**Bungalally 的 207 Mt（正文）／205 Mt（同份 Table 3）衝突已定位到同一份歷史 issuer report；Wedderburn Table 4 為 223 Mt @ 2.9% THM，monazite 比例仍屬 THM 礦物組成；Avonbank 2016 Scoping 與 REE concentrate 規劃不得作為 2026 BFS／正式氧化物產出。新增 PDF 尚未受控封存 SHA，故只更新 [Structural Round 01 的缺口與重開條件](docs/audits/structural_round01/REPORT.md)，**正式證據格仍 29/195、C1/C2 仍 0**。
 
+**Identity Resolution 驗收補強：**同一封存原件可供不同決策引用，但同一 `approval_ref` 不得在多個獨立 Project／Deposit 身分判斷中重複使用；重複時整批拒絕，保護 Stable Project ID。另有 2026-02-16 地方議會委託區域礦業報告，從第三方資料列明 Bungalally／Avonbank／Wedderburn 為分開的 WIM Project；該資料未核對正式 Victorian tenement／REE 產品角色，不新增 Project 或核准任何 Gate。
+
 ## 研究架構圖
 
 ```mermaid
