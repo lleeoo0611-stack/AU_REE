@@ -208,9 +208,13 @@ def run(db,ctx):
             # while leaving previously ingested Project and Deposit rows behind.
             old=db.execute('''SELECT raw_sha256,dataset_date,source_url FROM source_registry
                               WHERE source_key=?''',(src['key'],)).fetchone()
-            if (old and old['raw_sha256'] and str(old['dataset_date'] or '')==str(cfg.get('as_of') or '')
-                    and old['raw_sha256']!=rawhash):
-                raise RuntimeError('FROZEN_SOURCE_SHA_CHANGED_REVIEW_REQUIRED:'+src['key'])
+            if (old and old['raw_sha256'] and
+                    str(old['dataset_date'] or '')==str(cfg.get('as_of') or '')):
+                source_url=src.get('url') or src.get('source_documentation') or ''
+                if old['source_url'] and old['source_url']!=source_url:
+                    raise RuntimeError('FROZEN_SOURCE_URL_CHANGED_REVIEW_REQUIRED:'+src['key'])
+                if old['raw_sha256']!=rawhash:
+                    raise RuntimeError('FROZEN_SOURCE_SHA_CHANGED_REVIEW_REQUIRED:'+src['key'])
             db.execute('SAVEPOINT census_source')
             source_savepoint=True
             for row in rows:
