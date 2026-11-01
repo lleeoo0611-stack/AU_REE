@@ -5,7 +5,7 @@
 - 修正 `src/au_ree/evidence.py` 把 `reviewed_at` 誤要求小於或等於 2026-10-29 來源截止日的問題；允許實際審查日在截止日之後、禁止未來日期、維持 Project 原始文件 `evidence_date <= source cutoff`。允許經 SHA-256 重新核對的既有 `work/structural_round01/originals/` 原件路徑，禁止越界與任意檔案路徑。
 - `review_c1_stage1_v1.py` 與 `build_structural_round01.py` 不再假設永久零核准：正式來源簽核輸入變動時更新 C1/C2 欄位／計數，但 documentary `REVIEW_READY` 無權自行核准。
 - `build_c0_freeze_c1_c2_v1.py` 要求 C1 先具備 C2 ID/ROLE 簽核，且經濟研究發布日期不晚於研究截止日；新增正向核准、截止日、原件 hash/路徑與 ID 續用的 synthetic regression tests。
-- 正式簽核表仍未由使用者／獨立審查者填寫，**沒有新核准 Project**。不同帳本的全自動互認與原始文件補件仍是既有驗收依賴；本 PR 不改 487 筆原始來源、39 群組、JRORC/GIS 科學門檻與正式 MCDA。
+- 正式簽核表仍未由使用者／獨立審查者填寫，**沒有新核准 Project**。不同帳本的全自動互認與原始文件補件仍是既有驗收依賴；本 PR 不改 487 筆原始來源、39 群組、JORC/GIS 科學門檻與正式 MCDA。
 
 
 ## 2026-11-01 — Bungalally 205/207Mt issuer-source collision and WIM Project/Deposit scope audit
