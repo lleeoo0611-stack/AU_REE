@@ -55,8 +55,16 @@ def validate_review(r, sources):
         if evidence['status'] == 'REVIEW_READY':
             require(evidence['source_ids'] and evidence['locator'], 'ready without source/locator')
     for resource in r['resources']:
+        source=sources.get(resource['source_id'])
+        require(source is not None, 'resource references unknown source')
+        require(r['review_group_id'] in source['review_group_ids'],
+                'resource source scope transfer denied')
         require(resource['basis'] and resource['scope'] and resource['next_evidence'], 'resource basis missing')
         if resource['same_scope_REO_evidence']:
+            require(source['publication_date'] and source['publication_date'] <= CUTOFF,
+                    'resource original is undated/post-cutoff')
+            require(resource['publication_date'] == source['publication_date'],
+                    'resource publication date mismatches original')
             require(resource['basis'] in {'TREO_IN_SITU', 'TREO_EX_Y_IN_SITU', 'REO_SCOPED_BREAKDOWN'},
                     'HM/MzEq/target cannot become REO')
             require(resource['source_id'] in sources and resource['locator'], 'resource needs original locator')
@@ -65,15 +73,28 @@ def validate_review(r, sources):
             require(resource['publication_date'] and resource['publication_date'] <= CUTOFF,
                     'resource date invalid')
     for event in r['events']:
+        source=sources.get(event['source_id'])
+        require(source is not None, 'study event references unknown source')
+        require(r['review_group_id'] in source['review_group_ids'],
+                'study event source scope transfer denied')
         require(event['publication_date'] <= CUTOFF if event['publication_date'] else
                 not event['study_original_verified'], 'unverified study date')
         if event['study_original_verified']:
+            require(source['publication_date'] and source['publication_date'] <= CUTOFF,
+                    'study original is undated/post-cutoff')
+            require(event['publication_date'] == source['publication_date'],
+                    'study event publication date mismatches original')
             require(event['source_id'] in sources and event['publication_date'] and event['locator'],
                     'study needs original/date/locator')
             require(sources[event['source_id']]['access_status'] == 'ORIGINAL_BYTES_LOCAL',
                     'study original unavailable')
             require(event['event_type'] in {'SCOPING', 'PFS', 'DFS', 'BFS'},
                     'regulatory scoping is not economic study')
+    for gap in r['resolved_gaps']:
+        source=sources.get(gap['source_id'])
+        require(source is not None, 'resolved gap has unknown source')
+        require(r['review_group_id'] in source['review_group_ids'],
+                'resolved gap source scope transfer denied')
 
 
 def csv_text(rows):
