@@ -72,6 +72,41 @@ class StructuralRound01Test(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'scope transfer'):
             m.validate_review(row, self.sources)
 
+    def test_jorc_resource_cannot_borrow_other_project_source(self):
+        row = self.jupiter()
+        resource = next(x for x in row['resources'] if x['same_scope_REO_evidence'])
+        resource['source_id'] = 'R01-BR-DFS'
+        with self.assertRaisesRegex(ValueError, 'resource source scope transfer denied'):
+            m.validate_review(row, self.sources)
+
+    def test_resource_publication_must_equal_cited_original(self):
+        row = self.jupiter()
+        resource = next(x for x in row['resources'] if x['same_scope_REO_evidence'])
+        resource['publication_date'] = '2025-01-01'
+        with self.assertRaisesRegex(ValueError, 'resource publication date mismatches original'):
+            m.validate_review(row, self.sources)
+
+    def test_study_publication_cannot_be_backdated(self):
+        row = self.jupiter()
+        event = next(x for x in row['events'] if x['study_original_verified'])
+        event['publication_date'] = '2025-01-01'
+        with self.assertRaisesRegex(ValueError, 'study event publication date mismatches original'):
+            m.validate_review(row, self.sources)
+
+    def test_study_original_from_different_project_is_rejected(self):
+        row = self.jupiter()
+        event = next(x for x in row['events'] if x['study_original_verified'])
+        event['source_id'] = 'R01-BR-DFS'
+        with self.assertRaisesRegex(ValueError, 'study event source scope transfer denied'):
+            m.validate_review(row, self.sources)
+
+    def test_documentary_gap_cannot_borrow_other_project_original(self):
+        row = self.jupiter()
+        self.assertTrue(row['resolved_gaps'])
+        row['resolved_gaps'][0]['source_id'] = 'R01-BR-DFS'
+        with self.assertRaisesRegex(ValueError, 'resolved gap source scope transfer denied'):
+            m.validate_review(row, self.sources)
+
     def test_hm_and_mzeq_cannot_become_direct_reo(self):
         for basis in ('HM', 'THM', 'MZEQ', 'EXPLORATION_TARGET'):
             row = self.jupiter()
