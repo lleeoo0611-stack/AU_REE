@@ -40,6 +40,14 @@ Local checkout: `C:\Users\whatt\.codex\.chatgpt-projects\g-p-6a74fa8105f88191b58
 
 本次新增的是有頁碼的 issuer original **公開文字定位**，未取得受控原始 PDF bytes／SHA，故僅更新現有 **Bungalally／Avonbank** Review Queue 缺口與來源範圍；**Wedderburn 原 Legacy／GA 三筆 source target_id 仍無正式 Parent join、未新增第 40 個 Project**。Bungalally 的 205／207 Mt 仍需 2015 Optiro CP 完整 MRE 或更正公告才能裁決；Monazite/THM 無法換算為 TREO；正式 487 Census、39 群組、C1/C2=0、獨立核准 0 均保留。
 
+### 2026-11-01 身分證據獨立複查：地方政府委託的 2026 西北維州礦業名冊
+
+在已凍結 2026-10-29 Census 的既有 39 群組／409 未連結來源中，另定位由 9 個維州地方議會委託、Urban Enterprise 編寫、正式 **2026-02-16** 發布的 [Resource Ready: North-Western Victoria Energy & Mining Impact and Readiness Strategy（Appendix B, printed pp. 89–90, Table 25）](https://www.yarriambiack.vic.gov.au/files/sharedassets/public/v/1/documents/your-council/council-agendas/2026/25-march-2026/15.5-resource-ready-north-western-victoria-energy-and-mining-impact-and-readiness-strategy.pdf)。表中分別列出 `M5 Bungalally Project`（WIM Resource、Horsham、Exploration Phase）、`M6 Avonbank Project`（WIM Resource、EES Received Acceptable Minister's Assessment, Not operational）及 **`M18 Wedderburn Project`**（WIM Resource、Wychitella North／Loddon、Exploration Phase）。這提供第三方具名 Project／開發主體／地理範圍的**歷史交叉佐證**，支持三者應保持獨立名稱與開發單位；無法直接判斷為三個合格稀土開採 Project。
+
+**來源分級限制**：Appendix B p89 的 Stage Definitions 說明 `Exploration Phase` 廣泛包含早期 Scoping／Preliminary Feasibility 等活動；Table 25 註明原始資料由 Urban Enterprise **2025 年**自政府、公司及 Council 相關管道彙整。該文件不是 Victorian Mining Register 的法律礦權決策，也不是 JORC／REE 產品原件、官方 GIS polygon 或 2026-10-29 FID 狀態證明。此次有可定位網路原件，但尚未本地封存獨立 SHA；不更改現存已核准 Project 數、ROW ID 或來源 lineage。
+
+因此，Wedderburn 的 `LEGACY:4fb6883c-bded-5363-af78-6fbfef190048`、`E1:C-8c2269b43a6f62bafcece0`、`E1:C-e5cc6ec45406fff096981e` 保持 **HOLD／不推定 Project–Deposit JOIN**；不把表中 M18 當成新官方原生 ID，不將其誤作第 40 個獨立 REE Project。現有 Bungalally 和 Avonbank 的 Stage Evidence 亦保持既有截止日前審查結果。下一步仍須官方有效 RL006195／EL4912 紀錄與 2015 Optiro 資源原件、2016/2026 REE 產品差異，及每一候選的獨立人工決策。
+
 ## Reproduce
 
 ```bash
