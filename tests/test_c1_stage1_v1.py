@@ -57,6 +57,26 @@ class C1Stage1Test(unittest.TestCase):
         self.assertEqual(summary["independent_C1_admitted"], 1)
         self.assertEqual(summary["independent_C2_admitted"], 1)
 
+    def test_partial_signed_gate_stale_first_pass_is_rejected(self):
+        # A single signed JORC PASS does not release C1, but the displayed
+        # JORC gate must still match the authenticated signed cohort.
+        groups = read(review_module.INPUT)
+        checks = read(review_module.REVIEWS)
+        verified = [dict(r) for r in groups]
+        verified[0]["JORC_gate"] = "PASS_SYNTHETIC_PARTIAL_REVIEW"
+        def supplied(path):
+            if path == review_module.INPUT:
+                return groups
+            if path == review_module.REVIEWS:
+                return checks
+            return [{"decision_status": "PASS"}]
+        with patch.object(review_module, "read", side_effect=supplied):
+            with patch.object(cohort_module, "build",
+                              return_value=([], verified, [], {})):
+                with self.assertRaisesRegex(ValueError,
+                                            "Stage1 cohort CSV differs"):
+                    generate(identity_db=object())
+
     def test_rebuild_matches_checked_in_outputs(self):
         rows,summary=generate()
         self.assertEqual(read(OUT),rows)
