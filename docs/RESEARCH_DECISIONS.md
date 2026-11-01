@@ -236,4 +236,3 @@
 # 2026-11-01 implementation verification note
 
 `CENSUS-ENTITY-20261101` integrates the existing 487-source Census and 39-group documentary review through `csv-build --review-dir`. This is an implementation of existing identity/cutoff/approval constraints; it changes no Project definition, evidence decision, cohort, criterion or weight. Stable candidate IDs are retained, independent approval remains required, C1/C2 stay 0. [Acceptance and reproducible commands](audits/2026-11-01_census_entity_acceptance.md).
-
