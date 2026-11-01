@@ -92,6 +92,11 @@ def gates_with_signatures(decisions,project,metadata):
         for k in ("reason_code","document_id","original_sha256_or_html_ref",
                   "reviewer_id","reviewed_at","approval_ref"):
             check(bool(d[k].strip()),f"{gate}: unsigned or missing original source {k}")
+        try:
+            reviewed = date.fromisoformat(d["reviewed_at"])
+        except (TypeError, ValueError):
+            check(False, f"{gate}: invalid reviewer date")
+        check(reviewed <= date.today(), f"{gate}: future-dated reviewer signature")
         if d["cohort"]=="C1" and d["decision_status"]=="PASS":
             check(metadata is not None,"C1 requires verified Project metadata")
             keys={"ID":("verified_project_id","project_identity_scope","project_footprint_ref"),
