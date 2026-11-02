@@ -120,6 +120,8 @@ def gates_with_signatures(decisions,project,metadata):
         if d["cohort"]=="C2" and d["decision_status"]=="PASS" and gate in {"ID","ROLE"}:
             check(metadata is not None and bool(metadata["verified_project_id"]) and
                   bool(metadata["project_identity_scope"]),"C2 cannot PASS without independently verified project ID")
+            check(bool(metadata.get("project_footprint_ref", "").strip()),
+                  "C2 Project footprint evidence missing")
             if gate=="ROLE":
                 check(bool(metadata["ree_product_role_ref"]),"C2 REE product role missing")
         status[gate,d["cohort"]]=d["decision_status"]
@@ -135,6 +137,11 @@ def build():
     by_unique(base_groups,"review_group_id")
     freeze_by=by_unique(freezes,"target_id")
     metadata_by=by_unique(metadata,"review_group_id")
+    known_groups={x["review_group_id"] for x in screen}
+    check(set(metadata_by).issubset(known_groups), "unknown group in verified Project metadata")
+    verified_ids=[r["verified_project_id"].strip() for r in metadata if r["verified_project_id"].strip()]
+    check(len(verified_ids)==len(set(verified_ids)),
+          "duplicate stable Project ID across groups requires approved crosswalk")
     review_by={}
     for d in review_gates:
         check(d["review_group_id"] in {x["review_group_id"] for x in screen},

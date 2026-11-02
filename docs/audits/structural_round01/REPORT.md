@@ -1,5 +1,39 @@
 # AU_REE Execution Round 01 — Structural Cohort evidence acceptance
 
+## 2026-11-02 C1 eligibility continuation (base main `093d724`)
+
+Latest main and relevant remote branch heads were fetched on 2026-11-02. Main already contains the approval-workflow and Census identity/SQLite changes (some were squash-merged, so branch ancestry alone does not establish absence). This continuation uses the existing Census and Structural Round 01 inputs, original 39 candidate group IDs and frozen 487 targets. No parallel database or MCDA is introduced.
+
+**New C1 Projects: none. C1 = 0; C2 = 0.** All six formal Gate columns remain unsigned for all 39 groups. PANEL has no approved common six-domain indicator set; official GIS QA/release and independent Project-level decisions remain missing. Documentary readiness is not an admission decision.
+
+### Evidence repaired
+
+- Avonbank `PRJ-679f5da200a4564c`: newly archived WIM Company Update May 2016, source `R01-WIM-MAY2016`, 1,491,879 bytes, SHA-256 `f917705b4fdfe61931d2d2a69483fd0e8358a2da4e0a9a02a00ea3b554c41e00`. Physical pp1,3 distinguish the Project; p4 documents a planned REE concentrate product. Its ID and ROLE documentary cells are now REVIEW_READY, pending independent decisions and legal footprint. No verified stable Project ID is invented.
+- Physical p3 reports completed historical Scoping results; it is an issuer results summary, not the full study. Pre-FID continuity to 2026-10-29 and current BFS/DFS remain pending. Physical p6 Table 2 is Indicated 180 Mt at 3.6% THM and Inferred 308 Mt at 4.2% THM; rounded total 488 Mt at 4.0% THM. Mineral fractions within THM are not REO grades. JORC remains blocked; no REO conversion was made.
+- Printed date is `2016-05`, with no invented day. The validator conservatively compares the last possible day of a printed month against cutoff; `2026-10` alone cannot prove publication by 29 October.
+- Bungalally remains blocked for its own product/study/resource evidence and the documented 205/207 Mt contradiction; Avonbank evidence does not confer a Bungalally approval. Wedderburn remains separate and no 40th candidate Project was created.
+
+Documentary readiness increased **29 to 31 of 195 cells**; ID/ROLE documentary packets **9 to 10**; named documentary gaps resolved **24 to 26**. A total of 37 archived originals were verified against local bytes (36 reused only after matching committed SHA; one newly retrieved). Seventeen inaccessible source records remain explicit access holds; this verification does not claim those originals exist.
+
+### All 39 groups and six Gate failures
+
+[c1_eligibility_gates.csv](c1_eligibility_gates.csv) contains exactly **234 unique group/Gate rows**, with stable candidate group ID, separately approved Project ID if available, formal status, documentary status, source URL/SHA, page locator, limitation and next evidence. Formal unpassed counts: **ID 39, ROLE 39, WINDOW 39, JORC 39, PANEL 39, GIS_RELEASE 39**. GIS_SOURCE is documentary mapping evidence only. Jupiter remains the only complete five-item documentary packet; it still lacks formal panel, identity and GIS release decisions.
+
+The existing Census `csv-build --review-dir` imports this table into the **same** `work/census_with_identity.sqlite`. It now checks all six Gate combinations, Project name/state/snapshot and group IDs, and rejects formal release assertions in the documentary importer. A signed approval-ledger import is still required for formal database release; this continuation does not implement or simulate that approval. Failure preserves the existing database/manifest pair. C2 metadata now enforces the already-required footprint reference, known groups and unique stable Project IDs; approved Project crosswalks must be explicit.
+
+Validation on 2026-11-02: 91 relevant pytest tests passed, covering six Gate and month cutoff boundaries, Project/Deposit identity and stable IDs, the existing Census relation checks, same-database attachment, forged-release rejection, and preservation of a prior database after failure. The mother pipeline and original-byte rebuild check passed. Remote CI status is reported separately in the PR. The first remote run identified old Windows-checkout line endings in six unchanged local inputs, making raw input hashes differ from a clean Git checkout. Restored their exact committed bytes (no content edits), regenerated summary hashes and reran the original/mother-pipeline checks; source hashes remain byte-level, not normalized hashes.
+
+Reproduce with the existing commands:
+
+```text
+python scripts/build_structural_round01.py --check --verify-originals
+python scripts/run_research_pipeline.py --profile all --mode check
+python reproducibility/build_census_database.py csv-build --csv-dir outputs --review-dir docs/audits/structural_round01 --output work/census_with_identity.sqlite --as-of-date 2026-10-29
+```
+
+The older sections below are historical review snapshots, not current readiness counts.
+
+
 執行 ID：`AU_REE_STRUCTURAL_R01_20261101`。研究截止日：**2026-10-29**；審查日：**2026-11-01（Asia/Taipei）**。
 基線：`main@d723bc431389ea56bbf2a5b905fa52a8a64b3fee`，已含 [PR #49](https://github.com/lleeoo0611-stack/AU_REE/pull/49) 的 C1/C2 政策與 [PR #50](https://github.com/lleeoo0611-stack/AU_REE/pull/50) 的母子腳本及七案初審。
 

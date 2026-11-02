@@ -320,3 +320,40 @@ def test_csv_sqlite_rollback_if_manifest_publish_fails(tmp_path):
     assert dest.read_bytes() == old_db
     assert manifest_path.read_bytes() == old_manifest
     assert not list(tmp_path.glob(".census.sqlite.*"))
+
+
+def test_census_same_database_attaches_all_six_gates_and_rejects_forged_release(tmp_path):
+    from reproducibility.build_census_database import csv_build
+    from scripts import build_structural_round01 as structural
+    review = tmp_path / 'review'
+    review.mkdir()
+    outputs, _ = structural.build()
+    for name, content in outputs.items():
+        if name.endswith('.csv'):
+            (review/name).write_bytes(content.encode('utf-8'))
+    destination = tmp_path / 'census.sqlite'
+    args = SimpleNamespace(csv_dir=ROOT/'outputs', review_dir=review, output=destination,
+                           as_of_date='2026-10-29', overwrite=False)
+    csv_build(args)
+    with sqlite3.connect(destination) as db:
+        assert db.execute('SELECT count(*) FROM c1_eligibility_gates').fetchone()[0] == 234
+        assert db.execute('SELECT count(*) FROM project_entity_register').fetchone()[0] == 39
+        assert db.execute('PRAGMA integrity_check').fetchone()[0] == 'ok'
+    original = destination.read_bytes()
+    path = review/'c1_eligibility_gates.csv'
+    rows = list(csv.DictReader(path.open(encoding='utf-8', newline='')))
+    rows[0]['formal_status'] = 'PASS_FORGED'
+    with path.open('w',encoding='utf-8',newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer.writeheader(); writer.writerows(rows)
+    args.overwrite = True
+    with pytest.raises(ValueError, match='approval-ledger import'):
+        csv_build(args)
+    assert destination.read_bytes() == original
+    rows = rows[:-1]
+    with path.open('w',encoding='utf-8',newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer.writeheader(); writer.writerows(rows)
+    with pytest.raises(ValueError, match='six-Gate matrix'):
+        csv_build(args)
+    assert destination.read_bytes() == original

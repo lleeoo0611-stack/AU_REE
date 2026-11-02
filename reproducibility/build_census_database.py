@@ -447,6 +447,26 @@ def csv_build(args) -> None:
                 key = row.get("review_group_id")
                 if key is not None and key not in parents:
                     raise ValueError("Structural review references unknown Census group: " + str(key))
+        gate_rows = data.get("c1_eligibility_gates")
+        if gate_rows is not None:
+            required_gates = {"ID", "ROLE", "WINDOW", "JORC", "PANEL", "GIS_RELEASE"}
+            expected = {(pid, gate) for pid in parents for gate in required_gates}
+            actual = [(r.get("review_group_id"), r.get("gate")) for r in gate_rows]
+            if len(actual) != len(expected) or set(actual) != expected:
+                raise ValueError("C1 six-Gate matrix missing, duplicate or unknown group/gate")
+            for row in gate_rows:
+                parent = parents[row["review_group_id"]]
+                if (row.get("stable_review_group_id") != parent["entity_id"]
+                        or row.get("project_name") != parent["canonical_name"]
+                        or row.get("state") != parent["state_or_territory"]
+                        or row.get("snapshot_asof") != args.as_of_date):
+                    raise ValueError("C1 Gate scope/snapshot mismatch")
+                if (row.get("verified_project_id") or row.get("approval_ref")
+                        or row.get("formal_status", "").startswith("PASS_")
+                        or row.get("eligibility") != "NOT_ADMITTED_SIX_GATES_UNAPPROVED"):
+                    raise ValueError("C1 formal release needs approval-ledger import, not documentary CSV")
+            relation_check["C1_six_gate_cells"] = len(gate_rows)
+            relation_check["C1_approved_projects"] = 0
         relation_check["structural_review_groups"] = len(keys)
         relation_check["independently_approved_projects"] = 0
     input_digest = hashlib.sha256(canonical_json(inputs).encode("utf-8")).hexdigest()
