@@ -77,7 +77,7 @@ def execute(profile,mode,dry_run=False):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--profile",choices=("c1","p234","all","legacy"),default="all")
+    parser.add_argument("--profile",choices=("c1","p234","all","legacy","mcda"),default="all")
     parser.add_argument("--mode",choices=("check","write"),default="check")
     parser.add_argument("--plan",action="store_true",help="show commands without invoking child scripts")
     args=parser.parse_args()

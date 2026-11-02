@@ -19,6 +19,9 @@
     ],
     "legacy": [
       "legacy_five_stage"
+    ],
+    "mcda": [
+      "scenario_r_mcda"
     ]
   },
   "stages": {
@@ -67,6 +70,15 @@
         "--offline"
       ],
       "guard": "EXPLICIT_LEGACY_PROFILE_ONLY_NEVER_AUTORUN_R_MCDA"
+    },
+    "scenario_r_mcda": {
+      "module": "scripts.run_mcda_pipeline",
+      "type": "python_module",
+      "args_check": [
+        "--plan"
+      ],
+      "args_write": [],
+      "guard": "FIXED_SCENARIO_VERIFIED_CASES_ASSUMED_WEIGHTS_LABELLED"
     }
   },
   "source_trigger": "GITHUB_PR_ON_PRIMARY_EVIDENCE_EVENT_CSV_CHANGE",

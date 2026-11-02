@@ -14,7 +14,10 @@ if(!file.exists(input)) stop(paste('Missing decision matrix:',input))
 df <- read.csv(input,check.names=FALSE,fileEncoding='UTF-8-BOM')
 if(nrow(df)<2) stop('Not enough MCDA-eligible alternatives; no ranking was generated.')
 dict <- read.csv(dictionary,fileEncoding='UTF-8-BOM');wdf <- read.csv(weights_path,fileEncoding='UTF-8-BOM')
+if(anyDuplicated(dict$criterion)) stop('Duplicate criterion in dictionary')
 codes <- intersect(dict$criterion,names(df)); if(length(codes)<2) stop('Insufficient criteria')
+if(!all(c('project_id','project_name') %in% names(df))) stop('Missing project identity columns')
+if(any(is.na(df$project_id) | !nzchar(trimws(df$project_id)))) stop('Blank project_id')
 X <- as.matrix(df[,codes,drop=FALSE]); storage.mode(X)<-'double'
 if(any(!is.finite(X))) stop('Decision matrix contains missing/unverified values: no imputation permitted.')
 if(anyDuplicated(df$project_id)) stop('Duplicate project_id in decision matrix')
@@ -49,6 +52,7 @@ if(!is.null(ahp_path)){
 }else if(illustrative){status <- 'ILLUSTRATIVE_ASSUMED_WEIGHTS';cat('ILLUSTRATIVE WEIGHTS: NOT AHP-ELICITED\n')
 }else{stop('Provide --ahp judged_pairwise.csv or explicitly --illustrative (not publication-authoritative).')}
 orient<-dict$direction[match(codes,dict$criterion)]
+if(any(is.na(orient) | !(orient %in% c('MAX','MIN')))) stop('Unknown criterion direction')
 sgn<-ifelse(orient=='MAX',1,-1)
 # V-shape thresholds derive from frozen point matrix. Fixed multiplier documented.
 threshold<-apply(X,2,IQR);width<-apply(X,2,function(v)diff(range(v)))
@@ -70,7 +74,8 @@ if(is.na(nreps)||nreps<1||nreps>100000)stop('Invalid --reps')
 concentration<-30
 R <- matrix(NA_real_,nrow(X),nreps)
 for(i in seq_len(nreps)){
- wt<-rgamma(length(w),shape=pmax(0.001,w*concentration),rate=1);wt<-wt/sum(wt)
+ wt<-numeric(length(w)); active<-w>0
+ wt[active]<-rgamma(sum(active),shape=w[active]*concentration,rate=1);wt<-wt/sum(wt)
  R[,i]<-rank(-PROMETHEE(X,wt,sgn,threshold),ties.method='average')
 }
 res$rank_median<-apply(R,1,median);res$rank_q05<-apply(R,1,quantile,probs=0.05);
@@ -79,7 +84,7 @@ res$rank_q95<-apply(R,1,quantile,probs=0.95);res$p_top3<-rowMeans(R<=3);res$p_to
 loo<-data.frame(criterion_removed=codes,rank_spearman=NA_real_)
 for(j in seq_along(codes)){
  if(length(w)<3)next
- idx<-setdiff(seq_along(w),j);ww<-w[idx]/sum(w[idx]);p<-PROMETHEE(X[,idx,drop=FALSE],ww,sgn[idx],threshold[idx]);
+ idx<-setdiff(seq_along(w),j);if(sum(w[idx])<=0)next;ww<-w[idx]/sum(w[idx]);p<-PROMETHEE(X[,idx,drop=FALSE],ww,sgn[idx],threshold[idx]);
  loo$rank_spearman[j]<-suppressWarnings(cor(rank(-score),rank(-p),method='spearman'))
 }
 dir.create(out,recursive=TRUE,showWarnings=FALSE)
@@ -91,3 +96,5 @@ write.csv(data.frame(criterion=codes,weight=w,threshold=threshold,status=status)
 write.csv(data.frame(project_id=df$project_id,R,check.names=FALSE),file.path(out,'monte_carlo_ranks.csv'),row.names=FALSE)
 cat('Completed',nrow(X),'alternatives,',length(codes),'criteria,',nreps,'MC draws.\n')
 cat('Weight status:',status,'\n')
+
+writeLines(c(paste('seed',seed),paste('reps',nreps),paste('R',getRversion()),paste('weight_status',status)),file.path(out,'run_settings.txt'))
