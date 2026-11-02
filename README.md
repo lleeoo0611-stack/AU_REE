@@ -1,3 +1,7 @@
+# 分層 R MCDA 重構
+
+新排名入口：`scripts/run_mcda_pipeline.py`。四個固定準則情境依各自已驗證資料執行，不要求所有專案六構面完整；舊 19 案模型保留供重現。操作與分析限制見 [MCDA V2](docs/MCDA_V2.md)，歷史程式見 [封存快照](archive/pre_nonblocking_093d724/README.md)。
+
 # Australian Rare Earths — Evidence Database & GIS/MCDA Research
 
 以官方來源、技術研究、JORC 資源與 GIS 建立**可更新、可重現的澳洲稀土礦業 Project 資料庫**，用於開發潛勢比較（Aim A）、排名穩健性（Aim B）、重要因素辨識（Aim C）。使用 Python、SQLite、R 與 GitHub Actions。

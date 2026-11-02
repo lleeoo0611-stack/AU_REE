@@ -1,5 +1,5 @@
 {
-  "version": "PRE_FID_SCOPING_DFS_GATE_V1",
+  "version": "SCENARIO_PANEL_V2",
   "snapshot_date": "2026-10-29",
   "required_geography": "Australia",
   "activity_allow": [
@@ -129,6 +129,106 @@
         "I3",
         "I4"
       ]
+    },
+    "CORE_BASELINE_V2": {
+      "criteria": [
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ],
+      "requires": [
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ],
+      "release_policy": "PROJECT_LOCAL",
+      "panel_version": "2.0",
+      "interpretation": "Common fixed criteria; complete verified cases only; no per-project weight renormalization"
+    },
+    "RESOURCE_EXTENDED_V2": {
+      "criteria": [
+        "R1",
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ],
+      "requires": [
+        "R1",
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ],
+      "release_policy": "PROJECT_LOCAL",
+      "panel_version": "2.0",
+      "interpretation": "Common fixed criteria; complete verified cases only; no per-project weight renormalization"
+    },
+    "STRATEGIC_EXTENDED_V2": {
+      "criteria": [
+        "S1",
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ],
+      "requires": [
+        "S1",
+        "T1",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4"
+      ],
+      "release_policy": "PROJECT_LOCAL",
+      "panel_version": "2.0",
+      "interpretation": "Common fixed criteria; complete verified cases only; no per-project weight renormalization"
+    },
+    "FULL_PANEL_V2": {
+      "criteria": [
+        "R1",
+        "S1",
+        "T1",
+        "T2",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "requires": [
+        "R1",
+        "S1",
+        "T1",
+        "T2",
+        "D1",
+        "I1",
+        "I2",
+        "I3",
+        "I4",
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "release_policy": "PROJECT_LOCAL",
+      "panel_version": "2.0",
+      "interpretation": "Common fixed criteria; complete verified cases only; no per-project weight renormalization"
     }
   },
   "global_scenario": "G0_BASELINE",

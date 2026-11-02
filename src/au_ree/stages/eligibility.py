@@ -99,7 +99,13 @@ def run(db,ctx):
     allids=_global_ids(db,ctx['root']);minimum=int(cfg.get('minimum_subset_size',2))
     gate={}
     for scenario,sc in cfg['scenarios'].items():
-        if scenario==cfg.get('global_scenario','G0_BASELINE'):
+        if sc.get('release_policy')=='PROJECT_LOCAL':
+            scope='SCENARIO_COMPLETE_CASES'
+            cohort=sorted(pid for pid in base_by_pid if not base_by_pid[pid]
+                          and gis_by_pid[pid] and all(records_by_pid[pid][k]['good'] for k in sc['criteria']))
+            consistent=len(cohort)>=minimum
+            reason='SUBSET_BELOW_MINIMUM_N' if not consistent else 'ALL_MEMBERS_GIS_APPROVED'
+        elif scenario==cfg.get('global_scenario','G0_BASELINE'):
             scope='GLOBAL_FROZEN_19'
             cohort=allids
             expected=int(cfg.get('global_cohort_expected_count',19))
@@ -139,7 +145,9 @@ def run(db,ctx):
             reasons=list(base_by_pid[pid])
             if scenario==cfg.get('global_scenario','G0_BASELINE') and pid not in allids:
                 reasons.append('NOT_IN_GLOBAL_FROZEN_COHORT')
-            if gate[scenario]['status']=='BLOCKED':reasons.append('GIS_RELEASE_'+gate[scenario]['reason'])
+            if sc.get('release_policy')=='PROJECT_LOCAL':
+                if not gis_by_pid[pid]:reasons.append('GIS_RELEASE_PROJECT_GIS_INCOMPLETE')
+            elif gate[scenario]['status']=='BLOCKED':reasons.append('GIS_RELEASE_'+gate[scenario]['reason'])
             for key in sc.get('requires',[]):
                 if not records[key]['good']:reasons.append('MANDATORY_'+key+'_MISSING')
             if rate < cfg['minimum_coverage_fraction']:reasons.append('COVERAGE_BELOW_THRESHOLD')
