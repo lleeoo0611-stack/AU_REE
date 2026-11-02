@@ -86,11 +86,11 @@
     "inputs/source_review_20261101/structural_round01_reviews.json": "6d0ff21749e6420b52376df35d567650e36e896d4f202040dcbcfc2259a32f5d",
     "inputs/source_review_20261101/structural_round01_sources.json": "4ebaff31c3b0e0dbdc9d1ad458f06b72e7b4e226cf0f74825e7846ee05f90b04",
     "inputs/source_review_20261101/structural_round01_access_manifest.json": "078bb92bf2cbcb880244d1abb1341f110e479967310903fff3ede85caa4e9033",
-    "docs/audits/2026-10-31_c1_c2_project_review_39.csv": "e14666bb97a195c65fd893d824c0c0cb95e110e60a82c3f5844d4b65d7afa1fd",
-    "inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv": "f7d4cdb19f053ddb286b29b471909cf0ef37b269303d2c4f294cb6b7746321e8",
-    "config/criteria.json": "ae60e4f46df1079cef0cf0f92919b2b37e7a579755942b6822ef9b726a71731d",
-    "config/cohort_c1_c2_policy_v1.json": "23c30fde09167194eac5343b3518dcad52da8ab3191694e0c0d13d1ccef01bc2",
-    "inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv": "2706aa9294f410dbf0e56d8340f36d8d822ff5c181037c968795b9d566da21e8",
-    "inputs/review_decisions/c1_c2_project_identity_metadata_v1.csv": "e993948c93e1f02a0d780d4c716d694854d469453b86842d3e94c8de75973486"
+    "docs/audits/2026-10-31_c1_c2_project_review_39.csv": "b338675597693b3e3f1a6d47eb6666b5bfd562159c4fb5a824a7e33c5c02b1f1",
+    "inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv": "af71b8ccf983c7b89b2a73358078c218b27e527f23ffb629349236dfd2907a68",
+    "config/criteria.json": "ddb8c35865401baad9dce1240a4b2748591029e264ec85ff235f88f0041d121e",
+    "config/cohort_c1_c2_policy_v1.json": "a63f7cf5d1c2e81463e3fedeede2ad27dc17ec62415c57b8b04c641c82cc8188",
+    "inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv": "c27cb86ed51c0f4bf19dbb14f8254a2d366e940dbdc68a43c60ea8b83729cb9a",
+    "inputs/review_decisions/c1_c2_project_identity_metadata_v1.csv": "6a31d65b604f2f6a0c643e8506c8bb4fd5dcdb98b6ed099f7ab444c703bb4e9d"
   }
 }
