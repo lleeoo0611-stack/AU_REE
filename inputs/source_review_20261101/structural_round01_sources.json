@@ -743,5 +743,19 @@
     "publisher_host": "www.asx.com.au",
     "report_id": "42f7v06gx1svy4.pdf",
     "document_access_note": "Raw response archived locally is distinct from full technical review; no third-party originals in public Git"
+  },
+  {
+    "source_id": "R01-WIM-MAY2016",
+    "url": "https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/GENERALCOMPANYUPDATEMAY2016.pdf",
+    "format": "pdf",
+    "review_group_ids": [
+      "PRJ-679f5da200a4564c"
+    ],
+    "publication_date": "2016-05",
+    "purpose": "Printed month-dated issuer update; Avonbank identity, planned REE product and historical THM resource scope review",
+    "title": "WIM Resource Company Update May 2016",
+    "publisher_host": "wimresource.com.au",
+    "report_id": "GENERALCOMPANYUPDATEMAY2016",
+    "document_access_note": "Printed May 2016; day unknown. Month precision retained; cutoff comparisons use month end conservatively. Public Git contains metadata and bounded findings only."
   }
 ]

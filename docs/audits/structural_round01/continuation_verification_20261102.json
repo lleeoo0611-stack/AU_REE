@@ -1,0 +1,233 @@
+{
+  "review_date": "2026-11-02",
+  "base_main_commit": "093d724",
+  "database_path": "work/census_with_identity.sqlite",
+  "parallel_database_created": false,
+  "logical_rebuild_identical": true,
+  "compared_tables": 53,
+  "integrity_check": "ok",
+  "foreign_key_violations": 0,
+  "formal_C1_admitted": 0,
+  "formal_C2_admitted": 0,
+  "gate_cells": 234,
+  "tests": {
+    "command": "pytest: structural_round01, c0_freeze_c1_c2_v1, c1_stage1_v1, research_pipeline_supervisor_v1, scheme_a, p0_487_batch",
+    "passed": 91
+  },
+  "local_originals_verified": 37,
+  "unavailable_source_records_not_verified": 17,
+  "table_logical_hashes": {
+    "E1_project_unlinked_review_queue_sanitized": {
+      "rows": 401,
+      "sha256": "5a0a8ddb5d3a0c6faa9b6961c50d525a6404cc04692f393078a9aef8acf0e1f8"
+    },
+    "_source_file_manifest": {
+      "rows": 52,
+      "sha256": "b09bac5534b5a487a51330810a2f9407f47af404aa26fe2b4bc35c8bb42e740b"
+    },
+    "all_1006_evidence_decisions_sanitized": {
+      "rows": 1006,
+      "sha256": "dc6b69d98019d12febb8c82e5d9b6ee4ada502401c7a14108b1f1ed5df60b55f"
+    },
+    "c1_eligibility_gates": {
+      "rows": 234,
+      "sha256": "974bab4d3b161d5e44905b0ca8257eaf8d4b7291d64034bd3de46c23d8307d9f"
+    },
+    "c2_identity_review": {
+      "rows": 39,
+      "sha256": "f27ab40360aa1235224815ad187b196d23ac7e077549f8f6998f3c1598a7b954"
+    },
+    "company_entity_resolution_queue_487": {
+      "rows": 487,
+      "sha256": "0e3bf45ba91d6cc0466cae8226b99e5652575a3e86dfd84568982bfb3f17a940"
+    },
+    "company_tenure_disclosure_observations": {
+      "rows": 527,
+      "sha256": "75a5624743ab882623cb891cd219b41844098d406173445514f8133eb55e90bc"
+    },
+    "criterion_coverage": {
+      "rows": 468,
+      "sha256": "40e262dcedb32251e2d134e82103ca0d462cfa605aedf9c17bc7a68b738a1274"
+    },
+    "exact_state_name_cluster_candidates": {
+      "rows": 885,
+      "sha256": "4a474032f70a467c8c19d48d1dfb3e88d119c6c350e28097bb8724527e6ed180"
+    },
+    "five_condition_decision_rules": {
+      "rows": 5,
+      "sha256": "e1128b277eca2b9433acfe81128fb9ae7bc64852adc1e97898f64b3aa8487a3e"
+    },
+    "gap_priority_queue": {
+      "rows": 164,
+      "sha256": "2197c6426903deb9729c4540408fe049f433ef7315a9f122b82fe70fd47a54aa"
+    },
+    "gate_evidence_resolution": {
+      "rows": 195,
+      "sha256": "ff2db66c8f331e2478486415e8405c307d2ce25c0bc9879b6cba3639c2c36df4"
+    },
+    "identity_crosswalk": {
+      "rows": 39,
+      "sha256": "e857ef436ee198f31e2b35ff530b1cee7ab198e4b1469a95fe451e56e11f35e4"
+    },
+    "legacy_203_selection_audit": {
+      "rows": 203,
+      "sha256": "d31d347bad9cf8312763a31d673bae9c7420643c1369df5b09ef000441277bdb"
+    },
+    "legacy_86_exact_name_crosswalk_review": {
+      "rows": 86,
+      "sha256": "dac9add2edde5a774f3514e51b0a617d00dd612c23a3ef1110e295e4175d9ed0"
+    },
+    "native_source_duplicate_review": {
+      "rows": 35,
+      "sha256": "47c3856548e4b85d44c2526c22d60856cad62a2c9449e4135dfe721e5e5c8f28"
+    },
+    "p1_case_crosswalk": {
+      "rows": 13,
+      "sha256": "fa73f68fb464bb3781e382efc14beb76a77470a1fe42310f2b96484e848a40d7"
+    },
+    "project_candidate_evidence_review": {
+      "rows": 39,
+      "sha256": "ecdc6884e34a1c1bc8638d15a6f8cc15530320c1c5c7fa1eb15e913853f8bb15"
+    },
+    "project_dedup_candidates": {
+      "rows": 38,
+      "sha256": "74ca0e1f04086879bbe7d0530504e84e4bb2f868b963f74b5d0074518d47a32d"
+    },
+    "project_entity_membership_487": {
+      "rows": 487,
+      "sha256": "a32eec157fedfab2fcbdccb1515a7ac6b91979bf7f36efeb2a0861080806e802"
+    },
+    "project_entity_membership_487_compact": {
+      "rows": 487,
+      "sha256": "e7f63dc94b4ead0c5d5e9d1d7e689124bf33540499f56c9de3f6c2d653188e9a"
+    },
+    "project_entity_register": {
+      "rows": 39,
+      "sha256": "b24e74b2c378060c62353866d953e6ada0328a46ee833231b44330103c379d09"
+    },
+    "project_evidence_register": {
+      "rows": 111,
+      "sha256": "c8503b73ec112037b5c11342d3efb2ef8c51cc8d304e05dbad07022f95f5736b"
+    },
+    "project_inclusion_gate_rules": {
+      "rows": 4,
+      "sha256": "11594a5309c39a8202acd05d379e2c9f1602200be676001773c17e05ec402d4b"
+    },
+    "project_rights_history_review": {
+      "rows": 39,
+      "sha256": "e8cbbbf088d65ea1d8c69842e5e52d305468c507d9efa48089735799b6df26ac"
+    },
+    "quality_gate_487": {
+      "rows": 17,
+      "sha256": "d18078f94415c072a75e30967f44c571fd5754858662b1f08fe74e2bab95b116"
+    },
+    "reconstructed_1006_evidence_ledger": {
+      "rows": 1006,
+      "sha256": "a415dd5f25d332c20da8d2ef283975ba6a9722435a39536a48f3c322e2027ac0"
+    },
+    "reconstructed_cohort_487": {
+      "rows": 487,
+      "sha256": "7653eb6681d1fd71b3000eb63a88e382514ea173cf16beebb901baca8188081d"
+    },
+    "reconstructed_sa_project_deposit_crosswalk": {
+      "rows": 16,
+      "sha256": "90368dddc282281fd90c503295e0025d576b10c6a85d33819263f49d1ea23a64"
+    },
+    "resource_register": {
+      "rows": 57,
+      "sha256": "c839d25619d23afd81e9443d6f7e79d1291288fd09b101112ba3791d5468ad9e"
+    },
+    "review_queue": {
+      "rows": 418,
+      "sha256": "c1528403fac67d50d3199e49d078f8fed1d3d581849824b742c32e0243b7bcec"
+    },
+    "reviewed_company_rights_events": {
+      "rows": 8,
+      "sha256": "26f5e1d742933d75648cff64a72451e38f74f06f7d4b234a940bdd99b95f88c9"
+    },
+    "reviewed_project_relation_changes": {
+      "rows": 32,
+      "sha256": "ff48166269235ede592863d52852ade50074200e9e8f764ea4ac0dc0b097bf6a"
+    },
+    "source_candidate_selection_audit_1006": {
+      "rows": 1006,
+      "sha256": "7c5fa697bbdcb298044b5a7e604ef81dbb9b2c5702cd740fcfbebbf8ce48b23d"
+    },
+    "source_entity_register_487": {
+      "rows": 487,
+      "sha256": "31cb48b37a0360686e0d3c448f6cfcac7a037d3d066a1ef8607406e2dec555a5"
+    },
+    "source_entity_register_487_compact": {
+      "rows": 487,
+      "sha256": "cf5e6553c847a17797766c70738b9faefb098ee8084b2d897a3e10c9c2089abe"
+    },
+    "source_evidence_locator_review_95": {
+      "rows": 95,
+      "sha256": "1b6c654dcda8ca2601fce4c88c5f185265234d46ddeb992a4ce810715f857af3"
+    },
+    "source_gap_resolution": {
+      "rows": 26,
+      "sha256": "f745b755b635b0a1dcd5d88caff0a674cdc97682cf303a148ff08a789821145d"
+    },
+    "state_source_coverage_and_gaps": {
+      "rows": 8,
+      "sha256": "a5d571744e969a91f98abba7724513b6f627a1e085c54a869bc059d037f97e04"
+    },
+    "state_source_coverage_matrix_487": {
+      "rows": 8,
+      "sha256": "0f269cebad3c8ae86355c85fc609316ea04559be3d3a11f9b9266a05fb251bbd"
+    },
+    "structural_candidates": {
+      "rows": 39,
+      "sha256": "833615efbd7c7b9294ea3fb39ee183b9374efdf3f48524d7a205850e96eb8b33"
+    },
+    "study_stage_timeline": {
+      "rows": 51,
+      "sha256": "daf46cff1f28aec4f205c9c47b2f83278cf1248c8d1913251a3dbc384252a7d9"
+    },
+    "t_487_definition_review": {
+      "rows": 487,
+      "sha256": "67f62881ec9c830d709c9fe2400527b5362b2e67c3a592b943c4497bcc73e4d9"
+    },
+    "t_487_full_census_adjudication": {
+      "rows": 487,
+      "sha256": "67f62881ec9c830d709c9fe2400527b5362b2e67c3a592b943c4497bcc73e4d9"
+    },
+    "t_487_inclusion_gate": {
+      "rows": 487,
+      "sha256": "446065b7fd87635acd237d9e4aeb6485ff4ea0f3c42856e01502811f55f6bce8"
+    },
+    "t_487_official_tenure_intersection_evidence": {
+      "rows": 764,
+      "sha256": "b1709ba31c184b2e7603bd60c9097560212f7edc955d09907713d97e9bc1708d"
+    },
+    "t_487_official_tenure_intersection_evidence_compact": {
+      "rows": 764,
+      "sha256": "c18580bab1ecba865af9d424f62c106b6ab43130c539ff4d5f76e5e3f46934c0"
+    },
+    "t_487_official_tenure_trace_status": {
+      "rows": 487,
+      "sha256": "d0ac5ea08cae264e1b489bd05b95ae2dd9c8c7d4fc438dc5b7c568cee8b27e33"
+    },
+    "t_487_row_adjudication_compact": {
+      "rows": 487,
+      "sha256": "cbed77e46595f01fa1724d81de0e76100567c50989b0bcfa5d7aa19742721d8c"
+    },
+    "t_487_row_adjudication_latest_2026_10_29": {
+      "rows": 487,
+      "sha256": "85fc2d3515ca768e9019569ccd7f26e27d9584d26378628078e5fdeb888bad97"
+    },
+    "target_link_reconciliation_487": {
+      "rows": 78,
+      "sha256": "cc35273320ec1060e2f9c3e0ccc04e25aabcf01f32acdcb52cd79d5b3661e0bb"
+    },
+    "unlinked_441_source_trace": {
+      "rows": 441,
+      "sha256": "6636382fb1590cc4c0dfc4c0676ba96ba039cfd79e5748bb6e5f17cd77dfecec"
+    },
+    "upstream_reproducibility_gaps": {
+      "rows": 4,
+      "sha256": "b10cb411e9e4aff771693510807032bbae9440725994f191720a09307652cf64"
+    }
+  }
+}

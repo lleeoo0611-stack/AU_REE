@@ -3,18 +3,20 @@
   "base_commit": "d723bc431389ea56bbf2a5b905fa52a8a64b3fee",
   "source_cutoff": "2026-10-29",
   "review_date": "2026-11-01",
+  "continuation_review_date": "2026-11-02",
+  "continuation_base_commit": "093d724",
   "groups_bounded_reviewed": 39,
-  "technical_original_review_groups": 9,
+  "technical_original_review_groups": 10,
   "group_review_depths": {
-    "PRIMARY_HTML_SCOPED": 17,
-    "INHERITED_REVIEW_WITH_ACCESS_LIMIT": 13,
-    "TECHNICAL_ORIGINAL_PAGES": 9
+    "TECHNICAL_ORIGINAL_PAGES": 10,
+    "PRIMARY_HTML_SCOPED": 16,
+    "INHERITED_REVIEW_WITH_ACCESS_LIMIT": 13
   },
-  "source_urls_attempted": 53,
-  "originals_archived": 36,
-  "pdf_originals_archived": 13,
+  "source_urls_attempted": 54,
+  "originals_archived": 37,
+  "pdf_originals_archived": 14,
   "new_independently_approved_project_IDs": 0,
-  "source_supported_ID_ROLE_review_candidates": 9,
+  "source_supported_ID_ROLE_review_candidates": 10,
   "same_scope_REO_source_evidence_projects": 7,
   "JORC_documentary_review_ready_projects": 4,
   "dated_economic_study_original_projects": 8,
@@ -24,24 +26,24 @@
   "C2_approved": 0,
   "C2_pending": 39,
   "readiness_scope": "DOCUMENTARY_PACKET_NOT_OFFICIAL_GIS_RELEASE_OR_INDEPENDENT_APPROVAL",
-  "ready_gate_evidence_cells": 29,
-  "remaining_gate_evidence_cells": 166,
-  "documentary_gaps_resolved": 24,
+  "ready_gate_evidence_cells": 31,
+  "remaining_gate_evidence_cells": 164,
+  "documentary_gaps_resolved": 26,
   "blocker_counts_by_gate": {
     "ID": {
-      "DATED_SCOPE_IDENTITY_PENDING": 29,
+      "DATED_SCOPE_IDENTITY_PENDING": 28,
       "HISTORICAL_IDENTITY_CONTINUITY_PENDING": 1
     },
     "ROLE": {
-      "DATED_REE_PRODUCT_PLAN_PENDING": 22,
+      "DATED_REE_PRODUCT_PLAN_PENDING": 21,
       "FORMAL_PROJECT_PRODUCT_SCOPE_V_HPA_MO_NO_REE_COMMITMENT": 1,
       "HISTORICAL_REE_PRODUCT_CONTINUITY_PENDING": 1,
       "REE_COMMERCIAL_PRODUCT_NOT_ESTABLISHED": 6
     },
     "WINDOW": {
       "ACTIVITY_SUSPENDED_RESTART_EVIDENCE_NEEDED": 1,
-      "BFS_COMPLETION_SUMMARY_UNDATED_FULL_STUDY_MISSING": 1,
       "COMPLETED_ECONOMIC_STUDY_OR_ASOF_WINDOW_PENDING": 24,
+      "DATED_SCOPING_RESULT_SUMMARY_FOUND_ASOF_FID_CONTINUITY_PENDING": 1,
       "DATED_STUDY_FOUND_ASOF_EVENT_CONTINUITY_PENDING": 5,
       "FID_OR_PRODUCTION_REPORTED_REQUIRES_DATED_ORIGINAL": 1,
       "GOVERNMENT_FID_PUBLIC_LOCATOR_ARCHIVE_DATE_REVIEW_PENDING": 1,
@@ -56,25 +58,39 @@
       "MRE_PRESENTATION_ORIGINAL_CUTOFF_PENDING": 1,
       "MZEQ_NOT_TREO_STUDY_VERSION_MISMATCH": 1,
       "REE_EXPLORATION_NOT_ADJACENT_IRON_MRE": 1,
-      "SAME_SCOPE_REO_RESOURCE_PENDING": 26,
+      "SAME_SCOPE_REO_RESOURCE_PENDING": 25,
       "SOURCE_TABLE_YEAR_CUTOFF_CONFLICT": 1,
       "THM_ONLY_AND_205_207MT_SOURCE_CONFLICT": 1,
+      "THM_RESOURCE_AND_MINERAL_FRACTIONS_NOT_REO": 1,
       "Y_EXCLUSION_AND_2017_CUTOFF_REVIEW": 1
     },
     "GIS_SOURCE": {
       "PROJECT_GEOMETRY_SOURCE_PENDING": 33
     }
   },
+  "formal_C1_gate_cells": 234,
+  "formal_C1_pass_cells": 0,
+  "formal_C1_blocked_by_gate": {
+    "ID": 39,
+    "ROLE": 39,
+    "WINDOW": 39,
+    "JORC": 39,
+    "PANEL": 39,
+    "GIS_RELEASE": 39
+  },
   "GIS_release_approvals": 0,
   "core_panel": "UNSELECTED",
   "extended_panel": "UNSELECTED",
   "MCDA_executed": false,
   "input_sha256": {
-    "inputs/source_review_20261101/structural_round01_reviews.json": "1d68c41b86ff51c2be5a96bab19e9fe805ddacc5ff9935bf5c429ca55b839508",
-    "inputs/source_review_20261101/structural_round01_sources.json": "afe2db3c71ee296508864e383cb330170b35541d2b95de5e2933a03675455ffa",
-    "inputs/source_review_20261101/structural_round01_access_manifest.json": "32b88a1a03c6091370e36b4fb70d53a78e5e5afa7e2d051f8259954c4ca20f90",
-    "docs/audits/2026-10-31_c1_c2_project_review_39.csv": "b338675597693b3e3f1a6d47eb6666b5bfd562159c4fb5a824a7e33c5c02b1f1",
-    "inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv": "af71b8ccf983c7b89b2a73358078c218b27e527f23ffb629349236dfd2907a68",
-    "config/criteria.json": "ddb8c35865401baad9dce1240a4b2748591029e264ec85ff235f88f0041d121e"
+    "inputs/source_review_20261101/structural_round01_reviews.json": "6d0ff21749e6420b52376df35d567650e36e896d4f202040dcbcfc2259a32f5d",
+    "inputs/source_review_20261101/structural_round01_sources.json": "4ebaff31c3b0e0dbdc9d1ad458f06b72e7b4e226cf0f74825e7846ee05f90b04",
+    "inputs/source_review_20261101/structural_round01_access_manifest.json": "078bb92bf2cbcb880244d1abb1341f110e479967310903fff3ede85caa4e9033",
+    "docs/audits/2026-10-31_c1_c2_project_review_39.csv": "e14666bb97a195c65fd893d824c0c0cb95e110e60a82c3f5844d4b65d7afa1fd",
+    "inputs/source_review_20261031/p1_13_positive_case_gate_decisions.csv": "f7d4cdb19f053ddb286b29b471909cf0ef37b269303d2c4f294cb6b7746321e8",
+    "config/criteria.json": "ae60e4f46df1079cef0cf0f92919b2b37e7a579755942b6822ef9b726a71731d",
+    "config/cohort_c1_c2_policy_v1.json": "23c30fde09167194eac5343b3518dcad52da8ab3191694e0c0d13d1ccef01bc2",
+    "inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv": "2706aa9294f410dbf0e56d8340f36d8d822ff5c181037c968795b9d566da21e8",
+    "inputs/review_decisions/c1_c2_project_identity_metadata_v1.csv": "e993948c93e1f02a0d780d4c716d694854d469453b86842d3e94c8de75973486"
   }
 }

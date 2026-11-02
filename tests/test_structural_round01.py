@@ -17,6 +17,40 @@ class StructuralRound01Test(unittest.TestCase):
         cls.reviews = json.loads(m.INPUT.read_text(encoding='utf-8'))
         cls.sources = {x['source_id']: x for x in json.loads(m.ACCESS.read_text(encoding='utf-8'))}
 
+    def test_month_precision_is_conservative_at_cutoff(self):
+        self.assertEqual(m.publication_upper_bound('2016-05').isoformat(), '2016-05-31')
+        self.assertEqual(m.publication_upper_bound('2024-02').isoformat(), '2024-02-29')
+        row = copy.deepcopy(next(r for r in self.reviews if r['project_name']=='Avonbank Project'))
+        source = copy.deepcopy(self.sources)
+        source['R01-WIM-MAY2016']['publication_date'] = '2026-10'
+        with self.assertRaisesRegex(ValueError, 'undated/post-cutoff'):
+            m.validate_review(row, source)
+        with self.assertRaises(ValueError):
+            m.publication_upper_bound('2016-13')
+
+    def test_avonbank_original_does_not_release_jorc_or_window(self):
+        row = next(r for r in self.reviews if r['project_name']=='Avonbank Project')
+        m.validate_review(row, self.sources)
+        self.assertEqual(row['gates']['ROLE']['status'], 'REVIEW_READY')
+        self.assertEqual(row['resources'][0]['basis'], 'THM')
+        self.assertFalse(row['resources'][0]['same_scope_REO_evidence'])
+        self.assertFalse(any(e['study_original_verified'] for e in row['events']))
+        for gate in ('WINDOW', 'JORC', 'GIS_SOURCE'):
+            self.assertNotEqual(row['gates'][gate]['status'], 'REVIEW_READY')
+
+    def test_six_formal_gates_have_source_scoped_denominator(self):
+        outputs, summary = m.build()
+        rows = list(csv.DictReader(io.StringIO(outputs['c1_eligibility_gates.csv'])))
+        self.assertEqual(len(rows), 234)
+        self.assertEqual(len({(r['review_group_id'],r['gate']) for r in rows}), 234)
+        self.assertEqual(summary['formal_C1_gate_cells'], 234)
+        self.assertTrue(all(r['gate'] != 'GIS_SOURCE' for r in rows))
+        av = next(r for r in rows if r['project_name']=='Avonbank Project' and r['gate']=='ROLE')
+        self.assertEqual(av['documentary_status'], 'REVIEW_READY')
+        self.assertFalse(av['formal_status'].startswith('PASS_'))
+        self.assertIn('f917705b', av['source_sha256s'])
+        self.assertTrue(all(r['eligibility']=='NOT_ADMITTED_SIX_GATES_UNAPPROVED' for r in rows))
+
     def jupiter(self):
         return copy.deepcopy(next(r for r in self.reviews if r['project_name'].startswith('Jupiter')))
 
@@ -120,9 +154,9 @@ class StructuralRound01Test(unittest.TestCase):
         self.assertEqual(record['candidate_status'], 'REVIEW_READY_ID_ROLE')
         coproject = next(b for b in m.read_csv(m.BASE) if b['review_group_id'] == copi['review_group_id'])
         self.assertEqual(record['C2_approved'], str(coproject['C2_project_id_approved'] == 'YES'))
-        self.assertEqual(summary['ready_gate_evidence_cells'], 29)
-        self.assertEqual(summary['remaining_gate_evidence_cells'], 166)
-        self.assertEqual(summary['source_supported_ID_ROLE_review_candidates'], 9)
+        self.assertEqual(summary['ready_gate_evidence_cells'], 31)
+        self.assertEqual(summary['remaining_gate_evidence_cells'], 164)
+        self.assertEqual(summary['source_supported_ID_ROLE_review_candidates'], 10)
         self.assertEqual(summary['C1_approved'], sum(
             b['C1_release_status'] == 'C1_ADMITTED_ALL_SIX_INDEPENDENT_GATES' for b in m.read_csv(m.BASE)))
         self.assertEqual(summary['C2_approved'], sum(
@@ -236,39 +270,16 @@ class StructuralRound01Test(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'resolved gap source scope transfer denied'):
             m.validate_review(row, self.sources)
 
-    def test_wim_2016_external_source_cannot_upgrade_unarchived_resource_or_product(self):
-        wim_url = 'GENERALCOMPANYUPDATEMAY2016.pdf'
-        avonbank = copy.deepcopy(next(g for g in self.reviews
-                                     if g['review_group_id'] == 'PRJ-679f5da200a4564c'))
-        bungalally = copy.deepcopy(next(g for g in self.reviews
-                                       if g['review_group_id'] == 'PRJ-867a533642228a73'))
-        self.assertIn(wim_url, avonbank['conflicts'])
-        self.assertIn('6,000 t/y REE concentrate', avonbank['conflicts'])
-        self.assertIn('May-2016', avonbank['reopen_condition'])
-        self.assertIn(wim_url, bungalally['conflicts'])
-        self.assertIn('207Mt', bungalally['conflicts'])
-        self.assertIn('205Mt', bungalally['conflicts'])
-        self.assertIn('1.4% OF THM', bungalally['conflicts'])
-        self.assertIn('2015 Optiro CP MRE', bungalally['reopen_condition'])
-        for group,source_id in ((avonbank,'R01-S01'), (bungalally,'R01-S05')):
-            self.assertFalse(group['resources'][0]['same_scope_REO_evidence'])
-            self.assertEqual(group['resources'][0]['resource_or_reserve'], 'UNVERIFIED')
-            self.assertEqual(group['resources'][0]['tonnage_Mt'], '')
-            self.assertEqual(group['gates']['ID']['status'], 'BLOCKED_EVIDENCE')
-            self.assertEqual(group['gates']['ROLE']['status'], 'BLOCKED_EVIDENCE')
-            self.assertEqual(group['gates']['JORC']['status'], 'BLOCKED_EVIDENCE')
-            self.assertEqual(group['gates']['ID']['source_ids'], [source_id])
-            self.assertFalse(any(e['study_original_verified'] for e in group['events']))
-            m.validate_review(group, self.sources)
-        self.assertFalse(any(wim_url in src['url'] for src in self.sources.values()))
-        outputs, summary = m.build()
-        self.assertEqual(summary['groups_bounded_reviewed'], 39)
-        self.assertEqual(summary['ready_gate_evidence_cells'], 29)
-        self.assertEqual(summary['remaining_gate_evidence_cells'], 166)
-        self.assertEqual(summary['C1_approved'], 0)
-        self.assertEqual(summary['C2_approved'], 0)
-        self.assertEqual(len(list(csv.DictReader(io.StringIO(
-            outputs['gate_evidence_resolution.csv'])))), 195)
+    def test_bungalally_still_cannot_inherit_avonbank_product_evidence(self):
+        row = copy.deepcopy(next(g for g in self.reviews if g['review_group_id']=='PRJ-867a533642228a73'))
+        self.assertIn('205Mt', row['conflicts'])
+        self.assertIn('207Mt', row['conflicts'])
+        self.assertIn('1.4% OF THM', row['conflicts'])
+        self.assertFalse(row['resources'][0]['same_scope_REO_evidence'])
+        self.assertEqual(row['gates']['ROLE']['status'], 'BLOCKED_EVIDENCE')
+        row['gates']['ROLE'].update(status='REVIEW_READY',source_ids=['R01-WIM-MAY2016'])
+        with self.assertRaisesRegex(ValueError, 'scope transfer denied'):
+            m.validate_review(row, self.sources)
 
     def test_hm_and_mzeq_cannot_become_direct_reo(self):
         for basis in ('HM', 'THM', 'MZEQ', 'EXPLORATION_TARGET'):

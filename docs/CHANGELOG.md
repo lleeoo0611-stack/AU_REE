@@ -1,5 +1,12 @@
 # Change log
 
+## 2026-11-02 — C1 evidence continuation
+
+- Archive and page-review WIM May-2016 Avonbank original; advance only ID/ROLE documentary readiness, retain THM/JORC and cutoff FID holds, preserve printed month precision.
+- Derive all 39 x six formal Gate states with source hashes/locators from existing ledgers and attach them through the existing Census SQLite builder; reject forged documentary release and incomplete Gate matrices.
+- Enforce existing C2 footprint and distinct stable-ID metadata requirements. C1/C2 remain zero; no MCDA or synthetic signatures.
+
+
 ## 2026-11-01 — Identity approvals cannot be reused across Project/Deposit candidates
 
 - `src/au_ree/identity_policy.py` 在載入 `inputs/project_identity_decisions.csv` 後、任何身份 revoked/replayed 之前，檢查所有非空 `approval_ref` 在不同 `candidate_id` 決策間唯一；不允許將一次有簽名的文件批准挪給另一個礦床／Project 來源。若重複，整批中止且既有 Project ID/對應狀態不變。不同簽核可引用同一份真實封存原件，但每筆候選需獨立審查。

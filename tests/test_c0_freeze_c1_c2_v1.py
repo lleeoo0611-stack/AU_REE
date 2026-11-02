@@ -132,6 +132,28 @@ class CohortFreezePolicyTest(unittest.TestCase):
         self.assertEqual(summary["approved_C1_cohort_projects"], 1)
         self.assertEqual(summary["approved_C2_cohort_projects"], 1)
 
+    def test_c2_identity_requires_footprint_even_with_signature(self):
+        decision = dict(gate_id='ID', cohort='C2', decision_status='PASS', source_asof='2026-10-29',
+                        reason_code='FIXTURE', document_id='fixture-doc', original_sha256_or_html_ref='fixture-ref',
+                        reviewer_id='Fixture Reviewer', reviewed_at='2026-11-01', approval_ref='fixture-approval')
+        metadata = dict(verified_project_id='fixture-id', project_identity_scope='fixture scope')
+        with self.assertRaisesRegex(ValueError, 'footprint evidence missing'):
+            gates_with_signatures([decision], self.projects[0], metadata)
+
+    def test_group_metadata_cannot_silently_share_a_stable_project_id(self):
+        original_read = cohort_module.read_rows
+        records = [dict(review_group_id=p['review_group_id'], verified_project_id='same-id')
+                   for p in self.projects[:2]]
+        def read_fixture(path):
+            return records if path == cohort_module.PROJ_METADATA else original_read(path)
+        with patch.object(cohort_module, 'read_rows', side_effect=read_fixture):
+            with self.assertRaisesRegex(ValueError, 'duplicate stable Project ID'):
+                cohort_module.build()
+        records[0]['review_group_id']='UNKNOWN-GROUP'
+        with patch.object(cohort_module, 'read_rows', side_effect=read_fixture):
+            with self.assertRaisesRegex(ValueError, 'unknown group'):
+                cohort_module.build()
+
     def test_output_rebuild_is_identical(self):
         self.assertEqual(read_rows(OUT_C0),self.c0)
         self.assertEqual(read_rows(OUT_COHORT),self.projects)

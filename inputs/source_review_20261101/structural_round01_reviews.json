@@ -10,49 +10,50 @@
     "footprint_source": "https://wimresource.com.au/project/",
     "geometry_role": "LOCATOR_ONLY_NOT_VETTED_PROJECT_POLYGON",
     "original_CRS": "UNKNOWN_PENDING_ORIGINAL",
-    "review_depth": "PRIMARY_HTML_SCOPED",
-    "conflicts": "WIM May-2016 issuer update (public original physical pp3-4) reports completed Avonbank Scoping, historical 32-year project and planned approx 6,000 t/y REE concentrate; later issuer overview gives different mine-life numbers (30/36 years). These are versioned historical projections, not actual production or current REO/JORC and not an approved 2026 pre-FID stage; May-2016 original PDF bytes/SHA not yet archived: https://wp-wimresource-2023.s3.ap-southeast-2.amazonaws.com/media/2023/10/GENERALCOMPANYUPDATEMAY2016.pdf",
-    "reopen_condition": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC",
+    "review_depth": "TECHNICAL_ORIGINAL_PAGES",
+    "conflicts": "May-2016 issuer update distinguishes Avonbank from Wedderburn/Bungalally. Historical 32-year Scoping projection differs from later 30/36-year summaries. Product is REE concentrate, not oxide production. Physical p6 Table 2 reports THM and mineral fractions, not an REO Mineral Resource. Current legal footprint and no-FID continuity to cutoff remain unverified.",
+    "reopen_condition": "Obtain dated current BFS/DFS and FID continuity through 2026-10-29; reconcile current same-scope REO JORC and legal footprint; independent ID/ROLE decisions, fixed panel and official GIS QA release required.",
     "gates": {
       "ID": {
-        "status": "BLOCKED_EVIDENCE",
-        "reason": "DATED_SCOPE_IDENTITY_PENDING",
+        "status": "REVIEW_READY",
+        "reason": "DATED_PROJECT_IDENTITY_DOCUMENTED_SCOPE_SIGNOFF_PENDING",
         "source_ids": [
-          "R01-S01"
+          "R01-WIM-MAY2016"
         ],
-        "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
-        "limit": "WIM reports feasibility completed; VIC granted mining licence 2026-10-06; verify actual FID and REE resource basis",
-        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
+        "locator": "physical pp1,3; Avonbank named separately from Wedderburn and Bungalally",
+        "limit": "Historical issuer Project identity only; no approved legal footprint or stable independent Project ID.",
+        "next_evidence": "Obtain dated current BFS/DFS and FID continuity through 2026-10-29; reconcile current same-scope REO JORC and legal footprint; independent ID/ROLE decisions, fixed panel and official GIS QA release required."
       },
       "ROLE": {
-        "status": "BLOCKED_EVIDENCE",
-        "reason": "DATED_REE_PRODUCT_PLAN_PENDING",
+        "status": "REVIEW_READY",
+        "reason": "DATED_PLANNED_REE_CONCENTRATE_PRODUCT_DOCUMENTED",
         "source_ids": [
-          "R01-S01"
+          "R01-WIM-MAY2016"
         ],
-        "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
-        "limit": "WIM reports feasibility completed; VIC granted mining licence 2026-10-06; verify actual FID and REE resource basis",
-        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
+        "locator": "physical pp3-4; Processing, Transport and Final Products",
+        "limit": "Historical planned recovery product only; approximate 6000 t/year concentrate is not REO output or current commercial production.",
+        "next_evidence": "Obtain dated current BFS/DFS and FID continuity through 2026-10-29; reconcile current same-scope REO JORC and legal footprint; independent ID/ROLE decisions, fixed panel and official GIS QA release required."
       },
       "WINDOW": {
         "status": "REVIEW_PENDING",
-        "reason": "BFS_COMPLETION_SUMMARY_UNDATED_FULL_STUDY_MISSING",
+        "reason": "DATED_SCOPING_RESULT_SUMMARY_FOUND_ASOF_FID_CONTINUITY_PENDING",
         "source_ids": [
+          "R01-WIM-MAY2016",
           "R01-AV-BFS-SUM"
         ],
-        "locator": "physical p2 BFScompleted; documentundated",
-        "limit": "Undated Avonbank BFS summary: 2024/11 upload path not publication date. Separate public WIM May-2016 original documents earlier Scoping and historic concentrate plan but is not locally hash-archived; it does not prove a completed 2026 BFS/DFS or no-FID status",
-        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
+        "locator": "May-2016 original physical pp1,3-4,10; undated later BFS summary physical p2",
+        "limit": "Completed historical Scoping results reported, but full economic study and pre-FID continuity through cutoff not verified. PFS commencement and planned DFS are not completed studies.",
+        "next_evidence": "Obtain dated current BFS/DFS and FID continuity through 2026-10-29; reconcile current same-scope REO JORC and legal footprint; independent ID/ROLE decisions, fixed panel and official GIS QA release required."
       },
       "JORC": {
         "status": "BLOCKED_EVIDENCE",
-        "reason": "SAME_SCOPE_REO_RESOURCE_PENDING",
+        "reason": "THM_RESOURCE_AND_MINERAL_FRACTIONS_NOT_REO",
         "source_ids": [
-          "R01-S01"
+          "R01-WIM-MAY2016"
         ],
-        "locator": "Existing frozen 39-group screen / named project section; no dated original technical signoff",
-        "limit": "WIM reports feasibility completed; VIC granted mining licence 2026-10-06; verify actual FID and REE resource basis",
-        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
+        "locator": "physical p6 Table 2 (Optiro 2015)",
+        "limit": "Indicated 180 Mt at 3.6% THM; Inferred 308 Mt at 4.2% THM; rounded total 488 Mt at 4.0% THM. Monazite/xenotime fractions are within THM; no approved REO conversion or same-scope REO statement.",
+        "next_evidence": "Obtain dated current BFS/DFS and FID continuity through 2026-10-29; reconcile current same-scope REO JORC and legal footprint; independent ID/ROLE decisions, fixed panel and official GIS QA release required."
       },
       "GIS_SOURCE": {
         "status": "BLOCKED_EVIDENCE",
@@ -68,22 +69,22 @@
     "resources": [
       {
         "statement_id": "R01-RESOURCE-01",
-        "source_id": "R01-S01",
-        "locator": "Inherited resource-basis screen; technical table pending",
-        "publication_date": "",
-        "effective_date": "",
+        "source_id": "R01-WIM-MAY2016",
+        "locator": "physical p6 Table 2 (Optiro 2015); printed note on THM size fraction",
+        "publication_date": "2016-05",
+        "effective_date": "2015",
         "scope": "Avonbank",
-        "resource_or_reserve": "UNVERIFIED",
-        "category": "UNVERIFIED",
-        "tonnage_Mt": "",
-        "grade": "",
-        "grade_unit": "",
-        "basis": "THM_OR_REO_BASIS_REVIEW",
+        "resource_or_reserve": "MINERAL_RESOURCE",
+        "category": "INDICATED_AND_INFERRED",
+        "tonnage_Mt": "488",
+        "grade": "4.0",
+        "grade_unit": "PERCENT_THM",
+        "basis": "THM",
         "cutoff": "",
         "cutoff_unit": "",
         "same_scope_REO_evidence": false,
-        "normalization_status": "NOT_PERFORMED",
-        "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
+        "normalization_status": "NO_REO_CONVERSION",
+        "next_evidence": "Obtain dated current BFS/DFS and FID continuity through 2026-10-29; reconcile current same-scope REO JORC and legal footprint; independent ID/ROLE decisions, fixed panel and official GIS QA release required."
       }
     ],
     "events": [
@@ -99,9 +100,37 @@
         "preFID_at_publication": "UNVERIFIED",
         "asof_continuity": "UNVERIFIED",
         "next_evidence": "Archive/hash WIM May-2016 original (physical pp3-4 completed Avonbank Scoping and historical 6,000 t/y REE concentrate plan); obtain dated current BFS/DFS, cutoff-to-2026-10-29 FID continuity, and project-scoped REO JORC"
+      },
+      {
+        "event_type": "SCOPING_RESULTS_SUMMARY",
+        "source_id": "R01-WIM-MAY2016",
+        "locator": "physical pp1,3-4,10; completed Scoping results and PFS commencement; full study not archived",
+        "publication_date": "2016-05",
+        "effective_date": "",
+        "event_status": "HISTORICAL_COMPLETED_SCOPING_RESULTS_REPORTED",
+        "study_scope": "Avonbank deposit and proposed WIM mining operation near Dooen",
+        "study_original_verified": false,
+        "preFID_at_publication": "PFS_COMMENCED_REPORTED",
+        "asof_continuity": "UNVERIFIED",
+        "next_evidence": "Obtain dated current BFS/DFS and FID continuity through 2026-10-29; reconcile current same-scope REO JORC and legal footprint; independent ID/ROLE decisions, fixed panel and official GIS QA release required."
       }
     ],
-    "resolved_gaps": [],
+    "resolved_gaps": [
+      {
+        "source_id": "R01-WIM-MAY2016",
+        "gap_id": "R01-AVONBANK-201605-ID",
+        "before": "DATED_ORIGINAL_NOT_ARCHIVED",
+        "after": "BOUNDED_ORIGINAL_FINDING_RECORDED",
+        "specific_resolution": "Historical issuer Project identity only; no approved legal footprint or stable independent Project ID. Locator: physical pp1,3; Avonbank named separately from Wedderburn and Bungalally"
+      },
+      {
+        "source_id": "R01-WIM-MAY2016",
+        "gap_id": "R01-AVONBANK-201605-ROLE",
+        "before": "DATED_ORIGINAL_NOT_ARCHIVED",
+        "after": "BOUNDED_ORIGINAL_FINDING_RECORDED",
+        "specific_resolution": "Historical planned recovery product only; approximate 6000 t/year concentrate is not REO output or current commercial production. Locator: physical pp3-4; Processing, Transport and Final Products"
+      }
+    ],
     "coverage_source_ids": {}
   },
   {

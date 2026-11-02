@@ -7,6 +7,7 @@ local original-byte archive. A source map is never an approved GIS geometry.
 from __future__ import annotations
 import argparse
 import csv
+import calendar
 import hashlib
 import io
 import json
@@ -35,6 +36,14 @@ def require(ok, message):
         raise ValueError(message)
 
 
+def publication_upper_bound(value):
+    """Retain printed month precision; compare its last possible day to cutoff."""
+    if len(value) == 7:
+        first = date.fromisoformat(value + '-01')
+        return date(first.year, first.month, calendar.monthrange(first.year, first.month)[1])
+    return date.fromisoformat(value)
+
+
 def validate_review(r, sources):
     require(not r.get('approval_ref') and not r.get('researcher_signature'),
             'analytical ledger cannot grant independent approval')
@@ -49,7 +58,7 @@ def validate_review(r, sources):
             source = sources[ref]
             require(r['review_group_id'] in source['review_group_ids'], 'source scope transfer denied')
             if evidence['status'] == 'REVIEW_READY':
-                require(source['publication_date'] and source['publication_date'] <= CUTOFF,
+                require(source['publication_date'] and publication_upper_bound(source['publication_date']) <= date.fromisoformat(CUTOFF),
                         'undated/post-cutoff source cannot resolve gate')
                 require(source['access_status'] == 'ORIGINAL_BYTES_LOCAL', 'original required for readiness')
         if evidence['status'] == 'REVIEW_READY':
@@ -61,7 +70,7 @@ def validate_review(r, sources):
                 'resource source scope transfer denied')
         require(resource['basis'] and resource['scope'] and resource['next_evidence'], 'resource basis missing')
         if resource['same_scope_REO_evidence']:
-            require(source['publication_date'] and source['publication_date'] <= CUTOFF,
+            require(source['publication_date'] and publication_upper_bound(source['publication_date']) <= date.fromisoformat(CUTOFF),
                     'resource original is undated/post-cutoff')
             require(resource['publication_date'] == source['publication_date'],
                     'resource publication date mismatches original')
@@ -70,7 +79,7 @@ def validate_review(r, sources):
             require(resource['source_id'] in sources and resource['locator'], 'resource needs original locator')
             require(sources[resource['source_id']]['access_status'] == 'ORIGINAL_BYTES_LOCAL',
                     'resource original unavailable')
-            require(resource['publication_date'] and resource['publication_date'] <= CUTOFF,
+            require(resource['publication_date'] and publication_upper_bound(resource['publication_date']) <= date.fromisoformat(CUTOFF),
                     'resource date invalid')
     for event in r['events']:
         source=sources.get(event['source_id'])
@@ -82,7 +91,7 @@ def validate_review(r, sources):
                     'event publication date mismatches archived source metadata')
             require(source['access_status'] == 'ORIGINAL_BYTES_LOCAL',
                     'dated event requires archived original bytes')
-            require(event['publication_date'] <= CUTOFF,
+            require(publication_upper_bound(event['publication_date']) <= date.fromisoformat(CUTOFF),
                     'event publication date after source cutoff')
         else:
             require(not event['effective_date'],
@@ -92,7 +101,7 @@ def validate_review(r, sources):
             require(event['effective_date'] <= CUTOFF,
                     'event effective date after source cutoff')
         if event['study_original_verified']:
-            require(source['publication_date'] and source['publication_date'] <= CUTOFF,
+            require(source['publication_date'] and publication_upper_bound(source['publication_date']) <= date.fromisoformat(CUTOFF),
                     'study original is undated/post-cutoff')
             require(event['publication_date'] == source['publication_date'],
                     'study event publication date mismatches original')
@@ -183,7 +192,7 @@ def build(verify_originals=False):
         record = sm[definition['source_id']]
         require(all(record[k] == definition[k] for k in definition), 'source inventory/manifest mismatch')
         if record['publication_date']:
-            date.fromisoformat(record['publication_date'])
+            publication_upper_bound(record['publication_date'])
         if record['access_status'] == 'ORIGINAL_BYTES_LOCAL':
             require(len(record['sha256']) == 64 and record['byte_count'] > 0, 'original hash missing')
             if verify_originals:
@@ -202,11 +211,11 @@ def build(verify_originals=False):
             require(gap['source_id'] in sm, 'gap resolution has no source')
             source = sm[gap['source_id']]
             require(source['access_status'] == 'ORIGINAL_BYTES_LOCAL' and
-                    source['publication_date'] and source['publication_date'] <= CUTOFF,
+                    source['publication_date'] and publication_upper_bound(source['publication_date']) <= date.fromisoformat(CUTOFF),
                     'gap resolution requires dated original evidence')
     tables = {key: [] for key in ('identity_crosswalk', 'gate_evidence_resolution', 'resource_register',
                                   'study_stage_timeline', 'structural_candidates', 'c2_identity_review',
-                                  'gap_priority_queue', 'criterion_coverage', 'source_gap_resolution')}
+                                  'gap_priority_queue', 'criterion_coverage', 'source_gap_resolution', 'c1_eligibility_gates')}
     for r in reviews:
         b = base_idx[r['review_group_id']]
         gid = r['review_group_id']
@@ -264,6 +273,25 @@ def build(verify_originals=False):
                 tables['gap_priority_queue'].append(dict(common, priority=r['priority'], gate=gate,
                     reason_code=e['reason'], next_required_evidence=e['next_evidence'],
                     stop_rule='NO_REPEAT_SAME_SOURCE_UNTIL_REOPEN_CONDITION', reopen_condition=r['reopen_condition']))
+        # Project-level six-Gate view of existing ledgers, never a second database.
+        # Keep the documentary GIS_SOURCE separate from formal GIS_RELEASE QA.
+        for gate in ('ID', 'ROLE', 'WINDOW', 'JORC', 'PANEL', 'GIS_RELEASE'):
+            e = r['gates'].get('GIS_SOURCE' if gate == 'GIS_RELEASE' else gate)
+            rec = signed.get((gid, 'C1', gate), {})
+            refs = e['source_ids'] if e else []
+            tables['c1_eligibility_gates'].append(dict(common,
+                stable_review_group_id=gid,
+                verified_project_id=meta.get('verified_project_id', '') if c2_admitted else '',
+                gate=gate, formal_status=b[gate + '_gate'],
+                documentary_status=e['status'] if e else 'PANEL_NOT_IN_DOCUMENTARY_PACKET',
+                reason_code=e['reason'] if e else 'FIXED_SIX_DOMAIN_PANEL_APPROVAL_REQUIRED',
+                source_ids='|'.join(refs), source_urls='|'.join(sm[x]['url'] for x in refs),
+                source_sha256s='|'.join(sm[x]['sha256'] for x in refs),
+                locator=e['locator'] if e else 'config/cohort_c1_c2_policy_v1.json',
+                limit=e['limit'] if e else '12 and 9 criteria remain candidates; no panel approval recorded.',
+                next_evidence=e['next_evidence'] if e else 'Approve a common six-domain panel and per-field data sources before release.',
+                approval_ref=rec.get('approval_ref', ''),
+                eligibility=b['C1_release_status']))
         for item in r['resources']:
             tables['resource_register'].append(dict(common, **item, approval_ref=''))
         for event in r['events']:
@@ -315,7 +343,8 @@ def build(verify_originals=False):
     counts = {g: dict(sorted(Counter(r['gates'][g]['reason'] for r in reviews
                if r['gates'][g]['status'] != 'REVIEW_READY').items())) for g in GATES}
     summary = dict(run_id='AU_REE_STRUCTURAL_R01_20261101', base_commit='d723bc431389ea56bbf2a5b905fa52a8a64b3fee', source_cutoff=CUTOFF,
-        review_date='2026-11-01', groups_bounded_reviewed=39,
+        review_date='2026-11-01', continuation_review_date='2026-11-02',
+        continuation_base_commit='093d724', groups_bounded_reviewed=39,
         technical_original_review_groups=sum(r['review_depth']=='TECHNICAL_ORIGINAL_PAGES' for r in reviews),
         group_review_depths=dict(Counter(r['review_depth'] for r in reviews)),
         source_urls_attempted=len(access), originals_archived=sum(r['access_status']=='ORIGINAL_BYTES_LOCAL' for r in access),
@@ -334,10 +363,16 @@ def build(verify_originals=False):
         ready_gate_evidence_cells=sum(r['evidence_status']=='REVIEW_READY' for r in tables['gate_evidence_resolution']),
         remaining_gate_evidence_cells=sum(r['evidence_status']!='REVIEW_READY' for r in tables['gate_evidence_resolution']),
         documentary_gaps_resolved=len(tables['source_gap_resolution']), blocker_counts_by_gate=counts,
+        formal_C1_gate_cells=len(tables['c1_eligibility_gates']),
+        formal_C1_pass_cells=sum(x['formal_status'].startswith('PASS_') for x in tables['c1_eligibility_gates']),
+        formal_C1_blocked_by_gate=dict(Counter(x['gate'] for x in tables['c1_eligibility_gates'] if not x['formal_status'].startswith('PASS_'))),
         GIS_release_approvals=sum(signed.get((b['review_group_id'], 'C1', 'GIS_RELEASE'), {}).get('decision_status') == 'PASS' for b in base),
         core_panel='UNSELECTED', extended_panel='UNSELECTED', MCDA_executed=False,
         input_sha256={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
-                      for p in (INPUT,SOURCES,ACCESS,BASE,P1,ROOT/'config/criteria.json')})
+                      for p in (INPUT,SOURCES,ACCESS,BASE,P1,ROOT/'config/criteria.json',
+                                ROOT/'config/cohort_c1_c2_policy_v1.json',
+                                ROOT/'inputs/review_decisions/c1_c2_project_gate_signoffs_v1.csv',
+                                ROOT/'inputs/review_decisions/c1_c2_project_identity_metadata_v1.csv')})
     result = {key+'.csv': csv_text(rows) for key, rows in tables.items()}
     result['summary.json'] = json.dumps(summary, ensure_ascii=False, indent=2) + '\n'
     return result, summary
